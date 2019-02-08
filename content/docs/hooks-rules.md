@@ -98,7 +98,7 @@ useEffect(updateTitle)     // 4. Substitui o efeito que atualiza o título
 // ...
 ```
 
-Enquanto a ordem dos Hooks chamados é a mesma entre as renderizações, React pode associar um `state` local a cada um deles. Mas o que acontece se colocarmos uma chamada de Hook (por exemplo, o efeito `persistForm`) dentro de uma condição?
+Enquanto a ordem dos Hooks chamados for a mesma entre as renderizações, o React pode associar um estado (`state`) local a cada um deles. Mas o que acontece se colocarmos uma chamada de Hook (por exemplo, o efeito `persistForm`) dentro de uma condição?
 
 ```js
 // 🔴 Nós estaremos quebrando a primeira regra por usar um Hook dentro de uma condição
