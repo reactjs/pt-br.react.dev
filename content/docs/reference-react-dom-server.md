@@ -34,7 +34,7 @@ Estes métodos adicionais dependem do pacote (`stream`) que **só está disponí
 ### `renderToString()` {#rendertostring}
 
 ```javascript
-ReactDOMServer.renderToString(element)
+ReactDOMServer.renderToString(elemento)
 ```
 
 Renderizar um elemento React para o seu HTML inicial. React vai retornar uma string HTML. Você pode usar este método para gerar HTML no servidor e enviar a markup para o request inicial para ter carregamentos de página rápidos e para permitir que motores de pesquisa rastreiem suas páginas para fins de SEO.
@@ -46,19 +46,19 @@ Se você invocar [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) em um nó 
 ### `renderToStaticMarkup()` {#rendertostaticmarkup}
 
 ```javascript
-ReactDOMServer.renderToStaticMarkup(element)
+ReactDOMServer.renderToStaticMarkup(elemento)
 ```
 
-Similar to [`renderToString`](#rendertostring), except this doesn't create extra DOM attributes that React uses internally, such as `data-reactroot`. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes.
+Semelhante a [`renderToString`](#rendertostring), exceto que este não cria atributos DOM extras que o React usa internamente, como `data-reactroot`. Isso é útil se você quiser usar o React como um simples gerador de páginas estáticas, já que remover os atributos extras pode economizar alguns bytes.
 
-If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use [`renderToString`](#rendertostring) on the server and [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on the client.
+Se você planeja usar o React no cliente para tornar a markup interativa, não use este método. Em vez disso, use [`renderToString`](#rendertostring) no servidor e [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) no cliente.
 
 * * *
 
 ### `renderToNodeStream()` {#rendertonodestream}
 
 ```javascript
-ReactDOMServer.renderToNodeStream(element)
+ReactDOMServer.renderToNodeStream(elemento)
 ```
 
 Render a React element to its initial HTML. Returns a [Readable stream](https://nodejs.org/api/stream.html#stream_readable_streams) that outputs an HTML string. The HTML output by this stream is exactly equal to what [`ReactDOMServer.renderToString`](#rendertostring) would return. You can use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.
@@ -76,7 +76,7 @@ If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that 
 ### `renderToStaticNodeStream()` {#rendertostaticnodestream}
 
 ```javascript
-ReactDOMServer.renderToStaticNodeStream(element)
+ReactDOMServer.renderToStaticNodeStream(elemento)
 ```
 
 Similar to [`renderToNodeStream`](#rendertonodestream), except this doesn't create extra DOM attributes that React uses internally, such as `data-reactroot`. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes.
@@ -85,8 +85,8 @@ The HTML output by this stream is exactly equal to what [`ReactDOMServer.renderT
 
 If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use [`renderToNodeStream`](#rendertonodestream) on the server and [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on the client.
 
-> Note:
+> Nota:
 >
-> Server-only. This API is not available in the browser.
+> Apenas para Servidor. Esta API não está disponível no navegador.
 >
 > The stream returned from this method will return a byte stream encoded in utf-8. If you need a stream in another encoding, take a look at a project like [iconv-lite](https://www.npmjs.com/package/iconv-lite), which provides transform streams for transcoding text.
