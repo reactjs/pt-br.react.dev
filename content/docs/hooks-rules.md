@@ -109,7 +109,7 @@ if (name !== '') {
 }
 ```
 
-A condição `name !== ''` é `true` na primeira renderização, então chamamos o Hook dentro da condição. Entretanto, na próxima renderização o usuário pode limpar o formulário, fazendo com que a condição seja `false`. Agora que pulamos este Hook durante a primeira renderização, a ordem das chamadas tornou-se diferente, veja:
+A condição `name !== ''` é `true` na primeira renderização, então chamamos o Hook dentro da condição. Entretanto, na próxima renderização o usuário pode limpar o formulário, fazendo com que a condição seja `false`. Agora que pulamos este Hook durante a renderização, a ordem das chamadas dos Hooks foi alterada:
 
 ```js
 useState('Mary')           // ✅  1. Lê a variável de estado (state) name (argumento é ignorado)
