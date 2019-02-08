@@ -138,7 +138,7 @@ class LoggingButton extends React.Component {
 }
 ```
 
-O problema com esta sintaxe é que um callback diferente é criado toda vez que o `LoggingButton` é renderizado. Na maioria dos casos, tudo bem. No entanto, se esse callback for passado para componentes inferiores através das propriedades, esses componentes poderão fazer uma renderização extra. Geralmente recomendamos a vinculação no construtor ou a sintaxe dos campos de classe para evitar esse tipo de problema de desempenho.
+O problema com esta sintaxe é que um callback diferente é criado toda vez que o `LoggingButton` é renderizado. Na maioria dos casos, tudo bem. No entanto, se esse callback for passado para componentes inferiores através de props, esses componentes poderão fazer uma renderização extra. Geralmente recomendamos a vinculação no construtor ou a sintaxe dos campos de classe para evitar esse tipo de problema de desempenho.
 
 ## Passando argumentos para manipuladores de eventos {#passing-arguments-to-event-handlers}
 
