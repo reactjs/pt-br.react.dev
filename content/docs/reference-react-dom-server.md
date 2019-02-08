@@ -22,7 +22,7 @@ Os métodos a seguir podem ser usados tanto em ambiente de servidor como de nave
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-Estes métodos adicionais dependem do pacote (`stream`) que **só está disponível no servidor**, e não vão funcionar no navegador.
+Estes métodos adicionais dependem do pacote (`stream`) que **só está disponível no servidor**, e não irão funcionar no navegador.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
