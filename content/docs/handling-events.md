@@ -8,7 +8,7 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-Manipular eventos em elementos com React é muito semelhante ao tratamento de eventos em elementos no DOM. Existem algumas diferenças sintáticas:
+Manipular eventos em elementos React é muito semelhante a manipular eventos em elementos do DOM. Existem algumas diferenças sintáticas:
 
 * Eventos em React são nomeados usando camelCase ao invés de letras minúsculas.
 * Com o JSX você passa uma função como manipulador de eventos ao invés de um texto.
