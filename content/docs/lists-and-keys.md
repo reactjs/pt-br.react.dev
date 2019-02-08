@@ -130,7 +130,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alterada. Isso pode impactar de forma negativa o desempenho e poderá causar problemas com o estado do componente. Leia o artigo escrito por Robin Pokorny para [uma explicação aprofundada nos impactos negativos de se usar um índice como chave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Se você não atribuir uma chave de forma explícita para os itens de uma lista, então a React irá utilizar os índices como chave por padrão.
+Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alterada. Isso pode impactar de forma negativa o desempenho e poderá causar problemas com o estado do componente. Leia o artigo escrito por Robin Pokorny para [uma explicação aprofundada nos impactos negativos de se usar um índice como chave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Se você não atribuir uma chave de forma explícita para os itens de uma lista, então React irá utilizar os índices como chave por padrão.
 
 Aqui você poderá ver [uma explicação aprofundada sobre o porquê as chaves são necessárias](/docs/reconciliation.html#recursing-on-children) caso você esteja interessado em aprender mais sobre.
 
