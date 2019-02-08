@@ -8,7 +8,7 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
-Use um toolchain integrado para uma melhor experiência de usuário e desenvolvedor.
+Use uma toolchain integrada para uma melhor experiência de usuário e desenvolvedor.
 
 Esta página descreve algumas toolchains populares com React que ajudam em tarefas como:
 
@@ -89,6 +89,6 @@ Uma build toolchain em JavaScript consiste tipicamente de:
 
 * Um **compilador** como [Babel](http://babeljs.io/). Ele nos permite escrever código JavaScript moderno que funcione até nos navegadores mais antigos.
 
-Se você prefere criar o seu próprio JavaScript toolchain do zero, [dê uma olhada neste guia](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recria algumas das funcionalidades do Create React App.
+Se você prefere criar a sua própria JavaScript toolchain do zero, [dê uma olhada neste guia](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recria algumas das funcionalidades do Create React App.
 
-Não se esqueça de assegurar que seu toolchain customizado [esteja corretamente configurado para produção](/docs/optimizing-performance.html#use-the-production-build).
+Não se esqueça de assegurar que sua toolchain customizada [esteja corretamente configurado para produção](/docs/optimizing-performance.html#use-the-production-build).
