@@ -120,7 +120,7 @@ useState('Poppins')        // 🔴  Na ordem era pra ser 2 (mas foi 3). Falha ao
 useEffect(updateTitle)     // 🔴  Na ordem era pra ser 3 (mas foi 4). Falha ao substituir o efeito
 ```
 
-React não saberia o que retornar na segunda renderização na chamada do Hook `useState`. React esperava que a segunda chamada de Hook nesse componente corresponde-se ao efeito `persistForm`, assim como aconteceu na renderização anterior, mas a ordem foi alterada. Nesse ponto, toda vez que um Hook for chamado depois daquele que nós pulamos, o próximo também se deslocaria, levando a erros.
+O React não saberia o que retornar na segunda chamada do Hook `useState`. O React esperava que a segunda chamada de Hook nesse componente fosse ao efeito `persistForm`, assim como aconteceu na renderização anterior, mas a ordem foi alterada. A partir daí, toda vez que um Hook for chamado depois daquele que nós pulamos, o próximo também se deslocaria, levando a erros.
 
 **É por isso que os Hooks devem ser chamados no nível superior de nosso componente.** Se nós queremos executar um efeito condicional, nós podemos colocar a condição _**dentro**_ de nosso Hook:
 
