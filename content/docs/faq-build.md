@@ -19,7 +19,7 @@ Não! Confira ["React Sem ES6"](/docs/react-without-es6.html) para saber mais.
 ```jsx
 <div>
   {/* Aqui vai o comentario */}
-  Ola, {nome}!
+  Ola, {name}!
 </div>
 ```
 
@@ -27,6 +27,6 @@ Não! Confira ["React Sem ES6"](/docs/react-without-es6.html) para saber mais.
 <div>
   {/* Também funciona em
   comentários com várias linhas. */}
-  Ola, {nome}! 
+  Ola, {name}! 
 </div>
 ```
