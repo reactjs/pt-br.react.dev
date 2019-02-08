@@ -25,7 +25,7 @@ Seguindo essas regra, você garante que toda lógica de estado (`state`) no comp
 
 ## ESLint Plugin {#eslint-plugin}
 
-Nós liberamos um plugin ESLint chamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que aplica as duas regras. Se você desejar pode adicionar este plugin ao seu projeto, dessa forma:
+Nós liberamos um plugin ESLint chamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que aplica essas duas regras. Se você desejar pode adicionar este plugin ao seu projeto, dessa forma:
 
 ```bash
 <code>npm install eslint-plugin-react-hooks@next</code>
