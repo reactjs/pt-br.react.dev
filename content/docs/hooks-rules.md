@@ -102,7 +102,6 @@ Enquanto a ordem dos Hooks chamados for a mesma entre as renderizações, o Reac
 
 ```js
 // 🔴 Nós estaremos quebrando a primeira regra por usar um Hook dentro de uma condição
-
 if (name !== '') {
   useEffect(function persistForm() {
     localStorage.setItem('formData', name);
