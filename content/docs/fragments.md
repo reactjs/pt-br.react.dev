@@ -1,28 +1,28 @@
 ---
 id: fragments
-title: Fragments
+title: Fragmentos
 permalink: docs/fragments.html
 ---
 
-A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+Um padrão comum no React é que um componente pode retornar múltiplos elementos. Os Fragmentos permitem agrupar uma lista de filhos sem adicionar nós extras ao DOM.
 
 ```js
 render() {
   return (
     <React.Fragment>
-      <ChildA />
-      <ChildB />
-      <ChildC />
+      <FilhoA />
+      <FilhoB />
+      <FilhoC />
     </React.Fragment>
   );
 }
 ```
 
-There is also a new [short syntax](#short-syntax) for declaring them, but it isn't supported by all popular tools yet.
+Há também uma nova [sintaxe curta](#short-syntax) para declará-las, mas ainda não é suportada por todas as ferramentas populares.
 
-## Motivation {#motivation}
+## Motivação {#motivation}
 
-A common pattern is for a component to return a list of children. Take this example React snippet:
+Um padrão comum é para um componente retornar uma lista de filhos. Considerando o código React a seguir:
 
 ```jsx
 class Table extends React.Component {
@@ -30,7 +30,7 @@ class Table extends React.Component {
     return (
       <table>
         <tr>
-          <Columns />
+          <Colunas />
         </tr>
       </table>
     );
@@ -38,10 +38,10 @@ class Table extends React.Component {
 }
 ```
 
-`<Columns />` would need to return multiple `<td>` elements in order for the rendered HTML to be valid. If a parent div was used inside the `render()` of `<Columns />`, then the resulting HTML will be invalid.
+`<Colunas />` precisaria retornar múltiplos elementos `<td>` para que o HTML renderizado fosse válido. Se um div pai for usado dentro do `render()` de `<Colunas />`, então o HTML resultante será inválido.
 
 ```jsx
-class Columns extends React.Component {
+class Colunas extends React.Component {
   render() {
     return (
       <div>
@@ -53,7 +53,7 @@ class Columns extends React.Component {
 }
 ```
 
-results in a `<Table />` output of:
+Resulta na seguinte `<Table />`:
 
 ```jsx
 <table>
@@ -66,12 +66,12 @@ results in a `<Table />` output of:
 </table>
 ```
 
-Fragments solve this problem.
+Os Fragmentos resolvem este problema.
 
-## Usage {#usage}
+## Uso {#usage}
 
 ```jsx{4,7}
-class Columns extends React.Component {
+class Colunas extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -83,7 +83,7 @@ class Columns extends React.Component {
 }
 ```
 
-which results in a correct `<Table />` output of:
+que resulta em uma `<Table />` correta:
 
 ```jsx
 <table>
@@ -94,12 +94,12 @@ which results in a correct `<Table />` output of:
 </table>
 ```
 
-### Short Syntax {#short-syntax}
+### Sintaxe curta {#short-syntax}
 
-There is a new, shorter syntax you can use for declaring fragments. It looks like empty tags:
+Existe uma sintaxe nova e mais curta que você pode usar para declarar fragmentos. Parecem tags vazias:
 
 ```jsx{4,7}
-class Columns extends React.Component {
+class Colunas extends React.Component {
   render() {
     return (
       <>
@@ -111,20 +111,20 @@ class Columns extends React.Component {
 }
 ```
 
-You can use `<></>` the same way you'd use any other element except that it doesn't support keys or attributes.
+Você pode usar `<></>` da mesma forma que você usaria qualquer outro elemento, exceto que ele não suporta chaves ou atributos.
 
-Note that **[many tools don't support it yet](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)** so you might want to explicitly write `<React.Fragment>` until the tooling catches up.
+Observe que **[muitas ferramentas ainda não o suportam](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)** então é melhor escrever `<React.Fragment>` até que as ferramentas passem a suportá-lo.
 
-### Keyed Fragments {#keyed-fragments}
+### Fragmentos com chaves {#keyed-fragments}
 
-Fragments declared with the explicit `<React.Fragment>` syntax may have keys. A use case for this is mapping a collection to an array of fragments -- for example, to create a description list:
+Fragmentos  declarados com `<React.Fragment>` podem ter chaves. Um caso de uso para isso é mapear uma coleção para um array de fragmentos - por exemplo, para criar uma lista de descrição:
 
 ```jsx
 function Glossary(props) {
   return (
     <dl>
       {props.items.map(item => (
-        // Without the `key`, React will fire a key warning
+        // Sem a `key`, React irá disparar um aviso
         <React.Fragment key={item.id}>
           <dt>{item.term}</dt>
           <dd>{item.description}</dd>
@@ -135,8 +135,8 @@ function Glossary(props) {
 }
 ```
 
-`key` is the only attribute that can be passed to `Fragment`. In the future, we may add support for additional attributes, such as event handlers.
+`key` é o único atributo que pode ser passado para o `Fragment`. No futuro, podemos adicionar suporte para outros atributos, como manipuladores de eventos.
 
-### Live Demo {#live-demo}
+### Demonstração ao vivo {#live-demo}
 
-You can try out the new JSX fragment syntax with this [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000).
+Você pode experimentar a nova sintaxe de fragmento JSX com este [CodePen](https://codepen.io/reactjs/pen/VrEbjE?editors=1000).
