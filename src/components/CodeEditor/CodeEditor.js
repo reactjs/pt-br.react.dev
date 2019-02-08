@@ -278,7 +278,7 @@ class CodeEditor extends Component {
     } catch (error) {
       console.error(error);
 
-      // Certos Bloqueadores de Anúncios (eg Fair AdBlocker) evitam que o Babel carregue.
+      // Certos bloqueadores de anúncios (ex: Fair AdBlocker) evitam que o Babel carregue.
       // Se suspeitarmos que este é o caso, nós podemos exibir uma mensagem de ajuda melhor.
       const showBabelErrorMessage = !window.Babel;
 
