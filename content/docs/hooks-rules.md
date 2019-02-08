@@ -6,7 +6,7 @@ next: hooks-custom.html
 prev: hooks-effect.html
 ---
 
-*Hooks* é um novo recurso adicionado em React 16.8. Eles permitem que você use o `state` e outras funcionalidades do React, sem precisar escrever uma classe.
+*Hooks* é um novo recurso adicionado no React 16.8. Eles permitem que você use o estado (`state`) e outras funcionalidades do React, sem precisar escrever uma classe.
 
 Hooks são funções Javascript, mas você precisa se preocupar em seguir duas regras quando for usar-los. Nós também providenciamos um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) para aplicar as regras automaticamente:
 
