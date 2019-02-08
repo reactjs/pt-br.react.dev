@@ -142,7 +142,7 @@ O problema com esta sintaxe é que um callback diferente é criado toda vez que 
 
 ## Passando argumentos para manipuladores de eventos {#passing-arguments-to-event-handlers}
 
-Dentro de uma repetição é comum querer passar um parâmetro extra para um manipulador de evento. Por exemplo, se `id` é o ID de identificação da linha, qualquer um dos dois a seguir funcionará:
+Dentro de uma estrutura de repetição é comum querer passar um parâmetro extra para um manipulador de evento. Por exemplo, se `id` é o ID de identificação da linha, qualquer um dos dois a seguir funcionará:
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Deletar linha</button>
