@@ -63,7 +63,7 @@ Aprenda Next.js através de [seu guia oficial](https://nextjs.org/learn/).
 
 ### Gatsby {#gatsby}
 
-[Gatsby](https://www.gatsbyjs.org/) é a melhor forma de criar **sites estáticos** usando React. Ele permite usar componentes React, porém produzindo HTML e CSS pre-renderizado para garantir a velocidade mais rápida possível de carregamento.
+[Gatsby](https://www.gatsbyjs.org/) é a melhor forma de criar **sites estáticos** usando React. Ele permite usar componentes React, porém produzindo HTML e CSS pré-renderizado para garantir a velocidade mais rápida possível de carregamento.
 
 Aprenda Gatsby através de [seu guia oficial](https://www.gatsbyjs.org/docs/) e a [galeria de starter kits](https://www.gatsbyjs.org/docs/gatsby-starters/).
 
