@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/javascript-environment-requirements.html
 ---
 
-React 16 depende de uma coleção de tipos [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) e [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set). Se você quer suportar navegadores antigos e dispositivos que podem não disponibilizar esses tipos nativamente (e.g. IE < 11) ou tenham uma implementação que não esteja nos conformes (e.g. IE 11), considere incluir um polyfill global no bundle de sua aplicação, tal como o pacote [core-js](https://github.com/zloirock/core-js) ou [babel-polyfill](https://babeljs.io/docs/usage/polyfill/).
+React 16 depende de uma coleção de tipos [Map](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Map) e [Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set). Se você quer suportar navegadores antigos e dispositivos que podem não disponibilizar esses tipos nativamente (e.g. IE < 11) ou tenham uma implementação que não esteja nos conformes (e.g. IE 11), considere incluir um polyfill global no bundle de sua aplicação, tal como o pacote [core-js](https://github.com/zloirock/core-js) ou [babel-polyfill](https://babeljs.io/docs/usage/polyfill/).
 
 Um ambiente polyfilled para o React 16 usando core-js para suportar navegadores antigos pode parecer assim:
 
