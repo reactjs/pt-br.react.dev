@@ -38,7 +38,7 @@ var apiShape = PropTypes.shape({
 var error = apiShape(json, 'response');
 ```
 
-Caso você tenha a dependência de usar  PropTypes dessa forma, encorajamos você a usar ou criar um fork da PropTypes (como [esses](https://github.com/aackerman/PropTypes) [dois](https://github.com/developit/proptypes) pacotes).
+Caso você dependa do uso  PropTypes dessa forma, encorajamos você a usar ou criar um fork da PropTypes (como [esses](https://github.com/aackerman/PropTypes) [dois](https://github.com/developit/proptypes) pacotes).
 
 Se você não resolver esse  warning, Esse código não irá funcionar em produção com o React 16.
 
