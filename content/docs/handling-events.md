@@ -37,7 +37,7 @@ Outra diferença é que você não pode retornar `false` para evitar o comportam
 </a>
 ```
 
-Em React, isso poderia ser:
+No React, isso poderia ser:
 
 ```js{2-5,8}
 function ActionLink() {
