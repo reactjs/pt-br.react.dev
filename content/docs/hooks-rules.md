@@ -1,7 +1,7 @@
 ---
 id: hook-rules
 title: Regras dos Hooks
-permalink: docs/pt-BR/regras-dos-hooks.html
+permalink: docs/hooks-rules.html
 next: hooks-customizados.html
 prev: hooks-feitos.html
 ---
