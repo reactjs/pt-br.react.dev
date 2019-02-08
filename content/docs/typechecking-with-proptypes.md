@@ -1,18 +1,18 @@
 ---
 id: typechecking-with-proptypes
-title: Typechecking With PropTypes
+title: Checagem de tipos com PropTypes
 permalink: docs/typechecking-with-proptypes.html
 redirect_from:
   - "docs/react-api.html#typechecking-with-proptypes"
 ---
 
 > Note:
+> 
+> `React.PropTypes` foi movido para um package diferente desde a versão 15.5 do React. Por favor, use [a biblioteca `prop-types`](https://www.npmjs.com/package/prop-types).
 >
-> `React.PropTypes` has moved into a different package since React v15.5. Please use [the `prop-types` library instead](https://www.npmjs.com/package/prop-types).
->
->We provide [a codemod script](/blog/2017/04/07/react-v15.5.0.html#migrating-from-reactproptypes) to automate the conversion.
+> Nós fornecemos [um script de codemod](/react/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) para automatizar a conversão.
 
-As your app grows, you can catch a lot of bugs with typechecking. For some applications, you can use JavaScript extensions like [Flow](https://flow.org/) or [TypeScript](https://www.typescriptlang.org/) to typecheck your whole application. But even if you don't use those, React has some built-in typechecking abilities. To run typechecking on the props for a component, you can assign the special `propTypes` property:
+Na medida em que sua aplicação cresce, você pode capturar muitos bugs com checagem de tipos. Em algumas aplicações, você pode usar extensões do JavaScript como [Flow](https://flowtype.org/) ou [TypeScript](https://www.typescriptlang.org/) para checar os tipos de toda a sua aplicação. Porém, mesmo se você não usá-las, React possui algumas habilidades de checagem de tipos embutidas. Para executar a checagem de tipos nas props para um componente, você pode atribuir à propriedade em especial `propTypes`:
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -30,11 +30,11 @@ Greeting.propTypes = {
 };
 ```
 
-`PropTypes` exports a range of validators that can be used to make sure the data you receive is valid. In this example, we're using `PropTypes.string`. When an invalid value is provided for a prop, a warning will be shown in the JavaScript console. For performance reasons, `propTypes` is only checked in development mode.
+`PropTypes` exporta uma variedade de validadores que podem ser usados para certificar que os dados que você recebe são válidos. Neste exemplo, usaremos `PropTypes.string`. Quando um valor inválido for fornecido a uma prop, um alerta será exibido no console JavaScript. Por motivos de performance, `propTypes` é checado apenas em modo de desenvolvimento.
 
 ### PropTypes {#proptypes}
 
-Here is an example documenting the different validators provided:
+Aqui está um exemplo documentando os diferentes tipos de validadores fornecidos:
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -119,9 +119,9 @@ MyComponent.propTypes = {
 };
 ```
 
-### Requiring Single Child {#requiring-single-child}
+### Exigindo Filho Único {#requiring-single-child}
 
-With `PropTypes.element` you can specify that only a single child can be passed to a component as children.
+Com `PropTypes.element` você pode especificar que apenas um único filho pode ser passado para um componente como `children`.
 
 ```javascript
 import PropTypes from 'prop-types';
@@ -143,9 +143,9 @@ MyComponent.propTypes = {
 };
 ```
 
-### Default Prop Values {#default-prop-values}
+### Valores Default de Props {#default-prop-values}
 
-You can define default values for your `props` by assigning to the special `defaultProps` property:
+Você pode definir valores default para suas `props` através da atribuição à propriedade especial `defaultProps`:
 
 ```javascript
 class Greeting extends React.Component {
@@ -168,7 +168,7 @@ ReactDOM.render(
 );
 ```
 
-If you are using a Babel transform like [transform-class-properties](https://babeljs.io/docs/plugins/transform-class-properties/) , you can also declare `defaultProps` as static property within a React component class. This syntax has not yet been finalized though and will require a compilation step to work within a browser. For more information, see the [class fields proposal](https://github.com/tc39/proposal-class-fields).
+Se você está usando um plugin Babel como [plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties), você também poderá declarar `defaultProps` como propriedade estática dentro de uma classe React.Component. Essa sintaxe ainda não foi finalizada e irá exigir uma etapa de compilação para funcionar em um navegador. Para mais informações, veja [proposal-class-fields](https://github.com/tc39/proposal-class-fields).
 
 ```javascript
 class Greeting extends React.Component {
@@ -184,4 +184,4 @@ class Greeting extends React.Component {
 }
 ```
 
-The `defaultProps` will be used to ensure that `this.props.name` will have a value if it was not specified by the parent component. The `propTypes` typechecking happens after `defaultProps` are resolved, so typechecking will also apply to the `defaultProps`.
+O `defaultProps` será usado para garantir que `this.props.name` tenha um valor se não foi especificado pelo componente pai. A checagem de tipos de `propTypes` acontece após `defaultProps` ser resolvido, logo também será aplicada ao `defaultProps`.
