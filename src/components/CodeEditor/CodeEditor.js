@@ -56,12 +56,10 @@ class CodeEditor extends Component {
     if (showBabelErrorMessage) {
       errorMessage = (
         <span>
-          Babel could not be loaded.
+          O Babel não pode ser carregado.
           <br />
           <br />
-          This can be caused by an ad blocker. If you're using one, consider
-          adding reactjs.org to the whitelist so the live code examples will
-          work.
+          Isto pode ser causado por algum bloqueador de anúncio. Se você está usando um, considere adicionar o endereço reactjs.org na <i>whitelist</i>, ou lista de permitidos, e feito isso os exemplos com <i>live code</i> irão funcionar.
         </span>
       );
     } else if (error != null) {
@@ -244,8 +242,8 @@ class CodeEditor extends Component {
     const {compiled} = this.state;
 
     try {
-      // Example code requires React, ReactDOM, and Remarkable to be within scope.
-      // It also requires a "mountNode" variable for ReactDOM.render()
+      // O código de exemplo requer que o React, o ReactDOM e o Remarkable estejam dentro do escopo.
+      // Também requer uma variável "mountNode" para ReactDOM.render()
       // eslint-disable-next-line no-new-func
       new Function('React', 'ReactDOM', 'Remarkable', compiled)(
         React,
@@ -280,8 +278,8 @@ class CodeEditor extends Component {
     } catch (error) {
       console.error(error);
 
-      // Certain ad blockers (eg Fair AdBlocker) prevent Babel from loading.
-      // If we suspect this is the case, we can show a more helpful error.
+      // Certos Bloqueadores de Anúncios (eg Fair AdBlocker) evitam que o Babel carregue.
+      // Se suspeitarmos que este é o caso, nós podemos exibir uma mensagem de ajuda melhor.
       const showBabelErrorMessage = !window.Babel;
 
       return {
