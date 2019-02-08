@@ -40,11 +40,11 @@ var error = apiShape(json, 'response');
 
 Caso você dependa do uso  PropTypes dessa forma, encorajamos você a usar ou criar um fork da PropTypes (como [esses](https://github.com/aackerman/PropTypes) [dois](https://github.com/developit/proptypes) pacotes).
 
-Se você não resolver esse  warning, Esse código não irá funcionar em produção com o React 16.
+Se você não corrigir esse alerta, esse código não funcionará em produção com o React 16.
 
-### Se você não chama PropTypes diretamente mas mesmo assim recebe esse warning {#if-you-dont-call-proptypes-directly-but-still-get-the-warning}
+### Se você não chama PropTypes diretamente mas mesmo assim recebe esse alerta {#if-you-dont-call-proptypes-directly-but-still-get-the-warning}
 
-Inspecione a stack trace produzida pelo warning. Você irá encontrar a definição do componente responsável pela chamada direta da PropTypes. Provavelmente, o problema é causado por uma PropTypes de terceiros que encapsula a PropTypes do React, por exemplo:
+Inspecione a stack trace produzida pelo alerta. Você encontrará a definição do componente responsável pela chamada direta da PropTypes. Provavelmente, o problema é causado por uma PropTypes de terceiros que encapsula a PropTypes do React, por exemplo:
 
 ```js
 Button.propTypes = {
