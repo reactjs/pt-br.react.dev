@@ -48,7 +48,7 @@ npm install eslint-plugin-react-hooks
 
 No futuro, temos a intenção de incluir esse plugin por padrão dentro do Create React App e ferramentas similares.
 
-**Você pode pular para próxima página, onde explica melhor como escrever [seus próprios Hooks](/docs/hooks-custom.html) agora.**. Nessa página, nós continuaremos explicando o motivo por trás dessas regras.
+**Você pode pular para próxima página, onde explica melhor como escrever [seus próprios Hooks](/docs/hooks-custom.html) agora.**. Nessa página continuaremos explicando o motivo por trás dessas regras.
 
 ## Explicação {#explanation}
 
