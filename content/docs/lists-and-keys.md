@@ -237,7 +237,7 @@ function Blog(props) {
 }
 
 const posts = [
-  {id: 1, title: 'Olá Mundo', content: 'Bem vindo para aprender React!'},
+  {id: 1, title: 'Olá Mundo', content: 'Bem-vindo em aprender React!'},
   {id: 2, title: 'Instalação', content: 'Você pode instalar a React utilizando o npm.'}
 ];
 ReactDOM.render(
