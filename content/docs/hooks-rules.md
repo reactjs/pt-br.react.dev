@@ -90,7 +90,7 @@ useEffect(updateTitle)     // 4. Adiciona um efeito para atualizar o título
 // -------------
 // Segunda renderização
 // -------------
-useState('Mary')           // 1. Ler o nome da variável (argumento ignorado)
+useState('Mary')           // 1. Ler a variável de estado (state) name (argumento ignorado)
 useEffect(persistForm)     // 2. Substitui o efeito para persistir no formulário
 useState('Poppins')        // 3. Ler a variável sobrenome (argumento ignorado)
 useEffect(updateTitle)     // 4. Substitui o efeito que atualiza o título
