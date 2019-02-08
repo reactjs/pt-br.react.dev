@@ -1,6 +1,6 @@
 ---
 id: state-and-lifecycle
-title: State and Lifecycle
+title: Estado e Ciclo de Vida
 permalink: docs/state-and-lifecycle.html
 redirect_from:
   - "docs/interactivity-and-dynamic-uis.html"
@@ -8,9 +8,9 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
-This page introduces the concept of state and lifecycle in a React component. You can find a [detailed component API reference here](/docs/react-component.html).
+Esta página apresenta o conceito de estado e ciclo de vida no um componente React. Você pode encontrar uma [referência detalhada da API de componente aqui](/docs/react-component.html).
 
-Consider the ticking clock example from [one of the previous sections](/docs/rendering-elements.html#updating-the-rendered-element). In [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), we have only learned one way to update the UI. We call `ReactDOM.render()` to change the rendered output:
+Considere o exemplo do relógio de [uma das seções anteriores](/docs/rendering-elements.html#updating-the-rendered-element). Em [Elementos de Renderização](/docs/rendering-elements.html#rendering-an-element-into-the-dom), nós aprendemos apenas uma maneira de atualizar a UI. Nós chamamos `ReactDOM.render()` para mudar a saída renderizada.
 
 ```js{8-11}
 function tick() {
@@ -29,11 +29,11 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
-In this section, we will learn how to make the `Clock` component truly reusable and encapsulated. It will set up its own timer and update itself every second.
+Esta seção, aprenderemos como tornar o componente `Clock` verdadeiramente reutilizável e encapsulado. Ele irá configurar seu próprio temporizador e se atualizar a cada segundo.
 
-We can start by encapsulating how the clock looks:
+Podemos começar encapsulando como o relógio parece:
 
 ```js{3-6,12}
 function Clock(props) {
@@ -55,11 +55,11 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
-However, it misses a crucial requirement: the fact that the `Clock` sets up a timer and updates the UI every second should be an implementation detail of the `Clock`.
+No entanto, falta um requisito crucial: o fato de que o `Clock` configura um temporizador e atualiza a UI a cada segundo deve ser um detalhe de implementação do `Clock`.
 
-Ideally we want to write this once and have the `Clock` update itself:
+Idealmente, queremos escrever isto uma vez e ter o `Clock` se atualizado:
 
 ```js{2}
 ReactDOM.render(
@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-To implement this, we need to add "state" to the `Clock` component.
+Para implementá-lo, precisamos adicionar um "state" ao componente `Clock`.
 
 State is similar to props, but it is private and fully controlled by the component.
 
