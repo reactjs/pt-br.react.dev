@@ -23,7 +23,7 @@ Hooks são funções Javascript, mas você precisa seguir duas regras ao utiliz�
 
 Seguindo essas regra, você garante que toda lógica de estado (`state`) no componente seja claramente visível no código fonte.
 
-## ESLint Plugin
+## ESLint Plugin {#eslint-plugin}
 
 Nós liberamos um plugin ESLint chamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que aplica as duas regras. Se você desejar pode adicionar este plugin ao seu projeto, dessa forma:
 
