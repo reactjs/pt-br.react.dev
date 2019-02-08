@@ -64,7 +64,7 @@ function Form() {
     localStorage.setItem('formData', name);
   });
 
-  // 3. Use um sobrenome como variável de estado
+  // 3. Use a variável de estado (state) surname
   const [surname, setSurname] = useState('Poppins');
 
   // 4. Use um efeito para atualizar o título
