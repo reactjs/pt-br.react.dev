@@ -80,7 +80,7 @@ Agora, como o React sabe qual o estado (`state`) correspondente ao `useState` ch
 
 ```js
 // ------------
-// Primeiro render
+// Primeira renderização
 // ------------
 useState('Mary')           // 1. Inicializa o variável de nome com 'Mary'
 useEffect(persistForm)     // 2. Adiciona um efeito para persistir o formulário
