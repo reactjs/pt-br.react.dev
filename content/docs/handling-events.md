@@ -151,4 +151,4 @@ Dentro de uma estrutura de repetição é comum querer passar um parâmetro extr
 
 As duas linhas acima são equivalentes e usam [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) e [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) respectivamente.
 
-Em ambos os casos, o argumento `e` representando o evento do React será passado como segundo argumento após o ID. Com uma arrow function, nós temos que passá-lo explicitamente, mas com o `bind` outros argumentos adicionais são automaticamente encaminhados.
+Em ambos os casos, o argumento `e` representando o evento do React será passado como segundo argumento após o ID. Com uma arrow function, nós temos que passá-lo explicitamente. Mas com o `bind` outros argumentos adicionais serão automaticamente encaminhados.
