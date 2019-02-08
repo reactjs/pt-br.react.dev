@@ -30,7 +30,6 @@ Nós liberamos um plugin ESLint chamado [`eslint-plugin-react-hooks`](https://ww
 ```bash
 npm install eslint-plugin-react-hooks
 ```
-</code>
 
 ```js
 // Sua Configuração ESLint
