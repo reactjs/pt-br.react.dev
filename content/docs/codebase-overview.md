@@ -9,33 +9,30 @@ redirect_from:
   - "contributing/codebase-overview.html"
 ---
 
-<!-- This section will give you an overview of the React codebase organization, its conventions, and the implementation. -->
 Esta seção fornecerá uma visão geral da organização da base de código React, suas convenções e implementação.
 
-
-<!-- If you want to [contribute to React](/docs/how-to-contribute.html) we hope that this guide will help you feel more comfortable making changes. -->
 Se você quer [contribuir para o React](/docs/how-to-contribute.html), esperamos que este guia ajude você a se sentir mais à vontade para fazer mudanças.
 
-<!-- We don't necessarily recommend any of these conventions in React apps. Many of them exist for historical reasons and might change with time. -->
 Não recomendamos necessariamente nenhuma dessas convenções nos aplicativos React. Muitas delas existem por razões históricas e podem mudar com o tempo.
 
-### External Dependencies {#external-dependencies}
+### Dependências Externas {#external-dependencies}
 
-React has almost no external dependencies. Usually, a `require()` points to a file in React's own codebase. However, there are a few relatively rare exceptions.
+O React quase não tem dependências externas. Geralmente, um `require ()` aponta para um arquivo na própria base de código do React. No entanto, existem algumas exceções relativamente raras.
 
-The [fbjs repository](https://github.com/facebook/fbjs) exists because React shares some small utilities with libraries like [Relay](https://github.com/facebook/relay), and we keep them in sync. We don't depend on equivalent small modules in the Node ecosystem because we want Facebook engineers to be able to make changes to them whenever necessary. None of the utilities inside fbjs are considered to be public API, and they are only intended for use by Facebook projects such as React.
+O repositório [fbjs](https://github.com/facebook/fbjs) existe porque o React compartilha alguns pequenos utilitários com bibliotecas como [Relay](https://github.com/facebook/relay), e nós os mantemos em sincronia.Não dependemos de módulos pequenos equivalentes no ecossistema do Node porque queremos que os engenheiros do Facebook possam fazer alterações neles sempre que necessário.  Nenhum dos utilitários dentro dos fbjs são considerados APIs públicas, e são destinados apenas para uso por projetos do Facebook, como o React.
 
-### Top-Level Folders {#top-level-folders}
+### Pastas de nível superior {#top-level-folders}
 
-After cloning the [React repository](https://github.com/facebook/react), you will see a few top-level folders in it:
+Depois de clonar o [repositório do React](https://github.com/facebook/react), você verá algumas pastas de nível superior:
 
-* [`packages`](https://github.com/facebook/react/tree/master/packages) contains metadata (such as `package.json`) and the source code (`src` subdirectory) for all packages in the React repository. **If your change is related to the code, the `src` subdirectory of each package is where you'll spend most of your time.**
-* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contains a few small React test applications for contributors.
-* `build` is the build output of React. It is not in the repository but it will appear in your React clone after you [build it](/docs/how-to-contribute.html#development-workflow) for the first time.
+* [`packages`](https://github.com/facebook/react/tree/master/packages) contém metadados (como `package.json`) e o código fonte (subdiretório `src`) para todos os pacotes no repositório React. **Se a sua alteração está relacionada ao código, o subdiretório `src` de cada pacote é onde você passará a maior parte do seu tempo.**
 
-The documentation is hosted [in a separate repository from React](https://github.com/reactjs/reactjs.org).
+* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contém alguns pequenos aplicativos de teste React para os contribuidores.
+* `build` é a saída de compilação do React. Não está no repositório, mas aparecerá no seu clone React depois de você [construí-lo](/docs/how-to-contribute.html#development-workflow) pela primeira vez.
 
-There are a few other top-level folders but they are mostly used for the tooling and you likely won't ever encounter them when contributing.
+A documentação está hospedada [em um repositório separado do React](https://github.com/reactjs/reactjs.org).
+
+Existem algumas outras pastas de nível superior, mas elas são usadas principalmente para as ferramentas e você provavelmente nunca as encontrará ao contribuir.
 
 ### Colocated Tests {#colocated-tests}
 
