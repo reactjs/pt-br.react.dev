@@ -13,7 +13,7 @@ Manipular eventos em elementos com React é muito semelhante ao tratamento de ev
 * Eventos em React são nomeados usando camelCase ao invés de letras minúsculas.
 * Com o JSX você passa uma função como manipulador de eventos ao invés de um texto.
 
-For exemplo, com HTML:
+Por exemplo, com HTML:
 
 ```html
 <button onclick="activateLasers()">
