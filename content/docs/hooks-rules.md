@@ -137,4 +137,4 @@ useEffect(function persistForm() {
 
 ## Próximos passos {#next-steps}
 
-Finalmente, estamos prontos para aprender sobre como [escrever nossos próprios Hooks](/docs/hooks-custom.html)! Hooks Customizados deixam você combinar Hooks fornecidos pelo React junto suas próprias abstrações, e reusar a lógica do `state` entre diferentes componentes.
+Finalmente, estamos prontos para aprender sobre como [escrever nossos próprios Hooks](/docs/hooks-custom.html)! Hooks Customizados permitem você combinar Hooks fornecidos pelo React em suas próprias abstrações, e reusar a lógica do `state` entre diferentes componentes.
