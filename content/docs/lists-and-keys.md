@@ -18,7 +18,7 @@ console.log(doubled);
 
 Esse código imprime `[2, 4, 6, 8, 10]` no console.
 
-Em React, transformar arrays em listas de [elementos](/docs/rendering-elements.html) é praticamente idêntico a isso.
+No React, transformar arrays em listas de [elementos](/docs/rendering-elements.html) é praticamente idêntico a isso.
 
 ### Renderizando Múltiplos Componentes {#rendering-multiple-components}
 
@@ -98,7 +98,7 @@ ReactDOM.render(
 
 ## Chaves {#keys}
 
-As chaves ajudam React a identificar quais itens sofreram alterações, adicionadas ou removidas. As chaves devem ser atribuídas aos elementos dentro do array para dar uma identidade estável aos elementos:
+As chaves ajudam o React a identificar quais itens sofreram alterações, foram adicionados ou removidos. As chaves devem ser atribuídas aos elementos dentro do array para dar uma identidade estável aos elementos:
 
 ```js{3}
 const numbers = [1, 2, 3, 4, 5];
@@ -130,9 +130,9 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alterada. Isso pode impactar de forma negativa o desempenho e poderá causar problemas com o estado do componente. Leia o artigo escrito por Robin Pokorny para [uma explicação aprofundada nos impactos negativos de se usar um índice como chave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Se você não atribuir uma chave de forma explícita para os itens de uma lista, então React irá utilizar os índices como chave por padrão.
+Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alterada. Isso pode impactar de forma negativa o desempenho e poderá causar problemas com o estado do componente. Leia o artigo escrito por Robin Pokorny para [uma explicação aprofundada nos impactos negativos de se usar um índice como chave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Se você não atribuir uma chave de forma explícita para os itens de uma lista, então o React irá utilizar os índices como chave por padrão.
 
-Aqui você poderá ver [uma explicação aprofundada sobre o porquê as chaves são necessárias](/docs/reconciliation.html#recursing-on-children) caso você esteja interessado em aprender mais sobre isso.
+Aqui você poderá ver [uma explicação aprofundada sobre o porquê o uso das chaves é necessário](/docs/reconciliation.html#recursing-on-children) caso você esteja interessado em aprender mais sobre isso.
 
 ### Extrair Componentes com Chaves {#extracting-components-with-keys}
 
@@ -204,11 +204,11 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
 
-Uma boa regra de definição é que os elementos dentro de `map()` devem especificar chaves.
+Por via de regra, os elementos dentro de uma função `map()` devem especificar chaves.
 
 ### Chaves devem ser Únicas apenas entre Elementos Irmãos {#keys-must-only-be-unique-among-siblings}
 
-Chaves usadas nos arrays devem ser únicas entre seus items irmãos. Contudo elas não precisam ser únicas globalmente. Podemos usar as mesmas chaves ao criar dois arrays diferentes:
+Chaves usadas nos arrays devem ser únicas entre seus elementos irmãos. Contudo elas não precisam ser únicas globalmente. Podemos usar as mesmas chaves ao criar dois arrays diferentes:
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -237,8 +237,8 @@ function Blog(props) {
 }
 
 const posts = [
-  {id: 1, title: 'Olá Mundo', content: 'Bem-vindo em aprender React!'},
-  {id: 2, title: 'Instalação', content: 'Você pode instalar a React utilizando o npm.'}
+  {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
+  {id: 2, title: 'Installation', content: 'You can install React from npm.'}
 ];
 ReactDOM.render(
   <Blog posts={posts} />,
@@ -248,7 +248,7 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
 
-As chaves servem como uma dica para a React, mas elas não são passadas para os componentes. Se você precisar do mesmo valor em um componente, defina ele explicitamente como uma `prop` com um nome diferente:
+As chaves servem como uma dica para o React. Mas elas não são passadas para os componentes. Se você precisar do mesmo valor em um componente, defina ele explicitamente como uma `prop` com um nome diferente:
 
 ```js{3,4}
 const content = posts.map((post) =>
@@ -298,4 +298,4 @@ function NumberList(props) {
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/BLvYrB?editors=0010)
 
-Às vezes isso resulta em um código mais limpo, mas esse padrão também pode ser abusado. Como em JavaScript, depende de você decidir se vale a pena extrair uma variável para aumentar a legibilidade. Lembre-se que se o corpo da função `map()` tiver muitos níveis, poderá ser um bom momento para [extrair um componente](/docs/components-and-props.html#extracting-components).
+Às vezes isso resulta em um código mais limpo. Mas esse padrão também pode ser confuso. Como em JavaScript, depende de você decidir se vale a pena extrair uma variável para aumentar a legibilidade. Lembre-se que se o corpo da função `map()` tiver muitos níveis, poderá ser um bom momento para [extrair um componente](/docs/components-and-props.html#extracting-components).
