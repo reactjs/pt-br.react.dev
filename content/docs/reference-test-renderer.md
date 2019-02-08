@@ -1,6 +1,6 @@
 ---
 id: test-renderer
-title: Test Renderer
+title: Testando o Renderer
 permalink: docs/test-renderer.html
 layout: docs
 category: Reference
