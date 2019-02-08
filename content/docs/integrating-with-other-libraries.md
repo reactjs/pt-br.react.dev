@@ -1,26 +1,26 @@
 ---
 id: integrating-with-other-libraries
-title: Integrating with Other Libraries
+title: Integrando com outras Bibliotecas
 permalink: docs/integrating-with-other-libraries.html
 ---
 
-React can be used in any web application. It can be embedded in other applications and, with a little care, other applications can be embedded in React. This guide will examine some of the more common use cases, focusing on integration with [jQuery](https://jquery.com/) and [Backbone](http://backbonejs.org/), but the same ideas can be applied to integrating components with any existing code.
+React pode ser utilizado em qualquer aplicação web. Ele pode ser embutido em outras aplicações e, com um pouco de cuidado, outras aplicações podem ser incorporadas ao React. Este guia vai examinar alguns dos mais comuns usos de caso, focando na integracão com [jQuery](https://jquery.com/) e [Backbone](http://backbonejs.org/), mas as mesmas idéias podem ser aplicadas para integrar componentes com qualquer código existente.
 
-## Integrating with DOM Manipulation Plugins {#integrating-with-dom-manipulation-plugins}
+## Integrando com Plugins de Manipulacão do DOM {#integrating-with-dom-manipulation-plugins}
 
-React is unaware of changes made to the DOM outside of React. It determines updates based on its own internal representation, and if the same DOM nodes are manipulated by another library, React gets confused and has no way to recover.
+React desconhece qualquer alteração feita no DOM fora do React. Ele determina as atualizacões com base na sua própria representacão interna, e se os mesmos nós do DOM forem manipulados por outras bibliotecas, React fica confuso e não sabe como proceder.
 
-This does not mean it is impossible or even necessarily difficult to combine React with other ways of affecting the DOM, you just have to be mindful of what each is doing.
+Isto não significa que é impossível ou mesmo necessariamente difícil de combinar React com outras maneiras de afetar o DOM, você apenas precisa estar atento ao que cada um está fazendo.
 
-The easiest way to avoid conflicts is to prevent the React component from updating. You can do this by rendering elements that React has no reason to update, like an empty `<div />`.
+A maneira mais fácil de evitar conflitos é evitando com que o componente React atualize. Você pode fazer isto, renderizando elementos que o React não tem motivos para atualizar, como uma `<div />` vazia.
 
-### How to Approach the Problem {#how-to-approach-the-problem}
+### Como Abordar o Problema {#how-to-approach-the-problem}
 
-To demonstrate this, let's sketch out a wrapper for a generic jQuery plugin.
+Para demonstrar isto, vamos esboçar um wrapper para um plugin jQuery genérico.
 
-We will attach a [ref](/docs/refs-and-the-dom.html) to the root DOM element. Inside `componentDidMount`, we will get a reference to it so we can pass it to the jQuery plugin.
+Nós vamos adicionar um [ref](/docs/refs-and-the-dom.html) para o elemento root no DOM. Dentro do `componentDidMount`, nós vamos ter a referência desse elemento para passar para o plugin jQuery.
 
-To prevent React from touching the DOM after mounting, we will return an empty `<div />` from the `render()` method. The `<div />` element has no properties or children, so React has no reason to update it, leaving the jQuery plugin free to manage that part of the DOM:
+Para evitar com que o React toque no DOM depois de montado, nós vamos retornar uma `<div />` vazia para o método `render()`. O elemento `<div />`, não possui propriedades ou filhos, assim o React não tem razão para atualiza-lo, deixando o plugin jQuery livre para gerenciar esta parte do DOM:
 
 ```js{3,4,8,12}
 class SomePlugin extends React.Component {
@@ -39,21 +39,21 @@ class SomePlugin extends React.Component {
 }
 ```
 
-Note that we defined both `componentDidMount` and `componentWillUnmount` [lifecycle methods](/docs/react-component.html#the-component-lifecycle). Many jQuery plugins attach event listeners to the DOM so it's important to detach them in `componentWillUnmount`. If the plugin does not provide a method for cleanup, you will probably have to provide your own, remembering to remove any event listeners the plugin registered to prevent memory leaks.
+Note que nós definimos ambos `componentDidMount` e `componentWillUnmount` [métodos do ciclo de vida](/docs/react-component.html#the-component-lifecycle). Muitos plugins jQuery adicionam listeners de eventos para o DOM, e é importante removê-los no `componentWillUnmount`. Se o plugin não fornece um método para limpeza, você vai provavelmente ter que criar o seu próprio, lembrando de remover qualquer listener do plugin registrado para evitar vazamento de memória.
 
-### Integrating with jQuery Chosen Plugin {#integrating-with-jquery-chosen-plugin}
+### Integrando com o plugin jQuery Chosen {#integrating-with-jquery-chosen-plugin}
 
-For a more concrete example of these concepts, let's write a minimal wrapper for the plugin [Chosen](https://harvesthq.github.io/chosen/), which augments `<select>` inputs.
+Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínimo para o plugin [Chosen](https://harvesthq.github.io/chosen/), which augments `<select>` inputs.
 
->**Note:**
+>**Nota:**
 >
->Just because it's possible, doesn't mean that it's the best approach for React apps. We encourage you to use React components when you can. React components are easier to reuse in React applications, and often provide more control over their behavior and appearance.
+> Apenas porque isto é possível, não significa que este é a melhor maneira para apps React. Nós encorajamos você a utilizar componentes React quando você puder. Componentes React são fáceis de reutilizar em aplicacões React, e muitas vezes fornecem mais controle sobre seu comportamento e aparência.
 
-First, let's look at what Chosen does to the DOM.
+Primeiro, vamos olhar o que Chosen faz no DOM.
 
-If you call it on a `<select>` DOM node, it reads the attributes off of the original DOM node, hides it with an inline style, and then appends a separate DOM node with its own visual representation right after the `<select>`. Then it fires jQuery events to notify us about the changes.
+Se você chama-lo em um nó DOM `<select>`, ele lê os atributos do nó DOM original, esconde-os com um estilo inline, e então adiciona um nó DOM separado com sua própria representacão visual, logo após o `<select>`. Em seguida, ele dispara um evento do jQuery, para notificar sobre as alteracões.
 
-Let's say that this is the API we're striving for with our `<Chosen>` wrapper React component:
+Vamos supor que esta é a API onde nós estamos nos esforcando para com o nosso `<Chosen>` React componente:
 
 ```js
 function Example() {
@@ -67,9 +67,9 @@ function Example() {
 }
 ```
 
-We will implement it as an [uncontrolled component](/docs/uncontrolled-components.html) for simplicity.
+Nós vamos implementá-lo como um [componente não controlado](/docs/uncontrolled-components.html) pela simplicidade.
 
-First, we will create an empty component with a `render()` method where we return `<select>` wrapped in a `<div>`:
+Primeiro, vamos criar um component vazio com um método `render()` onde nós retornamos o `<select>` em volta de uma `<div>`
 
 ```js{4,5}
 class Chosen extends React.Component {
@@ -85,9 +85,9 @@ class Chosen extends React.Component {
 }
 ```
 
-Notice how we wrapped `<select>` in an extra `<div>`. This is necessary because Chosen will append another DOM element right after the `<select>` node we passed to it. However, as far as React is concerned, `<div>` always only has a single child. This is how we ensure that React updates won't conflict with the extra DOM node appended by Chosen. It is important that if you modify the DOM outside of React flow, you must ensure React doesn't have a reason to touch those DOM nodes.
+Note como envolvemos o `<select>` em uma `<div>` extra. Isto é necessário porque Chosen vai adicionar um outro elemento DOM logo após o `<select>` que passamos para ele. Contudo, no que diz respeito ao React, `<div>` sempre tem apenas um único filho. Isto é como nós garantimos que as atualizacões do React não vão conflitar com o nó extra do DOM adicionado pelo Chosen. É importante que se você modificar o DOM fora do fluxo do React, você deve garantir que React não tem um motivo para acessar esses nós do DOM.
 
-Next, we will implement the lifecycle methods. We need to initialize Chosen with the ref to the `<select>` node in `componentDidMount`, and tear it down in `componentWillUnmount`:
+Em seguida, vamos implementar os métodos do ciclo de vida. Nós vamos precisar inicializar Chosen com a referência para o `<select>` no `componentDidMount`, e destruí-lo no `componentWillUnmount`.
 
 ```js{2,3,7}
 componentDidMount() {
@@ -100,17 +100,17 @@ componentWillUnmount() {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/qmqeQx?editors=0010)
+[**Experimente no Codepen**](http://codepen.io/gaearon/pen/qmqeQx?editors=0010)
 
-Note that React assigns no special meaning to the `this.el` field. It only works because we have previously assigned this field from a `ref` in the `render()` method:
+Note que React não atribui nenhum significado especial para o campo `this.el`. Isto apenas funciona porque nós atribuimos anteriormente um valor para este campo, com um `ref` no método `render()`:
 
 ```js
 <select className="Chosen-select" ref={el => this.el = el}>
 ```
 
-This is enough to get our component to render, but we also want to be notified about the value changes. To do this, we will subscribe to the jQuery `change` event on the `<select>` managed by Chosen.
+Isto é suficiente para renderizar o nosso componente, mas também queremos ser notificados quando os valores mudarem. Para fazer isto, vamos ouvir os eventos de `change` do jQuery no `<select>` controlado pelo Chosen.
 
-We won't pass `this.props.onChange` directly to Chosen because component's props might change over time, and that includes event handlers. Instead, we will declare a `handleChange()` method that calls `this.props.onChange`, and subscribe it to the jQuery `change` event:
+Nós não vamos passar `this.props.onChange` diretamente para o Chosen porque as propriedades do componente, podem mudar ao longo do tempo e isto inclui os handlers de evento. Como alternativa, vamos declarar um método `handleChange()` que chama o `this.props.onChange` e subscreve o evento `change` do jQuery:
 
 ```js{5,6,10,14-16}
 componentDidMount() {
@@ -131,7 +131,7 @@ handleChange(e) {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/bWgbeE?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/bWgbeE?editors=0010)
 
 Finally, there is one more thing left to do. In React, props can change over time. For example, the `<Chosen>` component can get different children if parent component's state changes. This means that at integration points it is important that we manually update the DOM in response to prop updates, since we no longer let React manage the DOM for us.
 
