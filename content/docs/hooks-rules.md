@@ -88,7 +88,7 @@ useState('Poppins')        // 3. Inicializa a variável de estado (state) surnam
 useEffect(updateTitle)     // 4. Adiciona um efeito para atualizar o título
 
 // -------------
-// Segundo render
+// Segunda renderização
 // -------------
 useState('Mary')           // 1. Ler o nome da variável (argumento ignorado)
 useEffect(persistForm)     // 2. Substitui o efeito para persistir no formulário
