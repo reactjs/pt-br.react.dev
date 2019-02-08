@@ -19,7 +19,7 @@ Hooks são funções Javascript, mas você precisa seguir duas regras ao utiliz�
 **Não use Hooks em funções javascript regulares.** Em vez disso, você pode:
 
 * ✅  Chamar Hooks em componentes React.
-* ✅  Chamar Hooks dentro de Hooks Customizados (Nós iremos aprender sobre eles [na próxima página.](/docs/hooks-customizados.html)).
+* ✅  Chamar Hooks dentro de Hooks Customizados (Nós iremos aprender sobre eles [na próxima página.](/docs/hooks-custom.html)).
 
 Por seguir essas regras, você garante que toda lógica de estado (`state`) no componente seja claramente visível no código fonte.
 
