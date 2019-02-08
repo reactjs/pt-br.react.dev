@@ -98,7 +98,7 @@ ReactDOM.render(
 
 ## Chaves {#keys}
 
-As chaves ajudam a React identificar quais itens sofreram alterações, adicionadas ou removidas. As chaves devem ser atribuídas aos elementos dentro do array para dar uma identidade estável aos elementos:
+As chaves ajudam React a identificar quais itens sofreram alterações, adicionadas ou removidas. As chaves devem ser atribuídas aos elementos dentro do array para dar uma identidade estável aos elementos:
 
 ```js{3}
 const numbers = [1, 2, 3, 4, 5];
