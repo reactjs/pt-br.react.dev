@@ -119,7 +119,7 @@ class LoggingButton extends React.Component {
 
 Essa sintaxe é habilitada por padrão no [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Se você não estiver usando a sintaxe de campos de classe, poderá usar uma [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions) no retorno da chamada:
+Se você não estiver usando a sintaxe de campos de classe, poderá usar uma [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions) como callback:
 
 ```js{7-9}
 class LoggingButton extends React.Component {
