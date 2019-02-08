@@ -1,6 +1,6 @@
 ---
 id: faq-build
-title: Babel, JSX e Etapas de construção
+title: Babel, JSX e Etapas de Build
 permalink: docs/faq-build.html
 layout: docs
 category: FAQ
