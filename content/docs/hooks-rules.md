@@ -114,7 +114,7 @@ if (name !== '') {
 A condição `name !== ''` é `true` na primeira renderização, então chamamos o Hook dentro da condição. Entretanto, na próxima renderização o usuário pode limpar o formulário, fazendo com que a condição seja `false`. Agora que pulamos este Hook durante a primeira renderização, a ordem das chamadas tornou-se diferente, veja:
 
 ```js
-useState('Mary')           // ✅  1. Lê a variável name (argumento é ignorado)
+useState('Mary')           // ✅  1. Lê a variável de estado (state) name (argumento é ignorado)
 // useEffect(persistForm)  // 🔴  Agora, este Hook foi ignorado!
 useState('Poppins')        // 🔴  Na ordem era pra ser 2 (mas foi 3). Falha ao ler a variável sobrenome
 useEffect(updateTitle)     // 🔴  Na ordem era pra ser 3 (mas foi 4). Falha ao substituir o efeito
