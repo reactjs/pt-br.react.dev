@@ -1,14 +1,14 @@
 ---
 id: javascript-environment-requirements
-title: JavaScript Environment Requirements
+title: Requisitos de Ambiente JavaScript
 layout: docs
 category: Reference
 permalink: docs/javascript-environment-requirements.html
 ---
 
-React 16 depends on the collection types [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set). If you support older browsers and devices which may not yet provide these natively (e.g. IE < 11) or which have non-compliant implementations (e.g. IE 11), consider including a global polyfill in your bundled application, such as [core-js](https://github.com/zloirock/core-js) or [babel-polyfill](https://babeljs.io/docs/usage/polyfill/).
+React 16 depende de uma coleção de tipos [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) e [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set). Se você quer suportar navegadores antigos e dispositivos que podem não disponibilizar esses tipos nativamente (e.g. IE < 11) ou tenham uma implementação que não esteja nos conformes (e.g. IE 11), considere incluir um polyfill global no bundle de sua aplicação, tal como o pacote [core-js](https://github.com/zloirock/core-js) ou [babel-polyfill](https://babeljs.io/docs/usage/polyfill/).
 
-A polyfilled environment for React 16 using core-js to support older browsers might look like:
+Um ambiente polyfilled para o React 16 usando core-js para suportar navegadores antigos pode parecer assim:
 
 ```js
 import 'core-js/es6/map';
@@ -18,13 +18,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <h1>Olá, mundo!</h1>,
   document.getElementById('root')
 );
 ```
 
-React also depends on `requestAnimationFrame` (even in test environments).  
-You can use the [raf](https://www.npmjs.com/package/raf) package to shim `requestAnimationFrame`:
+React também depende da função `requestAnimationFrame` (mesmo em ambiente de teste).  
+Você pode usar o pacote [raf](https://www.npmjs.com/package/raf) como substituto para a função `requestAnimationFrame`:
 
 ```js
 import 'raf/polyfill';
