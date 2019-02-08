@@ -52,7 +52,7 @@ No futuro, temos a intenção de incluir esse plugin por padrão dentro do Creat
 
 ## Explicação {#explanation}
 
-Assim como [aprendemos anteriormente](/docs/hooks-state.html#tip-using-multiple-state-variables), nós podemos usar muitos States ou Effects em um único componente:
+Assim como [aprendemos anteriormente](/docs/hooks-state.html#tip-using-multiple-state-variables), nós podemos usar diversos Hooks (States ou Effects) em um único componente:
 
 ```js
 function Form() {
