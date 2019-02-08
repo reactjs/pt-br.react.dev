@@ -10,18 +10,18 @@ prev: hooks-effect.html
 
 Hooks são funções Javascript, mas você precisa seguir duas regras ao utilizá-los. Nós providenciamos um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) para aplicar essas regras automaticamente:
 
-### Use Hooks apenas em nível superior {#only-call-hooks-at-the-top-level}
+### Use Hooks apenas no nível superior {#only-call-hooks-at-the-top-level}
 
-**Não use Hooks dentro de loops, regras condicionais ou funções aninhadas (funçoes dentro de funções).** Em vez disso, sempre use Hooks no nível superior de sua função React. Por seguir as regras, você garante que os Hooks serão chamados na mesma ordem a cada vez que o componente renderizar. É isso que permite que o React preserve corretamente o estado dos Hooks quando são usados vários `useState` e `useEffect` na mesma função. (Se você ficou curioso, iremos explicar isso melhor [abaixo](#explanation).)
+**Não use Hooks dentro de loops, regras condicionais ou funções aninhadas (funçoes dentro de funções).** Em vez disso, sempre use Hooks no nível superior de sua função React. Seguindo essas regras, você garante que os Hooks serão chamados na mesma ordem a cada vez que o componente renderizar. É isso que permite que o React preserve corretamente o estado dos Hooks quando são usados várias chamadas a `useState` e `useEffect` na mesma função. (Se você ficou curioso, iremos explicar isso melhor [abaixo](#explanation).)
 
 ### Use Hooks apenas dentro de funções do React {#only-call-hooks-from-react-functions}
 
-**Não use Hooks em funções javascript regulares.** Em vez disso, você pode:
+**Não use Hooks dentro de funções Javascript comuns.** Em vez disso, você pode:
 
 * ✅  Chamar Hooks em componentes React.
 * ✅  Chamar Hooks dentro de Hooks Customizados (Nós iremos aprender sobre eles [na próxima página.](/docs/hooks-custom.html)).
 
-Seguindo essas regra, você garante que toda lógica de estado (`state`) no componente seja claramente visível no código fonte.
+Seguindo essas regras, você garante que toda lógica de estado (`state`) no componente seja claramente visível no código fonte.
 
 ## ESLint Plugin {#eslint-plugin}
 
