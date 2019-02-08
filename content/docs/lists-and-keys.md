@@ -259,7 +259,7 @@ const content = posts.map((post) =>
 );
 ```
 
-No exemplo acima, o componente `Post` pode acessar `props.id`, mas não pode acessar `props.key`.
+No exemplo acima, o componente `Post` pode acessar `props.id`. Mas, não pode acessar `props.key`.
 
 ### Incluindo map() no JSX {#embedding-map-in-jsx}
 
