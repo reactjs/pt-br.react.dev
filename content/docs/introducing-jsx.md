@@ -1,22 +1,22 @@
 ---
 id: introducing-jsx
-title: Introducing JSX
+title: Introduzindo JSX
 permalink: docs/introducing-jsx.html
 prev: hello-world.html
 next: rendering-elements.html
 ---
 
-Consider this variable declaration:
+Considere esta declaração de variável:
 
 ```js
 const element = <h1>Hello, world!</h1>;
 ```
 
-This funny tag syntax is neither a string nor HTML.
+Esta sintaxe estranha de tags não é uma string, nem HTML.
 
-It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+É chamada JSX, e é uma extensão de sintaxe para JavaScript. Recomendamos usá-la com React para descrever como a interface do usuário (UI) deveria parecer. JSX pode lembrar uma linguagem de modelo (template), mas vem com todo o poder do JavaScript.
 
-JSX produces React "elements". We will explore rendering them to the DOM in the [next section](/docs/rendering-elements.html). Below, you can find the basics of JSX necessary to get you started.
+JSX produz "elementos" do React. Nós iremos explorar a renderização para o DOM na [próxima seção](/docs/rendering-elements.html). Abaixo você descobrirá o básico de JSX necessário para começar.
 
 ### Why JSX? {#why-jsx}
 
