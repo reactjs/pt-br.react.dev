@@ -76,7 +76,7 @@ function Form() {
 }
 ```
 
-Agora, como o React sabe qual o estado correspondente ao `useState` chamado? A resposta é que para o **React** depende da ordem em que os Hooks sãos chamados. Nosso exemplo funciona porque a ordem do Hook chamado é a mesma sempre que o componente é renderizado:
+Agora, como o React sabe qual o estado (`state`) correspondente ao `useState` chamado? A resposta é que o **React depende da ordem em que os Hooks são chamados.** Nosso exemplo funciona porque a ordem de chamada dos Hooks é a mesma sempre que o componente é renderizado:
 
 ```js
 // ------------
