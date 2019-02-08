@@ -9,27 +9,27 @@ permalink: docs/react-dom-server.html
 O objeto `ReactDOMServer` permite que você renderize componentes para markup estático. Normalmente, é usado em servidor Node:
 
 ```js
-// ES modules
+// Módulos ES
 import ReactDOMServer from 'react-dom/server';
 // CommonJS
 var ReactDOMServer = require('react-dom/server');
 ```
 
-## Overview {#overview}
+## Visão Geral {#overview}
 
-The following methods can be used in both the server and browser environments:
+Os métodos seguintes podem ser usados tanto em ambiente de servidor como de navegador:
 
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-These additional methods depend on a package (`stream`) that is **only available on the server**, and won't work in the browser.
+Estes métodos adicionais dependem do pacote (`stream`) que **só está disponível no servidor**, e não vão funcionar no navegador.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
 
 * * *
 
-## Reference {#reference}
+## Referência {#reference}
 
 ### `renderToString()` {#rendertostring}
 
