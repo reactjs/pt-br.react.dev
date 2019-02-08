@@ -14,7 +14,7 @@ Não! Confira ["React Sem JSX"](/docs/react-without-jsx.html) para saber mais.
 
 Não! Confira ["React Sem ES6"](/docs/react-without-es6.html) para saber mais.
 
-### Como posso escrever comentarios em JSX? {#como-posso-escrever-comentarios-em-jsx}
+### Como posso escrever comentários em JSX? {#como-posso-escrever-comentarios-em-jsx}
 
 ```jsx
 <div>
