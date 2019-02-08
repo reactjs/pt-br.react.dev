@@ -8,7 +8,7 @@ next: forms.html
 
 Primeiro, vamos rever como transformamos listas em JavaScript.
 
-Dado o código abaixo, nós usamos a função [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) para receber um array de `números` e dobrar o valor de cada um deles. Atribuímos o novo array retornado pela função `map()` para a variável `doubled` e a imprime no console:
+Dado o código abaixo, nós usamos a função [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) para receber um array de `números` e dobrar o valor de cada um deles. Atribuímos o novo array retornado pela função `map()` para a variável `doubled` e imprime no console:
 
 ```javascript{2}
 const numbers = [1, 2, 3, 4, 5];
