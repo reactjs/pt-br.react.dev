@@ -1,9 +1,13 @@
 <!---
-NOTE: Remove this before commiting
-1. Should I translate Higher-Order Component?
-2. If yes, should I call its acronym HOC or COS?
-3. Should I translate "wrapped" to "envolvido" (or something else)?
-4. Should I translate Side-effects?
+
+NOTE: Remove this before opening the PR
+
+- Should I translate Higher-Order Component?
+- If yes, should I call its acronym HOC or COS?
+- Should I translate "wrapped" to "envolvido"?
+- Should I translate Side-effects?
+- Should I translate "lifecycle" methods?
+
 --->
 
 ---
@@ -176,11 +180,11 @@ E é isso! O componente envolvido recebe todas as props do recipiente, junto de 
 
 Por `withSubscription` ser uma função normal, você pode adicionar quantos argumentos quiser. Por exemplo, você pode querer fazer o nome da prop `data` ser configurável, para continuar a isolar o HOC do componente envolvido. Ou podes aceitar um argumento que configura `shouldComponentUpdate`, ou um que configura a fonte de dados. Todos esses casos são possíveis porque o HOC tem controle total sobre como o componente é definido.
 
-Like components, the contract between `withSubscription` and the wrapped component is entirely props-based. This makes it easy to swap one HOC for a different one, as long as they provide the same props to the wrapped component. This may be useful if you change data-fetching libraries, for example.
+Como componentes, o contrato entre `withSubscription` e o componente envolvido é completamente baseado em props. Isso faz com que seja fácil trocar um HOC por outro, desde que eles providenciem as mesmas props para o componente envolvido. Isso pode ser útil se você mudar de bibliotecas para busca de dados, por exemplo.
 
-## Don't Mutate the Original Component. Use Composition. {#dont-mutate-the-original-component-use-composition}
+# Não Altere o Componente Original. Use Composição. {#dont-mutate-the-original-component-use-composition}
 
-Resist the temptation to modify a component's prototype (or otherwise mutate it) inside a HOC.
+Resista a tentação de modificar o prototype de um componente (ou alterá-lo de qualquer outra forma) dentro de um HOC.
 
 ```js
 function logProps(InputComponent) {
@@ -188,20 +192,19 @@ function logProps(InputComponent) {
     console.log('Current props: ', this.props);
     console.log('Next props: ', nextProps);
   };
-  // The fact that we're returning the original input is a hint that it has
-  // been mutated.
+  // O fato de estarmos retornando a entrada original é uma dica de que ela sofreu mutação.
   return InputComponent;
 }
 
-// EnhancedComponent will log whenever props are received
+// EnhancedComponent criará logs sempre que uma prop for recebida
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-There are a few problems with this. One is that the input component cannot be reused separately from the enhanced component. More crucially, if you apply another HOC to `EnhancedComponent` that *also* mutates `componentWillReceiveProps`, the first HOC's functionality will be overridden! This HOC also won't work with function components, which do not have lifecycle methods.
+Existem alguns problemas nisso. Primeiro, o componente de entrada não pode ser reutilizado separadamente do componente melhorado. Mais crucialmente, se você aplicar outro HOC para `EnchancedComponent` que *também* altera `componentWillReceiveProps`, a funcionalidade do primeiro HOC será sobrescrita! Esse HOC também não funcionará com componentes funcionais, os quais não possuem métodos de ciclo de vida.
 
-Mutating HOCs are a leaky abstraction—the consumer must know how they are implemented in order to avoid conflicts with other HOCs.
+Realizar mutações em HOCs é uma abstração mal vedada - o consumer deve saber como eles são implementados para que se possa evitar conflitos com outros HOCs.
 
-Instead of mutation, HOCs should use composition, by wrapping the input component in a container component:
+Ao invés de mutações, HOCs devem utilizar composição, envolvendo o componente de entrada em um componente recipiente:
 
 ```js
 function logProps(WrappedComponent) {
@@ -211,14 +214,14 @@ function logProps(WrappedComponent) {
       console.log('Next props: ', nextProps);
     }
     render() {
-      // Wraps the input component in a container, without mutating it. Good!
+      // Envolve o componente de entrada em um recipiente, sem alterá-lo. Bom!
       return <WrappedComponent {...this.props} />;
     }
   }
 }
 ```
 
-This HOC has the same functionality as the mutating version while avoiding the potential for clashes. It works equally well with class and function components. And because it's a pure function, it's composable with other HOCs, or even with itself.
+Este HOC possui a mesma funcionalidade que a sua versão com mutação e evita o potencial de ocorrer choques. Ele funciona igualmente bem com componentes funcionais e controlados. E por ser uma função pura, ele pode ser combinado com outros HOCs, ou até com si mesmo.
 
 You may have noticed similarities between HOCs and a pattern called **container components**. Container components are part of a strategy of separating responsibility between high-level and low-level concerns. Containers manage things like subscriptions and state, and pass props to components that handle things like rendering UI. HOCs use containers as part of their implementation. You can think of HOCs as parameterized container component definitions.
 
