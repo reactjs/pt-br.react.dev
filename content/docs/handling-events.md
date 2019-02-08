@@ -33,7 +33,7 @@ Outra diferença é que você não pode retornar `false` para evitar o comportam
 
 ```html
 <a href="#" onclick="console.log('O link foi clicado.'); return false">
-  Clique em mim
+  Clique Aqui
 </a>
 ```
 
@@ -48,7 +48,7 @@ function ActionLink() {
 
   return (
     <a href="#" onClick={handleClick}>
-      Clique em mim
+      Clique Aqui
     </a>
   );
 }
@@ -95,7 +95,7 @@ ReactDOM.render(
 
 Você precisa ter cuidado com o significado do `this` nos callbacks do JSX. Em JavaScript, os métodos de classe não são [vinculados](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) por padrão. Se você esquecer de fazer o bind de `this.handleClick` e passá-lo para um `onClick`, o `this` será `undefined` quando a função for realmente chamada.
 
-Este não é um comportamento específico do React; é uma parte de [como funcionam as funções em JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Geralmente, se você referir a um método sem `()` depois dele, como `onClick={this.handleClick}`, você deve fazer o bind manual deste método.
+Este não é um comportamento específico do React. É uma parte de [como funcionam as funções em JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Geralmente, se você referir a um método sem `()` depois dele, como `onClick={this.handleClick}`, você deve fazer o bind manual deste método.
 
 Se ficar chamando "bind" incomoda você, há duas maneiras de contornar isso. Se você estiver usando a [sintaxe experimental de campos de classe pública](https://babeljs.io/docs/plugins/transform-class-properties/), você pode usar campos de classe para vincular callbaks corretamente:
 
@@ -110,7 +110,7 @@ class LoggingButton extends React.Component {
   render() {
     return (
       <button onClick={this.handleClick}>
-        Clique em mim
+        Clique Aqui
       </button>
     );
   }
