@@ -17,7 +17,7 @@ var ReactDOMServer = require('react-dom/server');
 
 ## Visão Geral {#overview}
 
-Os métodos seguintes podem ser usados tanto em ambiente de servidor como de navegador:
+Os métodos a seguir podem ser usados tanto em ambiente de servidor como de navegador:
 
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
