@@ -9,11 +9,15 @@ redirect_from:
   - "contributing/codebase-overview.html"
 ---
 
-This section will give you an overview of the React codebase organization, its conventions, and the implementation.
+<!-- This section will give you an overview of the React codebase organization, its conventions, and the implementation. -->
+Esta seção fornecerá uma visão geral da organização da base de código React, suas convenções e implementação.
 
-If you want to [contribute to React](/docs/how-to-contribute.html) we hope that this guide will help you feel more comfortable making changes.
 
-We don't necessarily recommend any of these conventions in React apps. Many of them exist for historical reasons and might change with time.
+<!-- If you want to [contribute to React](/docs/how-to-contribute.html) we hope that this guide will help you feel more comfortable making changes. -->
+Se você quer [contribuir para o React](/docs/how-to-contribute.html), esperamos que este guia ajude você a se sentir mais à vontade para fazer mudanças.
+
+<!-- We don't necessarily recommend any of these conventions in React apps. Many of them exist for historical reasons and might change with time. -->
+Não recomendamos necessariamente nenhuma dessas convenções nos aplicativos React. Muitas delas existem por razões históricas e podem mudar com o tempo.
 
 ### External Dependencies {#external-dependencies}
 
