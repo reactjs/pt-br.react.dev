@@ -2,7 +2,7 @@
 id: hook-rules
 title: Regras dos Hooks
 permalink: docs/hooks-rules.html
-next: hooks-customizados.html
+next: hooks-custom.html
 prev: hooks-feitos.html
 ---
 
