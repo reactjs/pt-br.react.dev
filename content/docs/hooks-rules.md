@@ -82,7 +82,7 @@ Agora, como o React sabe qual o estado (`state`) correspondente ao `useState` ch
 // ------------
 // Primeira renderização
 // ------------
-useState('Mary')           // 1. Inicializa o variável de nome com 'Mary'
+useState('Mary')           // 1. Inicializa a variável de estado (state) name com 'Mary'
 useEffect(persistForm)     // 2. Adiciona um efeito para persistir o formulário
 useState('Poppins')        // 3. Inicializa a variável sobrenome com 'Poppins'
 useEffect(updateTitle)     // 4. Adiciona um efeito para atualizar o título
