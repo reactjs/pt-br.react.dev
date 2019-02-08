@@ -3,7 +3,7 @@ id: hook-rules
 title: Regras dos Hooks
 permalink: docs/hooks-rules.html
 next: hooks-custom.html
-prev: hooks-feitos.html
+prev: hooks-effect.html
 ---
 
 *Hooks* é um novo recurso adicionado em React 16.8. Eles permitem que você use o `state` e outras funcionalidades do React, sem precisar escrever uma classe.
