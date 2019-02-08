@@ -16,64 +16,64 @@ Você deve preencher dados com requisições AJAX no método [`componentDidMount
 
 ### Exemplo: Usando resultados AJAX para definir o estado local {#exemplo-usando-ajax-para-definir-o-estado-local}
 
-O componente abaixo demonstra como deve fazer uma requisição AJAX no `componentDidMount` para preencher o estado local. 
+O componente abaixo demonstra como deve fazer uma requisição AJAX no `componentDidMount` para preencher o estado (state) local. 
 
 A API de exemplo retorna um objeto JSON como este:
 
 ```
 {
-  "itens": [
-    { "id": 1, "nome": "Maçãs",  "preço": "R$2" },
-    { "id": 2, "nome": "Pêssegos", "preço": "R$5" }
+  "items": [
+    { "id": 1, "name": "Apples",  "price": "$2" },
+    { "id": 2, "name": "Peaches", "price": "$5" }
   ] 
 }
 ```
 
 ```jsx
-class MeuComponente extends React.Component {
+class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      erro: null,
-      foiCarregado: false,
-      itens: []
+      error: null,
+      isLoaded: false,
+      items: []
     };
   }
 
   componentDidMount() {
-    fetch("https://api.exemplo.com/itens")
+    fetch("https://api.example.com/items")
       .then(res => res.json())
       .then(
-        (resultado) => {
+        (result) => {
           this.setState({
-            foiCarregado: true,
-            itens: resultado.itens
+            isLoaded: true,
+            items: result.items
           });
         },
         // Nota: É importante lidar com os erros aqui
         // em vez de um bloco catch() para não recebermos
         // exceções de erros dos componentes.
-        (erro) => {
+        (error) => {
           this.setState({
-            foiCarregado: true,
-            erro
+            isLoaded: true,
+            error
           });
         }
       )
   }
 
   render() {
-    const { erro, foiCarregado, itens } = this.state;
-    if (erro) {
-      return <div>Erro: {erro.mensagem}</div>;
-    } else if (!foiCarregado) {
-      return <div>Carregando...</div>;
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
     } else {
       return (
         <ul>
-          {itens.map(item => (
-            <li key={item.nome}>
-              {item.nome} {item.preço}
+          {items.map(item => (
+            <li key={item.name}>
+              {item.name} {item.price}
             </li>
           ))}
         </ul>
