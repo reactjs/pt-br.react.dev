@@ -57,7 +57,7 @@ Assim como [aprendemos anteriormente](/docs/hooks-state.html#tip-using-multiple-
 ```js
 function Form() {
   // 1. Use a variável de estado (state) name
-  const [name, setName] = useState('Mary'). 
+  const [name, setName] = useState('Mary');
 
   // 2. Use um efeito para persistir o formulário
   useEffect(function persistForm() {
