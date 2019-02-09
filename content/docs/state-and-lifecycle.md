@@ -70,23 +70,23 @@ ReactDOM.render(
 
 Para implementá-lo, precisamos adicionar um "state" ao componente `Clock`.
 
-State is similar to props, but it is private and fully controlled by the component.
+Estado do componente é similar as props, mas é privado e totalmente controlado pelo componente.
 
-We [mentioned before](/docs/components-and-props.html#functional-and-class-components) that components defined as classes have some additional features. Local state is exactly that: a feature available only to classes.
+Nós [mencionamos antes](/docs/components-and-props.html#functional-and-class-components) que os componentes definidos como classes possuem alguns recursos adicionais. O estado local é exatamente isso: um recurso disponível apenas para classes.
 
-## Converting a Function to a Class {#converting-a-function-to-a-class}
+## Convertendo uma Função para uma Classe {#convertendo-uma-funcao-para-uma-classe}
 
-You can convert a function component like `Clock` to a class in five steps:
+Você pode converter um componente de função como `Clock` em uma classe em cinco etapas:
 
-1. Create an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), with the same name, that extends `React.Component`.
+1. Criar uma [classe ES6](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), com o mesmo nome, extendendo `React.component`.
 
-2. Add a single empty method to it called `render()`.
+2. Adicionar um único método vazio chamado `render()`.
 
-3. Move the body of the function into the `render()` method.
+3. Mova o corpo da função para o método `render()`.
 
-4. Replace `props` with `this.props` in the `render()` body.
+4. Substitua `props` por `this.props` no corpo de `render()`.
 
-5. Delete the remaining empty function declaration.
+5. Exclua a declaração da função vazia restante.
 
 ```js
 class Clock extends React.Component {
@@ -101,11 +101,11 @@ class Clock extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
-`Clock` is now defined as a class rather than a function.
+`Clock` agora é definido como uma classe em vez de uma função.
 
-The `render` method will be called each time an update happens, but as long as we render `<Clock />` into the same DOM node, only a single instance of the `Clock` class will be used. This lets us use additional features such as local state and lifecycle methods.
+O método `render` será chamado toda vez que uma atualização acontecer, mas enquanto renderizarmos `<Clock>` no mesmo nó DOM, apenas uma única instância da classe `Clock` será usada. Isso nos permite usar recursos adicionais, como o estado local e os métodos de ciclo de vida.
 
 ## Adding Local State to a Class {#adding-local-state-to-a-class}
 
