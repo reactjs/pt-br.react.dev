@@ -19,7 +19,7 @@ redirect_from:
 
 ### Componentes {#components}
 
-Componentes React permitem que você divida a UI em pedaços independentes e reutilizáveis para pensar em cada pedaço isoladamente. Componentes React podem ser definidos ao estender `React.Component` ou `React.PureComponent`.
+Os componentes React permitem que você divida a UI em pedaços independentes e reutilizáveis para pensar em cada pedaço isoladamente. Os componentes em React podem ser definidos ao estender `React.Component` ou `React.PureComponent`.
 
  - [`React.Component`](#reactcomponent)
  - [`React.PureComponent`](#reactpurecomponent)
