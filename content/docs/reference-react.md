@@ -104,7 +104,7 @@ Veja a [referência da *API* para React.Component](/docs/react-component.html) p
 
 ### `React.PureComponent` {#reactpurecomponent}
 
-`React.PureComponent` é similar a [`React.Component`](#reactcomponent). A diferença entre eles é que [`React.Component`](#reactcomponent) não implementa [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), enquanto `React.PureComponent` a implementa com uma comparação superficial de props e state.
+`React.PureComponent` é similar a [`React.Component`](#reactcomponent). A diferença entre eles é que o [`React.Component`](#reactcomponent) não implementa o  [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate), enquanto o `React.PureComponent` a implementa com uma comparação superficial de props e state.
 
 Se o método `render()` do seu componente React renderiza o mesmo resultado dados os mesmos props e state, você pode usar `React.PureComponent` para um aumento no desempenho em alguns casos.
 
