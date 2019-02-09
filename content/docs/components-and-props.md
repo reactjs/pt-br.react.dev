@@ -83,7 +83,7 @@ Vamos recapitular o que acontece nesse exemplo:
 1. Nós chamamos `ReactDOM.render()` com o elemento `<Welcome name="Sara" />`.
 2. React chama o componente `Welcome` com `{name: 'Sara'}` como props.
 3. Nosso componente `Welcome` retorna um elemento `<h1>Hello, Sara</h1>` como resultado.
-4. React DOM eficientemente atualiza o DOM para corresponder `<h1>Hello, Sara</h1>`.
+4. React DOM atualiza eficientemente o DOM para corresponder `<h1>Hello, Sara</h1>`.
 
 >**Nota:** Sempre inicie os nomes dos componentes com uma letra maiúscula.
 >
