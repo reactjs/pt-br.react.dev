@@ -41,7 +41,7 @@ Anteriormente, o React fornecia duas maneiras de gerenciar refs: a antiga string
 O React 16.3 adicionou uma terceira opção que oferece a conveniência da string ref sem qualquer desvantagem:
 `embed:16-3-release-blog-post/create-ref-example.js`
 
-Como refs de objetos foram largamente usadas como substituto para as string refs, o modo estrito agora avisa em relação ao uso da antiga string ref API.
+Como refs de objetos foram adicionadas como substitutos para as string refs, o modo estrito agora avisa em relação ao uso da antiga string ref API.
 
 > **Nota:**
 >
