@@ -13,7 +13,7 @@ O modo estrito (`Strict Mode`) é uma ferramenta para sinalizar potenciais probl
 Você pode habilitar o modo estrito para qualquer parte da sua aplicação, por exemplo:
 `embed:strict-mode/enabling-strict-mode.js`
 
-No exemplo acima, as verificações do modo estrito não serão executadas nos componentes `Header` e `Footer`. No entanto, `ComponentOne` e `ComponentTwo`, assim como todos os seus componentes descendentes, serão verificados.
+No exemplo acima, as verificações do modo estrito *não* serão executadas nos componentes `Header` e `Footer`. No entanto, `ComponentOne` e `ComponentTwo`, assim como todos os seus componentes descendentes, serão verificados.
 
 O modo estrito ajuda atualmente com:
 * [Identificar métodos de ciclo de vida (lifecycles) inseguros](#identifying-unsafe-lifecycles)
