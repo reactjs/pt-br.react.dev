@@ -28,6 +28,7 @@ Suggestion on words and terms:
 | uppercase | maiúscula(s) / caixa alta |
 | wrap | ? |
 | wrapper | ? |
+| assert | ? |
 
 # Content that doesn't need translation
 
