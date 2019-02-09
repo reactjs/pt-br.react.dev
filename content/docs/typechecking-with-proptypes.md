@@ -7,7 +7,7 @@ redirect_from:
 ---
 
 > Note:
-> 
+>
 > `React.PropTypes` foi movido para um pacote diferente desde a versão 15.5 do React. Por favor, use [a biblioteca `prop-types`](https://www.npmjs.com/package/prop-types).
 >
 > Nós fornecemos [um script de codemod](/react/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) para automatizar a conversão.
@@ -168,7 +168,7 @@ ReactDOM.render(
 );
 ```
 
-Se você está usando um plugin Babel como [plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties), você também poderá declarar `defaultProps` como propriedade estática dentro de uma classe React.Component. Essa sintaxe ainda não foi finalizada e irá exigir uma etapa de compilação para funcionar em um navegador. Para mais informações, veja [proposal-class-fields](https://github.com/tc39/proposal-class-fields).
+Se você está usando um plugin Babel como [plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties), você também poderá declarar `defaultProps` como propriedade estática dentro de uma classe de componente React. Essa sintaxe ainda não foi finalizada e irá exigir uma etapa de compilação para funcionar em um navegador. Para mais informações, veja [proposal-class-fields](https://github.com/tc39/proposal-class-fields).
 
 ```javascript
 class Greeting extends React.Component {
