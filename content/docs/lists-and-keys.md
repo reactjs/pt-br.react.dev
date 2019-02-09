@@ -134,7 +134,7 @@ Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alt
 
 Aqui você poderá ver [uma explicação aprofundada sobre o porquê o uso das chaves é necessário](/docs/reconciliation.html#recursing-on-children) caso você esteja interessado em aprender mais sobre isso.
 
-### Extrair Componentes com Chaves {#extrair-componentes-com-chaves}
+### Extraindo Componentes com Chaves {#extraindo-componentes-com-chaves}
 
 As chaves apenas fazem sentido no contexto do array que está encapsulando os itens.
 
