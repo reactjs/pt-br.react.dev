@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "Tutorial: Introdução ao React"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,26 +12,26 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+Este tutorial não assume nenhum conhecimento existente do React.
 
-## Before We Start the Tutorial {#before-we-start-the-tutorial}
+## Antes de começarmos o tutorial {#before-we-start-the-tutorial}
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React apps, and mastering it will give you a deep understanding of React.
+Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentado a ignorá-lo porque você não vai construir jogos - mas dê uma chance.** As técnicas que você aprenderá no tutorial são fundamentais para criar qualquer aplicativo React, e o domínio lhe dará uma chance. profundo entendimento de React.
 
->Tip
+> Dica
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+> Este tutorial foi criado para pessoas que preferem ** aprender fazendo **. Se você preferir aprender conceitos do zero, confira nosso [step-by-step guide](/docs/hello-world.html). Você pode achar este tutorial e o guia complementares um ao outro.
 
-The tutorial is divided into several sections:
+O tutorial está dividido em várias seções:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [Configuração do Tutorial](#setup-for-the-tutorial) lhe dará **um ponto de partida** para seguir o tutorial.
+* [Visão geral](#overview) ensinará **os fundamentos** de React: componentes, propriedades e estado.
+* [Completando o Jogo](#completing-the-game) will teach you **the most common techniques** in React development.
+* [Adicionando Time Travel (viagem no tempo)](#adding-time-travel) lhe dará **uma visão mais profunda** para os pontos fortes exclusivos do React.
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+Você não precisa completar todas as seções de uma vez para obter o valor deste tutorial. Tente chegar o mais longe possível, mesmo que seja uma ou duas seções.
 
-It's fine to copy and paste code as you're following along the tutorial, but we recommend to type it by hand. This will help you develop a muscle memory and a stronger understanding.
+Não há problema em copiar e colar o código enquanto você acompanha o tutorial, mas recomendamos que você o digite à mão. Isso ajudará você a desenvolver uma memória muscular e um entendimento mais forte.
 
 ### What Are We Building? {#what-are-we-building}
 
