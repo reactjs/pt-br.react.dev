@@ -156,7 +156,7 @@ function Comment(props) {
 
 Ele aceita `author` (um objeto), `text` (uma string) e `date` (uma data) como props e descreve um comentário em um site de mídia social.
 
-Esse componente pode ser complicado de alterar por causa de todo o aninhamento e também é difícil de reutilizar partes individuais dele. Vamos extrair alguns componentes dele.
+Esse componente pode ser complicado de alterar por causa de todo o aninhamento. Também é difícil reutilizar suas partes individuais. Vamos extrair alguns componentes dele.
 
 Primeiro, nós vamos extrair `Avatar`:
 
