@@ -41,7 +41,7 @@ Veja [Usando React sem JSX](/docs/react-without-jsx.html) para mais informaçõe
 
 ### Transformando Elementos {#transforming-elements}
 
-`React` provê várias *API*s para manipulação de elementos:
+O `React` provê várias *API*s para manipulação de elementos:
 
 - [`cloneElement()`](#cloneelement)
 - [`isValidElement()`](#isvalidelement)
