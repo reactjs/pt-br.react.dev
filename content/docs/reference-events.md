@@ -38,7 +38,7 @@ string type
 ### Event Pooling (acumulador de eventos) {#event-pooling}
 
 O `SyntheticEvent` é acumulado. Isso significa que o objeto `SyntheticEvent` será reutilizado e todas as suas propriedades serão anuladas após o evento de retorno (callback) ser acionado.
-O motivo de ser do jeito que é, é uma questão de performance.
+É assim por questões de performance.
 Sendo assim, você não pode acessar o evento de forma assíncrona.
 
 ```javascript
