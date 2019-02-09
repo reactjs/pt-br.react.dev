@@ -29,9 +29,9 @@ O React [não requer](/docs/react-without-jsx.html) o uso do JSX, mas a maioria 
 
 Com isso fora do caminho, vamos começar!
 
-### Embedding Expressions in JSX {#embedding-expressions-in-jsx}
+### Incorporando Expressões em JSX {#embedding-expressions-in-jsx}
 
-In the example below, we declare a variable called `name` and then use it inside JSX by wrapping it in curly braces:
+No exemplo abaixo, declaramos uma variável chamada `name` e então a usamos dentro do JSX ao envolvê-la com chaves:
 
 ```js{1,2}
 const name = 'Josh Perez';
@@ -43,9 +43,9 @@ ReactDOM.render(
 );
 ```
 
-You can put any valid [JavaScript expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) inside the curly braces in JSX. For example, `2 + 2`, `user.firstName`, or `formatName(user)` are all valid JavaScript expressions.
+Você pode por qualquer [expressão JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) válida dentro das chaves em JSX. Por exemplo, `2 + 2`, `user.firstName`, ou `formatName(user)` são todas expressões JavaScript válidas.
 
-In the example below, we embed the result of calling a JavaScript function, `formatName(user)`, into an `<h1>` element.
+No exemplo abaixo, incorporamos o resultado da chamada de uma função JavaScript, `formatName(user)`, dentro de um elemento `<h1>`.
 
 ```js{12}
 function formatName(user) {
@@ -71,7 +71,7 @@ ReactDOM.render(
 
 [](codepen://introducing-jsx)
 
-We split JSX over multiple lines for readability. While it isn't required, when doing this, we also recommend wrapping it in parentheses to avoid the pitfalls of [automatic semicolon insertion](http://stackoverflow.com/q/2846283).
+Separamos o JSX em múltiplas linhas para melhorar a legibilidade. Mesmo que não seja requerido, quando fizer isso, também recomendamos cercá-lo com parênteses para evitar as armadilhas da [inserção automática de ponto-e-vírgula](http://stackoverflow.com/q/2846283).
 
 ### JSX is an Expression Too {#jsx-is-an-expression-too}
 
