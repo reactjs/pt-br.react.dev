@@ -107,11 +107,11 @@ class Clock extends React.Component {
 
 O método `render` será chamado toda vez que uma atualização acontecer, mas enquanto renderizarmos `<Clock>` no mesmo nó DOM, apenas uma única instância da classe `Clock` será usada. Isso nos permite usar recursos adicionais, como o estado local e os métodos de ciclo de vida.
 
-## Adding Local State to a Class {#adding-local-state-to-a-class}
+## Adicionando Estado Local a uma Classe {#adicionando-estado-local-em-uma-classe}
 
-We will move the `date` from props to state in three steps:
+Vamos mover a `date` da props para o estado em três passos:
 
-1) Replace `this.props.date` with `this.state.date` in the `render()` method:
+1) Substitua `this.props.date` por `this.state.date` no médoto `render()`:
 
 ```js{6}
 class Clock extends React.Component {
@@ -126,7 +126,7 @@ class Clock extends React.Component {
 }
 ```
 
-2) Add a [class constructor](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes#Constructor) that assigns the initial `this.state`:
+2) Adicione um [construtor na classe](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes#Construtor) que atribui a data inicial no `this.state`:
 
 ```js{4}
 class Clock extends React.Component {
@@ -146,7 +146,7 @@ class Clock extends React.Component {
 }
 ```
 
-Note how we pass `props` to the base constructor:
+Note como nos passamos `props` para o construtor:
 
 ```js{2}
   constructor(props) {
@@ -155,9 +155,9 @@ Note how we pass `props` to the base constructor:
   }
 ```
 
-Class components should always call the base constructor with `props`.
+Componentes de classes devem sempre chamar o construtor com `props`.
 
-3) Remove the `date` prop from the `<Clock />` element:
+3) Remova a props `date` do elemento `<Clock />`:
 
 ```js{2}
 ReactDOM.render(
@@ -166,9 +166,9 @@ ReactDOM.render(
 );
 ```
 
-We will later add the timer code back to the component itself.
+Mais tarde, adiconaremos o código do timer de volta ao próprio componente.
 
-The result looks like this:
+O Resultado se parece com:
 
 ```js{2-5,11,18}
 class Clock extends React.Component {
@@ -193,9 +193,9 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Next, we'll make the `Clock` set up its own timer and update itself every second.
+Em seguinda, faremos a configuração do próprio timer e atualizaremos a cada segundo.
 
 ## Adding Lifecycle Methods to a Class {#adding-lifecycle-methods-to-a-class}
 
