@@ -184,4 +184,4 @@ class Greeting extends React.Component {
 }
 ```
 
-O `defaultProps` será usado para garantir que `this.props.name` tenha um valor se não foi especificado pelo componente pai. A checagem de tipos de `propTypes` acontece após `defaultProps` ser resolvido, logo também será aplicada ao `defaultProps`.
+A `defaultProps` será usada para garantir que `this.props.name` tenha um valor caso não tenha sido especificado pelo componente pai. A checagem de tipos de `propTypes` acontece após `defaultProps` ser resolvida, logo a checagem também será aplicada à `defaultProps`.
