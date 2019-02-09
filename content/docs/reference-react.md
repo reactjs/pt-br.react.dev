@@ -201,7 +201,7 @@ Retorna uma função que produz elementos React de um dado tipo. Assim como em [
 
 Este *helper* é considerado legado, e nós encorajamos você a utilizar JSX ou `React.createElement()` diretamente como alternativa.
 
-Você tipicamente não invocará `React.createFactory()` diretamente se estiver utilizando JSX. Veja [React sem JSX](/docs/react-without-jsx.html) para aprender mais.
+Em geral você não invocará `React.createFactory()` diretamente se estiver utilizando JSX. Veja [React sem JSX](/docs/react-without-jsx.html) para aprender mais.
 
 * * *
 
