@@ -49,60 +49,60 @@ Vamos supor que você tenha alguma familiaridade com HTML e JavaScript, mas voc�
 
 Se você precisa revisar JavaScript, recomendamos ler [este guia](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Observe que também estamos usando alguns recursos do ES6 - uma versão recente do JavaScript. Neste tutorial, estamos usando [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/let), e declarações [`const`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/const). Você pode usar o [Babel REPL] (babel://es5-syntax-example) para verificar para qual código o ES6 compila.
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## Configuração para o tutorial {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+Há duas maneiras de concluir este tutorial: você pode escrever o código em seu navegador ou configurar um ambiente de desenvolvimento local em seu computador.
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### Opção de Configuração 1: Escrever Código no Navegador {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+Esta é a maneira mais rápida de começar!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+Primeiro, abra este **[Código Inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** em uma nova guia. A nova aba deve exibir um tabuleiro de jogo tic-tac-toe vazio e o código React. Nós estaremos editando o código React neste tutorial.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+Agora você pode ignorar a segunda opção de configuração e ir para a seção [Visão geral](#overview) para obter uma visão geral do React.
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### Opção de instalação 2: ambiente de desenvolvimento local {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+Isto é completamente opcional e não é necessário para este tutorial!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>Opcional: instruções para serem seguidas na sua máquina usando seu editor de texto preferido</b></summary>
 
 This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. Certifique-se de ter uma versão recente do [Node.js](https://nodejs.org/pt-br/) instalada.
+2. Siga as [instruções de instalação do creat-react-app](/docs/create-a-new-react-app.html#create-react-app) para criar um novo projeto.
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. Apague todos os arquivos na pasta `src/` do novo projeto
 
-> Note: **don't delete the entire `src` folder, just the original source files inside it.**.  We'll replace the default source files with examples for this project in the next step.
+> Nota: **não exclua a pasta `src` inteira, apenas os arquivos originais dentro dela.** Substituiremos os arquivos de origem padrão por exemplos deste projeto na próxima etapa.
 
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# Se você estiver usando um Mac ou Linux:
 rm -f *
 
-# Or, if you're on Windows:
+# Ou, se você estiver no Windows:
 del *
 
-# Then, switch back to the project folder
+# E então, volte para a pasta do projeto
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. Adicione um arquivo chamado `index.css` na pasta` src/`com [este código CSS](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. Adicione um arquivo chamado `index.js` na pasta` src/`com [este código JS](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. Adicione estas três linhas ao topo do `index.js` na pasta `src/`:
 
 ```js
 import React from 'react';
@@ -110,15 +110,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+Agora, se você executar o `npm start` na pasta do projeto e abrir `http://localhost:3000` no navegador, você verá um campo vazio de jogo da velha.
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+Recomendamos seguir [estas instruções](https://babeljs.io/docs/editors/) para configurar o realce de sintaxe para seu editor.
 
 </details>
 
-### Help, I'm Stuck! {#help-im-stuck}
+### Ajuda, estou preso! {#help-im-stuck}
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+Se você ficar preso, confira os [recursos de suporte da comunidade](/community/support.html). Em particular, o [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) é uma ótima maneira de obter ajuda rapidamente. Se você não receber uma resposta ou se permanecer preso, registre um problema e nós ajudaremos você.
 
 ## Overview {#overview}
 
