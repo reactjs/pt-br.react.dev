@@ -95,7 +95,7 @@ Os ciclos de vida da fase da renderização incluem os seguintes métodos do com
 * `render`
 * `setState` funções atualizadoras (o primeiro argumento)
 
-Já que os métodos acima podem ser chamados mais de uma vez, é importante que eles não contenham efeitos colaterais. Ignorar essa regra pode levar a uma variedade de problemas, incluindo vazamento de memória e estado inválido da aplicação. Infelizmente, pode ser difícil detectar esses problemas, já que eles podem ser [não determinístico](https://en.wikipedia.org/wiki/Deterministic_algorithm).
+Já que os métodos acima podem ser chamados mais de uma vez, é importante que eles não contenham efeitos colaterais. Ignorar essa regra pode levar a uma variedade de problemas, incluindo vazamento de memória e estado inválido da aplicação. Infelizmente, pode ser difícil detectar esses problemas, já que eles podem ser [não determinísticos](https://en.wikipedia.org/wiki/Deterministic_algorithm).
 
 O modo estrito não pode detectar automaticamente efeitos colaterais para você, mas pode ajudá-lo a achá-los ao torná-los um pouco mais determinísticos. Isso é feito ao invocar duas vezes seguidas os seguintes métoods:
 
