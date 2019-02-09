@@ -8,7 +8,7 @@ category: Reference
 
 Este guia de referência documenta o agregador `SyntheticEvent` (evento sintético), que faz parte do sistema de eventos do React. Veja o guia [Manipulando Eventos (Handling Events)](/docs/handling-events.html) para saber mais.
 
-## Visão geral {#visao-geral}
+## Visão geral {#overview}
 
 Os manipuladores de evento (_event handlers_) serão passados como instâncias do `SyntheticEvent`, um agregador _cross-browser_ que envolve os eventos nativos do navegador. Ambos tem a mesma interface, incluindo `stopPropagation()` e `preventDefault()`, porém funcionam de forma idêntica em todos os navegadores.
 
@@ -64,34 +64,34 @@ function onClick(event) {
 >
 > Se você deseja acessar as propriedades de um evento de forma assíncrona, você deve chamar o `event.persist()` no evento em questão. Isso irá remover o evento sintético do acumulador e permitir referências ao evento serem retidas pelo código do usuário.
 
-## Eventos (Suporte) {#eventos-suporte}
+## Eventos (Suporte) {#supported-events}
 
 O React normaliza eventos para que se possa ter propriedades consistentes entre os navegadores.
 
 Os manipuladores de evento (_event handlers_) abaixo são acionados por um evento na fase de propagação (_bubbling_). Para registrar um manipulador de evento para a fase de captura, adicione `Capture` como sufixo do nome do evento. Por exemplo, ao invés de usar `onClick`, você usaria `onClickCapture` para manipular o evento de clique na fase de captura.
 
-- [Eventos do Clipboard](#eventos-do-clipboard)
-- [Eventos de Composição (Composition)](#eventos-de-composicao)
-- [Eventos do Teclado](#eventos-do-teclado)
-- [Eventos de Foco](#eventos-de-foco)
-- [Eventos de Formulário](#eventos-de-formulario)
-- [Eventos do Mouse](#eventos-do-mouse)
-- [Eventos do Ponteiro (Pointer)](#eventos-do-ponteiro)
-- [Eventos de Seleção](#eventos-de-selecao)
-- [Eventos de Toque (Touch)](#eventos-de-toque)
-- [Eventos da Interface do Usuário (UI)](#eventos-de-ui)
-- [Eventos de Rolagem (Wheel)](#eventos-de-rolagem)
-- [Eventos de Mídia](#eventos-de-midia)
-- [Eventos de Imagem](#eventos-de-imagem)
-- [Eventos de Animação](#eventos-de-animacao)
-- [Eventos de Transição](#eventos-de-transicao)
-- [Outros Eventos](#outros-eventos)
+- [Eventos do Clipboard](#clipboard-events)
+- [Eventos de Composição (Composition)](#composition-events)
+- [Eventos do Teclado](#keyboard-events)
+- [Eventos de Foco](#focus-events)
+- [Eventos de Formulário](#form-events)
+- [Eventos do Mouse](#mouse-events)
+- [Eventos do Ponteiro (Pointer)](#pointer-events)
+- [Eventos de Seleção](#selection-events)
+- [Eventos de Toque (Touch)](#touch-events)
+- [Eventos da Interface do Usuário (UI)](#ui-events)
+- [Eventos de Rolagem (Wheel)](#wheel-events)
+- [Eventos de Mídia](#media-events)
+- [Eventos de Imagem](#image-events)
+- [Eventos de Animação](#animation-events)
+- [Eventos de Transição](#transition-events)
+- [Outros Eventos](#other-eventos)
 
 * * *
 
-## Referência {#referencia}
+## Referência {#reference}
 
-### Eventos do Clipboard {#eventos-do-clipboard}
+### Eventos do Clipboard {#clipboard-events}
 
 Nome dos eventos:
 
@@ -107,7 +107,7 @@ DOMDataTransfer clipboardData
 
 * * *
 
-### Eventos de Composição (Composition) {#eventos-de-composicao}
+### Eventos de Composição (Composition) {#composition-events}
 
 Nome dos eventos:
 
@@ -124,7 +124,7 @@ string data
 
 * * *
 
-### Eventos do Teclado {#eventos-do-teclado}
+### Eventos do Teclado {#keyboard-events}
 
 Nome dos eventos:
 
@@ -153,7 +153,7 @@ A propriedade `key` pode conter quaisquer valores documentados na [especificaç�
 
 * * *
 
-### Eventos de Foco {#eventos-de-foco}
+### Eventos de Foco {#focus-events}
 
 Nome dos eventos:
 
@@ -171,7 +171,7 @@ DOMEventTarget relatedTarget
 
 * * *
 
-### Eventos de Formulário {#eventos-de-formulario}
+### Eventos de Formulário {#form-events}
 
 Nome dos eventos:
 
@@ -183,7 +183,7 @@ Para mais informações sobre o evento onChange, veja [Formulários](/docs/forms
 
 * * *
 
-### Eventos do Mouse {#eventos-do-mouse}
+### Eventos do Mouse {#mouse-events}
 
 Nome dos eventos:
 
@@ -216,7 +216,7 @@ boolean shiftKey
 
 * * *
 
-### Eventos do Ponteiro {#eventos-do-ponteiro}
+### Eventos do Ponteiro {#pointer-events}
 
 Nome dos eventos:
 
@@ -229,7 +229,7 @@ Os eventos `onPointerEnter` e `onPointerLeave` propagam do elemento do lado esqu
 
 Propriedades:
 
-Como definido na [espeficicação da W3](https://www.w3.org/TR/pointerevents/), os eventos de ponteiro estendem os [Eventos do Mouse](#eventos-do-mouse) com as seguintes propriedades:
+Como definido na [espeficicação da W3](https://www.w3.org/TR/pointerevents/), os eventos de ponteiro estendem os [Eventos do Mouse](#mouse-events) com as seguintes propriedades:
 
 ```javascript
 number pointerId
@@ -252,7 +252,7 @@ Se sua aplicação necessita de eventos de ponteiro, recomendamos adicionar um p
 
 * * *
 
-### Eventos de Seleção {#eventos-de-selecao}
+### Eventos de Seleção {#selection-events}
 
 Nome dos eventos:
 
@@ -262,7 +262,7 @@ onSelect
 
 * * *
 
-### Eventos de Toque (Touch) {#eventos-de-toque}
+### Eventos de Toque (Touch) {#touch-events}
 
 Nome dos eventos:
 
@@ -285,7 +285,7 @@ DOMTouchList touches
 
 * * *
 
-### Eventos da Interface do Usuário (UI) {#eventos-de-ui}
+### Eventos da Interface do Usuário (UI) {#ui-events}
 
 Nome dos eventos:
 
@@ -302,7 +302,7 @@ DOMAbstractView view
 
 * * *
 
-### Eventos de Rolagem (Wheel) {#eventos-de-rolagem}
+### Eventos de Rolagem (Wheel) {#wheel-events}
 
 Nome dos eventos:
 
@@ -321,7 +321,7 @@ number deltaZ
 
 * * *
 
-### Eventos de Mídia {#eventos-de-midia}
+### Eventos de Mídia {#media-events}
 
 Nome dos eventos:
 
@@ -334,7 +334,7 @@ onTimeUpdate onVolumeChange onWaiting
 
 * * *
 
-### Eventos de Imagem {#eventos-de-imagem}
+### Eventos de Imagem {#image-events}
 
 Nome dos eventos:
 
@@ -344,7 +344,7 @@ onLoad onError
 
 * * *
 
-### Eventos de Animação {#eventos-de-animacao}
+### Eventos de Animação {#animation-events}
 
 Nome dos eventos:
 
@@ -362,7 +362,7 @@ float elapsedTime
 
 * * *
 
-### Eventos de Transição {#eventos-de-transicao}
+### Eventos de Transição {#transicao-events}
 
 Nome dos eventos:
 
@@ -380,7 +380,7 @@ float elapsedTime
 
 * * *
 
-### Outros Eventos {#outros-eventos}
+### Outros Eventos {#other-events}
 
 Nome dos eventos:
 
