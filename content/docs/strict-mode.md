@@ -38,7 +38,7 @@ Resolver os problemas identificados pelo modo estrito facilitará a utilização
 
 Anteriormente, o React fornecia duas maneiras de gerenciar refs: a antiga string ref API e a callback API. Embora a string ref API fosse a mais conveniente das duas, ela apresentava [várias desvantagens](https://github.com/facebook/react/issues/1373) e, portanto, nossa recomendação oficial era [usar o formulário de callback](/docs/refs-and-the-dom.html#legacy-api-string-refs).
 
-O React 16.3 adicionou uma terceira opção que oferece a conveniência da string ref sem qualquer lado negativo:
+O React 16.3 adicionou uma terceira opção que oferece a conveniência da string ref sem qualquer desvantagem:
 `embed:16-3-release-blog-post/create-ref-example.js`
 
 Como refs de objetos foram largamente usadas como substituto para as string refs, o modo estrito agora avisa em relação ao uso da antiga string ref API.
