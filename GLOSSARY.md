@@ -11,7 +11,7 @@
 
 ## Content that doesn't need translation
 
-- | -    
+ _ | _    
 -- | --
 array | mock
 arrow function | portal
