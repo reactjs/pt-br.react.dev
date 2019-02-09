@@ -1,6 +1,6 @@
 ---
 id: typechecking-with-proptypes
-title: Checagem de tipos com PropTypes
+title: Checagem de tipos (Typechecking) com PropTypes
 permalink: docs/typechecking-with-proptypes.html
 redirect_from:
   - "docs/react-api.html#typechecking-with-proptypes"
@@ -119,7 +119,7 @@ MyComponent.propTypes = {
 };
 ```
 
-### Exigindo Filho Único {#requiring-single-child}
+### Exigindo Filho Único (Single Child) {#requiring-single-child}
 
 Com `PropTypes.element` você pode especificar que apenas um único filho pode ser passado para um componente como `children`.
 
@@ -143,9 +143,9 @@ MyComponent.propTypes = {
 };
 ```
 
-### Valores Default de Props {#default-prop-values}
+### Valores Padrão de Props (Default Prop Values) {#default-prop-values}
 
-Você pode definir valores default para suas `props` através da atribuição à propriedade especial `defaultProps`:
+Você pode definir valores padrão (default) para suas `props` através da atribuição à propriedade especial `defaultProps`:
 
 ```javascript
 class Greeting extends React.Component {
