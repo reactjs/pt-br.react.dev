@@ -20,9 +20,9 @@ JSX produz "elementos" do React. Nós iremos explorar a renderização para o DO
 
 ### Por que JSX? {#why-jsx}
 
-O React abraça o fato de que a lógica de renderização é inerentemente acoplada com outras lógicas de UI: como eventos são manipulados, como o state muda com o tempo, e como os dados são preparados para exibição.
+O React adota o fato de que a lógica de renderização é inerentemente acoplada com outras lógicas de UI: como eventos são manipulados, como o state muda com o tempo, e como os dados são preparados para exibição.
 
-Ao invés de separar *tecnologias* artificialmente colocando markup e lógica em arquivos separados, o React [separa *conceitos*](https://pt.wikipedia.org/wiki/Separa%C3%A7%C3%A3o_de_conceitos) com unidades livremente acopladas chamadas "componentes" que contém ambos. Voltaremos aos componentes em 
+Ao invés de separar *tecnologias* artificialmente colocando markup e lógica em arquivos separados, o React [separa *conceitos*](https://pt.wikipedia.org/wiki/Separa%C3%A7%C3%A3o_de_conceitos) com unidades pouco acopladas chamadas "componentes" que contém ambos. Voltaremos aos componentes em 
  [outra seção](/docs/components-and-props.html), mas se você ainda não está confortável em usar markup em JS, [esta talk](https://www.youtube.com/watch?v=x7cQ3mrcKaY) pode convencer você do contrário.
 
 O React [não requer](/docs/react-without-jsx.html) o uso do JSX, mas a maioria das pessoas acha prático como uma ajuda visual quando se está trabalhando com uma UI dentro do código em JavaScript. Ele permite ao React mostrar mensagens mais úteis de erro e aviso.
@@ -71,11 +71,11 @@ ReactDOM.render(
 
 [](codepen://introducing-jsx)
 
-Separamos o JSX em múltiplas linhas para melhorar a legibilidade. Mesmo que não seja requerido, quando fizer isso, também recomendamos cercá-lo com parênteses para evitar as armadilhas da [inserção automática de ponto-e-vírgula](http://stackoverflow.com/q/2846283).
+Separamos o JSX em múltiplas linhas para melhorar a legibilidade. Mesmo que não seja obrigatório, quando fizer isso, também recomendamos colocar dentro de parênteses para evitar as armadilhas da [inserção automática de ponto-e-vírgula](http://stackoverflow.com/q/2846283).
 
 ### JSX Também é uma Expressão {#jsx-is-an-expression-too}
 
-Depois da compilação, as expressões em JSX se transformam em chamadas normais de funções em JavaScript e são avaliadas para objetos JavaScript.
+Depois da compilação, as expressões em JSX se transformam em chamadas normais de funções que retornam objetos JavaScript.
 
 Isto significa que você pode usar JSX dentro de condições `if` e laços `for`, atribuí-lo a variáveis, aceitá-lo como argumentos e retorná-los de funções:
 
@@ -110,7 +110,7 @@ Não envolva chaves com aspas quando estiver incorporando uma expressão JavaScr
 >
 >Por exemplo, `class` se transforma em [`className`](https://developer.mozilla.org/pt-BR/docs/Web/API/Element/className) em JSX, e `tabindex` se transforma em [`tabIndex`](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/tabIndex).
 
-### Especificando Filhos com JSX {#specifying-children-with-jsx}
+### Especificando Elementos Filhos com JSX {#specifying-children-with-jsx}
 
 Se uma tag está vazia, você pode fechá-la imediatamente com `/>`, como XML:
 
@@ -118,7 +118,7 @@ Se uma tag está vazia, você pode fechá-la imediatamente com `/>`, como XML:
 const element = <img src={user.avatarUrl} />;
 ```
 
-Tags JSX podem conter filhos:
+Tags JSX podem conter elementos filhos:
 
 ```js
 const element = (
@@ -182,4 +182,4 @@ Exploraremos a renderização de elementos React no DOM na próxima seção.
 
 >**Dica:**
 >
->Recomendamos o uso da [definição de linguagem "Babel"](http://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX seja devidamente realçados. Este website usa o esquema de cores [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) no qual é compatível o mesmo.
+>Recomendamos o uso da [definição de linguagem "Babel"](http://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados. Este website usa o esquema de cores [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) no qual é compatível o mesmo.
