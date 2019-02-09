@@ -110,15 +110,15 @@ Não envolva chaves com aspas quando estiver incorporando uma expressão JavaScr
 >
 >Por exemplo, `class` se transforma em [`className`](https://developer.mozilla.org/pt-BR/docs/Web/API/Element/className) em JSX, e `tabindex` se transforma em [`tabIndex`](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/tabIndex).
 
-### Specifying Children with JSX {#specifying-children-with-jsx}
+### Especificando Filhos com JSX {#specifying-children-with-jsx}
 
-If a tag is empty, you may close it immediately with `/>`, like XML:
+Se uma tag está vazia, você pode fechá-la imediatamente com `/>`, como XML:
 
 ```js
 const element = <img src={user.avatarUrl} />;
 ```
 
-JSX tags may contain children:
+Tags JSX podem conter filhos:
 
 ```js
 const element = (
@@ -129,9 +129,9 @@ const element = (
 );
 ```
 
-### JSX Prevents Injection Attacks {#jsx-prevents-injection-attacks}
+### JSX Previne Ataques de Injeção {#jsx-prevents-injection-attacks}
 
-It is safe to embed user input in JSX:
+É seguro incorporar entradas de usuário em JSX:
 
 ```js
 const title = response.potentiallyMaliciousInput;
@@ -139,13 +139,13 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-By default, React DOM [escapes](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that's not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks.
+Por padrão, o React DOM [escapa](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) quaisquer valores incorporados no JSX antes de renderizá-los. Assim, assegura que você nunca injete algo que não esteja explicitamente escrito na sua aplicação. Tudo é convertido para string antes de ser renderizado. Isso ajuda a prevenir ataques [XSS (cross-site-scripting)](https://pt.wikipedia.org/wiki/Cross-site_scripting).
 
-### JSX Represents Objects {#jsx-represents-objects}
+### JSX Representa Objetos {#jsx-represents-objects}
 
-Babel compiles JSX down to `React.createElement()` calls.
+O Babel compila JSX para chamadas `React.createElement()`.
 
-These two examples are identical:
+Estes dois exemplos são idênticos:
 
 ```js
 const element = (
@@ -163,10 +163,10 @@ const element = React.createElement(
 );
 ```
 
-`React.createElement()` performs a few checks to help you write bug-free code but essentially it creates an object like this:
+`React.createElement()` realiza algumas verificações para ajudar você a criar um código sem bugs, mas, essencialmente, cria um objeto como este:
 
 ```js
-// Note: this structure is simplified
+// Nota: esta estrutura está simplificada
 const element = {
   type: 'h1',
   props: {
@@ -176,10 +176,10 @@ const element = {
 };
 ```
 
-These objects are called "React elements". You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+Estes objetos são chamados "Elementos React". Você pode imaginá-los como descrições do que você quer ver na tela. O React lê esses objetos e os usa para construir o DOM e deixá-lo atualizado.
 
-We will explore rendering React elements to the DOM in the next section.
+Exploraremos a renderização de elementos React no DOM na próxima seção.
 
->**Tip:**
+>**Dica:**
 >
->We recommend using the ["Babel" language definition](http://babeljs.io/docs/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted. This website uses the [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) color scheme which is compatible with it.
+>Recomendamos o uso da [definição de linguagem "Babel"](http://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX seja devidamente realçados. Este website usa o esquema de cores [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) no qual é compatível o mesmo.
