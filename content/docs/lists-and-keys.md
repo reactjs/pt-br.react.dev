@@ -20,7 +20,7 @@ Esse código imprime `[2, 4, 6, 8, 10]` no console.
 
 No React, transformar arrays em listas de [elementos](/docs/rendering-elements.html) é praticamente idêntico a isso.
 
-### Renderizando Múltiplos Componentes {#rendering-multiple-components}
+### Renderizando Múltiplos Componentes {#renderizando-multiplos-componentes}
 
 Você pode criar coleções de elementos e [adicioná-los no JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) usando chaves `{}`.
 
@@ -46,7 +46,7 @@ ReactDOM.render(
 
 Esse código mostra uma lista não ordenada de números entre 1 e 5.
 
-### Componente Básico de Lista {#basic-list-component}
+### Componente de Lista Básico {#componente-de-lista-basico}
 
 Geralmente você irá renderizar listas dentro de um [componente](/docs/components-and-props.html).
 
@@ -96,7 +96,7 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
 
-## Chaves {#keys}
+## Chaves {#chaves}
 
 As chaves ajudam o React a identificar quais itens sofreram alterações, foram adicionados ou removidos. As chaves devem ser atribuídas aos elementos dentro do array para dar uma identidade estável aos elementos:
 
@@ -134,7 +134,7 @@ Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alt
 
 Aqui você poderá ver [uma explicação aprofundada sobre o porquê o uso das chaves é necessário](/docs/reconciliation.html#recursing-on-children) caso você esteja interessado em aprender mais sobre isso.
 
-### Extrair Componentes com Chaves {#extracting-components-with-keys}
+### Extrair Componentes com Chaves {#extrair-componentes-com-chaves}
 
 As chaves apenas fazem sentido no contexto do array que está encapsulando os itens.
 
@@ -206,7 +206,7 @@ ReactDOM.render(
 
 Por via de regra, os elementos dentro de uma função `map()` devem especificar chaves.
 
-### Chaves devem ser Únicas apenas entre Elementos Irmãos {#keys-must-only-be-unique-among-siblings}
+### Chaves devem ser Únicas apenas entre Elementos Irmãos {#chaves-devem-ser-unicas-apenas-entre-elementos-irmaos}
 
 Chaves usadas nos arrays devem ser únicas entre seus elementos irmãos. Contudo elas não precisam ser únicas globalmente. Podemos usar as mesmas chaves ao criar dois arrays diferentes:
 
@@ -261,7 +261,7 @@ const content = posts.map((post) =>
 
 No exemplo acima, o componente `Post` pode acessar `props.id`. Mas, não pode acessar `props.key`.
 
-### Incluindo map() no JSX {#embedding-map-in-jsx}
+### Incluindo map() no JSX {#incluindo-map-no-jsx}
 
 Nos exemplos acima declaramos uma variável `listItems` separada e adicionamos ela no JSX:
 
