@@ -353,7 +353,7 @@ function MyComponent() {
 
 Isto está documentado em nosso [guia para *code splitting*](/docs/code-splitting.html#reactlazy). Note que componentes `lazy` podem estar em níveis profundos dentro da árvore de `Suspense` -- ele não precisa envolver cada um deles. A melhor prática é colocar `<Suspense>` onde você quer ver um indicador de carregamento, mas utilizar `lazy()` onde você quiser realizar *code splitting*.
 
-Enquanto isto ainda não é suportado, no futuro nós planejamos permitir que `Suspense` lide com mais cenários como busca de dados. Você pode ler sobre isso em [nosso *roadmap*](/blog/2018/11/27/react-16-roadmap.html).
+Enquanto o React não presta suporte a isto, no futuro nós planejamos permitir que `Suspense` lide com mais cenários como busca de dados. Você pode ler sobre isso em [nosso *roadmap*](/blog/2018/11/27/react-16-roadmap.html).
 
 > Nota
 >
