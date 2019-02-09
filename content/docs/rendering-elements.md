@@ -72,4 +72,4 @@ Você pode observar isso inspecionando o [último exemplo](codepen://rendering-e
 
 Embora nós criemos um elemento descrevendo toda a estrutura da interface a cada segundo, somente o nó de texto cujo conteúdo muda é atualizado pelo React DOM.
 
-Em nossa experiência, pensar em como a interface deve estar em um determinado momento, ao invés de pensar como modificá-la com o tempo, evita uma série de bugs.
+Em nossa experiência, pensar em como a interface deve estar em um determinado momento, ao invés de pensar como modificá-la com o tempo, evita uma série de erros.
