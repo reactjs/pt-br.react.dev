@@ -33,15 +33,15 @@ Você não precisa completar todas as seções de uma vez para obter o valor des
 
 Não há problema em copiar e colar o código enquanto você acompanha o tutorial, mas recomendamos que você o digite à mão. Isso ajudará você a desenvolver uma memória muscular e um entendimento mais forte.
 
-### What Are We Building? {#what-are-we-building}
+### O que estamos construindo? {#what-are-we-building}
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+Neste tutorial, mostraremos como criar um jogo interativo de jogo-da-velha com React.
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+Você pode ver o que vamos construir aqui: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se o código não fizer sentido para você, ou se você não estiver familiarizado com a sintaxe do código, não se preocupe! O objetivo deste tutorial é ajudá-lo a entender React e sua sintaxe.
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and is updated as the game progresses.
+Recomendamos que você confira o jogo tic-tac-toe antes de continuar com o tutorial. Uma das características que você notará é que existe uma lista numerada à direita do tabuleiro do jogo. Esta lista fornece um histórico de todas as jogadas que ocorreram no jogo e é atualizada à medida que o jogo avança.
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+Você pode fechar o jogo jogo da velha assim que estiver familiarizado com ele. Começaremos a partir de um modelo mais simples neste tutorial. Nosso próximo passo é prepará-lo para que você possa começar a construir o jogo.
 
 ### Prerequisites {#prerequisites}
 
