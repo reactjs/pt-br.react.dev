@@ -10,7 +10,7 @@ Este guia de referência documenta o agregador `SyntheticEvent` (evento sintéti
 
 ## Visão geral {#visao-geral}
 
-Os manipuladores de evento (_event handlers_) serão passados como instâncias do `SyntheticEvent`, um agregador _cross-browser_ que envolve os eventos nativos do navegador. Ambos tem a mesma interface, incluindo `stopPropagation()` e `preventDefault()`, considerando que os eventos funcionem de forma idêntica entre os navegadores.
+Os manipuladores de evento (_event handlers_) serão passados como instâncias do `SyntheticEvent`, um agregador _cross-browser_ que envolve os eventos nativos do navegador. Ambos tem a mesma interface, incluindo `stopPropagation()` e `preventDefault()`, porém funcionam de forma idêntica em todos os navegadores.
 
 Caso você pense, por algum motivo, que precisa do evento original do navegador, basta utilizar o atributo `nativeEvent` para acessá-lo. Cada objeto do `SyntheticEvent` tem os seguintes atributos:
 
