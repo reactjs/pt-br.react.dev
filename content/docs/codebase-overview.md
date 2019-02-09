@@ -152,15 +152,15 @@ module.exports = ReactHostComponent;
 
 O campo `injection` não é tratado de maneira especial. Mas por convenção, isso significa que este módulo quer ter algumas dependências (presumivelmente específicas da plataforma) injetadas em tempo de execução.
 
-There are multiple injection points in the codebase. In the future, we intend to get rid of the dynamic injection mechanism and wire up all the pieces statically during the build.
+Existem vários pontos de injeção na código-base. No futuro, pretendemos nos livrar do mecanismo de injeção dinâmica e conectar todas as peças estaticamente durante a construção.
 
-### Multiple Packages {#multiple-packages}
+### Pacotes Múltiplos {#multiple-packages}
 
-React is a [monorepo](http://danluu.com/monorepo/). Its repository contains multiple separate packages so that their changes can be coordinated together, and issues live in one place.
+React é um [monorepo](http://danluu.com/monorepo/). Seu repositório contém vários pacotes separados para que suas alterações possam ser coordenadas em conjunto e os problemas residam em um só lugar.
 
-### React Core {#react-core}
+### Núcleo React {#react-core}
 
-The "core" of React includes all the [top-level `React` APIs](/docs/top-level-api.html#react), for example:
+O "núcleo" do React inclui todas as [`React` APIs de nível superior](/docs/top-level-api.html#react), por exemplo:
 
 * `React.createElement()`
 * `React.Component`
@@ -174,21 +174,21 @@ The code for React core is located in [`packages/react`](https://github.com/face
 
 React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](http://facebook.github.io/react-native/). This introduced the concept of "renderers" to React internals.
 
-**Renderers manage how a React tree turns into the underlying platform calls.**
+**Os renderizadores gerenciam como uma árvore React se transforma nas chamadas de plataforma subjacentes.**
 
-Renderers are also located in [`packages/`](https://github.com/facebook/react/tree/master/packages/):
+Renderizadores tambéms são encontrados em [`packages/`](https://github.com/facebook/react/tree/master/packages/):
 
-* [React DOM Renderer](https://github.com/facebook/react/tree/master/packages/react-dom) renders React components to the DOM. It implements [top-level `ReactDOM` APIs](/docs/react-dom.html) and is available as [`react-dom`](https://www.npmjs.com/package/react-dom) npm package. It can also be used as standalone browser bundle called `react-dom.js` that exports a `ReactDOM` global.
-* [React Native Renderer](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renders React components to native views. It is used internally by React Native.
-* [React Test Renderer](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renders React components to JSON trees. It is used by the [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) feature of [Jest](https://facebook.github.io/jest) and is available as [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) npm package.
+* [React Renderizador de DOM](https://github.com/facebook/react/tree/master/packages/react-dom) renderiza componentes React para o DOM. Implementa [`React` APIs de nível superior](/docs/react-dom.html) e está disponível como pacote npm [`react-dom`](https://www.npmjs.com/package/react-dom). Ele também pode ser usado como um pacote de navegador autônomo chamado `react-dom.js` que exporta um global do `ReactDOM`.
+* [Renderizador React Native](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renderiza componentes React para views nativas. É usado internamente pelo React Native.
+* [Renderizador de testes React](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renderiza componentes React para árvores JSON. É usado pelo [teste de Snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) atributo do [Jest](https://facebook.github.io/jest) e está disponível como pacote npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) .
 
-The only other officially supported renderer is [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). It used to be in a separate [GitHub repository](https://github.com/reactjs/react-art) but we moved it into the main source tree for now.
+O outro único renderizador oficialmente suportado é o [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). Costumava estar em um [repositorio GitHub](https://github.com/reactjs/react-art) separado mas nós os movemos para a árvore de código principal.
 
 >**Note:**
 >
->Technically the [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) is a very thin layer that teaches React to interact with React Native implementation. The real platform-specific code managing the native views lives in the [React Native repository](https://github.com/facebook/react-native) together with its components.
+>Tecnicamente o [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) é uma camada muito fina que ensina o React a interagir com a implementação do React Native. O código específico da plataforma real que gerencia as views nativas reside no [repositório do React Native](https://github.com/facebook/react-native) junto com seus componentes.
 
-### Reconcilers {#reconcilers}
+### Reconciliadores {#reconcilers}
 
 Even vastly different renderers like React DOM and React Native need to share a lot of logic. In particular, the [reconciliation](/docs/reconciliation.html) algorithm should be as similar as possible so that declarative rendering, custom components, state, lifecycle methods, and refs work consistently across platforms.
 
