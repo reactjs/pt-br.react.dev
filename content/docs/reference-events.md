@@ -68,7 +68,7 @@ function onClick(event) {
 
 O React normaliza eventos para que se possa ter propriedades consistentes entre os navegadores.
 
-Os manipuladores de evento (_event handlers_) abaixo são acionados por um evento na fase de bolha (_bubbling_). Para registrar um manipulador de evento para a fase de captura, adicione `Capture` como sufixo do nome do evento. Por exemplo, ao invés de usar `onClick`, você usaria `onClickCapture` para manipular o evento de clique na fase de captura.
+Os manipuladores de evento (_event handlers_) abaixo são acionados por um evento na fase de propagação (_bubbling_). Para registrar um manipulador de evento para a fase de captura, adicione `Capture` como sufixo do nome do evento. Por exemplo, ao invés de usar `onClick`, você usaria `onClickCapture` para manipular o evento de clique na fase de captura.
 
 - [Eventos do Clipboard](#eventos-do-clipboard)
 - [Eventos de Composição (Composition)](#eventos-de-composicao)
