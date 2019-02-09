@@ -49,7 +49,7 @@ O `React` provê várias *API*s para manipulação de elementos:
 
 ### Fragments {#fragments}
 
-`React` também provê um componente para renderizar múltiplos elementos sem um invólucro.
+O `React` também provê um componente para que você possa renderizar múltiplos elementos sem a necessidade de criar outro elemento que os envolva.
 
 - [`React.Fragment`](#reactfragment)
 
@@ -60,14 +60,14 @@ O `React` provê várias *API*s para manipulação de elementos:
 
 ### Suspense {#suspense}
 
-*Suspense* permite que componentes "esperem" por algo antes de renderizar. Atualmente, *Suspense* suporta somente somente um caso de uso: [carregando componentes dinamicamente com `React.lazy`](/docs/code-splitting.html#reactlazy). Futuramente, ele suportará outros casos de uso, como busca de dados.
+O *Suspense* permite que componentes "esperem" por algo antes de renderizar. Atualmente, o *Suspense* suporta somente uma finalidade: [carregar componentes dinamicamente com `React.lazy`](/docs/code-splitting.html#reactlazy). Futuramente, ele prestará suporte para outras finalidades, como busca de dados.
 
 - [`React.lazy`](#reactlazy)
 - [`React.Suspense`](#reactsuspense)
 
 ### Hooks {#hooks}
 
-*Hooks* são uma novidade no React 16.8. Eles permitem que você utilize estado e outras funcionalidades do React sem ter que escrever uma classe para isso. *Hooks* possuem uma [seção dedicada na documentação](/docs/hooks-intro.html) e uma referência da *API* separada:
+Os *Hooks* são uma novidade no React 16.8. Eles permitem que você utilize o estado (*state*) e outras funcionalidades do React sem ter que escrever uma classe para isso. Os *Hooks* possuem uma [seção dedicada na documentação](/docs/hooks-intro.html) e uma referência da *API* separada:
 
 - [*Hooks* Básicos](/docs/hooks-reference.html#basic-hooks)
   - [`useState`](/docs/hooks-reference.html#usestate)
@@ -98,7 +98,7 @@ class Greeting extends React.Component {
 }
 ```
 
-Veja a [referência da *API* para React.Component](/docs/react-component.html) para uma lista de métodos e propriedades relacionadas à classe base `React.Component`.
+Consulte a [referência da *API* para React.Component](/docs/react-component.html) para ver uma lista de métodos e propriedades relacionadas à classe base `React.Component`.
 
 * * *
 
@@ -137,7 +137,7 @@ function MyComponent(props) {
 function areEqual(prevProps, nextProps) {
   /*
   retorne true se passar nextProps renderizaria o mesmo
-  resultado se passasse prevProps,
+  resultado se passasse prevProps.
   do contrário, retorne false
   */
 }
@@ -197,7 +197,7 @@ Esta *API* foi introduzida como uma reposição ao `React.addons.cloneWithProps(
 ```javascript
 React.createFactory(type)
 ```
-Retorna uma função que produz elementos React de um dado tipo. Assim como em [`React.createElement()`](#createElement), o argumento `type` pode ser uma *string* contendo o *tag name* (como, por exemplo, `'div'` ou `'span'`), um [componente React](/docs/components-and-props.html) (uma classe ou uma função), ou um [React *fragment*](#reactfragment).
+Retorna uma função que produz elementos React do tipo determinado. Assim como em [`React.createElement()`](#createElement), o argumento `type` pode ser uma *string* contendo o *tag name* (como, por exemplo, `'div'` ou `'span'`), um [componente React](/docs/components-and-props.html) (uma classe ou uma função), ou um [React *fragment*](#reactfragment).
 
 Este *helper* é considerado legado, e nós encorajamos você a utilizar JSX ou `React.createElement()` diretamente como alternativa.
 
