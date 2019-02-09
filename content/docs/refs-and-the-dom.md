@@ -1,5 +1,5 @@
 ---
-id: refs-e-o-dom
+id: refs-and-the-dom
 title: Refs e o DOM
 redirect_from:
   - "docs/working-with-the-browser.html"
@@ -17,7 +17,7 @@ Em um fluxo de dados típico do React, as [props](/docs/components-and-props.htm
 
 ### Quando usar Refs {#quando-usar-refs}
 
-Existem alguns bons casos de uso para refs:
+Existem algumas boas finalidades para o uso de refs:
 
 - Geranciamento de foco, seleção de texto, ou reprodução de mídia.
 - Engatilhar animações imperativas.
@@ -27,7 +27,7 @@ Evite usar refs para qualquer coisa que possa ser feita de forma declarativa.
 
 Por exemplo, ao invés de expôr os métodos `open()` e `close()` em um componente `Dialog`, passe a propriedade `isOpen` para ele.
 
-### Não utilize Refs excessivamente {#nao-utilize-refs-excessivamente}
+### Não utilize Refs excessivamente {#dont-overuse-refs}
 
 Sua primeira atitude talvez seja usar refs para "fazer as coisas acontecerem" no seu app. Se este é o caso,
 tire um momento para pensar de forma mais crítica sobre onde o estado deveria ser mantido na hierarquia dos seus componentes. Frequentemente, isso torna claro que o lugar apropriado para "manter" o estado é no nível mais alto da hierarquia. Veja o guia [Subindo o Estado](/docs/lifting-state-up.html) para ver exemplos.
@@ -36,7 +36,7 @@ tire um momento para pensar de forma mais crítica sobre onde o estado deveria s
 >
 > Os exemplos abaixo foram atualizados para usar a API `React.createRef()` introduzida no React 16.3. Se você está utilizando uma versão anterior do React, nós recomendamos usar [refs com callbacks](#refs-com-callback).
 
-### Criando Refs {#criando-refs}
+### Criando Refs {#creating-refs}
 
 Refs são criadas usando `React.createRef()` e anexadas aos elementos React por meio do atributo `ref`. As Refs são comumente atribuídas a uma propriedade de instância quando um componente é construído para que então elas possam ser referenciadas por todo o componente.
 
@@ -274,8 +274,8 @@ Se você trabalhou com React antes, você deve estar familiarizado com uma antig
 
 > Nota
 >
-> Se você está usando `this.refs.textInput` para acessar refs, nós recomendamos ao invés disso utilizar o [padrão de callback](#refs-com-callback) ou a [API `createRef`](#criando-refs).
+> Se você está usando `this.refs.textInput` para acessar refs, nós recomendamos ao invés disso utilizar o [padrão de callback](#refs-com-callback) ou a [API `createRef`](#creating-refs).
 
-### Ressalvas com refs com callback {#ressalvas-com-refs-com-callback}
+### Ressalvas com refs com callback {#caveats-with-callback-refs}
 
 Se a `ref` com callback é definida como uma função inline, ela será chamada duas vezes durante as atualizações, primeiro com `null` e então novamente com o elemento DOM. Isto porquê uma nova instância da função é criada com cada renderização, então o React precisa limpar a referência antiga e atribuir a nova. Você pode evitar isso definindo a `ref` com callback como um método ligado a classe, mas note que isto não deveria importar na maioria dos casos.
