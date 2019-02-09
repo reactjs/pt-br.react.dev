@@ -16,7 +16,7 @@ Você pode habilitar o modo estrito para qualquer parte da sua aplicação, por 
 No exemplo acima, as verificações do modo estrito *não* serão executadas nos componentes `Header` e `Footer`. No entanto, `ComponentOne` e `ComponentTwo`, assim como todos os seus componentes descendentes, serão verificados.
 
 O modo estrito ajuda atualmente com:
-* [Identificar métodos de ciclo de vida (lifecycles) inseguros](#identifying-unsafe-lifecycles)
+* [Identificação de métodos de ciclo de vida (lifecycles) inseguros](#identifying-unsafe-lifecycles)
 * [Avisos em relação ao uso da antiga string ref API](#warning-about-legacy-string-ref-api-usage)
 * [Avisos em relação ao uso do depreciado findDOMNode](#warning-about-deprecated-finddomnode-usage)
 * [Detectar efeitos colaterais (side effects) inesperados](#detecting-unexpected-side-effects)
