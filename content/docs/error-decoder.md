@@ -1,9 +1,11 @@
 ---
 id: error-decoder
-title: Error Decoder
+title: Decodificador de Erros
 permalink: docs/error-decoder.html
 ---
 
-In the minified production build of React, we avoid sending down full error messages in order to reduce the number of bytes sent over the wire.
+Para reduzir o número de bytes enviados pela rede, nós evitamos enviar mensagens de erro completas na build minificada para produção do React.
 
-We highly recommend using the development build locally when debugging your app since it tracks additional debug info and provides helpful warnings about potential problems in your apps, but if you encounter an exception while using the production build, this page will reassemble the original text of the error.
+Recomendamos fortemente a utilização local da build de desenvolvimento para depurar seu aplicativo, uma vez que ela monitora informações
+adicionais de depuração e disponibiliza avisos úteis sobre potenciais problemas nos seus aplicativos. No entanto, caso se depare com uma exceção
+na build de produção, essa página irá remontar o texto original do erro.
