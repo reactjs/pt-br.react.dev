@@ -31,13 +31,13 @@ Esta é **a maneira mais fácil de integrar React a um site já existente.** Voc
 A equipe React recomenda principalmente as seguintes soluções:
 
 - Se você está **aprendendo React** ou **criando um novo [single-page](/docs/glossary.html#single-page-application) app,** use [Create React App](#create-react-app). 
-- Se você está fazendo um **site renderizado-no-servidor (SSR) com Node.js,** tente [Next.js](#nextjs).
+- Se você está fazendo um **site renderizado no servidor (SSR) com Node.js,** tente [Next.js](#nextjs).
 - Se você está fazendo um **site estático orientado a conteúdo,** experimente [Gatsby](#gatsby).
 - Se você está montando uma **biblioteca de componentes** ou **integrando com um código-base existente**, veja [Toolchains Mais Flexíveis](#more-flexible-toolchains).
 
 ### Create React App {#create-react-app}
 
-[Create React App](http://github.com/facebookincubator/create-react-app) é um ambiente confortável para **aprender React**, e é a melhor maneira de começar uma **[single-page](/docs/glossary.html#single-page-application) application** em React. 
+[Create React App](http://github.com/facebookincubator/create-react-app) é um ambiente confortável para **aprender React**, e é a melhor maneira de começar um **[single-page](/docs/glossary.html#single-page-application) application** em React. 
 
 Além de configurar seu ambiente de desenvolvimento para utilizar as funcionalidades mais recentes do JavaScript, ele fornece uma experiência de desenvolvimento agradável, e otimiza o seu app para produção. Será necessário ter Node >= 6 e npm >= 5.2 na sua máquina. Para criar um novo projeto, rode:
 
@@ -77,7 +77,7 @@ As seguintes toolchains oferecem mais flexibilidade e escolha. Nós as recomenda
 
 - **[Parcel](https://parceljs.org/)** é um bundler de aplicativos web rápido e sem configuração que [funciona com React](https://parceljs.org/recipes.html#react). 
 
-- **[Razzle](https://github.com/jaredpalmer/razzle)** é um framework renderizado-no-servidor que não requer configuração, porém oferece mais flexibilidade que o Next.js.
+- **[Razzle](https://github.com/jaredpalmer/razzle)** é um framework renderizado no servidor que não requer configuração, porém oferece mais flexibilidade que o Next.js.
 
 ## Criando uma Toolchain do Zero {#creating-a-toolchain-from-scratch} 
 
