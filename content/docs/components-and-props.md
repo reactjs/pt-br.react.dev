@@ -48,7 +48,7 @@ Classes tem alguns recursos adicionais que nós discutiremos nas [próximas seç
 
 ## Renderizando um Componente {#rendering-a-component}
 
-Anteriormente, nós apenas encontramos elementos React que representam tags DOM:
+Anteriormente, nós encontramos apenas elementos React que representam tags do DOM:
 
 ```js
 const element = <div />;
