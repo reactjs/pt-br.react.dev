@@ -15,7 +15,7 @@ import ReactDOMServer from 'react-dom/server';
 var ReactDOMServer = require('react-dom/server');
 ```
 
-## Visão Geral {#overview}
+## Visão Geral {#visao-geral}
 
 Os métodos a seguir podem ser usados tanto em ambiente de servidor como de navegador:
 
@@ -29,7 +29,7 @@ Estes métodos adicionais dependem do pacote (`stream`) que **só está disponí
 
 * * *
 
-## Referência {#reference}
+## Referência {#referencia}
 
 ### `renderToString()` {#rendertostring}
 
