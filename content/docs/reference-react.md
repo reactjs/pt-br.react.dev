@@ -318,7 +318,7 @@ Para mais informações, veja [encaminhando *refs*](/docs/forwarding-refs.html).
 
 `React.lazy()` permite que você defina um componente que é carregado dinamicamente. Isto ajuda a reduzir o tamanho do *bundle*, retardando o carregamento de componentes que não são utilizados durante a renderização inicial.
 
-Você pode aprender como utilizar isto em nossa [documentação de *code splitting*](/docs/code-splitting.html#reactlazy). Você pode também querer ver [este artigo](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) explicando como utilizar em mais detalhe.
+Você pode aprender como utilizar isto em nossa [documentação de *code splitting*](/docs/code-splitting.html#reactlazy). Você pode também querer ver [este artigo](https://medium.com/@pomber/lazy-loading-and-preloading-components-in-react-16-6-804de091c82d) explicando como utilizar mais detalhadamente.
 
 ```js
 // Este componente é carregado dinamicamente
