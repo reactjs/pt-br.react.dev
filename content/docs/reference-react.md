@@ -30,7 +30,7 @@ Os componentes em React também podem ser definidos como funções que podem ser
 
 - [`React.memo`](#reactmemo)
 
-### Criando Elementos React {#creating-react-elements}
+### Criando Elementos em React {#creating-react-elements}
 
 Nós recomendamos [utilizar o JSX](/docs/introducing-jsx.html) para descrever como sua UI deve se parecer. Cada elemento JSX é somente uma maneira alternativa de utilizar o [`React.createElement()`](#createelement). Em geral você não vai utilizar os métodos seguintes caso esteja usando JSX.
 
