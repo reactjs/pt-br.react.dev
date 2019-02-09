@@ -15,21 +15,21 @@ import ReactDOMServer from 'react-dom/server';
 var ReactDOMServer = require('react-dom/server');
 ```
 
-## Visão Geral {#visao-geral}
+## Visão Geral {#overview}
 
 Os métodos a seguir podem ser usados tanto em ambiente de servidor como de navegador:
 
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-Estes métodos adicionais dependem do pacote (`stream`) que **só está disponível no servidor**, e não irão funcionar no navegador.
+Estes métodos adicionais dependem do pacote (`stream`) que **só está disponível no servidor** e não irão funcionar no navegador.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
 
 * * *
 
-## Referência {#referencia}
+## Referência {#reference}
 
 ### `renderToString()` {#rendertostring}
 
