@@ -112,7 +112,7 @@ Se o método `render()` do seu componente React renderiza o mesmo resultado dado
 >
 > O método `shouldComponentUpdate()` do `React.PureComponent` compara os objetos apenas superficialmente. Se eles contiverem estruturas de dados complexas, isto pode causar falso-negativos para diferenças mais profundas. Estenda `PureComponent` quando você espera possuir props e state simples, ou então use [`forceUpdate()`](/docs/react-component.html#forceupdate) quando você souber que ocorreram mudanças profundas na estrutura de dados.
 >
-> Além disso, o método `shouldComponentUpdate()` de `React.PureComponent` pula atualizações de prop para toda a subárvore do componente. Esteja certo de que todos seus componentes filho são também são "puros".
+> Além disso, o método `shouldComponentUpdate()` do `React.PureComponent` pula atualizações de prop para toda a subárvore do componente. Esteja certo de que todos seus componentes que descendem dele também são "puros".
 
 * * *
 
