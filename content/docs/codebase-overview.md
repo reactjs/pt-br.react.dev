@@ -8,8 +8,8 @@ next: implementation-notes.html
 redirect_from:
   - "contributing/codebase-overview.html"
 ---
-
-Esta seção fornecerá uma visão geral da organização da base de código React, suas convenções e implementação.
+<!-- OBS: Perguntei na issue do "glossário" como codebase ficaria em ptbr e disseram código-base ao invés de base de código, se ficar muito estranho por favor avisem :like: -->
+Esta seção fornecerá uma visão geral da organização da código-base React, suas convenções e implementação.
 
 Se você quer [contribuir para o React](/docs/how-to-contribute.html), esperamos que este guia ajude você a se sentir mais à vontade para fazer mudanças.
 
@@ -17,7 +17,7 @@ Não recomendamos necessariamente nenhuma dessas convenções nos aplicativos Re
 
 ### Dependências Externas {#external-dependencies}
 
-O React quase não tem dependências externas. Geralmente, um `require ()` aponta para um arquivo na própria base de código do React. No entanto, existem algumas exceções relativamente raras.
+O React quase não tem dependências externas. Geralmente, um `require ()` aponta para um arquivo na própria código-base do React. No entanto, existem algumas exceções relativamente raras.
 
 O repositório [fbjs](https://github.com/facebook/fbjs) existe porque o React compartilha alguns pequenos utilitários com bibliotecas como [Relay](https://github.com/facebook/relay), e nós os mantemos em sincronia.Não dependemos de módulos pequenos equivalentes no ecossistema do Node porque queremos que os engenheiros do Facebook possam fazer alterações neles sempre que necessário.  Nenhum dos utilitários dentro dos fbjs são considerados APIs públicas, e são destinados apenas para uso por projetos do Facebook, como o React.
 
@@ -34,30 +34,30 @@ A documentação está hospedada [em um repositório separado do React](https://
 
 Existem algumas outras pastas de nível superior, mas elas são usadas principalmente para as ferramentas e você provavelmente nunca as encontrará ao contribuir.
 
-### Colocated Tests {#colocated-tests}
+### Testes Colocados {#colocated-tests}
 
-We don't have a top-level directory for unit tests. Instead, we put them into a directory called `__tests__` relative to the files that they test.
+Nós não temos um diretório de nível superior para testes unitários. Em vez disso, nós os colocamos em um diretório chamado `__tests__` relativo aos arquivos que eles testam.
 
-For example, a test for [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) is located in [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) right next to it.
+Por exemplo, um teste para [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) está localizado em [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) ao lado dele.
 
-### Warnings and Invariants {#warnings-and-invariants}
+### Avisos e Invariantes {#warnings-and-invariants}
 
-The React codebase uses the `warning` module to display warnings:
+A código-base React usa o módulo `warning` para exibir avisos:
 
 ```js
 var warning = require('warning');
 
 warning(
   2 + 2 === 4,
-  'Math is not working today.'
+  'A matemática não está funcionando hoje.'
 );
 ```
 
-**The warning is shown when the `warning` condition is `false`.**
+**O aviso é mostrado quando a condição `warning` é `false`.**
 
-One way to think about it is that the condition should reflect the normal situation rather than the exceptional one.
+Uma maneira de pensar sobre isso é que a condição deve refletir a situação normal e não a excepcional.
 
-It is a good idea to avoid spamming the console with duplicate warnings:
+É uma boa ideia evitar spam no console com avisos duplicados:
 
 ```js
 var warning = require('warning');
@@ -66,48 +66,48 @@ var didWarnAboutMath = false;
 if (!didWarnAboutMath) {
   warning(
     2 + 2 === 4,
-    'Math is not working today.'
+  'A matemática não está funcionando hoje.'
   );
   didWarnAboutMath = true;
 }
 ```
 
-Warnings are only enabled in development. In production, they are completely stripped out. If you need to forbid some code path from executing, use `invariant` module instead:
+Os avisos só são ativados no desenvolvimento. Na produção, eles são  retirados. Se você precisar proibir algum caminho de código de executar, use o módulo `invariant` em vez disso:
 
 ```js
 var invariant = require('invariant');
 
 invariant(
   2 + 2 === 4,
-  'You shall not pass!'
+  'Você não passará!'
 );
 ```
 
-**The invariant is thrown when the `invariant` condition is `false`.**
+**O invariant é lançado quando a condição `invariant` é `false`.**
 
-"Invariant" is just a way of saying "this condition always holds true". You can think about it as making an assertion.
+"Invariant" é apenas uma maneira de dizer "essa condição sempre é verdadeira". Você pode pensar nisso como fazer uma afirmação.
 
-It is important to keep development and production behavior similar, so `invariant` throws both in development and in production. The error messages are automatically replaced with error codes in production to avoid negatively affecting the byte size.
+É importante manter o comportamento de desenvolvimento e produção similares, então o `invariant` é lançado tanto no desenvolvimento quanto na produção. As mensagens de erro são substituídas automaticamente por códigos de erro em produção para evitar afetar negativamente o tamanho do byte.
 
-### Development and Production {#development-and-production}
+### Desenvolvimento e produção {#development-and-production}
 
-You can use `__DEV__` pseudo-global variable in the codebase to guard development-only blocks of code.
+Você pode usar a variável pseudo-global ` __DEV__` na código-base para proteger blocos de código apenas de desenvolvimento.
 
-It is inlined during the compile step, and turns into `process.env.NODE_ENV !== 'production'` checks in the CommonJS builds.
+Ele é embutido durante a etapa de compilação e se transforma em verificações `process.env.NODE_ENV! == 'production'` nos builds do CommonJS.
 
-For standalone builds, it becomes `true` in the unminified build, and gets completely stripped out with the `if` blocks it guards in the minified build.
+Para builds autônomas, ele se torna `true` na build não-minificada e é completamente eliminado com os blocos `if` que ele guarda na construção minificada.
 
 ```js
 if (__DEV__) {
-  // This code will only run in development.
+  // Esse código vai executar apenas no desenvolvimento.
 }
 ```
 
 ### Flow {#flow}
 
-We recently started introducing [Flow](https://flow.org/) checks to the codebase. Files marked with the `@flow` annotation in the license header comment are being typechecked.
+Recentemente, começamos a introduzir verificações [Flow](https://flow.org/) na código-base. Os arquivos marcados com a anotação `@ flow` no comentário do cabeçalho da licença estão sendo verificados com typecheck.
 
-We accept pull requests [adding Flow annotations to existing code](https://github.com/facebook/react/pull/7600/files). Flow annotations look like this:
+Aceitamos pull requests [adicionando anotações do Flow ao código existente](https://github.com/facebook/react/pull/7600/files). Anotações de fluxo são assim:
 
 ```js
 ReactRef.detachRefs = function(
@@ -118,8 +118,8 @@ ReactRef.detachRefs = function(
 }
 ```
 
-When possible, new code should use Flow annotations.
-You can run `yarn flow` locally to check your code with Flow.
+Quando possível, o novo código deve usar anotações do Flow.
+Você pode executar o `yarn flow` localmente para verificar seu código com o Flow.
 
 ### Dynamic Injection {#dynamic-injection}
 
