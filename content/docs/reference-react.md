@@ -144,7 +144,7 @@ function areEqual(prevProps, nextProps) {
 export default React.memo(MyComponent, areEqual);
 ```
 
-Este método somente existe como uma **[otimização de performance](/docs/optimizing-performance.html).** Não conte com ele para "prevenir" uma renderização, pois isso pode levar a *bugs*.
+Este método existe somente como uma **[otimização de performance](/docs/optimizing-performance.html).** Não conte com ele para "prevenir" uma renderização, pois isso pode levar a *bugs*.
 
 > Nota
 >
