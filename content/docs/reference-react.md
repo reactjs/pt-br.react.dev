@@ -357,4 +357,4 @@ Enquanto o React não presta suporte a isto, no futuro nós planejamos permitir 
 
 > Nota
 >
-> `React.lazy()` e `<React.Suspense>` ainda não são suportados por `ReactDOMServer`. Esta é uma limitação conhecida que será resolvida futuramente.
+> `React.lazy()` e `<React.Suspense>` ainda não tem suporte através do `ReactDOMServer`. Esta é uma limitação conhecida que será resolvida futuramente.
