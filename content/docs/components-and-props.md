@@ -87,7 +87,7 @@ Vamos recapitular o que acontece nesse exemplo:
 
 >**Nota:** Sempre inicie os nomes dos componentes com uma letra maiúscula.
 >
->O React trata componentes começando com letras minúsculas como tags DOM. Por exemplo, `<div />` representa uma tag div do HTML, mas `<Welcome />` representa um componente e requer que `Welcome` esteja no escopo.
+>O React trata componentes começando com letras minúsculas como tags do DOM. Por exemplo, `<div />` representa uma tag div do HTML, mas `<Welcome />` representa um componente e requer que `Welcome` esteja no escopo.
 >
 >Você pode ler mais sobre o raciocínio por trás dessa convenção [aqui.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
 
