@@ -318,56 +318,56 @@ Vamos recapitular rapidamente o que está acontencendo e a ordem na qual os mét
 
 5) Se o componente `Clock` for removido do DOM, o React chama o método do ciclo de vida `componentWillUnmount()` para que o temporizador seja interrompido.
 
-## Using State Correctly {#using-state-correctly}
+## Usando o estado corretamente {#usando-o-estado-corretamente}
 
-There are three things you should know about `setState()`.
+Existem três coisas que você deve saber sobre `setState()`.
 
-### Do Not Modify State Directly {#do-not-modify-state-directly}
+### Não modifique o estado diretamente {#nao-modifique-o-estado-diretamente}
 
-For example, this will not re-render a component:
+Por exemplo, isso não renderizará novamente o componente:
 
 ```js
-// Wrong
+// Errado
 this.state.comment = 'Hello';
 ```
 
-Instead, use `setState()`:
+Em vez disso, use `setState()`:
 
 ```js
-// Correct
+// Correto
 this.setState({comment: 'Hello'});
 ```
 
-The only place where you can assign `this.state` is the constructor.
+O único lugar onde você pode atribuir `this.state` é o construtor.
 
-### State Updates May Be Asynchronous {#state-updates-may-be-asynchronous}
+### Atualizações de estado podem ser assíncronas {#atualizacoes-de-estado-podem-ser-assincronas}
 
-React may batch multiple `setState()` calls into a single update for performance.
+O React pode agrupar várias chamadas `setState()` em uma única atualização para desempenho.
 
-Because `this.props` and `this.state` may be updated asynchronously, you should not rely on their values for calculating the next state.
+Como `this.props` e `this.state` podem ser atualizados de forma assíncrona, você não deve confiar em seus valores para calcular o próximo estado.
 
-For example, this code may fail to update the counter:
+Por exemplo, esse código pode falhar ao atualizar o contador:
 
 ```js
-// Wrong
+// Errado
 this.setState({
   counter: this.state.counter + this.props.increment,
 });
 ```
 
-To fix it, use a second form of `setState()` that accepts a function rather than an object. That function will receive the previous state as the first argument, and the props at the time the update is applied as the second argument:
+Para consertá-lo, use uma segunda forma de `setState()` que aceite uma função ao invés de um objeto. Essa função receberá o estado anterior como o primeiro argumento e as props no momento em que a atualização for aplicada como o segundo argumento:
 
 ```js
-// Correct
+// Correto
 this.setState((state, props) => ({
   counter: state.counter + props.increment
 }));
 ```
 
-We used an [arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) above, but it also works with regular functions:
+Usamos um [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions) acima, mas também funciona com funções regulares:
 
 ```js
-// Correct
+// Correto
 this.setState(function(state, props) {
   return {
     counter: state.counter + props.increment
@@ -375,11 +375,11 @@ this.setState(function(state, props) {
 });
 ```
 
-### State Updates are Merged {#state-updates-are-merged}
+### Atualizações de estado são mescladas {#atualizacoes-de-estado-sao-mescladas}
 
-When you call `setState()`, React merges the object you provide into the current state.
+Quando você chama `setState()`, o React mescla o objeto que você fornece ao estado atual.
 
-For example, your state may contain several independent variables:
+Por exemplo: seu estado pode conter várias variáveis independentes:
 
 ```js{4,5}
   constructor(props) {
@@ -391,7 +391,7 @@ For example, your state may contain several independent variables:
   }
 ```
 
-Then you can update them independently with separate `setState()` calls:
+Então você pode atualizá-los independentemente com chamadas separadas do `setState()`:
 
 ```js{4,10}
   componentDidMount() {
@@ -409,7 +409,7 @@ Then you can update them independently with separate `setState()` calls:
   }
 ```
 
-The merging is shallow, so `this.setState({comments})` leaves `this.state.posts` intact, but completely replaces `this.state.comments`.
+O merge é superficial, então `this.setState({comments})` deixa `this.state.posts` intacto, mas substitui completamente `this.state.comments`
 
 ## The Data Flows Down {#the-data-flows-down}
 
