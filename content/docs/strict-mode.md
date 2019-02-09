@@ -19,7 +19,7 @@ O modo estrito ajuda atualmente com:
 * [Identificação de métodos de ciclo de vida (lifecycles) inseguros](#identifying-unsafe-lifecycles)
 * [Avisos em relação ao uso da antiga string ref API](#warning-about-legacy-string-ref-api-usage)
 * [Avisos em relação ao uso do depreciado findDOMNode](#warning-about-deprecated-finddomnode-usage)
-* [Detectar efeitos colaterais (side effects) inesperados](#detecting-unexpected-side-effects)
+* [Detecção de efeitos colaterais (side effects) inesperados](#detecting-unexpected-side-effects)
 * [Detectar o uso da antiga API de contexto (Context API)](#detecting-legacy-context-api)
 
 Funcionalidades adicionais serão adicionadas em versões futuras do React.
