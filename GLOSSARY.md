@@ -1,125 +1,52 @@
-# ReactJS Brazilian Portuguese Glossary
+# Style Guide
 
-## General Rules 
-
-* Leave code blocks untranslated. (It is usually OK to translate comments inside them.) 
-* Strings inside HTML/JSX can also pass but use your best judgement
-* Links to references (MDN, Wikipedia) should go to the Portuguese version when available
-* Do not translate other links
-* Do not translate title anchors
+* Leave code blocks untranslated -- It is usually OK to translate comments and strings inside them.
+* Links to references (MDN, Wikipedia) should point to the Portuguese version.
 * When referring to `React` itself, use `o React`.
 
-## Content that doesn't need translation
+# Common Translations
 
-- | -    
--- | --
-array | mock
-arrow function | portal
-bind | props
-bundle | ref
-bundler | camelCase
-callback | DOM
-framework | hook
+Suggestion on words and terms:
 
+| Original word/term | Suggestion |
+| ------------------ | ---------- |
+| bubbling | ? |
+| bug | erro |
+| class | classe |
+| context | contexto |
+| controlled component | componente controlado |
+| debugging | depuração|
+| functional component | componente funcional |
+| key | chave |
+| library | biblioteca |
+| lowercase | minúscula(s) / caixa baixa |
+| package | pacote |
+| React element | Elemento React |
+| React fragment | Fragmento React |
+| render | renderizar (verb), renderizado (noun)
+| uncontrolled component | componente não controlado |
+| uppercase | maiúscula(s) / caixa alta |
+| wrap | ? |
+| wrapper | ? |
 
-# Translated Terms (in alphabetical order)
+# Content that doesn't need translation
 
-# A
-
-# B
-
- English  |	Portuguese  
-----------|------------ 
-bubbling | ?
-bug	| erro 
-
-# C
-English  |	Portuguese  
-----------|------------ 
-class| 	classe
-context	| contexto
-controlled component| 	componente controlado
-
-# D
-English  |	Portuguese  
-----------|------------ 
-debugging	| depuração
-
-# E
-
-# F
-
-English  |	Portuguese  
-----------|------------ 
-functional component | componente funcional
-
-
-# G
-
-
-
-# H
-
-# I
-
-# J
-
-# K
-
-English  |	Portuguese  
-----------|------------ 
-key |	chave
-
-# L
-
-English  |	Portuguese  
-----------|------------ 
-library |	biblioteca
-lowercase |	minúscula(s) / caixa baixa
-
-# M
-
-# N
-
-# O
-
-# P
-English  |	Portuguese  
-----------|------------ 
-package	| pacote
-
-# Q
-
-# R
-
-English  |	Portuguese  
-----------|------------ 
-React element |	Elemento React
-React fragment |	Fragmento React
-render | renderizar (verb), renderizado (noun)
-
-# S
-
-# T
-
-# U
-English  |	Portuguese  
-----------|------------ 
-uppercase |	maiúsculas / caixa alta
-
-# V
-
-# W
-
-English  |	Portuguese  
-----------|------------ 
-wrap |	?
-wrapper |	?
-
-# X
-
-# Y
-
-# Z
-
-_Inspired by https://github.com/cezaraugusto/You-Dont-Know-JS - Wordreference_
+* array
+* arrow function
+* bind
+* bundle
+* bundler
+* camelCase
+* callback
+* DOM
+* framework
+* hook
+* mock
+* portal
+* props
+* ref
+* state
+* string
+* template literal
+* UI
+* log
