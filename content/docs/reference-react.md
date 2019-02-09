@@ -186,7 +186,7 @@ Clona e retorna um novo elemento React usando `element` como ponto de partida. O
 <element.type {...element.props} {...props}>{children}</element.type>
 ```
 
-No entanto, ele também preserva `ref`s. Isto significa que se você possui um elemento filho com um `ref` nele, você não o roubará acidentalmente do seu antepassado. Você terá o mesmo `ref` ligado ao seu novo elemento.
+No entanto, ele também preserva `ref`s. Isto significa que se você possui um elemento filho com um `ref` nele, você não o roubará acidentalmente do seu antecessor. Você terá o mesmo `ref` ligado ao seu novo elemento.
 
 Esta *API* foi introduzida como uma reposição ao `React.addons.cloneWithProps()`, que foi descontinuado.
 
