@@ -329,7 +329,7 @@ Note que renderizar componentes `lazy` requer que exista um componente `<React.S
 
 > Nota
 >
-> Usar `React.lazy` com *import* dinâmico requer que `Promises` estejam disponíveis no ambiente JS. Isto requer um *polyfill* em IE11 e abaixo.
+> Usar `React.lazy` com *import* dinâmico requer que `Promises` estejam disponíveis no ambiente JS. Isto requer um *polyfill* no IE11 e suas versōes anteriores.
 
 ### `React.Suspense` {#reactsuspense}
 
