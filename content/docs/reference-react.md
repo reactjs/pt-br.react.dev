@@ -124,7 +124,7 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-`React.memo` é um *[higher order component](/docs/higher-order-components.html)*. É similar a [`React.PureComponent`](#reactpurecomponent), mas para *function components* ao invés de classes.
+`O React.memo` é um *[higher order component](/docs/higher-order-components.html)*. É similar a [`React.PureComponent`](#reactpurecomponent), mas para *function components* ao invés de classes.
 
 Se seu *function component* renderiza o mesmo resultado dados os mesmos props, você pode envolver nele uma chamada para `React.memo` para um aumento no desempenho em alguns casos, através da memoização do resultado. Isto significa que o React vai pular a renderização do componente e reutilizar o último resultado renderizado.
 
