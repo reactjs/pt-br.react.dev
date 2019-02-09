@@ -293,7 +293,7 @@ Você também pode usar ele com a forma abreviada `<></>`. Para mais informaçõ
 
 ### `React.createRef` {#reactcreateref}
 
-`React.createRef` cria um [`ref`](/docs/refs-and-the-dom.html) que pode ser anexado a elementos React via atributo `ref`.
+`React.createRef` cria uma [`ref`](/docs/refs-and-the-dom.html) que pode ser anexada a elementos React através do atributo `ref`.
 
 `embed:16-3-release-blog-post/create-ref-example.js`
 
