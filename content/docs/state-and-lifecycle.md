@@ -8,7 +8,7 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
-Esta página apresenta o conceito de estado e ciclo de vida no um componente React. Você pode encontrar uma [referência detalhada da API de componente aqui](/docs/react-component.html).
+Esta página apresenta o conceito de estado e ciclo de vida em um componente React. Você pode encontrar uma [referência detalhada da API de componente aqui](/docs/react-component.html).
 
 Considere o exemplo do relógio de [uma das seções anteriores](/docs/rendering-elements.html#updating-the-rendered-element). Em [Elementos de Renderização](/docs/rendering-elements.html#rendering-an-element-into-the-dom), nós aprendemos apenas uma maneira de atualizar a UI. Nós chamamos `ReactDOM.render()` para mudar a saída renderizada.
 
@@ -166,7 +166,7 @@ ReactDOM.render(
 );
 ```
 
-Mais tarde, adiconaremos o código do timer de volta ao próprio componente.
+Mais tarde, adiconaremos o código do temporizador de volta ao próprio componente.
 
 O Resultado se parece com:
 
@@ -411,25 +411,25 @@ Então você pode atualizá-los independentemente com chamadas separadas do `set
 
 O merge é superficial, então `this.setState({comments})` deixa `this.state.posts` intacto, mas substitui completamente `this.state.comments`
 
-## The Data Flows Down {#the-data-flows-down}
+## Os dados fluem para baixo{#os-dados-fluem}
 
-Neither parent nor child components can know if a certain component is stateful or stateless, and they shouldn't care whether it is defined as a function or a class.
+Nem componentes pai ou filho podem saber se um determinado componente é stateful ou stateless, e não devem se importar se ele é definido por uma função ou classe.
 
-This is why state is often called local or encapsulated. It is not accessible to any component other than the one that owns and sets it.
+É por isso que o estado é geralmente chamado de local ou encapsulado. Não é acessível a nenhum componente que não seja o que o possui e o define.
 
-A component may choose to pass its state down as props to its child components:
+Um componente pode escolher passar seu estado como props para seus componentes filhos:
 
 ```js
 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 ```
 
-This also works for user-defined components:
+Isso também funciona para componentes definidos pelo usuário:
 
 ```js
 <FormattedDate date={this.state.date} />
 ```
 
-The `FormattedDate` component would receive the `date` in its props and wouldn't know whether it came from the `Clock`'s state, from the `Clock`'s props, or was typed by hand:
+O componente `FormattedDate` receberia o `date` em seus objetos e não saberia se ele veio do estado `Clock`, dos props do `Clock`, ou  se foi digitado manualmente:
 
 ```js
 function FormattedDate(props) {
@@ -437,13 +437,13 @@ function FormattedDate(props) {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-This is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by some specific component, and any data or UI derived from that state can only affect components "below" them in the tree.
+Isso é comumente chamado de fluxo de dados "top-down" ou "unidirecionala". Qualquer estado é sempre de propriedade de algum componente específico, e qualquer dado ou interface do usuário derivado desse estado só pode afetar os componentes "abaixo" deles na árvore.
 
-If you imagine a component tree as a waterfall of props, each component's state is like an additional water source that joins it at an arbitrary point but also flows down.
+Se você imaginar uma árvore de componentes como uma cascata de props, o estado de cada componente é como uma fonte de água adicional que o une em um ponto arbitrário, mas também flui para baixo.
 
-To show that all components are truly isolated, we can create an `App` component that renders three `<Clock>`s:
+Para mostrar que todos os componentes estão isolados, podemos criar um componente `App` que renderiza três `<Clock>`s:
 
 ```js{4-6}
 function App() {
@@ -462,8 +462,8 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
-Each `Clock` sets up its own timer and updates independently.
+Cada `Clock` configura seu próprio temporizador e atualiza de forma independente.
 
-In React apps, whether a component is stateful or stateless is considered an implementation detail of the component that may change over time. You can use stateless components inside stateful components, and vice versa.
+Nos apps React, se um componente é stateful ou stateless é considerado um detalhe de implementação do componente que pode mudar com o tempo. Você pode usar componentes sem estado dentro de componentes com estado e vice-versa.
