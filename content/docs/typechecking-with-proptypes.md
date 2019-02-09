@@ -30,7 +30,7 @@ Greeting.propTypes = {
 };
 ```
 
-`PropTypes` exporta uma variedade de validadores que podem ser usados para certificar que os dados que você recebe são válidos. Neste exemplo, usaremos `PropTypes.string`. Quando um valor inválido for fornecido a uma prop, um alerta será exibido no console JavaScript. Por motivos de performance, `propTypes` é checado apenas em modo de desenvolvimento.
+`PropTypes` exporta uma variedade de validadores que podem ser usados para certificar que os dados que você recebe são válidos. Neste exemplo, utilizamos `PropTypes.string`. Quando um valor inválido for fornecido a uma prop, um alerta será exibido no console JavaScript. Por motivos de performance, `propTypes` é checado apenas em modo de desenvolvimento.
 
 ### PropTypes {#proptypes}
 
