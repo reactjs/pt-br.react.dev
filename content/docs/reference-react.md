@@ -136,9 +136,9 @@ function MyComponent(props) {
 }
 function areEqual(prevProps, nextProps) {
   /*
-  retorne true se passar nextProps renderizaria o mesmo
-  resultado se passasse prevProps.
-  do contrário, retorne false
+  se prevProps e nextProps renderizam o mesmo resultado,
+  retorne true.
+  caso contrário, retorne false.
   */
 }
 export default React.memo(MyComponent, areEqual);
