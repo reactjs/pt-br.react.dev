@@ -26,7 +26,7 @@ Os componentes React permitem que você divida a UI em pedaços independentes e 
 
 Se você não utiliza classes do ES6, você pode usar o módulo `create-react-class`. Veja [Usando React sem ES6](/docs/react-without-es6.html) para mais informações.
 
-Componentes React também podem ser definidos como funções que podem ser envoltas:
+Os componentes em React também podem ser definidos como funções que podem ser envoltas:
 
 - [`React.memo`](#reactmemo)
 
