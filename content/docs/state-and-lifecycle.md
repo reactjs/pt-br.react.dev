@@ -195,17 +195,17 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Em seguinda, faremos a configuração do próprio timer e atualizaremos a cada segundo.
+Em seguinda, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
 
-## Adding Lifecycle Methods to a Class {#adding-lifecycle-methods-to-a-class}
+## Adicionando métodos de ciclo de vida a classe {#adcionando-metodos-de-ciclo-de-vida-a-classe}
 
-In applications with many components, it's very important to free up resources taken by the components when they are destroyed.
+Em aplicações com muitos componentes, é muito importante limpar os recursos utilizados pelos componentes quando eles são destruídos.
 
-We want to [set up a timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) whenever the `Clock` is rendered to the DOM for the first time. This is called "mounting" in React.
+Queremos [configurar um temporizador](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) sempre que o `Clock` é renderizado para o DOM pela primeira vez. Isso é chamado de "mounting" no React.
 
-We also want to [clear that timer](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) whenever the DOM produced by the `Clock` is removed. This is called "unmounting" in React.
+Nós também queremos [limpar o temporizador](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/clearInterval) sempre que o DOM produzido pelo `Clock` for removido. Isso é chamado de "unmounting" no React.
 
-We can declare special methods on the component class to run some code when a component mounts and unmounts:
+Podemos declarar métodos especiais no componente de classe para executar algum código quando um componente é montado e desmontado:
 
 ```js{7-9,11-13}
 class Clock extends React.Component {
@@ -233,9 +233,9 @@ class Clock extends React.Component {
 }
 ```
 
-These methods are called "lifecycle methods".
+Estes métodos são chamados de "métodos de ciclo de vida".
 
-The `componentDidMount()` method runs after the component output has been rendered to the DOM. This is a good place to set up a timer:
+O método `componentDidMount()` é executado depois que a saída do componente é renderizada no DOM. Este é um bom lugar para configurar um temporizador:
 
 ```js{2-5}
   componentDidMount() {
@@ -246,11 +246,11 @@ The `componentDidMount()` method runs after the component output has been render
   }
 ```
 
-Note how we save the timer ID right on `this`.
+Note como nós salvamos o ID do temporizador em `this`.
 
-While `this.props` is set up by React itself and `this.state` has a special meaning, you are free to add additional fields to the class manually if you need to store something that doesn’t participate in the data flow (like a timer ID).
+Enquanto `this.props` é configurado pelo próprio React e `this.state` tem um significado especial, você está livre para adicionar campos adicionais à classe manualmente se precisar armazenar algo que não participe do fluxo de dados (como um ID do temporizador)
 
-We will tear down the timer in the `componentWillUnmount()` lifecycle method:
+Vamos derrubar o temporizador no método do ciclo de vida `componentWillUnmount()`:
 
 ```js{2}
   componentWillUnmount() {
@@ -258,9 +258,9 @@ We will tear down the timer in the `componentWillUnmount()` lifecycle method:
   }
 ```
 
-Finally, we will implement a method called `tick()` that the `Clock` component will run every second.
+Finalmente, vamos implementar um  método chamado `tick()` que o componente `Clock` executará a cada segundo.
 
-It will use `this.setState()` to schedule updates to the component local state:
+Ele usará `this.setState()` para agendar atualizações para o estado local do componente:
 
 ```js{18-22}
 class Clock extends React.Component {
@@ -302,21 +302,21 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
-Now the clock ticks every second.
+Agora o relógio bate a cada segundo.
 
-Let's quickly recap what's going on and the order in which the methods are called:
+Vamos recapitular rapidamente o que está acontencendo e a ordem na qual os métodos são chamados:
 
-1) When `<Clock />` is passed to `ReactDOM.render()`, React calls the constructor of the `Clock` component. Since `Clock` needs to display the current time, it initializes `this.state` with an object including the current time. We will later update this state.
+1) Quando `<Clock />` é passado para `ReactDOM.render()`, o React chama o construtor do componente `Clock`. Como `Clock` precisa exibir a hora atual, ele inicializa `this.state` com um objeto incluindo a hora atual. Mas tarde, atualizaremos este estado.
 
-2) React then calls the `Clock` component's `render()` method. This is how React learns what should be displayed on the screen. React then updates the DOM to match the `Clock`'s render output.
+2) React chama então o método `render()` do componente `Clock`. É assim que o React aprende o que deve ser exibido na tela. React em seguida, atualiza o DOM para coincidir com a saída de renderização do `Clock`.
 
-3) When the `Clock` output is inserted in the DOM, React calls the `componentDidMount()` lifecycle method. Inside it, the `Clock` component asks the browser to set up a timer to call the component's `tick()` method once a second.
+3) Quando a saída do `Clock` é inserida no DOM, o React chama o método do ciclo de vida `componentDidMount()`. Dentro dele, o componente `Clock` pede ao navegador para configurar um temporizador para chamar o método `tick()` do componente uma vez por segundo.
 
-4) Every second the browser calls the `tick()` method. Inside it, the `Clock` component schedules a UI update by calling `setState()` with an object containing the current time. Thanks to the `setState()` call, React knows the state has changed, and calls the `render()` method again to learn what should be on the screen. This time, `this.state.date` in the `render()` method will be different, and so the render output will include the updated time. React updates the DOM accordingly.
+4) A cada segundo o navegador chama o método `tick()`. Dentro dele, o componente `Clock` agenda uma atualização de UI chamando `setState()` com um objeto contendo a hora atual. Graças à chamada `setState()`, o método `render()` será diferente e, portanto, a saída de renderização incluirá a hora atualizada. React atualiza o DOM de acordo.
 
-5) If the `Clock` component is ever removed from the DOM, React calls the `componentWillUnmount()` lifecycle method so the timer is stopped.
+5) Se o componente `Clock` for removido do DOM, o React chama o método do ciclo de vida `componentWillUnmount()` para que o temporizador seja interrompido.
 
 ## Using State Correctly {#using-state-correctly}
 
