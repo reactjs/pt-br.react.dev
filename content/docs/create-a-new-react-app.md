@@ -39,7 +39,7 @@ A equipe React recomenda principalmente as seguintes soluções:
 
 [Create React App](http://github.com/facebookincubator/create-react-app) é um ambiente confortável para **aprender React**, e é a melhor maneira de começar uma **[single-page](/docs/glossary.html#single-page-application) application** em React. 
 
-Além de configurar seu ambiente de desenvolvimento para utilizar as funcionalidades mais recentes do JavaScript, ele fornece uma experiência de desenvolvedor agradável, e otimiza o seu app para produção. Será necessário ter Node >= 6 e npm >= 5.2 na sua máquina. Para criar um novo projeto, rode:
+Além de configurar seu ambiente de desenvolvimento para utilizar as funcionalidades mais recentes do JavaScript, ele fornece uma experiência de desenvolvimento agradável, e otimiza o seu app para produção. Será necessário ter Node >= 6 e npm >= 5.2 na sua máquina. Para criar um novo projeto, rode:
 
 ```bash
 npx create-react-app my-app
