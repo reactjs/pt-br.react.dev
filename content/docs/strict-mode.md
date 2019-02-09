@@ -34,7 +34,7 @@ Quando o modo estrito está ativado, o React compila uma lista de todos os compo
 
 Resolver os problemas identificados pelo modo estrito facilitará a utilização da renderização assíncrona em versões futuras do React.
 
-### Avisos em relação ao uso da antiga string ref API {#warning-about-legacy-string-ref-api-usage}
+### Aviso em relação ao uso da antiga string ref API {#warning-about-legacy-string-ref-api-usage}
 
 Anteriormente, o React fornecia duas maneiras de gerenciar refs: a antiga string ref API e a callback API. Embora a string ref API fosse a mais conveniente das duas, ela apresentava [várias desvantagens](https://github.com/facebook/react/issues/1373) e, portanto, nossa recomendação oficial era [usar o formulário de callback](/docs/refs-and-the-dom.html#legacy-api-string-refs).
 
