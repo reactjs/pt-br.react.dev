@@ -28,7 +28,7 @@ Funcionalidades adicionais serão adicionadas em versões futuras do React.
 
 Como explicado [neste post](/blog/2018/03/27/update-on-async-rendering.html), alguns antigos métodos de ciclo de vida (lifecycles) são inseguros de serem usados em aplicações assíncronas do React. Contudo, se a sua aplicação usa bibliotecas customizadas, pode ser difícil de verificar que esses métodos de ciclo de vida não estão sendo usados. Felizmente, o modo estrito pode ajudar nisso!
 
-Quando o modo estrito está ativado, o React compila uma lista de todos os componentes classe usando ciclo de vida inseguros e loga uma mensagem de aviso com informações relativas a estes componentes, como:
+Quando o modo estrito está ativado, o React compila uma lista de todos os componentes classe que usam ciclos de vida inseguros e imprime no console uma mensagem de aviso com informações relativas a estes componentes, como:
 
 ![](../images/blog/strict-mode-unsafe-lifecycles-warning.png)
 
