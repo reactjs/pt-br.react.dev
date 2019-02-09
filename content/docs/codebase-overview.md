@@ -121,17 +121,17 @@ ReactRef.detachRefs = function(
 Quando possível, o novo código deve usar anotações do Flow.
 Você pode executar o `yarn flow` localmente para verificar seu código com o Flow.
 
-### Dynamic Injection {#dynamic-injection}
+### Injeção Dinâmica {#dynamic-injection}
 
-React uses dynamic injection in some modules. While it is always explicit, it is still unfortunate because it hinders understanding of the code. The main reason it exists is because React originally only supported DOM as a target. React Native started as a React fork. We had to add dynamic injection to let React Native override some behaviors.
+React usa injeção dinâmica em alguns módulos. Embora seja sempre explícito, ainda é lamentável porque dificulta a compreensão do código. A principal razão pela qual existe é porque o React originalmente só suportava DOM como um destino. React Native começou como um fork do React. Nós tivemos que adicionar injeção dinâmica para deixar o React Native anular alguns comportamentos.
 
-You may see modules declaring their dynamic dependencies like this:
+Você pode ver módulos declarando suas dependências dinâmicas como este:
 
 ```js
-// Dynamically injected
+// Injetado dinamicamente
 var textComponentClass = null;
 
-// Relies on dynamically injected value
+// Depende do valor injetado dinamicamente
 function createInstanceForText(text) {
   return new textComponentClass(text);
 }
@@ -139,7 +139,7 @@ function createInstanceForText(text) {
 var ReactHostComponent = {
   createInstanceForText,
 
-  // Provides an opportunity for dynamic injection
+  // Fornece uma oportunidade para injeção dinâmica
   injection: {
     injectTextComponentClass: function(componentClass) {
       textComponentClass = componentClass;
@@ -150,7 +150,7 @@ var ReactHostComponent = {
 module.exports = ReactHostComponent;
 ```
 
-The `injection` field is not handled specially in any way. But by convention, it means that this module wants to have some (presumably platform-specific) dependencies injected into it at runtime.
+O campo `injection` não é tratado de maneira especial. Mas por convenção, isso significa que este módulo quer ter algumas dependências (presumivelmente específicas da plataforma) injetadas em tempo de execução.
 
 There are multiple injection points in the codebase. In the future, we intend to get rid of the dynamic injection mechanism and wire up all the pieces statically during the build.
 
