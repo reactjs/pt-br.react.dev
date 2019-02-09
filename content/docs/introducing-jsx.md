@@ -73,11 +73,11 @@ ReactDOM.render(
 
 Separamos o JSX em múltiplas linhas para melhorar a legibilidade. Mesmo que não seja requerido, quando fizer isso, também recomendamos cercá-lo com parênteses para evitar as armadilhas da [inserção automática de ponto-e-vírgula](http://stackoverflow.com/q/2846283).
 
-### JSX is an Expression Too {#jsx-is-an-expression-too}
+### JSX Também é uma Expressão {#jsx-is-an-expression-too}
 
-After compilation, JSX expressions become regular JavaScript function calls and evaluate to JavaScript objects.
+Depois da compilação, as expressões em JSX se transformam em chamadas normais de funções em JavaScript e são avaliadas para objetos JavaScript.
 
-This means that you can use JSX inside of `if` statements and `for` loops, assign it to variables, accept it as arguments, and return it from functions:
+Isto significa que você pode usar JSX dentro de condições `if` e laços `for`, atribuí-lo a variáveis, aceitá-lo como argumentos e retorná-los de funções:
 
 ```js{3,5}
 function getGreeting(user) {
@@ -88,27 +88,27 @@ function getGreeting(user) {
 }
 ```
 
-### Specifying Attributes with JSX {#specifying-attributes-with-jsx}
+### Especificando Atributos com JSX {#specifying-attributes-with-jsx}
 
-You may use quotes to specify string literals as attributes:
+Você pode usar aspas para especificar strings literais como atributos:
 
 ```js
 const element = <div tabIndex="0"></div>;
 ```
 
-You may also use curly braces to embed a JavaScript expression in an attribute:
+Você também pode usar chaves para incorporar uma expressão JavaScript em um atributo:
 
 ```js
 const element = <img src={user.avatarUrl}></img>;
 ```
 
-Don't put quotes around curly braces when embedding a JavaScript expression in an attribute. You should either use quotes (for string values) or curly braces (for expressions), but not both in the same attribute.
+Não envolva chaves com aspas quando estiver incorporando uma expressão JavaScript em um atributo. Você deveria ou usar aspas (para valores em string) ou chaves (para expressões), mas não ambos no mesmo atributo.
 
->**Warning:**
+>**Atenção:**
 >
->Since JSX is closer to JavaScript than to HTML, React DOM uses `camelCase` property naming convention instead of HTML attribute names.
+>Como JSX é mais próximo de JavaScript que do HTML, o React DOM usa `camelCase` como convenção para nomes de propriedades ao invés dos nomes de atributos do HTML.
 >
->For example, `class` becomes [`className`](https://developer.mozilla.org/en-US/docs/Web/API/Element/className) in JSX, and `tabindex` becomes [`tabIndex`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/tabIndex).
+>Por exemplo, `class` se transforma em [`className`](https://developer.mozilla.org/pt-BR/docs/Web/API/Element/className) em JSX, e `tabindex` se transforma em [`tabIndex`](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/tabIndex).
 
 ### Specifying Children with JSX {#specifying-children-with-jsx}
 
