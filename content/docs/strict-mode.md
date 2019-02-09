@@ -53,7 +53,7 @@ Como refs de objetos foram adicionadas como substitutos para as string refs, o m
 
 ### Aviso em relação ao uso do depreciado findDOMNode {#warning-about-deprecated-finddomnode-usage}
 
-O React costumava suportar `findDOMNode` para producar na árvore por um elemento DOM dada uma instância de classe. Normalmente, você não precisa disso, já que você pode [anexar uma ref diretamente para um elemento DOM](/docs/refs-and-the-dom.html#creating-refs).
+O React costumava suportar `findDOMNode` para procurar na árvore por um elemento DOM dada uma instância de classe. Normalmente, você não precisa disso, já que você pode [anexar uma ref diretamente em um elemento DOM](/docs/refs-and-the-dom.html#creating-refs).
 
 `findDOMNode` também pode ser usado em componentes de classe, mas isso estava quebrando níveis de abstração ao permitir que um componente pai demandasse que certos componentes filhos fossem renderizados. Ele cria um risco de refatoração em que você não pode alterar os detalhes de implementação de um componente por que um componente pai pode estar alcançando o seu elemento DOM. `findDOMNode` somente retorna o primeiro filho, mas com o uso de fragmentos, é possível que um componente renderize múltiplos elementos DOM. `findDOMNode` é uma API de única leitura. Só enviava resposta quando você chamava. Se um componente filho renderiza um elemento diferente, não há como lidar com essa mudança. Portando, `findDOMNode` só funcionava se os componentes sempre retornassem um único elemento DOM que nunca muda.
 
