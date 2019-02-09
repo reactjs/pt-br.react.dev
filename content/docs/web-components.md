@@ -6,7 +6,7 @@ redirect_from:
   - "docs/webcomponents.html"
 ---
 
-React e [Componentes Web](https://developer.mozilla.org/en-US/docs/Web/Web_Components) são construídos para resolver problemas diferentes. Componentes Web fornecem forte encapsulamento para componentes reutilizáveis, enquanto que o React fornece uma biblioteca declarativa que mantém o DOM em sincronia com os seus dados. Os dois objetivos são complementares. Como um desenvolvedor, você é livre para usar o React nos seus Componentes Web, ou usar Componentes Web no React, ou ambos.
+React e [Componentes Web](https://developer.mozilla.org/pt-BR/docs/Web/Web_Components) são construídos para resolver problemas diferentes. Componentes Web fornecem forte encapsulamento para componentes reutilizáveis. Enquanto que o React fornece uma biblioteca declarativa que mantém o DOM em sincronia com os seus dados. Os dois objetivos são complementares. Como um desenvolvedor, você é livre para usar o React nos seus Componentes Web ou usar Componentes Web no React ou ambos.
 
 A maioria das pessoas que usam o React não usam Componentes Web, mas talvez você queira, especialmente se você estiver utilizando componentes de UI de terceiros que foram escritos utilizando Componentes Web.
 
