@@ -164,7 +164,7 @@ React.createElement(
 
 Cria e retorna um novo [elemento React](/docs/rendering-elements.html) do tipo determinado. O argumento `type` pode ser uma *string* contendo a *tag name* (como, por exemplo, `'div'` ou `'span'`), um [componente React](/docs/components-and-props.html) (uma classe ou uma função), ou um [React *fragment*](#reactfragment).
 
-Código escrito utilizando [JSX](/docs/introducing-jsx.html) será convertido para utilizar `React.createElement()`. Você tipicamente não invocará `React.createElement()` diretamente se você está usando JSX. Veja [React sem JSX](/docs/react-without-jsx.html) para aprender mais.
+Código escrito utilizando [JSX](/docs/introducing-jsx.html) será convertido para utilizar `React.createElement()`. Você tipicamente não invocará `React.createElement()` diretamente se você estiver usando JSX. Veja [React sem JSX](/docs/react-without-jsx.html) para aprender mais.
 
 * * *
 
