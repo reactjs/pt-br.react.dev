@@ -45,7 +45,7 @@ Como refs de objetos foram adicionadas como substitutos para as string refs, o m
 
 > **Nota:**
 >
-> Callback refs continuarão a ter suporte jutamente com a nova `createRef` API (introduzida no React 16.3).
+> Callback refs continuarão a ter suporte juntamente com a nova `createRef` API (introduzida no React 16.3).
 >
 > Você não precisa substituir callback refs em seus componentes. Elas são um pouco mais flexíveis, então continuam a ser um recurso avançado.
 
