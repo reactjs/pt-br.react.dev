@@ -62,7 +62,7 @@ function onClick(event) {
 
 > Nota:
 >
-> Se você deseja acessar as propriedades de um evento de forma assíncrona, você deve chamar o `event.persist()` no evento em questão, o que irá remover o evento sintético do acumulador e permitir referências ao evento a ser retido pelo código do usuário.
+> Se você deseja acessar as propriedades de um evento de forma assíncrona, você deve chamar o `event.persist()` no evento em questão. Isso irá remover o evento sintético do acumulador e permitir referências ao evento serem retidas pelo código do usuário.
 
 ## Eventos (Suporte) {#eventos-suporte}
 
