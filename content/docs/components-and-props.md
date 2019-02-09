@@ -44,7 +44,7 @@ class Welcome extends React.Component {
 
 Os dois componentes acima são equivalentes do ponto de vista do React.
 
-Classes tem alguns recursos adicionais que nós discutiremos nas [próximas seções](/docs/state-and-lifecycle.html). Até lá, nós usaremos componentes de função para sua concisão.
+Classes tem alguns recursos adicionais que nós discutiremos nas [próximas seções](/docs/state-and-lifecycle.html). Até lá, nós usaremos componentes de função por serem mais sucintos.
 
 ## Renderizando um Componente {#rendering-a-component}
 
