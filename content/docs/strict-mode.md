@@ -1,10 +1,10 @@
 ---
 id: strict-mode
-title: Modo Estrito
+title: Modo Estrito (Strict Mode)
 permalink: docs/strict-mode.html
 ---
 
-O modo estrito (`Strict Mode`) é uma ferramenta para sinalizar potenciais problemas em uma aplicação. Assim como o `Fragment`, o `StrictMode` não renderiza nenhum elemento visível na interface. Ele ativa, no entanto, verificações e avisos adicionais para os seus componentes filhos.
+O modo estrito (`Strict Mode`) é uma ferramenta para sinalizar potenciais problemas em uma aplicação. Assim como o `Fragment`, o `StrictMode` não renderiza nenhum elemento visível na interface. Ele ativa, no entanto, verificações e avisos adicionais para os componentes que descendem dele.
 
 > Nota:
 >
@@ -13,20 +13,20 @@ O modo estrito (`Strict Mode`) é uma ferramenta para sinalizar potenciais probl
 Você pode habilitar o modo estrito para qualquer parte da sua aplicação, por exemplo:
 `embed:strict-mode/enabling-strict-mode.js`
 
-No exemplo acima, as verificações do modo estrito não serão executadas nos componentes `Header` e `Footer`. No entanto, `ComponentOne` e `ComponentTwo`, assim como todos os seus componentes filhos, serão verificados.
+No exemplo acima, as verificações do modo estrito não serão executadas nos componentes `Header` e `Footer`. No entanto, `ComponentOne` e `ComponentTwo`, assim como todos os seus componentes descendentes, serão verificados.
 
 O modo estrito ajuda atualmente com:
-* [Identificar componentes com métodos de ciclo de vida inseguros](#identifying-unsafe-lifecycles)
+* [Identificar métodos de ciclo de vida (lifecycles) inseguros](#identifying-unsafe-lifecycles)
 * [Avisos em relação ao uso da antiga string ref API](#warning-about-legacy-string-ref-api-usage)
 * [Avisos em relação ao uso do depreciado findDOMNode](#warning-about-deprecated-finddomnode-usage)
 * [Detectar efeitos colaterais (side effects) inesperados](#detecting-unexpected-side-effects)
-* [Detectar o uso da antiga API de contexto](#detecting-legacy-context-api)
+* [Detectar o uso da antiga API de contexto (Context API)](#detecting-legacy-context-api)
 
 Funcionalidades adicionais serão adicionadas em versões futuras do React.
 
-### Identificar métodos de ciclo de vida inseguros {#identifying-unsafe-lifecycles}
+### Identificar métodos de ciclo de vida (lifecycles) inseguros {#identifying-unsafe-lifecycles}
 
-Como explicado [neste post](/blog/2018/03/27/update-on-async-rendering.html), alguns antigos métodos de ciclo de vida são inseguros de serem usados em aplicações assíncronas do React. Contudo, se a sua aplicação usa bibliotecas customizadas, pode ser difícil de verificar que esses métodos de ciclo de vida não estão sendo usados. Felizmente, o modo estrito pode ajudar nisso!
+Como explicado [neste post](/blog/2018/03/27/update-on-async-rendering.html), alguns antigos métodos de ciclo de vida (lifecycles) são inseguros de serem usados em aplicações assíncronas do React. Contudo, se a sua aplicação usa bibliotecas customizadas, pode ser difícil de verificar que esses métodos de ciclo de vida não estão sendo usados. Felizmente, o modo estrito pode ajudar nisso!
 
 Quando o modo estrito está ativado, o React compila uma lista de todos os componentes classe usando ciclo de vida inseguros e loga uma mensagem de aviso com informações relativas a estes componentes, como:
 
@@ -45,7 +45,7 @@ Como refs de objetos foram largamente usadas como substituto para as string refs
 
 > **Nota:**
 >
-> Callback refs continuarão a ser suportadas jutamente com a nova `createRef` API (introduzida no React 16.3).
+> Callback refs continuarão a ter suporte jutamente com a nova `createRef` API (introduzida no React 16.3).
 >
 > Você não precisa substituir callback refs em seus componentes. Elas são um pouco mais flexíveis, então continuam a ser um recurso avançado.
 
@@ -106,7 +106,7 @@ O modo estrito não pode detectar automaticamente efeitos colaterais para você,
 
 > Nota:
 >
-> Isso só se aplica em modo de desenvolvimento. _Ciclos de vida não serão invocados duas vezes em produção.
+> Isso só se aplica em modo de desenvolvimento. _Ciclos de vida não serão invocados duas vezes em produção._
 
 Por exemplo, considere o seguinte código:
 `embed:strict-mode/side-effects-in-constructor.js`
@@ -115,7 +115,7 @@ Por exemplo, considere o seguinte código:
 
 Ao intencionalmente invocar os métodos de ciclo de vida duas vezes, como o construtor do componente, o modo estrito pode tornar padrões como este mais fácil de localizar.
 
-### Detectar o uso da antiga API de contexto {#detecting-legacy-context-api}
+### Detectar o uso da antiga API de contexto (Context API) {#detecting-legacy-context-api}
 
 A antiga API de contexto era propensa a erros, e será removida em uma futura versão principal (_major version_). Ela ainda funciona para todas versões `16.x`, mas mostrará uma mensagem de aviso no modo estrito: 
 
