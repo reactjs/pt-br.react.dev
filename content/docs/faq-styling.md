@@ -48,4 +48,4 @@ _Note que esta funcionalidade não faz parte do React mas por bibliotecas de ter
 
 ### Posso fazer animações em React? {#can-i-do-animations-in-react} 
 
-React pode ser usado para animações. Veja [React Transition Group](https://reactcommunity.org/react-transition-group/) e [React Motion](https://github.com/chenglou/react-motion), por exemplo.
+O React pode ser usado para animações. Veja [React Transition Group](https://reactcommunity.org/react-transition-group/) e [React Motion](https://github.com/chenglou/react-motion), por exemplo.
