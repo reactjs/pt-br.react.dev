@@ -257,7 +257,7 @@ Verifica que `children` possui apenas um elemento filho (um elemento React) e o 
 
 > Nota
 >
-> `React.Children.only()` não aceita o valor retornado de [`React.Children.map()`](#reactchildrenmap) pois este é um array ao invés de um elemento React.
+> O `React.Children.only()` não aceita o valor retornado de [`React.Children.map()`](#reactchildrenmap) pois este é um array ao invés de um elemento React.
 
 #### `React.Children.toArray` {#reactchildrentoarray}
 
