@@ -51,7 +51,7 @@ Como refs de objetos foram adicionadas como substitutos para as string refs, o m
 
 [Saiba mais sobre a nova `createRef` API aqui.](/docs/refs-and-the-dom.html)
 
-### Avisos em relação ao uso do depreciado findDOMNode {#warning-about-deprecated-finddomnode-usage}
+### Aviso em relação ao uso do depreciado findDOMNode {#warning-about-deprecated-finddomnode-usage}
 
 O React costumava suportar `findDOMNode` para producar na árvore por um elemento DOM dada uma instância de classe. Normalmente, você não precisa disso, já que você pode [anexar uma ref diretamente para um elemento DOM](/docs/refs-and-the-dom.html#creating-refs).
 
