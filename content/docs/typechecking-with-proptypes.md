@@ -12,7 +12,7 @@ redirect_from:
 >
 > Nós fornecemos [um script de codemod](/react/blog/2017/04/07/react-v15.5.0.html#migrating-from-react.proptypes) para automatizar a conversão.
 
-Na medida em que sua aplicação cresce, você pode capturar muitos bugs com checagem de tipos. Em algumas aplicações, você pode usar extensões do JavaScript como [Flow](https://flowtype.org/) ou [TypeScript](https://www.typescriptlang.org/) para checar os tipos de toda a sua aplicação. Porém, mesmo se você não usá-las, React possui algumas habilidades de checagem de tipos embutidas. Para executar a checagem de tipos nas props para um componente, você pode atribuir à propriedade em especial `propTypes`:
+Na medida em que sua aplicação cresce, você pode capturar muitos bugs com checagem de tipos. Em algumas aplicações, você pode usar extensões do JavaScript como [Flow](https://flowtype.org/) ou [TypeScript](https://www.typescriptlang.org/) para checar os tipos de toda a sua aplicação. Porém, mesmo se você não usá-las, React possui algumas habilidades de checagem de tipos nativas. Para executar a checagem de tipos nas props para um componente, você pode atribuir à propriedade em especial `propTypes`:
 
 ```javascript
 import PropTypes from 'prop-types';
