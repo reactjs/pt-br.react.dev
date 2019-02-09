@@ -259,4 +259,4 @@ React é bastante flexível mas tem uma única regra estrita:
 
 **Todos os componentes React tem que agir como funções puras em relação ao seus props.**
 
-Obviamente, as UIs de aplicativos são dinâmicas e mudam com o tempo. Na [próxima seção](/docs/state-and-lifecycle.html), nós vamos introduzir um novo conceito de "state". O State permite aos componentes React alterar sua saída com o tempo em resposta a ações do usuário, respostas de rede e qualquer outra coisa, sem violar essa regra.
+Obviamente, as UIs de aplicativos são dinâmicas e mudam com o tempo. Na [próxima seção](/docs/state-and-lifecycle.html), nós vamos introduzir um novo conceito de "state". O state permite aos componentes React alterar sua saída ao longo do tempo em resposta a ações do usuário, respostas de rede e quaisquer outras coisas, sem violar essa regra.
