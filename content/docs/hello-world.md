@@ -22,7 +22,7 @@ Isso mostra um header dizendo "Hello, world!" na página.
 Clique no link acima para abrir um editor online. Sinta-se livre para fazer algumas mudanças e ver como elas afetam a saída. A maioria das páginas neste guia terão exemplos editáveis como esse.
 
 
-## Como Ler Esse Guia {#como-ler-esse-guia}
+## Como Ler Esse Guia {#how-to-read-this-guide}
 
 Nesse guia, vamos examinar as fundações de aplicações React: elementos e componentes. Depois que você dominá-los, poderá criar aplicações complexas a partir de partes pequenas e reutilizáveis.
 
