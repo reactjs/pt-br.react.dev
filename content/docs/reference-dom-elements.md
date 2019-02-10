@@ -52,7 +52,7 @@ Já que `for` é uma palavra reservada em JavaScript, elementos em React usam `h
 
 ### onChange {#onchange}
 
-O evento `onChange` se comporta como você esperaria que ele se comportasse: sempre que o um campo de formulário muda este evento é disparado. Nós intencionalmente não utilizamos o comportamento existente do browser porque `onChange` é um termo inadequado para seu comportamento, e o React depende deste evento para manipular input do usuário em tempo real.
+O evento `onChange` se comporta como você esperaria que ele se comportasse: sempre que um campo do formulário muda, este evento é disparado. Nós intencionalmente não utilizamos o comportamento existente do browser porque `onChange` é um termo inadequado para seu comportamento e o React depende deste evento para manipular input do usuário em tempo real.
 
 ### selected {#selected}
 
