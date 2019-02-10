@@ -146,7 +146,7 @@ Uma "key" (chave) é um atributo de string especial que você precisa incluir qu
 
 As chaves precisam ser únicas entre os elementos de um mesmo array. Eles não precisam ser exclusivos em toda a aplicação ou até mesmo em um único componente.
 
-Não passe algo como `Math.random()` para as keys. É importante que as chaves tenham uma "identidade estável" em re-renderizações para que o React possa determinar quando os items são adicionados, removidos, ou re-ordenados. Idealmente, keys devem corresponder a identificadores únicos e estáveis vindos dos seus dados, como `post.id`.
+Não passe algo como `Math.random()` para as chaves. É importante que as chaves tenham uma "identidade estável" em re-renderizações para que o React possa determinar quando os items são adicionados, removidos, ou re-ordenados. Idealmente, chaves devem corresponder a identificadores únicos e estáveis vindos dos seus dados, como `post.id`.
 
 ## [Refs](/docs/refs-and-the-dom.html) {#refs}
 
