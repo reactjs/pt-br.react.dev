@@ -155,7 +155,7 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-Semelhantemente, todos os atributos SVG são totalmente suportados:
+Igualmente, todos os atributos SVG são totalmente suportados:
 
 ```
 accentHeight accumulate additive alignmentBaseline allowReorder alphabetic
