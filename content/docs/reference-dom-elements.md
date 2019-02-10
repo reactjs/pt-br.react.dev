@@ -110,7 +110,7 @@ Nem todas as propriedades de estilos são convertidas para strings pixel. Alguma
 
 ### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
-Normalmente, existe uma advertência quando um elemento que contém outros elementos também está marcado como `contentEditable`, porque não funcionará. Esse atributo suprime essa advertência. Não o use, a não ser que você esteja construindo uma biblioteca como a [Draft.js](https://facebook.github.io/draft-js/) que gerencia `contentEditable` manualmente.
+Normalmente, existe um alerta quando um elemento contém outros elementos que também estão marcados como `contentEditable`. Assim sendo, não funcionará. Esse atributo interrompe esse alerta. Não faça uso dele. A não ser que você esteja construindo uma biblioteca como a [Draft.js](https://facebook.github.io/draft-js/) que gerencia `contentEditable` manualmente.
 
 ### suppressHydrationWarning {#suppresshydrationwarning}
 
