@@ -42,7 +42,7 @@ Por exemplo, um teste para [`setInnerHTML.js`](https://github.com/facebook/react
 
 ### Avisos e Invariantes {#warnings-and-invariants}
 
-A código-base do React usa o módulo `warning` para exibir avisos:
+O código-base do React usa o módulo `warning` para exibir avisos:
 
 ```js
 var warning = require('warning');
