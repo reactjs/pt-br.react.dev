@@ -150,7 +150,7 @@ Não passe algo como `Math.random()` para as chaves. É importante que as chaves
 
 ## [Refs](/docs/refs-and-the-dom.html) {#refs}
 
-React suporta um atributo especial que você pode adicionar a qualquer componente. O atributo `ref` pode ser um objeto criado por [`React.createRef()` function](/docs/react-api.html#reactcreateref) ou uma função callback, ou uma string (em APIs legadas). Quando o atributo `ref` é uma função callback, a função recebe o elemento DOM subjacente ou uma instancia de classe (dependendo do tipo de elemento) como argumento. Isso poermite você ter acesso direto ao elemento DOM ou a instância do componente.
+React suporta um atributo especial que você pode adicionar a qualquer componente. O atributo `ref` pode ser um objeto criado por [`React.createRef()` function](/docs/react-api.html#reactcreateref) ou uma função callback, ou uma string (em APIs legadas). Quando o atributo `ref` é uma função callback, a função recebe o elemento DOM subjacente ou uma instancia de classe (dependendo do tipo de elemento) como argumento. Isso permite você ter acesso direto ao elemento DOM ou a instância do componente.
 
 Use refs com moderação. Se você se encontrar usando refs frequentemente para "fazer as coisas acontecerem" no seu app, considere se familiarizar com [top-down data flow](/docs/lifting-state-up.html).
 
