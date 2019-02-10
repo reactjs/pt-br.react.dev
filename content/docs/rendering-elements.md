@@ -60,7 +60,7 @@ Chama-se o `ReactDOM.render()` a cada segundo a partir de um callback do [`setIn
 >
 >Na prática, a maioria dos aplicativos React usam o `ReactDOM.render()` apenas uma única vez. Nas seções seguintes, aprenderemos como esse código pode ser encapsulado em [componentes com estado](/docs/state-and-lifecycle.html).
 >
->Recomendamos que você não pule os tópicos porque eles são autocomplementares.
+>Recomendamos que você não pule os tópicos porque eles se complementam.
 
 ## O React Somente Atualiza o Necessário {#react-only-updates-whats-necessary}
 
