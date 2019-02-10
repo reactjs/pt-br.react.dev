@@ -223,7 +223,7 @@ Depois: Você deve ver um número em cada quadrado na saída renderizada.
 
 **[Ver o código completo até este momento](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Parabéns! Você acabou de passar um "prop" de um componente pai Boar para um componente filho Square. Passar props é como o dado flui em aplicações React, de pais para filhos.
+Parabéns! Você acabou de passar um "prop" de um componente pai Board para um componente filho Square. Passar props é a forma como os dados fluem em aplicações React, de pais para filhos.
 
 ### Fazendo um componente interativo {#making-an-interactive-component}
 
