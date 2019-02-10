@@ -155,7 +155,7 @@ Nós falaremos sobre formatos engraçados de tags que possuem formato de XML em 
 
 Aqui, o ShoppingList é um **componente React de classe** ou **component React do tipo classe**. Um componente recebe parâmetros, chamados `props` (abreviação de propriedades), e retorna uma hierarquia de views para exibir através do método `render`.
 
-O método `render` retorna uma *descrição* do que você deseja ver na tela. React pega a descrição e exibe o resultado. Em particular, `render` retorna um **elemento React **, que é uma descrição leve do que renderizar. A maioria dos desenvolvedores do React usa uma sintaxe especial chamada "JSX", que facilita a gravação dessas estruturas. A sintaxe `<div />` é transformada em tempo de compilação para `React.createElement ('div')`. O exemplo acima é equivalente a:
+O método `render` retorna uma *descrição* do que você deseja ver na tela. React recebe a descrição e exibe o resultado. Em particular, `render` retorna um **elemento React**, que é uma descrição simplificada do que renderizar. A maioria dos desenvolvedores do React usa uma sintaxe especial chamada "JSX", que facilita a escrita desses elementos. A sintaxe `<div />` é transformada em tempo de compilação para `React.createElement ('div')`. O exemplo acima é equivalente a:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
