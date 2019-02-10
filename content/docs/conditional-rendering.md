@@ -10,7 +10,7 @@ redirect_from:
 
 Em React, você pode criar componentes distintos que encapsulam o comportamentamento que você precisa. Então, você pode renderizar apenas alguns dos elementos, dependendo do estado da sua aplicação. 
 
-Renderização condicional em React funciona da mesma forma que condições funcionam em JavaScript. Use operadores de JavaScript  como [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) ou [operador condicional](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) para criar elementos representando o estado atual, and deixe React atualizar a UI para corresponde-los.
+Renderização condicional em React funciona da mesma forma que condições funcionam em JavaScript. Use operadores de JavaScript  como [`if`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/if...else) ou [operador condicional](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional) para criar elementos representando o estado atual, e deixe o React atualizar a UI para corresponde-los.
 
 Considere esses dois componentes:
 
