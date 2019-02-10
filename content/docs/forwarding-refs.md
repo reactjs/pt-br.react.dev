@@ -20,7 +20,7 @@ No exemplo abaixo, `FancyButton` usa `React.forwardRef` para obter a `ref` passa
 
 `embed:forwarding-refs/fancy-button-simple-ref.js`
 
-This way, components using `FancyButton` can get a ref to the underlying `button` DOM node and access it if necessary—just like if they used a DOM `button` directly.
+Desta forma,  componentes usando `FancyButton` podem obter uma referência ao nó DOM `button` subjacente e acessá-lo se necessário — como se eles usassem um `button` DOM diretamente.
 
 Aqui está uma explicação passo-a-passo sobre o que acontece no exemplo acima:
 
