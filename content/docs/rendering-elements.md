@@ -32,7 +32,7 @@ Suponhamos que exista um `<div>` em algum lugar do seu código HTML:
 
 Nós o chamamos de nó "raiz" do DOM porque tudo dentro dele será gerenciado pelo React DOM.
 
-Aplicações construídas apenas com React geralmente tem apenas um único nó raiz no DOM. Se deseja integrar o React a uma aplicação existente, você pode ter quantos nós "raízes" precisar.
+Aplicações construídas apenas com React geralmente tem apenas um único nó raiz no DOM. Se deseja integrar o React a uma aplicação existente, você pode ter quantos nós raiz precisar.
 
 Para renderizar um elemento React em um nó raiz, passe ambos para `ReactDOM.render()`:
 
