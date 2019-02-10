@@ -11,6 +11,7 @@ Suggestion on words and terms:
 | Original word/term | Suggestion |
 | ------------------ | ---------- |
 | bug | erro |
+| browser | navegador |
 | class | classe |
 | context | contexto |
 | controlled component | componente controlado |
