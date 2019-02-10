@@ -47,7 +47,7 @@ ReactDOM.render(
 
 Este exemplo renderiza um "greeting" diferente dependendo do valor da `isLoggedIn` prop.
 
-### Variáveis de Elementos {#variáveis-de-elementos}
+### Variáveis de Elementos {#element-variables}
 
 Você pode usar variáveis para guardar elementos. Isto pode te ajudar a renderizar condicionalmente parte do componente enquanto o resto do resultado não muda.
 
@@ -150,13 +150,13 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
 
-Isto funciona porque em JavaScript, `true && expressão` são sempre avaliadas como `expressão`, é `false && expressão` são sempre avaliadas como `false`.
+Isto funciona porque em JavaScript, `true && expressão` são sempre avaliadas como `expressão`, e `false && expressão` são sempre avaliadas como `false`.
 
 Portanto, se a condição é `true`, o elemento logo depois do `&&` irá aparecer no resultado. Se o elemento é `false`, React irá ignora-lo.
 
 ### Inline If-Else com Operador Condicional {#inline-if-else-com-operador-condicional}
 
-Outro metodo para renderizar elementos inline é utilizar o operador condicional em JavaScript [`condição ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
+Outro método para renderizar elementos inline é utilizar o operador condicional em JavaScript [`condição ? true : false`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional).
 
 No exemplo abaixo, nós o utilizaremos para renderizar condicionalmente um pequeno bloco de texto.
 
@@ -194,7 +194,7 @@ Assim como em JavaScript, você decide o estilo apropriado com base no que você
 
 Em casos raros você pode desejar que um componente se esconda ainda que ele tenha sido renderizado por outro componente. Para fazer isso, retorne `null` ao invés do resultado renderizarado.
 
-No exemplo abaixo, o `<WarningBanner />` é renderizado dependendo do valor da prop chamada `warn`. Se o valor da prop é  `false`, o componente nao é rederizado:
+No exemplo abaixo, o `<WarningBanner />` é renderizado dependendo do valor da prop chamada `warn`. Se o valor da prop é  `false`, o componente não é renderizado:
 
 ```javascript{2-4,29}
 function WarningBanner(props) {
