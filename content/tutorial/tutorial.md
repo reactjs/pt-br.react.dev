@@ -16,7 +16,7 @@ Este tutorial não assume nenhum conhecimento existente do React.
 
 ## Antes de começarmos o tutorial {#before-we-start-the-tutorial}
 
-Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentado a ignorá-lo porque você não vai construir jogos - mas dê uma chance.** As técnicas que você aprenderá no tutorial são fundamentais para criar qualquer aplicativo React, e o domínio lhe dará uma chance. profundo entendimento de React.
+Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentado a ignorá-lo porque você não vai construir jogos - mas dê uma chance.** As técnicas que você aprenderá no tutorial são fundamentais para criar qualquer aplicativo React e o domínio dará a você uma chance e um profundo entendimento de React.
 
 > Dica
 >
