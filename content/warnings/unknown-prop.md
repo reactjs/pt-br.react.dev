@@ -11,7 +11,7 @@ Existem algumas possíveis razões em que esses avisos podem aparecer:
 
 1. Você está usando `{...this.props}` ou `cloneElement(element, this.props)`? Seu componente está transferindo suas próprias props diretamente para um elemento filho (por exemplo. [transferindo props](/docs/transferring-props.html)). Quando transferir props para um elemento filho, você deve garantir que não está passando acidentalmente props que deveriam ser interpretadas pelo componente pai.
 
-2. Você está usando um atributo DOM não padrão em um elemento DOM nativo, possivelmente para representar dados personalizados. Se você está tentando inserir um dado personalizado em um elemento padrão do DOM, considere usar um atributo data como descrito [em MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes).
+2. Você está usando um atributo DOM não padrão em um elemento DOM nativo, possivelmente para representar dados personalizados. Se você está tentando inserir um dado personalizado em um elemento padrão do DOM, considere usar um atributo data como descrito [em MDN](https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Using_data_attributes).
 
 
 3. O React ainda não reconhece o atributo que você especificou. Isto provavelmente será corrigido em uma versão futura do React. Entretanto, o React atualmente retira todos os atributos desconhecidos, portanto especificá-los em seu aplicativo React não fará com que eles sejam renderizados.
