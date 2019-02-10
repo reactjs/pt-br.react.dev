@@ -194,4 +194,4 @@ xlinkHref xlinkRole xlinkShow xlinkTitle xlinkType xmlns xmlnsXlink xmlBase
 xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
-Você também pode usar atributos personalizados desde que eles estejam totalmente em letras minúsculas.
+Você também pode usar atributos personalizados, desde que todos eles estejam em letras minúsculas.
