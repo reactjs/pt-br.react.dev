@@ -107,14 +107,11 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-O React irá atribuir a propriedade `current` ao elemento DOM quando o componente for montado, e atribuirá
-`null` de volta quando ele for desmontado. As atualizações da `ref` acontecem antes dos métodos de lifecycle
-`componentDidMount` ou `componentDidUpdate`.
+O React irá atribuir a propriedade `current` ao elemento DOM quando o componente for montado, e atribuirá `null` de volta quando ele for desmontado. As atualizações da `ref` acontecem antes dos métodos de lifecycle `componentDidMount` ou `componentDidUpdate`.
 
 #### Adicionando uma Ref a um Componente de Classe {#adding-a-ref-to-a-class-component}
 
-Se nós quisermos envolver o `CustomTextInput` acima para para simulá-lo sendo clicado imediatamente após a montagem, nós
-poderiamos usar uma ref para obter acesso ao input customizado e chamar o seu método `focusTextInput` manualmente.
+Se nós quisermos envolver o `CustomTextInput` acima para para simulá-lo sendo clicado imediatamente após a montagem, nós poderiamos usar uma ref para obter acesso ao input customizado e chamar o seu método `focusTextInput` manualmente.
 
 ```javascript{4,8,13}
 class AutoFocusTextInput extends React.Component {
@@ -162,8 +159,7 @@ class Parent extends React.Component {
 }
 ```
 
-Você deve converter o componente para uma classe se você precisar de uma ref para o mesmo, assim como você faz quando
-precisa dos métodos de lifecycle ou state.
+Você deve converter o componente para uma classe se você precisar de uma ref para o mesmo, assim como você faz quando precisa dos métodos de lifecycle ou state.
 
 Você pode, entretanto, **usar um atributo `ref` dentro de um componente funcional** contanto que você referencie um elemento DOM ou um componente de classe:
 
@@ -193,8 +189,7 @@ Enquanto você poderia [adicionar uma ref a um componente filho](#adding-a-ref-t
 
 Se você usa o React 16.3 ou acima, nós recomendamos usar o [encaminhamento de refs](/docs/forwarding-refs.html) para estes casos. **Encaminhamento de Refs permitem que os componentes optem por expôr a referência de qualquer componente filho como próprias**. Você pode encontrar um exemplo detalhado de como expôr nó DOM de um componente filho para um componente pai na [documentação de encaminhamento de ref](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
 
-Se você usa React 16.2 ou abaixo, ou se você precisa de mais flexibilidade do que a fornecida pelo encaminhamento de ref,
-você pode usar [esta abordagem alternativa](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) e explicitamente passar uma ref como uma prop diferentemente nomeada.
+Se você usa React 16.2 ou abaixo, ou se você precisa de mais flexibilidade do que a fornecida pelo encaminhamento de ref, você pode usar [esta abordagem alternativa](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509) e explicitamente passar uma ref como uma prop diferentemente nomeada.
 
 Quando possível, desaconcelhamos a exposição de nós DOM, mas pode ser uma saída útil. Note que esta abordagem requer que você adicione algum código ao componente filho. Se você não tem controle absoluto sob a implementação do componente filho, a sua última opção é usar o [`findDOMNode()`](/docs/react-dom.html#finddomnode), mas isto é desencorajado e descontinuado no [`StrictMode`](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage).
 
@@ -269,8 +264,7 @@ No exemplo acima, `Parent` passa sua ref com callback como uma propriedade `inpu
 
 ### API Legada: Refs String {#legacy-api-string-refs}
 
-Se você trabalhou com React antes, você deve estar familiarizado com uma antiga API onde o atributo ref é uma string, como `"textInput"`, e o nó DOM é acessado como `this.refs.textInput`. Nós não aconselhamos isto, pois refs string [tem alguns problemas](https://github.com/facebook/react/pull/8333#issuecomment-271648615), são consideradas legadas, e
-**provávelmente serão removidas em um dos futuros releases**.
+Se você trabalhou com React antes, você deve estar familiarizado com uma antiga API onde o atributo ref é uma string, como `"textInput"`, e o nó DOM é acessado como `this.refs.textInput`. Nós não aconselhamos isto, pois refs string [tem alguns problemas](https://github.com/facebook/react/pull/8333#issuecomment-271648615), são consideradas abandonadas, e **provávelmente serão removidas em um dos futuros releases**.
 
 > Nota
 >
