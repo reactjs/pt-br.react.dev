@@ -120,7 +120,7 @@ class BemVindo extends React.Component {
 
 ### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-Um componente precisa de `state` quando algum dado associado com este é alterado com o tempo. Por exemplo, um `Checkbox` componente pode precisar da propriedade `isChecked` no seu state, e um componente `NewsFeed` pode querer observar a propriedade `fetchedPosts` do seu state.
+Um componente precisa de `state` quando algum dado associado com este é alterado com o tempo. Por exemplo, um `Checkbox` componente pode precisar da propriedade `isChecked` no seu estado (_state_), e um componente `NewsFeed` pode querer observar a propriedade `fetchedPosts` do seu estado.
 
 A diferença mais importante entre `state` e `props` é que `props` é passada de um componente pai, mas o `state` é gerenciado pelo próprio componente. Um componente não pode alterar suas `props`, mas pode alterar seu `state`. Para isso, deve chamar `this.setState()`. Somente componentes definidos como classes podem ter state.
 
