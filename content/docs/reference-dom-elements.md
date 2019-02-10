@@ -106,7 +106,7 @@ React vai acrescentar automaticamente um sufixo "px" para determinadas proprieda
 </div>
 ```
 
-Nem todas as propriedades de style são convertidas para strings pixel. Algumas permanecem sem unidade (exemplo: `zoom`, `order`, `flex`). Uma lista completa com as propriedades sem unidade pode ser vista [aqui](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+Nem todas as propriedades de estilos são convertidas para strings pixel. Algumas permanecem sem unidade (exemplo: `zoom`, `order`, `flex`). Uma lista completa com as propriedades sem unidade pode ser vista [aqui](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59)
 
 ### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
