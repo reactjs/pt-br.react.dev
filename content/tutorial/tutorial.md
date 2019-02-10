@@ -186,7 +186,7 @@ Ao inspecionar o código, você notará que temos três componentes React:
 
 O componente Square renderiza um único `<button>` e o Board renderiza 9 squares. O componente Game renderiza um Board com valores que modificaremos mais tarde. Atualmente não há componentes interativos.
 
-### Passando Dados Através de Props {#passing-data-through-props}
+### Passando dados através de props {#passing-data-through-props}
 
 Para aquecer, vamos tentar passar alguns dados do nosso componente Board para o nosso componente Square.
 
