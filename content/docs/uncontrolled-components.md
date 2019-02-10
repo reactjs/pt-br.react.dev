@@ -40,7 +40,7 @@ class NameForm extends React.Component {
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/WooRWa?editors=0010)
 
-Como um componente não controlado mantém a fonte de verdade no DOM, às vezes é mais fácil integrar código React e não React ao usar componentes não controlados. Também pode conter menos código se você quiser ser rápido e sujo. Caso contrário, você geralmente deve usar componentes controlados.
+Como um componente não controlado mantém a fonte de verdade no DOM, às vezes é mais fácil integrar código React e não React ao usar componentes não controlados. Também pode conter menos código se você quiser fazer gambiarra. Caso contrário, você geralmente deve usar componentes controlados.
 
 Se ainda não estiver claro qual tipo de componente você deve usar para uma situação específica, você pode achar útil este [artigo sobre inputs controlados e não controlados](http://goshakkk.name/controlled-vs-uncontrolled-inputs-react/).
 
