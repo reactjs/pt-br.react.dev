@@ -439,7 +439,7 @@ function FormattedDate(props) {
 
 [**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-Isso é comumente chamado de fluxo de dados "top-down" ou "unidirecionala". Qualquer state é sempre de propriedade de algum componente específico, e qualquer dado ou interface do usuário derivado desse state só pode afetar os componentes "abaixo" deles na árvore.
+Isso é comumente chamado de fluxo de dados "top-down" ou "unidirecional". Qualquer state é sempre de propriedade de algum componente específico, e qualquer dado ou interface do usuário derivado desse state só pode afetar os componentes "abaixo" deles na árvore.
 
 Se você imaginar uma árvore de componentes como uma cascata de props, o state de cada componente é como uma fonte de água adicional que o une em um ponto arbitrário, mas também flui para baixo.
 
