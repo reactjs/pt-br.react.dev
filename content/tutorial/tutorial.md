@@ -335,7 +335,7 @@ A extensão React Devtools para [Chrome](https://chrome.google.com/webstore/deta
 
 O React DevTools permite que você verifique as props e o estado de seus componentes React.
 
-Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas do desenvolvedor, e a guia React aparecerá como a última guia à direita.
+Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas de desenvolvedor, e a guia React aparecerá como a última guia à direita.
 
 ** No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen: **
 
