@@ -1,6 +1,6 @@
 ---
 id: components-and-props
-title: Components and Props
+title: Componentes e Props
 permalink: docs/components-and-props.html
 redirect_from:
   - "docs/reusable-components.html"
@@ -16,13 +16,13 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
+Componentes permitem você dividir a UI em partes independentes, reutilizáveis e pensar em cada parte isoladamente. Essa página fornece uma introdução à ideia de componentes. Você pode encontrar uma [referência detalhada da API de componente aqui](/docs/react-component.html).
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Conceitualmente, componentes são como funções JavaScript. Eles aceitam entradas arbitrárias (chamadas "props") e retornam elementos React que descrevem o que deve aparecer na tela.
 
-## Function and Class Components {#function-and-class-components}
+## Componentes de Função e Classe {#function-and-class-components}
 
-The simplest way to define a component is to write a JavaScript function:
+A maneira mais simples de definir um componente é escrever uma função JavaScript:
 
 ```js
 function Welcome(props) {
@@ -30,9 +30,9 @@ function Welcome(props) {
 }
 ```
 
-This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+Essa função é um componente React válido porque aceita um único argumento de objeto "props" (que significa propriedades) com dados e retorna um elemento React. Nós chamamos esses componentes de "componentes de função" porque são literalmente funções JavaScript.
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+Você também pode usar uma [classe ES6](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes) para definir um componente:
 
 ```js
 class Welcome extends React.Component {
@@ -42,27 +42,27 @@ class Welcome extends React.Component {
 }
 ```
 
-The above two components are equivalent from React's point of view.
+Os dois componentes acima são equivalentes do ponto de vista do React.
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
+Classes tem alguns recursos adicionais que nós discutiremos nas [próximas seções](/docs/state-and-lifecycle.html). Até lá, nós usaremos componentes de função por serem mais sucintos.
 
-## Rendering a Component {#rendering-a-component}
+## Renderizando um Componente {#rendering-a-component}
 
-Previously, we only encountered React elements that represent DOM tags:
+Anteriormente, nós encontramos apenas elementos React que representam tags do DOM:
 
 ```js
 const element = <div />;
 ```
 
-However, elements can also represent user-defined components:
+No entanto, elementos também podem representar componentes definidos pelo usuário:
 
 ```js
 const element = <Welcome name="Sara" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+Quando o React vê um elemento representando um componente definido pelo usuário, ele passa atributos JSX para esse componente como um único objeto. Nós chamamos esse objeto de "props". 
 
-For example, this code renders "Hello, Sara" on the page:
+Por exemplo, esse código renderiza "Hello, Sara" na página:
 
 ```js{1,5}
 function Welcome(props) {
@@ -78,24 +78,24 @@ ReactDOM.render(
 
 [](codepen://components-and-props/rendering-a-component)
 
-Let's recap what happens in this example:
+Vamos recapitular o que acontece nesse exemplo:
 
-1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+1. Nós chamamos `ReactDOM.render()` com o elemento `<Welcome name="Sara" />`.
+2. React chama o componente `Welcome` com `{name: 'Sara'}` como props.
+3. Nosso componente `Welcome` retorna um elemento `<h1>Hello, Sara</h1>` como resultado.
+4. React DOM atualiza eficientemente o DOM para corresponder `<h1>Hello, Sara</h1>`.
 
->**Note:** Always start component names with a capital letter.
+>**Nota:** Sempre inicie os nomes dos componentes com uma letra maiúscula.
 >
->React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+>O React trata componentes começando com letras minúsculas como tags do DOM. Por exemplo, `<div />` representa uma tag div do HTML, mas `<Welcome />` representa um componente e requer que `Welcome` esteja no escopo.
 >
->You can read more about the reasoning behind this convention [here.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
+>Você pode ler mais sobre o raciocínio por trás dessa convenção [aqui.](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized)
 
-## Composing Components {#composing-components}
+## Compondo Componentes {#composing-components}
 
-Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+Componentes podem se referir a outros componentes em sua saída. Isso nos permite usar a mesma abstração de componente para qualquer nível de detalhe. Um botão, um formulário, uma caixa de diálogo, uma tela: em aplicativos React, todos esses são normalmente expressos como componentes.
 
-For example, we can create an `App` component that renders `Welcome` many times:
+Por exemplo, nós podemos criar um componente `App` que renderiza `Welcome` muitas vezes:
 
 ```js{8-10}
 function Welcome(props) {
@@ -120,13 +120,13 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
+Tipicamente, novos aplicativos React tem um único componente `App` no topo. Contudo, se você integrar o React em um aplicativo existente, você pode começar de baixo para cima com um pequeno componente como o `Button` e gradualmente chegar ao topo da hierarquia de exibição.
 
-## Extracting Components {#extracting-components}
+## Extraindo Componentes {#extracting-components}
 
-Don't be afraid to split components into smaller components.
+Não tenha medo de dividir componentes em componentes menores.
 
-For example, consider this `Comment` component:
+Por exemplo, considere esse commponente `Comment`:
 
 ```js
 function Comment(props) {
@@ -154,11 +154,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+Ele aceita `author` (um objeto), `text` (uma string) e `date` (uma data) como props e descreve um comentário em um site de mídia social.
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+Esse componente pode ser complicado de alterar por causa de todo o aninhamento. Também é difícil reutilizar suas partes individuais. Vamos extrair alguns componentes dele.
 
-First, we will extract `Avatar`:
+Primeiro, nós vamos extrair `Avatar`:
 
 ```js{3-6}
 function Avatar(props) {
@@ -171,11 +171,11 @@ function Avatar(props) {
 }
 ```
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+O `Avatar` não precisa saber que está sendo renderizado dentro do `Comment`. É por isso que nós demos ao seu prop um nome mais genérico: `user` em vez de `author`.
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
+Nós recomendamos nomear props a partir do ponto de vista do próprio componente ao invés do contexto em que ele está sendo usado.
 
-We can now simplify `Comment` a tiny bit:
+Agora nós podemos simplificar `Comment` um pouco mais:
 
 ```js{5}
 function Comment(props) {
@@ -198,7 +198,7 @@ function Comment(props) {
 }
 ```
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to the user's name:
+Em seguida, nós vamos extrair o componente `UserInfo` que renderiza um `Avatar` ao lado do nome do usuário:
 
 ```js{3-8}
 function UserInfo(props) {
@@ -213,7 +213,7 @@ function UserInfo(props) {
 }
 ```
 
-This lets us simplify `Comment` even further:
+Isso nos permite simplificar `Comment` ainda mais:
 
 ```js{4}
 function Comment(props) {
@@ -233,11 +233,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+Extrair componentes pode parecer um trabalho pesado no começo, mas ter uma paleta de componentes reutilizáveis compensa em aplicativos maiores. Uma boa regra é que se uma parte da sua UI for usada várias vezes (`Button`, `Panel`, `Avatar`) ou for complexa o suficiente por si só (`App`, `FeedStory`, `Comment`) é uma boa candidata a se tornar um componente reutilizável.
 
-## Props are Read-Only {#props-are-read-only}
+## Props são Somente Leitura {#props-are-read-only}
 
-Whether you declare a component [as a function or a class](#function-and-class-components), it must never modify its own props. Consider this `sum` function:
+Independente se você declarar um componente [como uma função ou uma classe](#function-and-class-components), ele nunca deve modificar seus próprios props. Considere essa função `sum`:
 
 ```js
 function sum(a, b) {
@@ -245,9 +245,9 @@ function sum(a, b) {
 }
 ```
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+Tais funções são chamadas ["puras"](https://en.wikipedia.org/wiki/Pure_function) porque elas não tentam alterar suas entradas e sempre retornan o mesmo resultado para as mesmas entradas.
 
-In contrast, this function is impure because it changes its own input:
+Em contraste, essa função é impura porque altera sua própria entrada:
 
 ```js
 function withdraw(account, amount) {
@@ -255,8 +255,8 @@ function withdraw(account, amount) {
 }
 ```
 
-React is pretty flexible but it has a single strict rule:
+React é bastante flexível mas tem uma única regra estrita:
 
-**All React components must act like pure functions with respect to their props.**
+**Todos os componentes React tem que agir como funções puras em relação ao seus props.**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+Obviamente, as UIs de aplicativos são dinâmicas e mudam com o tempo. Na [próxima seção](/docs/state-and-lifecycle.html), nós vamos introduzir um novo conceito de "state". O state permite aos componentes React alterar sua saída ao longo do tempo em resposta a ações do usuário, respostas de rede e quaisquer outras coisas, sem violar essa regra.

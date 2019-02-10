@@ -26,7 +26,7 @@
     - id: conditional-rendering
       title: Conditional Rendering
     - id: lists-and-keys
-      title: Lists and Keys
+      title: Listas e Chaves
     - id: forms
       title: Forms
     - id: lifting-state-up
@@ -144,7 +144,7 @@
     - id: faq-state
       title: Component State
     - id: faq-styling
-      title: Styling and CSS
+      title: Estilização e CSS
     - id: faq-structure
       title: File Structure
     - id: faq-versioning

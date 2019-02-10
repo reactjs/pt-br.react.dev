@@ -82,7 +82,9 @@ npx create-react-app my-app
 
 3. Apague todos os arquivos na pasta `src/` do novo projeto
 
-> Nota: **não exclua a pasta `src` inteira. Apenas os arquivos originais dentro dela.** Substituiremos os arquivos de origem padrão por exemplos deste projeto na próxima etapa.
+> Nota:
+>
+> **não exclua a pasta `src` inteira. Apenas os arquivos originais dentro dela.** Substituiremos os arquivos de origem padrão por exemplos deste projeto na próxima etapa.
 
 ```bash
 cd my-app
