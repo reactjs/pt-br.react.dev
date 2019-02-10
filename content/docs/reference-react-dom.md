@@ -24,7 +24,7 @@ O React suporta todos os navegadores populares, incluindo Internet Explorer 9 e 
 
 > Nota
 >
-> Nós não suportamos navegadores antigos que não suportam métodos ES5, mas você pode descobrir que suas aplicações funcionam em navegadores antigos se _polyfills_ como [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) forem incluídos na página. Você está por sua conta se optar por seguir esse caminho.
+> Nós não temos suporte para navegadores antigos que não possuem suporte para métodos ES5. Mas, você pode descobrir que suas aplicações funcionam em navegadores antigos se _polyfills_ como [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) forem incluídos na página. Você estará por conta e risco se optar por seguir esse caminho.
 
 * * *
 
