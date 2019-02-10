@@ -77,7 +77,7 @@ function HelloWorldComponent() {
 }
 ```
 
-Perceba que estes estilos não são auto prefixados. Para serem compatíveis com browsers antigos você precisa fornecer as propriedades de style correspondentes:
+Perceba que estes estilos não são auto prefixados. Para serem compatíveis com browsers antigos você precisa fornecer as propriedades de estilos correspondentes:
 
 ```js
 const divStyle = {
