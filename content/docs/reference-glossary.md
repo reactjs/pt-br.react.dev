@@ -142,7 +142,7 @@ Na maioria dos casos você deve usar componentes controlados.
 
 ## [Keys](/docs/lists-and-keys.html) {#keys}
 
-Uma "key" é um atributo de string especial que você precisa incluir quando estiver criando arrays de elementos. Keys ajudam o React a identificar quais items foram alterados, quais foram adicionados, ou quais foram removidos. Keys devem ser dadas a elementos em um array para dar a estes elementos uma identidade estável.
+Uma "key" (chave) é um atributo de string especial que você precisa incluir quando estiver criando arrays de elementos. Chaves ajudam o React a identificar quais items foram alterados, quais foram adicionados, ou quais foram removidos. Chaves devem ser dadas a elementos em um array para dar a estes elementos uma identidade estável.
 
 As chaves precisam ser únicas entre os elementos de um mesmo array. Eles não precisam ser exclusivos em toda a aplicação ou até mesmo em um único componente.
 
