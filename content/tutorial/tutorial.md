@@ -260,7 +260,7 @@ Se clicarmos em um quadrado agora, devemos receber um alerta em nosso navegador.
 >}
 >```
 >
->Note que com `onClick = {() => alert ('click')}`, estamos passando *uma função* como prop `onClick`. Ela Só é acionada após um clique. Esquecer o `() =>` e escrever somente `onClick = {alert ('click')}` é um erro comum, e dispararia o alerta toda vez que o componente fosse renderizado novamente.
+>Note que com `onClick = {() => alert ('click')}`, estamos passando *uma função* como prop `onClick`. Ela só é acionada após um clique. Esquecer o `() =>` e escrever somente `onClick = {alert ('click')}` é um erro comum, e dispararia o alerta toda vez que o componente fosse renderizado novamente.
 
 Como próximo passo, queremos que o componente Square "lembre" que foi clicado e preencha com um "X". Para "lembrar" as coisas, os componentes usam o **estado**.
 
