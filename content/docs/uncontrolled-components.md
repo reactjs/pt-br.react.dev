@@ -46,7 +46,7 @@ Se ainda não estiver claro qual tipo de componente você deve usar para uma sit
 
 ### Valores padrão {#default-values}
 
-No ciclo de vida de renderização React, o atributo `value` nos elementos de formulário substituirá o valor no DOM. Com um componente não controlado, você geralmente deseja que o React especifique o valor inicial, mas deixe as atualizações subsequentes não controladas. Para lidar com esse caso, você pode especificar o atributo `defaultValue` em vez de `value`.
+No ciclo de vida de renderização do React, o atributo `value` nos elementos de formulário substituirá o valor no DOM. Com um componente não controlado, você geralmente deseja que o React especifique o valor inicial, mas que deixa as atualizações subsequentes não controladas. Para lidar com esse tipo de caso, você pode especificar o atributo `defaultValue` em vez de `value`.
 
 ```javascript{7}
 render() {
