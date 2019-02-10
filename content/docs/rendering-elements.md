@@ -30,7 +30,7 @@ Suponhamos que exista um `<div>` em algum lugar do seu código HTML:
 <div id="root"></div>
 ```
 
-Nós o chamamos de nó "raiz" do DOM porque tudo dentro dele será gerenciado pelo React DOM.
+Nós o chamamos de nó raiz do DOM porque tudo dentro dele será gerenciado pelo React DOM.
 
 Aplicações construídas apenas com React geralmente tem apenas um único nó raiz no DOM. Se deseja integrar o React a uma aplicação existente, você pode ter quantos nós raiz precisar.
 
