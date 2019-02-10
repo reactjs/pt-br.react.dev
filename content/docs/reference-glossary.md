@@ -77,7 +77,7 @@ class BemVindo extends React.Component {
 }
 ```
 
-Componentes podem ser quebrados em peças distintas de funcionalidade e usados em outros componentes. Componentes podem retornar outros componentes, arrays, strings e números. Uma boa regra é que se parte da sua UI é usada várias vezes (Botão, Painel, Avatar), ou é complexa suficiente (App, FeedStory, Comment), é uma boa candidata para ser um componente reusável. Nomes de componentes devem também sempre começar com letra maiúscula (`<Wrapper/>` **not** `<wrapper/>`). Veja [esta documentação](/docs/components-and-props.html#rendering-a-component) para mais informações sobre renderização de componentes. 
+Componentes podem ser quebrados em peças distintas de funcionalidade e usados em outros componentes. Componentes podem retornar outros componentes, arrays, strings e números. Uma regra de ouro é que se parte da sua UI é usada várias vezes (Botão, Painel, Avatar), ou é complexa suficiente (App, FeedStory, Comment), é uma boa candidata para ser um componente reutilisável. Nomes de componentes devem também sempre começar com letra maiúscula (`<Wrapper/>` **ao invés de** `<wrapper/>`). Veja [esta documentação](/docs/components-and-props.html#rendering-a-component) para mais informações sobre renderização de componentes. 
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
