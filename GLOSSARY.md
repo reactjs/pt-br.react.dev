@@ -42,6 +42,7 @@ Suggestion on words and terms:
 * portal
 * props
 * ref
+* single-page app
 * state
 * string
 * template literal
