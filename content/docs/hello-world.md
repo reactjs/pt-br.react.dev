@@ -46,4 +46,4 @@ React é uma biblioteca JavaScript, então assumiremos que você possui um enten
 ## Vamos começar! {#lets-get-started}
 ## Let's Get Started! {#lets-get-started}
 
-Continue rolando para baixo, e você encontrará o link para o [próximo capítulo desse guia](/docs/introducing-jsx.html) bem antes do rodapé.
+Continue rolando para baixo, e você encontrará o link para o [próximo capítulo desse guia](/docs/introducing-jsx.html) logo acima do rodapé.
