@@ -19,7 +19,7 @@ Todas essas siglas referem-se às versões mais recentes do padrão de especific
 
 ## Compiladores {#compilers}
 
-Um compilador JavaScript pega o código JavaScript, transforma-o e retorna o código JavaScript em um formato diferente. O caso de uso mais comum é pegar a sintaxe do ES6 e transformá-la na sintaxe que os navegadores mais antigos são capazes de interpretar. [Babel] (https://babeljs.io/) é o compilador mais comumente usado com o React.
+Um compilador JavaScript pega o código JavaScript, transforma-o e retorna o código JavaScript em um formato diferente. O caso de uso mais comum é pegar a sintaxe do ES6 e transformá-la na sintaxe que os navegadores mais antigos são capazes de interpretar. [Babel](https://babeljs.io/) é o compilador mais comumente usado com o React.
 
 ## Bundlers {#bundlers}
 
