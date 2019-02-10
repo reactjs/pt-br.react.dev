@@ -10,7 +10,7 @@ Suggestion on words and terms:
 
 | Original word/term | Suggestion |
 | ------------------ | ---------- |
-| bubbling | ? |
+| bubbling | propagar |
 | bug | erro |
 | class | classe |
 | context | contexto |
@@ -26,9 +26,13 @@ Suggestion on words and terms:
 | render | renderizar (verb), renderizado (noun)
 | uncontrolled component | componente não controlado |
 | uppercase | maiúscula(s) / caixa alta |
-| wrap | ? |
+| wrap | colocar dentro de / envolver com  |
 | wrapper | ? |
 | assert | ? |
+| server | servidor |
+| server-side | lado do servidor |
+| client | cliente |
+| client-side | lado do cliente |
 
 # Content that doesn't need translation
 
@@ -51,3 +55,9 @@ Suggestion on words and terms:
 * template literal
 * UI
 * log
+* timestamps
+* script
+* single-page-apps
+* widgets
+* watcher
+* timestamps
