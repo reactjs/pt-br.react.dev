@@ -158,7 +158,7 @@ Use refs com moderação. Se você se encontrar usando refs frequentemente para 
 
 Manipular eventos com elementos React tem algumas diferenças sintáticas:
 
-* Manipuladores de eventos React usam camelCase, em vez de lowecase.
+* Manipuladores de eventos React usam camelCase, em vez de lowercase.
 * Com JSX você passa uma função como manipulador de evento, em vez de uma string.
 
 ## [Reconciliação](/docs/reconciliation.html) {#reconciliation}
