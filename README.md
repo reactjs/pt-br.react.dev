@@ -57,14 +57,7 @@ The documentation is divided into several sections with a different tone and pur
 
 ## Translation
 
-<<<<<<< HEAD
 If you are interesting in translating `reactjs.org` to **pt-BR**, check the translation progress and claim a section/page to translate **[here](https://github.com/reactjs/pt-BR.reactjs.org/issues/1)**. Also, when translating any content, make sure you follow our **[Glossary](GLOSSARY.md)**.
-=======
-If you are interesting in translating `reactjs.org`, please see the current translation efforts at [isreactreadyyet.com](https://www.isreactreadyyet.com).
-
-
-If your language does not have a translation and you would like to create one, please follow the instructions at [reactjs.org Translations](https://github.com/reactjs/reactjs.org-translation#translating-reactjsorg).
->>>>>>> 61b96a2f24d6c64851ee747e99d5ea7629059ec6
 
 ## Troubleshooting
 
