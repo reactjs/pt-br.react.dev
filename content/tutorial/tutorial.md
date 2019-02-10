@@ -168,7 +168,7 @@ return React.createElement('div', {className: 'shopping-list'},
 
 Se você está curioso, o `createElement()` é descrito em mais detalhes na [referência da API](/docs/react-api.html#createelement), mas não iremos usá-lo neste tutorial. Em vez disso, continuaremos usando o JSX.
 
-O JSX vem com todo o poder do JavaScript. Você pode colocar *qualquer* expressões JavaScript dentro de chaves dentro do JSX. Cada elemento React é um objeto JavaScript que você pode armazenar em uma variável ou passar em seu programa.
+O JSX vem com todo o poder do JavaScript. Você pode colocar *quaisquer* expressões JavaScript dentro de chaves no JSX. Cada elemento React é um objeto JavaScript que você pode armazenar em uma variável ou passar em seu código.
 
 O componente `ShoppingList` acima apenas renderiza componentes internos do DOM como `<div />` e ` <li />`. Mas você também pode compor e renderizar componentes React personalizados. Por exemplo, agora podemos nos referir a toda a lista de compras escrevendo `<ShoppingList />`. Cada componente React é encapsulado e pode operar de forma independente; Isso permite que você construa interfaces complexas a partir de componentes simples.
 
