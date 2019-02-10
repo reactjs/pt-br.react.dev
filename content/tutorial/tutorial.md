@@ -31,7 +31,7 @@ O tutorial está dividido em várias seções:
 
 Você não precisa completar todas as seções de uma vez para obter o valor deste tutorial. Tente chegar o mais longe possível, mesmo que seja uma ou duas seções.
 
-Não há problema em copiar e colar o código enquanto você acompanha o tutorial, mas recomendamos que você o digite à mão. Isso ajudará você a desenvolver uma memória muscular e um entendimento mais forte.
+Não há problema em copiar e colar o código enquanto você acompanha o tutorial. Mas, recomendamos que você o digite à mão. Isso ajudará você a desenvolver uma memória muscular e ter um entendimento mais forte.
 
 ### O que estamos construindo? {#what-are-we-building}
 
