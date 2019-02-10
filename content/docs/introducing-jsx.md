@@ -14,18 +14,18 @@ const element = <h1>Hello, world!</h1>;
 
 Esta sintaxe estranha de tags não é uma string, nem HTML.
 
-É chamada JSX, e é uma extensão de sintaxe para JavaScript. Recomendamos usá-la com o React para descrever como a UI deveria parecer. JSX pode lembrar uma linguagem de template, mas vem com todo o poder do JavaScript.
+É chamada JSX e é uma extensão de sintaxe para JavaScript. Recomendamos usar JSX com o React para descrever como a UI deveria parecer. JSX pode lembrar uma linguagem de template, mas que vem com todo o poder do JavaScript.
 
 JSX produz "elementos" do React. Nós iremos explorar a renderização para o DOM na [próxima seção](/docs/rendering-elements.html). Abaixo você descobrirá o básico de JSX necessário para começar.
 
 ### Por que JSX? {#why-jsx}
 
-O React adota o fato de que a lógica de renderização é inerentemente acoplada com outras lógicas de UI: como eventos são manipulados, como o state muda com o tempo, e como os dados são preparados para exibição.
+O React adota o fato de que a lógica de renderização é inerentemente acoplada com outras lógicas de UI: como eventos são manipulados, como o state muda com o tempo e como os dados são preparados para exibição.
 
 Ao invés de separar *tecnologias* artificialmente colocando markup e lógica em arquivos separados, o React [separa *conceitos*](https://pt.wikipedia.org/wiki/Separa%C3%A7%C3%A3o_de_conceitos) com unidades pouco acopladas chamadas "componentes" que contém ambos. Voltaremos aos componentes em 
- [outra seção](/docs/components-and-props.html), mas se você ainda não está confortável em usar markup em JS, [esta talk](https://www.youtube.com/watch?v=x7cQ3mrcKaY) pode convencer você do contrário.
+ [outra seção](/docs/components-and-props.html). Mas, se você ainda não está confortável em usar markup em JS, [esta palestra](https://www.youtube.com/watch?v=x7cQ3mrcKaY) pode convencer você do contrário.
 
-O React [não requer](/docs/react-without-jsx.html) o uso do JSX, mas a maioria das pessoas acha prático como uma ajuda visual quando se está trabalhando com uma UI dentro do código em JavaScript. Ele permite ao React mostrar mensagens mais úteis de erro e aviso.
+O React [não requer](/docs/react-without-jsx.html) o uso do JSX. Porém, a maioria das pessoas acha prático como uma ajuda visual quando se está trabalhando com uma UI dentro do código em JavaScript. Ele permite ao React mostrar mensagens mais úteis de erro e aviso.
 
 Com isso fora do caminho, vamos começar!
 
@@ -182,4 +182,4 @@ Exploraremos a renderização de elementos React no DOM na próxima seção.
 
 >**Dica:**
 >
->Recomendamos o uso da [definição de linguagem "Babel"](http://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados. Este website usa o esquema de cores [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/) no qual é compatível o mesmo.
+>Recomendamos o uso da [definição de linguagem "Babel"](http://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados. Este website usa o esquema de cores [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), no qual é compatível com o Babel.
