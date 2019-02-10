@@ -70,7 +70,7 @@ ReactDOM.render(
 
 Para implementá-lo, precisamos adicionar um "state" ao componente `Clock`.
 
-Estado do componente é similar as props, mas é privado e totalmente controlado pelo componente.
+O state do componente é similar as props, mas é privado e totalmente controlado pelo componente.
 
 Nós [mencionamos antes](/docs/components-and-props.html#functional-and-class-components) que os componentes definidos como classes possuem alguns recursos adicionais. O estado local é exatamente isso: um recurso disponível apenas para classes.
 
@@ -109,7 +109,7 @@ O método `render` será chamado toda vez que uma atualização acontecer, mas e
 
 ## Adicionando Estado Local a uma Classe {#adding-local-state-to-a-class}
 
-Vamos mover a `date` da props para o estado em três passos:
+Vamos mover a `date` da props para o state em três passos:
 
 1) Substitua `this.props.date` por `this.state.date` no médoto `render()`:
 
@@ -308,7 +308,7 @@ Agora o relógio bate a cada segundo.
 
 Vamos recapitular rapidamente o que está acontencendo e a ordem na qual os métodos são chamados:
 
-1) Quando `<Clock />` é passado para `ReactDOM.render()`, o React chama o construtor do componente `Clock`. Como `Clock` precisa exibir a hora atual, ele inicializa `this.state` com um objeto incluindo a hora atual. Mas tarde, atualizaremos este estado.
+1) Quando `<Clock />` é passado para `ReactDOM.render()`, o React chama o construtor do componente `Clock`. Como `Clock` precisa exibir a hora atual, ele inicializa `this.state` com um objeto incluindo a hora atual. Mas tarde, atualizaremos este state.
 
 2) React chama então o método `render()` do componente `Clock`. É assim que o React aprende o que deve ser exibido na tela. React em seguida, atualiza o DOM para coincidir com a saída de renderização do `Clock`.
 
@@ -318,11 +318,11 @@ Vamos recapitular rapidamente o que está acontencendo e a ordem na qual os mét
 
 5) Se o componente `Clock` for removido do DOM, o React chama o método do ciclo de vida `componentWillUnmount()` para que o temporizador seja interrompido.
 
-## Usando o estado corretamente {#using-state-correctly}
+## Usando o state corretamente {#using-state-correctly}
 
 Existem três coisas que você deve saber sobre `setState()`.
 
-### Não modifique o estado diretamente {#do-not-modify-state-directly}
+### Não modifique o state diretamente {#do-not-modify-state-directly}
 
 Por exemplo, isso não renderizará novamente o componente:
 
@@ -340,11 +340,11 @@ this.setState({comment: 'Hello'});
 
 O único lugar onde você pode atribuir `this.state` é o construtor.
 
-### Atualizações de estado podem ser assíncronas {#state-updates-may-be-asynchronous}
+### Atualizações de state podem ser assíncronas {#state-updates-may-be-asynchronous}
 
 O React pode agrupar várias chamadas `setState()` em uma única atualização para desempenho.
 
-Como `this.props` e `this.state` podem ser atualizados de forma assíncrona, você não deve confiar em seus valores para calcular o próximo estado.
+Como `this.props` e `this.state` podem ser atualizados de forma assíncrona, você não deve confiar em seus valores para calcular o próximo state.
 
 Por exemplo, esse código pode falhar ao atualizar o contador:
 
@@ -355,7 +355,7 @@ this.setState({
 });
 ```
 
-Para consertá-lo, use uma segunda forma de `setState()` que aceite uma função ao invés de um objeto. Essa função receberá o estado anterior como o primeiro argumento e as props no momento em que a atualização for aplicada como o segundo argumento:
+Para consertá-lo, use uma segunda forma de `setState()` que aceite uma função ao invés de um objeto. Essa função receberá o state anterior como o primeiro argumento e as props no momento em que a atualização for aplicada como o segundo argumento:
 
 ```js
 // Correto
@@ -375,11 +375,11 @@ this.setState(function(state, props) {
 });
 ```
 
-### Atualizações de estado são mescladas {#state-updates-are-merged}
+### Atualizações de state são mescladas {#state-updates-are-merged}
 
-Quando você chama `setState()`, o React mescla o objeto que você fornece ao estado atual.
+Quando você chama `setState()`, o React mescla o objeto que você fornece ao state atual.
 
-Por exemplo: seu estado pode conter várias variáveis independentes:
+Por exemplo: seu state pode conter várias variáveis independentes:
 
 ```js{4,5}
   constructor(props) {
@@ -415,9 +415,9 @@ O merge é superficial, então `this.setState({comments})` deixa `this.state.pos
 
 Nem componentes pai ou filho podem saber se um determinado componente é stateful ou stateless, e não devem se importar se ele é definido por uma função ou classe.
 
-É por isso que o estado é geralmente chamado de local ou encapsulado. Não é acessível a nenhum componente que não seja o que o possui e o define.
+É por isso que o state é geralmente chamado de local ou encapsulado. Não é acessível a nenhum componente que não seja o que o possui e o define.
 
-Um componente pode escolher passar seu estado como props para seus componentes filhos:
+Um componente pode escolher passar seu state como props para seus componentes filhos:
 
 ```js
 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
@@ -429,7 +429,7 @@ Isso também funciona para componentes definidos pelo usuário:
 <FormattedDate date={this.state.date} />
 ```
 
-O componente `FormattedDate` receberia o `date` em seus objetos e não saberia se ele veio do estado `Clock`, dos props do `Clock`, ou  se foi digitado manualmente:
+O componente `FormattedDate` receberia o `date` em seus objetos e não saberia se ele veio do state de `Clock`, das props do `Clock`, ou se foi digitado manualmente:
 
 ```js
 function FormattedDate(props) {
@@ -439,9 +439,9 @@ function FormattedDate(props) {
 
 [**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
-Isso é comumente chamado de fluxo de dados "top-down" ou "unidirecionala". Qualquer estado é sempre de propriedade de algum componente específico, e qualquer dado ou interface do usuário derivado desse estado só pode afetar os componentes "abaixo" deles na árvore.
+Isso é comumente chamado de fluxo de dados "top-down" ou "unidirecionala". Qualquer state é sempre de propriedade de algum componente específico, e qualquer dado ou interface do usuário derivado desse state só pode afetar os componentes "abaixo" deles na árvore.
 
-Se você imaginar uma árvore de componentes como uma cascata de props, o estado de cada componente é como uma fonte de água adicional que o une em um ponto arbitrário, mas também flui para baixo.
+Se você imaginar uma árvore de componentes como uma cascata de props, o state de cada componente é como uma fonte de água adicional que o une em um ponto arbitrário, mas também flui para baixo.
 
 Para mostrar que todos os componentes estão isolados, podemos criar um componente `App` que renderiza três `<Clock>`s:
 
@@ -466,4 +466,4 @@ ReactDOM.render(
 
 Cada `Clock` configura seu próprio temporizador e atualiza de forma independente.
 
-Nos apps React, se um componente é stateful ou stateless é considerado um detalhe de implementação do componente que pode mudar com o tempo. Você pode usar componentes sem estado dentro de componentes com estado e vice-versa.
+Nos apps React, se um componente é stateful ou stateless é considerado um detalhe de implementação do componente que pode mudar com o tempo. Você pode usar componentes sem state dentro de componentes com state e vice-versa.
