@@ -57,7 +57,7 @@ Há duas maneiras de concluir este tutorial: você pode escrever o código em se
 
 Esta é a maneira mais rápida de começar!
 
-Primeiro, abra este **[Código Inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** em uma nova guia. A nova aba deve exibir um tabuleiro de jogo tic-tac-toe vazio e o código React. Nós estaremos editando o código React neste tutorial.
+Primeiro, abra este **[Código Inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** em uma nova guia. A nova aba deve exibir um tabuleiro de tic-tac-toe (jogo da velha) vazio e o código React. Nós estaremos editando o código React neste tutorial.
 
 Agora você pode ignorar a segunda opção de configuração e ir para a seção [Visão geral](#overview) para obter uma visão geral do React.
 
