@@ -16,7 +16,7 @@ Este tutorial não assume nenhum conhecimento existente do React.
 
 ## Antes de começarmos o tutorial {#before-we-start-the-tutorial}
 
-Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentado a ignorá-lo porque você não vai construir jogos - mas dê uma chance.** As técnicas que você aprenderá no tutorial são fundamentais para criar qualquer aplicativo React e o domínio dará a você uma chance e um profundo entendimento de React.
+Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentado a ignorá-lo porque você não vai construir jogos - mas dê uma chance.** As técnicas que você aprenderá no tutorial são fundamentais para criar qualquer aplicativo React e o domínio delas lhe dará um profundo entendimento de React.
 
 > Dica
 >
@@ -29,7 +29,7 @@ O tutorial está dividido em várias seções:
 * [Completando o Jogo](#completing-the-game) te ensinará **as técnicas mais comuns** para desenvolver com React.
 * [Adicionando Time Travel (viagem no tempo)](#adding-time-travel) lhe dará **uma visão mais profunda** dos pontos fortes exclusivos do React.
 
-Você não precisa completar todas as seções de uma vez para obter o valor deste tutorial. Tente chegar o mais longe possível, mesmo que seja uma ou duas seções.
+Você não precisa completar todas as seções de uma vez para entender tudo que o tutorial tem a oferecer. Tente chegar o mais longe possível, mesmo que seja uma ou duas seções.
 
 Não há problema em copiar e colar o código enquanto você acompanha o tutorial. Mas, recomendamos que você o digite à mão. Isso ajudará você a desenvolver uma memória muscular e ter um entendimento mais forte.
 
