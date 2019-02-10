@@ -16,7 +16,7 @@ Existem algumas possíveis razões em que esses avisos podem aparecer:
 
 3. O React ainda não reconhece o atributo que você especificou. Isto provavelmente será corrigido em uma versão futura do React. Entretanto, o React atualmente retira todos os atributos desconhecidos, portanto especificá-los em seu aplicativo React não fará com que eles sejam renderizados.
 
-4. Você está usando um componente React sem uma letra maiúscula. O React interpreta isso como uma tag DOM, porque [O React JSX usa letras maiúsculas e minúsculas para distinguir entre componentes definidos pelo usuário e tags DOM](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+4. Você está usando um componente React sem uma letra maiúscula. O React interpreta isso como uma tag DOM, porque [o React JSX usa letras maiúsculas e minúsculas para distinguir entre componentes definidos pelo usuário e tags DOM](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
 ---
 
