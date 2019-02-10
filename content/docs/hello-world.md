@@ -24,7 +24,7 @@ Clique no link acima para abrir um editor online. Sinta-se livre para fazer algu
 
 ## Como Ler Esse Guia {#how-to-read-this-guide}
 
-Nesse guia, vamos examinar as fundações de aplicações React: elementos e componentes. Depois que você dominá-los, poderá criar aplicações complexas a partir de partes pequenas e reutilizáveis.
+Nesse guia, vamos examinar as fundações de aplicações React: elementos e componentes. Depois que você tiver o domínio, poderá criar aplicações complexas a partir de partes pequenas e reutilizáveis.
 
 >Dica
 >
