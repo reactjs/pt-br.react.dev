@@ -15,7 +15,7 @@ var ShallowRenderer = require('react-test-renderer/shallow'); // ES5 com npm
 
 ## Visão geral {#overview}
 
-Ao escrever testes unitários para o React, a renderização superficial pode ser útil. A renderização superficial o deixa renderizar um componente a um "nível simples de profundidade" e afirmar fatos sobre o que este método retorna, sem se preocupar sobre o comportamento dos componentes filhos, os quais não são instanciados ou renderizados. Isto não requer o DOM.
+Ao escrever testes unitários para o React, a renderização superficial pode ser útil. A renderização superficial nos permite renderizar um componente a um "nível simples de profundidade" e determinar fatos sobre o que a renderização retorna, sem se preocupar sobre o comportamento dos componentes filhos, os quais não são instanciados ou renderizados. Isto não requer o DOM.
 
 Por exemplo, se você tem o seguinte componente:
 
@@ -66,4 +66,4 @@ Você pode pensar no shallowRenderer como um "lugar" para renderizar o component
 Depois do `shallowRenderer.render()` ter sido chamado, você pode usar `shallowRenderer.getRenderOutput()` para pegar a saída renderizada superficialmente.
 
 
-Você pode então começar a afirmar fatos sobre a saída.
+Você pode então começar a determinar fatos sobre a saída.
