@@ -34,7 +34,7 @@ Esse é o primeiro capítulo em um guia passo-a-passo sobre os principais concei
 
 Todo capítulo nesse guia contrói em cima do conhecimento introduzido em capítulos anteriores. **Você pode aprender muito de React lendo os capítulos do guia de "Conceitos principais" na ordem em que eles aparecem na barra lateral.** Por exemplo, [Introduzindo JSX”](/docs/introducing-jsx.html) é o próximo capítulo depois desse.
 
-## Suposições de nível de conhecimento {#suposicoes-de-nivel-de-conhecimento}
+## Suposições de nível de conhecimento {#knowledge-level-assumptions}
 
 React é uma biblioteca Javascript, então assumiremos que você tem entendimento básico da linguágem, **Se não se sentir confiante, nós recomendamos: [seguir um tutorial de javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para checar o seu nível de conhecimento e garantir que você poderá acompanhar esse guia sem se perder. Isso pode levar entre 30 minutos e uma hora, mas você não sentirá como se estivesse aprendendo React e javaScript o mesmo tempo.
 
