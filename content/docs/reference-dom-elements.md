@@ -166,7 +166,7 @@ colorInterpolationFilters colorProfile colorRendering contentScriptType
 contentStyleType cursor cx cy d decelerate descent diffuseConstant direction
 display divisor dominantBaseline dur dx dy edgeMode elevation enableBackground
 end exponent externalResourcesRequired fill fillOpacity fillRule filter
-filterRes filterUnits floodColor floodOpacity focusable fontFamily fontSizesa
+filterRes filterUnits floodColor floodOpacity focusable fontFamily fontSize
 fontSizeAdjust fontStretch fontStyle fontVariant fontWeight format from fx fy
 g1 g2 glyphName glyphOrientationHorizontal glyphOrientationVertical glyphRef
 gradientTransform gradientUnits hanging horizAdvX horizOriginX ideographic
