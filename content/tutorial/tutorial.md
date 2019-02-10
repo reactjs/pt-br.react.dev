@@ -149,7 +149,7 @@ class ShoppingList extends React.Component {
 // Exemplo de uso: <ShoppingList name="Mark" />
 ```
 
-Nós falaremos sobre tags às tags engraçadas em formato XML em breve. Usamos componentes para dizer ao React o que queremos ver na tela. Quando nossos dados forem alterados, o React atualizará e renderizará novamente com eficiência nossos componentes.
+Nós falaremos sobre formatos engraçados de tags que possuem formato de XML em breve. Usamos componentes para dizer ao React o que queremos ver na tela. Quando nossos dados forem alterados, o React atualizará e renderizará novamente com eficiência nossos componentes.
 
 Aqui, o ShoppingList é um **componente React de classe** ou **component React do tipo classe**. Um componente recebe parâmetros, chamados `props` (abreviação de propriedades), e retorna uma hierarquia de views para exibir através do método `render`.
 
