@@ -43,7 +43,7 @@ React é uma biblioteca JavaScript, então assumiremos que você possui um enten
 >Esse guia ocasionalmente usa partes da nova sintáxe do JavaScript nos exemplos. Se você não tem trabalhado com Javascript nos ultimos anos, [esses três pontos:](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) devem te ajudar em boa parte do caminho.
 
 
-## Vamos começar! {#vamos-comecar}
+## Vamos começar! {#lets-get-started}
 ## Let's Get Started! {#lets-get-started}
 
 Continue rolando para baixo, e você encontrará o link para o [próximo capítulo desse guia](/docs/introducing-jsx.html) bem antes do rodapé.
