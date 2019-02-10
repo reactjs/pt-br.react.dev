@@ -223,10 +223,10 @@ Depois: Você deve ver um número em cada quadrado na saída renderizada.
 
 Parabéns! Você acabou de passar um "prop" de um componente pai Boar para um componente filho Square. Passar props é como o dado flui em aplicações React, de pais para filhos.
 
-### Making an Interactive Component {#making-an-interactive-component}
+### Fazendo um componente interativo {#making-an-interactive-component}
 
-Let's fill the Square component with an "X" when we click it. 
-First, change the button tag that is returned from the Square component's `render()` function to this:
+Vamos preencher o componente Square com um "X" quando clicamos nele.
+Primeiro, altere a tag `button` que é retornada na função `render ()` do componente Square para isto:
 
 ```javascript{4}
 class Square extends React.Component {
@@ -240,11 +240,11 @@ class Square extends React.Component {
 }
 ```
 
-If we click on a Square now, we should get an alert in our browser.
+Se clicarmos em um quadrado agora, devemos receber um alerta em nosso navegador.
 
->Note
+>Nota
 >
->To save typing and avoid the [confusing behavior of `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), we will use the [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for event handlers here and further below:
+>Para salvar a digitação e evitar o [comportamento confuso de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/),vamos usar a sintaxe [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions) para manipuladores de eventos:
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -258,13 +258,13 @@ If we click on a Square now, we should get an alert in our browser.
 >}
 >```
 >
->Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. It only fires after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+>Note que com `onClick = {() => alert ('click')}`, estamos passando *uma função* como prop `onClick`. Ela Só é acionada após um clique. Esquecer o `() =>` e escrever somente `onClick = {alert ('click')}` é um erro comum, e dispararia o alerta toda vez que o componente fosse renderizado novamente.
 
-As a next step, we want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use **state**.
+Como próximo passo, queremos que o componente Square "lembre" que foi clicado e preencha com um "X". Para "lembrar" as coisas, os componentes usam o **estado**.
 
-React components can have state by setting `this.state` in their constructors. `this.state` should be considered as private to a React component that it's defined in. Let's store the current value of the Square in `this.state`, and change it when the Square is clicked.
+Os componentes React podem ter estado configurando `this.state` em seus construtores. `this.state` deve ser considerado como privado para o componente React que o definiu. Vamos armazenar o valor atual do Square em `this.state` e alterá-lo quando o Square for clicado.
 
-First, we'll add a constructor to the class to initialize the state:
+Primeiro, adicionaremos um construtor à classe para inicializar o estado:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -285,17 +285,17 @@ class Square extends React.Component {
 }
 ```
 
->Note
+>Nota
 >
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start it with a `super(props)` call.
+>Em [classes JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), você sempre precisa chamar `super` ao definir o construtor de uma subclasse. Todas os componente de classe React que possuem um `construtor` devem iniciá-lo com uma chamada `super (props)`.
 
-Now we'll change the Square's `render` method to display the current state's value when clicked:
+Agora vamos mudar o método `render` do componente Square para exibir o valor do estado atual quando clicado:
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `() => alert()` event handler with `() => this.setState({value: 'X'})`.
-* Put the `className` and `onClick` props on separate lines for better readability.
+* Substitua `this.props.value` por` this.state.value` dentro da tag `<button>`.
+* Substitua o manipulador de eventos `() => alert ()` com `() => this.setState ({value: 'X'})`.
+* Coloque `className` e` onClick` em linhas separadas para melhor legibilidade.
 
-After these changes, the `<button>` tag that is returned by the Square's `render` method looks like this:
+Após estas mudanças, a tag `<button>` que é retornada pelo método `render` do Square deve se parecer com isto:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -319,28 +319,28 @@ class Square extends React.Component {
 }
 ```
 
-By calling `this.setState` from an `onClick` handler in the Square's `render` method, we tell React to re-render that Square whenever its `<button>` is clicked. After the update, the Square's `this.state.value` will be `'X'`, so we'll see the `X` on the game board. If you click on any Square, an `X` should show up.
+Chamando `this.setState` a partir de um manipulador `onClick` no método `render` do componente Square, nós dizemos ao React para renderizar novamente aquele Square sempre que seu` <button>` for clicado. Após a atualização, o `this.state.value` do Square será `'X'`, então vamos ver o `X` no tabuleiro do jogo. Se você clicar em qualquer quadrado, um `X` deve aparecer.
 
-When you call `setState` in a component, React automatically updates the child components inside of it too.
+Quando você chama `setState` em um componente, o React atualiza automaticamente os componentes filhos dentro dele também.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[Ver o código completo até este momento](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
 ### Developer Tools {#developer-tools}
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+A extensão React Devtools para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) e [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) permite inspecionar uma árvore de componentes  React com as ferramentas de desenvolvedor do seu navegador.
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+O React DevTools permite que você verifique as props e o estado de seus componentes React.
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tab will appear as the last tab to the right.
+Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas do desenvolvedor, e a guia React aparecerá como a última guia à direita.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+** No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen: **
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+1. Faça o login ou registre-se e confirme seu e-mail (necessário para evitar spam).
+2. Clique no botão "Fork".
+3. Clique em "Change View" e escolha "Debug mode".
+4. Na nova aba que se abre, o devtools deve agora ter uma aba React.
 
 ## Completing the Game {#completing-the-game}
 
