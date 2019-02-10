@@ -12,6 +12,7 @@ Suggestion on words and terms:
 | ------------------ | ---------- |
 | bubbling | ? |
 | bug | erro |
+| browser | navegador |
 | class | classe |
 | context | contexto |
 | controlled component | componente controlado |
