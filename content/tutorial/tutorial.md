@@ -53,7 +53,7 @@ Se você precisa revisar JavaScript, recomendamos ler [este guia](https://develo
 
 Há duas maneiras de concluir este tutorial: você pode escrever o código em seu navegador ou configurar um ambiente de desenvolvimento local em seu computador.
 
-### Opção de Configuração 1: Escrever Código no Navegador {#setup-option-1-write-code-in-the-browser}
+### Opção de Configuração 1: Desenvolvendo o Código no Navegador {#setup-option-1-write-code-in-the-browser}
 
 Esta é a maneira mais rápida de começar!
 
