@@ -264,7 +264,7 @@ Se clicarmos em um quadrado agora, devemos receber um alerta em nosso navegador.
 
 Como próximo passo, queremos que o componente Square "lembre" que foi clicado e preencha com um "X". Para "lembrar" as coisas, os componentes usam o **estado (_state_)**.
 
-Os componentes React podem ter estado configurando `this.state` em seus construtores. `this.state` deve ser considerado como privado para o componente React que o definiu. Vamos armazenar o valor atual do Square em `this.state` e alterá-lo quando o Square for clicado.
+Os componentes React podem ter estado (_state_) configurando `this.state` em seus construtores. `this.state` deve ser considerado como privado para o componente React que o definiu. Vamos armazenar o valor atual do Square em `this.state` e alterá-lo quando o Square for clicado.
 
 Primeiro, adicionaremos um construtor à classe para inicializar o estado:
 
