@@ -5,7 +5,7 @@ permalink: warnings/unknown-prop.html
 ---
 O aviso _unknown-prop_ (propriedade desconhecida) será disparado se você tentar renderizar um elemento DOM com a prop que não é reconhecida pelo React como um atributo/propriedade DOM válido. Você deve garantir que seus elementos DOM não tenham props falsas declaradas.
 
-Existem algumas possíveis razões em que esses avisos podem aparecer:
+Existem algumas possíveis razões desses avisos aparecerem:
 
 
 
