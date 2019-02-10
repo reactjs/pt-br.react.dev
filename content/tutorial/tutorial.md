@@ -25,7 +25,7 @@ Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentad
 O tutorial está dividido em várias seções:
 
 * [Configuração do Tutorial](#setup-for-the-tutorial) lhe dará **um ponto de partida** para seguir o tutorial.
-* [Visão geral](#overview) ensinará **os fundamentos** de React: componentes, propriedades e estado.
+* [Visão geral](#overview) te ensinará **os fundamentos** do React: componentes, propriedades (_props_) e estado (_state_).
 * [Completando o Jogo](#completing-the-game) will teach you **the most common techniques** in React development.
 * [Adicionando Time Travel (viagem no tempo)](#adding-time-travel) lhe dará **uma visão mais profunda** para os pontos fortes exclusivos do React.
 
