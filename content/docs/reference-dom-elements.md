@@ -116,7 +116,7 @@ Normalmente, existe uma advertência quando um elemento que contém outros eleme
 
 Se você usa renderização React no lado do server, normalmente existe uma advertência para quando o server e o client renderizam conteúdo de formas diferentes. Entretanto, em alguns casos raros, é muito difícil ou impossível de garantir a correspondência exata. Por exemplo, é esperado que timestamps estejam diferentes no server e no client. 
 
-Se você definir `suppressHydrationWarning` para `true`, o React irá te advertir sobre incompatibilidades nos atributos e no conteúdo daquele elemento. Isto só funciona dentro de 1 nível de profundidade, e é pretendido ser usado como uma saída de emergência. Não use excessivamente. Você pode ler mais sobre hydration na [documentação do `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
+Se você definir `suppressHydrationWarning` para `true`, o React te advertirá sobre incompatibilidades nos atributos e no conteúdo daquele elemento. Isto só funciona dentro de 1 nível de profundidade e é será usado como uma saída de emergência. Não use excessivamente. Você pode ler mais sobre hydration na [documentação do `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
 
 ### value {#value}
 
