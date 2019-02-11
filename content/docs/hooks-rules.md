@@ -133,6 +133,6 @@ useEffect(function persistForm() {
 
 **Note que você não precisa se preocupar com esse problema, se você usar a [regra fornecida no plugin do ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks)**. Mas agora você também sabe o *porquê* os Hooks funcionam dessa maneira, e quais os problemas que essas regras previnem.
 
-## Próximos passos {#next-steps}
+## Próximos Passos {#next-steps}
 
 Finalmente, estamos prontos para aprender sobre como [escrever nossos próprios Hooks](/docs/hooks-custom.html)! Hooks Customizados permitem você combinar Hooks fornecidos pelo React em suas próprias abstrações, e reusar a lógica do `state` entre diferentes componentes.
