@@ -6,7 +6,7 @@ layout: docs
 category: Reference
 ---
 
-Este guia de referência documenta o agregador `SyntheticEvent` (evento sintético), que faz parte do sistema de eventos do React. Veja o guia [Manipulando Eventos (Handling Events)](/docs/handling-events.html) para saber mais.
+Este guia de referência documenta o agregador `SyntheticEvent` (evento sintético), que faz parte do sistema de eventos do React. Veja o guia [Manipulando Eventos](/docs/handling-events.html) para saber mais.
 
 ## Visão geral {#overview}
 
