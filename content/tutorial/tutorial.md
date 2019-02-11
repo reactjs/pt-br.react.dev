@@ -773,7 +773,7 @@ ou se o quadrado (square) já esteja ocupado:
 
 **[Veja o código completo até aqui](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Parabéns! Você agora tem um jogo de Damas funcionando! E também acaba de aprender o básico de React. Então, *você* é provavelmente o verdadeiro vencedor aqui.
+Parabéns! Você agora tem um Jogo da Velha funcionando! E também acaba de aprender o básico de React. Então, *você* é provavelmente o verdadeiro vencedor aqui.
 
 ## Adicionando a Viagem no Tempo (Time Travel){#adding-time-travel}
 
