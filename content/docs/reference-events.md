@@ -229,7 +229,7 @@ Os eventos `onPointerEnter` e `onPointerLeave` propagam do elemento do lado esqu
 
 Propriedades:
 
-Como definido na [espeficicação da W3](https://www.w3.org/TR/pointerevents/), os eventos de ponteiro estendem os [Eventos do Mouse](#mouse-events) com as seguintes propriedades:
+Como definido na [especificação da W3](https://www.w3.org/TR/pointerevents/), os eventos de ponteiro estendem os [Eventos do Mouse](#mouse-events) com as seguintes propriedades:
 
 ```javascript
 number pointerId
