@@ -779,7 +779,7 @@ Parabéns! Você agora tem um jogo de Damas funcionando! E também acaba de apre
 
 Como um último exercício, vamos tornar possível fazer uma "volta no tempo" até os movimentos anteriores que aconteceram no jogo.
 
-### Armazenando um histórico de movimentos{#armazenando-um-histórico-de-movimentos}
+### Armazenando um Histórico de Jogadas {#storing-a-history-of-moves}
 
 Se nós tivéssemos modificdo o array `squares`, a implementação do time travel seria muito difícil.
 If we mutated the `squares` array, implementing time travel would be very difficult.
