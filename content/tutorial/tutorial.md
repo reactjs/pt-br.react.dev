@@ -755,7 +755,6 @@ Chamaremos `calculateWinner(squares)` na função `render` do Board para checar 
 ```
 
 Agora podemos modificar a função `handleClick` do Board para retornar antes, ignorando o click, caso alguém tenha vencido o jogo ou se o quadrado (square) já esteja ocupado:
-ou se o quadrado (square) já esteja ocupado:
 
 ```javascript{3-5}
   handleClick(i) {
