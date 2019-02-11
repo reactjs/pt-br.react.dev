@@ -153,7 +153,7 @@ Isto funciona porque em JavaScript, `true && expressão` são sempre avaliadas c
 
 Portanto, se a condição é `true`, o elemento logo depois do `&&` irá aparecer no resultado. Se o elemento é `false`, React irá ignora-lo.
 
-### Inline If-Else com Operador Condicional {#inline-if-else-com-operador-condicional}
+### If-Else em Linha com Operador Condicional {#inline-if-else-with-conditional-operator}
 
 Outro método para renderizar elementos inline é utilizar o operador condicional em JavaScript [`condição ? true : false`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional).
 
