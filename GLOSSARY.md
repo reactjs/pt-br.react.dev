@@ -60,4 +60,3 @@ Suggestion on words and terms:
 * single-page-apps
 * widgets
 * watcher
-* timestamps
