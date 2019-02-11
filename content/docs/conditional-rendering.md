@@ -171,7 +171,7 @@ render() {
 }
 ```
 
-Ele também pode ser usado para expressões mais longas, embora o que está acontecendo seja menos óbvio:
+Pode também ser usado para expressões mais longas, embora o que está acontecendo seja menos óbvio:
 
 ```js{5,7,9}
 render() {
