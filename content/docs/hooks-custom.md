@@ -143,7 +143,7 @@ function FriendListItem(props) {
 
 **Esse código equivale aos exemplos originais?** Sim, ele funciona exatamente do mesmo modo. Se você olhar com atenção, irá ver que não fizemos nenhuma alteração ao comportamento. Apenas extraímos uma parte de código comum entre as duas funções para uma função separada. **Hooks customizados são uma convenção que surgiu naturalmente do design dos Hooks, mais do que de uma funcionalidade do React.**
 
-**Eu tenho de nomear meus Hooks customizados começando com "`use`"?** Por favor, sim. Essa convenção é muito importante. Sem ela, não seríamos capazes de automaticamente verificar por violações nas [regras dos Hooks](/docs/hooks-rules.html) porque não poderíamos dizer se certa função contém chamadas a Hooks dentro dela.
+**Eu tenho de nomear meus Hooks customizados começando com "`use`"?** Por favor, faça isso. Essa convenção é muito importante. Sem ela, não seríamos capazes de automaticamente verificar por violações nas [regras dos Hooks](/docs/hooks-rules.html) porque não poderíamos dizer se certa função contém chamadas a Hooks dentro dela.
 
 **Dois componentes usando o mesmo Hook compartilham estado (`state`)?** Não. Hooks customizados são um mecanismo para reutilizar *lógica com estado* (como configurar uma subscrição ou lembrar de um valor atual), mas sempre que você usa um Hook customizado, todo o estado (`state`) e os efeitos dentro dele são completamente isolados.
 
