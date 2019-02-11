@@ -170,7 +170,7 @@ Por `withSubscription` ser uma função normal, você pode adicionar quantos arg
 
 Como componentes, o contrato entre `withSubscription` e o componente envolvido é completamente baseado em props. Isso faz com que seja fácil trocar um HOC por outro, desde que eles providenciem as mesmas props para o componente envolvido. Isso pode ser útil se você mudar de bibliotecas para busca de dados, por exemplo.
 
-# Não Altere o Componente Original. Use Composição. {#dont-mutate-the-original-component-use-composition}
+## Não Altere o Componente Original. Use Composição. {#dont-mutate-the-original-component-use-composition}
 
 Resista a tentação de modificar o prototype de um componente (ou alterá-lo de qualquer outra forma) dentro de um HOC.
 
