@@ -188,7 +188,7 @@ render() {
 }
 ```
 
-Assim como em JavaScript, você decide o estilo apropriado com base no que você e o seu time considera mais legível. Lembre-se  que toda vez que condições se tornam muito complexas, pode ser um bom momento para [extrair um componente](/docs/components-and-props.html#extracting-components).
+Assim como em JavaScript, você decide o estilo apropriado com base no que você e a sua equipe considera mais legível. Lembre-se  que toda vez que condições se tornam muito complexas, pode ser um bom momento para [extrair componentes](/docs/components-and-props.html#extracting-components).
 
 ### Evitando que um Componente seja Renderizado {#preventing-component-from-rendering}
 
