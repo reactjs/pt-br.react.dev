@@ -28,7 +28,8 @@ Suggestion on words and terms:
 | uppercase | maiúscula(s) / caixa alta |
 | to wrap | encapsular |
 | wrapper | ? |
-| assert | ? |
+| to assert | afirmar |
+| assertion | asserção |
 | server | servidor |
 | server-side | lado do servidor |
 | client | cliente |
