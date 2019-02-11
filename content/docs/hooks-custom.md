@@ -36,7 +36,7 @@ function FriendStatus(props) {
 }
 ```
 
-Agora vamos dizer que nossa aplicação de chat também possua uma lista de contatos e que queremos renderizar os nomes de usuários online com a cor verde. Poderíamos copiar e colar a lógica similar acima em nosso componente `FriendListItem`, mas isso não seria o ideal:
+Agora, digamos que nossa aplicação de chat também possua uma lista de contatos e que queremos renderizar os nomes de usuários online com a cor verde. Poderíamos copiar e colar a lógica similar acima em nosso componente `FriendListItem`, mas isso não seria o ideal:
 
 ```js{4-15}
 import React, { useState, useEffect } from 'react';
