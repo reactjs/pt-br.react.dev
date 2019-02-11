@@ -71,7 +71,7 @@ Tradicionalmente em React, tínhamos duas maneiras populares para compartilhar l
 
 Quando queremos compartilhar lógica entre duas funções JavaScript, extraímos ela para uma terceira função. Ambos componentes e Hooks são funções, então isso funciona para eles também!
 
-**Um Hook customizado é uma função JavaScript cujo nome começa com "`use`" e que podem utilizar outros Hooks.** Por exemplo, `useFriendStatus` abaixo é nosso primeiro Hook customizado:
+**Um Hook customizado é uma função JavaScript cujo nome começa com "`use`" e que pode utilizar outros Hooks.** Por exemplo, `useFriendStatus` abaixo é nosso primeiro Hook customizado:
 
 ```js{3}
 import React, { useState, useEffect } from 'react';
