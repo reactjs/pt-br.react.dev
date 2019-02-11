@@ -613,7 +613,7 @@ Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 >
 >Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parenteses em *ambos* os lados). Em uma classe, nós utilizamos uma arrow function para acessar o valor correto de `this`, mas para um componente funcional não precisamos nos preocupar com `this`.
 
-### Trocando Turnos  {#trocando-turnos}
+### Trocando Turnos {#taking-turns}
 
 Agora precisamos consertar um defeito óbvio em nosso jogo de Damas: os "O"s não podem ser marcados no tabuleiro.
 
