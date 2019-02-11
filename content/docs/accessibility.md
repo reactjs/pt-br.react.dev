@@ -15,17 +15,17 @@ React suporta totalmente a construção de sites acessíveis, muitas vezes usand
 
 ### WCAG  {#wcag} 
 
-As [Diretrizes de Acessibilidade ao Conteúdo da Web](https://www.w3.org/WAI/intro/wcag) ou WCGA (Web Content Accessibility Guidelines) fornecem diretrizes para a criação de sites acessíveis.
+The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites.
 
 As seguintes checklists das WCAG fornecem uma visão geral:
 
-- [WCAG checklist por Wuhcag (Web accessibility for developers)](https://www.wuhcag.com/wcag-checklist/)
-- [WCAG checklist por WebAIM (Web accessibility in mind)](http://webaim.org/standards/wcag/checklist)
-- [Checklist por A11Y Project (The A11Y Project)](http://a11yproject.com/checklist.html)
+- [WCAG checklist from Wuhcag](https://www.wuhcag.com/wcag-checklist/)
+- [WCAG checklist from WebAIM](http://webaim.org/standards/wcag/checklist)
+- [Checklist from The A11Y Project](http://a11yproject.com/checklist.html)
 
 ### WAI-ARIA {#wai-aria}
 
-O documento [Iniciativa de Acessibilidade à Web - Aplicativos acessíveis para Internet avançada](https://www.w3.org/WAI/intro/aria) contém técnicas para a criação de widgets JavaScript totalmente acessíveis.
+O documento [Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/intro/aria) contém técnicas para a criação de widgets JavaScript totalmente acessíveis.
 
 Note que todos os atributos HTML `aria-*` são totalmente suportados no JSX. Enquanto a maioria das propriedades e atributos do DOM no React são camelCase, esses atributos devem ser hyphen-case ​​(também conhecidos como kebab-case, lisp-case, etc), pois estão em HTML:
 
@@ -46,7 +46,7 @@ Note que todos os atributos HTML `aria-*` são totalmente suportados no JSX. Enq
 Linguagem é a base da acessibilidade em um aplicativo da web. Usando os corretamente elementos HTML para reforçar o significado da informação
 em nossos sites, muitas vezes a acessibilidade pode vir gratuitamente.
 
-- [Referencia para elementos em HTML por MDN (Mozilla Developer Center)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+- [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 
 
 Às vezes, quebramos a semântica de HTML quando adicionamos elementos `<div>` ao nosso JSX somente para fazer nosso código React funcionar, especialmente ao trabalhar com listas (`<ol>`, `<ul>` e `<dl>`) e HTML `<table>`. Nesses casos, devemos usar [React Fragments](/docs/fragments.html) para agrupar vários elementos.
@@ -117,9 +117,9 @@ Todos os elements de um formulário HTML, como `<input>` and `<textarea>`, preci
 
 Os seguintes artigos nos mostram como fazer isso:
 
-- [Como o W3C recomenda rotular elementos](https://www.w3.org/WAI/tutorials/forms/labels/)
-- [Como o WebAIM recomenda rotular elementos](http://webaim.org/techniques/forms/controls)
-- [O Paciello Group explica acessibilidade e nomes](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
+- [The W3C shows us how to label elements](https://www.w3.org/WAI/tutorials/forms/labels/)
+- [WebAIM shows us how to label elements](http://webaim.org/techniques/forms/controls)
+- [The Paciello Group explains accessible names](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
 Embora essas práticas HTML padrão possam ser usadas diretamente em React, observe que o atributo `for` está escrito como `htmlFor` em JSX:
 
@@ -132,14 +132,14 @@ Embora essas práticas HTML padrão possam ser usadas diretamente em React, obse
 
 Situações de erro precisam ser entendidas por todos os usuários. O artigos a seguir nos mostram como expor os erros aos leitores de tela:
 
-- [Guia W3C para notifição de usuário](https://www.w3.org/WAI/tutorials/forms/notifications/)
-- [WebAIM validação de formulários](http://webaim.org/techniques/formvalidation/)
+- [The W3C demonstrates user notifications](https://www.w3.org/WAI/tutorials/forms/notifications/)
+- [WebAIM looks at form validation](http://webaim.org/techniques/formvalidation/)
 
 ## Controle de Foco {#focus-control}
 
 Certifique-se de que seu aplicativo da web possa seja totalmente navegável apenas com o teclado:
 
-- [WebAIM guia para acessibilidade com o teclado](http://webaim.org/techniques/keyboard/)
+- [WebAIM talks about keyboard accessibility](http://webaim.org/techniques/keyboard/)
 
 ### Foco no teclado e foco de contorno  {#keyboard-focus-and-focus-outline}
 
@@ -155,13 +155,13 @@ São mecanismos para permitir que os usuários ignorem as seções de navegaçã
 
 `Skiplinks` ou `Links para Pular Navegacão` são links de navegação ocultos que só se tornam visíveis quando os usuários interagem com a página usando o teclado. Eles são muito fáceis de implementar com alguns estilos e âncoras de páginas:
 
-- [WebAIM - Links para pular Navegacao ](http://webaim.org/techniques/skipnav/)
+- [WebAIM - Skip Navigation Links](http://webaim.org/techniques/skipnav/)
 
 Também use elementos e pontos de referência, como `<main>` e `<aside>`, para demarcar regiões de páginas como tecnologia assistiva, permitindo que o usuário navegue rapidamente para estas seções.
 
 Leia mais sobre o uso desses elementos para melhorar a acessibilidade aqui:
 
-- [Pontos de referência acessíveis](http://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [Accessible Landmarks](http://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
 ### Programaticamente gerenciando o foco {#programmatically-managing-focus}
 
@@ -385,9 +385,9 @@ Estas são caixas de ferramentas preenchidas com atributos HTML que são totalme
 
 Cada tipo de widget tem um padrão de design específico e espera-se que funcione de certa forma por usuários e agentes do usuário:
 
-- [WAI-ARIA Authoring Practices - Padrões de Design para Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - Exemplos de ARIA ](http://heydonworks.com/practical_aria_examples/)
-- [Components Inclusivos](https://inclusive-components.design/)
+- [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [Heydon Pickering - ARIA Examples](http://heydonworks.com/practical_aria_examples/)
+- [Inclusive Components](https://inclusive-components.design/)
 
 ## Outros pontos para consideração {#other-points-for-consideration}
 
@@ -395,13 +395,13 @@ Cada tipo de widget tem um padrão de design específico e espera-se que funcion
 
 Indique o idioma dos textos de página, pois o software leitor de tela usa isso para selecionar as configurações de voz correta:
 
-- [WebAIM - Idioma do documento](http://webaim.org/techniques/screenreader/#language)
+- [WCAG - Understanding the Document Title Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
 
 ### Definindo o título do documento {#setting-the-document-title}
 
 Defina no documento `<title>` para descrever corretamente o conteúdo atual da página, pois isso garante que o usuário permaneça ciente do contexto da página atual:
 
-- [WCAG - Compreendendo o título do documento](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
+- [WCAG - Understanding the Document Title Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
 
 Podemos definir o titulo usando [React Document Title Component](https://github.com/gaearon/react-document-title).
 
@@ -409,9 +409,9 @@ Podemos definir o titulo usando [React Document Title Component](https://github.
 
 Certifique-se de que todo o texto legível em seu site tenha contraste de cores suficiente para permanecer legível ao máximo por usuários com baixa visão:
 
-- [WCAG - Entendendo o requisito de contraste de cores](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
-- [Tudo sobre o contraste da cor e porque você deve repensá-lo](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
-- [A11yProject - O que é o contraste de cor](http://a11yproject.com/posts/what-is-color-contrast/)
+- [WCAG - Understanding the Color Contrast Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
+- [Everything About Color Contrast And Why You Should Rethink It](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
+- [A11yProject - What is Color Contrast](http://a11yproject.com/posts/what-is-color-contrast/)
 
 Pode ser entediante calcular manualmente as combinações de cores adequadas para todos os casos em seu site. Em vez disso, você pode [calcular uma paleta de cores inteira acessível com Colorable](http://jxnblk.com/colorable/).
 
@@ -493,8 +493,8 @@ Observe que as combinações de navegador / leitor de tela são importantes. É 
 
 Consulte os seguintes guias sobre como usar melhor o NVDA:
 
-- [WebAIM - Usando o NVDA para avaliar a acessibilidade da Web:](http://webaim.org/articles/nvda/)
-- [Deque - Atalhos de teclado NVDA](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
+- [WebAIM - Using NVDA to Evaluate Web Accessibility](http://webaim.org/articles/nvda/)
+- [Deque - NVDA Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
 #### VoiceOver no Safari {#voiceover-in-safari}
 
@@ -502,9 +502,9 @@ O VoiceOver é um leitor de tela integrado em dispositivos Apple.
 
 Consulte os seguintes guias sobre como ativar e usar o VoiceOver:
 
-- [WebAIM - Usando o VoiceOver para avaliar a acessibilidade da Web](http://webaim.org/articles/voiceover/)
-- [Deque - VoiceOver para OS X Atalhos de teclado](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
-- [Deque - VoiceOver para iOS Atalhos](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
+- [WebAIM - Using VoiceOver to Evaluate Web Accessibility](http://webaim.org/articles/voiceover/)
+- [Deque - VoiceOver for OS X Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
+- [Deque - VoiceOver for iOS Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
 
 #### JAWS no Internet Explorer {#jaws-in-internet-explorer}
 
@@ -512,8 +512,8 @@ Consulte os seguintes guias sobre como ativar e usar o VoiceOver:
 
 Consulte os seguintes guias sobre como ativar e usar o JAWS:
 
-- [WebAIM - Usando o JAWS para avaliar a acessibilidade da Web](http://webaim.org/articles/jaws/)
-- [Deque - JAWS Atalhos de teclado](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
+- [WebAIM - Using JAWS to Evaluate Web Accessibility](http://webaim.org/articles/jaws/)
+- [Deque - JAWS Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
 ### Outros leitores de tela {#other-screen-readers}
 
@@ -524,5 +524,5 @@ Consulte os seguintes guias sobre como ativar e usar o JAWS:
 
 Consulte os guias a seguir sobre como usar melhor o ChromeVox:
 
-- [Google Chromebook Help - Use o leitor de tela embutido](https://support.google.com/chromebook/answer/7031755?hl=en)
-- [ChromeVox Referência de atalhos de teclado clássicos](http://www.chromevox.com/keyboard_shortcuts.html)
+- [Google Chromebook Help - Use the Built-in Screen Reader](https://support.google.com/chromebook/answer/7031755?hl=en)
+- [ChromeVox Classic Keyboard Shortcuts Reference](http://www.chromevox.com/keyboard_shortcuts.html)
