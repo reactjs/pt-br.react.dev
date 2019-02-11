@@ -4,7 +4,7 @@ title: Componentes de Ordem Superior
 permalink: docs/higher-order-components.html
 ---
 
-Um componente de ordem superior (HOC, do inglês Higher-Order Component) é uma técnica avançada no React para reutilizar a lógica de um component. HOCs não são parte da API do React por si só. Eles pertencem a um padrão que surgiu da própria natureza de composição do React.
+Um componente de ordem superior (HOC, do inglês Higher-Order Component) é uma técnica avançada do React para reutilizar a lógica de um component. HOCs não são parte da API do React por si só. Eles pertencem a um padrão que surgiu da própria natureza de composição do React.
 
 Concretamente, **um componente de ordem superior é uma função que recebe um componente e retorna um novo componente.**
 
