@@ -47,3 +47,4 @@ Suggestion on words and terms:
 * template literal
 * UI
 * log
+* release
