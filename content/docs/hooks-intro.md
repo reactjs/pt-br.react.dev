@@ -109,4 +109,4 @@ Nós preparamos uma [página de Perguntas Frequentes sobre Hooks](/docs/hooks-fa
 
 ## Próximos Passos {#next-steps}
 
-Ao final desta página, você deverá ter uma ideia aproximada dos quais problemas Hooks está resolvendo, mas muitos detalhes provavelmente não estão claros. Não se preocupe! **Vamos agora para a [próxima página](/docs/hooks-overview.html) onde nós iremos aprender sobre Hooks com exemplos.**
+Ao final desta página, você deverá ter uma ideia aproximada de quais problemas Hooks está resolvendo, mas muitos detalhes provavelmente não estão claros. Não se preocupe! **Vamos agora para a [próxima página](/docs/hooks-overview.html) onde nós iremos aprender sobre Hooks com exemplos.**
