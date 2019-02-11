@@ -190,7 +190,7 @@ render() {
 
 Assim como em JavaScript, você decide o estilo apropriado com base no que você e o seu time considera mais legível. Lembre-se  que toda vez que condições se tornam muito complexas, pode ser um bom momento para [extrair um componente](/docs/components-and-props.html#extracting-components).
 
-### Evitando que um Componente seja Renderizado {evitando-que-um-componente-seja-renderizado}
+### Evitando que um Componente seja Renderizado {#preventing-component-from-rendering}
 
 Em casos raros você pode desejar que um componente se esconda ainda que ele tenha sido renderizado por outro componente. Para fazer isso, retorne `null` ao invés do resultado renderizarado.
 
