@@ -615,7 +615,7 @@ Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 
 ### Trocando Turnos {#taking-turns}
 
-Agora precisamos consertar um defeito óbvio em nosso jogo de Damas: os "O"s não podem ser marcados no tabuleiro.
+Agora precisamos consertar um defeito óbvio em nosso Jogo da Velha: os "O"s não podem ser marcados no tabuleiro.
 
 Vamos definir o primeiro movimento para ser "X" por padrão. Podemos definir esse padrão modificando o state inicial no construtor do nosso tabuleiro (Board)
 
