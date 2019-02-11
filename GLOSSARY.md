@@ -26,7 +26,7 @@ Suggestion on words and terms:
 | render | renderizar (verb), renderizado (noun)
 | uncontrolled component | componente não controlado |
 | uppercase | maiúscula(s) / caixa alta |
-| wrap | colocar dentro de / envolver com  |
+| to wrap | encapsular |
 | wrapper | ? |
 | assert | ? |
 | server | servidor |
