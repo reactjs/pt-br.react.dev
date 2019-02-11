@@ -1,12 +1,12 @@
 ---
 id: static-type-checking
-title: Static Type Checking
+title: Verificando Tipos Estáticos
 permalink: docs/static-type-checking.html
 prev: typechecking-with-prototypes.html
 next: refs-and-the-dom.html
 ---
 
-Static type checkers like [Flow](https://flow.org/) and [TypeScript](https://www.typescriptlang.org/) identify certain types of problems before you even run your code. They can also improve developer workflow by adding features like auto-completion. For this reason, we recommend using Flow or TypeScript instead of `PropTypes` for larger code bases.
+Verificadores de tipos estáticos, como [Flow](https://flow.org/) e [TypeScript](https://www.typescriptlang.org/), identificam certos tipos de problemas mesmo antes do seu código ser executado. Eles também melhoram o fluxo de trabalho do desenvolvedor adicionando features como preenchimento automático. Por isso, recomendamos usar Flow ou TypeScript ao invés de `PropTypes` para bases de código maiores.
 
 ## Flow {#flow}
 
