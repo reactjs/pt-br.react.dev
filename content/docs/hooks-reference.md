@@ -179,7 +179,7 @@ Os próximos Hooks são variações dos princípios básicos da seção anterior
 ### `useReducer` {#usereducer}
 
 ```js
-const [state, dispatch] = useReducer(reducer, initialState);
+const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
 
 Uma alternativa para [`useState`](#usestate). Aceita um `reducer` do tipo `(state, action) => newState` e retorna o estado atual, junto com um método `dispatch`. (Se você está familiarizado com o Redux, você já sabe como isso funciona.)
