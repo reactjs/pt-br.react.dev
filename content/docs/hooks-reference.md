@@ -229,7 +229,7 @@ Há duas diferentes maneiras para inicializar `useReducer` `state`. Pode você e
 
 #### Inicialização Lenta {#lazy-initialization}
 
-Pode também pode criar um estado inicial mais lento. Para fazer isso, você pode passar uma função `init` como terceiro argumento. O estado inicial será setado para `init(initialArg)`.
+Você pode também criar um estado inicial mais lento. Para fazer isso, você pode passar uma função `init` como terceiro argumento. O estado inicial será setado para `init(initialArg)`.
 
 Isso nós permite extrair a lógica que calcula o estado inicial para fora do `reducer`. Isso é útil também para resetar um estado depois da resposta de uma ação:
 
