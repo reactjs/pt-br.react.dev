@@ -783,7 +783,7 @@ Como um último exercício, vamos tornar possível fazer uma "volta no tempo" at
 
 Se nós tivéssemos modificado o array `squares`, a implementação da volta no tempo seria muito difícil.
 
-No entanto, nós utilizamo `slice()` para criar uma nova cópia do array `squares` após cada movimento, e [tratamos ele como imutável](#porque-imutabilidade-e-importante). Isso permitirá que armazenemos cada versão anterior do array `squares` e possamos navegar entre os turnos que já tenham acontecido. 
+No entanto, nós utilizamos `slice()` para criar uma nova cópia do array `squares` após cada movimento e [tratamos ele como imutável](#why-immutability-is-important). Isso nos permitirá o armazenamento de cada versão anterior do array `squares` e que possamos navegar entre os turnos que já tenham acontecido. 
 
 Vamos armazenar os arrays `squares` anteriores em um outro array chamado `history`. O array `history` representa todos os estados do tabuleiro, do primeiro ao último movimento, e tem uma forma parecida com essa:
 
