@@ -630,7 +630,7 @@ class Board extends React.Component {
   }
 ```
 
-Sempre que um jogador se mover, `xIsNext` (um boolean) será trocado para derminar qual jogador será o próximo e o state do jogo será  salvo. Nós atualizaremos a função `handleClick` do Board para trocar o valor de `xIsNext`:
+Sempre que um jogador fizer uma jogada, `xIsNext` (um boolean) será trocado para determinar qual jogador será o próximo e o state do jogo será  salvo. Nós atualizaremos a função `handleClick` do Board para trocar o valor de `xIsNext`:
 
 ```javascript{3,6}
   handleClick(i) {
