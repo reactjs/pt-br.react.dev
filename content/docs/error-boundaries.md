@@ -9,7 +9,7 @@ No passado, erros de JavaScript dentro de componentes costumavam corromper o est
 
 ## Introduzindo Error Boundaries {#introducing-error-boundaries}
 
-Um erro de JavaScript em uma parte da UI não devem quebrar toda a aplicação. Para resolver este problema para usuários do React, o React 16 introduziu um novo conceito de "error boundary".
+Um erro de JavaScript em uma parte da UI não deve quebrar toda a aplicação. Para resolver este problema para usuários do React, o React 16 introduziu um novo conceito de "error boundary".
 
 Error boundaries são componentes React que **capturam erros de JavaScript em qualquer lugar na sua árvore de componentes filhos, registram esses erros, e mostram uma UI alternativa** em vez da árvore de componentes que quebrou. Error boundaries capturam estes erros durante a renderização, em métodos do ciclo de vida, e em construtores de toda a árvore abaixo delas.
 
