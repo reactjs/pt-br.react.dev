@@ -16,7 +16,8 @@ Suggestion on words and terms:
 | context | contexto |
 | controlled component | componente controlado |
 | debugging | depuração|
-| functional component | componente funcional |
+| function component | componente de função |
+| class component | componente de classe |
 | key | chave |
 | library | biblioteca |
 | lowercase | minúscula(s) |
