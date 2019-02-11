@@ -710,7 +710,7 @@ class Board extends React.Component {
 }
 ```
 
-**[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[Veja o código completo até aqui](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
 ### Declarando um Vencedor {#declaring-a-winner}
 
