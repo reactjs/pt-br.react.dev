@@ -51,3 +51,5 @@ Suggestion on words and terms:
 * release
 * subscription
 * subscribe
+* event listener
+* event handler
