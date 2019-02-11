@@ -1,18 +1,3 @@
-<!---
-
-NOTE: Remove this before opening the PR
-
-- Should I translate Higher-Order Component?
-- If yes, should I call its acronym HOC or COS?
-- Should I translate "wrapped" to "envolvido"?
-- Should I translate Side-effects?
-- Should I translate "lifecycle"?
-- Should I translate "container"?
-- Should I translate "features"?
-- Should I translate "enhancer-style"?
-- Is there a better word for "Composability" other than "Composabilidade"?
---->
-
 ---
 id: higher-order-components
 title: Componentes de Ordem Superior
