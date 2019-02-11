@@ -121,7 +121,7 @@ const BlogPostWithSubscription = withSubscription(
 );
 ```
 
-O primeiro paramêtro é um componente envolvido. O segundo parâmetro acessa os dados que estamos interessados, dado um `DataSource` e as props atuais.
+O primeiro parâmetro é um componente envolvido. O segundo parâmetro acessa os dados que estamos interessados, dado um `DataSource` e as props atuais.
 
 Quando `CommentListWithSubscription` e `BlogPostWithSubscription` são renderizados, `CommentList` e `BlogPost` passarão uma prop `data` com o dado mais recente retirado de `DataSource`:
 
