@@ -25,7 +25,7 @@ function GuestGreeting(props) {
 ```
 
 
-Nós vamos criar um componente `Greeting` que mostra um dos outros dois componentes dependendo se o usuário está logado ou não:
+Nós vamos criar um componente `Greeting` que mostra um dos outros dois componentes se o usuário estiver logado ou não:
 
 ```javascript{3-7,11,12}
 function Greeting(props) {
