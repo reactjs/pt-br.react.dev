@@ -751,7 +751,7 @@ Chamaremos `calculateWinner(squares)` na função `render` do Board para checar 
     }
 
     return (
-      // the rest has not changed
+      // o restante não tem alterações
 ```
 
 Agora podemos modificar a função `handleClick` do Board para retornar antes, ignorando o click, caso alguém tenha vencido o jogo ou se o quadrado (square) já esteja ocupado:
