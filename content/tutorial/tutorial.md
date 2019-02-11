@@ -714,7 +714,7 @@ class Board extends React.Component {
 
 ### Declarando um Vencedor {#declaring-a-winner}
 
-Agora que temos que mostrar quem jogará o próximo turno, devemos também mostrar quando o jogo foi vencido e que não há mais turnos a serem jogados. Podemos determinar um vencedor adicionando essa função auxiliar ao final do arquivo. 
+Agora que mostramos quem jogará o próximo turno, também deveríamos mostrar quando o jogo foi vencido e que não há mais turnos a serem jogados. Podemos determinar um vencedor adicionando essa função auxiliar ao final do arquivo:
 
 ```javascript
 function calculateWinner(squares) {
