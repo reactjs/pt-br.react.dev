@@ -818,7 +818,7 @@ history = [
 
 Agora precisamos decidir a qual componente pertencerá o state do `history`.
 
-### Trazendo o state pra cima, novamente {#trazendo-state-pra-cima-novamente}
+### Trazendo o state pra cima, novamente {#lifting-state-up-again}
 
 Queremos que o componente Game, o de mais alto nível, mostre uma lista com os movimentos anteriores. Para poder fazer isso, ele precisará acessar o `history`, então, temos que trazer o state `history` para cima, colocando-o no componente de mais alto nível, o componente Game.
 
@@ -1004,9 +1004,9 @@ Nesse ponto, o componente Board necessita apenas dos métodos `renderSquare` e `
 
 **[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Mostrando os movimentos anteriores{#mostrando-movimentos-anteriores}
+### Mostrando os movimentos anteriores{#showing-the-past-moves}
 
-Uma vez que estamos gravando o histórico do jogo de Damas, agora podemos mostrá-lo para o jogador como uma lista de movimentos anteriores.
+Uma vez que estamos gravando o histórico do Jogo da Velha, agora podemos mostrá-lo para o jogador como uma lista de movimentos anteriores.
 
 Aprendemos anterioremente que os elementos React são objetos JavaScript de primeira classe; podemos passá-los livremente por nossas aplicações. Para renderizar múltiplos itens em React, podemos utilizar um array de elementos React.
 
@@ -1076,7 +1076,7 @@ em português:
 
 Vamos discutir sobre o que o aviso acima significa:
 
-### Definindo uma key (chave) {#definindo-uma-key}
+### Definindo uma key (chave) {#picking-a-key}
 
 Quando renderizamos uma lista, o React armazena algumas informações sobre cada item da lista renderizada. Quando atualizamos uma lista, o React precisa determinar o que mudou. Nós poderiamos ter adicionado, removido, rearranjado ou atualizado os itens da lista. 
 
@@ -1111,9 +1111,9 @@ Se nenhuma chave for especificada, React vai mostrar um aviso e utilizar, por pa
 
 Chaves não precisam ser globalmente únicas; elas precisam ser únicas apenas entre os componentes e seus irmãos (siblings).
 
-### Implementando a viagem no tempo (Time Travel) {#implementando-a-viagem-no-tempo}
+### Implementando a Viagem no Tempo (Time Travel) {#implementing-time-travel}
 
-No histórico do jogo de Damas, cada movimento anterior tem um único ID associado a ele: é o número sequencial do movimento. Os movimentos nunca são reordenados, apagados, ou inseridos no meio, entá é seguro utilizar o index do movimento como a chave.
+No histórico do Jogo da Velha, cada movimento anterior tem um único ID associado a ele: é o número sequencial do movimento. Os movimentos nunca são reordenados, apagados, ou inseridos no meio, entá é seguro utilizar o index do movimento como a chave.
 
 No método `render` do componente Game, nós podemos adicionar a chave como `<li key={move}>` e o aviso do React sobre as chaves deve desaparecer.
 
@@ -1130,7 +1130,7 @@ No método `render` do componente Game, nós podemos adicionar a chave como `<li
     });
 ```
 
-**[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
+**[Veja o código completo até aqui](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
 Clicar em quaisquer dos botões da lista vai causar um erro pois o método `jumpTo` não está definido. Antes de implementá-lo, vamos adicionar `stepNumber` ao state do componente Game para indicar qual passo estamos visualizando no momento.
 
@@ -1205,15 +1205,15 @@ Por fim, modificaremos o método `render` do componente Game para deixar de rend
     // o resto não foi modificado
 ```
 
-Se clicarmos em qualquer passo no histórico do jogo, o tabuleiro de Damas deve atualizar imediatamente para mostrar como o tabuleiro ficou depois que aquele passo ocorreu.
+Se clicarmos em qualquer passo no histórico do jogo, o tabuleiro do Jogo da Velha deve atualizar imediatamente para mostrar como ficou depois que aquele passo ocorreu.
 
 **[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
-### Recapitulando {#recapitulando}
+### Recapitulando {#wrapping-up}
 
-Parabéns! Você criou um jogo de Damas que:
+Parabéns! Você criou um jogo que:
 
-* Te permite jogar Damas,
+* Te permite jogar o Jogo da Velha,
 * Indica quando um dos jogadores ganhou o jogo,
 * Armazena um histórico do jogo à medida que ele progride,
 * Permite aos jogadores revisarem o histórico do jogo e verem versões anteriores do tabuleiro.
@@ -1222,7 +1222,7 @@ Belo trabalho! Esperamos que agora você esteja sentindo como se tivesse uma boa
 
 Dê uma olhada on resultado final aqui: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-Se você tiver algum tempo extra e quiser praticar suas habilidades no React, aqui estão algumas ideias de melhorias que você poderia adicionar a seu jogo de Damas, listadas em ordem crescente de dificuldade.
+Se você tiver algum tempo extra e quiser praticar suas habilidades no React, aqui estão algumas ideias de melhorias que você poderia adicionar a seu Jogo da Velha, listadas em ordem crescente de dificuldade.
 
 1. Mostrar a localização de cada movimento no formato (col,row), para cada movimento no histórico.
 2. Estilizar com negrito o item da lista de movimentos que está selecionado no momento.
