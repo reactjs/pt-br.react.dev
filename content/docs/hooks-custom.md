@@ -94,7 +94,7 @@ function useFriendStatus(friendID) {
 }
 ```
 
-Não há nenhuma novidade nele - a lógica foi copiada dos componentes acima. Assim como em um componente, certifique de apenas chamar outros Hooks fora de condições e no nível mais alto do seu Hook customizado.
+Não há nenhuma novidade nele - a lógica foi copiada dos componentes acima. Assim como em um componente, certifique-se de apenas chamar outros Hooks fora de condições e no nível mais alto do seu Hook customizado.
 
 Diferente de um componente React, um Hook customizado não precisa ter uma assinatura específica. Podemos decidir o que ele recebe como argumentos e o que ele retorna, caso necessário. Em outras palavras, é como uma função normal. Seu nome deve sempre começar com `use` para que você possa ver de forma fácil que [as regras dos Hooks](/docs/hooks-rules.html) se aplicam a ele.
 
