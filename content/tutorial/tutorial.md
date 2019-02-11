@@ -1231,4 +1231,4 @@ Se você tiver algum tempo extra e quiser praticar suas habilidades no React, aq
 5. Quando alguém ganhar, destaque os 3 quadrados que causaram a vitória.
 6. Quando ninguém ganhar, exiba uma mensagem informando que o resultado foi um empate.
 
-Ao longo dessa tutorial, abordamos conceitos de React incluindo elementos, componentes, props e state. Para uma explicação mais detalhada de cada um desses tópicos, confira [o restante da documentação](/docs/hello-world.html). Para aprender mais sobre definição de componentes, confira a [API de Referência do `React.Component](/docs/react-component.html).
+Ao longo dessa tutorial, abordamos conceitos de React incluindo elementos, componentes, props e state. Para uma explicação mais detalhada de cada um desses tópicos, confira [o restante da documentação](/docs/hello-world.html). Para aprender mais sobre definição de componentes, confira a [API de Referência do `React.Component`](/docs/react-component.html).
