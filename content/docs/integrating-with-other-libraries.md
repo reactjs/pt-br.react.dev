@@ -8,7 +8,7 @@ React pode ser utilizado em qualquer aplicação web. Ele pode ser embutido em o
 
 ## Integrando com Plugins de Manipulacão do DOM {#integrating-with-dom-manipulation-plugins}
 
-React desconhece qualquer alteração feita no DOM fora do React. Ele determina as atualizacões com base na sua própria representacão interna, e se os mesmos nós do DOM forem manipulados por outras bibliotecas, React fica confuso e não sabe como proceder.
+React desconhece qualquer alteração feita no DOM fora do React. Ele determina as atualizações com base na sua própria representação interna, e se os mesmos nós do DOM forem manipulados por outras bibliotecas, React fica confuso e não sabe como proceder.
 
 Isto não significa que é impossível ou mesmo necessariamente difícil de combinar React com outras maneiras de afetar o DOM, você apenas precisa estar atento ao que cada um está fazendo.
 
@@ -20,7 +20,7 @@ Para demonstrar isto, vamos esboçar um wrapper para um plugin jQuery genérico.
 
 Nós vamos adicionar um [ref](/docs/refs-and-the-dom.html) para o elemento root no DOM. Dentro do `componentDidMount`, nós vamos ter a referência desse elemento para passar para o plugin jQuery.
 
-Para evitar com que o React toque no DOM depois de montado, nós vamos retornar uma `<div />` vazia para o método `render()`. O elemento `<div />`, não possui propriedades ou filhos, assim o React não tem razão para atualiza-lo, deixando o plugin jQuery livre para gerenciar esta parte do DOM:
+Para evitar com que o React toque no DOM depois de montado, nós vamos retornar uma `<div />` vazia para o método `render()`. O elemento `<div />`, não possui propriedades ou filhos, assim o React não tem razão para atualizá-lo, deixando o plugin jQuery livre para gerenciar esta parte do DOM:
 
 ```js{3,4,8,12}
 class SomePlugin extends React.Component {
@@ -43,7 +43,7 @@ Note que nós definimos ambos `componentDidMount` e `componentWillUnmount` [mét
 
 ### Integrando com o plugin jQuery Chosen {#integrating-with-jquery-chosen-plugin}
 
-Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínimo para o plugin [Chosen](https://harvesthq.github.io/chosen/), which augments `<select>` inputs.
+Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínimo para o plugin [Chosen](https://harvesthq.github.io/chosen/), que amplia inputs `<select>`.
 
 >**Nota:**
 >
@@ -51,9 +51,9 @@ Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínim
 
 Primeiro, vamos olhar o que Chosen faz no DOM.
 
-Se você chama-lo em um nó DOM `<select>`, ele lê os atributos do nó DOM original, esconde-os com um estilo inline, e então adiciona um nó DOM separado com sua própria representacão visual, logo após o `<select>`. Em seguida, ele dispara um evento do jQuery, para notificar sobre as alteracões.
+Se você chama-lo em um nó DOM `<select>`, ele lê os atributos do nó DOM original, esconde-os com um estilo inline, e então adiciona um nó DOM separado com sua própria representação visual, logo após o `<select>`. Em seguida, ele dispara um evento do jQuery, para notificar sobre as alterações.
 
-Vamos supor que esta é a API onde nós estamos nos esforcando para com o nosso `<Chosen>` React componente:
+Vamos supor que esta é a API para o nosso React componente `<Chosen>`:
 
 ```js
 function Example() {
@@ -85,7 +85,7 @@ class Chosen extends React.Component {
 }
 ```
 
-Note como envolvemos o `<select>` em uma `<div>` extra. Isto é necessário porque Chosen vai adicionar um outro elemento DOM logo após o `<select>` que passamos para ele. Contudo, no que diz respeito ao React, `<div>` sempre tem apenas um único filho. Isto é como nós garantimos que as atualizacões do React não vão conflitar com o nó extra do DOM adicionado pelo Chosen. É importante que se você modificar o DOM fora do fluxo do React, você deve garantir que React não tem um motivo para acessar esses nós do DOM.
+Note como envolvemos o `<select>` em uma `<div>` extra. Isto é necessário porque Chosen vai adicionar um outro elemento DOM logo após o `<select>` que passamos para ele. Contudo, no que diz respeito ao React, `<div>` sempre tem apenas um único filho. Isto é como nós garantimos que as atualizações do React não vão conflitar com o nó extra do DOM adicionado pelo Chosen. É importante que se você modificar o DOM fora do fluxo do React, você deve garantir que React não tem um motivo para acessar esses nós do DOM.
 
 Em seguida, vamos implementar os métodos do ciclo de vida. Nós vamos precisar inicializar Chosen com a referência para o `<select>` no `componentDidMount`, e destruí-lo no `componentWillUnmount`.
 
@@ -108,7 +108,7 @@ Note que React não atribui nenhum significado especial para o campo `this.el`. 
 <select className="Chosen-select" ref={el => this.el = el}>
 ```
 
-Isto é suficiente para renderizar o nosso componente, mas também queremos ser notificados quando os valores mudarem. Para fazer isto, vamos ouvir os eventos de `change` do jQuery no `<select>` controlado pelo Chosen.
+Isto é suficiente para renderizar o nosso componente, mas também queremos ser notificados quando os valores mudarem. Para fazer isto, vamos assinar os eventos de `change` do jQuery no `<select>` controlado pelo Chosen.
 
 Nós não vamos passar `this.props.onChange` diretamente para o Chosen porque as propriedades do componente, podem mudar ao longo do tempo e isto inclui os handlers de evento. Como alternativa, vamos declarar um método `handleChange()` que chama o `this.props.onChange` e subscreve o evento `change` do jQuery:
 
@@ -188,17 +188,17 @@ class Chosen extends React.Component {
 
 [**Experimente no CodePen**](http://codepen.io/gaearon/pen/xdgKOz?editors=0010)
 
-## Integrando com Outras Bibliotecas de Exibição {#integrating-with-other-view-libraries}
+## Integrando com Outras Bibliotecas de View {#integrating-with-other-view-libraries}
 
 React pode ser incorporado em outras aplicações graças a flexibilidade do [`ReactDOM.render()`](/docs/react-dom.html#render).
 
 Apesar do React ser popularmente utilizado para carregar um único componente no DOM, `ReactDOM.render()` também pode ser chamado múltiplas vezes por partes independentes da UI, que pode ser pequeno como um botão, ou grande como uma aplicação.
 
-De fato, é exatamente como React é utilizado no Facebook. Isto nos permite escrever aplicações por partes, e combiná-las com nosso template existente gerado pelo servidor e outros códigos no cliente.
+De fato, isto é exatamente como React é utilizado no Facebook. Isto nos permite escrever aplicações por partes, e combiná-las com nosso template existente gerado pelo servidor e outros códigos no cliente.
 
 ### Substituindo Renderização baseada em String com React {#replacing-string-based-rendering-with-react}
 
-Um padrão comum em aplicações web mais antigas, é descrever pedaços do DOM como uma string e inseri-los no DOM utilizando: `$el.html(htmlString)`. Estes pontos do código, são perfeitos para introduzir React. Apenas reescreva a renderização baseada em string para um componente React.
+Um padrão comum em aplicações web mais antigas, é descrever pedaços do DOM como uma string e inseri-las no DOM utilizando: `$el.html(htmlString)`. Estes pontos do código, são perfeitos para introduzir React. Apenas reescreva a renderização baseada em string para um componente React.
 
 Então, a seguinte implementação com jQuery...
 
@@ -257,7 +257,7 @@ Você pode ter tantos componentes isolados você quiser, e usar `ReactDOM.render
 [Backbone](http://backbonejs.org/) tipicamente utiliza strings HTML, ou funções template que geram strings, para criar o conteúdo para seus elementos DOM. Este processo, também, pode ser substituido por uma renderização de um componente React.
 
 Abaixo, nós vamos criar uma view Backbone chamada `ParagraphView`.
-Isto vai sobescrever a função `render()` do Backbone, para renderizar um componente `<Paragraph>` React no elemento DOM fornecido pelo Backbone (`this.el`).
+Isto vai subscrever a função `render()` do Backbone, para renderizar um componente `<Paragraph>` React no elemento DOM fornecido pelo Backbone (`this.el`).
 Aqui, nós também estamos utilizando [`ReactDOM.render()`](/docs/react-dom.html#render):
 
 ```js{1,5,8,12}
@@ -290,7 +290,7 @@ Embora seja geralmente recomendado a utilização de um fluxo de dados unidireci
 
 ### Utilizando Backbone Models em Componentes React {#using-backbone-models-in-react-components}
 
-A maneira mais simples de se consumir models e collections do [Backbone](http://backbonejs.org/) para um componente React, é ouvir os vários eventos de mudança e manualmente forçar uma atualização.
+A maneira mais simples de se consumir models e collections do [Backbone](http://backbonejs.org/) para um componente React, é assinar os vários eventos de mudança e manualmente forçar uma atualização.
 
 Componentes responsáveis por renderizar models devem ouvir os eventos de `'change'`, enquanto componentes responsáveis por renderizar collections devem ouvir os eventos de `'add'` e `'remove'`. Em ambos os casos, chame [`this.forceUpdate()`](/docs/react-component.html#forceupdate) para re-renderizar o componente com o novo dado.
 
