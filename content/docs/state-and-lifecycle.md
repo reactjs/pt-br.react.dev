@@ -364,7 +364,7 @@ this.setState((state, props) => ({
 }));
 ```
 
-Usamos um [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions) acima, mas também funciona com funções regulares:
+Usamos uma [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions) acima, mas também funciona com funções regulares:
 
 ```js
 // Correto
