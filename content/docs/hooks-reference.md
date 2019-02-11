@@ -25,9 +25,9 @@ Se Hooks é novidade pra você, talvez você queira primeiro ter uma [visão ger
   - [`useLayoutEffect`](#uselayouteffect)
   - [`useDebugValue`](#usedebugvalue)
 
-## Hooks Básicos
+## Hooks Básicos {#basic-hooks}
 
-### `useState`
+### `useState` {#usestate}
 
 ```js
 const [state, setState] = useState(initialState);
@@ -45,7 +45,7 @@ setState(newState);
 
 Durante as próximas re-renderizações, o primeiro valor retornado por `useState` sempre será o estado mais recente após a aplicação das atualizações.
 
-#### Atualizações Funcionais
+#### Atualizações Funcionais {#functional-updates}
 
 Se um novo state for calculado usando o estado anterior, você pode passar uma função para `setSate`. A função receberá o valor anterior e retornará um valor atualizado. Aqui está um exemplo de um componente de contador que usa as duas formas de usar o `setState`:
 
@@ -79,7 +79,7 @@ setState(prevState => {
 
 Outra opção é o `useReducer`, que é mais adequada para gerenciar objetos de estado que contêm vários sub-valores.
 
-#### Inicialização Lenta
+#### Inicialização Lenta {#lazy-initial-state}
 
 O argumento `initialState` é o estado usado durante a primeira renderização. Nas próximas renderizações, ele é desconsiderado. Se o estado inicial é o resultado desse demorado processamento, você pode fornecer uma função, no qual será executada apenas na primeira renderização:
 
@@ -90,7 +90,11 @@ const [state, setState] = useState(() => {
 });
 ```
 
-### `useEffect`
+#### Pulando atualização de estado {#bailing-out-of-a-state-update}
+
+Se você atualizar o `state` do Hook com o mesmo valor do `state` atual, React irá pular a atualização sem renderizar os filhos ou disparar os efeitos. (React usa o [`Object.is` algorito de comparação](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
+
+### `useEffect` {#useeffect}
 
 ```js
 useEffect(didUpdate);
@@ -104,7 +108,7 @@ Em vez disso, use `useEffect`. A função passada para `useEffect` será executa
 
 Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por disparar [somente quando certos valores receberam atualização](#conditionally-firing-an-effect).
 
-#### Limpando um efeito
+#### Limpando um efeito {#cleaning-up-an-effect}
 
 Muitas vezes, os efeitos criam recursos que precisam ser limpos antes que o componente deixe a tela, como uma assinatura ou o ID de um temporizador. Para fazer isso, a função passada para `useEffect` pode retornar uma função de limpeza do efeito. Por exemplo, para criar uma assinatura:
 
@@ -121,7 +125,7 @@ useEffect(() => {
 
 A função de limpeza é executada antes que o componente seja removido da UI para evitar vazamento de memória. Entretanto, se um componente renderiza várias vezes (como eles normalmente fazem), o ** efeito anterior é limpo antes de executar o próximo efeito**. No nosso exemplo, isto significa que uma nova assinatura é criada em cada atualização. Para evitar disparar um efeito em cada atualização, consulte a próxima seção.
 
-#### Tempo dos efeitos
+#### Tempo dos efeitos {#timing-of-effects}
 
 Ao contrário de `componentDidMount` e `componentDidUpdate`, a função passada para `useEffect` dispara **após** a renderização, durante o evento adiado. Isto torna o `useEffect` adequado para os muitos efeitos colaterais comuns, como a criação de assinaturas e manipuladores de eventos, porque a maioria dos tipos de trabalho não deve bloquear o navegador ao atualizar a tela.
 
@@ -129,7 +133,7 @@ No entanto, nem todos os efeitos podem ser adiados. Por exemplo, uma alteração
 
 Embora `useEffect` seja adiado até a próxima renderização do navegador, é mais garantido disparar antes de qualquer nova renderização. React sempre apagará os efeitos de uma renderização anterior antes de iniciar uma nova atualização.
 
-#### Disparando um efeito condicionalmente
+#### Disparando um efeito condicionalmente {#conditionally-firing-an-effect}
 
 O comportamento padrão para efeitos é disparar o efeito após cada término de renderização. Desta maneira, o efeito é sempre recriado se uma das suas entradas mudar.
 
@@ -158,7 +162,7 @@ Passando um array vazio `[]` o React entende que seu efeito não depende de quai
 > 
 > O array não é usado como argumento para a função de efeito. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
 
-### `useContext`
+### `useContext` {#usecontext}
 
 ```js
 const context = useContext(Context);
@@ -168,11 +172,11 @@ Aceita um objeto de contexto (o valor retornado de `React.createContext`) e reto
 
 Quando o `provider` atualizar, este Hook irá acionar uma re-renderização com o valor mais recente do contexto.
 
-## Hooks Adicionais
+## Hooks Adicionais {#additional-hooks}
 
 Os próximos Hooks são variações dos princípios básicos da seção anterior ou apenas necessários para um caso de uso específico. Não se estresse sobre aprendê-las antes dos princípios básicos.
 
-### `useReducer`
+### `useReducer` {#usereducer}
 
 ```js
 const [state, dispatch] = useReducer(reducer, initialState);
@@ -187,79 +191,90 @@ const initialState = {count: 0};
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'reset':
-      return initialState;
     case 'increment':
       return {count: state.count + 1};
     case 'decrement':
       return {count: state.count - 1};
     default:
-      // A reducer must always return a valid state.
-      // Alternativamente você pode lançar um erro se uma ação inválida for enviada.
-         return state;
+      throw new Error();
   }
 }
 
 function Counter({initialCount}) {
-  const [state, dispatch] = useReducer(reducer, {count: initialCount});
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
       Count: {state.count}
-      <button  => dispatch({type: 'reset'})}>
-        Reset
-      </button>
-      <button  => dispatch({type: 'increment'})}>+</button>
-      <button  => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
     </>
   );
 }
 ```
 
-#### Inicialização Lenta
+#### Especificando um estado inicial {#specifying-the-initial-state}
 
-`useReducer` aceita um terceiro argumento opcional, `initialAction`. Se fornecido, a ação inicial é aplicada durante a renderização inicial. Isto é útil para calcular um estado inicial que inclui valores passados através de props:
+Há duas diferentes maneiras para inicializar `useReducer` `state`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é a de passar um estado inicial como segundo argumento:
 
 ```js
-const initialState = {count: 0};
+  const [state, dispatch] = useReducer(
+    reducer,
+    {count: initialCount}
+  );
+```
+
+>Nota
+>
+> React não usa a convenção `state = initialState` popularizada pelo Redux. O valor inicial precisa às vezes, depender de props e, portanto é especificado a partir da chamada do Hook. Se você se sentir bem sobre isso, você pode chamar `useReducer(reducer, undefined, reducer)` para simular o comportamento do Redux, mas não encorajamos isso.
+
+#### Lazy initialization {#lazy-initialization}
+
+Pode também pode criar um estado inicial mais lento. Para fazer isso, você pode passar uma função `init` como terceiro argumento. O estado inicial será setado para `init(initialArg)`.
+
+Isso nós permite extrair a lógica que calcula o estado inicial para fora do `reducer`. Isso é útil também para resetar um estado depois da resposta de uma ação:
+
+```js
+function init(initialCount) {
+  return {count: initialCount};
+}
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'reset':
-      return {count: action.payload};
     case 'increment':
       return {count: state.count + 1};
     case 'decrement':
       return {count: state.count - 1};
+    case 'reset':
+      return init(action.payload);
     default:
-      // Um reducer sempre deve retornar um `state` válido.
-      // Alternativamente você pode lançar um erro, se uma ação inválida for enviada.
+      // Um reducer deve sempre retornar um estadi válido
+      // Alternativamente você pode lançar um erro se uma ação inválida for enviada.
       return state;
   }
 }
 
 function Counter({initialCount}) {
-  const [state, dispatch] = useReducer(
-    reducer,
-    initialState,
-    { type: 'reset', payload: initialCount },
-  );
-
+  const [state, dispatch] = useReducer(reducer, initialCount, init);
   return (
     <>
       Count: {state.count}
-      <button {()=> dispatch({type: 'reset', payload: initialCount})}>
+      <button
+        onClick={() => dispatch({type: 'reset', payload: initialCount})}>
         Reset
       </button>
-      <button  {()=> dispatch({type: 'increment'})}>+</button>
-      <button  {()=> dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
     </>
   );
 }
 ```
 
-Geralmente é melhor usar o `useReducer` em vez de `useState` quando você tem uma lógica de estado complexa que envolve vários sub-valores. Ele também permite otimizar o desempenho de componentes que desencadeiam atualizações profundas, porque [você pode passar `dispatch` ao invés de callbacks](/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
+#### Pulando fora da ação {#bailing-out-of-a-dispatch}
 
-### `useCallback`
+Se você retornar o mesmo valor do Hook Reducer que o valor do `state` atual, React irá pular a ação sem renderizar os filhos ou disparar os efeitos. (React usa o [`Object.is` algorito de comparação](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
+
+
+### `useCallback` {#usecallback}
 
 ```js
 const memoizedCallback = useCallback(
@@ -270,9 +285,9 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization).
+Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization) memoizado.
 
-Recebe como argumentos, um callback e um array. O `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo ` shouldComponentUpdate `).
+Recebe como argumentos, um callback e um array. `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo ` shouldComponentUpdate `).
 
 `useCallback(fn, inputs)` é equivalente a `useMemo(() => fn, inputs)`
 
