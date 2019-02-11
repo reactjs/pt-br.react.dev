@@ -27,7 +27,7 @@ As seguintes checklists das WCAG fornecem uma visão geral:
 
 O documento [Iniciativa de Acessibilidade à Web - Aplicativos acessíveis para Internet avançada](https://www.w3.org/WAI/intro/aria) contém técnicas para a criação de widgets JavaScript totalmente acessíveis.
 
-Note que todos os atributos `aria-*` HTML são totalmente suportados no JSX. Enquanto a maioria das propriedades e atributos do DOM no React são camelCased, esses atributos devem ser hífen-casados ​​(também conhecidos como kebab-case, lisp-case, etc), pois estão em HTML:
+Note que todos os atributos HTML `aria-*` são totalmente suportados no JSX. Enquanto a maioria das propriedades e atributos do DOM no React são camelCase, esses atributos devem ser hyphen-case ​​(também conhecidos como kebab-case, lisp-case, etc), pois estão em HTML:
 
 
 ```javascript{3,4}
