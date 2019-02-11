@@ -248,8 +248,6 @@ function reducer(state, action) {
     case 'reset':
       return init(action.payload);
     default:
-      // Um `reducer` deve sempre retornar um estado válido
-      // Alternativamente você pode lançar um erro se uma ação inválida for enviada.
       throw new Error();
   }
 }
