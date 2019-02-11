@@ -52,7 +52,7 @@
     - id: higher-order-components
       title: Higher-Order Components
     - id: integrating-with-other-libraries
-      title: Integrating with Other Libraries
+      title: Integrando com outras Bibliotecas
     - id: jsx-in-depth
       title: JSX In Depth
     - id: optimizing-performance
