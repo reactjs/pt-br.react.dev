@@ -193,7 +193,7 @@ Pelo fato de o Hook `useState` nos fornecer o último valor da variável de esta
   const isRecipientOnline = useFriendStatus(recipientID);
 ```
 
-This lets us know whether the *currently selected* friend is online. If we pick a different friend and update the `recipientID` state variable, our `useFriendStatus` Hook will unsubscribe from the previously selected friend, and subscribe to the status of the newly selected one.
+Isto nos informa se o amigo *atualmente seleccionado* está online. Se escolhermos um amigo diferente e atualizarmos a variável de estado `recipientID``, o nosso Hook `useFriendStatus` irá cancelar a subscrição do amigo seleccionado anteriormente, e subscrever para o status do recém-selecionado. 
 
 ## `useSuaImaginação()` {#useyourimagination}
 
