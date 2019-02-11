@@ -14,7 +14,7 @@ Hooks são funções Javascript, mas você precisa seguir duas regras ao utiliz�
 
 **Não use Hooks dentro de loops, regras condicionais ou funções aninhadas (funçoes dentro de funções).** Em vez disso, sempre use Hooks no nível superior de sua função React. Seguindo essas regras, você garante que os Hooks serão chamados na mesma ordem a cada vez que o componente renderizar. É isso que permite que o React preserve corretamente o estado dos Hooks quando são usados várias chamadas a `useState` e `useEffect` na mesma função. (Se você ficou curioso, iremos explicar isso melhor [abaixo](#explanation).)
 
-### Use Hooks apenas dentro de funções do React {#only-call-hooks-from-react-functions}
+### Use Hooks Apenas Dentro de Funções do React {#only-call-hooks-from-react-functions}
 
 **Não use Hooks dentro de funções Javascript comuns.** Em vez disso, você pode:
 
@@ -23,7 +23,7 @@ Hooks são funções Javascript, mas você precisa seguir duas regras ao utiliz�
 
 Seguindo essas regras, você garante que toda lógica de estado (`state`) no componente seja claramente visível no código fonte.
 
-## Plugin ESLint {#eslint-plugin}
+## ESLint Plugin {#eslint-plugin}
 
 Nós liberamos um plugin ESLint chamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que aplica essas duas regras. Se você desejar pode adicionar este plugin ao seu projeto, dessa forma:
 
