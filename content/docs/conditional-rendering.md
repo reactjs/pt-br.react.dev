@@ -119,8 +119,7 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
 
-Declarar uma variável e usar uma declaração condicional `if` é uma ótima maneira de renderizar um componente, mas 
-às vezes você pode querer usar uma sintaxe mais curta. Existem algumas maneiras para utilizar condições inline em JSX, explicadas abaixo.
+Declarar uma variável e usar uma declaração condicional `if` é uma ótima maneira de renderizar um componente, mas às vezes você pode querer usar uma sintaxe mais curta. Existem algumas maneiras para utilizar condições inline em JSX, explicadas abaixo.
 
 ### Inline If com o Operador Lógico &&  {#inline-if-com-operador--lógico}
 
