@@ -34,7 +34,8 @@ Suggestion on words and terms:
 | server-side | lado do servidor |
 | client | cliente |
 | client-side | lado do cliente |
-
+| high-order components | componente de alta-ordem |
+| stateful logic | lógica com estado |
 # Content that doesn't need translation
 
 * array
