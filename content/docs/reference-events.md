@@ -149,7 +149,7 @@ boolean shiftKey
 number which
 ```
 
-A propriedade `key` pode conter quaisquer valores documentados na [especificação de eventos do DOM Level 3](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+A propriedade `key` pode receber quaisquer valores documentados na [especificação de eventos do DOM Level 3](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 * * *
 
