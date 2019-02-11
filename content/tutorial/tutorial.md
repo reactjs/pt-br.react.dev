@@ -775,7 +775,7 @@ ou se o quadrado (square) já esteja ocupado:
 
 Parabéns! Você agora tem um jogo de Damas funcionando! E também acaba de aprender o básico de React. Então, *você* é provavelmente o verdadeiro vencedor aqui.
 
-## Adicionando a viagem no tempo (Time Travel){#adicionando-a-viagem-no-tempo}
+## Adicionando a Viagem no Tempo (Time Travel){#adding-time-travel}
 
 Como um último exercício, vamos tornar possível fazer uma "volta no tempo" até os movimentos anteriores que aconteceram no jogo.
 
