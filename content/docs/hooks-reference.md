@@ -227,7 +227,7 @@ Há duas diferentes maneiras para inicializar `useReducer` `state`. Pode você e
 >
 > React não usa a convenção `state = initialState` popularizada pelo Redux. O valor inicial precisa às vezes, depender de props e, portanto é especificado a partir da chamada do Hook. Se você se sentir bem sobre isso, você pode chamar `useReducer(reducer, undefined, reducer)` para simular o comportamento do Redux, mas não encorajamos isso.
 
-#### Lazy initialization {#lazy-initialization}
+#### Inicialização Lenta {#lazy-initialization}
 
 Pode também pode criar um estado inicial mais lento. Para fazer isso, você pode passar uma função `init` como terceiro argumento. O estado inicial será setado para `init(initialArg)`.
 
