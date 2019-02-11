@@ -1,5 +1,5 @@
 ---
-id: hook-rules
+id: hooks-rules
 title: Regras dos Hooks
 permalink: docs/hooks-rules.html
 next: hooks-custom.html
