@@ -782,7 +782,6 @@ Como um último exercício, vamos tornar possível fazer uma "volta no tempo" at
 ### Armazenando um Histórico de Jogadas {#storing-a-history-of-moves}
 
 Se nós tivéssemos modificado o array `squares`, a implementação da volta no tempo seria muito difícil.
-If we mutated the `squares` array, implementing time travel would be very difficult.
 
 No entanto, nós utilizamo `slice()` para criar uma nova cópia do array `squares` após cada movimento, e [tratamos ele como imutável](#porque-imutabilidade-e-importante). Isso permitirá que armazenemos cada versão anterior do array `squares` e possamos navegar entre os turnos que já tenham acontecido. 
 
