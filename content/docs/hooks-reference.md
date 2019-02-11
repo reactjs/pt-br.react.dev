@@ -295,7 +295,7 @@ Recebe como argumentos, um callback e um array. `useCallback` retornará uma ver
 > 
 > O array não é usado como argumento para o callback. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
 
-### `useMemo`
+### `useMemo` {#usememo}
 
 ```js
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
@@ -315,7 +315,7 @@ Se nenhum array for fornecido, um novo valor será calculado sempre que uma nova
 > 
 > The array of inputs is not passed as arguments to the function. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
 
-### `useRef`
+### `useRef` {#useref}
 
 ```js
 const refContainer = useRef(initialValue);
@@ -345,7 +345,7 @@ function TextInputWithFocusButton() {
 
 Note que `useRef()` é mais útil do que o atributo `ref`. É útil [para manter qualquer valor mutável ao seu redor.](/docs/hooks-faq.html#is-there-something-like-instance-variables) Semelhante a como você usaria campos de instância em classes.
 
-### `useImperativeHandle`
+### `useImperativeHandle` {#useimperativehandle}
 
 ```js
 useImperativeHandle(ref, createHandle, [inputs])
@@ -371,7 +371,7 @@ FancyInput = forwardRef(FancyInput);
 
 Neste exemplo, um componente pai que renderiza `<FancyInput ref={fancyInputRef} />` seria capaz de chamar `fancyInputRef.current.focus()`.
 
-### `useLayoutEffect`
+### `useLayoutEffect` {#uselayouteffect}
 
 A assinatura é idêntica a `useEffect`, mas dispara sincronizadamente após todas as alterações no DOM. Use isto para ler o layout do DOM e renderizar sincronizadamente. Atualizações agendadas dentro de `useLayoutEffect` serão liberadas de forma síncrona, antes que o navegador tenha a chance de atualizar.
 
@@ -381,7 +381,7 @@ Prefira o padrão `useEffect` quando possível, para evitar bloquear atualizaç�
 > 
 > Se você está migrando código de um componente de classe, `useLayoutEffect` dispara na mesma fase que `componentDidMount` e `componentDidUpdate`, então se você não tem certeza de qual `effect` Hook usar, provavelmente o risco é menor.
 
-### `useDebugValue`
+### `useDebugValue` {#usedebugvalue}
 
 ```js
 useDebugValue(value)
