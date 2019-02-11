@@ -72,7 +72,7 @@ if (!didWarnAboutMath) {
 }
 ```
 
-Os avisos só são ativados no desenvolvimento. Na produção, eles são  retirados. Se você precisar proibir a execuçāo de algum caminho de código, use o módulo `invariant` em vez disso:
+Os alertas só são ativados no desenvolvimento. Na produção, eles são  retirados. Se você precisar impedir a execuçāo de algum caminho do código, use o módulo `invariant` em vez disso:
 
 ```js
 var invariant = require('invariant');
@@ -87,7 +87,7 @@ invariant(
 
 "Invariant" é apenas uma maneira de dizer "essa condição sempre é verdadeira". Você pode pensar nisso como fazer uma afirmação.
 
-É importante manter o comportamento de desenvolvimento e produção similares, então o `invariant` é lançado tanto no desenvolvimento quanto na produção. As mensagens de erro são substituídas automaticamente por códigos de erro em produção para evitar afetar negativamente o tamanho do byte.
+É importante manter o comportamento de desenvolvimento e produção similares. Então o `invariant` é lançado tanto no desenvolvimento quanto na produção. As mensagens de erro são substituídas automaticamente por códigos de erro em produção para evitar afetar negativamente o tamanho do byte.
 
 ### Desenvolvimento e produção {#development-and-production}
 
