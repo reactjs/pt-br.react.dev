@@ -15,6 +15,7 @@ Suggestion on words and terms:
 | class | classe |
 | context | contexto |
 | controlled component | componente controlado |
+| uncontrolled component | componente não controlado |
 | debugging | depuração|
 | function component | componente de função |
 | class component | componente de classe |
@@ -25,7 +26,6 @@ Suggestion on words and terms:
 | React element | Elemento React |
 | React fragment | Fragmento React |
 | render | renderizar (verb), renderizado (noun)
-| uncontrolled component | componente não controlado |
 
 # Content that doesn't need translation
 
