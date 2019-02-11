@@ -13,11 +13,11 @@ Escrevemos este documento para que se tenha uma melhor compreensão sobre como d
 >
 > Este documento pressupõe um forte entendimento do React. Ele descreve os princípios de design do *React em si*, não de seus componentes ou aplicações.
 >
-> Para uma introdução no React, verificar [Pensando em React ](/docs/thinking-in-react.html).
+> Para uma introdução ao React, verificar [Pensando em React ](/docs/thinking-in-react.html).
 
 ### Composição {#composition}
 
-A principal característica do React são os componentes. Componentes escritos por diferentes pessoas, devem funcionar juntos corretamente. É importante, que seja possível adicionar funcionalidades em um componente, sem gerar efeitos colaterais no código.
+A principal característica do React são os componentes. Componentes escritos por diferentes pessoas, devem funcionar bem juntos. É importante para nós que você possa adicionar funcionalidade a um componente, sem gerar efeitos colaterais no código.
 
 Por exemplo, é possível introduzir um state (estado) local dentro de um componente, sem alterar nenhum dos componentes que usam o mesmo. Da mesma forma, será possível adicionar código de inicialização e "destruição" em qualquer componente quando necessário.
 
