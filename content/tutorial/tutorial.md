@@ -818,7 +818,7 @@ history = [
 
 Agora precisamos decidir a qual componente pertencerá o state do `history`.
 
-### Trazendo o state pra cima, novamente {#lifting-state-up-again}
+### Trazendo o State pra Cima, Novamente {#lifting-state-up-again}
 
 Queremos que o componente Game, o de mais alto nível, mostre uma lista com os movimentos anteriores. Para poder fazer isso, ele precisará acessar o `history`, então, temos que trazer o state `history` para cima, colocando-o no componente de mais alto nível, o componente Game.
 
@@ -1002,9 +1002,9 @@ Finalmente, precisamos mover o método `handleClick` do componente Board para o 
 
 Nesse ponto, o componente Board necessita apenas dos métodos `renderSquare` e `render`. O state do jogo e o método `handleClick` devem estar no componente Game.
 
-**[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
+**[Veja o código completo até aqui](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Mostrando os movimentos anteriores{#showing-the-past-moves}
+### Mostrando os Movimentos Anteriores{#showing-the-past-moves}
 
 Uma vez que estamos gravando o histórico do Jogo da Velha, agora podemos mostrá-lo para o jogador como uma lista de movimentos anteriores.
 
@@ -1076,7 +1076,7 @@ em português:
 
 Vamos discutir sobre o que o aviso acima significa:
 
-### Definindo uma key (chave) {#picking-a-key}
+### Definindo uma Key (Chave) {#picking-a-key}
 
 Quando renderizamos uma lista, o React armazena algumas informações sobre cada item da lista renderizada. Quando atualizamos uma lista, o React precisa determinar o que mudou. Nós poderiamos ter adicionado, removido, rearranjado ou atualizado os itens da lista. 
 
