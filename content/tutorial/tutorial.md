@@ -650,7 +650,7 @@ Com esse mudança,"X"s e "O"s podem trocar os turnos. Também vamos modificar o 
     const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
-      // the rest has not changed
+      // o restante não tem alterações
 ```
 
 Depois de fazer essas mudanças, você deverá ter esse componente do Board:
