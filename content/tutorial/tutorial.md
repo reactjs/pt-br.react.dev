@@ -771,7 +771,7 @@ ou se o quadrado (square) já esteja ocupado:
   }
 ```
 
-**[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[Veja o código completo até aqui](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
 Parabéns! Você agora tem um jogo de Damas funcionando! E também acaba de aprender o básico de React. Então, *você* é provavelmente o verdadeiro vencedor aqui.
 
