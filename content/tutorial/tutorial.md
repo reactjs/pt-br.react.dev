@@ -607,7 +607,7 @@ function Square(props) {
 
 Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 
-**[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[Veja o código completo até aqui](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
 >Nota
 >
