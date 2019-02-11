@@ -78,7 +78,7 @@ Nós [mencionamos antes](/docs/components-and-props.html#functional-and-class-co
 
 Você pode converter um componente de função como `Clock` em uma classe em cinco etapas:
 
-1. Criar uma [classe ES6](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), com o mesmo nome, extendendo `React.component`.
+1. Criar uma [classe ES6](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), com o mesmo nome, estendendo `React.component`.
 
 2. Adicionar um único método vazio chamado `render()`.
 
@@ -197,7 +197,7 @@ ReactDOM.render(
 
 Em seguinda, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
 
-## Adicionando métodos de ciclo de vida a classe {#adding-lifecycle-methods-to-a-class}
+## Adicionando Métodos de Ciclo de Vida a Classe {#adding-lifecycle-methods-to-a-class}
 
 Em aplicações com muitos componentes, é muito importante limpar os recursos utilizados pelos componentes quando eles são destruídos.
 
@@ -318,11 +318,11 @@ Vamos recapitular rapidamente o que está acontencendo e a ordem na qual os mét
 
 5) Se o componente `Clock` for removido do DOM, o React chama o método do ciclo de vida `componentWillUnmount()` para que o temporizador seja interrompido.
 
-## Usando o state corretamente {#using-state-correctly}
+## Usando o State Corretamente {#using-state-correctly}
 
 Existem três coisas que você deve saber sobre `setState()`.
 
-### Não modifique o state diretamente {#do-not-modify-state-directly}
+### Não Modifique o State Diretamente {#do-not-modify-state-directly}
 
 Por exemplo, isso não renderizará novamente o componente:
 
@@ -340,7 +340,7 @@ this.setState({comment: 'Hello'});
 
 O único lugar onde você pode atribuir `this.state` é o construtor.
 
-### Atualizações de state podem ser assíncronas {#state-updates-may-be-asynchronous}
+### Atualizações de State Podem Ser Assíncronas {#state-updates-may-be-asynchronous}
 
 O React pode agrupar várias chamadas `setState()` em uma única atualização para desempenho.
 
@@ -375,7 +375,7 @@ this.setState(function(state, props) {
 });
 ```
 
-### Atualizações de state são mescladas {#state-updates-are-merged}
+### Atualizações de State São Mescladas {#state-updates-are-merged}
 
 Quando você chama `setState()`, o React mescla o objeto que você fornece ao state atual.
 
@@ -411,7 +411,7 @@ Então você pode atualizá-los independentemente com chamadas separadas do `set
 
 O merge é superficial, então `this.setState({comments})` deixa `this.state.posts` intacto, mas substitui completamente `this.state.comments`
 
-## Os dados fluem para baixo {#the-data-flows-down}
+## Os Dados Fluem para Baixo {#the-data-flows-down}
 
 Nem componentes pai ou filho podem saber se um determinado componente é stateful ou stateless, e não devem se importar se ele é definido por uma função ou classe.
 
