@@ -80,7 +80,7 @@ Lembre-se de estar atento à experiência de usuário em conexões lentas. O có
 ReactDOM.unmountComponentAtNode(container)
 ```
 
-Remove do DOM um component do React já montado e limpa seus manipuladores de evento e state. Se nenhum componente foi montado no contêiner, chamar essa função não faz nada. Retorna `true` se um componente foi desmontado e `false` se não tinha nenhum componente para desmontar.
+Remove do DOM um componente do React já montado e limpa seus manipuladores de evento e state. Se nenhum componente foi montado no contêiner, chamar essa função não faz nada. Retorna `true` se um componente foi desmontado e `false` se não tinha nenhum componente para desmontar.
 
 * * *
 
