@@ -168,7 +168,7 @@ Leia mais sobre o uso desses elementos para melhorar a acessibilidade aqui:
 Aplicações em React modificam continuamente o HTML DOM durante o tempo de execução, às vezes levando à perda de foco do teclado ou a um elemento inesperado. Para consertar isso,
 precisamos programar o foco do teclado na direção certa, de maneira programática. Por exemplo, redefinindo o foco do teclado para um botão que abriu uma janela modal depois que essa janela restrita é fechada.
 
-Voceê pode encotrar mais informações de como fazer isto no MDN [navegação por teclado de JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
+Você pode encotrar mais informações de como fazer isto no MDN [navegação por teclado de JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
 Para definir o foco no React, podemos usar [Refs para elementos no DOM](/docs/refs-and-the-dom.html).
 
