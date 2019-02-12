@@ -8,7 +8,7 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-React é, na nossa opinião, o principal modo de se construir aplicações grandes e rápidas com JavaScript. Ele tem escalado muito bem para nós no Facebook e Instagram.
+React é, na nossa opinião, o principal modo de se construir aplicações Web grandes e rápidas com JavaScript. Ele tem escalado muito bem para nós no Facebook e Instagram.
 
 Uma das muitas excelentes partes do React é o modo que ele faz você pensar sobre apps enquanto os constrói. Neste documento, nós iremos ensinar o processo mental envolvido na construção de uma tabela de produtos buscáveis utilizando o React.
 
