@@ -121,7 +121,7 @@ Se você definir `suppressHydrationWarning` para `true`, o React te advertirá s
 
 ### value {#value}
 
-O atributo `value` é suportado pelos componentes `<input>` e `<textarea>`. Você pode usa-lo para definir o valor do componente. Isso é útil para construção de componentes controlados(controlled components). `defaultValue` é o equivalente para componentes não controlados(uncontrolled components), que define o valor do componente quando este é montado pela primeira vez.
+O atributo `value` é suportado pelos componentes `<input>` e `<textarea>`. Você pode usá-lo para definir o valor do componente. Isso é útil para construção de componentes controlados (_controlled components_). `defaultValue` é o equivalente para componentes não controlados (_uncontrolled components_), que define o valor do componente quando este é montado pela primeira vez.
 
 ## Todos os atributos HTML suportados {#all-supported-html-attributes}
 
