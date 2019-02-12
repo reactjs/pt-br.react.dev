@@ -26,6 +26,8 @@ Suggestion on words and terms:
 | React element | Elemento React |
 | React fragment | Fragmento React |
 | render | renderizar (verb), renderizado (noun)
+| subscription | inscrição |
+| subscribe | se inscrever |
 
 # Content that doesn't need translation
 
@@ -49,4 +51,3 @@ Suggestion on words and terms:
 * UI
 * log
 * release
-* subscription/subscribe
