@@ -377,7 +377,7 @@ Este é um exemplo de muitos casos em que, depender apenas dos eventos de pontei
 
 ## Widgets mais complexos {#more-complex-widgets}
 
-Uma experiência de usuário mais complexa não deve significar uma menos acessível. Considerando que a acessibilidade é mais facilmente alcançada programando o mais próximo possível do HTML,
+Para uma experiência do usuário  que seja mais complexa não significa que será menos acessível. Considerando que a acessibilidade é mais facilmente alcançada programando o mais próximo possível do HTML,
 até mesmo o widget mais complexo pode ser programado de forma acessível.
 
 Aqui, exigimos conhecimento de [ARIA Roles](https://www.w3.org/TR/wai-aria/#role), bem como [ARIA States and Properties](https://www.w3.org/TR/wai-aria/#states_and_properties).
