@@ -6,19 +6,21 @@ permalink: docs/portals.html
 
 Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 
+Portals fornece uma forma elegante de renderizar um elemento filho dentro de um nó DOM que existe fora da hierarquia do DOM do componente pai.
+
 ```js
 ReactDOM.createPortal(child, container)
 ```
 
-The first argument (`child`) is any [renderable React child](/docs/react-component.html#render), such as an element, string, or fragment. The second argument (`container`) is a DOM element.
+O primeiro argumento (`child`) é qualquer [elemento filho React renderizável](/docs/react-component.html#render), como um elemento, string ou fragmento. O segundo argumento (`container`) é um elemento DOM.
 
-## Usage {#usage}
+## Uso {#usage}
 
-Normally, when you return an element from a component's render method, it's mounted into the DOM as a child of the nearest parent node:
+Normalmente, quando retornamos um elemento pelo método render de um componente, ele é montado dentro do DOM como um filho do nó pai mais próximo:
 
 ```js{4,6}
 render() {
-  // React mounts a new div and renders the children into it
+  // React monta uma nova div e renderiza o filho dentro dela
   return (
     <div>
       {this.props.children}
@@ -27,34 +29,34 @@ render() {
 }
 ```
 
-However, sometimes it's useful to insert a child into a different location in the DOM:
+Entretanto, em algumas situação é útil inserir um elemento filho em um local diferente no DOM:
 
 ```js{6}
 render() {
-  // React does *not* create a new div. It renders the children into `domNode`.
-  // `domNode` is any valid DOM node, regardless of its location in the DOM.
+  // React *não* cria uma nova div. Ele renderiza o filho dentro do `domNode`.
+  // `domNode` é qualquer nó DOM válido, independente da sua localização no DOM.
   return ReactDOM.createPortal(
     this.props.children,
     domNode
   );
 }
 ```
+Um caso típico do uso de portals é quando um componente pai tem o estilo `overflow: hidden` ou `z-index`, mas você precisa que o filho visualmente "saia" desse contêiner. Por exemplo, caixas de diálogo, hovercards e tooltips.
 
-A typical use case for portals is when a parent component has an `overflow: hidden` or `z-index` style, but you need the child to visually "break out" of its container. For example, dialogs, hovercards, and tooltips.
-
-> Note:
+> Nota:
 >
-> When working with portals, remember that [managing keyboard focus](/docs/accessibility.html#programmatically-managing-focus) becomes very important.
+> Quando estiver trabalhando com portals, lembra-se que [tratar os eventos de foco do teclado](/docs/accessibility.html#programmatically-managing-focus) se torna muito importante.
 >
-> For modal dialogs, ensure that everyone can interact with them by following the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
+> No caso de modais, assegure-se que todos possam interagir com o modal seguindo as práticas descritas em [WAI-ARIA Modal Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
-## Event Bubbling Through Portals {#event-bubbling-through-portals}
+## Propagação de Eventos Através do Portals {#event-bubbling-through-portals}
 
-Even though a portal can be anywhere in the DOM tree, it behaves like a normal React child in every other way. Features like context work exactly the same regardless of whether the child is a portal, as the portal still exists in the *React tree* regardless of position in the *DOM tree*.
+Apesar de um portal poder estar em qualquer lugar na árvore DOM, seu comportamento é como o de qualquer outro elemento React filho. Funcionalidades como contexto funcionam da mesma forma independente se o filho é um portal, pois o portal ainda existe na *árvore React* independentemente da posição que esteja na *árvore DOM*.
 
-This includes event bubbling. An event fired from inside a portal will propagate to ancestors in the containing *React tree*, even if those elements are not ancestors in the *DOM tree*. Assuming the following HTML structure:
+Isso inclui a propagação de eventos. Um evento disparado dentro de um portal será propagado para os elementos antecessores da *árvore React*, mesmo que estes não sejam antecessores na *árvore DOM*.
+This includes event bubbling. An event fired from inside a portal will propagate to ancestors in the containing *React tree*, even if those elements are not ancestors in the *DOM tree*. Considerando a seguinte estrutura HTML:
 
 ```html
 <html>
@@ -65,7 +67,7 @@ This includes event bubbling. An event fired from inside a portal will propagate
 </html>
 ```
 
-A `Parent` component in `#app-root` would be able to catch an uncaught, bubbling event from the sibling node `#modal-root`.
+Um componente `Pai` em `#app-root` será capaz de capturar a propagação de um evento não tratado vindo do nó irmão `#moda-root`.
 
 ```js{28-31,42-49,53,61-63,70-71,74}
 // These two containers are siblings in the DOM
@@ -149,6 +151,6 @@ function Child() {
 ReactDOM.render(<Parent />, appRoot);
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/jGBWpE)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/jGBWpE)
 
 Catching an event bubbling up from a portal in a parent component allows the development of more flexible abstractions that are not inherently reliant on portals. For example, if you render a `<Modal />` component, the parent can capture its events regardless of whether it's implemented using portals.
