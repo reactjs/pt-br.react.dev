@@ -49,3 +49,5 @@ Suggestion on words and terms:
 * UI
 * log
 * release
+* subscription
+* subscribe
