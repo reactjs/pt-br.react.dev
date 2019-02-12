@@ -24,7 +24,7 @@ Existem alguns atributos que funcionam de formas diferentes no React e no HTML:
 
 ### checked {#checked}
 
-O atributo `checked` é suportado por componentes `<input>` do 'type' `checkbox` ou `radio `. Você pode usa-lo para definir se o componente está checado. Isso é útil para construção de componentes controlados(controlled components). `defaultChecked` é o equivalente para componentes não controlados(uncontrolled components), que define se o componente está checado na primeira vez em que é montado.
+O atributo `checked` é suportado por componentes `<input>` do tipo (_`type`_) `checkbox` ou `radio `. Você pode usá-lo para definir se o componente está checado. Isso é útil para construção de componentes controlados (_controlled components_). `defaultChecked` é o equivalente para componentes não controlados (_uncontrolled components_), que define se o componente está checado na primeira vez em que é montado.
 
 ### className {#classname}
 
