@@ -82,7 +82,7 @@ Perceba que estes estilos não são auto prefixados. Para serem compatíveis com
 ```js
 const divStyle = {
   WebkitTransition: 'all', // perceba o 'W' maiúsculo aqui
-  msTransition: 'all' // 'ms' é o único prefixo vendor minúsculo
+  msTransition: 'all' // 'ms' é o único prefixo de fornecedor minúsculo
 };
 
 function ComponentWithTransition() {
