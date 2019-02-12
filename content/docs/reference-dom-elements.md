@@ -62,7 +62,7 @@ O atributo `selected` é suportado pelos componentes `<option>`. Você pode usa-
 
 >Nota
 >
-Alguns exemplos na documentação utilizam `style` por conveniência, mas **usar o atributo `style` como a forma principal de estilizar elementos geralmente não é recomendado.** Na maioria dos casos, [`className`](#classname) deve ser usado para referenciar classes definidas em um arquivo de estilo CSS externo. `style` é geralmente usado em aplicações React para adicionar estilos computados dinamicamente em tempo de renderização. Veja também [FAQ: Styling and CSS](/docs/faq-styling.html).
+Alguns exemplos na documentação utilizam `style` por conveniência, mas **usar o atributo `style` como a forma principal de estilizar elementos geralmente não é recomendado.** Na maioria dos casos, [`className`](#classname) deve ser usado para referenciar classes definidas em um arquivo de estilo CSS externo. `style` é geralmente usado em aplicações React para adicionar estilos computados dinamicamente em tempo de renderização. Veja também [FAQ: Estilização e CSS](/docs/faq-styling.html).
 
 O atributo `style` aceita um objeto JavaScript com propriedades em camelCase ao invés de uma string CSS. Isso é consistente com a propriedade do Javascript `style` 
 
@@ -125,9 +125,9 @@ O atributo `value` é suportado pelos componentes `<input>` e `<textarea>`. Voc�
 
 ## Todos os atributos HTML suportados {#all-supported-html-attributes}
 
-A partir do React 16, qualquer atributo padrão [ou customizado](/blog/2017/09/08/dom-attributes-in-react-16.html) são integralmente suportados.
+A partir do React 16, qualquer atributo padrão [ou personalizado](/blog/2017/09/08/dom-attributes-in-react-16.html) são integralmente suportados.
 
-O React sempre forneceu uma API centrada no JavaScript para o DOM. Uma vez que os componentes React geralmente recebem tanto props customizadas quanto props relacionadas ao DOM. O React usa a convenção `camelCase` assim como as APIs do DOM:
+O React sempre forneceu uma API centrada no JavaScript para o DOM. Uma vez que os componentes React geralmente recebem tanto props personalizadas quanto props relacionadas ao DOM. O React usa a convenção `camelCase` assim como as APIs do DOM:
 
 ```js
 <div tabIndex="-1" />      // Assim como node.tabIndex DOM API
