@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "Tutorial: Introdução ao React"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,97 +12,99 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+Este tutorial não assume nenhum conhecimento existente do React.
 
-## Before We Start the Tutorial {#before-we-start-the-tutorial}
+## Antes de começarmos o tutorial {#before-we-start-the-tutorial}
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React apps, and mastering it will give you a deep understanding of React.
+Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentado a ignorá-lo porque você não vai construir jogos - mas dê uma chance.** As técnicas que você aprenderá no tutorial são fundamentais para criar qualquer aplicativo React e o domínio delas lhe dará um profundo entendimento de React.
 
->Tip
+> Dica
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+> Este tutorial foi criado para pessoas que preferem ** aprender fazendo **. Se você preferir aprender conceitos do zero, confira nosso [step-by-step guide](/docs/hello-world.html). Você pode achar este tutorial e o guia complementares um ao outro.
 
-The tutorial is divided into several sections:
+O tutorial está dividido em várias seções:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [Configuração do Tutorial](#setup-for-the-tutorial) lhe dará **um ponto de partida** para seguir o tutorial.
+* [Visão geral](#overview) te ensinará **os fundamentos** do React: componentes, propriedades (_props_) e estado (_state_).
+* [Completando o Jogo](#completing-the-game) te ensinará **as técnicas mais comuns** para desenvolver com React.
+* [Adicionando Time Travel (viagem no tempo)](#adding-time-travel) lhe dará **uma visão mais profunda** dos pontos fortes exclusivos do React.
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+Você não precisa completar todas as seções de uma vez para entender tudo que o tutorial tem a oferecer. Tente chegar o mais longe possível, mesmo que seja uma ou duas seções.
 
-It's fine to copy and paste code as you're following along the tutorial, but we recommend to type it by hand. This will help you develop a muscle memory and a stronger understanding.
+Não há problema em copiar e colar o código enquanto você acompanha o tutorial. Mas, recomendamos que você o digite à mão. Isso ajudará você a desenvolver uma memória muscular e ter um entendimento mais forte.
 
-### What Are We Building? {#what-are-we-building}
+### O que estamos construindo? {#what-are-we-building}
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+Neste tutorial, mostraremos como criar um jogo interativo de jogo-da-velha com React.
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+Você pode ver o que vamos construir aqui: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se o código não fizer sentido para você ou se você não estiver familiarizado com a sintaxe do código, não se preocupe! O objetivo deste tutorial é ajudár você a entender o React e sua sintaxe.
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and is updated as the game progresses.
+Recomendamos que você confira o jogo tic-tac-toe (jogo da velha) antes de continuar com o tutorial. Uma das características que você notará é que existe uma lista numerada à direita do tabuleiro do jogo. Esta lista fornece um histórico de todas as jogadas que ocorreram no jogo e é atualizada à medida que o jogo avança.
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+Você pode fechar o jogo da velha assim que estiver familiarizado com ele. Começaremos a partir de um modelo mais simples neste tutorial. Nosso próximo passo é prepará-lo para que você possa começar a desenvolver o jogo.
 
-### Prerequisites {#prerequisites}
+### Pré-requisitos {#prerequisites}
 
-We'll assume that you have some familiarity with HTML and JavaScript, but you should be able to follow along even if you're coming from a different programming language. We'll also assume that you're familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+Vamos presumir que você já tenha alguma familiaridade com HTML e JavaScript. Porém, você deve ser capaz de acompanhá-lo mesmo que esteja vindo de uma linguagem de programação diferente. Também vamos presumir que você também já esteja familiarizado com conceitos de programação. Tais como: funções, objetos, matrizes em menor escala e classes.
 
-If you need to review JavaScript, we recommend reading [this guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Note that we're also using some features from ES6 -- a recent version of JavaScript. In this tutorial, we're using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements. You can use the [Babel REPL](babel://es5-syntax-example) to check what ES6 code compiles to.
+Se você precisa revisar JavaScript, recomendamos ler [este guia](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Observe que também estamos usando alguns recursos do ES6 - uma versão recente do JavaScript. Neste tutorial, estamos usando [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/let), e declarações [`const`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/const). Você pode usar o [Babel REPL] (babel://es5-syntax-example) para verificar o código ES6 compilado.
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## Configuração para o tutorial {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+Há duas maneiras de concluir este tutorial: você pode escrever o código em seu navegador ou configurar um ambiente de desenvolvimento local em seu computador.
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### Opção de Configuração 1: Desenvolvendo o Código no Navegador {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+Esta é a maneira mais rápida de começar!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+Primeiro, abra este **[Código Inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** em uma nova guia. A nova aba deve exibir um tabuleiro de tic-tac-toe (jogo da velha) vazio e o código React. Nós estaremos editando o código React neste tutorial.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+Agora você pode ignorar a segunda opção de configuração e ir para a seção [Visão geral](#overview) para obter uma visão geral do React.
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### Opção de instalação 2: ambiente de desenvolvimento local {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+Isto é completamente opcional e não é necessário para este tutorial!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>Opcional: instruções para serem seguidas na sua máquina usando seu editor de texto preferido</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+Essa opção de configuração requer mais trabalho mas permite que você complete o tutorial utilizando um editor de sua preferência. Aqui estão os passos a serem seguidos:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. Certifique-se de ter uma versão recente do [Node.js](https://nodejs.org/pt-br/) instalada.
+2. Siga as [instruções de instalação do creat-react-app](/docs/create-a-new-react-app.html#create-react-app) para criar um novo projeto.
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+3. Apague todos os arquivos na pasta `src/` do novo projeto
 
-> Note: **don't delete the entire `src` folder, just the original source files inside it.**.  We'll replace the default source files with examples for this project in the next step.
+> Nota:
+>
+> **não exclua a pasta `src` inteira. Apenas os arquivos originais dentro dela.** Substituiremos os arquivos de origem padrão por exemplos deste projeto na próxima etapa.
 
 ```bash
 cd my-app
 cd src
 
-# If you're using a Mac or Linux:
+# Se você estiver usando um Mac ou Linux:
 rm -f *
 
-# Or, if you're on Windows:
+# Ou, se você estiver no Windows:
 del *
 
-# Then, switch back to the project folder
+# E então, volte para a pasta do projeto
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+4. Adicione um arquivo chamado `index.css` na pasta` src/`com [este código CSS](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+5. Adicione um arquivo chamado `index.js` na pasta` src/`com [este código JS](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+6. Adicione estas três linhas ao topo do `index.js` na pasta `src/`:
 
 ```js
 import React from 'react';
@@ -110,32 +112,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 ```
 
-Now if you run `npm start` in the project folder and open `http://localhost:3000` in the browser, you should see an empty tic-tac-toe field.
+Agora, se você executar o `npm start` na pasta do projeto e abrir `http://localhost:3000` no navegador, você verá um campo vazio de jogo da velha.
 
-We recommend following [these instructions](https://babeljs.io/docs/editors/) to configure syntax highlighting for your editor.
+Recomendamos seguir [estas instruções](https://babeljs.io/docs/editors/) para configurar o realce de sintaxe para seu editor.
 
 </details>
 
-### Help, I'm Stuck! {#help-im-stuck}
+### Me Ajudem. Estou com Dificuldades! {#help-im-stuck}
 
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
+Se você não conseguir proseguir no tutorial por algum motivo, confira os [recursos de suporte da comunidade](/community/support.html). Em particular, o [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) é uma ótima maneira de obter ajuda rapidamente. Se você não receber uma resposta ou se permanecer preso, registre um problema e nós ajudaremos você.
 
-## Overview {#overview}
+## Visão geral {#overview}
 
-Now that you're set up, let's get an overview of React!
+Agora que tudo está configurado, vamos obter uma visão geral do React!
 
-### What Is React? {#what-is-react}
+### O que é React? {#what-is-react}
 
-React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called "components".
+O React é uma biblioteca JavaScript declarativa, eficiente e flexível para criar interfaces com o usuário. Ele permite compor UIs complexas a partir de pequenos e isolados códigos chamados "componentes".
 
-React has a few different kinds of components, but we'll start with `React.Component` subclasses:
+React possui alguns tipos diferentes de componentes, mas começaremos com subclasses `React.Component`:
 
 ```javascript
 class ShoppingList extends React.Component {
   render() {
     return (
       <div className="shopping-list">
-        <h1>Shopping List for {this.props.name}</h1>
+        <h1>Lista de compras para {this.props.name}</h1>
         <ul>
           <li>Instagram</li>
           <li>WhatsApp</li>
@@ -146,49 +148,49 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: <ShoppingList name="Mark" />
+// Exemplo de uso: <ShoppingList name="Mark" />
 ```
 
-We'll get to the funny XML-like tags soon. We use components to tell React what we want to see on the screen. When our data changes, React will efficiently update and re-render our components.
+Nós falaremos sobre formatos engraçados de tags que possuem formato de XML em breve. Usamos componentes para dizer ao React o que queremos ver na tela. Quando nossos dados forem alterados, o React atualizará e renderizará novamente com eficiência nossos componentes.
 
-Here, ShoppingList is a **React component class**, or **React component type**. A component takes in parameters, called `props` (short for "properties"), and returns a hierarchy of views to display via the `render` method.
+Aqui, o ShoppingList é um **componente React de classe** ou **component React do tipo classe**. Um componente recebe parâmetros, chamados `props` (abreviação de propriedades), e retorna uma hierarquia de elementos para exibir através do método `render`.
 
-The `render` method returns a *description* of what you want to see on the screen. React takes the description and displays the result. In particular, `render` returns a **React element**, which is a lightweight description of what to render. Most React developers use a special syntax called "JSX" which makes these structures easier to write. The `<div />` syntax is transformed at build time to `React.createElement('div')`. The example above is equivalent to:
+O método `render` retorna uma *descrição* do que você deseja ver na tela. React recebe a descrição e exibe o resultado. Em particular, `render` retorna um **elemento React**, que é uma descrição simplificada do que renderizar. A maioria dos desenvolvedores do React usa uma sintaxe especial chamada "JSX", que facilita a escrita desses elementos. A sintaxe `<div />` é transformada em tempo de compilação para `React.createElement ('div')`. O exemplo acima é equivalente a:
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
-  React.createElement('h1', /* ... h1 children ... */),
-  React.createElement('ul', /* ... ul children ... */)
+  React.createElement('h1', /* ... filhos de h1 ... */),
+  React.createElement('ul', /* ... filhos de ul ... */)
 );
 ```
 
-[See full expanded version.](babel://tutorial-expanded-version)
+[Veja a versão completa completa.](babel://tutorial-expanded-version)
 
-If you're curious, `createElement()` is described in more detail in the [API reference](/docs/react-api.html#createelement), but we won't be using it in this tutorial. Instead, we will keep using JSX.
+Se você está curioso, o `createElement()` é descrito em mais detalhes na [referência da API](/docs/react-api.html#createelement), mas não iremos usá-lo neste tutorial. Em vez disso, continuaremos usando o JSX.
 
-JSX comes with the full power of JavaScript. You can put *any* JavaScript expressions within braces inside JSX. Each React element is a JavaScript object that you can store in a variable or pass around in your program.
+O JSX vem com todo o poder do JavaScript. Você pode colocar *quaisquer* expressões JavaScript dentro de chaves no JSX. Cada elemento React é um objeto JavaScript que você pode armazenar em uma variável ou passar em seu código.
 
-The `ShoppingList` component above only renders built-in DOM components like `<div />` and `<li />`. But you can compose and render custom React components too. For example, we can now refer to the whole shopping list by writing `<ShoppingList />`. Each React component is encapsulated and can operate independently; this allows you to build complex UIs from simple components.
+O componente `ShoppingList` acima apenas renderiza componentes internos do DOM como `<div />` e ` <li />`. Mas você também pode compor e renderizar componentes React personalizados. Por exemplo, agora podemos nos referir a toda a lista de compras escrevendo `<ShoppingList />`. Cada componente React é encapsulado e pode operar de forma independente; Isso permite que você construa interfaces complexas a partir de componentes simples.
 
 ## Inspecting the Starter Code {#inspecting-the-starter-code}
 
-If you're going to work on the tutorial **in your browser,** open this code in a new tab: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. If you're going to work on the tutorial **locally,** instead open `src/index.js` in your project folder (you have already touched this file during the [setup](#setup-option-2-local-development-environment)).
+Se você for trabalhar no tutorial **em seu navegador,** abra esse código em uma nova guia: **[Código Inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010 )** Se você vai trabalhar no tutorial **localmente,** abra `src/index.js` em sua pasta de projeto (você já criou este arquivo durante a [configuração](#setup-option-2-local-development-environment)).
 
-This Starter Code is the base of what we're building. We've provided the CSS styling so that you only need to focus on learning React and programming the tic-tac-toe game.
+Este Código Inicial é a base do que estamos construindo. Fornecemos o estilo CSS para que você só precise se concentrar no aprendizado do React e na programação do jogo da velha.
 
-By inspecting the code, you'll notice that we have three React components:
+Ao inspecionar o código, você notará que temos três componentes React:
 
-* Square
-* Board
-* Game
+* Quadrado(Square)
+* Tabuleiro(Board)
+* Jogo(Game)
 
-The Square component renders a single `<button>` and the Board renders 9 squares. The Game component renders a board with placeholder values which we'll modify later. There are currently no interactive components.
+O componente Square renderiza um único `<button>` e o Board renderiza 9 squares. O componente Game renderiza um Board com valores que modificaremos mais tarde. Atualmente não há componentes interativos.
 
-### Passing Data Through Props {#passing-data-through-props}
+### Passando dados através de props {#passing-data-through-props}
 
-Just to get our feet wet, let's try passing some data from our Board component to our Square component.
+Para aquecer, vamos tentar passar alguns dados do nosso componente Board para o nosso componente Square.
 
-In Board's `renderSquare` method, change the code to pass a prop called `value` to the Square:
+No método `renderSquare` do Board, altere o código para passar um prop chamado `value` para o Square:
 
 ```js{3}
 class Board extends React.Component {
@@ -197,7 +199,7 @@ class Board extends React.Component {
   }
 ```
 
-Change Square's `render` method to show that value by replacing `{/* TODO */}` with `{this.props.value}`:
+Altere o método `render` do Square para mostrar esse valor substituindo `{/ * TODO * /}` por `{this.props.value}`:
 
 ```js{5}
 class Square extends React.Component {
@@ -211,22 +213,22 @@ class Square extends React.Component {
 }
 ```
 
-Before:
+Antes:
 
 ![React Devtools](../images/tutorial/tictac-empty.png)
 
-After: You should see a number in each square in the rendered output.
+Depois: Você deve ver um número em cada quadrado na saída renderizada.
 
 ![React Devtools](../images/tutorial/tictac-numbers.png)
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
+**[Ver o código completo até este momento](https://codepen.io/gaearon/pen/aWWQOG?editors=0010)**
 
-Congratulations! You've just "passed a prop" from a parent Board component to a child Square component. Passing props is how information flows in React apps, from parents to children.
+Parabéns! Você acabou de passar um "prop" de um componente pai Board para um componente filho Square. Passar props é a forma como os dados fluem em aplicações React, de pais para filhos.
 
-### Making an Interactive Component {#making-an-interactive-component}
+### Fazendo um componente interativo {#making-an-interactive-component}
 
-Let's fill the Square component with an "X" when we click it. 
-First, change the button tag that is returned from the Square component's `render()` function to this:
+Vamos preencher o componente Square com um "X" quando clicamos nele.
+Primeiro, altere a tag `button` que é retornada na função `render ()` do componente Square para isto:
 
 ```javascript{4}
 class Square extends React.Component {
@@ -240,11 +242,11 @@ class Square extends React.Component {
 }
 ```
 
-If we click on a Square now, we should get an alert in our browser.
+Se clicarmos em um quadrado agora, devemos receber um alerta em nosso navegador.
 
->Note
+>Nota
 >
->To save typing and avoid the [confusing behavior of `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/), we will use the [arrow function syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for event handlers here and further below:
+>Para salvar a digitação e evitar o [comportamento confuso de `this`](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/),vamos usar a sintaxe [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions) para manipuladores de eventos:
 >
 >```javascript{4}
 >class Square extends React.Component {
@@ -258,13 +260,13 @@ If we click on a Square now, we should get an alert in our browser.
 >}
 >```
 >
->Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. It only fires after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+>Note que com `onClick = {() => alert ('click')}`, estamos passando *uma função* como prop `onClick`. Ela só é acionada após um clique. Esquecer o `() =>` e escrever somente `onClick = {alert ('click')}` é um erro comum, e dispararia o alerta toda vez que o componente fosse renderizado novamente.
 
-As a next step, we want the Square component to "remember" that it got clicked, and fill it with an "X" mark. To "remember" things, components use **state**.
+Como próximo passo, queremos que o componente Square "lembre" que foi clicado e preencha com um "X". Para "lembrar" as coisas, os componentes usam o **estado (_state_)**.
 
-React components can have state by setting `this.state` in their constructors. `this.state` should be considered as private to a React component that it's defined in. Let's store the current value of the Square in `this.state`, and change it when the Square is clicked.
+Os componentes React podem ter estado (_state_) configurando `this.state` em seus construtores. `this.state` deve ser considerado como privado para o componente React que o definiu. Vamos armazenar o valor atual do Square em `this.state` e alterá-lo quando o Square for clicado.
 
-First, we'll add a constructor to the class to initialize the state:
+Primeiro, adicionaremos um construtor à classe para inicializar o estado:
 
 ```javascript{2-7}
 class Square extends React.Component {
@@ -285,17 +287,17 @@ class Square extends React.Component {
 }
 ```
 
->Note
+>Nota
 >
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start it with a `super(props)` call.
+>Em [classes JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), você sempre precisa chamar `super` ao definir o construtor de uma subclasse. Todas os componentes de classe React que possuem um método `constructor` devem iniciá-lo com uma chamada `super (props)`.
 
-Now we'll change the Square's `render` method to display the current state's value when clicked:
+Agora vamos mudar o método `render` do componente Square para exibir o valor do estado (_state_) atual quando clicado:
 
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `() => alert()` event handler with `() => this.setState({value: 'X'})`.
-* Put the `className` and `onClick` props on separate lines for better readability.
+* Substitua `this.props.value` por` this.state.value` dentro da tag `<button>`.
+* Substitua o manipulador de eventos `() => alert ()` por `() => this.setState ({value: 'X'})`.
+* Coloque `className` e` onClick` em linhas separadas para melhor legibilidade.
 
-After these changes, the `<button>` tag that is returned by the Square's `render` method looks like this:
+Após estas mudanças, a tag `<button>` que é retornada pelo método `render` do Square deve se parecer com isto:
 
 ```javascript{12-13,15}
 class Square extends React.Component {
@@ -319,28 +321,28 @@ class Square extends React.Component {
 }
 ```
 
-By calling `this.setState` from an `onClick` handler in the Square's `render` method, we tell React to re-render that Square whenever its `<button>` is clicked. After the update, the Square's `this.state.value` will be `'X'`, so we'll see the `X` on the game board. If you click on any Square, an `X` should show up.
+Ao chamar `this.setState` a partir de um manipulador `onClick` no método `render` do componente Square, nós dizemos ao React para renderizar novamente aquele Square sempre que seu` <button>` for clicado. Após a atualização, o `this.state.value` do Square será `'X'`, então vamos ver o `X` no tabuleiro do jogo. Se você clicar em qualquer quadrado, um `X` deve aparecer.
 
-When you call `setState` in a component, React automatically updates the child components inside of it too.
+Quando você chama `setState` em um componente, o React atualiza automaticamente os componentes filhos dentro dele também.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
+**[Ver o código completo até este momento](https://codepen.io/gaearon/pen/VbbVLg?editors=0010)**
 
 ### Developer Tools {#developer-tools}
 
-The React Devtools extension for [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) lets you inspect a React component tree with your browser's developer tools.
+A extensão React Devtools para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) e [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) permite inspecionar uma árvore de componentes React com as ferramentas de desenvolvedor do seu navegador.
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-The React DevTools let you check the props and the state of your React components.
+O React DevTools permite que você verifique as props e o estado (_state_) de seus componentes React.
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tab will appear as the last tab to the right.
+Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas de desenvolvedor, e a guia React aparecerá como a última guia à direita.
 
-**However, note there are a few extra steps to get it working with CodePen:**
+** No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen: **
 
-1. Log in or register and confirm your email (required to prevent spam).
-2. Click the "Fork" button.
-3. Click "Change View" and then choose "Debug mode".
-4. In the new tab that opens, the devtools should now have a React tab.
+1. Faça o login ou registre-se e confirme seu e-mail (necessário para evitar spam).
+2. Clique no botão "Fork".
+3. Clique em "Change View" e escolha "Debug mode".
+4. Na nova aba que se abre, o devtools deve agora ter uma aba React.
 
 ## Completing the Game {#completing-the-game}
 

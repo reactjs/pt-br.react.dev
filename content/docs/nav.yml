@@ -118,7 +118,7 @@
       - id: hooks-rules
         title: Rules of Hooks
       - id: hooks-custom
-        title: Building Your Own Hooks
+        title: Criando seus próprios Hooks
       - id: hooks-reference
         title: Hooks API Reference
       - id: hooks-faq
@@ -144,7 +144,7 @@
     - id: faq-state
       title: Component State
     - id: faq-styling
-      title: Styling and CSS
+      title: Estilização e CSS
     - id: faq-structure
       title: File Structure
     - id: faq-versioning
