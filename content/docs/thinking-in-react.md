@@ -145,4 +145,4 @@ Embora pareça complexo, é realmente uma questão de poucas linhas de código. 
 
 ## E É Isso {#and-thats-it}
 
-Com sorte, esse artigo lhe dará uma ideia de como pensar ao se construir aplicações com React. Embora possa ser mais digitação do que você esteja acostumado, lembre-se que códigos são lidos muito mais que escritos, e é extremamente fácil de ler um código explícito e modular. À medida que você começar a criar grandes bibliotecas de componentes, você apreciará essa clareza e modularidade, e com o reuso de código, suas linhas de código começarão a diminuir. :)
+Com sorte, esse artigo lhe dará uma ideia de como pensar ao se construir aplicações com React. Embora possa ter um pouco mais de digitação do que você esteja acostumado, lembre-se que códigos são lidos muito mais que escritos, e é extremamente fácil de ler um código explícito e modular. À medida que você começar a criar grandes bibliotecas de componentes, você apreciará essa clareza e modularidade, e com o reuso de código, suas linhas de código começarão a diminuir. :)
