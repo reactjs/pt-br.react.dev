@@ -52,14 +52,13 @@ Se um novo estado for calculado usando o estado anterior, você pode passar uma 
 ```js
 function Counter({initialCount}) {
   const [count, setCount] = useState(initialCount);
-
   return (
     <>
       Count: {count}
       <button onClick={() => setCount(initialCount)}>Reset</button>
       <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
-   <>
+   </>
   );
 }
 ```
@@ -116,7 +115,6 @@ Muitas vezes, os efeitos criam recursos que precisam ser limpos antes que o comp
 ```js
 useEffect(() => {
   const subscription = props.source.subscribe();
-
   return () => {
     // Limpa a assinatura antes do componente deixar a tela
     subscription.unsubscribe();
@@ -146,12 +144,11 @@ Para implementar isso, passe um segundo argumento para `useEffect` que pode ser 
 useEffect(
   () => {
     const subscription = props.source.subscribe();
-
     return () => {
       subscription.unsubscribe();
     };
   },
-  [props.source]
+  [props.source],
 );
 ```
 
@@ -328,15 +325,14 @@ Um caso comum de uso é o acesso imperativamente a um componente filho:
 ```js
 function TextInputWithFocusButton() {
   const inputEl = useRef(null);
-  const  => {
+  const onButtonClick = () => {
     // `current` aponta para o evento de `focus` gerado pelo campo de texto
     inputEl.current.focus();
   };
-
   return (
     <>
       <input ref={inputEl} type="text" />
-      <button  the input</button>
+      <button onClick={onButtonClick}>Focus the input</button>
     </>
   );
 }
@@ -360,10 +356,8 @@ function FancyInput(props, ref) {
       inputRef.current.focus();
     }
   }));
-
   return <input ref={inputRef} ... />;
-};
-
+}
 FancyInput = forwardRef(FancyInput);
 ```
 
@@ -396,11 +390,8 @@ function useFriendStatus(friendID) {
   // ...
 
   // Mostra um `label` no DevTools ao lado desse hook
-  // exemplo. "FriendStatus: Online"
+  // ex. "FriendStatus: Online"
   useDebugValue(isOnline ? 'Online' : 'Offline');
-
-  return isOnline;
-} 'Online' : 'Offline');
 
   return isOnline;
 }
