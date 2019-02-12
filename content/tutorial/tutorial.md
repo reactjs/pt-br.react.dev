@@ -738,7 +738,7 @@ function calculateWinner(squares) {
 }
 ```
 
-Chamaremos `calculateWinner(squares)` na função `render` do Board para checar se um jogador venceu. Caso tenha vencido, podemos mostrar um texto como "Winner: X" ou "Winner: 0". Vamos substituir a declaração de `status` na função `render` com esse código:
+Chamaremos `calculateWinner(squares)` na função `render` do Board para checar se um jogador venceu. Caso tenha vencido, podemos mostrar um texto como "Winner: X" ou "Winner: O". Vamos substituir a declaração de `status` na função `render` com esse código:
 
 ```javascript{2-8}
   render() {
@@ -998,7 +998,7 @@ Finalmente, precisamos mover o método `handleClick` do componente Board para o 
 
 >Nota
 >
->Diferente do método de arrays `push()`, que você talvez possa estar mais familiarizado, o método `concat()` não modifica o array original, por isso preferimos utilizá-lo. 
+>Ao contrário do método de arrays `push()`, que você talvez possa estar mais familiarizado, o método `concat()` não modifica o array original, por isso preferimos utilizá-lo. 
 
 Nesse ponto, o componente Board necessita apenas dos métodos `renderSquare` e `render`. O state do jogo e o método `handleClick` devem estar no componente Game.
 
