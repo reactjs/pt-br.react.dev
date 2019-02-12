@@ -245,7 +245,7 @@ function reducer(state, action) {
     case 'reset':
       return init(action.payload);
     default:
-      throw new Error();
+      return state;
   }
 }
 
