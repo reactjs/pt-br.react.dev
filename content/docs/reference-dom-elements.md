@@ -16,7 +16,7 @@ redirect_from:
 
 O React implementa um sistema DOM independente ao browser visando performance e compatibilidade entre browsers. Aproveitamos a oportunidade para melhorar algumas implementações do DOM no browser.
 
-No React, todas as propriedades e atributos (incluindo manipuladores de eventos) devem estar em camelCase. Por exemplo, o atributo HTML `tabindex` corresponde ao atributo `tabIndex` no React. As exceções são os atributos `aria-*` e `data-*`, os quais devem estar em lowercase. Por exemplo, você pode manter `aria-label` como `aria-label`.
+No React, todas as propriedades e atributos (incluindo manipuladores de eventos) devem estar em _camelCase_. Por exemplo, o atributo HTML `tabindex` corresponde ao atributo `tabIndex` no React. As exceções são os atributos `aria-*` e `data-*`, os quais devem estar em _lowercase_. Por exemplo, você pode manter `aria-label` como `aria-label`.
 
 ## Diferenças nos Atributos {#differences-in-attributes}
 
