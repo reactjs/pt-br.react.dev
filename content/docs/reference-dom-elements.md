@@ -125,7 +125,7 @@ O atributo `value` é suportado pelos componentes `<input>` e `<textarea>`. Voc�
 
 ## Todos os atributos HTML suportados {#all-supported-html-attributes}
 
-A partir do React 16, qualquer atributo padrão [ou personalizado](/blog/2017/09/08/dom-attributes-in-react-16.html) são integralmente suportados.
+A partir do React 16, qualquer atributo padrão [ou personalizado](/blog/2017/09/08/dom-attributes-in-react-16.html) é totalmente suportado.
 
 O React sempre forneceu uma API centrada no JavaScript para o DOM. Uma vez que os componentes React geralmente recebem tanto props personalizadas quanto props relacionadas ao DOM, o React usa a convenção `camelCase` assim como as APIs do DOM:
 
