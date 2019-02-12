@@ -6,7 +6,7 @@ class FancyButton extends React.Component {
   // ...
 }
 
-// Rather than exporting FancyButton, we export LogProps.
-// It will render a FancyButton though.
+// Ao invés de exportar FancyButton, nós exportamos LogProps.
+// De qualquer forma, isso irá renderizar o FancyButton
 // highlight-next-line
 export default logProps(FancyButton);
