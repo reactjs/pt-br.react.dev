@@ -48,7 +48,7 @@ function MyComponent() {
 
 ### htmlFor {#htmlfor}
 
-Já que `for` é uma palavra reservada em JavaScript, elementos em React usam `htmlFor` no lugar.
+Já que `for` é uma palavra reservada em JavaScript, em vez disso elementos React usam `htmlFor`.
 
 ### onChange {#onchange}
 
