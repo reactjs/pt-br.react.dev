@@ -95,7 +95,7 @@ Para resolver esses problemas, **Hooks permite você usar mais das funcionalidad
 
 Nós sabemos que desenvolvedores React estão focados em entregar produtos e não têm tempo de checar cada nova API que está sendo lançada. Hooks são muito novos e pode ser melhor esperar por mais exemplos e tutoriais antes de considerar aprender ou adotá-los.
 
-Nós também entendemos que a barra para adicionar novas primitivas em React é extremamente alta. Para leitores curiosos, nós preparamos uma [detalhada RFC](https://github.com/reactjs/rfcs/pull/68) que vai a fundo na motivação com mais detalhes e provê uma perspectiva extra sobre decisões específicas de design e o estado da arte. 
+Nós também entendemos que o padrão de novas primitivas, para serem adicionadas ao React, deva ser extremamente alto. Para leitores curiosos, nós preparamos uma [detalhada RFC](https://github.com/reactjs/rfcs/pull/68) que vai a fundo na motivação com mais detalhes e provê uma perspectiva extra sobre decisões específicas de design e o estado da arte. 
 
 **Crucialmente, Hooks funcionam lado a lado com código existente para que você possa adotá-los gradualmente.** Nós estamos compartilhando essa API experimental para coletar feedback antecipado das pessoas da comunidade que estão interessadas em moldar o futuro de React — e nós iremos iterar sobre Hooks publicamente.
 
