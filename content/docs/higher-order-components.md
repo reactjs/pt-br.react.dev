@@ -4,7 +4,7 @@ title: Componentes de Ordem Superior
 permalink: docs/higher-order-components.html
 ---
 
-Um componente de ordem superior (HOC, do inglês Higher-Order Component) é uma técnica avançada do React para reutilizar a lógica de um componente. HOCs não são parte da API do React por si só. Eles pertencem a um padrão que surgiu da própria natureza de composição do React.
+Um componente de ordem superior (HOC, do inglês Higher-Order Component) é uma técnica avançada do React para reutilizar a lógica de um componente. HOCs não são parte da API do React, per se. Eles são um padrão que surgiu da própria natureza de composição do React.
 
 Concretamente, **um componente de ordem superior é uma função que recebe um componente e retorna um novo componente.**
 
@@ -14,7 +14,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Enquanto um componente transforma props em UI, um componente de ordem superior transforma um componente em outro componente.
 
-HOCs são comuns em bibliotecas terceiras para React, como o [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) do Relay.
+HOCs são comuns em bibliotecas externas para React, como o [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) do Relay.
 
 Neste documento, nós vamos discutir porque componentes de ordem superior são úteis e como escrever o seu.
 
@@ -292,7 +292,7 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 (Essa mesma propriedade também permite que `connect` e outros enhancer-style HOCs sejam usados como decoradores, uma proposta experimental do JavaScript.)
 
-A função utilitária `compose` é providenciada por várias bibliotecas de terceiros, incluindo lodash (como o [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](http://redux.js.org/docs/api/compose.html), e [Ramda](http://ramdajs.com/docs/#compose).
+A função utilitária `compose` é providenciada por várias bibliotecas externas, incluindo lodash (como o [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](http://redux.js.org/docs/api/compose.html), e [Ramda](http://ramdajs.com/docs/#compose).
 
 ## Convenção: Envolva o Nome de Exibição para Depurar Melhor {#convention-wrap-the-display-name-for-easy-debugging}
 
