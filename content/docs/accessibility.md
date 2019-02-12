@@ -422,7 +422,7 @@ Se você quiser estender suas habilidades de teste de contraste, você pode usar
 - [WebAIM - Color Contrast Checker](http://webaim.org/resources/contrastchecker/)
 - [The Paciello Group - Color Contrast Analyzer](https://www.paciellogroup.com/resources/contrastanalyser/)
 
-## Ferramentas de desenvolvimento e teste {#development-and-testing-tools}
+## Ferramentas de Desenvolvimento e Teste {#development-and-testing-tools}
 
 Há várias ferramentas que podemos usar para ajudar na criação de aplicativos acessíveis.
 
