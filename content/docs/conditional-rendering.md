@@ -121,7 +121,7 @@ ReactDOM.render(
 
 Declarar uma variável e usar uma declaração condicional `if` é uma ótima maneira de renderizar um componente, mas às vezes você pode querer usar uma sintaxe mais curta. Existem algumas maneiras para utilizar condições inline em JSX, explicadas abaixo.
 
-### If em Linha com o Operador Lógico &&  {#inline-if-with-logical--operator}
+### If inline com o Operador Lógico &&  {#inline-if-with-logical--operator}
 
 Você pode [incorporar qualquer expressão em JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) encapsulando em chaves. Isto inclui o operador lógico `&&` de JavaScript. Isto pode ser conveniente para incluir um elemento condicionalmente: 
 
