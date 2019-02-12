@@ -56,7 +56,7 @@ O evento `onChange` se comporta como você esperaria que ele se comportasse: sem
 
 ### selected {#selected}
 
-O atributo `selected` é suportado pelos componentes `<option>`. Você pode usa-lo para definir se um componente está selecionado. Isso é útil para construir componentes controlados(controlled components).
+O atributo `selected` é suportado pelos componentes `<option>`. Você pode usá-lo para definir se um componente está selecionado. Isso é útil para construir componentes controlados (_controlled components_).
 
 ### style {#style}
 
