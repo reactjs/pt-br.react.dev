@@ -245,6 +245,8 @@ function reducer(state, action) {
     case 'reset':
       return init(action.payload);
     default:
+      // Um reducer sempre deve return um state válido
+      // Alternativamente você pode ser lançar uma exceção if uma ação inválida for disparada
       return state;
   }
 }
