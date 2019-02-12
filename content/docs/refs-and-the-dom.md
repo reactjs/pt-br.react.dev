@@ -15,7 +15,7 @@ Refs fornecem uma forma de acessar os nós do DOM ou elementos React criados no 
 
 Em um fluxo de dados típico do React, as [props](/docs/components-and-props.html) são a única forma de componentes pais interagirem com seus filhos. Para modificar um componente filho, você terá que re-renderizá-lo com as novas props. Porém, existem alguns casos onde você precisa modificar imperativamente um componente filho fora do fluxo típico de dados. O componente filho a ser modificado poderia ser uma instância de um componente React, ou ele poderia ser um elemento DOM. Para ambos os casos, o React fornece uma saída.
 
-### Quando usar Refs {#when-to-use-refs}
+### Quando Usar Refs {#when-to-use-refs}
 
 Existem algumas boas finalidades para o uso de refs:
 
@@ -27,7 +27,7 @@ Evite usar refs para qualquer coisa que possa ser feita de forma declarativa.
 
 Por exemplo, ao invés de expôr os métodos `open()` e `close()` em um componente `Dialog`, passe a propriedade `isOpen` para ele.
 
-### Não utilize Refs excessivamente {#dont-overuse-refs}
+### Não Utilize Refs Excessivamente {#dont-overuse-refs}
 
 Sua primeira atitude talvez seja usar refs para "fazer as coisas acontecerem" no seu app. Se este é o caso,
 tire um momento para pensar de forma mais crítica sobre onde o estado deveria ser mantido na hierarquia dos seus componentes. Frequentemente, isso torna claro que o lugar apropriado para "manter" o estado é no nível mais alto da hierarquia. Veja o guia [Subindo o Estado](/docs/lifting-state-up.html) para ver exemplos.
@@ -270,6 +270,6 @@ Se você trabalhou com React antes, você deve estar familiarizado com uma antig
 >
 > Se você está usando `this.refs.textInput` para acessar refs, nós recomendamos ao invés disso utilizar o [padrão de callback](#callback-refs) ou a [API `createRef`](#creating-refs).
 
-### Ressalvas com refs com callback {#caveats-with-callback-refs}
+### Ressalvas com Refs com callback {#caveats-with-callback-refs}
 
 Se a `ref` com callback é definida como uma função inline, ela será chamada duas vezes durante as atualizações, primeiro com `null` e então novamente com o elemento DOM. Isto porquê uma nova instância da função é criada com cada renderização, então o React precisa limpar a referência antiga e atribuir a nova. Você pode evitar isso definindo a `ref` com callback como um método ligado a classe, mas note que isto não deveria importar na maioria dos casos.
