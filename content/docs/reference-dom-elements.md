@@ -14,7 +14,7 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-O React implementa um sistema DOM independente ao browser visando performance e compatibilidade entre browsers. Aproveitamos a oportunidade para melhorar algumas implementações do DOM no browser.
+O React implementa um sistema DOM independente ao navegador visando performance e compatibilidade entre navegadores. Aproveitamos a oportunidade para melhorar algumas implementações do DOM no navegador.
 
 No React, todas as propriedades e atributos (incluindo manipuladores de eventos) devem estar em _camelCase_. Por exemplo, o atributo HTML `tabindex` corresponde ao atributo `tabIndex` no React. As exceções são os atributos `aria-*` e `data-*`, os quais devem estar em _lowercase_. Por exemplo, você pode manter `aria-label` como `aria-label`.
 
@@ -52,7 +52,7 @@ Já que `for` é uma palavra reservada em JavaScript, elementos em React usam `h
 
 ### onChange {#onchange}
 
-O evento `onChange` se comporta como você esperaria que ele se comportasse: sempre que um campo do formulário muda, este evento é disparado. Nós intencionalmente não utilizamos o comportamento existente do browser porque `onChange` é um termo inadequado para seu comportamento e o React depende deste evento para manipular input do usuário em tempo real.
+O evento `onChange` se comporta como você esperaria que ele se comportasse: sempre que um campo do formulário muda, este evento é disparado. Nós intencionalmente não utilizamos o comportamento existente do navegador porque `onChange` é um termo inadequado para seu comportamento e o React depende deste evento para manipular input do usuário em tempo real.
 
 ### selected {#selected}
 
