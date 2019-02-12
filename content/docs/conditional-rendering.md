@@ -45,7 +45,7 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
 
-Este exemplo renderiza um "greeting" diferente dependendo do valor da `isLoggedIn` prop.
+Este exemplo renderiza um "greeting" diferente dependendo do valor da prop `isLoggedIn`.
 
 ### Variáveis de Elementos {#element-variables}
 
