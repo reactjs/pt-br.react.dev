@@ -15,7 +15,7 @@ function logProps(Component) {
     }
   }
 
-  // Note o segundo parâmmetro "ref" fornecido pelo React.fowardRef.
+  // Note o segundo parâmetro "ref" fornecido pelo React.fowardRef.
   // Nós podemos passá-lo para LogProps como qualquer outra props regular, e.g. "fowardedRef"
   // E ela pode ser anexada ao componente
   // highlight-range{1-3}
