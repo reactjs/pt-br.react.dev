@@ -34,7 +34,7 @@ Se você usar React com Web Components (que é uma prática incomum), use o atri
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-`dangerouslySetInnerHTML` é a substituição do React para o uso do `innerHTML` no DOM do navegador. Em geral, adicionar HTML através de código é arriscado pois é fácil expor inadvertidamente seus usuários a um ataque de [cross-site scripting (XSS)](https://pt.wikipedia.org/wiki/Cross-site_scripting). Então, você pode definir HTML diretamente através do React, mas vocẽ tem que digitar `dangerouslySetInnerHTML` e passar um objeto com a chave `__html`, para te relembrar que é perigoso. Por exemplo: -->
+`dangerouslySetInnerHTML` é o substituto do React para o uso do `innerHTML` no DOM do navegador. Em geral, adicionar HTML através de código é arriscado pois é fácil expor inadvertidamente seus usuários a um ataque de [cross-site scripting (XSS)](https://pt.wikipedia.org/wiki/Cross-site_scripting). Então, você pode definir HTML diretamente através do React, mas vocẽ tem que digitar `dangerouslySetInnerHTML` e passar um objeto com a chave `__html`, para te relembrar que é perigoso. Por exemplo: -->
 
 ```js
 function createMarkup() {
