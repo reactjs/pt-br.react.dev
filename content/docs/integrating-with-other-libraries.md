@@ -4,7 +4,7 @@ title: Integrando com outras Bibliotecas
 permalink: docs/integrating-with-other-libraries.html
 ---
 
-React pode ser utilizado em qualquer aplicação web. Ele pode ser embutido em outras aplicações e, com um pouco de cuidado, outras aplicações podem ser incorporadas ao React. Este guia vai examinar alguns dos mais comuns usos de caso, focando na integracão com [jQuery](https://jquery.com/) e [Backbone](http://backbonejs.org/), mas as mesmas idéias podem ser aplicadas para integrar componentes com qualquer código existente.
+React pode ser utilizado em qualquer aplicação web. Ele pode ser embutido em outras aplicações e com um pouco de cuidado, outras aplicações podem ser incorporadas ao React. Este guia vai examinar alguns dos mais comuns usos de caso, focando na integracão com [jQuery](https://jquery.com/) e [Backbone](http://backbonejs.org/). Porém, as mesmas ideias podem ser aplicadas para integrar componentes com qualquer código existente.
 
 ## Integrando com Plugins de Manipulacão do DOM {#integrating-with-dom-manipulation-plugins}
 
