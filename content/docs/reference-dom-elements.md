@@ -86,7 +86,7 @@ const divStyle = {
 };
 
 function ComponentWithTransition() {
-  return <div style={divStyle}>Isto deve funcionar em diferentes browsers</div>;
+  return <div style={divStyle}>Isto deve funcionar em diferentes navegadores</div>;
 }
 ```
 
