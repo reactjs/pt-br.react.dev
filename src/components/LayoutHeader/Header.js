@@ -75,7 +75,7 @@ const Header = ({location}: {location: Location}) => (
                 marginTop: 1,
               },
               [media.lessThan('small')]: {
-                // Visually hidden
+                // Visualmente escondido
                 position: 'absolute',
                 overflow: 'hidden',
                 clip: 'rect(0 0 0 0)',
@@ -125,7 +125,7 @@ const Header = ({location}: {location: Location}) => (
           />
           <HeaderLink
             isActive={location.pathname.includes('/community/')}
-            title="Community"
+            title="Comunidade"
             to="/community/support.html"
           />
           <HeaderLink

@@ -17,8 +17,8 @@ class DocSearch extends Component<{}, State> {
     enabled: true,
   };
   componentDidMount() {
-    // Initialize Algolia search.
-    // TODO Is this expensive? Should it be deferred until a user is about to search?
+    // Inicializar a busca do Algolia.
+    // TODO Isto é custoso? Deveria ser adiado até que um usuário esteja prestes a pesquisar?
     // eslint-disable-next-line no-undef
     if (window.docsearch) {
       window.docsearch({
@@ -27,7 +27,7 @@ class DocSearch extends Component<{}, State> {
         inputSelector: '#algolia-doc-search',
       });
     } else {
-      console.warn('Search has failed to load and now is being disabled');
+      console.warn('A busca falhou ao ser carregada e está sendo desativada');
       this.setState({enabled: false});
     }
   }
@@ -104,8 +104,8 @@ class DocSearch extends Component<{}, State> {
           }}
           id="algolia-doc-search"
           type="search"
-          placeholder="Search docs"
-          aria-label="Search docs"
+          placeholder="Buscar docs"
+          aria-label="Buscar docs"
         />
       </form>
     ) : null;
