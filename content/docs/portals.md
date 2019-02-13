@@ -4,9 +4,7 @@ title: Portals
 permalink: docs/portals.html
 ---
 
-Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
-
-Portals fornece uma forma elegante de renderizar um elemento filho dentro de um nó DOM que existe fora da hierarquia do DOM do componente pai.
+Portals fornece uma forma elegante de renderizar um elemento filho dentro de um nó DOM que existe fora da hierarquia do componente pai.
 
 ```js
 ReactDOM.createPortal(child, container)
@@ -16,7 +14,7 @@ O primeiro argumento (`child`) é qualquer [elemento filho React renderizável](
 
 ## Uso {#usage}
 
-Normalmente, quando retornamos um elemento pelo método render de um componente, ele é montado dentro do DOM como um filho do nó pai mais próximo:
+Normalmente, quando retornamos um elemento pelo método render de um componente ele é montado dentro do DOM como um filho do nó pai mais próximo:
 
 ```js{4,6}
 render() {
@@ -47,7 +45,7 @@ Um caso típico do uso de portals é quando um componente pai tem o estilo `over
 >
 > Quando estiver trabalhando com portals, lembra-se que [tratar os eventos de foco do teclado](/docs/accessibility.html#programmatically-managing-focus) se torna muito importante.
 >
-> No caso de modais, assegure-se que todos possam interagir com o modal seguindo as práticas descritas em [WAI-ARIA Modal Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
+> No caso dos modais, assegure-se que todos possam interagir com o modal seguindo as práticas descritas em [WAI-ARIA Modal Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
@@ -56,7 +54,7 @@ Um caso típico do uso de portals é quando um componente pai tem o estilo `over
 Apesar de um portal poder estar em qualquer lugar na árvore DOM, seu comportamento é como o de qualquer outro elemento React filho. Funcionalidades como contexto funcionam da mesma forma independente se o filho é um portal, pois o portal ainda existe na *árvore React* independentemente da posição que esteja na *árvore DOM*.
 
 Isso inclui a propagação de eventos. Um evento disparado dentro de um portal será propagado para os elementos antecessores da *árvore React*, mesmo que estes não sejam antecessores na *árvore DOM*.
-This includes event bubbling. An event fired from inside a portal will propagate to ancestors in the containing *React tree*, even if those elements are not ancestors in the *DOM tree*. Considerando a seguinte estrutura HTML:
+Considerando a seguinte estrutura HTML:
 
 ```html
 <html>
@@ -70,7 +68,7 @@ This includes event bubbling. An event fired from inside a portal will propagate
 Um componente `Pai` em `#app-root` será capaz de capturar a propagação de um evento não tratado vindo do nó irmão `#moda-root`.
 
 ```js{28-31,42-49,53,61-63,70-71,74}
-// These two containers are siblings in the DOM
+// Estes dois contêineres são irmãos no DOM
 const appRoot = document.getElementById('app-root');
 const modalRoot = document.getElementById('modal-root');
 
@@ -81,14 +79,14 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    // The portal element is inserted in the DOM tree after
-    // the Modal's children are mounted, meaning that children
-    // will be mounted on a detached DOM node. If a child
-    // component requires to be attached to the DOM tree
-    // immediately when mounted, for example to measure a
-    // DOM node, or uses 'autoFocus' in a descendant, add
-    // state to Modal and only render the children when Modal
-    // is inserted in the DOM tree.
+    // O elemento portal é inserido na árvore DOM, depois
+    // o componente Modal filho é montado, o que significa que o filho
+    // será montado em nó DOM separado. Se um componente
+    // filho precisa ser colocado na árvore DOM
+    // imediatamente quando é montado, por exemplo para medir um
+    // nó DOM, ou usar 'autoFocus' em um descendente, adicione
+    // state ao Modal e renderize apenas o filho quando o Modal
+    // estiver inserido na árvore DOM.
     modalRoot.appendChild(this.el);
   }
 
@@ -112,9 +110,9 @@ class Parent extends React.Component {
   }
 
   handleClick() {
-    // This will fire when the button in Child is clicked,
-    // updating Parent's state, even though button
-    // is not direct descendant in the DOM.
+    // Isso é disparado quando o botão no filho é clicado,
+    // atualizando o state do componente Pai, mesmo que o filho
+    // não seja um descendente direto no DOM.
     this.setState(state => ({
       clicks: state.clicks + 1
     }));
@@ -123,12 +121,12 @@ class Parent extends React.Component {
   render() {
     return (
       <div onClick={this.handleClick}>
-        <p>Number of clicks: {this.state.clicks}</p>
+        <p>Número de cliques: {this.state.clicks}</p>
         <p>
-          Open up the browser DevTools
-          to observe that the button
-          is not a child of the div
-          with the onClick handler.
+          Abra o DevTools do navegador
+          para notar que o botão
+          não é um filho da div
+          com o onClick.
         </p>
         <Modal>
           <Child />
@@ -139,11 +137,11 @@ class Parent extends React.Component {
 }
 
 function Child() {
-  // The click event on this button will bubble up to parent,
-  // because there is no 'onClick' attribute defined
+  // O evento de clique nesse botão irá propagar para o ascendente,
+  // porque o atributo 'onClick' não está definido
   return (
     <div className="modal">
-      <button>Click</button>
+      <button>Clicar</button>
     </div>
   );
 }
@@ -153,4 +151,4 @@ ReactDOM.render(<Parent />, appRoot);
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/jGBWpE)
 
-Catching an event bubbling up from a portal in a parent component allows the development of more flexible abstractions that are not inherently reliant on portals. For example, if you render a `<Modal />` component, the parent can capture its events regardless of whether it's implemented using portals.
+Capturar a propagação de um evento de um portal em um componente pai permite o desenvolvimento de abstrações mais flexíveis que não são propriamente inerentes aos portals. Por exemplo, se você renderizar um componente `<Modal />`, o componente pai pode captura seus eventos independentemente se são implementados usando portals.
