@@ -18,7 +18,7 @@ A maneira mais fácil de evitar conflitos é evitando com que o componente React
 
 Para demonstrar isto, vamos esboçar um _wrapper_ para um plugin jQuery genérico.
 
-Nós vamos adicionar um [ref](/docs/refs-and-the-dom.html) para o elemento root no DOM. Dentro do `componentDidMount`, nós vamos ter a referência desse elemento para passar para o plugin jQuery.
+Nós vamos adicionar um [ref](/docs/refs-and-the-dom.html) para o elemento raiz (_root_) no DOM. Dentro do `componentDidMount`, nós vamos ter a referência desse elemento para passar para o plugin jQuery.
 
 Para evitar com que o React toque no DOM depois de montado, nós vamos retornar uma `<div />` vazia para o método `render()`. O elemento `<div />`, não possui propriedades ou filhos, assim o React não tem razão para atualizá-lo, deixando o plugin jQuery livre para gerenciar esta parte do DOM:
 
