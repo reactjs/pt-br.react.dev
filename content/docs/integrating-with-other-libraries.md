@@ -51,7 +51,7 @@ Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínim
 
 Primeiro, vamos olhar o que Chosen faz no DOM.
 
-Se você chama-lo em um nó DOM `<select>`, ele lê os atributos do nó DOM original, esconde-os com um estilo inline, e então adiciona um nó DOM separado com sua própria representação visual, logo após o `<select>`. Em seguida, ele dispara um evento do jQuery, para notificar sobre as alterações.
+Se você chamá-lo em um nó DOM `<select>`, ele lê os atributos do nó DOM original, esconde-os com um estilo _inline_, e então adiciona um nó DOM separado com sua própria representação visual, logo após o `<select>`. Em seguida, ele dispara um evento do jQuery, para notificar sobre as alterações.
 
 Vamos supor que esta é a API para o nosso React componente `<Chosen>`:
 
