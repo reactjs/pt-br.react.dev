@@ -12,11 +12,14 @@ Suggestion on words and terms:
 | ------------------ | ---------- |
 | bubbling | propagar |
 | bug | erro |
+| browser | navegador |
 | class | classe |
 | context | contexto |
 | controlled component | componente controlado |
+| uncontrolled component | componente não controlado |
 | debugging | depuração|
-| functional component | componente funcional |
+| function component | componente de função |
+| class component | componente de classe |
 | key | chave |
 | library | biblioteca |
 | lowercase | minúscula(s) / caixa baixa |
@@ -27,7 +30,6 @@ Suggestion on words and terms:
 | uncontrolled component | componente não controlado |
 | uppercase | maiúscula(s) / caixa alta |
 | to wrap | encapsular |
-| wrapper | ? |
 | to assert | afirmar |
 | assertion | asserção |
 | server | servidor |
@@ -36,6 +38,7 @@ Suggestion on words and terms:
 | client-side | lado do cliente |
 | high-order components | componente de alta-ordem |
 | stateful logic | lógica com estado |
+
 # Content that doesn't need translation
 
 * array
@@ -58,7 +61,11 @@ Suggestion on words and terms:
 * UI
 * log
 * timestamps
+* release
 * script
 * single-page-apps
+* subscription
+* subscribe
 * widgets
 * watcher
+* wrapper

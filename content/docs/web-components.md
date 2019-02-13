@@ -10,7 +10,7 @@ React e [Componentes Web](https://developer.mozilla.org/pt-BR/docs/Web/Web_Compo
 
 A maioria das pessoas que usam o React não usam Componentes Web. Mas, talvez você queira, especialmente se você estiver utilizando componentes de UI de terceiros que foram escritos utilizando Componentes Web.
 
-## Usando Componentes Web no React {#usando-componentes-web-no-react}
+## Usando Componentes Web no React {#using-web-components-in-react}
 
 ```javascript
 class HelloMessage extends React.Component {
@@ -40,7 +40,7 @@ function BrickFlipbox() {
 }
 ```
 
-## Usando React nos seus Componentes Web {#usando-react-nos-seus-componentes-web}
+## Usando React nos seus Componentes Web {#using-react-in-your-web-components}
 
 ```javascript
 class XSearch extends HTMLElement {
