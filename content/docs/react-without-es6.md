@@ -1,10 +1,10 @@
 ---
 id: react-without-es6
-title: React Without ES6
+title: React sem ES6
 permalink: docs/react-without-es6.html
 ---
 
-Normally you would define a React component as a plain JavaScript class:
+Normalmente você definiria um componente React como uma simples classe Javascript:
 
 ```javascript
 class Greeting extends React.Component {
@@ -14,7 +14,7 @@ class Greeting extends React.Component {
 }
 ```
 
-If you don't use ES6 yet, you may use the `create-react-class` module instead:
+Se você ainda não usa ES6, você pode usar o módulo `create-react-class`:
 
 
 ```javascript
@@ -26,11 +26,11 @@ var Greeting = createReactClass({
 });
 ```
 
-The API of ES6 classes is similar to `createReactClass()` with a few exceptions.
+A API de classes do ES6 é similar a `createReactClass()` com algumas exceções.
 
-## Declaring Default Props {#declaring-default-props}
+## Declarando Props padrão {#declaring-default-props}
 
-With functions and ES6 classes `defaultProps` is defined as a property on the component itself:
+Com funções e classes ES6, `defaultProps` é definido como uma propriedade do próprio componente:
 
 ```javascript
 class Greeting extends React.Component {
@@ -42,7 +42,7 @@ Greeting.defaultProps = {
 };
 ```
 
-With `createReactClass()`, you need to define `getDefaultProps()` as a function on the passed object:
+Com `createReactClass()`, você precisa definir `getDefaultProps()` como uma função no objeto que é passado como parâmetro:
 
 ```javascript
 var Greeting = createReactClass({
@@ -57,9 +57,9 @@ var Greeting = createReactClass({
 });
 ```
 
-## Setting the Initial State {#setting-the-initial-state}
+## Configurando o Estado Inicial {#setting-the-initial-state}
 
-In ES6 classes, you can define the initial state by assigning `this.state` in the constructor:
+Em classes ES6, você pode definir o estado inicial ao definir `this.state` no construtor:
 
 ```javascript
 class Counter extends React.Component {
@@ -71,7 +71,7 @@ class Counter extends React.Component {
 }
 ```
 
-With `createReactClass()`, you have to provide a separate `getInitialState` method that returns the initial state:
+Com `createReactClass()`, você deve passar um método `getInitialState` que retorna o estado inicial:
 
 ```javascript
 var Counter = createReactClass({
@@ -84,14 +84,14 @@ var Counter = createReactClass({
 
 ## Autobinding {#autobinding}
 
-In React components declared as ES6 classes, methods follow the same semantics as regular ES6 classes. This means that they don't automatically bind `this` to the instance. You'll have to explicitly use `.bind(this)` in the constructor:
+Em componentes React declarados como classes ES6, métodos seguem a mesma semântica que classes ES6 regulares. Isso significa que elas não fazem bind do `this` da instancia. Você terá que explicitamente usar `.bind(this)` no construtor:
 
 ```javascript
 class SayHello extends React.Component {
   constructor(props) {
     super(props);
     this.state = {message: 'Hello!'};
-    // This line is important!
+    // Esta linha é importante
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -100,7 +100,7 @@ class SayHello extends React.Component {
   }
 
   render() {
-    // Because `this.handleClick` is bound, we can use it as an event handler.
+    // devido `this.handleClick` ter sido amarrado, podemos usá-lo como um controlador de evento.
     return (
       <button onClick={this.handleClick}>
         Say hello
@@ -110,7 +110,7 @@ class SayHello extends React.Component {
 }
 ```
 
-With `createReactClass()`, this is not necessary because it binds all methods:
+Com `createReactClass()`, isso não é necessário por que ele faz bind de todos os métodos:
 
 ```javascript
 var SayHello = createReactClass({
@@ -132,9 +132,9 @@ var SayHello = createReactClass({
 });
 ```
 
-This means writing ES6 classes comes with a little more boilerplate code for event handlers, but the upside is slightly better performance in large applications.
+Isso significa que escrever classes ES6 necessita um pouco mais de código boilerplate para controladores de eventos, pelo outro lado é levemente mais performático em aplicação de larga escala.
 
-If the boilerplate code is too unattractive to you, you may enable the **experimental** [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) syntax proposal with Babel:
+Se você acha que código boilerplate é muito feio, você pode ativar a proposta de [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) **experimentais** com Babel:
 
 
 ```javascript
@@ -143,8 +143,8 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Hello!'};
   }
-  // WARNING: this syntax is experimental!
-  // Using an arrow here binds the method:
+  // AVISO: essa sintaxe é experimental!
+  // Usar uma arrow function aqui já faz bind do método
   handleClick = () => {
     alert(this.state.message);
   }
@@ -159,27 +159,27 @@ class SayHello extends React.Component {
 }
 ```
 
-Please note that the syntax above is **experimental** and the syntax may change, or the proposal might not make it into the language.
+Por favor note que a sintaxe acima é **experimental** e a sintaxe pode mudar, ou ainda a proposta pode não ser implementada na linguagem.
 
-If you'd rather play it safe, you have a few options:
+Se você prefere jogar seguro, você tem algumas opções:
 
-* Bind methods in the constructor.
-* Use arrow functions, e.g. `onClick={(e) => this.handleClick(e)}`.
-* Keep using `createReactClass`.
+* Fazer bind do método no construtor.
+* Usar arrow functions, e.g. `onClick={(e) => this.handleClick(e)}`.
+* Continuar usando `createReactClass`.
 
 ## Mixins {#mixins}
 
->**Note:**
+>**Notas:**
 >
->ES6 launched without any mixin support. Therefore, there is no support for mixins when you use React with ES6 classes.
+>ES6 lançou sem suporte a mixins. Portanto, não há suporte para mixins quando você usar React com classes ES6.
 >
->**We also found numerous issues in codebases using mixins, [and don't recommend using them in the new code](/blog/2016/07/13/mixins-considered-harmful.html).**
+>**Nós também descobrimos inúmeros problemas na base de código usando mixins, [e não recomendamos usar em novos códigos](/blog/2016/07/13/mixins-considered-harmful.html).**
 >
->This section exists only for the reference.
+>Esta seção existe somente para referência.
 
-Sometimes very different components may share some common functionality. These are sometimes called [cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern). `createReactClass` lets you use a legacy `mixins` system for that.
+Algumas vezes, componentes muito diferentes podem compartilhar alguma funcionalidade. Chamamos estes casos de [cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern). `createReactClass` permite que você use um sistema legado de `mixins` para isso.
 
-One common use case is a component wanting to update itself on a time interval. It's easy to use `setInterval()`, but it's important to cancel your interval when you don't need it anymore to save memory. React provides [lifecycle methods](/docs/react-component.html#the-component-lifecycle) that let you know when a component is about to be created or destroyed. Let's create a simple mixin that uses these methods to provide an easy `setInterval()` function that will automatically get cleaned up when your component is destroyed.
+Um caso de uso comum é um componente que quer se atualizar em um intervalo de tempo. É fácil de usar o `setInterval()`, mas é importante do cancelar o intervalo quando você não precisa mais dele para economizar memória. React fornece [lifecycle methods](/docs/react-component.html#the-component-lifecycle) que permitem que você saiba quando um componente está prestes a ser criado ou destruído. Vamos criar um *mixin* simples que usa esses métodos para fornecer uma funcionalidade fácil de `setInterval()` que será limpa automaticamente quando seu componente for destruído.
 
 ```javascript
 var SetIntervalMixin = {
@@ -197,12 +197,12 @@ var SetIntervalMixin = {
 var createReactClass = require('create-react-class');
 
 var TickTock = createReactClass({
-  mixins: [SetIntervalMixin], // Use the mixin
+  mixins: [SetIntervalMixin], // Use o mixin
   getInitialState: function() {
     return {seconds: 0};
   },
   componentDidMount: function() {
-    this.setInterval(this.tick, 1000); // Call a method on the mixin
+    this.setInterval(this.tick, 1000); // Chamada de um método no mixin
   },
   tick: function() {
     this.setState({seconds: this.state.seconds + 1});
@@ -210,7 +210,7 @@ var TickTock = createReactClass({
   render: function() {
     return (
       <p>
-        React has been running for {this.state.seconds} seconds.
+        React está rodando por {this.state.seconds} segundos.
       </p>
     );
   }
@@ -222,4 +222,4 @@ ReactDOM.render(
 );
 ```
 
-If a component is using multiple mixins and several mixins define the same lifecycle method (i.e. several mixins want to do some cleanup when the component is destroyed), all of the lifecycle methods are guaranteed to be called. Methods defined on mixins run in the order mixins were listed, followed by a method call on the component.
+Se um componente está usando múltiplos mixins e diversos desses mixins definem o mesmo lifecycle method (por ex. diversos mixins querem fazer uma limpeza quando um componente é destruído), todos os lifecycle methods terão garantia de serem chamados. Métodos definidos em um mixin são executados na ordem em que foram listados, seguidos por uma chamada de método no componente.
