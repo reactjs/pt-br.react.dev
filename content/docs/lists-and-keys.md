@@ -50,7 +50,7 @@ Esse código mostra uma lista não ordenada de números entre 1 e 5.
 
 Geralmente você irá renderizar listas dentro de um [componente](/docs/components-and-props.html).
 
-Podemos refatorar o exemplo anterior em um componente que aceita um array de `números` e retorna uma lista não ordenada de elementos.
+Podemos refatorar o exemplo anterior em um componente que aceita um array de `números` e retorna uma lista de elementos.
 
 ```javascript{3-5,7,13}
 function NumberList(props) {
