@@ -358,7 +358,7 @@ A abordagem acima, necessita que os componentes React tenham conhecimento dos mo
 
 Uma solução para isto, é extrair os atributos do model como simples dados, e manter essa lógica em um único local. A seguir, temos um [higher-order component](/docs/higher-order-components.html) que extrai todos os atributos de um model Backbone para o estado, passando o dado para o componente em volta.
 
-Desta forma, apenas o higher-order component precisa saber sobre implementações internas do model Backbone, e mais componentes da aplicação podem continuar agnósticos do Backbone.
+Desta forma, apenas o componente de ordem superior (_higher-order component_) precisa saber sobre implementações internas do model Backbone, e mais componentes da aplicação podem continuar agnósticos do Backbone.
 
 No exemplo abaixo, nós vamos fazer uma cópia dos atributos do model para formar o estado inicial. Vamos assinar o evento de `change` (e cancelar no unmounting), e quando isto acontecer, nós atualizamos o estado com os atuais atributos do model. Finalmente, nos certificamos de que se a propriedade `model` mudar, nós não esqueceremos de cancelar a assinatura do modelo antigo, e assinar para o novo.
 
