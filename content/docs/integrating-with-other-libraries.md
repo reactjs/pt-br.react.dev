@@ -43,7 +43,7 @@ Note que nós definimos ambos `componentDidMount` e `componentWillUnmount` [mét
 
 ### Integrando com o plugin jQuery Chosen {#integrating-with-jquery-chosen-plugin}
 
-Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínimo para o plugin [Chosen](https://harvesthq.github.io/chosen/), que amplia inputs `<select>`.
+Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínimo para o plugin [Chosen](https://harvesthq.github.io/chosen/), que aumenta as opções (<option>) do `<select>`.
 
 >**Nota:**
 >
