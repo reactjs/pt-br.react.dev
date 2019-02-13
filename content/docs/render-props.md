@@ -57,7 +57,7 @@ A questão é: Como podemos reutilizar esse comportamento em outro componente? E
 Lembrando que componentes são a unidade básica de reuso de código em React, vamos tentar refatorar esse código para usar o componente `<Mouse>`, ele encapsula o comportamento que precisamos reutilizar. 
 
 ```js
-// The <Mouse> component encapsulates the behavior we need...
+// O componente <Mouse> encapsula o comportamento que precisamos...
 class Mouse extends React.Component {
   constructor(props) {
     super(props);
@@ -76,7 +76,7 @@ class Mouse extends React.Component {
     return (
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
 
-        {/* ...but how do we render something other than a <p>? */}
+        {/* ...mas como renderizar algo diferente de um <p>? */}
         <p>The current mouse position is ({this.state.x}, {this.state.y})</p>
       </div>
     );
@@ -131,10 +131,10 @@ class MouseWithCat extends React.Component {
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
 
         {/*
-          We could just swap out the <p> for a <Cat> here ... but then
-          we would need to create a separate <MouseWithSomethingElse>
-          component every time we need to use it, so <MouseWithCat>
-          isn't really reusable yet.
+          Poderíamos simplesmente trocar o <p> por um <Cat> ... mas assim
+          teríamos que criar um componente <MouseWithSomethingElse>
+          separado toda vez que precisarmos usá-lo, então <MouseWithCat>
+          não é muito reutilizável ainda.
         */}
         <Cat mouse={this.state} />
       </div>
@@ -187,8 +187,9 @@ class Mouse extends React.Component {
       <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
 
         {/*
-          Instead of providing a static representation of what <Mouse> renders,
-          use the `render` prop to dynamically determine what to render.
+          No lugar de fornecer uma representação estática do que <Mouse> deve
+          renderizar, use a `render` prop para determinar o que renderizar
+          dinamicamente.
         */}
         {this.props.render(this.state)}
       </div>
@@ -219,8 +220,9 @@ Essa técnica torna o comportamento que precisamos compartilhar extremamente por
 Algo interessante para notar sobre _render props_ é que você pode implementar a maioria dos _[higher-order components](/docs/higher-order-components.html)_ (HOC) utilizando um componente qualquer com uma _render prop_. Por exemplo, se você preferir ter um HOC `withMouse` no lugar de um componente `<Mouse>`, você poderia simplesmente criar um utilizando o `<Mouse>` com uma _render prop_.
 
 ```js
-// If you really want a HOC for some reason, you can easily
-// create one using a regular component with a render prop!
+// Se você realmente quer usar HOC por alguma razão, você
+// pode facilmente criar uma usando um componente qualquer
+// com uma render prop!
 function withMouse(Component) {
   return class extends React.Component {
     render() {
@@ -279,7 +281,7 @@ Por exemplo, continuando com o componente `<Mouse>` acima, se `Mouse` estendesse
 
 ```js
 class Mouse extends React.PureComponent {
-  // Same implementation as above...
+  // Mesma implementação de antes...
 }
 
 class MouseTracker extends React.Component {
@@ -289,8 +291,8 @@ class MouseTracker extends React.Component {
         <h1>Move the mouse around!</h1>
 
         {/*
-          This is bad! The value of the `render` prop will
-          be different on each render.
+          Isso é ruim! O valor da prop `render` vai ser
+          diferente para cara render.
         */}
         <Mouse render={mouse => (
           <Cat mouse={mouse} />
@@ -307,8 +309,9 @@ Para contornar esse problema, você pode definir a prop como um método de inst�
 
 ```js
 class MouseTracker extends React.Component {
-  // Defined as an instance method, `this.renderTheCat` always
-  // refers to *same* function when we use it in render
+  // Definindo como um método de instância, `this.renderTheCat`
+  // sempre se refere a *mesma* função quando chamamos na
+  // renderização
   renderTheCat(mouse) {
     return <Cat mouse={mouse} />;
   }
