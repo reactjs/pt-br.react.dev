@@ -110,7 +110,7 @@ Note que React não atribui nenhum significado especial para o campo `this.el`. 
 
 Isto é suficiente para renderizar o nosso componente, mas também queremos ser notificados quando os valores mudarem. Para fazer isto, vamos assinar os eventos de `change` do jQuery no `<select>` controlado pelo Chosen.
 
-Nós não vamos passar `this.props.onChange` diretamente para o Chosen porque as propriedades do componente, podem mudar ao longo do tempo e isto inclui os handlers de evento. Como alternativa, vamos declarar um método `handleChange()` que chama o `this.props.onChange` e subscreve o evento `change` do jQuery:
+Nós não vamos passar `this.props.onChange` diretamente para o Chosen porque as propriedades do componente, podem mudar ao longo do tempo e isto inclui os manipuladores de evento (_event handlers_) . Como alternativa, vamos declarar um método `handleChange()` que chama o `this.props.onChange` e subscreve o evento `change` do jQuery:
 
 ```js{5,6,10,14-16}
 componentDidMount() {
