@@ -47,7 +47,7 @@ Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínim
 
 >**Nota:**
 >
-> Apenas porque isto é possível, não significa que este é a melhor maneira para apps React. Nós encorajamos você a utilizar componentes React quando você puder. Componentes React são fáceis de reutilizar em aplicacões React, e muitas vezes fornecem mais controle sobre seu comportamento e aparência.
+> Apenas porque isto é possível, não significa que esta é a melhor maneira para apps React. Nós encorajamos você a utilizar componentes React quando você puder. Componentes React são fáceis de reutilizar em aplicacões React, e muitas vezes fornecem mais controle sobre seu comportamento e aparência.
 
 Primeiro, vamos olhar o que Chosen faz no DOM.
 
