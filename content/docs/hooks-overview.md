@@ -38,7 +38,7 @@ function Example() {
 }
 ```
 
-Aqui, <code>useState</code> é um <em>Hook</em> (nós vamos falar sobre o que isso significa em instantes). Nós chamamos dentro de um componente funcional para adicionar alguns states locais a ele. React irá presevar este state entre re-renderizações. `useState` returna um par: o valor do estado *atual* e uma função que permite atualizá-lo. Você pode chamar essa função de um manipulador de evento ou de qualquer outro lugar. É parecido com `this.setState` em uma classe, exceto que não mescla o antigo estado com o novo. (Nós iremos mostrar um exemplo comprando `useState` com `this.state` em [Utilizando o State Hook](/docs/hooks-state.html).)
+Aqui, `useState` é um *Hook* (nós vamos falar sobre o que isso significa em instantes). Nós chamamos dentro de um componente funcional para adicionar alguns states locais a ele. React irá presevar este state entre re-renderizações. `useState` returna um par: o valor do estado *atual* e uma função que permite atualizá-lo. Você pode chamar essa função de um manipulador de evento ou de qualquer outro lugar. É parecido com `this.setState` em uma classe, exceto que não mescla o antigo estado com o novo. (Nós iremos mostrar um exemplo comprando `useState` com `this.state` em [Utilizando o State Hook](/docs/hooks-state.html).)
 
 O Único argumento para `useState` é o estado inicial. No exemplo acima, é `0` porque nosso contador começa do zero. Perceba que diferente de `this.state`, o estado não precisa ser um objeto -- apesar de que possa ser se você quiser. O argumento de estado inicial é utilizado apenas durante a primeira renderização.
 
