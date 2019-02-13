@@ -10,7 +10,7 @@ React pode ser utilizado em qualquer aplicação web. Ele pode ser embutido em o
 
 React desconhece qualquer alteração feita no DOM fora do React. Ele determina as atualizações com base na sua própria representação interna e se os mesmos nós do DOM forem manipulados por outras bibliotecas, React fica confuso e não sabe como proceder.
 
-Isto não significa que é impossível ou mesmo necessariamente difícil de combinar React com outras maneiras de afetar o DOM, você apenas precisa estar atento ao que cada um está fazendo.
+Isto não significa que é impossível ou mesmo necessariamente difícil de combinar React com outras maneiras de afetar o DOM, você apenas precisa estar atento ao que cada biblioteca está fazendo.
 
 A maneira mais fácil de evitar conflitos é evitando com que o componente React atualize. Você pode fazer isto, renderizando elementos que o React não tem motivos para atualizar, como uma `<div />` vazia.
 
