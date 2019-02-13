@@ -84,14 +84,14 @@ var Counter = createReactClass({
 
 ## Autobinding {#autobinding}
 
-Em componentes React declarados como classes ES6, métodos seguem a mesma semântica que classes ES6 regulares. Isso significa que elas não fazem bind do `this` da instancia. Você terá que explicitamente usar `.bind(this)` no construtor:
+Em componentes React declarados como classes ES6, métodos seguem a mesma semântica que classes ES6 regulares. Isso significa que elas não fazem bind do `this` da instância. Você terá que explicitamente usar `.bind(this)` no construtor:
 
 ```javascript
 class SayHello extends React.Component {
   constructor(props) {
     super(props);
     this.state = {message: 'Hello!'};
-    // Esta linha é importante
+    // Esta linha é importante!
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -100,7 +100,7 @@ class SayHello extends React.Component {
   }
 
   render() {
-    // devido `this.handleClick` ter sido amarrado, podemos usá-lo como um controlador de evento.
+    // Devido `this.handleClick` ter sido amarrado, podemos usá-lo como um controlador de evento.
     return (
       <button onClick={this.handleClick}>
         Say hello
@@ -132,7 +132,7 @@ var SayHello = createReactClass({
 });
 ```
 
-Isso significa que escrever classes ES6 necessita um pouco mais de código boilerplate para controladores de eventos, pelo outro lado é levemente mais performático em aplicação de larga escala.
+Isso significa que escrever classes ES6 necessita um pouco mais de código boilerplate para controladores de eventos, pelo outro lado é levemente mais performático em aplicações de larga escala.
 
 Se você acha que código boilerplate é muito feio, você pode ativar a proposta de [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) **experimentais** com Babel:
 
