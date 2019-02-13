@@ -19,6 +19,7 @@ HOCs são comuns em bibliotecas externas para React, como o [`connect`](https://
 Neste documento, nós vamos discutir porque componentes de ordem superior são úteis e como escrever o seu.
 
 ## Use HOCs para características transversais. {#use-hocs-for-cross-cutting-concerns}
+
 > **Nota**
 >
 > Anteriormente, nós recomendamos mixins como uma forma de lidar com características transversais. Desde então, percebemos que mixins criam mais problemas do que trazem valor. [Leia mais](/blog/2016/07/13/mixins-considered-harmful.html) sobre porque nós deixamos os mixins de lado e como você pode fazer a transição dos seus componentes existentes.
@@ -121,9 +122,9 @@ const BlogPostWithSubscription = withSubscription(
 );
 ```
 
-O primeiro parâmetro é um componente envolvido. O segundo parâmetro acessa os dados que estamos interessados, dado um `DataSource` e as props atuais.
+O primeiro parâmetro é um componente encapsulado. O segundo parâmetro acessa os dados que estamos interessados, dado um `DataSource` e as props atuais.
 
-Quando `CommentListWithSubscription` e `BlogPostWithSubscription` são renderizados, `CommentList` e `BlogPost` passarão uma prop `data` com o dado mais recente retirado de `DataSource`:
+Quando `CommentListWithSubscription` e `BlogPostWithSubscription` são renderizados, `CommentList` e `BlogPost` receberão uma prop `data` com os dados mais recentes obtidos de `DataSource`:
 
 ```js
 // A função recebe um componente...
@@ -139,7 +140,7 @@ function withSubscription(WrappedComponent, selectData) {
     }
 
     componentDidMount() {
-      // ... o qual lida com a subscrição...
+      // ... que lida com a subscrição...
       DataSource.addChangeListener(this.handleChange);
     }
 
@@ -154,7 +155,7 @@ function withSubscription(WrappedComponent, selectData) {
     }
 
     render() {
-      // ... e renderiza o componente envolvido com os dados novos!
+      // ... e renderiza o componente encapsulado com os dados novos!
       // Note que nós passamos diretamente qualquer prop adicional
       return <WrappedComponent data={this.state.data} {...this.props} />;
     }
@@ -162,17 +163,17 @@ function withSubscription(WrappedComponent, selectData) {
 }
 ```
 
-Note que um HOC não modifica o componente de entrada, nem utiliza herança para copiar seu comportamento. Ao invés disso, um HOC *compõe* o componente original ao *envolvê-lo* em um componente container. Um HOC é uma função pura sem efeitos colaterais.
+Note que um HOC não modifica o componente de entrada, nem utiliza herança para copiar seu comportamento. Em vez disso, um HOC *compõe* o componente original ao *envolvê-lo* (wrapping) em um componente container. Um HOC é uma função pura sem efeitos colaterais.
 
-E é isso! O componente envolvido recebe todas as props do container, junto de uma nova prop, `data`, o qual a utiliza para renderizar sua saída. O HOC não se preocupa com o como ou o porquê de seus dados serem usados, e o componente envolvido não se preocupa de onde os dados vieram.
+E é isso! O componente encapsulado recebe todas as props do container, junto de uma nova prop, `data`, o qual a utiliza para renderizar sua saída. O HOC não se preocupa com o como ou o porquê de seus dados serem usados, e o componente encapsulado não se preocupa de onde os dados vieram.
 
-Por `withSubscription` ser uma função normal, você pode adicionar quantos argumentos quiser. Por exemplo, você pode querer fazer o nome da prop `data` ser configurável, para continuar a isolar o HOC do componente envolvido. Ou você pode aceitar um argumento que configura `shouldComponentUpdate`, ou um que configura a fonte de dados. Todos esses casos são possíveis porque o HOC tem controle total sobre como o componente é definido.
+Por `withSubscription` ser uma função normal, você pode adicionar quantos argumentos quiser. Por exemplo, você pode querer fazer o nome da prop `data` ser configurável, para continuar a isolar o HOC do componente encapsulado. Ou você pode aceitar um argumento que configura `shouldComponentUpdate`, ou um que configura a fonte de dados. Todos esses casos são possíveis porque o HOC tem controle total sobre como o componente é definido.
 
-Como componentes, o contrato entre `withSubscription` e o componente envolvido é completamente baseado em props. Isso faz com que seja fácil trocar um HOC por outro, desde que eles providenciem as mesmas props para o componente envolvido. Isso pode ser útil se você mudar de bibliotecas para busca de dados, por exemplo.
+Como componentes, o contrato entre `withSubscription` e o componente encapsulado é completamente baseado em props. Isso faz com que seja fácil trocar um HOC por outro, desde que eles providenciem as mesmas props para o componente encapsulado. Isso pode ser útil se você mudar de bibliotecas para obtenção de dados, por exemplo.
 
 ## Não Altere o Componente Original. Use Composição. {#dont-mutate-the-original-component-use-composition}
 
-Resista a tentação de modificar o prototype de um componente (ou alterá-lo de qualquer outra forma) dentro de um HOC.
+Resista à tentação de modificar o prototype de um componente (ou alterá-lo de qualquer outra forma) dentro de um HOC.
 
 ```js
 function logProps(InputComponent) {
@@ -188,11 +189,11 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-Existem alguns problemas nisso. Primeiro, o componente de entrada não pode ser reutilizado separadamente do componente melhorado. Mais crucialmente, se você aplicar outro HOC para `EnchancedComponent` que *também* altera `componentWillReceiveProps`, a funcionalidade do primeiro HOC será sobrescrita! Esse HOC também não funcionará com componentes funcionais, os quais não possuem métodos de ciclo de vida.
+Existem alguns problemas nisso. Primeiro, o componente de entrada não pode ser reutilizado separadamente do componente melhorado. Mais crucialmente, se você aplicar outro HOC para `EnhancedComponent` que *também* altera `componentWillReceiveProps`, a funcionalidade do primeiro HOC será sobrescrita! Esse HOC também não funcionará com componentes funcionais, os quais não possuem métodos de ciclo de vida.
 
-Realizar mutações em HOCs é uma abstração mal vedada - o consumidor deve saber como eles são implementados para que se possa evitar conflitos com outros HOCs.
+Realizar mutações em HOCs podem causar "vazamentos" - o consumidor deve saber como eles são implementados para evitar conflitos com outros HOCs.
 
-Ao invés de mutações, HOCs devem utilizar composição, envolvendo o componente de entrada em um componente container:
+Em vez de mutações, HOCs devem utilizar composição, encapsulando o componente de entrada em um componente container:
 
 ```js
 function logProps(WrappedComponent) {
@@ -202,7 +203,7 @@ function logProps(WrappedComponent) {
       console.log('Next props: ', nextProps);
     }
     render() {
-      // Envolve o componente de entrada em um container, sem alterá-lo. Bom!
+      // Encapsula o componente de entrada em um container, sem alterá-lo. Excelente!
       return <WrappedComponent {...this.props} />;
     }
   }
@@ -213,23 +214,23 @@ Esse HOC possui a mesma funcionalidade que a sua versão com mutação e evita o
 
 Você deve ter notado similaridades entre HOCs e um padrão chamado **componentes container**. Componentes container são parte de uma estratégia de separação de responsabilidade entre preocupações de alto nível e baixo nível. Containers gerenciam coisas como subscrições e state, e passam props para componentes que lidam com coisas como renderização da UI. HOCs utilizam containers como parte de sua implementação. Você pode pensar em HOCs como definições de componentes container com parâmetros.
 
-## Convenção: Passe Props Não Relacionadas Para o Componente Envolvido {#convention-pass-unrelated-props-through-to-the-wrapped-component}
+## Convenção: Passe Props Não Relacionadas Para o Componente Encapsulado {#convention-pass-unrelated-props-through-to-the-wrapped-component}
 
-HOCs adicionam características a um componente. Eles não devem alterar drasticamente o seu contrato. É esperado que um componente retornado de um HOC tenha uma interface similar ao do componente envolvido.
+HOCs adicionam características a um componente. Eles não devem alterar drasticamente o seu contrato. É esperado que um componente retornado de um HOC tenha uma interface similar ao do componente encapsulado.
 
 HOCs devem passar props que não são relacionadas às suas preocupações específicas. A maioria dos HOCs possuem um método render que se parece com algo assim:
 
 ```js
 render() {
   // Filtra props extras que são específicas a esse HOC e não devem ser
-  // passadas para o componente envolvido.
+  // passadas para o componente encapsulado.
   const { extraProp, ...passThroughProps } = this.props;
 
-  // Injeta props no componente envolvido.
+  // Injeta props no componente encapsulado.
   // Estes geralmente são valores do state ou métodos da instância.
   const injectedProp = someStateOrInstanceMethod;
 
-  // Passa as props para o componente envolvido.
+  // Passa as props para o componente encapsulado.
   return (
     <WrappedComponent
       injectedProp={injectedProp}
@@ -243,7 +244,7 @@ Essa convenção ajuda a garantir que HOCs são tão flexíveis e reutilizáves 
 
 ## Convenção: Maximizando Composabilidade {#convention-maximizing-composability}
 
-Nem todos os HOCs são iguais. Às vezes eles aceitam apenas um único argumento, o componente envolvido:
+Nem todos os HOCs são iguais. Às vezes eles aceitam apenas um único argumento, o componente encapsulado:
 
 ```js
 const NavbarWithRouter = withRouter(Navbar);
@@ -267,20 +268,20 @@ const ConnectedComment = connect(commentSelector, commentActions)(CommentList);
 ```js
 // connect é uma função que retorna outra função
 const enhance = connect(commentListSelector, commentListActions);
-// A função retornada é um HOC, o qual retorna um componente que está conectado
+// A função retornada é um HOC, que retorna um componente que está conectado
 // à store do Redux
 const ConnectedComment = enhance(CommentList);
 ```
 
 Em outras palavras, `connect` é uma função de ordem superior que retorna um componente de ordem superior!
 
-Essa forma pode parecer confusa ou desnecessária, mas ela possui uma propriedade útil. HOCs com um único argumento, como o retornado pela função `connect`, possuem a assinatura `Componente => Componente`. Funções cujo tipo de saída é igual ao tipo da entrada são muito fáceis de compor juntas.
+Essa forma pode parecer confusa ou desnecessária, mas ela possui uma propriedade útil. HOCs com um único argumento, como o retornado pela função `connect`, possuem a assinatura `Componente => Componente`. Funções cujo tipo de saída é igual ao tipo da entrada são muito fáceis de se compor.
 
 ```js
-// Ao invés de fazer isso...
+// Em vez de fazer isso...
 const EnhancedComponent = withRouter(connect(commentSelector)(WrappedComponent))
 
-// ... Você pode usar uma utilidade de composição de funções
+// ... Você pode usar uma conveniência de composição de funções
 // compose(f, g, h) é o mesmo que (...args) => f(g(h(...args)))
 const enhance = compose(
   // Ambos são HOCs com um único argumento
@@ -292,13 +293,13 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 (Essa mesma propriedade também permite que `connect` e outros enhancer-style HOCs sejam usados como decoradores, uma proposta experimental do JavaScript.)
 
-A função utilitária `compose` é providenciada por várias bibliotecas externas, incluindo lodash (como o [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](http://redux.js.org/docs/api/compose.html), e [Ramda](http://ramdajs.com/docs/#compose).
+A função de conveniência `compose` é disponibilizada por várias bibliotecas de terceiros, incluindo lodash (como o [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](http://redux.js.org/docs/api/compose.html), e [Ramda](http://ramdajs.com/docs/#compose).
 
 ## Convenção: Envolva o Nome de Exibição para Depurar Melhor {#convention-wrap-the-display-name-for-easy-debugging}
 
 Os componentes container criados por HOCs aparecem no [React Developer Tools](https://github.com/facebook/react-devtools) como qualquer outro componente. Para facilitar a depuração, escolha um nome de exibição que comunique que o componente é o resultado de um HOC.
 
-A técnica mais comum é envolver o nome de exibição do componente envolvido. Então, se o seu componente de ordem superior se chama `withSubscription`, e o nome de exibição do componente envolvido é `CommentList`, use o nome de exibição `WithSubscription(CommentList)`:
+A técnica mais comum é encapsular o nome de exibição do componente encapsulado. Então, se o seu componente de ordem superior se chama `withSubscription`, e o nome de exibição do componente encapsulado é `CommentList`, use o nome de exibição `WithSubscription(CommentList)`:
 
 ```js
 function withSubscription(WrappedComponent) {
@@ -312,9 +313,9 @@ function getDisplayName(WrappedComponent) {
 }
 ```
 
-## Advertências {#caveats}
+## Ressalvas {#caveats}
 
-Componentes de ordem superior vêm com algumas advertências que não são imediatamente óbvias se você for novo no React.
+Componentes de ordem superior vêm com algumas ressalvas que não são imediatamente óbvias se você for novo no React.
 
 ### Não Use HOCs Dentro do Método render {#dont-use-hocs-inside-the-render-method}
 
@@ -335,7 +336,7 @@ render() {
 
 O problema aqui não é só na performance - remontar um componente causa a perda de todo o seu state e todos os seus filhos.
 
-Ao invés disso, aplique HOCs fora da definição do componente para que o componente resultante seja criado apenas uma vez. Então, sua identidade será consistente pelas renderizações. De qualquer forma, isso geralmente é o que você quer.
+Em vez disso, aplique HOCs fora da definição do componente para que o componente resultante seja criado apenas uma vez. Então, sua identidade será consistente pelas renderizações. De qualquer forma, isso geralmente é o que você quer.
 
 Nesses casos raros em que é preciso aplicar um HOC dinamicamente, isso também pode ser feito dentro dos métodos de ciclo de vida do componente, ou no seu construtor.
 
@@ -343,7 +344,7 @@ Nesses casos raros em que é preciso aplicar um HOC dinamicamente, isso também 
 
 As vezes é útil definir um método estático em um componente do React. Por exemplo, containers do Relay expõem um método estático `getFragment` para facilitar a composição de fragmentos do GraphQL.
 
-Mas, quando se aplica um HOC a um componente, o componente original é envolvido com um componente container. Isso significa que o novo componente não possui nenhum dos métodos estáticos do componente original.
+Mas, quando se aplica um HOC a um componente, o componente original é encapsulado com um componente container. Isso significa que o novo componente não possui nenhum dos métodos estáticos do componente original.
 
 ```js
 // Defina um método estático
@@ -380,7 +381,7 @@ function enhance(WrappedComponent) {
 Outra solução possível é exportar o método estático do próprio componente, separadamente.
 
 ```js
-// Ao invés de...
+// Em vez de...
 MyComponent.someFunction = someFunction;
 export default MyComponent;
 
@@ -393,6 +394,6 @@ import MyComponent, { someFunction } from './MyComponent.js';
 
 ### Refs Não São Passadas Diretamente {#refs-arent-passed-through}
 
-Enquanto a convenção para componentes de ordem superior é passar diretamente todas as props para o componente envolvido, isso não funciona para refs. Isso acontece porque `ref` não é exatamente uma prop - como `key`, ele é lidado especificamente pelo React. Se uma ref for adicionada a um elemento cujo componente é o resultado de um HOC, a ref referenciará à instância mais externa do componente container, não o componente envolvido.
+Enquanto a convenção para componentes de ordem superior é passar diretamente todas as props para o componente encapsulado, isso não funciona para refs. Isso acontece porque `ref` não é exatamente uma prop - tal como `key`, ela é tratada de maneira especial pelo React. Se uma ref for adicionado a um elemento cujo componente é o resultado de um HOC, a ref referenciará à instância mais externa do componente container, não ao componente encapsulado.
 
 A solução para esse problema é usar a API `React.forwardRef` (introduzida com o React 16.3). [Saiba mais sobre ela na seção de encaminhamento de refs](/docs/forwarding-refs.html).
