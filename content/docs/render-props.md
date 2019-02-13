@@ -6,7 +6,7 @@ permalink: docs/render-props.html
 
 O termo _["render prop"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce)_ se refere a uma técnica de compartilhar código entre componentes React passando uma prop cujo valor é uma função.
 
-Um componente com uma _render prop_ recebe uma função que retorna um elemento React e a invoca no momento de renderização, não sendo necessário para o component implementar uma lógica própria.
+Um componente com uma _render prop_ recebe uma função que retorna um elemento React e a invoca no momento de renderização, não sendo necessário para o componente implementar uma lógica própria.
 
 ```jsx
 <DataProvider render={data => (
@@ -18,7 +18,7 @@ Um componente com uma _render prop_ recebe uma função que retorna um elemento 
 
 Nesse documento vamos discutir por que _render props_ são úteis e como escrevê-las.
 
-## Uso de _Render Props_ para Características Transversais
+## Uso de _Render Props_ para Características Transversais {#use-render-props-for-cross-cutting-concerns}
 
 Componentes são as principais unidades de reuso de código em React, mas nem sempre é fácil compartilhar o estado ou comportamento que um componente encapsula para outros componentes utilizarem esses valores.
 
@@ -154,7 +154,7 @@ class MouseTracker extends React.Component {
 }
 ```
 
-Essa abordagem funciona para o nosso caso em específico, mas ainda não atingimos o objetivo de encapsular o comportamento de uma maneira completamente reutilizável. Agora, toda vez que precisarmos da posição do mouse para outro caso, teremos que criar um novo componente (i.e. ou seja, outro `<MouseWithCat>` ) que renderiza algo especificamente para esse caso.
+Essa abordagem funciona para o nosso caso em específico, mas ainda não atingimos o objetivo de encapsular o comportamento de uma maneira completamente reutilizável. Agora, toda vez que precisarmos da posição do mouse para outro caso, teremos que criar um novo componente (ou seja, outro `<MouseWithCat>`) que renderiza algo especificamente para esse caso.
 
 Aqui é onde a _render prop_ se encaixa: Ao invés de escrever um componente `<Cat>` dentro de `<Mouse>`, e mudar diretamente a saída renderizada, podemos passar uma função como prop para `<Mouse>`, que vai chamá-la para determinar o que renderizar dinamicamente- essa é a _render prop_.
 
@@ -214,7 +214,7 @@ Agora, no lugar de clonar o componente `<Mouse>` e escrever o método `render` p
 
 Portanto, **uma _render prop_ é uma função passada nas _props_ que um componente utiliza para determinar o que renderizar.**
 
-Essa técnica torna o comportamento que precisamos compartilhar extremamente protátil. Para acessar esse comportamento, basta renderizar um `<Mouse>` com uma `render` _prop_ que dirá o que renderizar com o (x, y) atual do cursor.
+Essa técnica torna o comportamento que precisamos compartilhar extremamente portátil. Para acessar esse comportamento, basta renderizar um `<Mouse>` com uma `render` _prop_ que dirá o que renderizar com o (x, y) atual do cursor.
 
 Algo interessante para notar sobre _render props_ é que você pode implementar a maioria dos _[higher-order components](/docs/higher-order-components.html)_ (HOC) utilizando um componente qualquer com uma _render prop_. Por exemplo, se você preferir ter um HOC `withMouse` no lugar de um componente `<Mouse>`, você poderia simplesmente criar um utilizando o `<Mouse>` com uma _render prop_.
 
@@ -324,4 +324,4 @@ class MouseTracker extends React.Component {
 }
 ```
 
-Nos casos onde você não pode definir a prop estaticamente (e.g. porque você precisa esconder as props e o estado do componente), `<Mouse>` deveria estender `React.Component`.
+Nos casos onde você não pode definir a prop estaticamente (por exemplo, quando você precisa esconder as props e o estado do componente), `<Mouse>` deveria estender `React.Component`.
