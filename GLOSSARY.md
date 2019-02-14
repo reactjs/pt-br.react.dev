@@ -66,6 +66,7 @@ Suggestion on words and terms:
 * single-page-apps
 * subscription
 * subscribe
+* event listener
 * widgets
 * watcher
 * wrapper
