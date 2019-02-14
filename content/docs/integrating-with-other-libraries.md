@@ -280,7 +280,7 @@ const ParagraphView = Backbone.View.extend({
 
 [**Experimente no CodePen**](http://codepen.io/gaearon/pen/gWgOYL?editors=0010)
 
-É importante também chamar `ReactDOM.unmountComponentAtNode()` no método `remove`, para que o React cancele os handlers de eventos e outros recursos associados com a árvore do componente quando ele é removido.
+É importante também chamar `ReactDOM.unmountComponentAtNode()` no método `remove`, para que o React cancele os manipuladores de eventos e outros recursos associados com a árvore do componente quando ele é removido.
 
 Quando um componente é removido **de dentro** de uma árvore React, a limpeza ocorre automaticamente, mas como estamos removendo toda a árvore na mão, nós devemos chamar este método.
 
