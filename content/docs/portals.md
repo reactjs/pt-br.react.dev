@@ -31,7 +31,7 @@ Entretanto, em algumas situação é útil inserir um elemento filho em um local
 
 ```js{6}
 render() {
-  // React *não* cria uma nova div. Ele renderiza o filho dentro do `domNode`.
+  // React *não* cria uma nova div. Ele renderiza os filhos dentro do `domNode`.
   // `domNode` é qualquer nó DOM válido, independente da sua localização no DOM.
   return ReactDOM.createPortal(
     this.props.children,
