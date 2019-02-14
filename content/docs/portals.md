@@ -43,7 +43,7 @@ Um caso típico do uso de portals é quando um componente pai tem o estilo `over
 
 > Nota:
 >
-> Quando estiver trabalhando com portals, lembra-se que [tratar os eventos de foco do teclado](/docs/accessibility.html#programmatically-managing-focus) se torna muito importante.
+> Quando estiver trabalhando com portals, lembre-se que [tratar o eventos de focus](/docs/accessibility.html#programmatically-managing-focus) se torna muito importante.
 >
 > No caso dos modais, assegure-se que todos possam interagir com o modal seguindo as práticas descritas em [WAI-ARIA Modal Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
 
