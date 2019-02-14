@@ -62,7 +62,7 @@ Se a _callback_ opcional for fornecida, ela será executada depois do componente
 ReactDOM.hydrate(element, container[, callback])
 ```
 
-O mesmo que [`render()`](#render), mas é usado para hidratar um contêiner cujo o conteúdo HTML foi renderizado pelo [`ReactDOMServer`](/docs/react-dom-server.html). O React tentará anexar ouvintes de evento ao _markup_ existente.
+O mesmo que [`render()`](#render), mas é usado para hidratar um contêiner cujo o conteúdo HTML foi renderizado pelo [`ReactDOMServer`](/docs/react-dom-server.html). O React tentará anexar _event listeners_ ao _markup_ existente.
 
 O React espera que o conteúdo renderizado seja idêntico entre o servidor e o cliente. Ele pode consertar diferenças no conteúdo de texto, mas você deve tratar incompatibilidades como erros e ajustá-las. Em modo de desenvolvimento, o React avisa sobre incompatibilidades durante a hidratação. Não existem garantias de que diferenças entre atributos serão consertadas em caso de incompatibilidade. Isso é importante por questões de performance porque na maioria dos aplicativos, incompatibilidades são raras e, portanto, validar todo o _markup_ seria proibitivamente caro.
 
