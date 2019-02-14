@@ -294,7 +294,7 @@ A maneira mais simples de se consumir modelos e coleções do [Backbone](http://
 
 Componentes responsáveis por renderizar modelos devem escutar os eventos de `'change'`, enquanto componentes responsáveis por renderizar coleções devem escutar os eventos de `'add'` e `'remove'`. Em ambos os casos, chame [`this.forceUpdate()`](/docs/react-component.html#forceupdate) para re-renderizar o componente com o novo dado.
 
-No exemplo abaixo, o componente `List` renderiza uma collection do Backbone, usando o componente `Item` para renderizar cada item em individual.
+No exemplo abaixo, o componente `List` renderiza uma coleção do Backbone, usando o componente `Item` para renderizar cada item em individual.
 
 ```js{1,7-9,12,16,24,30-32,35,39,46}
 class Item extends React.Component {
