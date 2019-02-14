@@ -147,7 +147,7 @@ A otimização para pesquisa também é importante devido à nossa confiança no
 
 [JSX](/docs/introduction-jsx.html) desempenha um papel semelhante. Embora não seja necessário com o React, nós o usamos extensivamente no Facebook, tanto por razões estéticas quanto pragmáticas.
 
-Em nosso código-base, o JSX fornece uma dica não ambígua para as ferramentas que eles estão lidando com uma árvore de elementos React. Isso torna possível adicionar otimizações em tempo de build, como [elevar elementos constantes](http://babeljs.io/docs/plugins/transform-react-constant-elements/), seguramente aplicar o lint e "codemodar" usos de componentes internos, e [incluir o local de origem do JSX](https://github.com/facebook/react/pull/6771) nos avisos.
+Em nosso código-base, o JSX fornece uma dica não ambígua para as ferramentas que eles estão lidando com uma árvore de elementos React. Isso torna possível adicionar otimizações em tempo de build, como [elevar elementos constantes](http://babeljs.io/docs/plugins/transform-react-constant-elements/), seguramente aplicar o lint e executar o "codemodar" nos usos de componentes internos, e [incluir o local de origem do JSX](https://github.com/facebook/react/pull/6771) nos avisos.
 
 ### Dogfooding {#dogfooding}
 
