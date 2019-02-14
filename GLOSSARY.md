@@ -10,6 +10,7 @@ Suggestion on words and terms:
 
 | Original word/term | Suggestion |
 | ------------------ | ---------- |
+| bubbling | propagar |
 | bug | erro |
 | browser | navegador |
 | class | classe |
@@ -21,11 +22,22 @@ Suggestion on words and terms:
 | class component | componente de classe |
 | key | chave |
 | library | biblioteca |
-| lowercase | minúscula(s) |
+| lowercase | minúscula(s) / caixa baixa |
 | package | pacote |
 | React element | Elemento React |
 | React fragment | Fragmento React |
 | render | renderizar (verb), renderizado (noun)
+| uncontrolled component | componente não controlado |
+| uppercase | maiúscula(s) / caixa alta |
+| to wrap | encapsular |
+| to assert | afirmar |
+| assertion | asserção |
+| server | servidor |
+| server-side | lado do servidor |
+| client | cliente |
+| client-side | lado do cliente |
+| high-order components | componente de alta-ordem |
+| stateful logic | lógica com estado |
 
 # Content that doesn't need translation
 
@@ -48,6 +60,13 @@ Suggestion on words and terms:
 * template literal
 * UI
 * log
+* timestamps
 * release
+* script
+* single-page-apps
 * subscription
 * subscribe
+* event listener
+* widgets
+* watcher
+* wrapper
