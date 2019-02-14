@@ -290,7 +290,7 @@ Embora seja geralmente recomendado a utilização de um fluxo de dados unidireci
 
 ### Utilizando Backbone Models em Componentes React {#using-backbone-models-in-react-components}
 
-A maneira mais simples de se consumir models e collections do [Backbone](http://backbonejs.org/) para um componente React, é assinar os vários eventos de mudança e manualmente forçar uma atualização.
+A maneira mais simples de se consumir modelos e coleções do [Backbone](http://backbonejs.org/) para um componente React, é assinar os vários eventos de mudança e manualmente forçar uma atualização.
 
 Componentes responsáveis por renderizar models devem escutar os eventos de `'change'`, enquanto componentes responsáveis por renderizar collections devem escutar os eventos de `'add'` e `'remove'`. Em ambos os casos, chame [`this.forceUpdate()`](/docs/react-component.html#forceupdate) para re-renderizar o componente com o novo dado.
 
