@@ -354,7 +354,7 @@ class List extends React.Component {
 
 ### Extraindo Dados dos Modelos do Backbone {#extracting-data-from-backbone-models}
 
-A abordagem acima, necessita que os componentes React tenham conhecimento dos models e collections do Backbone. Se você planeja depois migrar para outra solução de gerenciamento de dados, você pode querer concentrar o conhecimento sobre Backbone em poucas partes do código.
+A abordagem acima, necessita que os componentes React tenham conhecimento dos modelos e coleções do Backbone. Se você planeja depois migrar para outra solução de gerenciamento de dados, você pode querer concentrar o conhecimento sobre Backbone em poucas partes do código.
 
 Uma solução para isto, é extrair os atributos do model como simples dados, e manter essa lógica em um único local. A seguir, temos um [higher-order component](/docs/higher-order-components.html) que extrai todos os atributos de um model Backbone para o estado, passando o dado para o componente em volta.
 
