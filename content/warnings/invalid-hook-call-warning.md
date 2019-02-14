@@ -18,11 +18,11 @@ Vamos olhar cada um destes casos.
 
 ## Versões incompatíveis do React e React DOM {#mismatching-versions-of-react-and-react-dom}
 
-Você pode estar usando uma versão do `react-dom` (< 16.8.0) ou `react-native` (< 0.59) que ainda não suporta Hooks. Você pode executar o script `npm ls react-dom` ou `npm ls react-native` na pasta da sua aplicação para verificar qual versão esta usando. Se você encontrar mais do que uma delas, isto talvez pode também causar problemas (mais detalhes sobre isso abaixo).
+Você pode estar usando uma versão do `react-dom` (< 16.8.0) ou `react-native` (< 0.59) que ainda não suporta _Hooks_. Você pode executar o script `npm ls react-dom` ou `npm ls react-native` na pasta da sua aplicação para verificar qual versão esta usando. Se você encontrar mais do que uma delas, isto talvez pode também causar problemas (mais detalhes sobre isso abaixo).
 
 ## Quebrando as Regras dos Hooks {#breaking-the-rules-of-hooks}
 
-Você pode somente chamar os Hooks **enquanto o React renderiza um componente funcional**:
+Você pode somente chamar os _Hooks_ **enquanto o React renderiza um componente funcional**:
 
 * ✅ Chame-os no nível superior do corpo de um componente funcional.
 * ✅ Chame-os no nível superior do corpo de um [Hook customizado](/docs/hooks-custom.html).
@@ -87,7 +87,7 @@ Você pode usar o [plugin `eslint-plugin-react-hooks`](https://www.npmjs.com/pac
 
 ## React Duplicado {#duplicate-react}
 
-Para que Hooks funcionem, a importação do `react` no código da sua aplicação precisa ser resolvida no mesmo módulo que a importação do `react` de dentro do pacote do `react-dom`. 
+Para que os _Hooks_ funcionem, a importação do `react` no código da sua aplicação precisa ser resolvida no mesmo módulo que a importação do `react` de dentro do pacote do `react-dom`. 
 
 Se estas importações do `react` resolverem para dois objetos exportados diferentes, você verá este alerta. Isso pode acontecer se você **acidentalmente acabar com duas cópias** do pacote `react`.
 
@@ -95,7 +95,7 @@ Se você usa o gerenciador de pacotes do Node, você pode executar este verifica
 
     npm ls react
 
-Se você ver mais do que um React, você precisará descobrir por que isso acontece e corrigir a sua árvore de dependência. Por exemplo, talvez uma biblioteca que você está usando incorretamente especifique o `react` como uma dependência (ao invés de uma dependência de pares). Até que esta biblioteca seja arrumada, [a resolução do Yarn](https://yarnpkg.com/lang/pt-br/docs/selective-version-resolutions/) é uma possível solução alternativa.
+Se você ver mais do que um React, você precisará descobrir porquê isso acontece e corrigir a sua árvore de dependências. Por exemplo, talvez uma biblioteca que você está usando incorretamente especifique o `react` como uma dependência (ao invés de uma dependência de pares). Até que essa biblioteca seja arrumada, [a resolução do Yarn](https://yarnpkg.com/lang/pt-br/docs/selective-version-resolutions/) é uma possível solução alternativa.
 
 Você pode tentar depurar este problema adicionando alguns logs e reiniciando seu servidor de desenvolvimento:
 
@@ -109,14 +109,14 @@ window.React2 = require('react');
 console.log(window.React1 === window.React2);
 ```
 
-Se ele imprimir `false` então você pode ter dois Reacts e precisa descobrir por que isso aconteceu. [Esta issue](https://github.com/facebook/react/issues/13991) inclue algumas razões comuns encontradas pela comunidade.
+Se ele imprimir `false` então você pode ter duas cópias do React e precisa descobrir porquê isso aconteceu. [Esta issue](https://github.com/facebook/react/issues/13991) inclue algumas razões comuns encontradas pela comunidade.
 
-Este problema pode também aparecer quando você usa `npm link` ou um equivalente. Neste caso, seu bundler pode "ver" dois React — um na pasta da aplicação e outro na pasta da sua biblioteca. Assumindo que `myapp` e `mylib` são pastas irmãs, uma possível resolução é executar o script `npm link ../myapp/node_modules/react` de dentro da `mylib`. Isto fará com que a biblioteca use a cópia do React da aplicação.
+Este problema pode também aparecer quando você usa `npm link` ou um equivalente. Neste caso, seu _bundler_ pode "ver" duas cópias do React — um na pasta da aplicação e outro na pasta da sua biblioteca. Assumindo que `myapp` e `mylib` são pastas irmãs, uma possível resolução é executar o script `npm link ../myapp/node_modules/react` de dentro da `mylib`. Isto fará com que a biblioteca use a cópia do React da aplicação.
 
 >Nota
 >
->Em geral, o React suporta o uso de várias cópias independentes em uma página (por exemplo, se um aplicativo e um widget de terceiros o usarem). Ele somente quebra se `require('react')` resolver diferentemente entre o componente e a cópia do `react-dom` que ele foi renderizado.
+>Em geral, o React suporta o uso de várias cópias independentes em uma página (por exemplo, se um aplicativo e um _widget_ de terceiros o usarem). Ele somente quebra se `require('react')` resolver diferentemente entre o componente e a cópia do `react-dom` que ele foi renderizado.
 
 ## Outros casos {#other-causes}
 
-Se nada disso funcionar, por favor comente [nesta issue](https://github.com/facebook/react/issues/13991) e nós iremos tentar ajudar. Tente criar um pequeno exemplo de reprodução — você pode descobrir o problema enquanto está fazendo isso.
+Se nada disso funcionar, por favor comente [nesta issue](https://github.com/facebook/react/issues/13991) e nós iremos tentar ajudar. Tente criar um pequeno exemplo que reproduza o problema — você poderá descobrir o problema enquanto estiver fazendo isso.
