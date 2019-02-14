@@ -151,4 +151,4 @@ ReactDOM.render(<Parent />, appRoot);
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/jGBWpE)
 
-Capturar a propagação de um evento de um portal em um componente pai permite o desenvolvimento de abstrações mais flexíveis que não são propriamente inerentes aos portals. Por exemplo, se você renderizar um componente `<Modal />`, o componente pai pode captura seus eventos independentemente se são implementados usando portals.
+Capturar um evento propagado a partir de um portal em um componente pai permite o desenvolvimento de abstrações mais flexíveis que não dependem diretamente de portals. Por exemplo, se você renderizar um componente `<Modal />`, o componente pai pode captura seus eventos independentemente se são implementados usando portals.
