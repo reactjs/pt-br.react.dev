@@ -56,7 +56,7 @@ class Calculator extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/ZXeOBm?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/ZXeOBm?editors=0010)
 
 ## Adicionando um Segundo Input {#adding-a-second-input}
 
@@ -110,7 +110,7 @@ class Calculator extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/jGBryx?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/jGBryx?editors=0010)
 
 Agora nós temos dois inputs, mas quando a temperatura é inserida em um deles, o outro não atualiza. Isso contraria nosso requisito: queremos que eles estejam sincronizados.
 
@@ -299,7 +299,7 @@ class Calculator extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/WZpxpz?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/WZpxpz?editors=0010)
 
 Agora, tanto faz qual input for editado, `this.state.temperature` e `this.state.scale` no componente `Calculator` serão atualizados. Um dos inputs recebe o valor como está, preservando o que foi informado pelo usuário, e o valor do outro input é sempre recalculado com base no primeiro.
 
