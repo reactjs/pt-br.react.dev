@@ -10,14 +10,16 @@ Suggestion on words and terms:
 
 | Original word/term | Suggestion |
 | ------------------ | ---------- |
-| bubbling | ? |
+| bubbling | propagar |
 | bug | erro |
 | browser | navegador |
 | class | classe |
 | context | contexto |
 | controlled component | componente controlado |
+| uncontrolled component | componente não controlado |
 | debugging | depuração|
-| functional component | componente funcional |
+| function component | componente de função |
+| class component | componente de classe |
 | key | chave |
 | library | biblioteca |
 | lowercase | minúscula(s) / caixa baixa |
@@ -27,8 +29,16 @@ Suggestion on words and terms:
 | render | renderizar (verb), renderizado (noun)
 | uncontrolled component | componente não controlado |
 | uppercase | maiúscula(s) / caixa alta |
-| wrap | ? |
-| wrapper | ? |
+| to wrap | encapsular |
+| to assert | afirmar |
+| assertion | asserção |
+| server | servidor |
+| server-side | lado do servidor |
+| client | cliente |
+| client-side | lado do cliente |
+| high-order components | componente de alta-ordem |
+| stateful logic | lógica com estado |
+| container | contêiner |
 
 # Content that doesn't need translation
 
@@ -51,3 +61,13 @@ Suggestion on words and terms:
 * template literal
 * UI
 * log
+* timestamps
+* release
+* script
+* single-page-apps
+* subscription
+* subscribe
+* event listener
+* widgets
+* watcher
+* wrapper
