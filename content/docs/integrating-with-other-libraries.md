@@ -228,7 +228,7 @@ ReactDOM.render(
 ```
 
 A partir daqui, você pode iniciar movendo mais lógica para o componente e começar adotando mais práticas comuns do React. Por exemplo, em componentes é melhor não confiar em IDs porque o mesmo componente pode ser renderizado diversas vezes.
-Ao invés disso, nós vamos utilizar o [sistema de eventos do React](/docs/handling-events.html) e registrar o handler de clique diretamente no elemento `<button>`:
+Ao invés disso, nós vamos utilizar o [sistema de eventos do React](/docs/handling-events.html) e registrar o manipulador de clique diretamente no elemento `<button>`:
 
 ```js{2,6,9}
 function Button(props) {
