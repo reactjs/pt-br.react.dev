@@ -124,7 +124,7 @@ class Parent extends React.Component {
         <p>Número de cliques: {this.state.clicks}</p>
         <p>
           Abra o DevTools do navegador
-          para notar que o botão
+          para observar que o botão
           não é um filho da div
           com o onClick.
         </p>
