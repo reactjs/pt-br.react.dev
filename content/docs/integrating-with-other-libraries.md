@@ -402,7 +402,7 @@ function connectToBackboneModel(WrappedComponent) {
 }
 ```
 
-Para demonstrar, nós vamos conectar um componente React `NameInput` em um Backbone model, e atualizar seu atributo `firstName` toda vez que o valor do input mudar:
+Para demonstrar, nós vamos conectar um componente React `NameInput` em um modelo Backbone, e atualizar seu atributo `firstName` toda vez que o valor do input mudar:
 
 ```js{4,6,11,15,19-21}
 function NameInput(props) {
