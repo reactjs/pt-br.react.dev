@@ -177,7 +177,7 @@ Se você prefere jogar seguro, você tem algumas opções:
 >
 >Esta seção existe somente para referência.
 
-Algumas vezes, componentes muito diferentes podem compartilhar alguma funcionalidade. Chamamos estes casos de [cross-cutting concerns](https://en.wikipedia.org/wiki/Cross-cutting_concern). `createReactClass` permite que você use um sistema legado de `mixins` para isso.
+Algumas vezes, componentes muito diferentes podem compartilhar alguma funcionalidade. Chamamos estes casos de [cross-cutting concerns](https://pt.wikipedia.org/wiki/Cross-cutting_concern). `createReactClass` permite que você use um sistema legado de `mixins` para isso.
 
 Um caso de uso comum é um componente que quer se atualizar em um intervalo de tempo. É fácil de usar o `setInterval()`, mas é importante do cancelar o intervalo quando você não precisa mais dele para economizar memória. React fornece [lifecycle methods](/docs/react-component.html#the-component-lifecycle) que permitem que você saiba quando um componente está prestes a ser criado ou destruído. Vamos criar um *mixin* simples que usa esses métodos para fornecer uma funcionalidade fácil de `setInterval()` que será limpa automaticamente quando seu componente for destruído.
 
