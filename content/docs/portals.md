@@ -54,7 +54,7 @@ Um caso típico do uso de portals é quando um componente pai tem o estilo `over
 Apesar de um portal poder estar em qualquer lugar na árvore DOM, seu comportamento é como o de qualquer outro elemento React filho. Funcionalidades como contexto funcionam da mesma forma independente se o filho é um portal, pois o portal ainda existe na *árvore React* independentemente da posição que esteja na *árvore DOM*.
 
 Isso inclui a propagação de eventos. Um evento disparado dentro de um portal será propagado para os elementos antecessores da *árvore React*, mesmo que estes não sejam antecessores na *árvore DOM*.
-Considerando a seguinte estrutura HTML:
+Considere a seguinte estrutura HTML:
 
 ```html
 <html>
@@ -79,13 +79,13 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    // O elemento portal é inserido na árvore DOM, depois
+    // O elemento portal é inserido na árvore DOM depois que
     // o componente Modal filho é montado, o que significa que o filho
-    // será montado em nó DOM separado. Se um componente
+    // será montado em um nó DOM separado. Se um componente
     // filho precisa ser colocado na árvore DOM
     // imediatamente quando é montado, por exemplo para medir um
-    // nó DOM, ou usar 'autoFocus' em um descendente, adicione
-    // state ao Modal e renderize apenas o filho quando o Modal
+    // nó DOM ou usar 'autoFocus' em um descendente, adicione
+    // state ao Modal e renderize o filho apenas quando o Modal
     // estiver inserido na árvore DOM.
     modalRoot.appendChild(this.el);
   }
