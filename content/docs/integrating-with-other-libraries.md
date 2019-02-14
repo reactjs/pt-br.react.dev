@@ -288,7 +288,7 @@ Quando um componente é removido **de dentro** de uma árvore React, a limpeza o
 
 Embora seja geralmente recomendado a utilização de um fluxo de dados unidirecional como [React state](/docs/lifting-state-up.html), [Flux](http://facebook.github.io/flux/), ou [Redux](http://redux.js.org/), componentes React podem utilizar um modelo de camadas de outros frameworks e bibliotecas.
 
-### Utilizando Backbone Models em Componentes React {#using-backbone-models-in-react-components}
+### Utilizando Modelos Backbone em Componentes React {#using-backbone-models-in-react-components}
 
 A maneira mais simples de se consumir modelos e coleções do [Backbone](http://backbonejs.org/) para um componente React, é assinar os vários eventos de mudança e manualmente forçar uma atualização.
 
