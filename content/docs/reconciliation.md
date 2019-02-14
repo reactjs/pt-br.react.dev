@@ -12,14 +12,14 @@ Quando utilizamos React, podemos imaginar a função `render()` como uma funçã
 
 Existem algumas soluções genéricas para o problema deste algoritmo de gerar o menor número de operações necessário para transformar uma árvore em outra. Contudo, o [algoritmo de última geração](http://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) possui uma complexidade da ordem de O(n<sup>3</sup>), onde n é o numero de elementos na àrvore.
 
-Se usássemos isso no React, exibir 1000 elementos iria requerer aproximadamente um bilhão de comparações. Isso é, de longe, muito custoso. Em vez disso, o React implementa um algoritmo heurístico  da ordem de O(n) baseado em duas suposições:
+Se usássemos isso no React, exibir 1000 elementos iria requerer aproximadamente um bilhão de comparações. Isso é, de longe, muito custoso. Em vez disso, o React implementa um algoritmo heurístico da ordem de O(n) baseado em duas suposições:
 
 1. Dois elementos de tipos diferentes irão produzir árvores diferentes.
 2. O desenvolvedor pode indicar quais elementos filhos estão estáveis entre diferentes renderizações através da propriedade `key`
 
 Na prática, essas suposições são válidas para quase todos os casos práticos.
 
-## O Algoritmo de Diferenciação {#the-diffing-algorithm}
+## O Algoritmo de Diferenciação (_Diffing_) {#the-diffing-algorithm}
 
 Quando diferenciando duas árvores, o React primeiro compara os dois elementos raíz. O comportamento é diferente dependendo do tipo dos elementos raíz.
 
@@ -27,7 +27,7 @@ Quando diferenciando duas árvores, o React primeiro compara os dois elementos r
 
 Sempre que os elementos raíz tiverem tipos diferentes, o React irá destruir a árvore antiga e construir uma árvore nova do zero. Indo de  `<a>` para `<img>`, ou de `<Article>` para `<Comment>`, ou de `<Button>` para `<div>` - qualquer uma dessas mudanças resultará em uma reconstrução total.
 
-Quando desruímos uma árvore, os nós antigos do DOM são destruídos. instâncias de componentes recebem `componentWillUnmount()`. Quando construímos uma nova árvore, novos nós do DOM são inseridos no DOM. instâncias de componentes recebem `componentWillMount()` and depois `componenteDidMount()`. Qualquer estado associado com a árvore antiga é perdido.
+Quando destruímos uma árvore, os nós antigos do DOM são destruídos. Instâncias de componentes recebem `componentWillUnmount()`. Quando construímos uma nova árvore, novos nós do DOM são inseridos no DOM. Instâncias de componentes recebem `componentWillMount()` e depois `componentDidMount()`. Qualquer estado associado com a árvore antiga é perdido.
 
 Qualquer componente abaixo irá ser desmontado e ter seu estado destruído.
 Por exemplo, quando diferenciando: 
@@ -43,7 +43,7 @@ Por exemplo, quando diferenciando:
 
 Isso irá destruir o antigo `Counter` e remontar um novo.
 
-### Elementos DOM de mesmo tipo {#dom-elements-of-the-same-type}
+### Elementos DOM de Mesmo Tipo {#dom-elements-of-the-same-type}
 
 Quando comparando dois Elementos DOM React do mesmo tipo, React olhará para os atributos de ambos, mantendo os nós DOM subjacentes e apenas atualizando os atributos modificados. Por exemplo:
 
@@ -135,13 +135,13 @@ Na prática, achar uma chave (_key_) não é difícil. O elemento ao qual você 
 
 Quando não for o caso, você pode adicionar uma propriedade ID ao seu modelo ou utilizar um _hash_ em algumas partes do dado para gerar uma chave (_key_). A chave deve ser única apenas entre seus irmãos, e não única de forma global.
 
-Como um último recurso, você pode passar o index do item de um array como chave. Isso pode funcionar bem para itens que nunca são reordenados, mas reordená-los trará uma baixa performance.
+Como um último recurso, você pode passar o índice (_index_) do item de um array como chave. Isso pode funcionar bem para itens que nunca são reordenados, mas reordená-los trará uma baixa performance.
 
-Reordenar pode também causar um problema com o estado do componente quando os índices (indexes) são utilizados como chaves  (_keys_). A instância do componente é atualizada e reutilizada baseada na sua chave. Se a chave é um índice (index), mover o item modifica a chave. Como resultado disso, o estado do componente para coisas como _inputs_ não controlados podem ficar bagunçados e atualizar de uma forma inesperada.
+Reordenar pode também causar um problema com o estado do componente quando os índices (_indexes_) são utilizados como chaves  (_keys_). A instância do componente é atualizada e reutilizada baseada na sua chave. Se a chave é um índice (_index_), mover o item modifica a chave. Como resultado disso, o estado do componente para coisas como _inputs_ não controlados podem ficar bagunçados e atualizar de uma forma inesperada.
 
 [Aqui](codepen://reconciliation/index-used-as-key) é um exemplo, no CodePen, de um problema que pode ser causado por usar índices como chaves, e [aqui](codepen://reconciliation/no-index-used-as-key) é uma versão atualizada do mesmo exemplo mostrando como a não utilização dos índices como chaves resolve os problemas relacionados a reordenação, ordenação e adição no início da lista.
 
-## Compensações {#tradeoffs}
+## Compensações (_Tradeoffs_) {#tradeoffs}
 
 É importante lembrar que o algoritmo de reconciliação é um detalhe de implementação. o React poderia re-renderizar o aplicativo inteiro a cada ação; o resultado final seria o mesmo. Apenas para ser claro, re-renderizar neste contexto significa chamar o método `render` para todos os componentes, isso não significa que o React irá desmontar e remontá-los. Isso significa apenas aplicar as diferenças seguindo as regras mencionadas nas seções anteriores.
 
