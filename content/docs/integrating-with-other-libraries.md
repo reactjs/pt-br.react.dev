@@ -352,7 +352,7 @@ class List extends React.Component {
 
 [**Experimente no CodePen**](http://codepen.io/gaearon/pen/GmrREm?editors=0010)
 
-### Extraindo Dados do Backbone Models {#extracting-data-from-backbone-models}
+### Extraindo Dados dos Modelos do Backbone {#extracting-data-from-backbone-models}
 
 A abordagem acima, necessita que os componentes React tenham conhecimento dos models e collections do Backbone. Se você planeja depois migrar para outra solução de gerenciamento de dados, você pode querer concentrar o conhecimento sobre Backbone em poucas partes do código.
 
