@@ -65,7 +65,7 @@ Considere a seguinte estrutura HTML:
 </html>
 ```
 
-Um componente `Pai` em `#app-root` será capaz de capturar a propagação de um evento não tratado vindo do nó irmão `#moda-root`.
+Um componente `Pai` em `#app-root` será capaz de capturar a propagação de um evento não tratado vindo do nó irmão `#modal-root`.
 
 ```js{28-31,42-49,53,61-63,70-71,74}
 // Estes dois contêineres são irmãos no DOM
