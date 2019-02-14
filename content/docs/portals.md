@@ -12,7 +12,7 @@ ReactDOM.createPortal(child, container)
 
 O primeiro argumento (`child`) é qualquer [elemento filho React renderizável](/docs/react-component.html#render), como um elemento, string ou fragmento. O segundo argumento (`container`) é um elemento DOM.
 
-## Uso {#usage}
+## Utilização {#usage}
 
 Normalmente, quando retornamos um elemento pelo método render de um componente ele é montado dentro do DOM como um filho do nó pai mais próximo:
 
