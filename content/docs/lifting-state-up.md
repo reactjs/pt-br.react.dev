@@ -60,7 +60,7 @@ class Calculator extends React.Component {
 
 ## Adicionando um Segundo Input {#adding-a-second-input}
 
-Nosso novo requisito é que, além de um input para grau Celsius, também tenhamos um input para grau Fahrenheit, e que ambos estejam sincronizados.
+Nosso novo requisito é que, além de um input para grau Celsius, também tenhamos um input para grau Fahrenheit e que ambos estejam sincronizados.
 
 Podemos iniciar extraindo um componente `TemperatureInput` do componente `Calculator`. Vamos adicionar uma nova prop `scale` que pode ser tanto `"c"` como `"f"`:
 
@@ -112,7 +112,7 @@ class Calculator extends React.Component {
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/jGBryx?editors=0010)
 
-Agora nós temos dois inputs, mas quando a temperatura é inserida em um deles, o outro não atualiza. Isso contraria nosso requisito: queremos que eles estejam sincronizados.
+Agora nós temos dois inputs. Porém, quando a temperatura é inserida em um deles, o outro não atualiza. Isso contraria nosso requisito: queremos que eles estejam sincronizados.
 
 Também não podemos renderizar o `BoilingVerdict` a partir do `Calculator`, porque esse não conhece a temperatura atual já que ela está escondida dentro do `TemperatureInput`.
 
@@ -177,7 +177,7 @@ Se o `Calculator` é dono do state compartilhado, ele se torna a "fonte da verda
 
 Vamos ver o passo a passo de como isso funciona.
 
-Primeiro, vamos substituir `this.state.temperature` por `this.props.temperature` no componente `TemperatureInput`. Por hora, vamos fingir que `this.props.temperature` já existe, apesar de que, no futuro, teremos que passá-la do `Calculator`:
+Primeiro, vamos substituir `this.state.temperature` por `this.props.temperature` no componente `TemperatureInput`. Por hora, vamos fingir que `this.props.temperature` já existe. Apesar de que, no futuro, teremos que passá-la do `Calculator`:
 
 ```js{3}
   render() {
@@ -205,7 +205,7 @@ Agora, quando o `TemperatureInput` quiser atualizar sua temperatura, ele executa
 
 A prop `onTemperatureChange` será fornecida juntamente com a prop `temperature` pelo componente pai `Calculator`. Esse irá cuidar das alterações ao modificar seu próprio state local, fazendo com que ambos os inputs sejam renderizados com novos valores. Vamos conferir a nova implementação do componente `Calculator` em breve.
 
-Antes de mergulhar nas alterações do `Calculator`, vamos recapitular as alterações no componente `TemperatureInput`. Nós removemos o state local dele, então ao invés de ler `this.state.temperature`, agora lemos `this.props.temperature`. Ao invés de chamar `this.setState()` quando quisermos fazer uma alteração, chamamos `this.props.onTemperatureChange()` que será fornecido pelo `Calculator`:
+Antes de mergulhar nas alterações do `Calculator`, vamos recapitular as alterações no componente `TemperatureInput`. Nós removemos o state local dele, então ao invés de ler `this.state.temperature`, agora lemos `this.props.temperature`. Ao invés de chamar `this.setState()` quando quisermos fazer uma alteração chamamos `this.props.onTemperatureChange()` que será fornecido pelo `Calculator`:
 
 ```js{8,12}
 class TemperatureInput extends React.Component {
@@ -301,7 +301,7 @@ class Calculator extends React.Component {
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/WZpxpz?editors=0010)
 
-Agora, tanto faz qual input for editado, `this.state.temperature` e `this.state.scale` no componente `Calculator` serão atualizados. Um dos inputs recebe o valor como está, preservando o que foi informado pelo usuário, e o valor do outro input é sempre recalculado com base no primeiro.
+Agora, tanto faz qual input for editado, `this.state.temperature` e `this.state.scale` no componente `Calculator` serão atualizados. Um dos inputs recebe o valor como está, preservando o que foi informado pelo usuário e o valor do outro input é sempre recalculado com base no primeiro.
 
 Vamos recapitular o que acontece quando um input é editado:
 
