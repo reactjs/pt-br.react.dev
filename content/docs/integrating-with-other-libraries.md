@@ -292,7 +292,7 @@ Embora seja geralmente recomendado a utilização de um fluxo de dados unidireci
 
 A maneira mais simples de se consumir modelos e coleções do [Backbone](http://backbonejs.org/) para um componente React, é assinar os vários eventos de mudança e manualmente forçar uma atualização.
 
-Componentes responsáveis por renderizar models devem escutar os eventos de `'change'`, enquanto componentes responsáveis por renderizar collections devem escutar os eventos de `'add'` e `'remove'`. Em ambos os casos, chame [`this.forceUpdate()`](/docs/react-component.html#forceupdate) para re-renderizar o componente com o novo dado.
+Componentes responsáveis por renderizar modelos devem escutar os eventos de `'change'`, enquanto componentes responsáveis por renderizar coleções devem escutar os eventos de `'add'` e `'remove'`. Em ambos os casos, chame [`this.forceUpdate()`](/docs/react-component.html#forceupdate) para re-renderizar o componente com o novo dado.
 
 No exemplo abaixo, o componente `List` renderiza uma collection do Backbone, usando o componente `Item` para renderizar cada item em individual.
 
