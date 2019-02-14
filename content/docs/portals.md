@@ -80,8 +80,8 @@ class Modal extends React.Component {
 
   componentDidMount() {
     // O elemento portal é inserido na árvore DOM depois que
-    // o componente Modal filho é montado, o que significa que o filho
-    // será montado em um nó DOM separado. Se um componente
+    // os componentes filhos de `Modal` são montados, o que significa que os filhos
+    // serão montados em um nó DOM separado. Se um componente
     // filho precisa ser colocado na árvore DOM
     // imediatamente quando é montado, por exemplo para medir um
     // nó DOM ou usar 'autoFocus' em um descendente, adicione
