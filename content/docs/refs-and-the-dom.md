@@ -270,7 +270,11 @@ function CustomTextInput(props) {
 
 class Parent extends React.Component {
   render() {
-    return <CustomTextInput inputRef={el => (this.inputElement = el)} />;
+    return (
+      <CustomTextInput
+        inputRef={el => this.inputElement = el}
+      />
+    );
   }
 }
 ```
