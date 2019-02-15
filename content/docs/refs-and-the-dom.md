@@ -158,7 +158,9 @@ class Parent extends React.Component {
   }
   render() {
     // Isto *não* vai funcionar!
-    return <MyFunctionComponent ref={this.textInput} />;
+    return (
+      <MyFunctionComponent ref={this.textInput} />
+    );
   }
 }
 ```
