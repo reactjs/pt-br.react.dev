@@ -203,7 +203,7 @@ function useFriendStatus(friendID) {
 
 Que recebe `friendID` como um argumento, e sempre retorna se nosso amigo está online.
 
-Agora podemos utilizar dos dois componentes:
+Agora podemos utilizar a partir dos dois componentes:
 
 ```js{2}
 function FriendStatus(props) {
