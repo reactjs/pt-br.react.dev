@@ -77,7 +77,7 @@ O Hook de Efeito, `useEffect`, adiciona a funcionalidade de executar efeitos col
 Por exemplo, este componente define o título da página após o React atualizar o DOM:
 
 ```js{1,6-10}
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Example() {
   const [count, setCount] = useState(0);
