@@ -128,7 +128,7 @@ function FriendStatus(props) {
 }
 ```
 
-Neste exemplo, o React cancelaria a subscrição da nossa `Api de Chat` quando o componente se desmontar, bem como antes de reexecutar o efeito devido a uma renderização subsequente. (Se você quiser, este é o caminho para [dizer ao React para ignorar a nova subscrição](/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) se o `props.friend.id` que passamos para `ChatAPI` não mudar.)
+Neste exemplo, o React cancelaria a subscrição da nossa `ChatAPI` quando o componente se desmontar, e também antes de reexecutar o efeito devido a uma renderização subsequente. (Se você quiser, há uma maneira de [dizer ao React para ignorar a nova subscrição](/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) se o `props.friend.id` que passamos para `ChatAPI` não tiver mudado.)
 
 Assim como `useState`, você pode utilizar mais de um efeito em um componente:
 
