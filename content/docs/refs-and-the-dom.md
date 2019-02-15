@@ -180,7 +180,9 @@ function CustomTextInput(props) {
 
   return (
     <div>
-      <input type="text" ref={textInput} />
+      <input
+        type="text"
+        ref={textInput} />
       <input type="button" value="Focus the text input" onClick={handleClick} />
     </div>
   );
