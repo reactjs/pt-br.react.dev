@@ -101,7 +101,7 @@ function Example() {
 
 Quando você chama `useEffect`, você está dizendo ao React para executar a sua função de "efeito" após liberar as mudanças para o DOM. Efeitos são declarados dentro do componente, para que eles tenham acesso as suas props e state. Por padrão, React executa os efeitos após cada renderização -- *incluindo* a primeira renderização. (Falaremos mais sobre como isso se compara aos ciclos de vida das classes em [Utilizando o Hook de Efeito](/docs/hooks-effect.html).)
 
-Efeitos também podem opcionalmente especificar como "limpar" retornando uma função após a execução deles. Por exemplo, este componente utiliza um efeito para se subscrever no status de online de um amigo e limpar cancelando a sua subscrição:
+Efeitos também podem opcionalmente especificar como "limpar" (clean up) retornando uma função após a execução deles. Por exemplo, este componente utiliza um efeito para se subscrever ao status online de um amigo e limpa-se (clean up) cancelando a sua subscrição:
 
 ```js{10-16}
 import { useState, useEffect } from 'react';
