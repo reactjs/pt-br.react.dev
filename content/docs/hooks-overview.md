@@ -70,7 +70,7 @@ React fornece alguns Hooks internos como `useState`. Você também pode criar os
 
 ## ⚡️ Hook de Efeito {#️-effect-hook}
 
-Você provavelmente já realizou busca de dados, subinscrições ou mudanças manuais no DOM através de componentes React antes. Nós chamamos essas operações de "efeitos colaterais" (side effects ou resumidamente effects) porque eles podem afetar outros componentes e não podem ser feitos durante a renderização.
+Você provavelmente já realizou obtenção de dados (data fetching), subscrições (subscriptions) ou mudanças manuais no DOM através de componentes React antes. Nós chamamos essas operações de "efeitos colaterais" (side effects ou apenas effects) porque eles podem afetar outros componentes e não podem ser feitos durante a renderização.
 
 O Hook de Efeito, `useEffect`, adiciona a funcionalidade de executar efeitos colaterais através de um componente funcional. Segue a mesma finalidade do `componentDidMount`, `componentDidUpdate`, e `componentWillUnmount` em classes React, mas unificado em uma mesma API. (Nós mostraremos exemplos comparando `useEffect` com esses métodos em [Utilizando o Hook de Efeito](/docs/hooks-effect.html).)
 
