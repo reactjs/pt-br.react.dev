@@ -104,7 +104,7 @@ Quando você chama `useEffect`, você está dizendo ao React para executar a sua
 Efeitos também podem opcionalmente especificar como "limpar" (clean up) retornando uma função após a execução deles. Por exemplo, este componente utiliza um efeito para se subscrever ao status online de um amigo e limpa-se (clean up) cancelando a sua subscrição:
 
 ```js{10-16}
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function FriendStatus(props) {
   const [isOnline, setIsOnline] = useState(null);
