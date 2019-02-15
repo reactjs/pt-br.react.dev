@@ -1,26 +1,26 @@
 ---
 id: integrating-with-other-libraries
-title: Integrating with Other Libraries
+title: Integrando com outras Bibliotecas
 permalink: docs/integrating-with-other-libraries.html
 ---
 
-React can be used in any web application. It can be embedded in other applications and, with a little care, other applications can be embedded in React. This guide will examine some of the more common use cases, focusing on integration with [jQuery](https://jquery.com/) and [Backbone](http://backbonejs.org/), but the same ideas can be applied to integrating components with any existing code.
+React pode ser utilizado em qualquer aplicação web. Ele pode ser embutido em outras aplicações e com um pouco de cuidado, outras aplicações podem ser incorporadas ao React. Este guia vai examinar alguns dos mais comuns usos de caso, focando na integracão com [jQuery](https://jquery.com/) e [Backbone](http://backbonejs.org/). Porém, as mesmas ideias podem ser aplicadas para integrar componentes com qualquer código existente.
 
-## Integrating with DOM Manipulation Plugins {#integrating-with-dom-manipulation-plugins}
+## Integrando com Plugins de Manipulacão do DOM {#integrating-with-dom-manipulation-plugins}
 
-React is unaware of changes made to the DOM outside of React. It determines updates based on its own internal representation, and if the same DOM nodes are manipulated by another library, React gets confused and has no way to recover.
+React desconhece qualquer alteração feita no DOM fora do React. Ele determina as atualizações com base na sua própria representação interna e se os mesmos nós do DOM forem manipulados por outras bibliotecas, React fica confuso e não sabe como proceder.
 
-This does not mean it is impossible or even necessarily difficult to combine React with other ways of affecting the DOM, you just have to be mindful of what each is doing.
+Isto não significa que é impossível ou mesmo necessariamente difícil de combinar React com outras maneiras de afetar o DOM, você apenas precisa estar atento ao que cada biblioteca está fazendo.
 
-The easiest way to avoid conflicts is to prevent the React component from updating. You can do this by rendering elements that React has no reason to update, like an empty `<div />`.
+A maneira mais fácil de evitar conflitos é evitando com que o componente React atualize. Você pode fazer isto, renderizando elementos que o React não tem motivos para atualizar, como uma `<div />` vazia.
 
-### How to Approach the Problem {#how-to-approach-the-problem}
+### Como Abordar o Problema {#how-to-approach-the-problem}
 
-To demonstrate this, let's sketch out a wrapper for a generic jQuery plugin.
+Para demonstrar isto, vamos esboçar um _wrapper_ para um plugin jQuery genérico.
 
-We will attach a [ref](/docs/refs-and-the-dom.html) to the root DOM element. Inside `componentDidMount`, we will get a reference to it so we can pass it to the jQuery plugin.
+Nós vamos adicionar um [ref](/docs/refs-and-the-dom.html) para o elemento raiz (_root_) no DOM. Dentro do `componentDidMount`, nós vamos ter a referência desse elemento para passar para o plugin jQuery.
 
-To prevent React from touching the DOM after mounting, we will return an empty `<div />` from the `render()` method. The `<div />` element has no properties or children, so React has no reason to update it, leaving the jQuery plugin free to manage that part of the DOM:
+Para evitar com que o React toque no DOM depois de montado, nós vamos retornar uma `<div />` vazia para o método `render()`. O elemento `<div />`, não possui propriedades ou filhos, assim o React não tem razão para atualizá-lo, deixando o plugin jQuery livre para gerenciar esta parte do DOM:
 
 ```js{3,4,8,12}
 class SomePlugin extends React.Component {
@@ -39,21 +39,21 @@ class SomePlugin extends React.Component {
 }
 ```
 
-Note that we defined both `componentDidMount` and `componentWillUnmount` [lifecycle methods](/docs/react-component.html#the-component-lifecycle). Many jQuery plugins attach event listeners to the DOM so it's important to detach them in `componentWillUnmount`. If the plugin does not provide a method for cleanup, you will probably have to provide your own, remembering to remove any event listeners the plugin registered to prevent memory leaks.
+Note que nós definimos ambos `componentDidMount` e `componentWillUnmount` [métodos do ciclo de vida](/docs/react-component.html#the-component-lifecycle). Muitos plugins jQuery adicionam listeners de eventos para o DOM, e é importante removê-los no `componentWillUnmount`. Se o plugin não fornece um método para limpeza, você vai provavelmente ter que criar o seu próprio, lembrando de remover qualquer listener do plugin registrado para evitar vazamento de memória.
 
-### Integrating with jQuery Chosen Plugin {#integrating-with-jquery-chosen-plugin}
+### Integrando com o plugin jQuery Chosen {#integrating-with-jquery-chosen-plugin}
 
-For a more concrete example of these concepts, let's write a minimal wrapper for the plugin [Chosen](https://harvesthq.github.io/chosen/), which augments `<select>` inputs.
+Para um exemplo mais concreto desses conceitos, vamos escrever um wrapper mínimo para o plugin [Chosen](https://harvesthq.github.io/chosen/), que aumenta as opções (<option>) do `<select>`.
 
->**Note:**
+>**Nota:**
 >
->Just because it's possible, doesn't mean that it's the best approach for React apps. We encourage you to use React components when you can. React components are easier to reuse in React applications, and often provide more control over their behavior and appearance.
+> Apenas porque isto é possível, não significa que esta é a melhor maneira para apps React. Nós encorajamos você a utilizar componentes React quando você puder. Componentes React são fáceis de reutilizar em aplicacões React, e muitas vezes fornecem mais controle sobre seu comportamento e aparência.
 
-First, let's look at what Chosen does to the DOM.
+Primeiro, vamos olhar o que Chosen faz no DOM.
 
-If you call it on a `<select>` DOM node, it reads the attributes off of the original DOM node, hides it with an inline style, and then appends a separate DOM node with its own visual representation right after the `<select>`. Then it fires jQuery events to notify us about the changes.
+Se você chamá-lo em um nó DOM `<select>`, ele lê os atributos do nó DOM original, esconde-os com um estilo _inline_, e então adiciona um nó DOM separado com sua própria representação visual, logo após o `<select>`. Em seguida, ele dispara um evento do jQuery, para notificar sobre as alterações.
 
-Let's say that this is the API we're striving for with our `<Chosen>` wrapper React component:
+Vamos supor que esta é a API para o nosso React componente `<Chosen>`:
 
 ```js
 function Example() {
@@ -67,9 +67,9 @@ function Example() {
 }
 ```
 
-We will implement it as an [uncontrolled component](/docs/uncontrolled-components.html) for simplicity.
+Nós vamos implementá-lo como um [componente não controlado](/docs/uncontrolled-components.html) pela simplicidade.
 
-First, we will create an empty component with a `render()` method where we return `<select>` wrapped in a `<div>`:
+Primeiro, vamos criar um component vazio com um método `render()` onde nós retornamos o `<select>` em volta de uma `<div>`
 
 ```js{4,5}
 class Chosen extends React.Component {
@@ -85,9 +85,9 @@ class Chosen extends React.Component {
 }
 ```
 
-Notice how we wrapped `<select>` in an extra `<div>`. This is necessary because Chosen will append another DOM element right after the `<select>` node we passed to it. However, as far as React is concerned, `<div>` always only has a single child. This is how we ensure that React updates won't conflict with the extra DOM node appended by Chosen. It is important that if you modify the DOM outside of React flow, you must ensure React doesn't have a reason to touch those DOM nodes.
+Note como envolvemos o `<select>` em uma `<div>` extra. Isto é necessário porque Chosen vai adicionar um outro elemento DOM logo após o `<select>` que passamos para ele. Contudo, no que diz respeito ao React, `<div>` sempre tem apenas um único filho. Isto é como nós garantimos que as atualizações do React não vão conflitar com o nó extra do DOM adicionado pelo Chosen. É importante que se você modificar o DOM fora do fluxo do React, você deve garantir que React não tem um motivo para acessar esses nós do DOM.
 
-Next, we will implement the lifecycle methods. We need to initialize Chosen with the ref to the `<select>` node in `componentDidMount`, and tear it down in `componentWillUnmount`:
+Em seguida, vamos implementar os métodos do ciclo de vida. Nós vamos precisar inicializar Chosen com a referência para o `<select>` no `componentDidMount`, e destruí-lo no `componentWillUnmount`.
 
 ```js{2,3,7}
 componentDidMount() {
@@ -100,17 +100,17 @@ componentWillUnmount() {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/qmqeQx?editors=0010)
+[**Experimente no Codepen**](http://codepen.io/gaearon/pen/qmqeQx?editors=0010)
 
-Note that React assigns no special meaning to the `this.el` field. It only works because we have previously assigned this field from a `ref` in the `render()` method:
+Note que React não atribui nenhum significado especial para o campo `this.el`. Isto apenas funciona porque nós atribuimos anteriormente um valor para este campo, com um `ref` no método `render()`:
 
 ```js
 <select className="Chosen-select" ref={el => this.el = el}>
 ```
 
-This is enough to get our component to render, but we also want to be notified about the value changes. To do this, we will subscribe to the jQuery `change` event on the `<select>` managed by Chosen.
+Isto é suficiente para renderizar o nosso componente, mas também queremos ser notificados quando os valores mudarem. Para fazer isto, vamos assinar os eventos de `change` do jQuery no `<select>` controlado pelo Chosen.
 
-We won't pass `this.props.onChange` directly to Chosen because component's props might change over time, and that includes event handlers. Instead, we will declare a `handleChange()` method that calls `this.props.onChange`, and subscribe it to the jQuery `change` event:
+Nós não vamos passar `this.props.onChange` diretamente para o Chosen porque as propriedades do componente, podem mudar ao longo do tempo e isto inclui os manipuladores de evento (_event handlers_) . Como alternativa, vamos declarar um método `handleChange()` que chama o `this.props.onChange` e subscreve o evento `change` do jQuery:
 
 ```js{5,6,10,14-16}
 componentDidMount() {
@@ -131,11 +131,11 @@ handleChange(e) {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/bWgbeE?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/bWgbeE?editors=0010)
 
-Finally, there is one more thing left to do. In React, props can change over time. For example, the `<Chosen>` component can get different children if parent component's state changes. This means that at integration points it is important that we manually update the DOM in response to prop updates, since we no longer let React manage the DOM for us.
+Finalmente, existe mais uma coisa a se fazer. Em React, propriedades podem mudar ao longo do tempo. Por exemplo, o componente `<Chosen>` pode ter diferentes filhos se o estado do componente pai alterar. Isto significa que nos pontos de integração, é importante que a atualização do DOM seja feita manualmente em resposta as atualizações das propriedades, já que não vamos deixar o React gerenciar o DOM.
 
-Chosen's documentation suggests that we can use jQuery `trigger()` API to notify it about changes to the original DOM element. We will let React take care of updating `this.props.children` inside `<select>`, but we will also add a `componentDidUpdate()` lifecycle method that notifies Chosen about changes in the children list:
+A documentação do Chosen, sugere que nós podemos utilizar a API do jQuery `trigger()` para notificar sobre as mudanças do elemento DOM original. Nós vamos deixar o React cuidar da atualização `this.props.children` dentro do `<select>`, mas também vamos adicionar um método do ciclo de vida `componentDidUpdate()`, que notifica Chosen sobre as mudanças na lista de filhos:
 
 ```js{2,3}
 componentDidUpdate(prevProps) {
@@ -145,9 +145,9 @@ componentDidUpdate(prevProps) {
 }
 ```
 
-This way, Chosen will know to update its DOM element when the `<select>` children managed by React change.
+Desta forma, Chosen vai saber atualizar o DOM quando os filhos do `<select>` gerenciados pelo React mudarem.
 
-The complete implementation of the `Chosen` component looks like this:
+A implementação completa do componente `Chosen` se parece com isto:
 
 ```js
 class Chosen extends React.Component {
@@ -186,21 +186,21 @@ class Chosen extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/xdgKOz?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/xdgKOz?editors=0010)
 
-## Integrating with Other View Libraries {#integrating-with-other-view-libraries}
+## Integrando com Outras Bibliotecas de View {#integrating-with-other-view-libraries}
 
-React can be embedded into other applications thanks to the flexibility of [`ReactDOM.render()`](/docs/react-dom.html#render).
+React pode ser incorporado em outras aplicações graças a flexibilidade do [`ReactDOM.render()`](/docs/react-dom.html#render).
 
-Although React is commonly used at startup to load a single root React component into the DOM, `ReactDOM.render()` can also be called multiple times for independent parts of the UI which can be as small as a button, or as large as an app.
+Apesar do React ser popularmente utilizado para carregar um único componente no DOM, `ReactDOM.render()` também pode ser chamado múltiplas vezes por partes independentes da UI, que pode ser pequeno como um botão, ou grande como uma aplicação.
 
-In fact, this is exactly how React is used at Facebook. This lets us write applications in React piece by piece, and combine them with our existing server-generated templates and other client-side code.
+De fato, isto é exatamente como React é utilizado no Facebook. Isto nos permite escrever aplicações por partes, e combiná-las com nosso template existente gerado pelo servidor e outros códigos no cliente.
 
-### Replacing String-Based Rendering with React {#replacing-string-based-rendering-with-react}
+### Substituindo Renderização baseada em String com React {#replacing-string-based-rendering-with-react}
 
-A common pattern in older web applications is to describe chunks of the DOM as a string and insert it into the DOM like so: `$el.html(htmlString)`. These points in a codebase are perfect for introducing React. Just rewrite the string based rendering as a React component.
+Um padrão comum em aplicações web mais antigas, é descrever pedaços do DOM como uma string e inseri-las no DOM utilizando: `$el.html(htmlString)`. Estes pontos do código, são perfeitos para introduzir React. Apenas reescreva a renderização baseada em string para um componente React.
 
-So the following jQuery implementation...
+Então, a seguinte implementação com jQuery...
 
 ```js
 $('#container').html('<button id="btn">Say Hello</button>');
@@ -209,7 +209,7 @@ $('#btn').click(function() {
 });
 ```
 
-...could be rewritten using a React component:
+...poderia ser reescrita utilizando um componente React:
 
 ```js
 function Button() {
@@ -227,7 +227,8 @@ ReactDOM.render(
 );
 ```
 
-From here you could start moving more logic into the component and begin adopting more common React practices. For example, in components it is best not to rely on IDs because the same component can be rendered multiple times. Instead, we will use the [React event system](/docs/handling-events.html) and register the click handler directly on the React `<button>` element:
+A partir daqui, você pode iniciar movendo mais lógica para o componente e começar adotando mais práticas comuns do React. Por exemplo, em componentes é melhor não confiar em IDs porque o mesmo componente pode ser renderizado diversas vezes.
+Ao invés disso, nós vamos utilizar o [sistema de eventos do React](/docs/handling-events.html) e registrar o manipulador de clique diretamente no elemento `<button>`:
 
 ```js{2,6,9}
 function Button(props) {
@@ -247,15 +248,17 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/RVKbvW?editors=1010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/RVKbvW?editors=1010)
 
-You can have as many such isolated components as you like, and use `ReactDOM.render()` to render them to different DOM containers. Gradually, as you convert more of your app to React, you will be able to combine them into larger components, and move some of the `ReactDOM.render()` calls up the hierarchy.
+Você pode ter tantos componentes isolados você quiser, e usar `ReactDOM.render()` para renderizá-los em diferentes containers do DOM. Gradualmente, com você convertendo mais da sua aplicação para React, você vai estar apto para combiná-los em componentes maiores, e mover algumas das chamadas do `ReactDOM.render()` para cima da hierarquia.
 
-### Embedding React in a Backbone View {#embedding-react-in-a-backbone-view}
+### Incorporando React em Backbone {#embedding-react-in-a-backbone-view}
 
-[Backbone](http://backbonejs.org/) views typically use HTML strings, or string-producing template functions, to create the content for their DOM elements. This process, too, can be replaced with rendering a React component.
+[Backbone](http://backbonejs.org/) tipicamente utiliza strings HTML, ou funções template que geram strings, para criar o conteúdo para seus elementos DOM. Este processo, também, pode ser substituido por uma renderização de um componente React.
 
-Below, we will create a Backbone view called `ParagraphView`. It will override Backbone's `render()` function to render a React `<Paragraph>` component into the DOM element provided by Backbone (`this.el`). Here, too, we are using [`ReactDOM.render()`](/docs/react-dom.html#render):
+Abaixo, nós vamos criar uma view Backbone chamada `ParagraphView`.
+Isto vai subscrever a função `render()` do Backbone, para renderizar um componente `<Paragraph>` React no elemento DOM fornecido pelo Backbone (`this.el`).
+Aqui, nós também estamos utilizando [`ReactDOM.render()`](/docs/react-dom.html#render):
 
 ```js{1,5,8,12}
 function Paragraph(props) {
@@ -275,23 +278,23 @@ const ParagraphView = Backbone.View.extend({
 });
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/gWgOYL?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/gWgOYL?editors=0010)
 
-It is important that we also call `ReactDOM.unmountComponentAtNode()` in the `remove` method so that React unregisters event handlers and other resources associated with the component tree when it is detached.
+É importante também chamar `ReactDOM.unmountComponentAtNode()` no método `remove`, para que o React cancele os manipuladores de eventos e outros recursos associados com a árvore do componente quando ele é removido.
 
-When a component is removed *from within* a React tree, the cleanup is performed automatically, but because we are removing the entire tree by hand, we must call this method.
+Quando um componente é removido **de dentro** de uma árvore React, a limpeza ocorre automaticamente, mas como estamos removendo toda a árvore na mão, nós devemos chamar este método.
 
-## Integrating with Model Layers {#integrating-with-model-layers}
+## Integrando com um Modelo de Camadas {#integrating-with-model-layers}
 
-While it is generally recommended to use unidirectional data flow such as [React state](/docs/lifting-state-up.html), [Flux](http://facebook.github.io/flux/), or [Redux](http://redux.js.org/), React components can use a model layer from other frameworks and libraries.
+Embora seja geralmente recomendado a utilização de um fluxo de dados unidirecional como [React state](/docs/lifting-state-up.html), [Flux](http://facebook.github.io/flux/), ou [Redux](http://redux.js.org/), componentes React podem utilizar um modelo de camadas de outros frameworks e bibliotecas.
 
-### Using Backbone Models in React Components {#using-backbone-models-in-react-components}
+### Utilizando Modelos Backbone em Componentes React {#using-backbone-models-in-react-components}
 
-The simplest way to consume [Backbone](http://backbonejs.org/) models and collections from a React component is to listen to the various change events and manually force an update.
+A maneira mais simples de se consumir modelos e coleções do [Backbone](http://backbonejs.org/) para um componente React, é assinar os vários eventos de mudança e manualmente forçar uma atualização.
 
-Components responsible for rendering models would listen to `'change'` events, while components responsible for rendering collections would listen for `'add'` and `'remove'` events. In both cases, call [`this.forceUpdate()`](/docs/react-component.html#forceupdate) to rerender the component with the new data.
+Componentes responsáveis por renderizar modelos devem escutar os eventos de `'change'`, enquanto componentes responsáveis por renderizar coleções devem escutar os eventos de `'add'` e `'remove'`. Em ambos os casos, chame [`this.forceUpdate()`](/docs/react-component.html#forceupdate) para re-renderizar o componente com o novo dado.
 
-In the example below, the `List` component renders a Backbone collection, using the `Item` component to render individual items.
+No exemplo abaixo, o componente `List` renderiza uma coleção do Backbone, usando o componente `Item` para renderizar cada item em individual.
 
 ```js{1,7-9,12,16,24,30-32,35,39,46}
 class Item extends React.Component {
@@ -347,19 +350,19 @@ class List extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/GmrREm?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/GmrREm?editors=0010)
 
-### Extracting Data from Backbone Models {#extracting-data-from-backbone-models}
+### Extraindo Dados dos Modelos do Backbone {#extracting-data-from-backbone-models}
 
-The approach above requires your React components to be aware of the Backbone models and collections. If you later plan to migrate to another data management solution, you might want to concentrate the knowledge about Backbone in as few parts of the code as possible.
+A abordagem acima, necessita que os componentes React tenham conhecimento dos modelos e coleções do Backbone. Se você planeja depois migrar para outra solução de gerenciamento de dados, você pode querer concentrar o conhecimento sobre Backbone em poucas partes do código.
 
-One solution to this is to extract the model's attributes as plain data whenever it changes, and keep this logic in a single place. The following is [a higher-order component](/docs/higher-order-components.html) that extracts all attributes of a Backbone model into state, passing the data to the wrapped component.
+Uma solução para isto, é extrair os atributos do model como simples dados, e manter essa lógica em um único local. A seguir, temos um [higher-order component](/docs/higher-order-components.html) que extrai todos os atributos de um model Backbone para o estado, passando o dado para o componente em volta.
 
-This way, only the higher-order component needs to know about Backbone model internals, and most components in the app can stay agnostic of Backbone.
+Desta forma, apenas o componente de ordem superior (_higher-order component_) precisa saber sobre implementações internas do model Backbone, e mais componentes da aplicação podem continuar agnósticos do Backbone.
 
-In the example below, we will make a copy of the model's attributes to form the initial state. We subscribe to the `change` event (and unsubscribe on unmounting), and when it happens, we update the state with the model's current attributes. Finally, we make sure that if the `model` prop itself changes, we don't forget to unsubscribe from the old model, and subscribe to the new one.
+No exemplo abaixo, nós vamos fazer uma cópia dos atributos do model para formar o estado inicial. Vamos assinar o evento de `change` (e cancelar no unmounting), e quando isto acontecer, nós atualizamos o estado com os atuais atributos do modelo. Finalmente, nos certificamos de que se a propriedade `model` mudar, nós não esqueceremos de cancelar a assinatura do modelo antigo, e assinar para o novo.
 
-Note that this example is not meant to be exhaustive with regards to working with Backbone, but it should give you an idea for how to approach this in a generic way:
+Note que este exemplo não pretende ser extenso no que diz respeito a trabalhar com Backbone, mas isto deve dar uma idéia de como abordar de uma maneira mais genérica:
 
 ```js{1,5,10,14,16,17,22,26,32}
 function connectToBackboneModel(WrappedComponent) {
@@ -399,7 +402,7 @@ function connectToBackboneModel(WrappedComponent) {
 }
 ```
 
-To demonstrate how to use it, we will connect a `NameInput` React component to a Backbone model, and update its `firstName` attribute every time the input changes:
+Para demonstrar, nós vamos conectar um componente React `NameInput` em um modelo Backbone, e atualizar seu atributo `firstName` toda vez que o valor do input mudar:
 
 ```js{4,6,11,15,19-21}
 function NameInput(props) {
@@ -434,6 +437,6 @@ ReactDOM.render(
 );
 ```
 
-[**Try it on CodePen**](http://codepen.io/gaearon/pen/PmWwwa?editors=0010)
+[**Experimente no CodePen**](http://codepen.io/gaearon/pen/PmWwwa?editors=0010)
 
-This technique is not limited to Backbone. You can use React with any model library by subscribing to its changes in the lifecycle methods and, optionally, copying the data into the local React state.
+Esta técnica não se limita para o Backbone. Você pode utilizar React com qualquer modelo de biblioteca, assinando as mudanças nos métodos de ciclo de vida e, opcionalmente, copiando os dados para o estado local do React.
