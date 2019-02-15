@@ -176,7 +176,7 @@ Nós fornecemos um [plugin de linter](https://www.npmjs.com/package/eslint-plugi
 
 Às vezes, queremos reutilizar algumas lógicas de state entre componentes. Tradicionalmente, haviam duas soluções populares para este problema: [componentes de ordem superior](/docs/higher-order-components.html) e [renderização de props](/docs/render-props.html). Hooks Customizados te permitem fazer isso, mas sem adicionar mais componentes para a sua árvore.
 
-Anteriormente nesta página, nós introduzimos um componente `FriendStatus` que chama os Hooks `useState` e `useEffect` para subscrever-se ao status de online de um amigo. Digamos que também precisaremos reutilizar essa subscrição lógica em outro componente.
+Anteriormente nesta página, nós introduzimos um componente `FriendStatus` que chama os Hooks `useState` e `useEffect` para subscrever-se ao status de online de um amigo. Digamos que também precisaremos reutilizar essa lógica de subscrição em outro componente.
 
 Primeiramente, iremos extrair esta lógica para um Hook customizado chamado `useFriendStatus`:
 
