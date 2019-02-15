@@ -183,7 +183,11 @@ function CustomTextInput(props) {
       <input
         type="text"
         ref={textInput} />
-      <input type="button" value="Focus the text input" onClick={handleClick} />
+      <input
+        type="button"
+        value="Focus the text input"
+        onClick={handleClick}
+      />
     </div>
   );
 }
