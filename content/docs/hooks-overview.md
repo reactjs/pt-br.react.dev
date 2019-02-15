@@ -166,7 +166,7 @@ Hooks são funções JavaScript, mas eles impões duas regras adicionais:
 * Apenas chame Hooks **no nível mais alto**. Não chame Hooks dentro de loops, condições ou funções aninhadas.
 * Apenas chame Hooks **de componentes funcionais**. Não chame Hooks de funções JavaScript comuns. (Há apenas um outro lugar válido para se chamar Hooks -- dentro dos seus próprios Hooks customizados. Iremos aprender sobre eles em breve.)
 
-Nós fornecemos um [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para assegurar essas regras automáticamente. Entendemos que essas regras podem parecer limitantes ou confusas a princípio, mas são essenciais para fazer com que os Hooks funcionem bem.
+Nós fornecemos um [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para assegurar essas regras automaticamente. Entendemos que essas regras podem parecer limitantes ou confusas a princípio, mas são essenciais para fazer com que os Hooks funcionem bem.
 
 > Explicação Detalhada
 >
