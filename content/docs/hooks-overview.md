@@ -51,7 +51,7 @@ function ExampleWithManyStates() {
   // Declara várias variáveis de state!
   const [age, setAge] = useState(42);
   const [fruit, setFruit] = useState('banana');
-  const [tarefas, alterarTarefas] = useState([{ text: 'Aprender Hooks' }]);
+  const [tarefas, alterarTarefas] = useState([{ text: 'Learn Hooks' }]);
   // ...
 }
 ```
