@@ -172,7 +172,7 @@ Nós fornecemos um [plugin de linter](https://www.npmjs.com/package/eslint-plugi
 >
 > Você pode aprender mais sobre essas regras na sua página dedicada: [Regras dos Hooks](/docs/hooks-rules.html).
 
-## Construindo Seus Próprios Hooks
+## 💡 Construindo Seus Próprios Hooks {#-building-your-own-hooks}
 
 Às vezes, queremos reutilizar algumas lógicas de state entre componentes. Tradicionalmente, haviam duas soluções populares para este problema: [componentes de ordem superior](/docs/higher-order-components.html) e [renderização de props](/docs/render-props.html). Hooks Customizados te permitem fazer isso, mas sem adicionar mais componentes para a sua árvore.
 
