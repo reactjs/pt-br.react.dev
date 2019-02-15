@@ -50,7 +50,7 @@ Você pode utilizar o State Hook mais de uma vez em um único componente:
 function ExampleWithManyStates() {
   // Declara várias variáveis de state!
   const [age, setAge] = useState(42);
-  const [fruta, alterarFruta] = useState('banana');
+  const [fruit, setFruit] = useState('banana');
   const [tarefas, alterarTarefas] = useState([{ text: 'Aprender Hooks' }]);
   // ...
 }
