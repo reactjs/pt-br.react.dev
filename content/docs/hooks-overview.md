@@ -24,7 +24,7 @@ Este exemplo renderiza um contador. Quando você clica no botão, ele incrementa
 import React, { useState } from 'react';
 
 function Example() {
-  // Declara uma nova variável de estado, que chamaremos de "count"
+  // Declara uma nova variável de state, que chamaremos de "count"
   const [count, setCount] = useState(0);
 
   return (
@@ -38,17 +38,17 @@ function Example() {
 }
 ```
 
-Aqui, `useState` é um *Hook* (nós vamos falar sobre o que isso significa em instantes). Nós chamamos dentro de um componente funcional para adicionar alguns states locais a ele. React irá presevar este state entre re-renderizações. `useState` returna um par: o valor do estado *atual* e uma função que permite atualizá-lo. Você pode chamar essa função de um manipulador de evento ou de qualquer outro lugar. É parecido com `this.setState` em uma classe, exceto que não mescla o antigo estado com o novo. (Nós iremos mostrar um exemplo comprando `useState` com `this.state` em [Utilizando o State Hook](/docs/hooks-state.html).)
+Aqui, `useState` é um *Hook* (nós vamos falar sobre o que isso significa em instantes). Nós chamamos dentro de um componente funcional para adicionar alguns states locais a ele. React irá presevar este state entre re-renderizações. `useState` returna um par: o valor do state *atual* e uma função que permite atualizá-lo. Você pode chamar essa função de um manipulador de evento ou de qualquer outro lugar. É parecido com `this.setState` em uma classe, exceto que não mescla o antigo state com o novo. (Nós iremos mostrar um exemplo comprando `useState` com `this.state` em [Utilizando o State Hook](/docs/hooks-state.html).)
 
-O Único argumento para `useState` é o estado inicial. No exemplo acima, é `0` porque nosso contador começa do zero. Perceba que diferente de `this.state`, o estado não precisa ser um objeto -- apesar de que possa ser se você quiser. O argumento de estado inicial é utilizado apenas durante a primeira renderização.
+O Único argumento para `useState` é o state inicial. No exemplo acima, é `0` porque nosso contador começa do zero. Perceba que diferente de `this.state`, o state não precisa ser um objeto -- apesar de que possa ser se você quiser. O argumento de state inicial é utilizado apenas durante a primeira renderização.
 
-#### Declarando multiplas variáveis de estado {#declaring-multiple-state-variables}
+#### Declarando multiplas variáveis de state {#declaring-multiple-state-variables}
 
 Você pode utilizar o State Hook mais de uma vez em um único componente:
 
 ```js
 function ExampleWithManyStates() {
-  // Declara várias variáveis de estado!
+  // Declara várias variáveis de state!
   const [idade, alterarIdade] = useState(42);
   const [fruta, alterarFruta] = useState('banana');
   const [tarefas, alterarTarefas] = useState([{ text: 'Aprender Hooks' }]);
@@ -56,13 +56,13 @@ function ExampleWithManyStates() {
 }
 ```
 
-A sintaxe de [desestruturação de arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring) nos permite atribuir diferentes nomes para as variáveis de estado que declaramos chamando `useState`. Esses nomes não fazem parte da API `useState`. Em vez disso, React presume que se você chamar `useState` muitas vezes, você faz isso na mesma ordem a cada renderização. Nós iremos voltar no porquê isso funciona e quando é útil mais tarde.
+A sintaxe de [desestruturação de arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring) nos permite atribuir diferentes nomes para as variáveis de state que declaramos chamando `useState`. Esses nomes não fazem parte da API `useState`. Em vez disso, React presume que se você chamar `useState` muitas vezes, você faz isso na mesma ordem a cada renderização. Nós iremos voltar no porquê isso funciona e quando é útil mais tarde.
 
 #### Mas, o que é um Hook? {#but-what-is-a-hook}
 
 Hooks são funções que permitem a você "ligar-se" aos recursos de state e ciclo de vida do React com componentes funcionais. Hooks não funcionam dentro de classes -- eles permitem que você use React sem classes. (Nós [não recomendamos](/docs/hooks-intro.html#gradual-adoption-strategy) reescrever seus componentes já existentes de um dia para o outro, mas você pode começar a usar Hooks nos novos se você quiser.)
 
-React fornece alguns hooks internos como `useState`. Você também pode criar os seus próprios Hooks para reutilizar o comportamento de estado entre componentes diferentes. Vamos dar uma olhada nos Hooks internos primeiramente.
+React fornece alguns hooks internos como `useState`. Você também pode criar os seus próprios Hooks para reutilizar o comportamento de state entre componentes diferentes. Vamos dar uma olhada nos Hooks internos primeiramente.
 
 >Explicação Detalhada
 >
@@ -174,7 +174,7 @@ Nós fornecemos um [plugin de linter](https://www.npmjs.com/package/eslint-plugi
 
 ## Construindo Seus Próprios Hooks
 
-Às vezes, queremos reutilizar algumas lógicas de estado entre componentes. Tradicionalmente, haviam duas soluções populares para este problema: [componentes de ordem superior](/docs/higher-order-components.html) e [renderização de props](/docs/render-props.html). Hooks Customizados te permitem fazer isso, mas sem adicionar mais componentes para a sua árvore.
+Às vezes, queremos reutilizar algumas lógicas de state entre componentes. Tradicionalmente, haviam duas soluções populares para este problema: [componentes de ordem superior](/docs/higher-order-components.html) e [renderização de props](/docs/render-props.html). Hooks Customizados te permitem fazer isso, mas sem adicionar mais componentes para a sua árvore.
 
 Anteriormente nesta página, nós introduzimos um componente `FriendStatus` que chama os Hooks `useState` e `useEffect` para subscrever-se ao status de online de um amigo. Digamos que também precisaremos reutilizar essa subscrição lógica em outro componente.
 
@@ -228,7 +228,7 @@ function FriendListItem(props) {
 }
 ```
 
-O estato destes componentes é completamente independente. Hooks são a forma de reutilizar *lógica de estado*, não o estado em si. De fato, cada *chamada* para um Hook tem um estado completamente isolado -- então você pode até utilizar o mesmo Hook custom duas vezes em um componente.
+O estato destes componentes é completamente independente. Hooks são a forma de reutilizar *lógica de state*, não o state em si. De fato, cada *chamada* para um Hook tem um state completamente isolado -- então você pode até utilizar o mesmo Hook custom duas vezes em um componente.
 
 Hooks customizados são mais uma convenção do que uma funcionalidade. Se o nome de uma função começa com "`use`" e chama outros Hooks, consideramos que é um Hoook customizado. A convenção de nome `useSomething` é como nosso plugin de linter é capaz de encontrar bugs no nosso código que utiliza Hooks.
 
