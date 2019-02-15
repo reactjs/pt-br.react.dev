@@ -60,7 +60,7 @@ A sintaxe de [desestruturação de arrays](https://developer.mozilla.org/en-US/d
 
 #### Mas, o que é um Hook? {#but-what-is-a-hook}
 
-Hooks são funções que permitem a você "ligar-se" aos recursos de state e ciclo de vida do React com componentes funcionais. Hooks não funcionam dentro de classes -- eles permitem que você use React sem classes. (Nós [não recomendamos](/docs/hooks-intro.html#gradual-adoption-strategy) reescrever seus componentes já existentes de um dia para o outro, mas você pode começar a usar Hooks nos novos se você quiser.)
+Hooks são funções que permitem a você "ligar-se" aos recursos de state e ciclo de vida do React a partir de componentes funcionais. Hooks não funcionam dentro de classes -- eles permitem que você use React sem classes. (Nós [não recomendamos](/docs/hooks-intro.html#gradual-adoption-strategy) reescrever seus componentes já existentes de um dia para o outro, mas você pode começar a usar Hooks nos novos se você quiser.)
 
 React fornece alguns hooks internos como `useState`. Você também pode criar os seus próprios Hooks para reutilizar o comportamento de state entre componentes diferentes. Vamos dar uma olhada nos Hooks internos primeiramente.
 
