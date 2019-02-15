@@ -19,7 +19,7 @@ Em um fluxo de dados típico do React, as [props](/docs/components-and-props.htm
 
 Existem algumas boas finalidades para o uso de refs:
 
-- Geranciamento de foco, seleção de texto, ou reprodução de mídia.
+- Gerenciamento de foco, seleção de texto, ou reprodução de mídia.
 - Engatilhar animações imperativas.
 - Integração com bibliotecas DOM de terceiros.
 
