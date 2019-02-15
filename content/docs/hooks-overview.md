@@ -12,7 +12,7 @@ Hooks são [compativeis com versões anteriores](/docs/hooks-intro.html#no-break
 
 >Explicação Detalhada
 >
->Leia a [Motivação](/docs/hooks-intro.html#motivation) para entender porque estamos introruzindo Hooks para o React.
+>Leia a [Motivação](/docs/hooks-intro.html#motivation) para entender porque estamos introduzindo Hooks para o React.
 
 **↑↑↑ Cada seção termina com uma caixa amarela como esta.** Eles linkam para explicações detalhadas.
 
