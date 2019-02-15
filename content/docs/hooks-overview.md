@@ -82,7 +82,7 @@ import { useState, useEffect } from 'react';
 function Example() {
   const [count, setCount] = useState(0);
 
-  // Similar com componentDidMount e componentDidUpdate:
+  // Similar a componentDidMount e componentDidUpdate:
   useEffect(() => {
     // Atualiza o título do documento utilizando a API do navegador
     document.title = `You clicked ${count} times`;
