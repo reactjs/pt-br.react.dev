@@ -27,7 +27,7 @@ Não será necessário usar alguma ferramenta complicada ou instalar algo -- **p
 
 Opcional: [Faça o download do exemplo completo (2KB zipado)](https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605/archive/f6c882b6ae18bde42dcf6fdb751aae93495a2275.zip)
 
-### Passo 1: Adicionar um contêiner DOM ao HTML {#passo-1-adicionar-um-conteiner-dom-ao-html}
+### Passo 1: Adicionar um contêiner DOM ao HTML {#step-1-add-a-dom-container-to-the-html}
 
 Primeiramente, abra a página HTML que você deseja alterar. Adicione uma tag `<div>` vazia para marcar o local onde você deseja exibir algo com o React. Por exemplo:
 
@@ -65,7 +65,7 @@ A seguir, adicione três tags `<script>` em sua página HTML logo antes do fecha
 
 As duas primeiras tags adicionam o React. A terceira irá adicionar o código de seu componente.
 
-### Passo 3: Criar um Componente React {#passo-3-criar-um-componente-react}
+### Passo 3: Criar um Componente React {#step-3-create-a-react-component}
 
 Crie um arquivo chamado `like_button.js` próximo a sua página HTML.
 

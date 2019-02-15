@@ -8,11 +8,11 @@ import React from 'react';
 
 const SearchSvg = () => (
   <svg
-    alt="Search"
+    alt="Busca"
     height="16"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16">
-    <title>Search</title>
+    <title>Busca</title>
     <path
       d={`
         M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,

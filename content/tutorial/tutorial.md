@@ -617,7 +617,7 @@ Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 
 Agora precisamos consertar um defeito óbvio em nosso Jogo da Velha: os "O"s não podem ser marcados no tabuleiro.
 
-Vamos definir o primeiro movimento para ser "X" por padrão. Podemos definir esse padrão modificando o state inicial no construtor do nosso tabuleiro (Board)
+Vamos definir a primeira jogadas para ser "X" por padrão. Podemos definir esse padrão modificando o state inicial no construtor do nosso tabuleiro (Board)
 
 ```javascript{6}
 class Board extends React.Component {
@@ -776,19 +776,18 @@ Parabéns! Você agora tem um Jogo da Velha funcionando! E também acaba de apre
 
 ## Adicionando a Viagem no Tempo (Time Travel){#adding-time-travel}
 
-Como um último exercício, vamos tornar possível fazer uma "volta no tempo" até os movimentos anteriores que aconteceram no jogo.
-
+Como um último exercício, vamos tornar possível fazer uma "volta no tempo" até as jogadas anteriores que aconteceram no jogo.
 ### Armazenando um Histórico de Jogadas {#storing-a-history-of-moves}
 
 Se nós tivéssemos modificado o array `squares`, a implementação da volta no tempo seria muito difícil.
 
-No entanto, nós utilizamos `slice()` para criar uma nova cópia do array `squares` após cada movimento e [tratamos ele como imutável](#why-immutability-is-important). Isso nos permitirá o armazenamento de cada versão anterior do array `squares` e que possamos navegar entre os turnos que já tenham acontecido. 
+No entanto, nós utilizamos `slice()` para criar uma nova cópia do array `squares` após cada jogada e [tratamos ele como imutável](#why-immutability-is-important). Isso nos permitirá o armazenamento de cada versão anterior do array `squares` e que possamos navegar entre os turnos que já tenham acontecido. 
 
-Vamos armazenar os arrays `squares` anteriores em um outro array chamado `history`. O array `history` representa todos os estados do tabuleiro, do primeiro ao último movimento, e tem uma forma parecida com essa:
+Vamos armazenar os arrays `squares` anteriores em um outro array chamado `history`. O array `history` representa todos os estados do tabuleiro, da primeira à última jogada, e tem uma forma parecida com essa:
 
 ```javascript
 history = [
-  // Antes do primeiro movimento
+  // Antes da primeira jogada
   {
     squares: [
       null, null, null,
@@ -796,7 +795,7 @@ history = [
       null, null, null,
     ]
   },
-  // Depois do primeiro movimento
+  // Depois da primeira jogada
   {
     squares: [
       null, null, null,
@@ -804,7 +803,7 @@ history = [
       null, null, null,
     ]
   },
-  // Depois do segundo movimento
+  // Depois da segunda jogada
   {
     squares: [
       null, null, null,
@@ -820,7 +819,7 @@ Agora precisamos decidir a qual componente pertencerá o state do `history`.
 
 ### Trazendo o State pra Cima, Novamente {#lifting-state-up-again}
 
-Queremos que o componente Game, o de mais alto nível, mostre uma lista com os movimentos anteriores. Para poder fazer isso, ele precisará acessar o `history`, então, temos que trazer o state `history` para cima, colocando-o no componente de mais alto nível, o componente Game.
+Queremos que o componente Game, o de mais alto nível, mostre uma lista com as jogadas anteriores. Para poder fazer isso, ele precisará acessar o `history`, então, temos que trazer o state `history` para cima, colocando-o no componente de mais alto nível, o componente Game.
 
 Colocar o state `history` no componente Game, nos permite remover o state `squares` de seu componente filho, Board. Assim como ["trouxemos para cima"](#trazendo-state-para-cima) o state do componente Square para o componente Board, agora estamos trazendo o state do componente Board para o componente de mais alto nível, Game. Isso dá ao componente Game total controle sobre os dados do Board e permite que instrua o Board a renderizar turnos anteriores a partir do `history`.
 
@@ -976,7 +975,7 @@ Uma vez que o componente Game agora está renderizando o status do jogo, nós po
   }
 ```
 
-Finalmente, precisamos mover o método `handleClick` do componente Board para o componente Game. Nós também precisamos modificar `handelClick` pois o state do componente Game está estruturado de maneira diferente. No componente Game, dentro do método `handleClick`, nós concatenamos novas entradas do histórico de movimentos em `history`.
+Finalmente, precisamos mover o método `handleClick` do componente Board para o componente Game. Nós também precisamos modificar `handelClick` pois o state do componente Game está estruturado de maneira diferente. No componente Game, dentro do método `handleClick`, nós concatenamos novas entradas do histórico de jogadas em `history`.
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -1004,9 +1003,9 @@ Nesse ponto, o componente Board necessita apenas dos métodos `renderSquare` e `
 
 **[Veja o código completo até aqui](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Mostrando os Movimentos Anteriores{#showing-the-past-moves}
+### Mostrando as Jogadas Anteriores{#showing-the-past-moves}
 
-Uma vez que estamos gravando o histórico do Jogo da Velha, agora podemos mostrá-lo para o jogador como uma lista de movimentos anteriores.
+Uma vez que estamos gravando o histórico do Jogo da Velha, agora podemos mostrá-lo para o jogador como uma lista de jogadas anteriores.
 
 Aprendemos anterioremente que os elementos React são objetos JavaScript de primeira classe; podemos passá-los livremente por nossas aplicações. Para renderizar múltiplos itens em React, podemos utilizar um array de elementos React.
 
@@ -1017,7 +1016,7 @@ const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ``` 
 
-Utilizando o método `map`, nós podemos mapear nosso histórico de movimentos para elementos React, representando botões na tela, e mostrar uma lista de botões que "pulam" para os movimentos anteriores.
+Utilizando o método `map`, nós podemos mapear nosso histórico de jogadas para elementos React, representando botões na tela, e mostrar uma lista de botões que "pulam" para os jogadas anteriores.
 
 Vamos fazer um `map` sobre o `history` no método `render` do componente Game:
 
@@ -1064,7 +1063,7 @@ Vamos fazer um `map` sobre o `history` no método `render` do componente Game:
 
 **[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
-Para cada movimento no histórico do jogo de Dama, nós criamos um item de lista `<li>` que contém um botão `<button>`. O botão tem um manipulador `onClick` que chama um método chamado `this.jumpTo()`. Nós ainda não implementamos o método `jumpTo()`. Por agora, nós devemos ver uma lista dos movimentos que já ocorreram no jogo e um aviso no console do developer tools que diz: 
+Para cada jogada no histórico do Jogo da Velha, nós criamos um item de lista `<li>` que contém um botão `<button>`. O botão tem um manipulador `onClick` que chama um método chamado `this.jumpTo()`. Nós ainda não implementamos o método `jumpTo()`. Por agora, nós devemos ver uma lista das jogadas que já ocorreram no jogo e um aviso no console do developer tools que diz: 
 
 >  Warning:
 >  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
@@ -1113,7 +1112,7 @@ Chaves não precisam ser globalmente únicas; elas precisam ser únicas apenas e
 
 ### Implementando a Viagem no Tempo (Time Travel) {#implementing-time-travel}
 
-No histórico do Jogo da Velha, cada movimento anterior tem um único ID associado a ele: é o número sequencial do movimento. Os movimentos nunca são reordenados, apagados, ou inseridos no meio, entá é seguro utilizar o index do movimento como a chave.
+No histórico do Jogo da Velha, cada jogada anterior tem um único ID associado a ela: é o número sequencial da jogada. As jogadas nunca são reordenadas, apagadas, ou inseridas no meio, entá é seguro utilizar o index da jogada como a chave.
 
 No método `render` do componente Game, nós podemos adicionar a chave como `<li key={move}>` e o aviso do React sobre as chaves deve desaparecer.
 
@@ -1171,9 +1170,9 @@ Em seguida, definiremos o método `jumpTo` no componente Game para atualizar aqu
 
 Agora faremos algumas modificações no método `handleClick` do componente Game, que é disparado quando você clica em um quadradado do tabuleiro (square).
 
-O state `stepNumber` que adicionamos reflete o movimento mostrado ao usuário nesse momento. Após fizermos um novo movimento, precisamos atualizar `stepNumber` adicionando `stepNumber: history.length` como parte do argumento de `this.setState`. Isso certifica que não ficaremos presos mostrando o mesmo movimento após um novo ter sido feito. 
+O state `stepNumber` que adicionamos reflete a jogada mostrada ao usuário nesse momento. Após fizermos uma nova jogada, precisamos atualizar `stepNumber` adicionando `stepNumber: history.length` como parte do argumento de `this.setState`. Isso certifica que não ficaremos presos mostrando a mesma jogada após uma novo ter sido feita. 
 
-Também iremos substituir a leitura de `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Isso certifica que se nós "voltarmos no tempo", e então fizermos um novo movimento a partir daquele ponto, descartamos todo o histórico do "futuro" que agora se tornaria incorreto.
+Também iremos substituir a leitura de `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Isso certifica que se nós "voltarmos no tempo", e então fizermos uma nova jogada a partir daquele ponto, descartamos todo o histórico do "futuro" que agora se tornaria incorreto.
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1194,7 +1193,7 @@ Também iremos substituir a leitura de `this.state.history` por `this.state.hist
   }
 ```
 
-Por fim, modificaremos o método `render` do componente Game para deixar de renderizar sempre o último movimento e passar a renderizar apenas o movimento selecionado atualmente, de acordo com `stepNumber`:
+Por fim, modificaremos o método `render` do componente Game para deixar de renderizar sempre a última jogada e passar a renderizar apenas a jogada selecionada atualmente, de acordo com `stepNumber`:
 
 ```javascript{3}
   render() {
@@ -1224,10 +1223,10 @@ Dê uma olhada on resultado final aqui: **[Resultado Final](https://codepen.io/g
 
 Se você tiver algum tempo extra e quiser praticar suas habilidades no React, aqui estão algumas ideias de melhorias que você poderia adicionar a seu Jogo da Velha, listadas em ordem crescente de dificuldade.
 
-1. Mostrar a localização de cada movimento no formato (col,row), para cada movimento no histórico.
-2. Estilizar com negrito o item da lista de movimentos que está selecionado no momento.
+1. Mostrar a localização de cada jogada no formato (col,row), para cada jogada no histórico.
+2. Estilizar com negrito o item da lista de jogadas que está selecionado no momento.
 3. Reescrever o componente Board para utilizar 2 loops para fazer os quadrados, em vez de deixá-los hardcoded.
-4. Adicionar um botão de toggle que lhe permita ordenar os movimentos em ordem ascendente ou descendente.
+4. Adicionar um botão de toggle que lhe permita ordenar os jogadas em ordem ascendente ou descendente.
 5. Quando alguém ganhar, destaque os 3 quadrados que causaram a vitória.
 6. Quando ninguém ganhar, exiba uma mensagem informando que o resultado foi um empate.
 
