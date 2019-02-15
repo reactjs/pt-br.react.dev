@@ -268,4 +268,4 @@ Ufa, essa foi rápida! Se algumas coisas não fizeram sentido ou se você quiser
 
 Você também pode conferir a [Referência de API de Hooks ](/docs/hooks-reference.html) e o [FAQ de Hooks](/docs/hooks-faq.html).
 
-Por fim, não perca a [página de introdução](/docs/hooks-intro.html) que explica *o porquê* estamos adicionando Hooks e como iremos começar a utilizá-los lado a lado com as classes -- sem reescrever os nossos apps.
+Por fim, não perca a [página de introdução](/docs/hooks-intro.html) que explica *porque* estamos adicionando Hooks e como iremos começar a utilizá-los lado a lado com as classes -- sem reescrever os nossos apps.
