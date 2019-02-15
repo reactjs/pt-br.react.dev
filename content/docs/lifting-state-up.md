@@ -1,6 +1,6 @@
 ---
 id: lifting-state-up
-title: Lifting State Up
+title: Elevando o State
 permalink: docs/lifting-state-up.html
 prev: forms.html
 next: composition-vs-inheritance.html
@@ -171,7 +171,7 @@ class TemperatureInput extends React.Component {
 
 Porém, queremos que esses dois inputs estejam sincronizados um com o outro. Quando o input de Celsius for atualizado, o input de Fahrenheit deve mostrar a temperatura convertida e vice-versa.
 
-No React, o compartilhamento do state é alcançado ao movê-lo para o elemento pai comum aos componentes que precisam dele. Isso se chama "elevar o state". Vamos remover o state local do `TemperatureInput` e colocá-lo no `Calculator`.
+No React, o compartilhamento do state é alcançado ao movê-lo para o elemento pai comum aos componentes que precisam dele. Isso se chama "elevar o state" (state lift). Vamos remover o state local do `TemperatureInput` e colocá-lo no `Calculator`.
 
 Se o `Calculator` é dono do state compartilhado, ele se torna a "fonte da verdade" para a temperatura atual em ambos os inputs. Ele pode instruir ambos a terem valores que são consistentes um com o outro. Já que as props de ambos os `TemperatureInput` vem do mesmo componente pai, `Calculator`, os dois inputs sempre estarão sincronizados.
 
@@ -188,7 +188,7 @@ Primeiro, vamos substituir `this.state.temperature` por `this.props.temperature`
 
 Sabemos que [props são somente leitura](/docs/components-and-props.html#props-are-read-only). Quando a `temperature` estava no state local, o `TemperatureInput` podia simplesmente chamar `this.setState()` para modificá-lo. Porém, agora que a `temperature` vem do elemento pai como uma prop, o `TemperatureInput` não tem controle sobre ela.
 
-No React, isso é comumente solucionado ao tornar um componente comum em um "componente controlado". Assim como o `<input>` do DOM aceita ambas as props `value` e `onChange`, o componente customizado `TemperatureInput` também pode aceitar ambas as props `temperature` e `onTemperatureChange` do `Calculator`, seu componente pai.
+No React, isso é comumente solucionado ao tornar um componente comum em um "componente controlado". Assim como o `<input>` do DOM aceita ambas as props `value` e `onChange`, o componente personalizado `TemperatureInput` também pode aceitar ambas as props `temperature` e `onTemperatureChange` do `Calculator`, seu componente pai.
 
 Agora, quando o `TemperatureInput` quiser atualizar sua temperatura, ele executa `this.props.onTemperatureChange`:
 
@@ -320,7 +320,7 @@ Toda edição segue os mesmos passos então os inputs ficam sincronizados.
 
 Deve haver uma única "fonte da verdade" para quaisquer dados que sejam alterados em uma aplicação React. Geralmente, o state é adicionado ao componente que necessita dele para renderizar. Depois, se outro componente também precisar desse state, você pode elevá-lo ao elemento pai comum mais próximo de ambos os componentes. Ao invés de tentar sincronizar o state entre diferentes componentes, você deve contar com o [fluxo de dados de cima para baixo](/docs/state-and-lifecycle.html#the-data-flows-down).
 
-Elevar o state envolve escrever mais código de estrutura do que as abordagens de caminhos de duas vias, mas como benefício, demanda menos trabalho para encontrar e isolar erros. Já que o state "vive" em um componente e somente esse componente pode alterá-lo, a área de superfície para encontrar os erros é drasticamente reduzida. Além disso, é possível implementar qualquer lógica customizada para rejeitar ou transformar o input do usuário.
+Elevar o state envolve escrever mais código de estrutura do que as abordagens de two-way data bind, mas como benefício, demanda menos trabalho para encontrar e isolar erros. Já que o state "vive" em um componente e somente esse componente pode alterá-lo, a área de superfície para encontrar os erros é drasticamente reduzida. Além disso, é possível implementar qualquer lógica personalizada para rejeitar ou transformar o input do usuário.
 
 Se alguma coisa pode ser derivada tanto das props como do state, ela provavelmente não deveria estar no state. Por exemplo, ao invés de armazenar ambos `celsiusValue` e `fahrenheitValue`, armazenamos somente o valor da última `temperature` editada e o valor de `scale`. O valor do outro input pode sempre ser calculado com base nessas informações no método `render()`. Isso permite limpar ou arredondar o valor no outro input sem perder precisão no valor informado pelo usuário.
 
