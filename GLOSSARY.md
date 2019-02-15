@@ -38,6 +38,7 @@ Suggestion on words and terms:
 | client-side | lado do cliente |
 | high-order components | componente de alta-ordem |
 | stateful logic | lógica com estado |
+| container | contêiner |
 | helper function | função auxiliar |
 | siblings | ? | 
 | DOM node | ? | 
@@ -70,6 +71,7 @@ Suggestion on words and terms:
 * single-page-apps
 * subscription
 * subscribe
+* event listener
 * widgets
 * watcher
 * wrapper
