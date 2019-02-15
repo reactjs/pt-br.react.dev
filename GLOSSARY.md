@@ -38,6 +38,7 @@ Suggestion on words and terms:
 | client-side | lado do cliente |
 | high-order components | componente de alta-ordem |
 | stateful logic | lógica com estado |
+| container | contêiner |
 
 # Content that doesn't need translation
 
