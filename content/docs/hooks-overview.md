@@ -238,7 +238,7 @@ Você pode escrever Hooks customizados que abrangem uma ampla gama de casos de u
 >
 > Você pode aprender mais sobre Hooks Customizados na sua página dedicada: [Construindo Seus Próprios Hooks](/docs/hooks-custom.html).
 
-## Outros Hooks
+## 🔌 Outros Hooks {#-other-hooks}
 
 Existem alguns Hooks internos menos utilizados que você pode achar úteis. Por exemplo, [`useContext`](/docs/hooks-reference.html#usecontext) permite subscrever-se para o context do React sem adicionar aninhamento:
 
