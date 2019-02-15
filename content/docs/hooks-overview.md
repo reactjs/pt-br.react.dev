@@ -159,7 +159,7 @@ Hooks permitem a você organizar efeitos colaterais *(side effects)* em um compo
 >
 > Você pode aprender mais sobre `useEffect` na sua página dedicada: [Utilizando o Hook de Efeito](/docs/hooks-effect.html).
 
-## Regras dos Hooks
+## Regras dos Hooks {#️-rules-of-hooks}
 
 Hooks são funções JavaScript, mas eles impões duas regras adicionais:
 
