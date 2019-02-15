@@ -68,7 +68,7 @@ React fornece alguns Hooks internos como `useState`. Você também pode criar os
 >
 >Você pode aprender mais sobre State Hook em sua página dedicada: [Utilizando o State Hook](/docs/hooks-state.html).
 
-## ⚡️ Hook de Efeito
+## ⚡️ Hook de Efeito {#️-effect-hook}
 
 Você provavelmente já realizou busca de dados, subinscrições ou mudanças manuais no DOM através de componentes React antes. Nós chamamos essas operações de "efeitos colaterais" (side effects ou resumidamente effects) porque eles podem afetar outros componentes e não podem ser feitos durante a renderização.
 
