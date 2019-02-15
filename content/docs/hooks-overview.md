@@ -14,7 +14,7 @@ Hooks são [retrocompatíveis](/docs/hooks-intro.html#no-breaking-changes). Esta
 >
 >Leia a [Motivação](/docs/hooks-intro.html#motivation) para entender porque estamos introduzindo Hooks para o React.
 
-**↑↑↑ Cada seção termina com uma caixa amarela como esta.** Eles linkam para explicações detalhadas.
+**↑↑↑ Cada seção termina com uma caixa amarela como esta.** Elas linkam para explicações detalhadas.
 
 ## 📌 State Hook {#-state-hook}
 
