@@ -396,8 +396,4 @@ import MyComponent, { someFunction } from './MyComponent.js';
 
 Enquanto a convenção para componentes de ordem superior é passar diretamente todas as props para o componente encapsulado, isso não funciona para refs. Isso acontece porque `ref` não é exatamente uma prop - tal como `key`, ela é tratada de maneira especial pelo React. Se uma ref for adicionado a um elemento cujo componente é o resultado de um HOC, a ref referenciará à instância mais externa do componente container, não ao componente encapsulado.
 
-<<<<<<< HEAD
 A solução para esse problema é usar a API `React.forwardRef` (introduzida com o React 16.3). [Saiba mais sobre ela na seção de encaminhamento de refs](/docs/forwarding-refs.html).
-=======
-The solution for this problem is to use the `React.forwardRef` API (introduced with React 16.3). [Learn more about it in the forwarding refs section](/docs/forwarding-refs.html).
->>>>>>> 99e97c33ae1a12d65c872361250f3ac92b043f38
