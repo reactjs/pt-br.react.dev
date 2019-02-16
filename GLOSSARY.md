@@ -40,9 +40,10 @@ Suggestion on words and terms:
 | stateful logic | lógica com estado |
 | container | contêiner |
 | helper function | função auxiliar |
-| siblings | ? | 
-| DOM node | ? | 
-| handler | ? |
+| siblings | irmãos | 
+| DOM node | nó do DOM | 
+| handler | manipulador |
+| event handler | manipulador de eventos (_event handler_) |
 
 
 # Content that doesn't need translation
