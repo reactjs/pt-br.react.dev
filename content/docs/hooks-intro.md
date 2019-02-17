@@ -57,7 +57,7 @@ Antes de continuar, note que Hooks são:
 
 ## Motivação {#motivation}
 
-Hooks resolvem uma variedade de problemas aparentemente desconectados em React que encontramos ao longo de cinco anos escrevendo e mantendo milhares de componentes. Esteja você aprendendo React, usando diariamente, ou até mesmo se prefere outra biblioteca com um modelo de componente parecido, você reconhecerá alguns destes problemas.
+_Hooks_ resolvem uma variedade de problemas aparentemente separados em React que encontramos ao longo de cinco anos escrevendo e mantendo milhares de componentes. Esteja você aprendendo React, usando diariamente, ou até mesmo se prefere outra biblioteca com um modelo de componente parecido, você reconhecerá alguns destes problemas.
 
 ### É Difícil Reutilizar Lógica com Estado entre Componentes {#its-hard-to-reuse-stateful-logic-between-components}
 
