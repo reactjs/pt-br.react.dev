@@ -51,7 +51,7 @@ Antes de continuar, note que Hooks são:
 
 **Não temos planos de remover classes do React.** Você pode aprender mais sobre a estratégia de adoção gradual para Hooks na [seção inferior](#gradual-adoption-strategy) desta página.
 
-**Hooks não substituem seu conhecimento dos conceitos de React.** Ao invés disso, Hooks provê uma API mais direta para os conceitos de React que você já conhece: props, state, context, refs e ciclo de vida. Como iremos mostrar em breve, Hooks também oferece uma poderosa nova forma de combiná-los.
+**Hooks não substituem seu conhecimento dos conceitos de React.** Ao invés disso, Hooks provêem uma API mais direta para os conceitos de React que você já conhece: props, state, context, refs e ciclo de vida. Como iremos mostrar em breve, Hooks também oferecem uma poderosa nova forma de combiná-los.
 
 **Se você só quiser começar a aprender Hooks, sinta-se livre para [pular direto para a próxima página!](/docs/hooks-overview.html)** Você também pode continuar lendo esta página para aprender mais sobre o porquê de estarmos adicionando Hooks e como nós iremos começar a usá-los sem reescrever nossas aplicações.
 
