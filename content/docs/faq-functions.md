@@ -180,7 +180,7 @@ class Alphabet extends React.Component {
 
 #### Exemplo: Passando parâmetros usando data-attributes {#example-passing-params-using-data-attributes}
 
-Alternativamente, você pode usar  APIs DOM para guardar os dados necessários pra os manipuladores de evento. Considere este approach se você precisa otimizar um um grande número de elementos ou tem uma render tree que depende de verificações de igualdade do React.PureComponent.
+Em vez disso, você pode usar APIs do DOM para armazenar dados necessários pra manipuladores de evento. Considere este approach caso você precise otimizar um grande número de elementos ou possua uma render tree que depende de verificações de igualdade do React.PureComponent.
 
 ```jsx
 const A = 65 // código de caractere ASCII
