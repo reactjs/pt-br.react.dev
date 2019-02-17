@@ -263,7 +263,7 @@ function Todos() {
 >
 > Você pode aprender mais sobre todos os Hooks internos na sua página dedicada: [Referência da API de Hooks](/docs/hooks-reference.html).
 
-## Próximos Passos
+## Próximos Passos {#next-steps}
 
 Ufa, essa foi rápida! Se algumas coisas não fizeram sentido ou se você quiser aprender mais detalhes, você pode ler as próximas páginas, começando com a documentação de [State Hook](/docs/hooks-state.html).
 
