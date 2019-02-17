@@ -9,7 +9,7 @@ redirect_from:
   - "docs/forms-zh-CN.html"
 ---
 
-Os elementos de formulário HTML funcionam de maneira um pouco diferente de outros elementos DOM no React, porque os elementos de formulário mantêm naturalmente algum estado interno. Por exemplo, este formulário em HTML simples aceita um único nome:
+Os elementos de formulário HTML funcionam de maneira um pouco diferente de outros elementos DOM no React, porque os elementos de formulário mantêm naturalmente algum estado interno. Por exemplo, este formulário em HTML puro aceita um único nome:
 
 ```html
 <form>
@@ -21,13 +21,13 @@ Os elementos de formulário HTML funcionam de maneira um pouco diferente de outr
 </form>
 ```
 
-Esse formulário tem o comportamento padrão do HTML de navegar para uma nova página quando o usuário enviar o formulário. Se você quer esse comportamento no React, ele funciona. Mas na maioria dos casos, é conveniente ter uma função Javascript que manipula o envio de um formulário e tem acesso aos dados que o usuário digitou nos inputs. O modo padrão de fazer isso é com uma técnica chamada "componentes controlados".
+Esse formulário tem o comportamento padrão do HTML de navegar para uma nova página quando o usuário enviar o formulário. Se você quer esse comportamento no React, ele simplesmente funciona. Mas na maioria dos casos, é conveniente ter uma função Javascript que manipula o envio de um formulário e tem acesso aos dados que o usuário digitou nos inputs. O modo padrão de fazer isso é com uma técnica chamada "componentes controlados" (controlled components).
 
-## Componentes Controlados {#controlled-components}
+## Componentes Controlados (Controlled Components) {#controlled-components}
 
 Em HTML, elementos de formulário como `<input>`, `<textarea>` e `<select>` normalmente mantêm seu próprio estado e o atualiza baseado na entrada do usuário. Em React, o estado mutável é normalmente mantido na propriedade state dos componentes e atualizado apenas com [`setState()`](/docs/react-component.html#setstate).
 
-Podemos combinar os dois fazendo o estado React ser a "única fonte da verdade". Em seguida, o componente React que renderiza um formulário também controla o que acontece nesse formulário nas entradas subsequentes do usuário. Um input cujo o valor é controlado pelo React dessa maneira é chamado de "componente controlado".
+Podemos combinar os dois fazendo o estado React ser a "única fonte da verdade". Assim, o componente React que renderiza um formulário também controla o que acontece nesse formulário nas entradas subsequentes do usuário. Um input cujo o valor é controlado pelo React dessa maneira é chamado de "componente controlado" (controlled component).
 
 Por exemplo, se quisermos que o exemplo anterior registre o nome quando ele for enviado, podemos escrever o formulário como um componente controlado:
 
@@ -68,7 +68,7 @@ class NameForm extends React.Component {
 
 Como o atributo `value` é definido no nosso `<input type="text">`, o valor exibido sempre será o mesmo de `this.state.value`, fazendo com que o estado do React seja a fonte da verdade. Como o `handleChange` é executado a cada tecla pressionada para atualizar o estado do React, o valor exibido será atualizado conforme o usuário digita.
 
-Com um componente controlado, cada mutação de estado terá uma função de manipulação associada. Isso faz com que seja simples modificar ou validar a entrada do usuário. Por exemplo, se quiséssemos impor que os nomes sejam escritos com todas as letras maiúsculas, poderíamos escrever `handleChange` como:
+Com um componente controlado, cada mutação de estado terá uma função de manipulação (handler function) associada. Isso faz com que seja simples modificar ou validar a entrada do usuário. Por exemplo, se quiséssemos impor que os nomes sejam escritos com todas as letras maiúsculas, poderíamos escrever `handleChange` como:
 
 ```javascript{2}
 handleChange(event) {
@@ -78,7 +78,7 @@ handleChange(event) {
 
 ## Tag textarea {#the-textarea-tag}
 
-Em HTML, o texto de um elemento <textarea> é definido usando seus filhos:
+Em HTML, o texto de um elemento <textarea> é definido por seus filhos:
 
 ```html
 <textarea>
@@ -86,7 +86,7 @@ Em HTML, o texto de um elemento <textarea> é definido usando seus filhos:
 </textarea>
 ```
 
-Em React, o `<textarea>` usa um atributo `value`. Desta forma, um formulário usando um `<textarea>` pode ser escrito de forma muito semelhante a um formulário que usa um input de linha única:
+Em React, em vez disso, o `<textarea>` usa um atributo `value`. Desta forma, um formulário usando um `<textarea>` pode ser escrito de forma muito semelhante a um formulário que usa um input de linha única:
 
 ```javascript{4-6,12-14,26}
 class EssayForm extends React.Component {
@@ -127,7 +127,7 @@ Observe que `this.state.value` é inicializado no construtor, para que o textare
 
 ## Tag select {#the-select-tag}
 
-Em HTML, `<select>` cria uma lista suspensa. Por exemplo, esse HTML cria uma lista suspensa de sabores:
+Em HTML, `<select>` cria uma lista suspensa (drop-down). Por exemplo, esse HTML cria uma lista suspensa de sabores:
 
 ```html
 <select>
@@ -182,7 +182,7 @@ class FlavorForm extends React.Component {
 
 No geral, isso faz com que as tags `<input type="text">`, `<textarea>` e `<select>` funcionem de forma muito semelhante - todos eles aceitam um atributo `value` que você pode usar para implementar um componente controlado.
 
-> Observação
+> Nota
 >
 > Você pode passar um array para o atributo `value`, permitindo que você selecione várias opções em uma tag `select`:
 >
@@ -190,7 +190,7 @@ No geral, isso faz com que as tags `<input type="text">`, `<textarea>` e `<selec
 ><select multiple={true} value={['B', 'C']}>
 >```
 
-## Tag de entrada de arquivo {#the-file-input-tag}
+## Tag de entrada de arquivo (file input) {#the-file-input-tag}
 
 Em HTML, o `<input type="file">` permite ao usuário escolher um ou mais arquivos de seu dispositivo para serem enviados para um servidor ou manipulados por JavaScript através da [File API](https://developer.mozilla.org/pt-BR/docs/Web/API/File/Using_files_from_web_applications).
 
@@ -198,7 +198,7 @@ Em HTML, o `<input type="file">` permite ao usuário escolher um ou mais arquivo
 <input type="file" />
 ```
 
-Como seu valor é de somente leitura, ele é um componente **não controlado** do React. É discutido melhor com outros componentes não controlados [mais adiante na documentação](/docs/uncontrolled-components.html#the-file-input-tag).
+Como seu valor é de somente leitura, ele é um componente **não controlado** do React. Esses são discutidos junto a outros componentes não controlados [mais adiante na documentação](/docs/uncontrolled-components.html#the-file-input-tag).
 
 ## Manipulando Múltiplos Inputs {#handling-multiple-inputs}
 
@@ -274,7 +274,7 @@ this.setState(partialState);
 
 Além disso, como o `setState()` automaticamente [mescla um estado parcial ao estado atual](/docs/state-and-lifecycle.html#state-updates-are-merged), nós podemos chamá-lo apenas com as partes alteradas.
 
-## Valor Nulo em um input controlado {#controlled-input-null-value}
+## Valor Nulo em um Input Controlado {#controlled-input-null-value}
 
 A especificação de uma prop `value` em um [componente controlado](/docs/forms.html#controlled-components) impede que o usuário altere a entrada, a menos que você deseje. Se você especificou uma prop `value`, mas o input ainda é editável, você pode ter acidentalmente definido o `value` como `undefined` ou `null`.
 
