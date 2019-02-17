@@ -10,15 +10,15 @@ Verificadores de tipos estáticos, como [Flow](https://flow.org/) e [TypeScript]
 
 ## Flow {#flow}
 
-[Flow](https://flow.org/) is a static type checker for your JavaScript code. It is developed at Facebook and is often used with React. It lets you annotate the variables, functions, and React components with a special type syntax, and catch mistakes early. You can read an [introduction to Flow](https://flow.org/en/docs/getting-started/) to learn its basics.
+[Flow](https://flow.org/) é um verificador de tipos estáticos para o seu código JavaScript. É desenvolvido no Facebook e frequentemente usado com o React. Ele permite que você faça anotações às variáveis, funções e componentes do React com um tipo especial de sintaxe e capture erros cedo. Você pode ler a [introdução ao Flow](https://flow.org/en/docs/getting-started/) para aprender o básico.
 
-To use Flow, you need to:
+Para usar o Flow, você precisa:
 
-* Add Flow to your project as a dependency.
-* Ensure that Flow syntax is stripped from the compiled code.
-* Add type annotations and run Flow to check them.
+* Adicionar o Flow como dependência ao seu projeto.
+* Garantir que a sintaxe do Flow é retirada do código compilado.
+* Adicionar anotações de tipo e executar o Flow para checá-las.
 
-We will explain these steps below in detail.
+Explicaremos abaixo esses passos com detalhes.
 
 ### Adding Flow to a Project {#adding-flow-to-a-project}
 
