@@ -16,7 +16,7 @@ Hooks são [retrocompatíveis](/docs/hooks-intro.html#no-breaking-changes). Esta
 
 **↑↑↑ Cada seção termina com uma caixa amarela como esta.** Elas linkam para explicações detalhadas.
 
-## 📌 State Hook {#-state-hook}
+## 📌 State Hook {#state-hook}
 
 Este exemplo renderiza um contador. Quando você clica no botão, ele incrementa o valor:
 
@@ -68,7 +68,8 @@ React fornece alguns Hooks internos como `useState`. Você também pode criar os
 >
 >Você pode aprender mais sobre State Hook em sua página dedicada: [Utilizando o State Hook](/docs/hooks-state.html).
 
-## ⚡️ Hook de Efeito {#️-effect-hook}
+
+## ⚡️ Hook de Efeito {#effect-hook}
 
 Você provavelmente já realizou obtenção de dados (data fetching), subscrições (subscriptions) ou mudanças manuais no DOM através de componentes React antes. Nós chamamos essas operações de "efeitos colaterais" (side effects ou apenas effects) porque eles podem afetar outros componentes e não podem ser feitos durante a renderização.
 
@@ -159,7 +160,7 @@ Hooks permitem a você organizar efeitos colaterais *(side effects)* em um compo
 >
 > Você pode aprender mais sobre `useEffect` na sua página dedicada: [Utilizando o Hook de Efeito](/docs/hooks-effect.html).
 
-## Regras dos Hooks {#️-rules-of-hooks}
+## ✌️ Regras dos Hooks {#rules-of-hooks}
 
 Hooks são funções JavaScript, mas eles impões duas regras adicionais:
 
@@ -172,7 +173,7 @@ Nós fornecemos um [plugin de linter](https://www.npmjs.com/package/eslint-plugi
 >
 > Você pode aprender mais sobre essas regras na sua página dedicada: [Regras dos Hooks](/docs/hooks-rules.html).
 
-## 💡 Construindo Seus Próprios Hooks {#-building-your-own-hooks}
+## 💡 Construindo Seus Próprios Hooks {#building-your-own-hooks}
 
 Às vezes, queremos reutilizar algumas lógicas de state entre componentes. Tradicionalmente, haviam duas soluções populares para este problema: [componentes de ordem superior](/docs/higher-order-components.html) e [renderização de props](/docs/render-props.html). Hooks Customizados te permitem fazer isso, mas sem adicionar mais componentes para a sua árvore.
 
@@ -238,7 +239,7 @@ Você pode escrever Hooks customizados que abrangem uma ampla gama de casos de u
 >
 > Você pode aprender mais sobre Hooks Customizados na sua página dedicada: [Construindo Seus Próprios Hooks](/docs/hooks-custom.html).
 
-## 🔌 Outros Hooks {#-other-hooks}
+## 🔌 Outros Hooks {#other-hooks}
 
 Existem alguns Hooks internos menos utilizados que você pode achar úteis. Por exemplo, [`useContext`](/docs/hooks-reference.html#usecontext) permite subscrever-se para o context do React sem adicionar aninhamento:
 
