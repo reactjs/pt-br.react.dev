@@ -67,37 +67,37 @@ npm run flow init
 
 Este comando criará um arquivo de configuração do Flow que você precisará fazer commit.
 
-### Stripping Flow Syntax from the Compiled Code {#stripping-flow-syntax-from-the-compiled-code}
+### Separando a Sintaxe do Flow do Código Compilado {#stripping-flow-syntax-from-the-compiled-code}
 
-Flow extends the JavaScript language with a special syntax for type annotations. However, browsers aren't aware of this syntax, so we need to make sure it doesn't end up in the compiled JavaScript bundle that is sent to the browser.
+O Flow estende a linguagem JavaScript com uma sintaxe especial para anotações de tipo. Entretanto, os navegadores não estão cientes desta sintaxe. Assim, precisamos ter certeza que a sintaxe do Flow não termine no código JavaScript compilado que é enviado ao navegador.
 
-The exact way to do this depends on the tools you use to compile JavaScript.
+A forma exata de fazer isso depende das ferramentas que você usa para compilar o JavaScript.
 
 #### Create React App {#create-react-app}
 
-If your project was set up using [Create React App](https://github.com/facebookincubator/create-react-app), congratulations! The Flow annotations are already being stripped by default so you don't need to do anything else in this step.
+Se o seu projeto foi configurado com [Create React App](https://github.com/facebookincubator/create-react-app), parabéns! As anotações do Flow já estão sendo retiradas por padrão, então você não precisa fazer mais nada nesta etapa.
 
 #### Babel {#babel}
 
->Note:
+>Nota:
 >
->These instructions are *not* for Create React App users. Even though Create React App uses Babel under the hood, it is already configured to understand Flow. Only follow this step if you *don't* use Create React App.
+>Estas instruções *não* são para usuário do Create React App. Apesar do Create React App usar Babel por baixo dos panos, ele já é configurado para entender o Flow. Siga estes passos somente se você *não* usa o Create React App.
 
-If you manually configured Babel for your project, you will need to install a special preset for Flow.
+Se você configurou o Babel manualmente no seu projeto, precisará instalar um preset especial para Flow.
 
-If you use Yarn, run:
+Se você usa [Yarn](https://yarnpkg.com/), execute:
 
 ```bash
 yarn add --dev babel-preset-flow
 ```
 
-If you use npm, run:
+Se você usa [npm](https://www.npmjs.com/), execute:
 
 ```bash
 npm install --save-dev babel-preset-flow
 ```
 
-Then add the `flow` preset to your [Babel configuration](https://babeljs.io/docs/usage/babelrc/). For example, if you configure Babel through `.babelrc` file, it could look like this:
+Então adicione o preset `flow` à sua [configuração do Babel](https://babeljs.io/docs/usage/babelrc/). Por exemplo, se você configura o Babel através do arquivo `.babelrc`, pode ficar parecido com isto:
 
 ```js{3}
 {
@@ -108,15 +108,15 @@ Then add the `flow` preset to your [Babel configuration](https://babeljs.io/docs
 }
 ```
 
-This will let you use the Flow syntax in your code.
+Isto permitirã que você use a sintaxe do Flow no seu código.
 
->Note:
+>Nota:
 >
->Flow does not require the `react` preset, but they are often used together. Flow itself understands JSX syntax out of the box.
+>O Flow não requer o preset `react`, mas eles são frequentemente usados juntos. O Flow por si só já vem pronto para entender a sintaxe JSX.
 
-#### Other Build Setups {#other-build-setups}
+#### Outras Configurações de Build {#other-build-setups}
 
-If you don't use either Create React App or Babel, you can use [flow-remove-types](https://github.com/flowtype/flow-remove-types) to strip the type annotations.
+Se você não usa Create React App nem Babel, você pode usar [flow-remove-types](https://github.com/flowtype/flow-remove-types) para separar as anotações de tipos.
 
 ### Running Flow {#running-flow}
 
