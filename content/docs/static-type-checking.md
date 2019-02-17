@@ -20,25 +20,25 @@ Para usar o Flow, você precisa:
 
 Explicaremos abaixo esses passos com detalhes.
 
-### Adding Flow to a Project {#adding-flow-to-a-project}
+### Adicionando Flow a um Projeto {#adding-flow-to-a-project}
 
-First, navigate to your project directory in the terminal. You will need to run the following command:
+Primeiro, use o terminal e navegue até o diretório do seu projeto. Você precisará executar o seguinte comando:
 
-If you use [Yarn](https://yarnpkg.com/), run:
+Se você usa [Yarn](https://yarnpkg.com/), execute:
 
 ```bash
 yarn add --dev flow-bin
 ```
 
-If you use [npm](https://www.npmjs.com/), run:
+Se você usa [npm](https://www.npmjs.com/), execute:
 
 ```bash
 npm install --save-dev flow-bin
 ```
 
-This command installs the latest version of Flow into your project.
+Este comando instala a versão mais recente do Flow no seu projeto.
 
-Now, add `flow` to the `"scripts"` section of your `package.json` to be able to use this from the terminal:
+Agora, adicione `flow` à seção `"scripts"` do seu `package.json` para conseguir usar isto no terminal:
 
 ```js{4}
 {
@@ -51,21 +51,21 @@ Now, add `flow` to the `"scripts"` section of your `package.json` to be able to 
 }
 ```
 
-Finally, run one of the following commands:
+Por fim, execute um dos comandos a seguir:
 
-If you use [Yarn](https://yarnpkg.com/), run:
+Se você usa [Yarn](https://yarnpkg.com/), execute:
 
 ```bash
 yarn run flow init
 ```
 
-If you use [npm](https://www.npmjs.com/), run:
+Se você usa [npm](https://www.npmjs.com/), execute:
 
 ```bash
 npm run flow init
 ```
 
-This command will create a Flow configuration file that you will need to commit.
+Este comando criará um arquivo de configuração do Flow que você precisará fazer commit.
 
 ### Stripping Flow Syntax from the Compiled Code {#stripping-flow-syntax-from-the-compiled-code}
 
