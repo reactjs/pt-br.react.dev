@@ -69,7 +69,7 @@ Este comando criará um arquivo de configuração do Flow que você precisará f
 
 ### Separando a Sintaxe do Flow do Código Compilado {#stripping-flow-syntax-from-the-compiled-code}
 
-O Flow estende a linguagem JavaScript com uma sintaxe especial para anotações de tipo. Entretanto, os navegadores não estão cientes desta sintaxe. Assim, precisamos ter certeza que a sintaxe do Flow não termine no código JavaScript compilado que é enviado ao navegador.
+O Flow estende a linguagem JavaScript com uma sintaxe especial para anotações de tipo. Entretanto, os navegadores não estão cientes desta sintaxe. Assim, precisamos ter certeza que a sintaxe do Flow não permaneça no código JavaScript compilado que é enviado ao navegador.
 
 A forma exata de fazer isso depende das ferramentas que você usa para compilar o JavaScript.
 
