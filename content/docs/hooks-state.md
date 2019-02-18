@@ -84,7 +84,7 @@ function Example(props) {
 
 Você pode ter conhecido estes exemplos como "componentes sem estado". Nós estamos introduzindo a habilidade de utilizar o state do React neles, portanto preferimos o nome "componentes de função".
 
-Hooks **não** funcionam dentro de classes. Mas você pode usá-los ao invés de escrever classes.
+Hooks **não** funcionam dentro de classes. Mas você pode usá-los em vez de escrever classes.
 
 ## O que é um Hook? {#whats-a-hook}
 
