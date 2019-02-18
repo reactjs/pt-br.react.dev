@@ -38,12 +38,13 @@ Suggestion on words and terms:
 | client-side | lado do cliente |
 | high-order components | componente de alta-ordem |
 | stateful logic | lógica com estado |
+| stateful component | componente com estado |
 | container | contêiner |
 | helper function | função auxiliar |
 | siblings | irmãos | 
 | DOM node | nó do DOM | 
 | handler | manipulador |
-| event handler | manipulador de eventos (_event handler_) |
+| event handler | manipulador de eventos (event handler) |
 
 
 # Content that doesn't need translation
