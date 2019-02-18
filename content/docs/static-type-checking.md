@@ -15,7 +15,7 @@ Verificadores de tipos estáticos, como [Flow](https://flow.org/) e [TypeScript]
 Para usar o Flow, você precisa:
 
 * Adicionar o Flow como dependência ao seu projeto.
-* Garantir que a sintaxe do Flow é retirada do código compilado.
+* Garantir que a sintaxe do Flow seja removida do código compilado.
 * Adicionar anotações de tipo e executar o Flow para checá-las.
 
 Explicaremos abaixo esses passos com detalhes.
