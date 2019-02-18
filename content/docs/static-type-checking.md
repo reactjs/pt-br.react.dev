@@ -81,7 +81,7 @@ Se o seu projeto foi configurado com [Create React App](https://github.com/faceb
 
 >Nota:
 >
->Estas instruções *não* são para usuário do Create React App. Apesar do Create React App usar Babel por baixo dos panos, ele já é configurado para entender o Flow. Siga estes passos somente se você *não* usa o Create React App.
+>Estas instruções *não* são para usuários do Create React App. Apesar do Create React App usar Babel por baixo dos panos, ele já está configurado para entender o Flow. Siga estes passos somente se você *não* usa o Create React App.
 
 Se você configurou o Babel manualmente no seu projeto, precisará instalar um preset especial para Flow.
 
