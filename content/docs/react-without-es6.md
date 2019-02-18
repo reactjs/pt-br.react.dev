@@ -132,9 +132,9 @@ var SayHello = createReactClass({
 });
 ```
 
-Isso significa que escrever classes ES6 necessita um pouco mais de código boilerplate para controladores de eventos, pelo outro lado é levemente mais performático em aplicações de larga escala.
+Isso significa que escrever classes ES6 necessita um pouco mais de código boilerplate para controladores de eventos. Por outro lado, é levemente mais performático em aplicações de larga escala.
 
-Se você acha que código boilerplate é muito feio, você pode ativar a proposta de [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) **experimentais** com Babel:
+Se você acha que código boilerplate pouco atraente, você pode ativar a proposta de [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) **experimentais** com Babel:
 
 
 ```javascript
@@ -159,7 +159,7 @@ class SayHello extends React.Component {
 }
 ```
 
-Por favor note que a sintaxe acima é **experimental** e a sintaxe pode mudar, ou ainda a proposta pode não ser implementada na linguagem.
+Por favor, notem que a sintaxe acima é **experimental** e que a sintaxe pode mudar ou ainda, a proposta pode não ser implementada na linguagem.
 
 Se você prefere jogar seguro, você tem algumas opções:
 
