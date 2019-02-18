@@ -116,7 +116,7 @@ Isto permitirã que você use a sintaxe do Flow no seu código.
 
 #### Outras Configurações de Build {#other-build-setups}
 
-Se você não usa Create React App nem Babel, você pode usar [flow-remove-types](https://github.com/flowtype/flow-remove-types) para separar as anotações de tipos.
+Se você não usa Create React App nem Babel, você pode usar [flow-remove-types](https://github.com/flowtype/flow-remove-types) para remover as anotações de tipos.
 
 ### Running Flow {#running-flow}
 
