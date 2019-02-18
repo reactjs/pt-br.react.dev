@@ -1,5 +1,5 @@
 ---
-title: Baseada em componentes
+title: Baseado em componentes
 order: 1
 ---
 

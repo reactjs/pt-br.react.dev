@@ -1,5 +1,5 @@
 ---
-title: Um Componente com Estado (Stateful)
+title: Um Componente com Estado (stateful component)
 order: 1
 domid: timer-example
 ---

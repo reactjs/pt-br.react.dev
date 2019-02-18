@@ -1,5 +1,5 @@
 ---
-title: Declarativa
+title: Declarativo
 order: 0
 ---
 
