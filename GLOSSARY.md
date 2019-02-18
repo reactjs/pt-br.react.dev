@@ -1,14 +1,14 @@
-# Style Guide
+# Guia de Estilo
 
-* Leave code blocks untranslated -- It is usually OK to translate comments and strings inside them.
-* Links to references (MDN, Wikipedia) should point to the Portuguese version.
-* When referring to `React` itself, use `o React`.
+* Não traduza os blocos de código -- Porém atente-se aos comentários, também é aceitável traduzir as strings dentro dos blocos. 
+* Links de referência (MDN, Wikipedia) devem apontar para a versão Portuguesa.
+* Quando se referir ao prório `React`, use `o React`.
 
-# Common Translations
+# Traduções Comuns
 
-Suggestion on words and terms:
+Sugestões de palavras e termos:
 
-| Original word/term | Suggestion |
+| Palavra/Termo original | Sugestão |
 | ------------------ | ---------- |
 | bubbling | propagar |
 | bug | erro |
@@ -47,7 +47,7 @@ Suggestion on words and terms:
 | event handler | manipulador de eventos (event handler) |
 
 
-# Content that doesn't need translation
+# Conteúdo que não deve ser traduzido
 
 * array
 * arrow function
