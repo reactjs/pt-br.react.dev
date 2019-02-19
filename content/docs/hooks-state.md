@@ -28,9 +28,9 @@ function Example() {
 }
 ```
 
-Vamos começar aprendendo sobre Hooks comparando este código com um exemplo equivalente a classe.
+Vamos começar a aprender sobre Hooks comparando este código com um exemplo equivalente utilizando classe.
 
-## Exemplo equivalente a Classe {#equivalent-class-example}
+## Exemplo equivalente com Classe {#equivalent-class-example}
 
 Se você já usou classes no React, este código deve parecer familiar:
 
