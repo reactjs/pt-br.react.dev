@@ -1,8 +1,9 @@
 # Guia de Estilo
 
 * Não traduza os blocos de código -- Porém atente-se aos comentários, também é aceitável traduzir as strings dentro dos blocos. 
-* Links de referência (MDN, Wikipedia) devem apontar para a versão Portuguesa.
+* Links de referência (MDN, Wikipedia) devem apontar para a versão em Português.
 * Quando se referir ao prório `React`, use `o React`.
+* Também é recomendado seguir a [Universal Style Guide](https://github.com/reactjs/reactjs.org-translation/blob/master/style-guide.md)
 
 # Traduções Comuns
 
