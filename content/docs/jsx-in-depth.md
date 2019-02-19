@@ -47,7 +47,7 @@ React.createElement(
 )
 ```
 
-Se você quer testar como um JSX em específico é convertido em JavaScript você pode user [o compliador online do Babel](babel://jsx-simple-example).
+Se você quer testar como um JSX em específico é convertido em JavaScript você pode user [o compilador online do Babel](babel://jsx-simple-example).
 
 ## Especificando o Tipo do Elemento React {#specifying-the-react-element-type}
 
@@ -55,9 +55,9 @@ A primeira parte de uma tag JSX determina o tipo do elemento React.
 
 Tipos começando com letra maiúscula se referem a um componente React. Essas tags são compiladas para uma referência direta da variável nomeada, então se você usar a expressão JSX `<Foo />`, `Foo` tem que estar no escopo.
 
-### React Tem Que Estar no Escopo{#react-must-be-in-scope}
+### O React Tem Que Estar no Escopo{#react-must-be-in-scope}
 
-Já que JSX compila para chamadas para `React.createElement`, a biblioteca `React` também tem sempre que estar no escopo do seu código JSX.
+Já que JSX compila em chamadas para `React.createElement`, a biblioteca `React` também tem sempre que estar no escopo do seu código JSX.
 
 Por exemplo, os dois imports são necessários nesse código, apesar de que `React` e `CustomButton` não são referenciados diretamente pelo JavaScript:
 
@@ -73,7 +73,7 @@ function WarningButton() {
 
 Se você não usa um bundler JavaScript e carrega o React de uma tag `<script>`, ele já estará no escopo global como `React`.
 
-### Usando Notação Pontuada (_dot-notation_) Para Tipos JSX {#using-dot-notation-for-jsx-type}
+### Usando Notação Pontuada (_Dot Notation_) Para Tipos JSX {#using-dot-notation-for-jsx-type}
 
 Você também pode se referir a um componente React usando notação pontuada no próprio JSX. Isso é conveniente se você tem um único módulo que exporta vários componentes React. Por exemplo, se `MyComponents.DatePicker` é um componente, você pode usá-lo diretamente no JSX como:
 
@@ -87,7 +87,7 @@ const MyComponents = {
 }
 
 function BlueDatePicker() {
-  return <MyComponents.DatePicker color="azul" />;
+  return <MyComponents.DatePicker color="blue" />;
 }
 ```
 
@@ -109,12 +109,12 @@ function hello(props) {
 }
 
 function HelloWorld() {
-  // Errado! React pensa que <hello /> é uma tag HTML porque não começa com letra maiúscula:
+  // Errado! O React pensa que <hello /> é uma tag HTML porque não começa com letra maiúscula:
   return <hello toWhat="World" />;
 }
 ```
 
-Para consertar isso, nós vamos renomear `hello` para `Hello` e usar `<Hello />` quando nos referirmos a ele::
+Para consertar isso, nós vamos renomear `hello` para `Hello` e usar `<Hello />` quando nos referirmos a ele:
 
 ```js{3,4,10,11}
 import React from 'react';
@@ -126,7 +126,7 @@ function Hello(props) {
 }
 
 function HelloWorld() {
-  // Correto! React sabe que <Hello /> é um componente porque ele começa com letra maiúscula.
+  // Correto! O React sabe que <Hello /> é um componente porque ele começa com letra maiúscula.
   return <Hello toWhat="World" />;
 }
 ```
@@ -145,7 +145,7 @@ const components = {
 };
 
 function Story(props) {
-  // Errado! O tipo JSX type não pode ser uma expressão.
+  // Errado! O tipo do JSX não pode ser uma expressão.
   return <components[props.storyType] story={props.story} />;
 }
 ```
@@ -162,7 +162,7 @@ const components = {
 };
 
 function Story(props) {
-  // Correcto! O tipo JSX pode ser uma varíavel começando com letra maiúscula.
+  // Correto! O tipo JSX pode ser uma variável começando com letra maiúscula.
   const SpecificStory = components[props.storyType];
   return <SpecificStory story={props.story} />;
 }
@@ -172,7 +172,7 @@ function Story(props) {
 
 Existem várias maneiras de especificar uma prop em JSX.
 
-### Expressões JavaScript como prop {#javascript-expressions-as-props}
+### Expressões JavaScript como Props {#javascript-expressions-as-props}
 
 Você pode passar qualquer expressão JavaScript como prop, colocando ela em volta de `{}`. Por exemplo, nesse JSX:
 
@@ -180,19 +180,19 @@ Você pode passar qualquer expressão JavaScript como prop, colocando ela em vol
 <MyComponent foo={1 + 2 + 3 + 4} />
 ```
 
-Para `MyComponent`, o valor de `props.foo` será `10` porque a expressão `1 + 2 + 3 + 4` é avaliada.
+Para `MyComponent`, o valor de `props.foo` será `10` porque a expressão `1 + 2 + 3 + 4` é calculada.
 
-Declarações `if` e loops `for` não são expressões em JavaScript, então elas não podem ser usadas no JSX diretamente. Ao invés disso, você pode coloca-las no código ao redor. Por exemplo:
+Declarações `if` e loops `for` não são expressões em JavaScript, então elas não podem ser usadas no JSX diretamente. Ao invés disso, você pode colocá-las no código ao redor. Por exemplo:
 
 ```js{3-7}
 function NumberDescriber(props) {
   let description;
   if (props.number % 2 == 0) {
-    description = <strong>par</strong>;
+    description = <strong>even</strong>;
   } else {
-    description = <i>ímpar</i>;
+    description = <i>odd</i>;
   }
-  return <div>{props.number} é um número {description} </div>;
+  return <div>{props.number} is an {description} number</div>;
 }
 ```
 
@@ -232,7 +232,7 @@ No geral, nós não recomendamos seu uso porque pode ser confundido com [abrevia
 
 ### Atributos com Spread {#spread-attributes}
 
-Se você já tiver `props` como um objeto, e você quer passá-la no JSX, você pode usar  `...` como um operador "spread" para passar todo o objeto props. Esses dois componentes são equivalentes:
+Se você já tiver `props` como um objeto, e você quer passá-la no JSX, você pode usar `...` como um operador "spread" para passar todo o objeto props. Esses dois componentes são equivalentes:
 
 ```js{7}
 function App1() {
@@ -268,11 +268,11 @@ const App = () => {
 No exemplo acima, a prop `kind` é consumida em segurança *e não* é passada para o elemento `<button>` no DOM.
 Todas as outras props são passadas pelo objeto `...other` tornando esse componente bastante flexível. Você pode ver que ele passa as props `onClick` e `children`.
 
-Atributos spread podem ser utéis mas eles faciltam a passagem de props desnecessárias para componentes que não precisar delas ou a passagem de atributos HTML inválidos para o DOM. Nós recomendamos usá-lo com moderação.  
+Atributos spread podem ser úteis mas eles facilitam a passagem de props desnecessárias para componentes que não precisam delas ou a passagem de atributos HTML inválidos para o DOM. Nós recomendamos usá-lo com moderação.  
 
 ## Elementos Filhos em JSX {#children-in-jsx}
 
-Nas expressões JSX que contêm tags para abrir e tags para fechar, o contéudo entre essas tags é passado na forma de uma prop especial `props.children`. Existem diversas formas diferentes de passar essa prop children:
+Nas expressões JSX que contêm tags para abrir e tags para fechar, o conteúdo entre essas tags é passado na forma de uma prop especial `props.children`. Existem diversas formas diferentes de passar essa prop children:
 
 ### Strings Literais {#string-literals-1}
 
@@ -288,7 +288,7 @@ Esse é um JSX válido, e `props.children` em `MyComponent` será a string `"Hel
 <div>Esse é um HTML válido &amp; e JSX ao mesmo tempo.</div>
 ```
 
-O JSX remove espaços em branco no início e no final da linha. Ele também remove linhas vazias. Linhas novas adjacentes a tags são removidas; novas linhas que ocorrem no meio de uma strnig literal são condensadas em um único espaço. Então todos esses são renderizados da mesma forma:
+O JSX remove espaços em branco no início e no final da linha. Ele também remove linhas vazias. Linhas novas adjacentes a tags são removidas; novas linhas que ocorrem no meio de uma string literal são condensadas em um único espaço. Então todos esses são renderizados da mesma forma:
 
 ```js
 <div>Hello World</div>
@@ -337,7 +337,7 @@ Um componente React pode retornar um array de elementos:
 render() {
   // Não há necessidade de envolver uma lista de itens em um elemento extra!
   return [
-    // Don't forget the keys :)
+    // Não esqueça das keys :)
     <li key="A">First item</li>,
     <li key="B">Second item</li>,
     <li key="C">Third item</li>,
@@ -403,7 +403,7 @@ function ListOfTenThings() {
 }
 ```
 
-Elementos filhos passados a um componente customizado podem ser qualquer coisa, contato que aquele componente transforme-os em algo que o React possa entender antes de renderiza-lo. Esse tipo de uso não é comum, mas funciona se você quiser extender o que o JSX é capaz.
+Elementos filhos passados a um componente customizado podem ser qualquer coisa, contanto que aquele componente transforme-os em algo que o React possa entender antes de renderizá-lo. Esse tipo de uso não é comum, mas funciona se você quiser estender o que o JSX é capaz.
 
 ### Booleans, Null, e Undefined são Ignorados {#booleans-null-and-undefined-are-ignored}
 
