@@ -13,7 +13,7 @@ redirect_from:
   - "docs/jsx-in-depth-ko-KR.html"
 ---
 
-Fundamentalmente, JSX é somente um syntatic sugar para a função `React.createElement(component, props, ...children)`. O código JSX:
+Fundamentalmente, JSX é somente um açúcar sintático (syntatic sugar) para a função `React.createElement(component, props, ...children)`. O código JSX:
 
 ```js
 <MyButton color="blue" shadowSize={2}>
@@ -198,7 +198,7 @@ function NumberDescriber(props) {
 
 Você pode aprender mais sobre [renderização condicional](/docs/conditional-rendering.html) e [loops](/docs/lists-and-keys.html) nas seções correspondentes.
 
-### Strings Literais {#string-literals}
+### String Literals {#string-literals}
 
 Você pode passar uma string literal como uma prop. Essas duas expressões JSX são equivalentes:
 
@@ -274,7 +274,7 @@ Atributos spread podem ser úteis mas eles facilitam a passagem de props desnece
 
 Nas expressões JSX que contêm tags para abrir e tags para fechar, o conteúdo entre essas tags é passado na forma de uma prop especial `props.children`. Existem diversas formas diferentes de passar essa prop children:
 
-### Strings Literais {#string-literals-1}
+### String Literals {#string-literals-1}
 
 Você pode por uma string entre tags que abrem e tags que fecham e `props.children` será essa string. Isso é útil para vários dos elementos HTML internos. Por exemplo:
 
@@ -319,7 +319,7 @@ Você pode fornecer mais elementos JSX como elementos filhos. Isso é útil para
 </MyContainer>
 ```
 
-Você pode misturar elementos filhos de tipos diferentes, então você pode usar string literais com elementos filhos JSX. Essa é outra forma em que o JSX é como o HTML, então isso é ao mesmo tempo um HTML e um JSX válido:
+Você pode misturar elementos filhos de tipos diferentes, então você pode usar string literals com elementos filhos JSX. Essa é outra forma em que o JSX é como o HTML, então isso é ao mesmo tempo um HTML e um JSX válido:
 
 ```html
 <div>
