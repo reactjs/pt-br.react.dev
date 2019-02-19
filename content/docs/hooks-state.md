@@ -225,7 +225,7 @@ Você pode ter percebido os colchetes quando declaramos a variável state:
   const [count, setCount] = useState(0);
 ```
 
-Os nomes na esquerda não são parte da API do React. Você pode nomear suas prórias variáveis `state`:
+Os nomes na esquerda não são parte da API do React. Você pode nomear suas próprias variáveis `state`:
 
 ```js
   const [fruit, setFruit] = useState('banana');
