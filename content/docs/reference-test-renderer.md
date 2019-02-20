@@ -214,7 +214,7 @@ A instância do componente correspondente a essa instância de teste. Está disp
 testInstance.type
 ```
 
-O tipo de componente correspondente a essa instância de teste. Por exemplo, um componente `<Button />` tem um tipo de `Button`.
+O tipo de componente correspondente a essa instância de teste. Por exemplo, um componente `<Button />` tem o tipo `Button`.
 
 ### `testInstance.props` {#testinstanceprops}
 
