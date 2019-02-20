@@ -663,24 +663,24 @@ function useEventCallback(fn, dependencies) {
 Em ambos os casos, **não recomendamos esse padrão** e só estamos mostrando aqui para integralidade. É melhor [evitar passar callbacks para baixo](#how-to-avoid-passing-callbacks-down).
 
 
-## Under the Hood {#under-the-hood}
+## Por detrás das cortinas {#under-the-hood}
 
-### How does React associate Hook calls with components? {#how-does-react-associate-hook-calls-with-components}
+### Como o React associa chamadas de Hooks com componentes? {#how-does-react-associate-hook-calls-with-components}
 
-React keeps track of the currently rendering component. Thanks to the [Rules of Hooks](/docs/hooks-rules.html), we know that Hooks are only called from React components (or custom Hooks -- which are also only called from React components).
+React acompanha o componente que está renderizando. Graças as [Regras dos Hooks](/docs/hooks-rules.html), sabemos que Hooks são chamados somentes dentro de componentes React (ou Hooks custom -- que também só são chamados dentro de componentes React).
 
-There is an internal list of "memory cells" associated with each component. They're just JavaScript objects where we can put some data. When you call a Hook like `useState()`, it reads the current cell (or initializes it during the first render), and then moves the pointer to the next one. This is how multiple `useState()` calls each get independent local state.
+Existe uma lista interna de "células de memória" associadas a cada componente. Elas são somente objetos JavaScript aonde podemos colocar alguns dados. Quando você chama um Hook como `useState()`, é lido a célula atual (ou inicializada durante a primeira renderização), e então move o ponteiro para a próxima.é assim que múltiplas chamadas de `useState()` recebem seu estado local independente.
 
-### What is the prior art for Hooks? {#what-is-the-prior-art-for-hooks}
+### Quais são as referências que influênciaram a criação dos Hooks? {#what-is-the-prior-art-for-hooks}
 
-Hooks synthesize ideas from several different sources:
+Hooks sintetizam ideias de diferentes fontes:
 
-* Our old experiments with functional APIs in the [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) repository.
-* React community's experiments with render prop APIs, including [Ryan Florence](https://github.com/ryanflorence)'s [Reactions Component](https://github.com/reactions/component).
-* [Dominic Gannaway](https://github.com/trueadm)'s [`adopt` keyword](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) proposal as a sugar syntax for render props.
-* State variables and state cells in [DisplayScript](http://displayscript.org/introduction.html).
-* [Reducer components](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) in ReasonReact.
-* [Subscriptions](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) in Rx.
-* [Algebraic effects](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) in Multicore OCaml.
+* Nossos velhos experimentos com APIs funcionais no repositório [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State).
+* Experimentos feitos pela comunidade do React com as APIs de render props, incluindo [Reactions Component](https://github.com/reactions/component) feito por [Ryan Florence](https://github.com/ryanflorence).
+* A proposta da [palavra chave `adopt`](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) como um auxiliar para render props, feito por [Dominic Gannaway](https://github.com/trueadm).
+* Variáveis de estado e células de estado em [DisplayScript](http://displayscript.org/introduction.html).
+* [Componentes Reducer](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) em ReasonReact.
+* [Subscriptions](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) em Rx.
+* [Efeitos algébricos](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) em Multicore OCaml.
 
-[Sebastian Markbåge](https://github.com/sebmarkbage) came up with the original design for Hooks, later refined by [Andrew Clark](https://github.com/acdlite), [Sophie Alpert](https://github.com/sophiebits), [Dominic Gannaway](https://github.com/trueadm), and other members of the React team.
+[Sebastian Markbåge](https://github.com/sebmarkbage) criou o design original de Hooks, refinado posteriormente por [Andrew Clark](https://github.com/acdlite), [Sophie Alpert](https://github.com/sophiebits), [Dominic Gannaway](https://github.com/trueadm), e outros membros do time principal do React.
