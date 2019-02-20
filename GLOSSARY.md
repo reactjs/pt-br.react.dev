@@ -65,6 +65,7 @@ Suggestion on words and terms:
 * ref
 * state
 * string
+* string literal
 * template literal
 * UI
 * log
