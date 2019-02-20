@@ -15,50 +15,55 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
-This page contains a detailed API reference for the React component class definition. It assumes you're familiar with fundamental React concepts, such as [Components and Props](/docs/components-and-props.html), as well as [State and Lifecycle](/docs/state-and-lifecycle.html). If you're not, read them first.
 
-## Overview {#overview}
+Esta página contem uma referência detalhada da API para a definição de classes de componentes React. Nós assumimos que você possui familiaridade com conceitos fundamentais do React, como [Componentes e Props](/docs/components-and-props.html), bem como [State e Lifecycle](/docs/state-and-lifecycle.html). Se isto não é familiar para você, leia essas páginas primeiro.
 
-React lets you define components as classes or functions. Components defined as classes currently provide more features which are described in detail on this page. To define a React component class, you need to extend `React.Component`:
+
+## Visão Geral {#overview}
+
+React permite definirmos componentes como classes ou como funções. Componentes definidos como classes possuem mais funcionalidades que serão detalhadas nesta página. Para definir uma classe componente, ela precisa estender a classe `React.Component`:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Olá, {this.props.name}</h1>;
   }
 }
 ```
 
-The only method you *must* define in a `React.Component` subclass is called [`render()`](#render). All the other methods described on this page are optional.
+O único método que você *deve* definir em uma subclasse de `React.Component` é chamado [`render()`](#render). Todos os outros métodos descritos nesta página são opcionais.
 
-**We strongly recommend against creating your own base component classes.** In React components, [code reuse is primarily achieved through composition rather than inheritance](/docs/composition-vs-inheritance.html).
+**Nós somos fortemente contra a criação de seus próprios componentes base.** Em componentes React, [O reuso do código é obtido primariamente através de composição ao invés de herança]
+(/docs/composition-vs-inheritance.html).
 
->Note:
+>Nota:
 >
->React doesn't force you to use the ES6 class syntax. If you prefer to avoid it, you may use the `create-react-class` module or a similar custom abstraction instead. Take a look at [Using React without ES6](/docs/react-without-es6.html) to learn more.
+>React não te obriga a utilizar a sintaxe ES6 para classes. Se preferir não usá-la, você pode usar o módulo `create-react-class` ou alguma outra abstração similar. Dê uma olhada em 
+[Usando React sem ES6](/docs/react-without-es6.html) para mais sobre este assunto.
 
-### The Component Lifecycle {#the-component-lifecycle}
+### O Ciclo de vida de um Componente {#ciclo-de-vida-de-componentes}
 
-Each component has several "lifecycle methods" that you can override to run code at particular times in the process. **You can use [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) as a cheat sheet.** In the list below, commonly used lifecycle methods are marked as **bold**. The rest of them exist for relatively rare use cases.
+Cada componente possui muitos "métodos do ciclo de vida" que você pode sobrescrever para executar determinado código em momentos particulares do processo. **Você pode usar [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) para consulta.** Na lista abaixo, os métodos do ciclo de vida mais usados estão marcados em **negrito**. O resto deles, existe para o uso em casos relativamente raros.
 
-#### Mounting {#mounting}
+#### Montando {#montando}
 
-These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
+Estes métodos são chamados na seguinte ordem quando uma instância de um componente está sendo criada e inserida no DOM:
+
 
 - [**`constructor()`**](#constructor)
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [**`render()`**](#render)
 - [**`componentDidMount()`**](#componentdidmount)
 
->Note:
+>Nota:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>Estes métodos são considerados legado e você deve [evitá-los]/blog/2018/03/27/update-on-async-rendering.html) em código novo:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
-#### Updating {#updating}
+#### Atualizando {#atualizando}
 
-An update can be caused by changes to props or state. These methods are called in the following order when a component is being re-rendered:
+Uma atualização pode ser causada por alterações em props ou no state. Estes métodos são chamados na seguinte ordem quando um componente esta sendo re-renderizado:
 
 - [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
@@ -66,50 +71,49 @@ An update can be caused by changes to props or state. These methods are called i
 - [`getSnapshotBeforeUpdate()`](#getsnapshotbeforeupdate)
 - [**`componentDidUpdate()`**](#componentdidupdate)
 
->Note:
+>Nota:
 >
->These methods are considered legacy and you should [avoid them](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>Estes métodos são considerados legado e você deve [evitá-los]/blog/2018/03/27/update-on-async-rendering.html) em código novo:
 >
 >- [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 >- [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
 
-#### Unmounting {#unmounting}
+#### Desmontando {#desmontando}
 
-This method is called when a component is being removed from the DOM:
+Estes métodos são chamados quando um componente está sendo removido do DOM:
 
 - [**`componentWillUnmount()`**](#componentwillunmount)
 
-#### Error Handling {#error-handling}
+#### Tratando erros {#tratando-erros}
 
-These methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
+Estes métodos são chamados quando existir um erro durante a renderização, em um método do ciclo de vida, ou no construtor de qualquer componente-filho.
 
 - [`static getDerivedStateFromError()`](#static-getderivedstatefromerror)
 - [`componentDidCatch()`](#componentdidcatch)
 
-### Other APIs {#other-apis}
+### Outras APIs {#outras-apis}
 
-Each component also provides some other APIs:
+Cada componente também fornece outras APIs:
 
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
 
-### Class Properties {#class-properties}
+### Propriedades de Classes {#propriedades-de-classes}
 
   - [`defaultProps`](#defaultprops)
   - [`displayName`](#displayname)
 
-### Instance Properties {#instance-properties}
+### Propriedades da instância {#propriedades-da-instância}
 
   - [`props`](#props)
   - [`state`](#state)
 
 * * *
 
-## Reference {#reference}
+## Referencia {#referencia}
 
-### Commonly Used Lifecycle Methods {#commonly-used-lifecycle-methods}
-
-The methods in this section cover the vast majority of use cases you'll encounter creating React components. **For a visual reference, check out [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
+### Métodos mais usados do Ciclo de Vida {#métodos-mais-usados-do-ciclo-de-vida}
+Os métodos desta seção cobrem a grande maioria dos casos de uso que você encontrará criando componentes React. **Para uma referência visual, veja : [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
 
 ### `render()` {#render}
 
