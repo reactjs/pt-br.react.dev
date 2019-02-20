@@ -108,7 +108,7 @@ Então adicione o preset `flow` à sua [configuração do Babel](https://babeljs
 }
 ```
 
-Isto permitirã que você use a sintaxe do Flow no seu código.
+Isto permitirá que você use a sintaxe do Flow no seu código.
 
 >Nota:
 >
