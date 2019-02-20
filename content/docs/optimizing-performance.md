@@ -1,20 +1,20 @@
 ---
 id: optimizing-performance
-title: Optimizando performance
+title: Otimizando performance
 permalink: docs/optimizing-performance.html
 redirect_from:
   - "docs/advanced-performance.html"
 ---
 
-Internamente, React usa diversas técnicas inteligentes para minimizar o número de operações custosas de DOM que são requiridas para alterar a UI. Para muitas aplicações que usam React, elas terão uma rápida interface sem fazer muito esforço para optimizar performance. No entanto, existem diversas maneiras para acelerar sua aplicação React.
+Internamente, React usa diversas técnicas inteligentes para minimizar o número de operações custosas de DOM que são necessárias para alterar a UI. Para muitas aplicações, utilizar React fará com que elas tenham uma rápida interface sem fazer muito esforço para otimizar performance. No entanto, existem diversas maneiras para acelerar sua aplicação React.
 
-## Usando em produção {#use-the-production-build}
+## Use a build de produção {#use-the-production-build}
 
-Se vocuê está fazendo benchmarking ou tendo problemas de performance em suas aplicações React, tenha certeza que você está testando com a build de produção.
+Se você está fazendo benchmarking ou tendo problemas de performance em suas aplicações React, tenha certeza que você está testando com a build de produção.
 
 Por padrão, o React inclui diversos avisos úteis. Esses avisos são muito úteis em desenvolvimento. Contudo, eles tornam o React maior e mais lento, então você precisa ter certeza que está usando a versão de produção quando faz a publicação de seu app.
 
-Se você não tem certeza se seu processo de build está configurado corretamente, você pode checar instalando [a extensão React Developer Tools para o Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). Se você visitar um site que usa React em produção, o ícone terá uma cor de fundo escura:
+Se você não tem certeza se seu processo de build está configurado corretamente, você pode verificar instalando a extensão [React Developer Tools para o Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi). Se você visitar um site que usa React em produção, o ícone terá uma cor de fundo escura:
 
 <img src="../images/docs/devtools-prod.png" style="max-width:100%" alt="React DevTools em um site com a versão de produção do React">
 
