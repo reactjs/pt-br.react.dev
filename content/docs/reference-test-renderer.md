@@ -230,7 +230,7 @@ The props corresponding to this test instance. For example, a `<Button size="sma
 testInstance.parent
 ```
 
-The parent test instance of this test instance.
+A instância de teste pai desta instância de teste.
 
 ### `testInstance.children` {#testinstancechildren}
 
@@ -238,13 +238,13 @@ The parent test instance of this test instance.
 testInstance.children
 ```
 
-The children test instances of this test instance.
+As instâncias de testes filhas desta instância de teste.
 
-## Ideas {#ideas}
+## Ideias {#ideas}
 
-You can pass `createNodeMock` function to `TestRenderer.create` as the option, which allows for custom mock refs.
-`createNodeMock` accepts the current element and should return a mock ref object.
-This is useful when you test a component that relies on refs.
+Você pode passar a função `createNodeMock` para `TestRenderer.create` como opção, que permite mocks personalizados de refs.
+`createNodeMock` aceita o elemento atual e deve retornar um objeto mock de ref.
+Isso é útil quando você testa um componente que depende de refs.
 
 ```javascript
 import TestRenderer from 'react-test-renderer';
@@ -268,7 +268,7 @@ TestRenderer.create(
   {
     createNodeMock: (element) => {
       if (element.type === 'input') {
-        // mock a focus function
+        // mock de uma função de focus
         return {
           focus: () => {
             focused = true;
