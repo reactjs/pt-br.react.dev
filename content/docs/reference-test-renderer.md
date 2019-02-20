@@ -182,7 +182,7 @@ Encontra uma única instância de teste descendente com os `props` fornecidos. S
 testInstance.findAll(test)
 ```
 
-Encontra todas as instâncias de teste descendentes para as quais `test (testInstance)` retorne `true`.
+Encontra todas as instâncias de teste descendentes para as quais `test(testInstance)` retorne `true`.
 
 ### `testInstance.findAllByType()` {#testinstancefindallbytype}
 
