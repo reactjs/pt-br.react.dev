@@ -319,17 +319,17 @@ In the above examples, it is important to read the `scrollHeight` property in `g
 
 ### Error boundaries {#error-boundaries}
 
-[Error boundaries](/docs/error-boundaries.html) are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+Os *[error boundaries](/docs/error-boundaries.html)* são componentes React que realizam o *catch* de erros de JavaScript em qualquer parte da sua árvore de componentes filhos, realiza o *log* destes erros e exibe uma UI de *fallback* ao invés da árvore de componentes que quebrou. Os *Error boundary* realizam o *catch* de erros durante a renderização, nos métodos do lifecycle e em construtores de toda a sua árvore descendente.
 
-A class component becomes an error boundary if it defines either (or both) of the lifecycle methods `static getDerivedStateFromError()` or `componentDidCatch()`. Updating state from these lifecycles lets you capture an unhandled JavaScript error in the below tree and display a fallback UI.
+Um *class component* se torna um *error boundary* caso ele defina um dos (ou ambos) métodos do lifecycle `static getDerivedStateFromError()` ou `componentDidCatch()`. Atualizar o *state* a partir destes lifecycles permite que você capture um erro JavaScript não tratado na árvore de descendentes e exiba uma UI de *fallback*.
 
-Only use error boundaries for recovering from unexpected exceptions; **don't try to use them for control flow.**
+Somente utilize *error boundaries* para recuperação de exceções inesperadas; **não tente utilizá-lo para controlar o fluxo.**
 
-For more details, see [*Error Handling in React 16*](/blog/2017/07/26/error-handling-in-react-16.html).
+Para mais detalhes, veja *[Tratamento de Erros no React 16](/blog/2017/07/26/error-handling-in-react-16.html)*.
 
-> Note
-> 
-> Error boundaries only catch errors in the components **below** them in the tree. An error boundary can’t catch an error within itself.
+> Nota
+>
+> Os *error boundaries* somente realizam *catch* nos componentes **abaixo** dele na árvore. Um *error boundary* não pode realizar o *catch* de um erro dentro de si próprio.
 
 ### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
 ```javascript
