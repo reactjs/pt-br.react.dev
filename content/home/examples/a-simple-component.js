@@ -9,6 +9,6 @@ class HelloMessage extends React.Component {
 }
 
 ReactDOM.render(
-  <HelloMessage name="Daniel" />,
+  <HelloMessage name="Taylor" />,
   document.getElementById('hello-example')
 );
