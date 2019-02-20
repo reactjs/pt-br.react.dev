@@ -6,7 +6,7 @@ redirect_from:
   - "docs/advanced-performance.html"
 ---
 
-Internamente, React usa diversas técnicas inteligentes para minimizar o número de operações custosas de DOM que são necessárias para alterar a UI. Para muitas aplicações, utilizar React fará com que elas tenham uma rápida interface sem fazer muito esforço para otimizar performance. No entanto, existem diversas maneiras para acelerar sua aplicação React.
+Internamente, o React usa diversas técnicas inteligentes para minimizar o número de operações custosas de DOM que são necessárias para alterar a UI. Para muitas aplicações, utilizar React fará com que elas tenham uma rápida interface sem fazer muito esforço para otimizar performance. No entanto, existem diversas maneiras para acelerar sua aplicação React.
 
 ## Use a build de produção {#use-the-production-build}
 
@@ -47,7 +47,7 @@ Nós oferecemos versões de produção prontas do React e React DOM com arquivos
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 ```
 
-Lembre que somente arquivos React acabando com `.production.min.js` são adequados para produção.
+Lembre que somente arquivos React terminados com `.production.min.js` são adequados para produção.
 
 ### Brunch {#brunch}
 
@@ -57,7 +57,7 @@ Para uma Brunch build de produção mais eficiente, instale o [`uglify-js-brunch
 # Se você usa npm
 npm install --save-dev uglify-js-brunch
 
-# Se você usar Yarn
+# Se você usa Yarn
 yarn add --dev uglify-js-brunch
 ```
 
@@ -81,11 +81,11 @@ npm install --save-dev envify uglify-js uglifyify
 yarn add --dev envify uglify-js uglifyify 
 ```
 
-Para criar uma build de produção, tenha certeza que você adicionou esses transforms, **(a ordem faz diferença)**
+Para criar uma build de produção, tenha certeza que você adicionou esses transforms **(a ordem faz diferença):**
 
 * O [`envify`](https://github.com/hughsk/envify) assegura que o ambiente que a build está configurado é o correto. Torne ele global (`-g`).
 * O [`uglifyify`](https://github.com/hughsk/uglifyify) remove os imports de desenvolvimento. Torna ele global também (`-g`).
-* Finalmente, o bundle gerado é enviado para o [`uglify-js`](https://github.com/mishoo/UglifyJS2) para enxutar ([read why](https://github.com/hughsk/uglifyify#motivationusage)).
+* Finalmente, o bundle gerado é enviado para o [`uglify-js`](https://github.com/mishoo/UglifyJS2) para enxutar ([entenda o porquê](https://github.com/hughsk/uglifyify#motivationusage)).
 
 Por exemplo:
 
@@ -117,7 +117,7 @@ yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify
 
 Para criar uma build de produção, tenha certeza que você adicionou esses plugins, **(a ordem faz diferença)**
 
-* O [`replace`](https://github.com/rollup/rollup-plugin-replace) assegura que o ambiente que a build está configurado é o correto.
+* O [`replace`](https://github.com/rollup/rollup-plugin-replace) assegura que o ambiente em que a build está configurado é o correto.
 * O [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) fornece suporte para CommonJS no Rollup.
 * O [`uglify`](https://github.com/TrySound/rollup-plugin-uglify) comprime e enxuta o bundle final.
 
@@ -209,7 +209,7 @@ Se sua aplicação renderiza longas listas de informação (milhares ou centenas
 
 ## Evite recompilação {#avoid-reconciliation}
 
-O React cria e mantem sua representação interna da renderização UI. Ele inclui os elementos do React retornados pelos seus componentes. Essa representação evita que o React crie nós DOM e acesse os existes sem necessidade, além do que essas operações podem ser mais lentas do que operações em objetos JavaScript. Algumas vezes esse processo é referenciado como "virtual DOM", mas ele funciona da mesma forma no React Native.
+O React cria e mantém sua representação interna da UI renderizada. Ele inclui os elementos do React que você retorna dos seus componentes. Essa representação evita que o React crie nós no DOM e acesse os existes sem necessidade, além do que essas operações podem ser mais lentas do que operações em objetos JavaScript. Algumas vezes esse processo é referenciado como "virtual DOM", mas ele funciona da mesma forma no React Native.
 
 Quando uma propriedade ou estado de um componente é alterado, o React decide se uma atualização do DOM atual é necessária comparando o novo elemento retornado com o antigo. Quando eles não forem iguais, o React irá alterar o DOM.
 
