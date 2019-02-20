@@ -478,19 +478,19 @@ O React não chama `UNSAFE_componentWillReceiveProps()` com *props* iniciais dur
 UNSAFE_componentWillUpdate(nextProps, nextState)
 ```
 
-> Note
+> Nota
 >
-> This lifecycle was previously named `componentWillUpdate`. That name will continue to work until version 17. Use the [`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) to automatically update your components.
+> Este lifecycle era nomeado `componentWillUpdate`. Este nome continuará a funcionar até a versão 17. Utilize o [codemod `rename-unsafe-lifecycles`](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles) para atualizar automaticamente seus componentes.
 
-`UNSAFE_componentWillUpdate()` is invoked just before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.
+`UNSAFE_componentWillUpdate()` é invocado antes da renderização quando novas *props* ou *state* estão sendo recebidos. Utilize este método como uma oportunidade para realizar preparações antes que uma atualização ocorra. Este método não é chamado para a renderização inicial.
 
-Note that you cannot call `this.setState()` here; nor should you do anything else (e.g. dispatch a Redux action) that would trigger an update to a React component before `UNSAFE_componentWillUpdate()` returns.
+Note que você não pode chamar `this.setState()` aqui; e nem deveria fazer nada além (por exemplo, realizar o *dispatch* de uma *action* do *Redux*) que desencadearia uma atualização em um componente React antes que `UNSAFE_componentWillUpdate()` retorne.
 
-Typically, this method can be replaced by `componentDidUpdate()`. If you were reading from the DOM in this method (e.g. to save a scroll position), you can move that logic to `getSnapshotBeforeUpdate()`.
+Tipicamente, este método pode ser substituído por `componentDidUpdate()`. Se você estiver lendo do *DOM* neste método (por exemplo, para salvar a posição de rolagem), você pode mover esta lógica para `getSnapshotBeforeUpdate()`.
 
-> Note
+> Nota
 >
-> `UNSAFE_componentWillUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> `UNSAFE_componentWillUpdate()` não será invocado se [`shouldComponentUpdate()`](#shouldcomponentupdate) retornar *false*.
 
 * * *
 
