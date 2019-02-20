@@ -26,7 +26,7 @@ Se você visitar um site com React em modo de desenvolvimento, o ícone terá um
 
 Você encontrar instruções para construir seu app para produção abaixo.
 
-### Criando um app React {#create-react-app}
+### Criando um app React (Create React App) {#create-react-app}
 
 Se seu projeto é construído com [Create React App](https://github.com/facebookincubator/create-react-app), execute:
 
@@ -36,11 +36,11 @@ npm run build
 
 Isto irá criar uma build de produção para seu app na pasta `build/` de seu projeto.
 
-Lembre que isto é somemnte necessário antes de publicar para produção. Para desenvolvimento normal, use `npm start`.
+Lembre que isto é somente necessário antes de publicar para produção. Para desenvolvimento normal, use `npm start`.
 
 ### Builds de único arquivo {#single-file-builds}
 
-Nós oferecemos versões de produção prontas de React e React DOM com arquivos únicos:
+Nós oferecemos versões de produção prontas do React e React DOM com arquivos únicos:
 
 ```html
 <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
@@ -201,17 +201,17 @@ Se você ainda não tem o React DevTools instalado, você pode fazer isso encont
 > Um analise de uma build de produção do `react-dom` está disponível como `react-dom/profiling`.
 > Leia mais sobre como usar essa builda no [fb.me/react-profiling](https://fb.me/react-profiling)
 
-## Virtualizando longas listas {#virtualize-long-lists}
+## Virtualizando Longas Listas {#virtualize-long-lists}
 
-Se sua aplicação renderiza longas listas de informação (milhares ou centenas de linhas), nós recomendamos usar uma técnica conhecida como "windowing". Esta técnica somente renderiza um pequeno conjuto de suas linhas e pode drasticamente reduzir o tempo que ele leva para re-renderizar os compomentes bem como o número de nós DOM criados.
+Se sua aplicação renderiza longas listas de informação (milhares ou centenas de linhas), nós recomendamos usar uma técnica conhecida como "windowing". Esta técnica somente renderiza um pequeno conjunto de suas linhas e pode reduzir drasticamente o tempo que ele leva para re-renderizar os componentes bem como o número de nós criados no DOM.
 
 [react-window](https://react-window.now.sh/) e [react-virtualized](https://bvaughn.github.io/react-virtualized/) são as bibliotecas de windowing mais populares. Eles fornecem diversos componentes reutilizáveis para exibir listas, grids e informações tabulares. Você pode também pode criar seu próprio componente de windowing, como [o Twitter fez](https://medium.com/@paularmstrong/twitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3), se você quer algo mais específico para sua aplicacão.
 
 ## Evite recompilação {#avoid-reconciliation}
 
-React cria e mantem sua representação interna da renderização UI. Ele inclui os elementos React dos seus componentes. Essa representação evita que o React crie nós DOM e acesse os existes sem necessidade, além do que essas operações podem ser mais lentas do que operações em objetos JavaScript. Algumas vezes esse processo é referenciado como "virtual DOM", mas ele funciona da mesma forma no React Native.
+O React cria e mantem sua representação interna da renderização UI. Ele inclui os elementos do React retornados pelos seus componentes. Essa representação evita que o React crie nós DOM e acesse os existes sem necessidade, além do que essas operações podem ser mais lentas do que operações em objetos JavaScript. Algumas vezes esse processo é referenciado como "virtual DOM", mas ele funciona da mesma forma no React Native.
 
-Quando uma propriedade ou estado de um componente é alterado, o React decide se o DOM atual é alterado comparando o novo elemento retornado com o antigo. Quando eles não forem iguais, o React irá alterar o DOM.
+Quando uma propriedade ou estado de um componente é alterado, o React decide se uma atualização do DOM atual é necessária comparando o novo elemento retornado com o antigo. Quando eles não forem iguais, o React irá alterar o DOM.
 
 Você pode agora visualizar essas re-renderizações do virtual DOM como o React DevTools:
 
@@ -221,17 +221,17 @@ Você pode agora visualizar essas re-renderizações do virtual DOM como o React
 
 No console de desenvolvedor selecione a opção **Highlight Updates** na aba de **React**:
 
-<center><img src="../images/blog/devtools-highlight-updates.png" style="max-width:100%; margin-top:10px;" alt="Como habilitar os detaques de alteração" /></center>
+<center><img src="../images/blog/devtools-highlight-updates.png" style="max-width:100%; margin-top:10px;" alt="Como habilitar os destaques de alteração (highlight updates)" /></center>
 
-Interaja com sua página e você deve ver as bordas coloridas aparecendo envolta de qualquer componente que foi re-renderizado. Isto faz com que perceba re-renders que não são necessários. Você pode aprender mais sobre essa funcionalidade do React DevTools nesse [post](https://blog.logrocket.com/make-react-fast-again-part-3-highlighting-component-updates-6119e45e6833) do [Ben Edelstein](https://blog.logrocket.com/@edelstein).
+Interaja com sua página e você deve ver as bordas coloridas aparecendo ao redor de qualquer componente que foi re-renderizado. Isto faz com que você perceba re-renders que não são necessários. Você pode aprender mais sobre essa funcionalidade do React DevTools nesse [post](https://blog.logrocket.com/make-react-fast-again-part-3-highlighting-component-updates-6119e45e6833) do [Ben Edelstein](https://blog.logrocket.com/@edelstein).
 
 Considere esse exemplo:
 
-<center><img src="../images/blog/highlight-updates-example.gif" style="max-width:100%; margin-top:20px;" alt="Exemplo do React DevTools Highlights de alterações" /></center>
+<center><img src="../images/blog/highlight-updates-example.gif" style="max-width:100%; margin-top:20px;" alt="Exemplo dos destaques de alterações do React DevTools" /></center>
 
-Perceba que quando nós estamos acessando o segundo todo, o primeiro todo também pisca na tela a cada tecla digitada. Isto significa que ele está sendo re-renderizando pelo React junto com o input. Isso algumas vez é chamado render desperdiçado (wasted render). Nós sabemos que ele é desnecessário porque o conteúdo do primeiro todo não tem nenhuma mudança, mas o React não sabe sobre isso.
+Perceba que quando nós estamos acessando o segundo _todo_, o primeiro todo também pisca na tela a cada tecla digitada. Isto significa que ele está sendo re-renderizando pelo React junto com o input. Isso algumas vez é chamado render desperdiçado (wasted render). Nós sabemos que ele é desnecessário porque o conteúdo do primeiro todo não tem nenhuma mudança, mas o React não sabe sobre isso.
 
-Embora o React somente altere os nós de DOM alterados, o re-rendering ainda leva algum tempo. Em muitos casos isso não é um problema, mas se a lentidão é perceptível, você pode aumentar velocidade dele sobrescrevendo a função de lifecycle `shouldComponentUpdate`, na qual é chamada antes do processo de re-rendering começar. A implementação padrão dessa função retorna `true`, deixando React performar a alteração:
+Embora o React somente altere os nós de DOM alterados, o re-rendering ainda leva algum tempo. Em muitos casos isso não é um problema, mas se a lentidão é perceptível, você pode aumentar velocidade dele sobrescrevendo a função de lifecycle `shouldComponentUpdate`, na qual é chamada antes do processo de re-rendering começar. A implementação padrão dessa função retorna `true`, deixando o React performar a alteração:
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
@@ -239,7 +239,7 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 ```
 
-Se você sabe que em algumas situações seu componente não precisa ser alterado, você pode retornar `false` no `shouldComponentUpdate` ao invés, para pular o todo o processo de renderização, incluindo o chamado `render()` nesse componente abaixo:
+Se você sabe que em algumas situações seu componente não precisa ser alterado, você pode retornar `false` no `shouldComponentUpdate` ao invés, para pular o todo o processo de renderização, incluindo a chamada de `render()` nesse componente e seus filhos:
 
 Na maioria dos casos, ao invés de escrever `shouldComponentUpdate()` na mão, você pode herdar do [`React.PureComponent`](/docs/react-api.html#reactpurecomponent). Ele equivale a implementação do `shouldComponentUpdate()` com uma comparação rasa entre as anteriores e novas propriedades e estados 
 
@@ -353,7 +353,7 @@ O problema é que `PureComponent` vai fazer um comparação simples entre o valo
 
 ## O poder não não mudar a informação {#the-power-of-not-mutating-data}
 
-A maneira mais simples desse problema não acontecer é evitar mutar valores que são usados como propriedades ou estado. Por exemplo, o método `handleClick` abaixo poderia ser rescrito usando `concact` como:
+A maneira mais simples desse problema não acontecer é evitar mutar valores que são usados como propriedades ou estado. Por exemplo, o método `handleClick` abaixo poderia ser reescrito usando `concat` como:
 
 ```javascript
 handleClick() {
@@ -400,9 +400,9 @@ function updateColorMap(colormap) {
 }
 ```
 
-Se você está usando Create React App, ambos `Object.assign` e a sintaxe de espalhador de objeto estão disponível por padrão.
+Se você está usando Create React App, ambos `Object.assign` e a sintaxe de espalhador de objeto estão disponíveis por padrão.
 
-## Usando estruturas da dados mutáveis {#using-immutable-data-structures}
+## Usando Estruturas De Dados Mutáveis {#using-immutable-data-structures}
 
 [Immutable.js](https://github.com/facebook/immutable-js) é uma outra maneira de resolver esse problema. Ele fornece imutabilidade, persistente coleções que trabalham via compartilhamento estrutural:
 
@@ -420,7 +420,7 @@ y.foo = 'baz';
 x === y; // true
 ```
 
-Embora `y` seja editado, desde que sua referência para o objeto `x`, essa comparação retorna `true`. Você pode escrever um código similar com immutable.js
+Embora `y` foi editado, desde que sua referência para o objeto `x`, essa comparação retorna `true`. Você pode escrever um código similar com immutable.js:
 
 ```javascript
 const SomeRecord = Immutable.Record({ foo: null });
@@ -435,4 +435,4 @@ Nesse caso, já que uma nova referência é retornada quando mutamos `x`, nós p
 
 Duas outras bibliotecas que pode ajudar o uso de dados imutáveis são [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) e [immutability-helper](https://github.com/kolodny/immutability-helper).
 
-Estruturas de dados imutáveis fornecem para você uma maneira barata para rastrear mudanças em objetos, no qual é tudo que nós precisamos para implementar `shouldComponentUpdate`. Esse pode oferecer a você um bom impulsionamento de performance.
+Estruturas de dados imutáveis fornecem para você uma maneira barata para rastrear mudanças em objetos, no qual é tudo que nós precisamos para implementar `shouldComponentUpdate`. Isso pode oferecer a você um bom impulsionamento de performance.
