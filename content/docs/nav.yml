@@ -26,7 +26,7 @@
     - id: conditional-rendering
       title: Conditional Rendering
     - id: lists-and-keys
-      title: Lists and Keys
+      title: Listas e Chaves
     - id: forms
       title: Forms
     - id: lifting-state-up
@@ -52,7 +52,7 @@
     - id: higher-order-components
       title: Higher-Order Components
     - id: integrating-with-other-libraries
-      title: Integrating with Other Libraries
+      title: Integrando com outras Bibliotecas
     - id: jsx-in-depth
       title: JSX In Depth
     - id: optimizing-performance
@@ -110,7 +110,7 @@
       - id: hooks-intro
         title: Introducing Hooks
       - id: hooks-overview
-        title: Hooks at a Glance
+        title: Hooks de forma resumida
       - id: hooks-state
         title: Using the State Hook
       - id: hooks-effect
@@ -118,7 +118,7 @@
       - id: hooks-rules
         title: Rules of Hooks
       - id: hooks-custom
-        title: Building Your Own Hooks
+        title: Criando seus próprios Hooks
       - id: hooks-reference
         title: Hooks API Reference
       - id: hooks-faq
@@ -144,7 +144,7 @@
     - id: faq-state
       title: Component State
     - id: faq-styling
-      title: Styling and CSS
+      title: Estilização e CSS
     - id: faq-structure
       title: File Structure
     - id: faq-versioning

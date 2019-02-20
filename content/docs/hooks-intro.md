@@ -5,13 +5,13 @@ permalink: docs/hooks-intro.html
 next: hooks-overview.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooks* são a nova adição ao React 16.8. Eles permitem que você use state e outras funcionalidades de React sem escrever classes.
 
 ```js{4,5}
 import React, { useState } from 'react';
 
 function Example() {
-  // Declare a new state variable, which we'll call "count"
+  // Declare uma nova variável de state, a qual chamaremos de "count"
   const [count, setCount] = useState(0);
 
   return (
@@ -25,88 +25,88 @@ function Example() {
 }
 ```
 
-This new function `useState` is the first "Hook" we'll learn about, but this example is just a teaser. Don't worry if it doesn't make sense yet!
+Essa nova função `useState` é o primeiro "Hook" que nós iremos aprender, mas este exemplo é só um gostinho. Não se preocupe se isso ainda não fizer sentido!
 
-**You can start learning Hooks [on the next page](/docs/hooks-overview.html).** On this page, we'll continue by explaining why we're adding Hooks to React and how they can help you write great applications.
+**Você pode começar a aprender Hooks [na próxima página](/docs/hooks-overview.html).** Nesta página, nós iremos continuar explicando porque nós estamos adicionando Hooks em React e como eles podem ajudar a escrever boas aplicações.
 
->Note
+>Nota
 >
->React 16.8.0 is the first release to support Hooks. When upgrading, don't forget to update all packages, including React DOM. React Native will support Hooks in the next stable release.
+>React 16.8.0 é o primeiro release com suporte a Hooks. Ao atualizar, não se esqueça de atualizar todos os pacotes, incluindo React DOM. React Native terá suporte a Hooks no próximo stable release.
 
-## Video Introduction {#video-introduction}
+## Introdução em Vídeo {#video-introduction}
 
-At React Conf 2018, Sophie Alpert and Dan Abramov introduced Hooks, followed by Ryan Florence demonstrating how to refactor an application to use them. Watch the video here:
+Na React Conf 2018, Sophie Alpert e Dan Abramov introduziram Hooks, seguidos por Ryan Florence demonstrando como refatorar uma aplicação para usá-los. Assista ao vídeo em inglês aqui:
 
 <br>
 
 <iframe width="650" height="366" src="//www.youtube.com/embed/dpw9EHDh2bM" frameborder="0" allowfullscreen></iframe>
 
-## No Breaking Changes {#no-breaking-changes}
+## Sem Quebras de Compatibilidade {#no-breaking-changes}
 
-Before we continue, note that Hooks are:
+Antes de continuar, note que Hooks são:
 
-* **Completely opt-in.** You can try Hooks in a few components without rewriting any existing code. But you don't have to learn or use Hooks right now if you don't want to.
-* **100% backwards-compatible.** Hooks don't contain any breaking changes.
-* **Available now.** Hooks are now available with the release of v16.8.0.
+* **Completamente opcionais.** Você pode experimentar Hooks em alguns componentes sem reescrever nenhum código existente. Mas você não tem que aprender ou usar Hooks agora se não quiser.
+* **100% retrocompatíveis.** Hooks não possuem nenhuma quebra de compatibilidade.
+* **Disponível agora.** Hooks estão disponíveis no release v16.8.0.
 
-**There are no plans to remove classes from React.** You can read more about the gradual adoption strategy for Hooks in the [bottom section](#gradual-adoption-strategy) of this page.
+**Não temos planos de remover classes do React.** Você pode aprender mais sobre a estratégia de adoção gradual para Hooks na [seção inferior](#gradual-adoption-strategy) desta página.
 
-**Hooks don't replace your knowledge of React concepts.** Instead, Hooks provide a more direct API to the React concepts you already know: props, state, context, refs, and lifecycle. As we will show later, Hooks also offer a new powerful way to combine them.
+**Hooks não substituem seu conhecimento dos conceitos de React.** Ao invés disso, Hooks provêem uma API mais direta para os conceitos de React que você já conhece: props, state, context, refs e ciclo de vida. Como iremos mostrar em breve, Hooks também oferecem uma poderosa nova forma de combiná-los.
 
-**If you just want to start learning Hooks, feel free to [jump directly to the next page!](/docs/hooks-overview.html)** You can also keep reading this page to learn more about why we're adding Hooks, and how we're going to start using them without rewriting our applications.
+**Se você só quiser começar a aprender Hooks, sinta-se livre para [pular direto para a próxima página!](/docs/hooks-overview.html)** Você também pode continuar lendo esta página para aprender mais sobre o porquê de estarmos adicionando Hooks e como nós iremos começar a usá-los sem reescrever nossas aplicações.
 
-## Motivation {#motivation}
+## Motivação {#motivation}
 
-Hooks solve a wide variety of seemingly unconnected problems in React that we've encountered over five years of writing and maintaining tens of thousands of components. Whether you're learning React, use it daily, or even prefer a different library with a similar component model, you might recognize some of these problems.
+_Hooks_ resolvem uma variedade de problemas aparentemente separados em React que encontramos ao longo de cinco anos escrevendo e mantendo milhares de componentes. Esteja você aprendendo React, usando diariamente, ou até mesmo se prefere outra biblioteca com um modelo de componente parecido, você reconhecerá alguns destes problemas.
 
-### It's hard to reuse stateful logic between components {#its-hard-to-reuse-stateful-logic-between-components}
+### É Difícil Reutilizar Lógica com Estado entre Componentes {#its-hard-to-reuse-stateful-logic-between-components}
 
-React doesn't offer a way to "attach" reusable behavior to a component (for example, connecting it to a store). If you've worked with React for a while, you may be familiar with patterns like [render props](/docs/render-props.html) and [higher-order components](/docs/higher-order-components.html) that try to solve this. But these patterns require you to restructure your components when you use them, which can be cumbersome and make code harder to follow. If you look at a typical React application in React DevTools, you will likely find a "wrapper hell" of components surrounded by layers of providers, consumers, higher-order components, render props, and other abstractions. While we could [filter them out in DevTools](https://github.com/facebook/react-devtools/pull/503), this points to a deeper underlying problem: React needs a better primitive for sharing stateful logic.
+React não oferece uma forma de "vincular" comportamento reutilizável em um componente (por exemplo, conectar um componente a uma store). Se você já trabalhou com React por um tempo, você pode estar familiarizado com padrões como [render props](/docs/render-props.html) e [higher-order components](/docs/higher-order-components.html) que tentam resolver isso. Mas estes padrões requerem que você reestruture seus componentes quando você os usa, o que pode parecer atrapalhado e tornar o código mais difícil de entender. Se você ver uma aplicação React típica com React DevTools, você provavelmente irá encontrar um "inferno de wrappers" de componentes rodeados de camadas de providers, consumers, high-order components, render props, e outras abstrações. Apesar de podermos [filtrar eles na DevTools](https://github.com/facebook/react-devtools/pull/503), isso aponta para um problema mais profundo: React precisa de uma primitiva melhor para compartilhar lógica com estado.
 
-With Hooks, you can extract stateful logic from a component so it can be tested independently and reused. **Hooks allow you to reuse stateful logic without changing your component hierarchy.** This makes it easy to share Hooks among many components or with the community.
+Com Hooks, você pode extrair lógica com estado de um componente de uma forma que possa ser testada independentemente e reutilizada. **Hooks permitem reutilizar lógica com estado sem mudar sua hierarquia de componentes.** Isso torna fácil de compartilhar Hooks com vários outros componentes ou com a comunidade.
 
-We'll discuss this more in [Building Your Own Hooks](/docs/hooks-custom.html).
+Nós iremos discutir mais sobre isso em [Construindo Seus Próprios Hooks](/docs/hooks-custom.html).
 
-### Complex components become hard to understand {#complex-components-become-hard-to-understand}
+### Componentes Complexos se Tornam Difíceis de Entender {#complex-components-become-hard-to-understand}
 
-We've often had to maintain components that started out simple but grew into an unmanageable mess of stateful logic and side effects. Each lifecycle method often contains a mix of unrelated logic. For example, components might perform some data fetching in `componentDidMount` and `componentDidUpdate`. However, the same `componentDidMount` method might also contain some unrelated logic that sets up event listeners, with cleanup performed in `componentWillUnmount`. Mutually related code that changes together gets split apart, but completely unrelated code ends up combined in a single method. This makes it too easy to introduce bugs and inconsistencies.
+Nós frequentemente temos que manter componentes que começam simples mas crescem para uma bagunça incontrolável de lógica com estado e efeitos colaterais. Cada método de ciclo de vida frequentemente contêm uma mistura de lógicas que não se relacionam. Por exemplo, componentes podem pegar dados em `componentDidMount` e `componentDidUpdate`. Contudo, o método `componentDidMount` pode conter algumas lógicas não relacionadas que configuram event listeners, com a limpeza deles em `componentWillUnmount`. Código mutuamente relacionado, que mudam juntos, acabam ficando separados, mas trechos de código completamente não relacionados acabam ficando juntos em um único método. Isso torna muito fácil a introdução de bugs e inconsistências.
 
-In many cases it's not possible to break these components into smaller ones because the stateful logic is all over the place. It's also difficult to test them. This is one of the reasons many people prefer to combine React with a separate state management library. However, that often introduces too much abstraction, requires you to jump between different files, and makes reusing components more difficult.
+Em muitos casos não é possível quebrar esses componentes em pedaços menores porque a lógica com estado está espalhada por toda parte. Também é difícil de testá-los. Isso é uma das razões pelas quais muitas pessoas preferem combinar React com uma biblioteca separada de gerenciamento de estado. Contudo, isso frequentemente introduz muitas abstrações, requer que você pule entre arquivos diferentes, e faz com que a reutilização de componentes seja mais difícil.
 
-To solve this, **Hooks let you split one component into smaller functions based on what pieces are related (such as setting up a subscription or fetching data)**, rather than forcing a split based on lifecycle methods. You may also opt into managing the component's local state with a reducer to make it more predictable.
+Para resolver isso, **Hooks permitem que você divida um componente em funções menores baseadas em pedaços que são relacionados (como configurar uma subscription ou captura de dados)**, em vez de forçar uma divisão baseada nos métodos de ciclo de vida. Você também pode optar por gerenciar o estado local com um reducer para torná-lo mais previsível.
 
-We'll discuss this more in [Using the Effect Hook](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns).
+Nós iremos discutir mais sobre isso em [Usando o Effect Hook](/docs/hooks-effect.html#tip-use-multiple-effects-to-separate-concerns).
 
-### Classes confuse both people and machines {#classes-confuse-both-people-and-machines}
+### Classes Confundem tanto Pessoas quanto Máquinas {#classes-confuse-both-people-and-machines}
 
-In addition to making code reuse and code organization more difficult, we've found that classes can be a large barrier to learning React. You have to understand how `this` works in JavaScript, which is very different from how it works in most languages. You have to remember to bind the event handlers. Without unstable [syntax proposals](https://babeljs.io/docs/en/babel-plugin-transform-class-properties/), the code is very verbose. People can understand props, state, and top-down data flow perfectly well but still struggle with classes. The distinction between function and class components in React and when to use each one leads to disagreements even between experienced React developers.
+Além de deixar o reuso de código e a organização de código mais difícil, nós percebemos que classes podem ser uma grande barreira no aprendizado de React. Você tem que entender como o `this` funciona em JavaScript, o que pode ser diferente de como funciona na maioria das linguagens. Você tem que lembrar de fazer bind de event handlers. Sem [propostas de sintaxe](https://babeljs.io/docs/en/babel-plugin-transform-class-properties/) instáveis, o código pode ficar muito verboso. As pessoas podem entender props, state e fluxo de dados de cima para baixo perfeitamente bem, mas ainda tem dificuldade com classes. A distinção entre componentes de classe e de função em React e quando utilizar cada um deles acabam levando a desentendimentos, mesmo entre desenvolvedores experientes de React.
 
-Additionally, React has been out for about five years, and we want to make sure it stays relevant in the next five years. As [Svelte](https://svelte.technology/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/), and others show, [ahead-of-time compilation](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) of components has a lot of future potential. Especially if it's not limited to templates. Recently, we've been experimenting with [component folding](https://github.com/facebook/react/issues/7323) using [Prepack](https://prepack.io/), and we've seen promising early results. However, we found that class components can encourage unintentional patterns that make these optimizations fall back to a slower path. Classes present issues for today's tools, too. For example, classes don't minify very well, and they make hot reloading flaky and unreliable. We want to present an API that makes it more likely for code to stay on the optimizable path.
+Adicionalmente, React já foi lançado há mais ou menos cinco anos e nós queríamos ter certeza que ele se mantivesse relevante pelos próximos cinco anos. Assim como [Svelte](https://svelte.technology/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/), e outros mostraram, [compilação ahead-of-time](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) de componentes tem um grande potencial no futuro. Especialmente se não estiver limitado a templates. Recentemente, estivemos experimentando com [component folding](https://github.com/facebook/react/issues/7323) usando [Prepack](https://prepack.io/) e estamos encontrando resultados promissores. Porém, percebemos que componentes de classe podem encorajar padrões não intencionais que fazem com que essas otimizações recaiam em um caminho mais lento. Classes apresentam problemas para ferramentas dos dias de hoje, também. Por exemplo, classes não minificam muito bem e elas fazem com que hot reloading funcione de forma inconsistente e não confiável. Nós queremos disponibilizar uma API que torne mais provável o código permanecer no caminho otimizável.
 
-To solve these problems, **Hooks let you use more of React's features without classes.** Conceptually, React components have always been closer to functions. Hooks embrace functions, but without sacrificing the practical spirit of React. Hooks provide access to imperative escape hatches and don't require you to learn complex functional or reactive programming techniques.
+Para resolver esses problemas, **_Hooks_ permitem você usar mais das funcionalidades de React sem classes.** Conceitualmente, componentes React sempre estiveram mais próximos de funções. Hooks adotam funções, mas sem sacrificar o espírito prático de React. Hooks provêem acesso a válvulas de escape imperativas e não requerem você a aprender técnicas complexas de programação funcional ou reativa.
 
->Examples
+>Exemplos
 >
->[Hooks at a Glance](/docs/hooks-overview.html) is a good place to start learning Hooks.
+>[Hooks at a Glance](/docs/hooks-overview.html) é um bom lugar para começar a aprender Hooks.
 
-## Gradual Adoption Strategy {#gradual-adoption-strategy}
+## Estratégia Gradual de Adoção {#gradual-adoption-strategy}
 
->**TLDR: There are no plans to remove classes from React.**
+>**TLDR: Não há planos de remover classes de React.**
 
-We know that React developers are focused on shipping products and don't have time to look into every new API that's being released. Hooks are very new, and it might be better to wait for more examples and tutorials before considering learning or adopting them.
+Nós sabemos que desenvolvedores React estão focados em entregar produtos e não têm tempo de checar cada nova API que está sendo lançada. Hooks são muito novos e pode ser melhor esperar por mais exemplos e tutoriais antes de considerar aprender ou adotá-los.
 
-We also understand that the bar for adding a new primitive to React is extremely high. For curious readers, we have prepared a [detailed RFC](https://github.com/reactjs/rfcs/pull/68) that dives into motivation with more details, and provides extra perspective on the specific design decisions and related prior art.
+Nós também entendemos que o padrão de novas primitivas, para serem adicionadas ao React, deva ser extremamente alto. Para leitores curiosos, nós preparamos uma [detalhada RFC](https://github.com/reactjs/rfcs/pull/68) que vai a fundo na motivação com mais detalhes e provê uma perspectiva extra sobre decisões específicas de design e o estado da arte. 
 
-**Crucially, Hooks work side-by-side with existing code so you can adopt them gradually.** We are sharing this experimental API to get early feedback from those in the community who are interested in shaping the future of React — and we will iterate on Hooks in the open.
+**Crucialmente, Hooks funcionam lado a lado com código existente para que você possa adotá-los gradualmente.** Nós estamos compartilhando essa API experimental para coletar feedback antecipado das pessoas da comunidade que estão interessadas em moldar o futuro de React — e nós iremos iterar sobre Hooks publicamente.
 
-Finally, there is no rush to migrate to Hooks. We recommend avoiding any "big rewrites", especially for existing, complex class components. It takes a bit of a mindshift to start "thinking in Hooks". In our experience, it's best to practice using Hooks in new and non-critical components first, and ensure that everybody on your team feels comfortable with them. After you give Hooks a try, please feel free to [send us feedback](https://github.com/facebook/react/issues/new), positive or negative.
+Por último, não há pressa para migrar para Hooks. Nós recomendamos evitar qualquer "grande reescrita", especialmente para componentes de classe complexos existentes. Isso requer uma pequena mudança na forma de pensar para começar a "pensar em Hooks". Na nossa experiência, é melhor praticar o uso de Hooks em componentes novos e não-críticos primeiro e garantir que todo o time se sinta confortável com eles. Depois de experimentar Hooks, sinta-se livre para [nos mandar feedback](https://github.com/facebook/react/issues/new), positivo ou negativo.
 
-We intend for Hooks to cover all existing use cases for classes, but **we will keep supporting class components for the foreseeable future.** At Facebook, we have tens of thousands of components written as classes, and we have absolutely no plans to rewrite them. Instead, we are starting to use Hooks in the new code side by side with classes.
+Nós planejamos que os Hooks cubram todas os casos de uso existentes para classes, mas **nós iremos continuar a suportar componentes de classe por um bom tempo no futuro.** No Facebook, nós temos milhares de componentes escritos em React e nós absolutamente não temos planos de reescrevê-los. Em vez disso, nós estamos começando a usar Hooks em código novo, lado a lado com classes.
 
-## Frequently Asked Questions {#frequently-asked-questions}
+## Perguntas Frequentes {#frequently-asked-questions}
 
-We've prepared a [Hooks FAQ page](/docs/hooks-faq.html) that answers the most common questions about Hooks.
+Nós preparamos uma [página de Perguntas Frequentes sobre Hooks](/docs/hooks-faq.html) que respondem às perguntas mais comuns sobre Hooks.
 
-## Next Steps {#next-steps}
+## Próximos Passos {#next-steps}
 
-By the end of this page, you should have a rough idea of what problems Hooks are solving, but many details are probably unclear. Don't worry! **Let's now go to [the next page](/docs/hooks-overview.html) where we start learning about Hooks by example.**
+Ao final desta página, você deverá ter uma ideia aproximada de quais problemas _Hooks_ estão resolvendo, mas muitos detalhes provavelmente não estão claros. Não se preocupe! **Vamos agora para a [próxima página](/docs/hooks-overview.html) onde nós iremos aprender sobre _Hooks_ com exemplos.**

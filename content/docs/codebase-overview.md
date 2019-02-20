@@ -8,55 +8,56 @@ next: implementation-notes.html
 redirect_from:
   - "contributing/codebase-overview.html"
 ---
+<!-- OBS: Perguntei na issue do "glossário" como codebase ficaria em ptbr e disseram código-base ao invés de base de código, se ficar muito estranho por favor avisem :like: -->
+Esta seção fornecerá uma visão geral da organização do código-base React, suas convenções e implementação.
 
-This section will give you an overview of the React codebase organization, its conventions, and the implementation.
+Se você quer [contribuir para o React](/docs/how-to-contribute.html), esperamos que este guia ajude você a se sentir mais à vontade para fazer mudanças.
 
-If you want to [contribute to React](/docs/how-to-contribute.html) we hope that this guide will help you feel more comfortable making changes.
+Não recomendamos necessariamente nenhuma dessas convenções nos aplicativos React. Muitas delas existem por razões históricas e podem mudar com o tempo.
 
-We don't necessarily recommend any of these conventions in React apps. Many of them exist for historical reasons and might change with time.
+### Dependências Externas {#external-dependencies}
 
-### External Dependencies {#external-dependencies}
+O React quase não tem dependências externas. Geralmente, um `require()` aponta para um arquivo no própria código-base do React. No entanto, existem algumas exceções relativamente raras.
 
-React has almost no external dependencies. Usually, a `require()` points to a file in React's own codebase. However, there are a few relatively rare exceptions.
+O repositório [fbjs](https://github.com/facebook/fbjs) existe porque o React compartilha alguns pequenos utilitários com bibliotecas como [Relay](https://github.com/facebook/relay), e nós os mantemos em sincronia. Não dependemos de módulos pequenos equivalentes no ecossistema do Node porque queremos que os engenheiros do Facebook possam fazer alterações neles sempre que necessário.  Nenhum dos utilitários dentro dos fbjs são considerados APIs públicas, e são destinados apenas para uso por projetos do Facebook, como o React.
 
-The [fbjs repository](https://github.com/facebook/fbjs) exists because React shares some small utilities with libraries like [Relay](https://github.com/facebook/relay), and we keep them in sync. We don't depend on equivalent small modules in the Node ecosystem because we want Facebook engineers to be able to make changes to them whenever necessary. None of the utilities inside fbjs are considered to be public API, and they are only intended for use by Facebook projects such as React.
+### Pastas de nível superior {#top-level-folders}
 
-### Top-Level Folders {#top-level-folders}
+Depois de clonar o [repositório do React](https://github.com/facebook/react), você verá algumas pastas no nível superior:
 
-After cloning the [React repository](https://github.com/facebook/react), you will see a few top-level folders in it:
+* [`packages`](https://github.com/facebook/react/tree/master/packages) contém metadados (como `package.json`) e o código fonte (subdiretório `src`) para todos os pacotes no repositório React. **Se a sua alteração está relacionada ao código, o subdiretório `src` de cada pacote é onde você passará a maior parte do seu tempo.**
 
-* [`packages`](https://github.com/facebook/react/tree/master/packages) contains metadata (such as `package.json`) and the source code (`src` subdirectory) for all packages in the React repository. **If your change is related to the code, the `src` subdirectory of each package is where you'll spend most of your time.**
-* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contains a few small React test applications for contributors.
-* `build` is the build output of React. It is not in the repository but it will appear in your React clone after you [build it](/docs/how-to-contribute.html#development-workflow) for the first time.
+* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contém alguns pequenos aplicativos de teste do React para os contribuidores.
+* `build` é a saída de compilação do React. Não está no repositório, mas aparecerá no seu clone do React depois de você [fizer o _build_](/docs/how-to-contribute.html#development-workflow) pela primeira vez.
 
-The documentation is hosted [in a separate repository from React](https://github.com/reactjs/reactjs.org).
+A documentação está hospedada [em um repositório separado do React](https://github.com/reactjs/reactjs.org).
 
-There are a few other top-level folders but they are mostly used for the tooling and you likely won't ever encounter them when contributing.
+Existem algumas outras pastas no nível superior, mas elas são usadas principalmente para as ferramentas e você provavelmente nunca as encontrará ao contribuir.
 
-### Colocated Tests {#colocated-tests}
+### Testes Colocados {#colocated-tests}
 
-We don't have a top-level directory for unit tests. Instead, we put them into a directory called `__tests__` relative to the files that they test.
+Nós não temos um diretório no nível superior para testes unitários. Em vez disso, nós os colocamos em um diretório chamado `__tests__` relativo aos arquivos que eles testam.
 
-For example, a test for [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) is located in [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) right next to it.
+Por exemplo, um teste para [`setInnerHTML.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/setInnerHTML.js) está localizado em [`__tests__/setInnerHTML-test.js`](https://github.com/facebook/react/blob/87724bd87506325fcaf2648c70fc1f43411a87be/src/renderers/dom/client/utils/__tests__/setInnerHTML-test.js) ao lado dele.
 
-### Warnings and Invariants {#warnings-and-invariants}
+### Avisos e Invariantes {#warnings-and-invariants}
 
-The React codebase uses the `warning` module to display warnings:
+O código-base do React usa o módulo `warning` para exibir avisos:
 
 ```js
 var warning = require('warning');
 
 warning(
   2 + 2 === 4,
-  'Math is not working today.'
+  'O Math não está funcionando hoje.'
 );
 ```
 
-**The warning is shown when the `warning` condition is `false`.**
+**O aviso é mostrado quando a condição `warning` é `false`.**
 
-One way to think about it is that the condition should reflect the normal situation rather than the exceptional one.
+Uma maneira de pensar sobre isso é que a condição deve refletir a situação normal e não a excepcional.
 
-It is a good idea to avoid spamming the console with duplicate warnings:
+É uma boa ideia evitar spam no console com avisos duplicados:
 
 ```js
 var warning = require('warning');
@@ -65,48 +66,48 @@ var didWarnAboutMath = false;
 if (!didWarnAboutMath) {
   warning(
     2 + 2 === 4,
-    'Math is not working today.'
+  'O Math não está funcionando hoje.'
   );
   didWarnAboutMath = true;
 }
 ```
 
-Warnings are only enabled in development. In production, they are completely stripped out. If you need to forbid some code path from executing, use `invariant` module instead:
+Os alertas só são ativados no desenvolvimento. Na produção, eles são  retirados. Se você precisar impedir a execuçāo de algum caminho do código, use o módulo `invariant` em vez disso:
 
 ```js
 var invariant = require('invariant');
 
 invariant(
   2 + 2 === 4,
-  'You shall not pass!'
+  'Você não vai passar!'
 );
 ```
 
-**The invariant is thrown when the `invariant` condition is `false`.**
+**O invariant é lançado quando a condição `invariant` é `false`.**
 
-"Invariant" is just a way of saying "this condition always holds true". You can think about it as making an assertion.
+"Invariant" é apenas uma maneira de dizer "essa condição sempre é verdadeira". Você pode pensar nisso como fazer uma afirmação.
 
-It is important to keep development and production behavior similar, so `invariant` throws both in development and in production. The error messages are automatically replaced with error codes in production to avoid negatively affecting the byte size.
+É importante manter o comportamento de desenvolvimento e produção similares. Então o `invariant` é lançado tanto no desenvolvimento quanto na produção. As mensagens de erro são substituídas automaticamente por códigos de erro em produção para evitar afetar negativamente o tamanho do byte.
 
-### Development and Production {#development-and-production}
+### Desenvolvimento e produção {#development-and-production}
 
-You can use `__DEV__` pseudo-global variable in the codebase to guard development-only blocks of code.
+Você pode usar a variável pseudo-global ` __DEV__` no código-base para proteger blocos de código usados apenas no desenvolvimento.
 
-It is inlined during the compile step, and turns into `process.env.NODE_ENV !== 'production'` checks in the CommonJS builds.
+Ele é embutido durante a etapa de compilação e se transforma em verificações `process.env.NODE_ENV! == 'production'` nos builds do CommonJS.
 
-For standalone builds, it becomes `true` in the unminified build, and gets completely stripped out with the `if` blocks it guards in the minified build.
+Para builds autônomas, ele se torna `true` na build não-minificada e é completamente eliminado com os blocos `if` que ele guarda na construção minificada.
 
 ```js
 if (__DEV__) {
-  // This code will only run in development.
+  // Esse código vai executar apenas no desenvolvimento.
 }
 ```
 
 ### Flow {#flow}
 
-We recently started introducing [Flow](https://flow.org/) checks to the codebase. Files marked with the `@flow` annotation in the license header comment are being typechecked.
+Recentemente, começamos a introduzir verificações do [Flow](https://flow.org/) no código-base. Os arquivos marcados com a anotação `@ flow` no comentário do cabeçalho da licença estão sendo verificados com typecheck.
 
-We accept pull requests [adding Flow annotations to existing code](https://github.com/facebook/react/pull/7600/files). Flow annotations look like this:
+Aceitamos pull requests [adicionando anotações do Flow ao código existente](https://github.com/facebook/react/pull/7600/files). Anotações de fluxo são assim:
 
 ```js
 ReactRef.detachRefs = function(
@@ -117,20 +118,20 @@ ReactRef.detachRefs = function(
 }
 ```
 
-When possible, new code should use Flow annotations.
-You can run `yarn flow` locally to check your code with Flow.
+Quando possível, o novo código deve usar anotações do Flow.
+Você pode executar o `yarn flow` localmente para verificar seu código com o Flow.
 
-### Dynamic Injection {#dynamic-injection}
+### Injeção Dinâmica {#dynamic-injection}
 
-React uses dynamic injection in some modules. While it is always explicit, it is still unfortunate because it hinders understanding of the code. The main reason it exists is because React originally only supported DOM as a target. React Native started as a React fork. We had to add dynamic injection to let React Native override some behaviors.
+React usa injeção dinâmica em alguns módulos. Embora seja sempre explícito, ainda é lamentável porque dificulta a compreensão do código. A principal razão pela qual existe é porque o React originalmente só suportava o DOM como um destino. O React Native começou como um fork do React. Nós tivemos que adicionar a injeção dinâmica para deixar o React Native anular alguns comportamentos.
 
-You may see modules declaring their dynamic dependencies like this:
+Você pode ver módulos declarando suas dependências dinâmicas como este:
 
 ```js
-// Dynamically injected
+// Injetado dinamicamente
 var textComponentClass = null;
 
-// Relies on dynamically injected value
+// Depende do valor injetado dinamicamente
 function createInstanceForText(text) {
   return new textComponentClass(text);
 }
@@ -138,7 +139,7 @@ function createInstanceForText(text) {
 var ReactHostComponent = {
   createInstanceForText,
 
-  // Provides an opportunity for dynamic injection
+  // Fornece uma oportunidade para injeção dinâmica
   injection: {
     injectTextComponentClass: function(componentClass) {
       textComponentClass = componentClass;
@@ -149,78 +150,78 @@ var ReactHostComponent = {
 module.exports = ReactHostComponent;
 ```
 
-The `injection` field is not handled specially in any way. But by convention, it means that this module wants to have some (presumably platform-specific) dependencies injected into it at runtime.
+O campo `injection` não é tratado de maneira especial. Mas por convenção, isso significa que este módulo quer ter algumas dependências (presumivelmente específicas da plataforma) injetadas em tempo de execução.
 
-There are multiple injection points in the codebase. In the future, we intend to get rid of the dynamic injection mechanism and wire up all the pieces statically during the build.
+Existem vários pontos de injeção no código-base. No futuro, pretendemos nos livrar do mecanismo de injeção dinâmica e conectar todas as peças estaticamente durante a construção.
 
-### Multiple Packages {#multiple-packages}
+### Pacotes Múltiplos {#multiple-packages}
 
-React is a [monorepo](http://danluu.com/monorepo/). Its repository contains multiple separate packages so that their changes can be coordinated together, and issues live in one place.
+React é um [monorepo](http://danluu.com/monorepo/). Seu repositório contém vários pacotes separados para que suas alterações possam ser coordenadas em conjunto e os problemas residam em um só lugar.
 
 ### React Core {#react-core}
 
-The "core" of React includes all the [top-level `React` APIs](/docs/top-level-api.html#react), for example:
+O "core" do React inclui todas as [`React` APIs de nível superior](/docs/top-level-api.html#react), por exemplo:
 
 * `React.createElement()`
 * `React.Component`
 * `React.Children`
 
-**React core only includes the APIs necessary to define components.** It does not include the [reconciliation](/docs/reconciliation.html) algorithm or any platform-specific code. It is used both by React DOM and React Native components.
+**O core React inclui apenas as APIs necessárias para definir os componentes.** Não inclui o algoritmo de [reconciliação](/docs/reconciliation.html) ou qualquer código específico da plataforma. Ele é usado pelos componentes React DOM e React Native.
 
-The code for React core is located in [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) in the source tree. It is available on npm as the [`react`](https://www.npmjs.com/package/react) package. The corresponding standalone browser build is called `react.js`, and it exports a global called `React`.
+O código do React core está localizado em [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) na árvore de origem. Está disponível no npm como o pacote [`react`](https://www.npmjs.com/package/react). A construção do navegador independente correspondente é chamada `react.js`,e exporta um global chamado `React`.
 
-### Renderers {#renderers}
+### Renderizadores {#renderers}
 
-React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](http://facebook.github.io/react-native/). This introduced the concept of "renderers" to React internals.
+O React foi originalmente criado para o DOM, mas depois foi adaptado para também suportar plataformas nativas com o [React Native](http://facebook.github.io/react-native/). Isso introduziu o conceito de "renderizadores" para as partes internas do React.
 
-**Renderers manage how a React tree turns into the underlying platform calls.**
+**Os renderizadores gerenciam como uma árvore no React se transforma nas chamadas de subjacentes da plataforma.**
 
-Renderers are also located in [`packages/`](https://github.com/facebook/react/tree/master/packages/):
+Renderizadores tambéms são encontrados em [`packages/`](https://github.com/facebook/react/tree/master/packages/):
 
-* [React DOM Renderer](https://github.com/facebook/react/tree/master/packages/react-dom) renders React components to the DOM. It implements [top-level `ReactDOM` APIs](/docs/react-dom.html) and is available as [`react-dom`](https://www.npmjs.com/package/react-dom) npm package. It can also be used as standalone browser bundle called `react-dom.js` that exports a `ReactDOM` global.
-* [React Native Renderer](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renders React components to native views. It is used internally by React Native.
-* [React Test Renderer](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renders React components to JSON trees. It is used by the [Snapshot Testing](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) feature of [Jest](https://facebook.github.io/jest) and is available as [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) npm package.
+* [Renderizador de React DOM](https://github.com/facebook/react/tree/master/packages/react-dom) renderiza componentes React para o DOM. Implementa [APIs do `React` de nível superior](/docs/react-dom.html) e está disponível como pacote npm [`react-dom`](https://www.npmjs.com/package/react-dom). Ele também pode ser usado como um pacote de navegador autônomo chamado `react-dom.js` que exporta um global do `ReactDOM`.
+* [Renderizador do React Native](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renderiza componentes React para views nativas. É usado internamente pelo React Native.
+* [Renderizador de testes do React](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renderiza componentes React para árvores JSON. É usado pela funcionalidade de [teste de Snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) atributo do [Jest](https://facebook.github.io/jest) e está disponível como pacote npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) .
 
-The only other officially supported renderer is [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). It used to be in a separate [GitHub repository](https://github.com/reactjs/react-art) but we moved it into the main source tree for now.
+O único outro renderizador oficialmente suportado é o [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). Costumava estar em um [repositorio GitHub](https://github.com/reactjs/react-art) separado mas nós os movemos para a árvore de código principal.
 
->**Note:**
+>**Nota:**
 >
->Technically the [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) is a very thin layer that teaches React to interact with React Native implementation. The real platform-specific code managing the native views lives in the [React Native repository](https://github.com/facebook/react-native) together with its components.
+>Tecnicamente o [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) é uma camada muito fina que ensina o React a interagir com a implementação do React Native. O código específico da plataforma real que gerencia as views nativas reside no [repositório do React Native](https://github.com/facebook/react-native) junto com seus componentes.
 
-### Reconcilers {#reconcilers}
+### Reconciliadores {#reconcilers}
 
-Even vastly different renderers like React DOM and React Native need to share a lot of logic. In particular, the [reconciliation](/docs/reconciliation.html) algorithm should be as similar as possible so that declarative rendering, custom components, state, lifecycle methods, and refs work consistently across platforms.
+Até mesmo renderizadores muito diferentes, como o React DOM e o React Native, precisam compartilhar muita lógica. Em particular, o algoritmo de  [reconciliação](/docs/reconciliation.html) deve ser o mais semelhante possível para que a renderização declarativa, os componentes personalizados, o state, os lifecycle méthods e os refs funcionem de maneira consistente em todas as plataformas.
 
-To solve this, different renderers share some code between them. We call this part of React a "reconciler". When an update such as `setState()` is scheduled, the reconciler calls `render()` on components in the tree and mounts, updates, or unmounts them.
+Para resolver isso, diferentes renderizadores compartilham algum código entre eles. Nós chamamos essa parte do React de "reconciliador". Quando uma atualização como `setState()` está agendado, o reconciliador chama o método `render()` em componentes na árvore e monta, atualiza ou desmonta.
 
-Reconcilers are not packaged separately because they currently have no public API. Instead, they are exclusively used by renderers such as React DOM and React Native.
+Os reconciliadores não são empacotados separadamente porque atualmente não possuem uma API pública. Em vez disso, eles são usados exclusivamente por renderizadores como React DOM e React Native.
 
-### Stack Reconciler {#stack-reconciler}
+### Reconciliador Stack {#stack-reconciler}
 
-The "stack" reconciler is the implementation powering React 15 and earlier. We have since stopped using it, but it is documented in detail in the [next section](/docs/implementation-notes.html).
+O reconciliador "stack" é a implementação que energiza o React 15 e o anterior. Desde então, paramos de usá-lo, mas está documentado em detalhes na [próxima seção](/docs/implementation-notes.html).
 
-### Fiber Reconciler {#fiber-reconciler}
+### Reconciliador Fiber {#fiber-reconciler}
 
-The "fiber" reconciler is a new effort aiming to resolve the problems inherent in the stack reconciler and fix a few long-standing issues. It has been the default reconciler since React 16.
+O reconciliador de "fiber" é um novo esforço com o objetivo de resolver os problemas inerentes ao reconciliador de pilha e corrigir alguns problemas de longa data. Foi o reconciliador padrão desde o React 16.
 
-Its main goals are:
+Seus principais objetivos são:
 
-* Ability to split interruptible work in chunks.
-* Ability to prioritize, rebase and reuse work in progress.
-* Ability to yield back and forth between parents and children to support layout in React.
-* Ability to return multiple elements from `render()`.
-* Better support for error boundaries.
+* Capacidade de dividir o trabalho ininterrupto em blocos.
+* Capacidade de priorizar, rebaixar e reutilizar o trabalho em andamento.
+* Capacidade de retroceder entre pais e filhos para dar suporte ao layout no React.
+* Capacidade de retornar vários elementos do método `render()`.
+* Melhor suporte para limites de erro.
 
-You can read more about React Fiber Architecture [here](https://github.com/acdlite/react-fiber-architecture) and [here](https://blog.ag-grid.com/index.php/2018/11/29/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react). While it has shipped with React 16, the async features are not enabled by default yet.
+Você pode ler mais sobre a arquitetura do React Fiber [aqui](https://github.com/acdlite/react-fiber-architecture) e [aqui](https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e). Embora tenha sido fornecido com o React 16, os recursos assíncronos ainda não estão habilitados por padrão.
 
-Its source code is located in [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
+Seu código-fonte está localizado em [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
 
-### Event System {#event-system}
+### Sistema de Eventos  {#event-system}
 
-React implements a synthetic event system which is agnostic of the renderers and works both with React DOM and React Native. Its source code is located in [`packages/events`](https://github.com/facebook/react/tree/master/packages/events).
+O React implementa um sistema de eventos sintéticos que é agnóstico dos renderizadores e funciona com React DOM e React Native.Seu código-fonte está localizado em [`packages/events`](https://github.com/facebook/react/tree/master/packages/events).
 
-There is a [video with a deep code dive into it](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 mins).
+Esse é um [vídeo com mais profundidade no código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 minutos).
 
-### What Next? {#what-next}
+### Qual o proximo passo? {#what-next}
 
-Read the [next section](/docs/implementation-notes.html) to learn about the pre-React 16 implementation of reconciler in more detail. We haven't documented the internals of the new reconciler yet.
+Leia a [próxima seção](/docs/implementation-notes.html)para aprender sobre a implementação do reconciliador antes do React 16 em mais detalhes. Ainda não documentamos os componentes internos do novo reconciliador.
