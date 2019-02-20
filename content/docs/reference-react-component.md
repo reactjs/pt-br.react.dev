@@ -423,9 +423,9 @@ class ErrorBoundary extends React.Component {
 
 * * *
 
-### Legacy Lifecycle Methods {#legacy-lifecycle-methods}
+### Métodos legado do lifecycle {#legacy-lifecycle-methods}
 
-The lifecycle methods below are marked as "legacy". They still work, but we don't recommend using them in the new code. You can learn more about migrating away from legacy lifecycle methods in [this blog post](/blog/2018/03/27/update-on-async-rendering.html).
+Os métodos do lifecycle abaixo estão marcados como "legado". Eles ainda funcionam, mas não recomendamos utilizar eles em código novo. Você pode aprender mais sobre a migração de métodos legado do lifecycle [neste post no blog](/blog/2018/03/27/update-on-async-rendering.html).
 
 ### `UNSAFE_componentWillMount()` {#unsafe_componentwillmount}
 
