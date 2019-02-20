@@ -336,8 +336,8 @@ Para mais detalhes, veja *[Tratamento de Erros no React 16](/blog/2017/07/26/err
 static getDerivedStateFromError(error)
 ```
 
-This lifecycle is invoked after an error has been thrown by a descendant component.
-It receives the error that was thrown as a parameter and should return a value to update state.
+Este *lifecycle* é invocado após um erro ser lançado por um componente descendente.
+Ele recebe o erro que foi lançado como parâmetro e deve retornar um valor para atualizar o *state*.
 
 ```js{7-10,13-16}
 class ErrorBoundary extends React.Component {
@@ -347,13 +347,13 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+    // Atualize o state para que a próxima renderização exiba a UI de fallback.
     return { hasError: true };
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
+      // Você pode renderizar qualquer UI como fallback
       return <h1>Something went wrong.</h1>;
     }
 
@@ -362,10 +362,10 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-> Note
+> Nota
 >
-> `getDerivedStateFromError()` is called during the "render" phase, so side-effects are not permitted.
-For those use cases, use `componentDidCatch()` instead.
+> `getDerivedStateFromError()` é chamado durante a fase de renderização, portanto efeitos colaterais (*side-effects*) não são permitidos.
+> Para estes casos de uso, utilize `componentDidCatch()` como alternativa.
 
 * * *
 
