@@ -375,15 +375,14 @@ class ErrorBoundary extends React.Component {
 componentDidCatch(error, info)
 ```
 
-This lifecycle is invoked after an error has been thrown by a descendant component.
-It receives two parameters:
+Este lifecycle é invocado após um erro ter sido lançado por um componente descendente.
+Ele recebe dois parâmetros:
 
-1. `error` - The error that was thrown.
-2. `info` - An object with a `componentStack` key containing [information about which component threw the error](/docs/error-boundaries.html#component-stack-traces).
+1. `error` - O erro que foi lançado.
+2. `info` - Um objeto com uma chave `componentStack` contendo [informações sobre qual componente lançou o erro](/docs/error-boundaries.html#component-stack-traces).
 
-
-`componentDidCatch()` is called during the "commit" phase, so side-effects are permitted.
-It should be used for things like logging errors:
+`componentDidCatch()` é chamado durante a fase de "commit", portanto efeitos colaterais (*side-effects*) não são permitidos.
+Ele deveria ser usado para, por exemplo, realizar o *log* de erros:
 
 ```js{12-19}
 class ErrorBoundary extends React.Component {
@@ -393,12 +392,12 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
+    // Atualize o state para que a próxima renderização exiba a UI de fallback.
     return { hasError: true };
   }
 
   componentDidCatch(error, info) {
-    // Example "componentStack":
+    // Examplo de "componentStack":
     //   in ComponentThatThrows (created by App)
     //   in ErrorBoundary (created by App)
     //   in div (created by App)
@@ -408,7 +407,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
+      // Você pode renderizar qualquer UI como fallback
       return <h1>Something went wrong.</h1>;
     }
 
@@ -417,10 +416,10 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-> Note
-> 
-> In the event of an error, you can render a fallback UI with `componentDidCatch()` by calling `setState`, but this will be deprecated in a future release.
-> Use `static getDerivedStateFromError()` to handle fallback rendering instead.
+> Nota
+>
+> No evento de um erro, você pode renderizar uma UI de *fallback* com `componentDidCatch()` chamando `setState`, mas isto será depreciado numa *release* futura.
+> Use `static getDerivedStateFromError()` para manipular a renderização de *fallback* como alternativa.
 
 * * *
 
