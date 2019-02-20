@@ -158,7 +158,7 @@ Retorna o objeto raiz "instância de teste" que é útil para fazer asserções 
 testInstance.find(test)
 ```
 
-Encontra uma única instância de teste descendente para a qual `test (testInstance)` retorne `true`. Se `test (testInstance)` não retornar `true` para exatamente uma instância de teste, isso causará um erro.
+Encontra uma única instância de teste descendente para a qual `test(testInstance)` retorne `true`. Se `test(testInstance)` não retornar `true` para exatamente uma instância de teste, isso causará um erro.
 
 ### `testInstance.findByType()` {#testinstancefindbytype}
 
