@@ -5,7 +5,7 @@ permalink: docs/hooks-faq.html
 prev: hooks-reference.html
 ---
 
-*Hooks* é um novo recurso adicionado no React 16.8. Eles permitem que você use estado (`state`) e outras features do React, sem precisar usar classes.
+*Hooks* são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 
 Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/hooks-overview.html).
 
@@ -531,7 +531,7 @@ Isto evita criar um objeto custoso até que ele seja realmente necessário pela 
 
 Não. Nos browsers modernos, o desempenho bruto de closures comparados à classes não difere significantemente exceto em casos extremos.
 
-Em adição, considere que o design de Hooks é mais eficiente por dois motivos:
+Em adição, considere que o design de Hooks é mais eficiente por alguns motivos:
 
 * Hooks evitam muito da sobrecarga que classes exigem, como o custo de criar instâncas de classes e fazer o bind the manipuladores de eventos no constructor.
 
