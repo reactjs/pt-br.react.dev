@@ -589,7 +589,7 @@ Norlmalmente, você deveria tentar evitar o uso de `forceUpdate()` e somente ler
 
 ### `defaultProps` {#defaultprops}
 
-`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for undefined props, but not for null props. For example:
+`defaultProps` pode ser definido como uma propriedade do *component class*, para definir as *props* padrão para a classe. Isto é aplicado a *props* cujo valor é `undefined`, mas não para `null`. Por exemplo:
 
 ```js
 class CustomButton extends React.Component {
@@ -601,19 +601,19 @@ CustomButton.defaultProps = {
 };
 ```
 
-If `props.color` is not provided, it will be set by default to `'blue'`:
+Se `props.color` não for informado, o seu valor será definido como `'blue'`:
 
 ```js
   render() {
-    return <CustomButton /> ; // props.color will be set to blue
+    return <CustomButton /> ; // props.color será definido como 'blue'
   }
 ```
 
-If `props.color` is set to null, it will remain null:
+Se `props.color` for igual a `null`, continuará como `null`:
 
 ```js
   render() {
-    return <CustomButton color={null} /> ; // props.color will remain null
+    return <CustomButton color={null} /> ; // props.color continuará null
   }
 ```
 
