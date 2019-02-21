@@ -84,7 +84,7 @@ Hooks tem sua curva de aprendizado. Se tiver algo faltando nessa documentação,
 
 ### Devo usar Hooks, classes ou um misto dos dois? {#should-i-use-hooks-classes-or-a-mix-of-both}
 
-Quando você estiver pronto, nós encorajamos você a começar usando Hooks em novos componentes que você escrever. Tenha certeza que todos no seu time estão de acordo em usa-los e estão familiarizados com a documentação. Nós não recomendamos reescrever suas classes existentes para Hooks a menos que você tenha planejado reescrever-las previamente (por exemplo, para arrumar bugs).
+Quando você estiver pronto, encorajamos você a começar usando Hooks em novos componentes que você escrever. Tenha certeza que todos no seu time estão de acordo em usá-los e estão familiarizados com a documentação. Nós não recomendamos reescrever suas classes existentes para Hooks a menos que você tenha planejado reescrevê-las previamente (por exemplo, para arrumar bugs).
 
 Você não pode usar Hooks *dentro* de um componente classe, mas você definitivamente pode misturar classes e funções com Hooks em uma única árvore. Se um componente é uma classe ou uma função que usa Hooks é um detalhe de implementação daquele componente. A longo prazo, nós esperamos que Hooks sejam a principal maneira que as pessoas escrevam componentes React.
 
@@ -154,7 +154,7 @@ afterEach(() => {
 });
 
 it('can render and update a counter', () => {
-  // Test first render and effect
+  // Testa a primeira renderização e efeito
   act(() => {
     ReactDOM.render(<Counter />, container);
   });
@@ -163,7 +163,7 @@ it('can render and update a counter', () => {
   expect(label.textContent).toBe('You clicked 0 times');
   expect(document.title).toBe('You clicked 0 times');
 
-  // Test second render and effect
+  // Testa segunda renderização e efeito
   act(() => {
     button.dispatchEvent(new MouseEvent('click', {bubbles: true}));
   });
@@ -376,7 +376,7 @@ function ScrollView({row}) {
   let [prevRow, setPrevRow] = useState(null);
 
   if (row !== prevRow) {
-    // Row mudou desde o ultimo render. Atualize isScrollingDown.
+    // Row mudou desde a ultima renderização. Atualize isScrollingDown.
     setIsScrollingDown(prevRow !== null && row > prevRow);
     setPrevRow(row);
   }
@@ -492,7 +492,7 @@ function Table(props) {
 
 React só vai executar essa função durante a primeira renderização. Veja a [API do `useState`](/docs/hooks-reference.html#usestate).
 
-**Você també pode ocaionalmente querer evitar recriar o valor inicial de `useRef()`.** Por exemplo, talvez você quer garantir que algumar instância de classe imperativa só é criada uma vez:
+**Você também pode ocasionalmente querer evitar recriar o valor inicial de `useRef()`.** Por exemplo, talvez você quer garantir que algumas instâncias de classe imperativa só seja criada uma vez:
 
 ```js
 function Image(props) {
@@ -529,15 +529,15 @@ Isto evita criar um objeto custoso até que ele seja realmente necessário pela 
 
 ### Hooks são mais lentos por criar funções no render? {#are-hooks-slow-because-of-creating-functions-in-render}
 
-Não. Nos browsers modernos, o desempenho bruto do closures comparados a classes não difere significantemente exceto em casos extremos.
+Não. Nos browsers modernos, o desempenho bruto de closures comparados à classes não difere significantemente exceto em casos extremos.
 
-Em adição, considere que o design de Hooks é mais eficiente de duas maneiras:
+Em adição, considere que o design de Hooks é mais eficiente por dois motivos:
 
 * Hooks evitam muito da sobrecarga que classes exigem, como o custo de criar instâncas de classes e fazer o bind the manipuladores de eventos no constructor.
 
-* **Código idiomático usando Hooks não precisa do aninhamento profundo de componentes** que prevalesce nas codebases que usam componentes de alta-ordem, render props e context. Com arvores de componentes menores, React tem menos trabalho a fazer.
+* **Código idiomático usando Hooks evita aninhamento profundo de componentes** que prevalesce nas codebases que usam componentes de alta-ordem, render props e context. Com arvores de componentes menores, React tem menos trabalho a fazer.
 
-Tradicionalmente, preocupações de desempenho sobre funções inline no React tem sido relacionadas a como passar novas callbacks em cara renderização quebra as otimizações de `shouldComponentUpdate` nos componentes filho. Hooks abordam esse problema de três maneiras.
+Tradicionalmente, preocupações de desempenho sobre funções inline no React tem sido relacionadas a como passar novas callbacks em cada renderização quebra as otimizações de `shouldComponentUpdate` nos componentes filho. Hooks abordam esse problema de três maneiras.
 
 * O Hook [`useCallback`](/docs/hooks-reference.html#usecallback) permite que você mantenha a mesma callback entre re-renderizações para que `shouldComponentUpdate` continue a funcionar:
 
@@ -554,9 +554,9 @@ Tradicionalmente, preocupações de desempenho sobre funções inline no React t
 
 ### Como evitar passar callbacks para baixo? {#how-to-avoid-passing-callbacks-down}
 
-Nós descobrimos que a maioria das pessoas não gostam de passar callbacks manualmente através de cada level de uma árvode de componente. Mesmo sendo mais explícito, pode parecer como um monte de "encanamento".
+Nós descobrimos que a maioria das pessoas não gostam de passar callbacks manualmente através de cada nível de uma árvore de componente. Mesmo sendo mais explícito, pode parecer como um monte de "encanamento".
 
-Em árvodes grandes de componentes, uma alternativa que recomendamos é passar para baixo a função `dispatch` do [`useReducer`](/docs/hooks-reference.html#usereducer) via context:
+Em árvores grandes de componentes, uma alternativa que recomendamos é passar para baixo a função `dispatch` do [`useReducer`](/docs/hooks-reference.html#usereducer) via context:
 
 ```js{4,5}
 const TodosDispatch = React.createContext(null);
@@ -592,7 +592,7 @@ function DeepChild(props) {
 
 Isso é mais mais conveniente do ponto de vista de manutenção (não há a necessidade de passar callbacks) e evita o problema de passar callbacks como um todo. Passando `dispatch` desta maneira é o padrão recomendado para atualizações profundas.
 
-Note que você ainda pode escolher entre passar o estado da aplicação para baixo como props (mais explícito) ou como context (mais conveiente para atualizações bem profundas). Se você usar context para o estado também, use dois tipos de context diferentes -- o `dispatch` nunca muda, então componentes que leem ele não precisam re-renderizar a menos que precisem também do estado da aplicação.
+Note que você ainda pode escolher entre passar o estado da aplicação para baixo como props (mais explícito) ou como context (mais conveniente para atualizações bem profundas). Se você também usar context para o estado, use dois tipos de context diferentes -- o `dispatch` nunca muda, então componentes que leem ele não precisam re-renderizar a menos que precisem também do estado da aplicação.
 
 ### Como ler um valor frequentemente variável de `useCallback`? {#how-to-read-an-often-changing-value-from-usecallback}
 
