@@ -243,7 +243,7 @@ Se você sabe que em algumas situações seu componente não precisa ser alterad
 
 Na maioria dos casos, ao invés de escrever `shouldComponentUpdate()` na mão, você pode herdar do [`React.PureComponent`](/docs/react-api.html#reactpurecomponent). Ele equivale a implementação do `shouldComponentUpdate()` com uma comparação rasa entre as anteriores e novas propriedades e estados 
 
-## shouldComponentUpdate em ação {#shouldcomponentupdate-in-action}
+## shouldComponentUpdate em Ação {#shouldcomponentupdate-in-action}
 
 Aqui é uma sub-árvore de componentes. Para cada uma, `SCU` define o que o `shouldComponentUpdate` retorna, e `vDOMEq` indica se os elementos renderizados pelo React são equivalentes. Finalmente, o círculo de cores indica se o componente tinha de ser reconciliado ou não.
 
@@ -290,7 +290,7 @@ class CounterButton extends React.Component {
 }
 ```
 
-Nesse código, `shouldComponentUpdate` é somente checado se existe qualquer mudança no `props.color` ou `state.count`. Se esses valores não são alterados, o componente não é alterado. Se seu compoennte ficou complexo, você pode usar um padrão similar fazendo uma comparação rasa (shallow comparison) entre todos os fields de `props` e `state` para determinar se o componente deveria ser atualizado. Esse padrão é suficiente comum para que o React forneça um helper para usar essa lógica, apenas herdando de `React.PureComponent`. Então esse é uma simples maneira para alcançar isso:
+Nesse código, `shouldComponentUpdate` só está checando se houve alguma mudança no `props.color` ou `state.count`. Se esses valores não são alterados, o componente não é alterado. Se seu componente ficou mais complexo, você pode usar um padrão similar fazendo uma comparação rasa (shallow comparison) entre todos os fields de `props` e `state` para determinar se o componente deve ser atualizado. Esse padrão é comum o suficiente para que o React forneça um helper para usar essa lógica - apenas herde de `React.PureComponent`. Então, essa é uma maneira mais simples de alcançar a mesma coisa:
 
 ```js
 class CounterButton extends React.PureComponent {
@@ -311,7 +311,7 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
-Na maioria do tempo, você pode usar `React.PureComponent` ao invés de escrever seu próprio `shouldComponentUpdate`. Ele somente faz comparações rasas, você não pode usar suas propriedades ou estado casos elas tenham sido alteradas de uma  maneira que a comparação rasa não irá detectar.
+Na maior parte das vezes, você pode usar `React.PureComponent` em vez de escrever seu próprio `shouldComponentUpdate`. Ele somente faz comparações rasas, então você não pode usá-lo caso as props ou state tenham sido alteradas de uma  maneira que a comparação rasa não iria detectar.
 
 Isso pode ser um problema com estruturas mais complexas. Por exemplo, vamos dizer que você quer um componente `ListOfWords` para renderizar uma lista de palavras separas por vírgulas, com um componente pai `WordAdder` que deixa você clicar em um botão para adicionar uma palavra para a lista. Esse código *não* faz o trabalho corretamente:
 
@@ -349,9 +349,9 @@ class WordAdder extends React.Component {
 }
 ```
 
-O problema é que `PureComponent` vai fazer um comparação simples entre o valores antigos e novos de `this.props.words`. Já que esse código muta o lista de `words` no método `handleClick` do `WordAdder`, os antigos e novos valores de `this.props.words` irão ser compararados como iguais, mesmo que as atuais palavras da lista mudem. A `ListOfWords` não irá alterar mesmo que as novas palavras deveriam ser atualizadas.
+O problema é que `PureComponent` vai fazer um comparação simples entre o valores antigos e novos de `this.props.words`. Já que esse código muta a lista de `words` no método `handleClick` do `WordAdder`, os antigos e novos valores de `this.props.words` serão comparados como iguais, mesmo que as atuais palavras da lista tenham mudado. A `ListOfWords` não irá alterar ainda que haja novas palavras que deveriam ser renderizadas.
 
-## O poder não não mudar a informação {#the-power-of-not-mutating-data}
+## O Poder de Não Mutar Dados {#the-power-of-not-mutating-data}
 
 A maneira mais simples desse problema não acontecer é evitar mutar valores que são usados como propriedades ou estado. Por exemplo, o método `handleClick` abaixo poderia ser reescrito usando `concat` como:
 
