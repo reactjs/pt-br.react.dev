@@ -139,7 +139,7 @@ Passe um módulo de componente mockado para este método para melhorá-lo com m�
 
 > Nota:
 >
-> `mockComponent()` é uma API legada. Nós recomendamos utilizar [shallow rendering](/docs/test-utils.html#shallow-rendering) ou [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+> `mockComponent()` é uma API legada. Nós recomendamos utilizar [shallow rendering](/docs/shallow-renderer.html) ou [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
 
 * * *
 
