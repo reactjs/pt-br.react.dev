@@ -17,7 +17,7 @@ const TestRenderer = require('react-test-renderer'); // ES5 com npm
 
 Este pacote fornece um renderizador React que pode ser usado para renderizar componentes React para objetos JavaScript puros, sem depender do DOM ou de um ambiente móvel nativo.
 
-Essencialmente, esse pacote facilita a captura de um instantâneo da hierarquia de visualização da plataforma (semelhante a uma árvore DOM) processada por um componente React DOM ou React Native sem usar um navegador ou [jsdom](https://github.com/tmpvar/jsdom).
+Essencialmente, esse pacote facilita a captura de um snapshot da hierarquia de visualização da plataforma (semelhante a uma árvore DOM) processada por um componente React DOM ou React Native sem usar um navegador ou [jsdom](https://github.com/tmpvar/jsdom).
 
 Exemplo:
 
