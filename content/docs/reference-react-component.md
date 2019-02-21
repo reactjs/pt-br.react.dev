@@ -494,11 +494,11 @@ Tipicamente, este método pode ser substituído por `componentDidUpdate()`. Se v
 
 * * *
 
-## Other APIs {#other-apis-1}
+## Outras APIs {#other-apis-1}
 
-Unlike the lifecycle methods above (which React calls for you), the methods below are the methods *you* can call from your components.
+Diferentemente dos métodos do *lifecycle* acima (que o React chama por você), os métodos abaixo são métodos que *você* pode chamar a partir de seus componentes.
 
-There are just two of them: `setState()` and `forceUpdate()`.
+Existem apenas dois deles: `setState()` e `forceUpdate()`.
 
 ### `setState()` {#setstate}
 
