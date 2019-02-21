@@ -621,7 +621,7 @@ Se `props.color` for igual a `null`, continuará como `null`:
 
 ### `displayName` {#displayname}
 
-The `displayName` string is used in debugging messages. Usually, you don't need to set it explicitly because it's inferred from the name of the function or class that defines the component. You might want to set it explicitly if you want to display a different name for debugging purposes or when you create a higher-order component, see [Wrap the Display Name for Easy Debugging](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) for details.
+A *string* `displayName` é utilizada em mensagens de depuração. Normalmente, você não precisa defini-la explicitamente, pois é isto é inferido do nome da função ou classe que definem o componente. Você pode querer defini-la explicitamente se quiser exibir um nome diferente para propósitos de depuração ou quando você cria um *higher-order component*. Veja [Envolva o Display Name para Facilitar a Depuração](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) para mais detalhes.
 
 * * *
 
