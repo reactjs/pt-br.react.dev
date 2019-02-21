@@ -106,7 +106,7 @@ function Example() {
 >
 >Existem algumas regras especiais sobre onde você pode ou não utilizar Hooks dentro de um componente. Vamos aprender elas nas [Regras dos Hooks](/docs/hooks-rules.html).
 
-## Declarando uma variável State {#declaring-a-state-variable}
+## Declarando uma Variável State {#declaring-a-state-variable}
 
 Em uma classe, inicializamos o state `count` para `0` definindo `this.state` para `{ count: 0 }` no construtor:
 
