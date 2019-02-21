@@ -506,21 +506,21 @@ Existem apenas dois deles: `setState()` e `forceUpdate()`.
 setState(updater[, callback])
 ```
 
-`setState()` enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state. This is the primary method you use to update the user interface in response to event handlers and server responses.
+`setState()` enfileira mudanças ao *state* do componente e diz ao React que este componente e seus componentes filho precisam ser rerenderizados com a atualização do *state*. Este é o principal método que você utiliza para atualizar a UI em resposta a *event handlers* e à resposta de servidores.
 
-Think of `setState()` as a *request* rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. React does not guarantee that the state changes are applied immediately.
+Pense em `setState()` como uma *requisição* ao invés de um comando imediato para atualizar o componente. Para uma melhoria na performance, o React pode atrasar a atualização, e então atualizar diversos componentes numa só leva. O React não garante que as mudanças no *state* são aplicadas imediatamente.
 
-`setState()` does not always immediately update the component. It may batch or defer the update until later. This makes reading `this.state` right after calling `setState()` a potential pitfall. Instead, use `componentDidUpdate` or a `setState` callback (`setState(updater, callback)`), either of which are guaranteed to fire after the update has been applied. If you need to set the state based on the previous state, read about the `updater` argument below.
+`setState()` nem sempre atualiza o componente imediatamente. Ele pode adiar a atualização para mais tarde. Isto torna a leitura de `this.state` logo após chamar `setState()` uma potencial cilada. Como alternativa, utilize `componentDidUpdate` ou o *callback* de `setState` (`setState(updater, callback)`), ambos possuem a garantia de dispararem após a aplicação da atualização. Se você precisa definir o *state* baseado no *state* anterior, leia sobre o argumento `updater` abaixo.
 
-`setState()` will always lead to a re-render unless `shouldComponentUpdate()` returns `false`. If mutable objects are being used and conditional rendering logic cannot be implemented in `shouldComponentUpdate()`, calling `setState()` only when the new state differs from the previous state will avoid unnecessary re-renders.
+`setState()` vai sempre conduzir a uma rerenderização a menos que `shouldComponentUpdate()` retorne `false`. Se objetos mutáveis estão sendo utilizados e lógica de renderização condicional não puder ser implementada em `shouldComponentUpdate()`, chamar `setState()` somente quando o novo *state* diferir do *state* anterior irá evitar rerenderizações desnecessárias.
 
-The first argument is an `updater` function with the signature:
+O primeiro argumento é uma função `updater` com a assinatura:
 
 ```javascript
 (state, props) => stateChange
 ```
 
-`state` is a reference to the component state at the time the change is being applied. It should not be directly mutated. Instead, changes should be represented by building a new object based on the input from `state` and `props`. For instance, suppose we wanted to increment a value in state by `props.step`:
+`state` é a referência ao *state* do componente no momento que a mudança está sendo aplicada. Ele não deve ser mutado diretamente. As mudanças devem ser representadas construindo um novo objeto baseado no *input* de *state* e *props*. Por exemplo, suponha que queiramos incrementar um valor no *state* em `props.step`:
 
 ```javascript
 this.setState((state, props) => {
@@ -528,23 +528,23 @@ this.setState((state, props) => {
 });
 ```
 
-Both `state` and `props` received by the updater function are guaranteed to be up-to-date. The output of the updater is shallowly merged with `state`.
+Tanto `state` quanto `props` que foram recebidas pela função `updater` tem a garantia de estarem atualizados. A saída do *updater* é superficialmente mesclada com o *state*.
 
-The second parameter to `setState()` is an optional callback function that will be executed once `setState` is completed and the component is re-rendered. Generally we recommend using `componentDidUpdate()` for such logic instead.
+O segundo parâmetro de `setState()` é uma função de *callback* opcional que será executada assim que `setState` for completada e o componente rerenderizado. Geralmente, recomendamos utilizar `componentDidUpdate()` para implementar esta lógica.
 
-You may optionally pass an object as the first argument to `setState()` instead of a function:
+Você também pode passar um objeto como primeiro argumento de `setState()` ao invés de uma função:
 
 ```javascript
 setState(stateChange[, callback])
 ```
 
-This performs a shallow merge of `stateChange` into the new state, e.g., to adjust a shopping cart item quantity:
+Isto realiza uma mescla superficial de `stateChange` dentro no novo *state*. Por exemplo: para ajustar a quantidade de items no carrinho de compras:
 
 ```javascript
 this.setState({quantity: 2})
 ```
 
-This form of `setState()` is also asynchronous, and multiple calls during the same cycle may be batched together. For example, if you attempt to increment an item quantity more than once in the same cycle, that will result in the equivalent of:
+Esta forma de `setState()` também é assíncrona, e múltiplas chamadas durante o mesmo ciclo podem ser agrupadas numa só. Por exemplo, se você tentar incrementar a quantidade de itens mais que uma vez no mesmo ciclo, isto resultará no equivalente a:
 
 ```javaScript
 Object.assign(
@@ -555,7 +555,7 @@ Object.assign(
 )
 ```
 
-Subsequent calls will override values from previous calls in the same cycle, so the quantity will only be incremented once. If the next state depends on the current state, we recommend using the updater function form, instead:
+Chamadas subsequentes irão sobrescrever valores de chamadas anteriores no mesmo ciclo, então a quantidade será incrementada somente uma vez. Se o próximo estado depende do estado atual, recomendamos utilizar a função *updater* como alternativa:
 
 ```js
 this.setState((state) => {
@@ -563,11 +563,11 @@ this.setState((state) => {
 });
 ```
 
-For more detail, see:
+Para mais informações, veja:
 
-* [State and Lifecycle guide](/docs/state-and-lifecycle.html)
-* [In depth: When and why are `setState()` calls batched?](https://stackoverflow.com/a/48610973/458193)
-* [In depth: Why isn't `this.state` updated immediately?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
+* [Guia de State e Lifecycle](/docs/state-and-lifecycle.html)
+* [Em detalhes: Quando e por que `setState()` agrupa chamadas?](https://stackoverflow.com/a/48610973/458193)
+* [Em detalhes: por que o `this.state` é atualizado imediatamente?](https://github.com/facebook/react/issues/11527#issuecomment-360199710)
 
 * * *
 
