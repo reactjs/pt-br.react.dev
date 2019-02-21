@@ -51,7 +51,7 @@ Lembre que somente arquivos React terminados com `.production.min.js` são adequ
 
 ### Brunch {#brunch}
 
-Para uma Brunch build de produção mais eficiente, instale o [`uglify-js-brunch`](https://github.com/brunch/uglify-js-brunch) plugin:
+Para uma build de produção do Brunch mais eficiente, instale o [`uglify-js-brunch`](https://github.com/brunch/uglify-js-brunch) plugin:
 
 ```
 # Se você usa npm
@@ -71,7 +71,7 @@ Lembre que você somente precisa fazer isso para builds de produção. Você nã
 
 ### Browserify {#browserify}
 
-Para uma Browserify build de produção mais eficiente, instale esses poucos plugins:
+Para uma build de produção do Browserify mais eficiente, instale alguns plugins:
 
 ```
 # Se você usa npm
@@ -105,7 +105,7 @@ Lembre que você somente precisar fazer isso para builds de produção. Você n�
 
 ### Rollup {#rollup}
 
-Para uma Rollup build de produção mais eficiente, instale esses poucos plugins:
+Para uma build de produção do Rollup mais eficiente, instale alguns plugins:
 
 ```
 # Se você usa npm
@@ -142,9 +142,9 @@ Lembre que você somente precisa fazer isso para builds de produção. Você nã
 >**Observação:**
 >
 >Se você está usando Create React App, por favor siga [as instruções abaixo](#create-react-app).<br>
->Esta seção é somento relevante se você configura o webpack diretamente.
+>Esta seção é somente relevante se você configura o webpack diretamente.
 
-Para uma mais eficiente webpack build de produção, tenha certeza que você incluiu esses plugins em sua configuração de produção:
+Para uma build de produção mais eficiente do webpack, tenha certeza que você incluiu esses plugins em sua configuração de produção:
 
 ```js
 new webpack.DefinePlugin({
@@ -161,11 +161,11 @@ Lembre que você somente precisa fazer isso para builds de produção. Você nã
 
 Em modo de **desenvolvimento**, você pode visualizar como os componentes são montados (mount), alterados (update), and desmontados (unmount), usando as ferramentas de performance nos browsers suportados. Por exemplo:
 
-<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="Componentes React na linha do tempo do Chrome" /></center>
+<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="Componentes do React na linha do tempo do Chrome" /></center>
 
 Para fazer isso no Chrome:
 
-1. Temporariamente **desabilite todas as extensões do Chrome, especialmente React DevTools**. Eles podem significativamente enviesar os resultados!
+1. Temporariamente **desabilite todas as extensões do Chrome, especialmente React DevTools**. Elas podem significativamente enviesar os resultados!
 
 2. Tenha certeza que você está rodando sua aplicação no modo de desenvolvimento.
 
@@ -175,7 +175,7 @@ Para fazer isso no Chrome:
 
 5. Pare de gravar.
 
-6. Eventos React serão agrupados sobre a label **User Timing**.
+6. Eventos do React serão agrupados sob a label **User Timing**.
 
 Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
 
@@ -183,14 +183,14 @@ Perceba que **os números são relativos para que os componentes renderizem mais
 
 Atualmente Chrome, Edge e IE são os únicos browsers que suportam essa feature, mas nós usamos um padrão [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) então esperamos que mais navegadores deem suporte.
 
-## Analizando componentes com o DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+## Analisando componentes com o DevTools Profiler {#profiling-components-with-the-devtools-profiler}
 
 `react-dom` 16.5+ e `react-native` 0.57+ fornecem melhorias nas capacidades de analise em modo de desenvolvimento com o React DevTools Profiler.
 
 Uma visão geral do Profiler pode ser encontrada nesse artigo ["Introducing the React Profiler"](/blog/2018/09/10/introducing-the-react-profiler.html).
 Um vídeo com o passo a passo do profiler também está [disponível no YouTube](https://www.youtube.com/watch?v=nySib7ipZdk).
 
-Se você ainda não tem o React DevTools instalado, você pode fazer isso encontrado ele aqui:
+Se você ainda não tem o React DevTools instalado, você pode encontrá-lo aqui:
 
 - [Extensão para Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 - [Extensão para Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
@@ -198,8 +198,8 @@ Se você ainda não tem o React DevTools instalado, você pode fazer isso encont
 
 > Observação
 >
-> Um analise de uma build de produção do `react-dom` está disponível como `react-dom/profiling`.
-> Leia mais sobre como usar essa builda no [fb.me/react-profiling](https://fb.me/react-profiling)
+> Uma analise de uma build de produção do `react-dom` está disponível como `react-dom/profiling`.
+> Leia mais sobre como usar esse pacote no [fb.me/react-profiling](https://fb.me/react-profiling)
 
 ## Virtualizando Longas Listas {#virtualize-long-lists}
 
@@ -245,17 +245,17 @@ Na maioria dos casos, ao invés de escrever `shouldComponentUpdate()` na mão, v
 
 ## shouldComponentUpdate em ação {#shouldcomponentupdate-in-action}
 
-Aqui é uma sub-árvore de componentes. Para cada uma, `SCU` define o que o `shouldComponentUpdate` retorna, e `vDOMEq` indica se os elementos React renderizados são equivalentes. Finalmente, o círculo de cores indica se o componente tinha de ser rencoliado ou não.
+Aqui é uma sub-árvore de componentes. Para cada uma, `SCU` define o que o `shouldComponentUpdate` retorna, e `vDOMEq` indica se os elementos renderizados pelo React são equivalentes. Finalmente, o círculo de cores indica se o componente tinha de ser reconciliado ou não.
 
 <figure><img src="../images/docs/should-component-update.png" style="max-width:100%" /></figure>
 
 Já que `shouldComponentUpdate` retornou `false` na sub-árvore iniciada no C2, React não tentou renderizar C2, e por consequência não invocou `shouldComponentUpdate` no C4 e C5.
 
-Para C1 e C3, `shouldComponentUpdate` retornou `true`, então o React teve que descer até as folhas para checa-los. Para o C6 `shouldComponentUpdate` returned `true`, e já que os elementes renderizados não são iguais o React teve que alterar o DOM.
+Para C1 e C3, `shouldComponentUpdate` retornou `true`, então o React teve que descer até as folhas para checá-los. Para o C6 `shouldComponentUpdate` retornou `true`, e já que os elementos renderizados não são iguais, o React teve que alterar o DOM.
 
 O último caso interessante é o C8. React teve que renderizar este componente, mas já que os elementos que ele retornou eram iguais aos previamente renderizados, ele não teve que alterar o DOM. 
 
-Note que o React somente tinha de fazer mutações no DOM para o C6, no qual era inevitável. Para C8, ele abortou comparando os elementos React renderizados, a para sub-árvore do C2 e C7, ele nem mesmo teve que comparar os elementos pois abordou no `shouldComponentUpdate`, e `render` não foi chamado.
+Note que o React somente teve de fazer mutações no DOM para o C6, no qual era inevitável. Para C8, ele abortou comparando os elementos React renderizados, e para a sub-árvore do C2 e C7, ele nem mesmo teve que comparar os elementos pois abortou no `shouldComponentUpdate`, e `render` não foi chamado.
 
 ## Exemplos {#examples}
 
