@@ -30,7 +30,7 @@ function Example() {
 
 Vamos começar a aprender sobre Hooks comparando este código com um exemplo equivalente utilizando classe.
 
-## Exemplo equivalente com Classe {#equivalent-class-example}
+## Exemplo Equivalente com Classe {#equivalent-class-example}
 
 Se você já usou classes no React, este código deve parecer familiar:
 
@@ -217,7 +217,7 @@ Vamos **recapitular o que aprendemos linha por linha** e checar nosso entendimen
 
 À primeira vista pode parecer muita coisa. Não se apresse! Se você está perdido na explicação, olhe o código acima novamente e tente lê-lo de uma ponta a outra. Prometemos que a partir do momento que você "esquecer" como state funciona em classes, e olhar este código com novos olhos, irá fazer sentido.
 
-### Dica: O que os colchetes significam? {#tip-what-do-square-brackets-mean}
+### Dica: O que os Colchetes Significam? {#tip-what-do-square-brackets-mean}
 
 Você pode ter percebido os colchetes quando declaramos a variável state:
 
@@ -245,7 +245,7 @@ Quando declaramos uma variável com `useState`, ela retorna um par -- um array c
 >
 >Você pode estar curioso como o React sabe qual componente o `useState` corresponde já que não passamos nada como `this` para o React. Vamos responder [esta pergunta](/docs/hooks-faq.html#how-does-react-associate-hook-calls-with-components) e muitas outras na seção FAQ.
 
-### Dica: Usando múltiplas variáveis State {#tip-using-multiple-state-variables}
+### Dica: Usando Múltiplas Variáveis State {#tip-using-multiple-state-variables}
 
 Declarar variáveis de state como par de `[something, setSomething]` também é útil porque nos permite dar *diferentes* nomes para diferentes váriaveis de state se quiséssemos usar mais de uma:
 
@@ -270,7 +270,7 @@ Você **não tem que** usar muitas variáveis de state. Elas podem conter objeto
 
 Damos mais recomendações em separação de variáveis de state independentes [no FAQ](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables).
 
-## Próximos passos {#next-steps}
+## Próximos Passos {#next-steps}
 
 Nesta página aprendemos sobre um dos Hooks fornecido pelo React, chamado `useState`. Também, em algumas vezes, vamos nos referir como o "State do Hook". Ele nos permite adicionar um state local a um componenete de função -- o que fizemos pela primeira vez!
 
