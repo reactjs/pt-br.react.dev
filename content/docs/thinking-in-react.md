@@ -61,7 +61,11 @@ Agora que nós já identificamos os componentes do nosso mock, vamos organizá-l
 
 ## Passo 2: Crie Uma Versão Estática Em React {#step-2-build-a-static-version-in-react}
 
+<<<<<<< HEAD
 <p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Veja o Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Pensando em React: Passo 2</a> no <a href="http://codepen.io">CodePen</a>.</p>
+=======
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/BwWzwm">Thinking In React: Step 2</a> on <a href="https://codepen.io">CodePen</a>.</p>
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Agora que você já tem sua hierarquia de componentes, chegou a hora de implementar o seu app. O modo mais fácil é construir uma versão que recebe o seu modelo de dados e renderiza a UI, mas sem interatividade. É melhor desacoplar esses processos uma vez que criar uma versão estática requer muita digitação e pouco pensamento, enquanto adicionar interatividade requer muito pensamento e pouca digitação. Nós veremos o porquê.
@@ -106,7 +110,11 @@ Então, finalmente, nosso state é:
 
 ## Passo 4: Identifique Onde o State Deve Ficar{#step-4-identify-where-your-state-should-live}
 
+<<<<<<< HEAD
 <p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Veja o Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Pensando em React: Passo 4</a> no <a href="http://codepen.io">CodePen</a>.</p>
+=======
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/qPrNQZ">Thinking In React: Step 4</a> on <a href="https://codepen.io">CodePen</a>.</p>
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 OK, então nós já identificamos qual é o menor conjunto para o state da aplicação. Em seguida, nós precisamos identificar quais componentes são mutáveis, ou *possuem* esse state.
 
@@ -131,7 +139,11 @@ Você começará a ver como a aplicação vai se comportar: assinale o valor de 
 
 ## Passo 5: Adicione o Fluxo de Dados Inverso {#step-5-add-inverse-data-flow}
 
+<<<<<<< HEAD
 <p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Veja o Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Pensando em React: Passo 5</a> no <a href="http://codepen.io">CodePen</a>.</p>
+=======
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">See the Pen <a href="https://codepen.io/gaearon/pen/LzWZvb">Thinking In React: Step 5</a> on <a href="https://codepen.io">CodePen</a>.</p>
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Até aqui nós construímos um app que comporta-se como uma função das props e state que fluem através da hierarquia. Agora é hora de suportar o fluxo no outro sentido: os elementos de formulário na base da hierarquia precisam atualizar o state em `FilterableProductTable`.
 

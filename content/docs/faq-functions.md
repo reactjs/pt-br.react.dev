@@ -110,7 +110,11 @@ Com React, tipicamente você precisa dar bind apenas nos métodos que você *pas
   
 [Este post por Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica o que binding é e como funcionam as funções do Javascript, em detalhes.
 
+<<<<<<< HEAD
 ### Porque minha função é chamada toda vez que o componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
+=======
+[This post by Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explains what binding is, and how functions work in JavaScript, in detail.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Certifique-se que você não está _chamando a função_ quando for passar para o componente:
 

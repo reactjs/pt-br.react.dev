@@ -23,7 +23,11 @@ Por exemplo, é possível introduzir um state (estado) local dentro de um compon
 
 Não há nada de "errado" em usar state (estado) ou métodos do ciclo de vida nos componentes. Como qualquer funcionalidade poderosa, eles devem ser usados com moderação. Porém, não temos a intenção de removê-los. Pelo contrário, pensamos que eles são partes importantes do que torna o React útil. Poderemos permitir [mais padrões funcionais](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) no futuro. Porém, tanto state (estado) local e métodos do ciclo de vida serão parte desse modelo.
 
+<<<<<<< HEAD
 Componentes geralmente são descritos como "apenas funções". Porém, pelo nosso ponto de vista, eles precisam ser mais do que isso para serem úteis. No React, os componentes descrevem qualquer comportamento "composable", incluindo rendering (renderização), lifecycle (ciclo de vida) e state. Algumas bibliotecas, como [Relay (Retransmissão)](http://facebook.github.io/relay/) aumentam a responsabilidade dos componentes, como por exemplo descrever a dependência de dados. É possível que essas ideias possam voltar para o React também de alguma forma.
+=======
+Components are often described as "just functions" but in our view they need to be more than that to be useful. In React, components describe any composable behavior, and this includes rendering, lifecycle, and state. Some external libraries like [Relay](https://facebook.github.io/relay/) augment components with other responsibilities such as describing data dependencies. It is possible that those ideas might make it back into React too in some form.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 ### Abstração comum {#common-abstraction}
 
@@ -125,7 +129,11 @@ No entanto, fornecemos algumas configurações globais no nível de construção
 
 ### Além do DOM {#beyond-the-dom}
 
+<<<<<<< HEAD
 A grande vantagem do React é a maneira que ele nos permite desenvolver componentes com menos bugs e que possam ser integrados juntos. DOM é o destino original de renderização para o React, mas o [React Native](http://facebook.github.io/react-native/) é tão importante quanto, tanto para o Facebook quanto para a comunidade.
+=======
+We see the value of React in the way it allows us to write components that have fewer bugs and compose together well. DOM is the original rendering target for React but [React Native](https://facebook.github.io/react-native/) is just as important both to Facebook and the community.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 Ser "renderer-agnostic" é uma importante restrição de design do React. Isso adiciona alguma sobrecarga nas representações internas. Por outro lado, quaisquer melhorias no núcleo são traduzidas em todas as plataformas.
 
@@ -147,7 +155,11 @@ A otimização para pesquisa também é importante devido à nossa confiança no
 
 [JSX](/docs/introducing-jsx.html) desempenha um papel semelhante. Embora não seja necessário com o React, nós o usamos extensivamente no Facebook, tanto por razões estéticas quanto pragmáticas.
 
+<<<<<<< HEAD
 Em nosso código-base, o JSX fornece uma dica não ambígua para as ferramentas de que elas estão lidando com uma árvore de elementos React. Isso torna possível adicionar otimizações em tempo de build, como [elevar elementos constantes](http://babeljs.io/docs/plugins/transform-react-constant-elements/), seguramente aplicar o lint e executar o "codemodar" nos usos de componentes internos, e [incluir o local de origem do JSX](https://github.com/facebook/react/pull/6771) nos avisos.
+=======
+In our codebase, JSX provides an unambiguous hint to the tools that they are dealing with a React element tree. This makes it possible to add build-time optimizations such as [hoisting constant elements](https://babeljs.io/docs/en/babel-plugin-transform-react-constant-elements/), safely lint and codemod internal component usage, and [include JSX source location](https://github.com/facebook/react/pull/6771) into the warnings.
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 ### Dogfooding {#dogfooding}
 
