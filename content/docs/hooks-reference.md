@@ -6,7 +6,7 @@ prev: hooks-custom.html
 next: hooks-faq.html
 ---
 
-*Hooks* é um novo recurso adicionado no React 16.8. Eles permitem que você use o estado (`state`) e outras funcionalidades do React, sem precisar escrever uma classe
+_Hooks_ são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 
 Essa página descreve as APIs internas dos Hooks no React.
 
@@ -198,7 +198,7 @@ function reducer(state, action) {
   }
 }
 
-function Counter({initialCount}) {
+function Counter({initialState}) {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>

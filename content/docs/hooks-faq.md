@@ -562,7 +562,7 @@ Em árvores grandes de componentes, uma alternativa que recomendamos é passar p
 const TodosDispatch = React.createContext(null);
 
 function TodosApp() {
-  // Dica: `dispatch` não vai mudar entre re-renderizações
+  // Nota: `dispatch` não vai mudar entre re-renderizações
   const [todos, dispatch] = useReducer(todosReducer);
 
   return (

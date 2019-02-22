@@ -52,7 +52,7 @@
     - id: higher-order-components
       title: Higher-Order Components
     - id: integrating-with-other-libraries
-      title: Integrating with Other Libraries
+      title: Integrando com outras Bibliotecas
     - id: jsx-in-depth
       title: JSX In Depth
     - id: optimizing-performance
@@ -110,7 +110,7 @@
       - id: hooks-intro
         title: Introducing Hooks
       - id: hooks-overview
-        title: Hooks at a Glance
+        title: Hooks de forma resumida
       - id: hooks-state
         title: Using the State Hook
       - id: hooks-effect
