@@ -60,7 +60,7 @@
     "node": ">8.4.0",
     "yarn": "^1.3.2"
   },
-  "homepage": "https://pt-br.reactjs.org",
+  "homepage": "https://pt-br.reactjs.org/",
   "keywords": [
     "gatsby"
   ],
