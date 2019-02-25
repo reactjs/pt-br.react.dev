@@ -57,9 +57,9 @@ var Greeting = createReactClass({
 });
 ```
 
-## Configurando o Estado Inicial {#setting-the-initial-state}
+## Configurando o State Inicial {#setting-the-initial-state}
 
-Em classes ES6, você pode definir o estado inicial ao definir `this.state` no construtor:
+Em classes ES6, você pode definir o state inicial ao definir `this.state` no construtor:
 
 ```javascript
 class Counter extends React.Component {
@@ -71,7 +71,7 @@ class Counter extends React.Component {
 }
 ```
 
-Com `createReactClass()`, você deve passar um método `getInitialState` que retorna o estado inicial:
+Com `createReactClass()`, você deve passar um método `getInitialState` que retorna o state inicial:
 
 ```javascript
 var Counter = createReactClass({
@@ -171,7 +171,7 @@ Se você prefere jogar seguro, você tem algumas opções:
 
 >**Notas:**
 >
->ES6 lançou sem suporte a mixins. Portanto, não há suporte para mixins quando você usar React com classes ES6.
+>ES6 foi lançado sem suporte a mixins. Portanto, não há suporte para mixins quando você usar React com classes ES6.
 >
 >**Nós também descobrimos inúmeros problemas na base de código usando mixins, [e não recomendamos usar em novos códigos](/blog/2016/07/13/mixins-considered-harmful.html).**
 >
