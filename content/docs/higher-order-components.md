@@ -293,7 +293,7 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 (Essa mesma propriedade também permite que `connect` e outros enhancer-style HOCs sejam usados como decoradores, uma proposta experimental do JavaScript.)
 
-A função de conveniência `compose` é disponibilizada por várias bibliotecas de terceiros, incluindo lodash (como o [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](http://redux.js.org/docs/api/compose.html), e [Ramda](http://ramdajs.com/docs/#compose).
+A função de conveniência `compose` é disponibilizada por várias bibliotecas de terceiros, incluindo lodash (como o [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](https://redux.js.org/docs/api/compose.html), e [Ramda](https://ramdajs.com/docs/#compose).
 
 ## Convenção: Envolver o nome de exibição para melhor depuração {#convention-wrap-the-display-name-for-easy-debugging}
 

@@ -90,7 +90,7 @@ function ComponentWithTransition() {
 }
 ```
 
-Chaves de _style_ são em _camelCase_ com o intuito de serem consistentes com o acesso de propriedades que são nós do DOM através do JS  (ex. `node.style.backgroundImage`). Prefixos de fornecedor (_vendor prefixes_) [diferentes de `ms`](http://www.andismith.com/blog/2012/02/modernizr-prefixed/) devem começar com a letra maiúscula. É por isso que `WebkitTransition` tem um "W" maiúsculo.
+Chaves de _style_ são em _camelCase_ com o intuito de serem consistentes com o acesso de propriedades que são nós do DOM através do JS  (ex. `node.style.backgroundImage`). Prefixos de fornecedor (_vendor prefixes_) [diferentes de `ms`](https://www.andismith.com/blog/2012/02/modernizr-prefixed/) devem começar com a letra maiúscula. É por isso que `WebkitTransition` tem um "W" maiúsculo.
 
 React vai acrescentar automaticamente um sufixo "px" para determinadas propriedades numéricas de *inline style*. Se você quiser usar unidades diferentes de "px", especifique o valor como uma string com a unidade desejada. Por exemplo:
 
