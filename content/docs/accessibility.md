@@ -395,11 +395,7 @@ Cada tipo de widget tem um padrão de design específico e espera-se que funcion
 
 Indique o idioma dos textos de página, pois o software leitor de tela usa isso para selecionar as configurações de voz correta:
 
-<<<<<<< HEAD
-- [WCAG - Understanding the Document Title Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
-=======
 - [WebAIM - Document Language](https://webaim.org/techniques/screenreader/#language)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 ### Definindo o título do documento {#setting-the-document-title}
 
@@ -417,11 +413,7 @@ Certifique-se de que todo o texto legível em seu site tenha contraste de cores 
 - [Everything About Color Contrast And Why You Should Rethink It](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - What is Color Contrast](https://a11yproject.com/posts/what-is-color-contrast/)
 
-<<<<<<< HEAD
-Pode ser entediante calcular manualmente as combinações de cores adequadas para todos os casos em seu site. Em vez disso, você pode [calcular uma paleta de cores inteira acessível com Colorable](http://jxnblk.com/colorable/).
-=======
-It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://jxnblk.com/colorable/).
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Pode ser entediante calcular manualmente as combinações de cores adequadas para todos os casos em seu site. Em vez disso, você pode [calcular uma paleta de cores inteira acessível com Colorable](https://jxnblk.com/colorable/).
 
 As ferramentas abaixo aXe e WAVE incluem testes de contraste de cores e relatam erros de contraste.
 
@@ -475,11 +467,7 @@ Você também pode usar o [react-axe](https://github.com/dylanb/react-axe) módu
 
 #### WebAIM WAVE {#webaim-wave}
 
-<<<<<<< HEAD
-O [Web Accessibility Evaluation Tool](http://wave.webaim.org/extension/) é outra extensão do navegador de acessibilidade.
-=======
-The [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) is another accessibility browser extension.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+O [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) é outra extensão do navegador de acessibilidade.
 
 #### Inspectores de Acessibilidade e a Árvore de Acessibilidade {#accessibility-inspectors-and-the-accessibility-tree}
 
@@ -531,12 +519,7 @@ Consulte os seguintes guias sobre como ativar e usar o JAWS:
 
 #### ChromeVox no Google Chrome {#chromevox-in-google-chrome}
 
-[ChromeVox](http://www.chromevox.com/) é um leitor de tela integrado nos Chromebooks e está disponível [como extenção](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) para o Google Chrome.
-
-<<<<<<< HEAD
-=======
-[ChromeVox](https://www.chromevox.com/) is an integrated screen reader on Chromebooks and is available [as an extension](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) for Google Chrome.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[ChromeVox](https://www.chromevox.com/) é um leitor de tela integrado nos Chromebooks e está disponível [como extensão](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) para o Google Chrome.
 
 Consulte os guias a seguir sobre como usar melhor o ChromeVox:
 
