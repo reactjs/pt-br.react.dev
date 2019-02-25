@@ -27,11 +27,7 @@ Bundlers usam o código CSS e JavaScript escrito como módulos separados (geralm
 
 ## Gerenciadores de Pacotes {#package-managers}
 
-<<<<<<< HEAD
-Gerenciadores de pacotes são ferramentas que permitem gerenciar dependências em seu projeto. [npm] (https://www.npmjs.com/) e [Yarn] (http://yarnpkg.com/) são dois gerenciadores de pacotes comumente usados em aplicativos React. Ambos são clientes para o mesmo registro de pacotes npm.
-=======
-Package managers are tools that allow you to manage dependencies in your project. [npm](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/) are two package managers commonly used in React applications. Both of them are clients for the same npm package registry.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Gerenciadores de pacotes são ferramentas que permitem gerenciar dependências em seu projeto. [npm] (https://www.npmjs.com/) e [Yarn] (https://yarnpkg.com/) são dois gerenciadores de pacotes comumente usados em aplicativos React. Ambos são clientes para o mesmo registro de pacotes npm.
 
 ## CDN {#cdn}
 
