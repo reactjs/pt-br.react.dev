@@ -21,7 +21,7 @@ Esta página contem uma referência detalhada da API para a definição de class
 
 ## Visão Geral {#overview}
 
-React permite definirmos componentes como classes ou como funções. Componentes definidos como classes possuem mais funcionalidades que serão detalhadas nesta página. Para definir uma classe componente, ela precisa estender a classe `React.Component`:
+React permite definirmos componentes como classes (*class components*) ou como funções. Componentes definidos como classes possuem mais funcionalidades que serão detalhadas nesta página. Para definir um *class component*, a classe precisa estender `React.Component`:
 
 ```js
 class Welcome extends React.Component {
@@ -41,11 +41,11 @@ O único método que você *deve* definir em uma subclasse de `React.Component` 
 >React não te obriga a utilizar a sintaxe ES6 para classes. Se preferir não usá-la, você pode usar o módulo `create-react-class` ou alguma outra abstração similar. Dê uma olhada em 
 [Usando React sem ES6](/docs/react-without-es6.html) para mais sobre este assunto.
 
-### O Ciclo de vida de um Componente {#ciclo-de-vida-de-componentes}
+### O Ciclo de vida de um Componente {#component-life-cycle}
 
 Cada componente possui muitos "métodos do ciclo de vida" que você pode sobrescrever para executar determinado código em momentos particulares do processo. **Você pode usar [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) para consulta.** Na lista abaixo, os métodos do ciclo de vida mais usados estão marcados em **negrito**. O resto deles, existe para o uso em casos relativamente raros.
 
-#### Montando {#montando}
+#### Montando {#mounting}
 
 Estes métodos são chamados na seguinte ordem quando uma instância de um componente está sendo criada e inserida no DOM:
 
@@ -61,7 +61,7 @@ Estes métodos são chamados na seguinte ordem quando uma instância de um compo
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
-#### Atualizando {#atualizando}
+#### Atualizando {#updating}
 
 Uma atualização pode ser causada por alterações em props ou no state. Estes métodos são chamados na seguinte ordem quando um componente esta sendo re-renderizado:
 
@@ -78,13 +78,13 @@ Uma atualização pode ser causada por alterações em props ou no state. Estes 
 >- [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 >- [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
 
-#### Desmontando {#desmontando}
+#### Desmontando {#unmounting}
 
 Estes métodos são chamados quando um componente está sendo removido do DOM:
 
 - [**`componentWillUnmount()`**](#componentwillunmount)
 
-#### Tratando erros {#tratando-erros}
+#### Tratando erros {#terror}
 
 Estes métodos são chamados quando existir um erro durante a renderização, em um método do ciclo de vida, ou no construtor de qualquer componente-filho.
 
@@ -120,48 +120,48 @@ Os métodos desta seção cobrem a grande maioria dos casos de uso que você enc
 ```javascript
 render()
 ```
+O método `render()` é o único método obrigatório em um class-component.
 
-The `render()` method is the only required method in a class component.
+Quando chamado, ele examina `this.props` e `this.state` e retorna um dos seguintes tipos:
 
-When called, it should examine `this.props` and `this.state` and return one of the following types:
+- **Elementos React.** Tipicamente criados via [JSX](/docs/introducing-jsx.html). Por exemplo, `<div />` e `<MyComponent />` são elementos React que instruem o React para renderizar um nó do DOM, ou outro componente definido pelo usuário, respectivamente.
+- **Arrays e fragmentos.** Permitem que você retorne múltiplos elementos ao renderizar. Veja a documentação em [fragments](/docs/fragments.html) para mais detalhes.
+- **Portals**. Permitem que você renderize componentes-filhos em uma sub-árvore diferente do DOM. Veja a documentação em [portals](/docs/portals.html) para mais detalhes.
+- **String e números.** Estes são renderizados como nós de texto no DOM.
+- **Booleanos ou `null`**. Não renderizam nada.(A maioria existe para suportar  o padrão `return test && <Child />` , onde `test` é um booleano.)
 
-- **React elements.** Typically created via [JSX](/docs/introducing-jsx.html). For example, `<div />` and `<MyComponent />` are React elements that instruct React to render a DOM node, or another user-defined component, respectively.
-- **Arrays and fragments.** Let you return multiple elements from render. See the documentation on [fragments](/docs/fragments.html) for more details.
-- **Portals**. Let you render children into a different DOM subtree. See the documentation on [portals](/docs/portals.html) for more details.
-- **String and numbers.** These are rendered as text nodes in the DOM.
-- **Booleans or `null`**. Render nothing. (Mostly exists to support `return test && <Child />` pattern, where `test` is boolean.)
+A função `render()` deve ser pura, o que significa que ela não modifica o state, ela retorna o mesmo resultado a cada vez que é chamada, e isso não interage diretamente com o browser.
+Se você precisar interagir com o browser, faça isto no método `componentDidMount()` ou em outros métodos do ciclo de vida. Manter `render()` puro faz com que os componentes sejam fáceis de se trabalhar.
 
-The `render()` function should be pure, meaning that it does not modify component state, it returns the same result each time it's invoked, and it does not directly interact with the browser.
 
-If you need to interact with the browser, perform your work in `componentDidMount()` or the other lifecycle methods instead. Keeping `render()` pure makes components easier to think about.
-
-> Note
+> Nota
 >
-> `render()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> `render()` não será invocado se  [`shouldComponentUpdate()`](#shouldcomponentupdate) retornar false.
 
 * * *
 
-### `constructor()` {#constructor}
+### `construtor()` {#constructor}
 
 ```javascript
 constructor(props)
 ```
 
-**If you don't initialize state and you don't bind methods, you don't need to implement a constructor for your React component.**
+**Se você não inicializar o state e não fizer o bind dos métodos, você não precisa implementar um construtor para seu componente**
 
-The constructor for a React component is called before it is mounted. When implementing the constructor for a `React.Component` subclass, you should call `super(props)` before any other statement. Otherwise, `this.props` will be undefined in the constructor, which can lead to bugs.
+O construtor para um componente React é chamado antes que este componente seja montado. Quando estiver implementando o construtor para uma subclasse de `React.Component`, você deveria chamar `super(props)` antes de qualquer outra coisa.
+Caso contrário `this.props` será indefinido no construtor, o que pode levar a bugs.
 
-Typically, in React constructors are only used for two purposes:
+Tipicametne, em React, os construtores são usados somente para dois propósitos:
 
-* Initializing [local state](/docs/state-and-lifecycle.html) by assigning an object to `this.state`.
-* Binding [event handler](/docs/handling-events.html) methods to an instance.
+* Inicializar [local state](/docs/state-and-lifecycle.html) através da atribuição de um objeto a `this.state`.
+* Ligação (binding)  de um método [manipulador de eventos](/docs/handling-events.html) à uma instância.
 
-You **should not call `setState()`** in the `constructor()`. Instead, if your component needs to use local state, **assign the initial state to `this.state`** directly in the constructor:
+Você **não deve chamar `setState()`**  no `constructor()`. Ao invés disso, se seu componente precisa de local state, **atribua o initial state à `this.state`** diretamente no construtor:
 
 ```js
 constructor(props) {
   super(props);
-  // Don't call this.setState() here!
+  // Não chame this.setState() aqui!
   this.state = { counter: 0 };
   this.handleClick = this.handleClick.bind(this);
 }
