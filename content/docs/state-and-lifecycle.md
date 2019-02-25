@@ -29,7 +29,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
 Esta seção, aprenderemos como tornar o componente `Clock` verdadeiramente reutilizável e encapsulado. Ele irá configurar seu próprio temporizador e se atualizar a cada segundo.
 
@@ -55,7 +55,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
 No entanto, falta um requisito crucial: o fato de que o `Clock` configura um temporizador e atualiza a UI a cada segundo deve ser um detalhe de implementação do `Clock`.
 
@@ -101,7 +101,7 @@ class Clock extends React.Component {
 }
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
 `Clock` agora é definido como uma classe em vez de uma função.
 
@@ -193,7 +193,7 @@ ReactDOM.render(
 );
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
 Em seguinda, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
 
@@ -302,7 +302,7 @@ ReactDOM.render(
 );
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
 Agora o relógio bate a cada segundo.
 
@@ -437,7 +437,7 @@ function FormattedDate(props) {
 }
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
 Isso é comumente chamado de fluxo de dados "top-down" ou "unidirecional". Qualquer state é sempre de propriedade de algum componente específico, e qualquer dado ou interface do usuário derivado desse state só pode afetar os componentes "abaixo" deles na árvore.
 
@@ -462,7 +462,7 @@ ReactDOM.render(
 );
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
 Cada `Clock` configura seu próprio temporizador e atualiza de forma independente.
 

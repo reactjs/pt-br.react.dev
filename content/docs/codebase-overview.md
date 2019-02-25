@@ -156,7 +156,7 @@ Existem vários pontos de injeção no código-base. No futuro, pretendemos nos 
 
 ### Pacotes Múltiplos {#multiple-packages}
 
-React é um [monorepo](http://danluu.com/monorepo/). Seu repositório contém vários pacotes separados para que suas alterações possam ser coordenadas em conjunto e os problemas residam em um só lugar.
+React é um [monorepo](https://danluu.com/monorepo/). Seu repositório contém vários pacotes separados para que suas alterações possam ser coordenadas em conjunto e os problemas residam em um só lugar.
 
 ### React Core {#react-core}
 
@@ -172,7 +172,7 @@ O código do React core está localizado em [`packages/react`](https://github.co
 
 ### Renderizadores {#renderers}
 
-O React foi originalmente criado para o DOM, mas depois foi adaptado para também suportar plataformas nativas com o [React Native](http://facebook.github.io/react-native/). Isso introduziu o conceito de "renderizadores" para as partes internas do React.
+O React foi originalmente criado para o DOM, mas depois foi adaptado para também suportar plataformas nativas com o [React Native](https://facebook.github.io/react-native/). Isso introduziu o conceito de "renderizadores" para as partes internas do React.
 
 **Os renderizadores gerenciam como uma árvore no React se transforma nas chamadas de subjacentes da plataforma.**
 

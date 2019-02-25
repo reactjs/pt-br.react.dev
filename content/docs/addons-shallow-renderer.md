@@ -51,7 +51,7 @@ O teste superficial atualmente tem algumas limitações, ou seja, não suporta r
 
 > Nota:
 >
-> Nós também recomendamos verificar a [Shallow Rendering API](http://airbnb.io/enzyme/docs/api/shallow.html) da Enzyme. Ela fornece uma API de alto nível mais agradável sobre a mesma funcionalidade.
+> Nós também recomendamos verificar a [Shallow Rendering API](https://airbnb.io/enzyme/docs/api/shallow.html) da Enzyme. Ela fornece uma API de alto nível mais agradável sobre a mesma funcionalidade.
 
 ## Referência {#reference}
 
