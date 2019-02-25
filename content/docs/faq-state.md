@@ -91,7 +91,7 @@ Isso é um detalhe de implementação, então evite depender disso diretamente. 
 
 Como explicado na seção anterior, React intencionalmente "espera" até todos os componentes terem chamado `setState()` em seus gerenciadores de evento antes de começar a renderizar novamente. Isso aumenta performance por evitar renderizações desnecessárias.
 
-No entanto, você pode ainda estar se perguntando porque React não atualiza apenas `this.state` imediatamente, sem renderizar novamente.
+No entanto, você pode ainda estar se perguntando porque o React simplesmene não atualiza `this.state` imediatamente, sem renderizar novamente.
 
 Existem duas principais razões:
 
