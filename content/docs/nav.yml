@@ -114,7 +114,7 @@
       - id: hooks-state
         title: Using the State Hook
       - id: hooks-effect
-        title: Usando o Hook Effect
+        title: Usando Effect Hook (Hook de Efeito)
       - id: hooks-rules
         title: Rules of Hooks
       - id: hooks-custom
