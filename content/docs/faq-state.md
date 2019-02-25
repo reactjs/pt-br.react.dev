@@ -81,7 +81,7 @@ handleSomething() {
 
 ### Quando `setState` é assíncrono? {#when-is-setstate-asynchronous}
 
-Atualmente, `setState` é assíncrono dentro de gerenciadores de evento.
+Atualmente, `setState` é assíncrono dentro de manipuladores de evento.
 
 Isso garante que, por exemplo, caso tanto `Parent` quanto `Child` chamem `setState` após um evento de clique, `Child` não seja renderizado duas vezes. Ao invés disso, React executa todas as atualizações de estado ao final do evento do navegador. Isso resulta numa melhoria de performance significativa para aplicativos maiores.
 
@@ -89,7 +89,7 @@ Isso é um detalhe de implementação, então evite depender disso diretamente. 
 
 ### Por que o React não atualiza `this.state` síncronamente? {#why-doesnt-react-update-thisstate-synchronously}
 
-Como explicado na seção anterior, React intencionalmente "espera" até todos os componentes terem chamado `setState()` em seus gerenciadores de evento antes de começar a renderizar novamente. Isso aumenta performance por evitar renderizações desnecessárias.
+Como explicado na seção anterior, React intencionalmente "espera" até todos os componentes terem chamado `setState()` em seus manipuladores de evento antes de começar a renderizar novamente. Isso aumenta performance por evitar renderizações desnecessárias.
 
 No entanto, você pode ainda estar se perguntando porque o React simplesmene não atualiza `this.state` imediatamente, sem renderizar novamente.
 
