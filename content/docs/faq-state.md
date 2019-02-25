@@ -52,7 +52,7 @@ Veja abaixo como solucionar esse problema.
 
 ### Como eu atualizo estado com valores que dependem do estado atual? {#how-do-i-update-state-with-values-that-depend-on-the-current-state}
 
-Passe uma função ao invés de um objeto para `setState` para garantir que a chamada sempre usa o valor mais recente do estado (veja abaixo).
+Passe uma função ao invés de um objeto para `setState` para garantir que a chamada sempre use o valor mais recente do estado (veja abaixo).
 
 ### Qual é a diferença entre passar um objeto e uma função em `setState`? {#what-is-the-difference-between-passing-an-object-or-a-function-in-setstate}
 
@@ -85,7 +85,7 @@ Atualmente, `setState` é assíncrono dentro de gerenciadores de evento.
 
 Isso garante que, por exemplo, caso tanto `Parent` quanto `Child` chamem `setState` após um evento de clique, `Child` não seja renderizado duas vezes. Ao invés disso, React executa todas as atualizações de estado ao final do evento do navegador. Isso resulta numa melhoria de performance significativa para aplicativos maiores.
 
-Isso é um detalhes de implementação, então evite dependender disso diretamente. Em versões futuras, o React fará atualizações em lotes em mais casos.
+Isso é um detalhe de implementação, então evite depender disso diretamente. Em versões futuras, o React fará atualizações em lotes em mais casos.
 
 ### Por que o React não atualiza `this.state` síncronamente? {#why-doesnt-react-update-thisstate-synchronously}
 
@@ -93,7 +93,7 @@ Como explicado na seção anterior, React intencionalmente "espera" até todos o
 
 No entanto, você pode ainda estar se perguntando porque React não atualiza apenas `this.state` imediatamente, sem renderizar novamente.
 
-Por duas razões principais:
+Existem duas principais razões:
 
 * Isso quebraria a consistência entre `props` e `state`, causando problemas muito difíceis de debugar.
 * Isso tornaria algumas das novas funcionalidades em que estamos trabalhando impossíveis de implementar.
