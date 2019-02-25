@@ -18,7 +18,7 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-Esta página é um visão geral da documentação do React e de recursos relacionados.
+Esta página é um visão geral da documentação do React e dos recursos relacionados.
 
 **React** é uma biblioteca JavaScript para construção de interfaces de usuário. Saiba tudo sobre React em [nossa página inicial](/) ou [através do tutorial](/tutorial/tutorial.html).
 
@@ -73,17 +73,17 @@ Se você vem da área de design, [estes recursos](http://reactfordesigners.com/)
 
 ### Recursos JavaScript {#javascript-resources}
 
-A documentação do React assume que você tem alguma familiaridade com a programação na linguagem JavaScript. Você não precisa ser um especialista, mas é mais difícil aprender o React e o JavaScript ao mesmo tempo.
+A documentação do React assume que você tem alguma familiaridade com a programação na linguagem JavaScript. Você não precisa ser um especialista, porém é mais difícil aprender o React e o JavaScript ao mesmo tempo.
 
-Recomendamos que você leia [esta visão geral do JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para verificar seu nível de conhecimento. Ela levará entre 30 minutos e uma hora, mas você se sentirá mais confiante para aprender Ract.
+Recomendamos que você leia [esta visão geral do JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para verificar seu nível de conhecimento. Ela levará entre 30 minutos e uma hora. Assim você se sentirá mais confiante para aprender Ract.
 
 >Dica
 >
->Sempre que você se sentir confuso com algo em JavaScript, o [MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) e o [javascript.info](http://javascript.info/) serão ótimos sites para verificar. Há também [fóruns de suporte da comunidade](/community/support.html) onde você poderá pedir ajuda.
+>Sempre que você se sentir confuso com algo em JavaScript, o [MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) e o [javascript.info](http://javascript.info/) serão ótimos sites para conferir. Há também [fóruns de suporte da comunidade](/community/support.html) onde você poderá pedir ajuda.
 
 ### Tutorial Prático {#practical-tutorial}
 
-Se você prefere **aprender fazendo**, confira nosso [tutorial prático](/tutorial/tutorial.html). Neste tutorial, criamos um jogo-da-velha no React. Você pode pensar em evitá-lo porque não está construindo jogos – mas dê uma chance. As técnicas que você aprenderá no tutorial são fundamentais para criar *qualquer* aplicação React e dominá-las dará a você uma compreensão muito mais profunda.
+Se você prefere **aprender fazendo**, confira nosso [tutorial prático](/tutorial/tutorial.html). Neste tutorial, criamos um jogo-da-velha em React. Você pode pensar em evitar desenvolver porque não está construindo jogos – mas dê uma chance. As técnicas que você aprenderá no tutorial são fundamentais para criar *qualquer* aplicação React e ao dominá-las dará a você uma compreensão muito mais profunda.
 
 ### Guia Passo-a-passo {#step-by-step-guide}
 
@@ -91,19 +91,19 @@ Se você prefere **aprender conceitos passo-a-passo**, nosso [guia dos principai
 
 ### Pensando em React {#thinking-in-react}
 
-Muitos usuários de React creditam à leitura [Pensando em React](/docs/thinking-in-react.html) como o momento em que React finalmente "fez sentido" para eles. É provavelmente o passo-a-passo mais antigo do React, mas ainda é relevante.
+Muitos usuários do React dão créditos à leitura [Pensando em React](/docs/thinking-in-react.html) como o momento em que React finalmente "fez sentido" para eles. É provavelmente o passo-a-passo mais antigo do React, mas que ainda é relevante.
 
 ### Cursos Recomendados {#recommended-courses}
 
-As vezes, as pessoas acham que livros e cursos em vídeo de terceiros são mais úteis do que a documentação oficial. Mantemos [uma lista de recursos recomendados](/community/courses.html), alguns dos quais são gratuitos.
+Às vezes, as pessoas acham que livros e cursos em vídeo de terceiros são mais úteis do que a documentação oficial. Nós mantemos [uma lista de recursos recomendados](/community/courses.html), alguns dos quais são gratuitos.
 
 ### Conceitos Avançados {#advanced-concepts}
 
-Uma vez que você esteja confortável com os [conceitos principais](#main-concepts) e brincou um pouco com o React, pode se interessar em tópicos mais avançados. Esta seção apresentará poderosos, porém pouco utilizados, recursos do React, como [context](/docs/context.html) e [refs](/docs/refs-and-the-dom.html).
+Uma vez que você esteja confortável com os [conceitos principais](#main-concepts) e brincou um pouco com o React, talvez você possa se interessar em tópicos mais avançados. Esta seção apresentará poderosos, porém pouco utilizados, recursos do React, como [context](/docs/context.html) e [refs](/docs/refs-and-the-dom.html).
 
 ### Referência da API {#api-reference}
 
-Esta seção da documentação será útil quando você quiser saber mais sobre uma API React em particular. Por exemplo, [a referência da API do `React.Component`](/docs/react-component.html) pode te dar detalhes de como funciona o `setState()` e quais métodos do ciclo de vida são úteis para o mesmo.
+Esta seção da documentação será útil quando você quiser saber mais sobre uma determinada API em particular do React. Por exemplo, [a referência da API do `React.Component`](/docs/react-component.html) pode te dar detalhes de como funciona o `setState()` e quais os métodos do ciclo de vida são úteis para o mesmo.
 
 ### Glossário e FAQ {#glossary-and-faq}
 
@@ -115,7 +115,7 @@ O [blog do React](/blog/) é a fonte oficial para as atualizações feitas pelo 
 
 Você também pode seguir o [@reactjs](https://twitter.com/reactjs) no Twitter, mas você não perderá nenhuma informação essencial se apenas ler o blog.
 
-Nem toda versão do React tem sua própria publicação no blog, mas você encontrará um detalhado registro de mudanças para cada versão [no arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react).
+Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão [no arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react).
 
 ## Documentação das Versões {#versioned-documentation}
 
