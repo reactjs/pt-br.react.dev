@@ -91,7 +91,7 @@ ReactDOM.render(
 );
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/xEmzGg?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
 Você precisa ter cuidado com o significado do `this` nos callbacks do JSX. Em JavaScript, os métodos de classe não são [vinculados](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_objects/Function/bind) por padrão. Se você esquecer de fazer o bind de `this.handleClick` e passá-lo para um `onClick`, o `this` será `undefined` quando a função for realmente chamada.
 
@@ -140,7 +140,7 @@ class LoggingButton extends React.Component {
 
 O problema com esta sintaxe é que um callback diferente é criado toda vez que o `LoggingButton` é renderizado. Na maioria dos casos, tudo bem. No entanto, se esse callback for passado para componentes inferiores através de props, esses componentes poderão fazer uma renderização extra. Geralmente recomendamos a vinculação no construtor ou a sintaxe dos campos de classe para evitar esse tipo de problema de desempenho.
 
-## Passando Argumentos para Manipuladores de Eventos {#passando-argumentos-para-manipuladores-de-eventos}
+## Passando Argumentos para Manipuladores de Eventos {#passing-arguments-to-event-handlers}
 
 Dentro de uma estrutura de repetição é comum querer passar um parâmetro extra para um manipulador de evento. Por exemplo, se `id` é o ID de identificação da linha, qualquer um dos dois a seguir funcionará:
 

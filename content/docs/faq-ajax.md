@@ -6,15 +6,15 @@ layout: docs
 category: FAQ
 ---
 
-### Como fazer uma requisição AJAX? {#como-fazer-uma-requisicao-ajax}
+### Como fazer uma requisição AJAX? {#how-can-i-make-an-ajax-call}
 
 Você pode usar qualquer biblioteca AJAX que desejar com React. Algumas populares são [Axios](https://github.com/axios/axios), [jQuery AJAX](https://api.jquery.com/jQuery.ajax/), e o nativo do navegador [window.fetch](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API).
 
-### Onde eu devo fazer uma requisição AJAX no ciclo de vida do componente? {#onde-eu-devo-fazer-uma-requisicao-ajax-no-ciclo-de-vida-do-componente}
+### Onde eu devo fazer uma requisição AJAX no ciclo de vida do componente? {#where-in-the-component-lifecycle-should-i-make-an-ajax-call}
 
 Você deve preencher dados com requisições AJAX no método [`componentDidMount`](/docs/react-component.html#mounting) do ciclo de vida. Isto é para que você consiga usar `setState` para atualizar seu componente quando os dados forem recebidos.
 
-### Exemplo: Usando resultados AJAX para definir o estado local {#exemplo-usando-ajax-para-definir-o-estado-local}
+### Exemplo: Usando resultados AJAX para definir o estado local {#example-using-ajax-results-to-set-local-state}
 
 O componente abaixo demonstra como deve fazer uma requisição AJAX no `componentDidMount` para preencher o estado (state) local. 
 

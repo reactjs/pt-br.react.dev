@@ -15,21 +15,21 @@ import ReactDOMServer from 'react-dom/server';
 var ReactDOMServer = require('react-dom/server');
 ```
 
-## Visão Geral {#visao-geral}
+## Visão Geral {#overview}
 
 Os métodos a seguir podem ser usados tanto em ambiente de servidor como de navegador:
 
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-Estes métodos adicionais dependem do pacote (`stream`) que **só está disponível no servidor**, e não irão funcionar no navegador.
+Estes métodos adicionais dependem do pacote (`stream`) que **só está disponível no servidor** e não irão funcionar no navegador.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
 
 * * *
 
-## Referência {#referencia}
+## Referência {#reference}
 
 ### `renderToString()` {#rendertostring}
 
@@ -61,9 +61,9 @@ Se você planeja usar o React no cliente para tornar o markup interativo, não u
 ReactDOMServer.renderToNodeStream(element)
 ```
 
-Renderiza um elemento React para seu HTML inicial. Retorna um [Stream legível](https://nodejs.org/api/stream.html#stream_readable_streams) que gera uma string HTML. A saída HTML desse stream é exatamente igual ao que [`ReactDOMServer.renderToString`](#rendertostring) retornaria. Você pode usar este método para gerar HTML no servidor e enviar o markup no request inicial para ter carregamentos de página mais rápidos e para permitir que motores de pesquisa rastreiem suas páginas para fins de SEO.
+Renderiza um elemento React para seu HTML inicial. Retorna um [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) que gera uma string HTML. A saída HTML desse stream é exatamente igual à que [`ReactDOMServer.renderToString`](#rendertostring) retornaria. Você pode usar este método para gerar HTML no servidor e enviar o markup no request inicial para ter carregamentos de página mais rápidos e para permitir que motores de busca rastreiem suas páginas para fins de SEO.
 
-Se você invocar [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) em um nó que já tem o seu markup processado pelo servidor, React vai preservá-lo e apenas atribuir manipuladores de eventos, permitindo que você tenha uma experiência de primeiro carregamento muito eficiente.
+Se você invocar [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) em um nó que já tem o seu markup processado pelo servidor, o React vai preservá-lo e apenas atribuir manipuladores de eventos, permitindo que você tenha uma experiência de primeiro carregamento muito eficiente.
 
 > Nota:
 >
