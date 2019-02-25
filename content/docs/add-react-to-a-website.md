@@ -149,11 +149,7 @@ return (
 
 Esses dois blocos de código são equivalentes. Enquanto o **JSX é [completamente opcional](/docs/react-without-jsx.html)**, muitas pessoas acham útil para escrever código de UI -- junto com React e com outras bibliotecas.
 
-<<<<<<< HEAD
-Você pode testar com JSX usando [esse conversor online](http://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
-=======
-You can play with JSX using [this online converter](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Você pode testar com JSX usando [esse conversor online](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
 
 ### Experimente Rapidamente JSX {#quickly-try-jsx}
 
@@ -201,10 +197,6 @@ Não espere o comando finalizar -- esse comando inicia um watcher automatizado p
 
 Se você criar um arquivo chamado `src/like_button.js` com esse **[este código JSX inicial](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, o watcher criará um `like_button.js` pré-processado com o código JavaScript adequado para o navegador. Quando você edita o arquivo com JSX, a transpilação será executada automaticamente.
 
-<<<<<<< HEAD
-Como um bônus, isso também permite que você use recursos modernos do JavaScript, como classes, sem se preocupar com a incompatibilidade de navegadores antigos. A ferramenta que acabamos de usar é chamada de Babel e você pode aprender mais sobre ele [em sua documentação](http://babeljs.io/docs/en/babel-cli/).
-=======
-As a bonus, this also lets you use modern JavaScript syntax features like classes without worrying about breaking older browsers. The tool we just used is called Babel, and you can learn more about it from [its documentation](https://babeljs.io/docs/en/babel-cli/).
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Como um bônus, isso também permite que você use recursos modernos do JavaScript, como classes, sem se preocupar com a incompatibilidade de navegadores antigos. A ferramenta que acabamos de usar é chamada de Babel e você pode aprender mais sobre ele [em sua documentação](https://babeljs.io/docs/en/babel-cli/).
 
 Se você se sentir confortável com ferramentas de build e deseja que eles façam mais por você, [a próxima seção](/docs/create-a-new-react-app.html) descreve alguma das mais populares e acessíveis ferramentas. Caso contrário, essas tags scripts funcionarão perfeitamente.

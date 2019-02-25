@@ -23,11 +23,7 @@ Por exemplo, é possível introduzir um state (estado) local dentro de um compon
 
 Não há nada de "errado" em usar state (estado) ou métodos do ciclo de vida nos componentes. Como qualquer funcionalidade poderosa, eles devem ser usados com moderação. Porém, não temos a intenção de removê-los. Pelo contrário, pensamos que eles são partes importantes do que torna o React útil. Poderemos permitir [mais padrões funcionais](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) no futuro. Porém, tanto state (estado) local e métodos do ciclo de vida serão parte desse modelo.
 
-<<<<<<< HEAD
 Componentes geralmente são descritos como "apenas funções". Porém, pelo nosso ponto de vista, eles precisam ser mais do que isso para serem úteis. No React, os componentes descrevem qualquer comportamento "composable", incluindo rendering (renderização), lifecycle (ciclo de vida) e state. Algumas bibliotecas, como [Relay (Retransmissão)](http://facebook.github.io/relay/) aumentam a responsabilidade dos componentes, como por exemplo descrever a dependência de dados. É possível que essas ideias possam voltar para o React também de alguma forma.
-=======
-Components are often described as "just functions" but in our view they need to be more than that to be useful. In React, components describe any composable behavior, and this includes rendering, lifecycle, and state. Some external libraries like [Relay](https://facebook.github.io/relay/) augment components with other responsibilities such as describing data dependencies. It is possible that those ideas might make it back into React too in some form.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 ### Abstração comum {#common-abstraction}
 

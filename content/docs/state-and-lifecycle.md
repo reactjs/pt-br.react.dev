@@ -29,11 +29,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
 Esta seção, aprenderemos como tornar o componente `Clock` verdadeiramente reutilizável e encapsulado. Ele irá configurar seu próprio temporizador e se atualizar a cada segundo.
 
@@ -59,11 +55,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
 No entanto, falta um requisito crucial: o fato de que o `Clock` configura um temporizador e atualiza a UI a cada segundo deve ser um detalhe de implementação do `Clock`.
 
@@ -109,11 +101,7 @@ class Clock extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
 `Clock` agora é definido como uma classe em vez de uma função.
 
@@ -205,11 +193,7 @@ ReactDOM.render(
 );
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
 Em seguinda, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
 
@@ -318,11 +302,7 @@ ReactDOM.render(
 );
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
 Agora o relógio bate a cada segundo.
 
@@ -457,11 +437,7 @@ function FormattedDate(props) {
 }
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
 Isso é comumente chamado de fluxo de dados "top-down" ou "unidirecional". Qualquer state é sempre de propriedade de algum componente específico, e qualquer dado ou interface do usuário derivado desse state só pode afetar os componentes "abaixo" deles na árvore.
 
@@ -486,11 +462,7 @@ ReactDOM.render(
 );
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
 Cada `Clock` configura seu próprio temporizador e atualiza de forma independente.
 

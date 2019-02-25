@@ -4,11 +4,7 @@ title: Integrando com outras Bibliotecas
 permalink: docs/integrating-with-other-libraries.html
 ---
 
-<<<<<<< HEAD
-React pode ser utilizado em qualquer aplicação web. Ele pode ser embutido em outras aplicações e com um pouco de cuidado, outras aplicações podem ser incorporadas ao React. Este guia vai examinar alguns dos mais comuns usos de caso, focando na integracão com [jQuery](https://jquery.com/) e [Backbone](http://backbonejs.org/). Porém, as mesmas ideias podem ser aplicadas para integrar componentes com qualquer código existente.
-=======
-React can be used in any web application. It can be embedded in other applications and, with a little care, other applications can be embedded in React. This guide will examine some of the more common use cases, focusing on integration with [jQuery](https://jquery.com/) and [Backbone](https://backbonejs.org/), but the same ideas can be applied to integrating components with any existing code.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+React pode ser utilizado em qualquer aplicação web. Ele pode ser embutido em outras aplicações e com um pouco de cuidado, outras aplicações podem ser incorporadas ao React. Este guia vai examinar alguns dos mais comuns usos de caso, focando na integracão com [jQuery](https://jquery.com/) e [Backbone](https://backbonejs.org/). Porém, as mesmas ideias podem ser aplicadas para integrar componentes com qualquer código existente.
 
 ## Integrando com Plugins de Manipulacão do DOM {#integrating-with-dom-manipulation-plugins}
 
@@ -104,11 +100,7 @@ componentWillUnmount() {
 }
 ```
 
-<<<<<<< HEAD
-[**Experimente no Codepen**](http://codepen.io/gaearon/pen/qmqeQx?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/qmqeQx?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no Codepen**](https://codepen.io/gaearon/pen/qmqeQx?editors=0010)
 
 Note que React não atribui nenhum significado especial para o campo `this.el`. Isto apenas funciona porque nós atribuimos anteriormente um valor para este campo, com um `ref` no método `render()`:
 
@@ -139,11 +131,7 @@ handleChange(e) {
 }
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/bWgbeE?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/bWgbeE?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/bWgbeE?editors=0010)
 
 Finalmente, existe mais uma coisa a se fazer. Em React, propriedades podem mudar ao longo do tempo. Por exemplo, o componente `<Chosen>` pode ter diferentes filhos se o estado do componente pai alterar. Isto significa que nos pontos de integração, é importante que a atualização do DOM seja feita manualmente em resposta as atualizações das propriedades, já que não vamos deixar o React gerenciar o DOM.
 
@@ -198,11 +186,7 @@ class Chosen extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/xdgKOz?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/xdgKOz?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/xdgKOz?editors=0010)
 
 ## Integrando com Outras Bibliotecas de View {#integrating-with-other-view-libraries}
 
@@ -264,21 +248,13 @@ ReactDOM.render(
 );
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/RVKbvW?editors=1010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/RVKbvW?editors=1010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/RVKbvW?editors=1010)
 
 Você pode ter tantos componentes isolados você quiser, e usar `ReactDOM.render()` para renderizá-los em diferentes containers do DOM. Gradualmente, com você convertendo mais da sua aplicação para React, você vai estar apto para combiná-los em componentes maiores, e mover algumas das chamadas do `ReactDOM.render()` para cima da hierarquia.
 
 ### Incorporando React em Backbone {#embedding-react-in-a-backbone-view}
 
-<<<<<<< HEAD
-[Backbone](http://backbonejs.org/) tipicamente utiliza strings HTML, ou funções template que geram strings, para criar o conteúdo para seus elementos DOM. Este processo, também, pode ser substituido por uma renderização de um componente React.
-=======
-[Backbone](https://backbonejs.org/) views typically use HTML strings, or string-producing template functions, to create the content for their DOM elements. This process, too, can be replaced with rendering a React component.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+As views do [Backbone](https://backbonejs.org/) tipicamente utilizam strings HTML, ou funções template que geram strings, para criar o conteúdo para seus elementos DOM. Este processo, também, pode ser substituido por uma renderização de um componente React.
 
 Abaixo, nós vamos criar uma view Backbone chamada `ParagraphView`.
 Isto vai subscrever a função `render()` do Backbone, para renderizar um componente `<Paragraph>` React no elemento DOM fornecido pelo Backbone (`this.el`).
@@ -302,11 +278,7 @@ const ParagraphView = Backbone.View.extend({
 });
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/gWgOYL?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gWgOYL?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/gWgOYL?editors=0010)
 
 É importante também chamar `ReactDOM.unmountComponentAtNode()` no método `remove`, para que o React cancele os manipuladores de eventos e outros recursos associados com a árvore do componente quando ele é removido.
 
@@ -314,19 +286,11 @@ Quando um componente é removido **de dentro** de uma árvore React, a limpeza o
 
 ## Integrando com um Modelo de Camadas {#integrating-with-model-layers}
 
-<<<<<<< HEAD
-Embora seja geralmente recomendado a utilização de um fluxo de dados unidirecional como [React state](/docs/lifting-state-up.html), [Flux](http://facebook.github.io/flux/), ou [Redux](http://redux.js.org/), componentes React podem utilizar um modelo de camadas de outros frameworks e bibliotecas.
-=======
-While it is generally recommended to use unidirectional data flow such as [React state](/docs/lifting-state-up.html), [Flux](https://facebook.github.io/flux/), or [Redux](https://redux.js.org/), React components can use a model layer from other frameworks and libraries.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+Embora seja geralmente recomendado a utilização de um fluxo de dados unidirecional como [React state](/docs/lifting-state-up.html), [Flux](https://facebook.github.io/flux/), ou [Redux](https://redux.js.org/), componentes React podem utilizar um modelo de camadas de outros frameworks e bibliotecas.
 
 ### Utilizando Modelos Backbone em Componentes React {#using-backbone-models-in-react-components}
 
-<<<<<<< HEAD
-A maneira mais simples de se consumir modelos e coleções do [Backbone](http://backbonejs.org/) para um componente React, é assinar os vários eventos de mudança e manualmente forçar uma atualização.
-=======
-The simplest way to consume [Backbone](https://backbonejs.org/) models and collections from a React component is to listen to the various change events and manually force an update.
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+A maneira mais simples de se consumir modelos e coleções do [Backbone](https://backbonejs.org/) para um componente React, é assinar os vários eventos de mudança e manualmente forçar uma atualização.
 
 Componentes responsáveis por renderizar modelos devem escutar os eventos de `'change'`, enquanto componentes responsáveis por renderizar coleções devem escutar os eventos de `'add'` e `'remove'`. Em ambos os casos, chame [`this.forceUpdate()`](/docs/react-component.html#forceupdate) para re-renderizar o componente com o novo dado.
 
@@ -386,11 +350,7 @@ class List extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/GmrREm?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/GmrREm?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/GmrREm?editors=0010)
 
 ### Extraindo Dados dos Modelos do Backbone {#extracting-data-from-backbone-models}
 
@@ -477,10 +437,6 @@ ReactDOM.render(
 );
 ```
 
-<<<<<<< HEAD
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/PmWwwa?editors=0010)
-=======
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/PmWwwa?editors=0010)
->>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/PmWwwa?editors=0010)
 
 Esta técnica não se limita para o Backbone. Você pode utilizar React com qualquer modelo de biblioteca, assinando as mudanças nos métodos de ciclo de vida e, opcionalmente, copiando os dados para o estado local do React.
