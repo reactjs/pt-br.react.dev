@@ -18,7 +18,7 @@ function Exemple() {
 
   // Similar ao componentDidMount e componentDidUpdate:
   useEffect(() => {
-    // Atualiza o titulod do documento usando a API do browser
+    // Atualiza o titulo do documento usando a API do browser
     document.title = `Você clicou ${count} vezes`;
   });
 
