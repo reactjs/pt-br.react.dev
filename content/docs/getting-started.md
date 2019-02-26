@@ -32,7 +32,7 @@ Esta página é um visão geral da documentação do React e dos recursos relaci
 
 ## Pratique React {#try-react}
 
-React foi pensado desde o início para ser adotado gradualmente e **você pode usar mais ou menos de acordo com sua necessidade.** Se você quer uma amostra do React, adicionar interatividade a uma página HTML simples ou iniciar uma aplicação React complexa, os links desta seção o ajudarão no início.
+React foi pensado desde o início para ser adotado gradualmente e **você pode usar menos ou mais da biblioteca de acordo com sua necessidade.** Se você quer uma amostra do React, adicionar interatividade a uma página HTML simples ou iniciar uma aplicação React complexa, os links desta seção o ajudarão no início.
 
 ### Editores Online {#online-playgrounds}
 
@@ -48,7 +48,7 @@ Você pode [adicionar React a uma página HTML em um minuto](/docs/add-react-to-
 
 Ao iniciar um projeto React, [uma simples página HTML com tags script](/docs/add-react-to-a-website.html) pode ser a melhor opção. É necessário apenas um minuto para configurar!
 
-A medida que sua aplicação cresce, você pode levar em consideração uma configuração mais integrada. Há [inúmeras ferramentas JavaScript](/docs/create-a-new-react-app.html) que nós recomendamos para aplicações grandes. Cada uma delas exige pouca ou até nenhuma configuração e permite a você aproveitar ao máximo o rico ecossistema do React.
+A medida que sua aplicação cresce, você pode começar a considerar uma configuração mais integrada. Há [inúmeras ferramentas JavaScript](/docs/create-a-new-react-app.html) que nós recomendamos para aplicações grandes. Cada uma delas exige pouca ou até nenhuma configuração e permite a você aproveitar ao máximo o rico ecossistema do React.
 
 ## Aprenda React {#learn-react}
 
@@ -79,7 +79,7 @@ Recomendamos que você leia [esta visão geral do JavaScript](https://developer.
 
 >Dica
 >
->Sempre que você se sentir confuso com algo em JavaScript, o [MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) e o [javascript.info](http://javascript.info/) serão ótimos sites para conferir. Há também [fóruns de suporte da comunidade](/community/support.html) onde você poderá pedir ajuda.
+>Sempre que você se sentir confuso com algo em JavaScript, o [MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) e o [javascript.info](https://javascript.info/) serão ótimos sites para conferir. Há também [fóruns de suporte da comunidade](/community/support.html) onde você poderá pedir ajuda.
 
 ### Tutorial Prático {#practical-tutorial}
 
@@ -99,11 +99,11 @@ Muitos usuários do React dão créditos à leitura [Pensando em React](/docs/th
 
 ### Conceitos Avançados {#advanced-concepts}
 
-Uma vez que você esteja confortável com os [conceitos principais](#main-concepts) e brincou um pouco com o React, talvez você possa se interessar em tópicos mais avançados. Esta seção apresentará poderosos, porém pouco utilizados, recursos do React, como [context](/docs/context.html) e [refs](/docs/refs-and-the-dom.html).
+Uma vez que você esteja confortável com os [conceitos principais](#main-concepts) e brincou um pouco com o React, talvez você possa se interessar em tópicos mais avançados. Esta seção apresentará poderosos, porém menos utilizados, recursos do React, como [context](/docs/context.html) e [refs](/docs/refs-and-the-dom.html).
 
 ### Referência da API {#api-reference}
 
-Esta seção da documentação será útil quando você quiser saber mais sobre uma determinada API em particular do React. Por exemplo, [a referência da API do `React.Component`](/docs/react-component.html) pode te dar detalhes de como funciona o `setState()` e quais os métodos do ciclo de vida são úteis para o mesmo.
+Esta seção da documentação será útil quando você quiser saber mais sobre uma determinada API específica do React. Por exemplo, [a referência da API do `React.Component`](/docs/react-component.html) pode te dar detalhes de como funciona o `setState()` e quais os métodos do ciclo de vida são úteis para o mesmo.
 
 ### Glossário e FAQ {#glossary-and-faq}
 
@@ -119,7 +119,7 @@ Nem toda versão do React tem sua própria publicação no blog. Mas você encon
 
 ## Documentação das Versões {#versioned-documentation}
 
-Esta documentação sempre refletirá a última versão estável do React. Desde o React 16, você pode encontrar a documentação das versões antigas [em uma página separada](/versions). Note que a documentação das versões antigas foi criada no momento de seu lançamento e por isso podem não estar devidamente atualizadas.
+Esta documentação sempre refletirá a última versão estável do React. Desde o React 16, você pode encontrar a documentação das versões antigas [em uma página separada](/versions). Note que as documentações das versões antigas foram criadas no momento de seu lançamento e por isso podem não não ficam sendo continuamente atualizadas.
 
 ## Esquecemos algo? {#something-missing}
 
