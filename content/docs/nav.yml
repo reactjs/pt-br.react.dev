@@ -142,7 +142,7 @@
     - id: faq-functions
       title: Passing Functions to Components
     - id: faq-state
-      title: Component State
+      title: State dos Componentes
     - id: faq-styling
       title: Estilização e CSS
     - id: faq-structure
