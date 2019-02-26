@@ -13,7 +13,7 @@ redirect_from:
   - "docs/jsx-in-depth-ko-KR.html"
 ---
 
-Fundamentalmente, JSX é somente um açúcar sintático (syntatic sugar) para a função `React.createElement(component, props, ...children)`. O código JSX:
+Fundamentalmente, JSX é somente um açúcar sintático (syntactic sugar) para a função `React.createElement(component, props, ...children)`. O código JSX:
 
 ```js
 <MyButton color="blue" shadowSize={2}>
