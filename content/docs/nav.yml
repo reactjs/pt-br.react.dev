@@ -3,9 +3,9 @@
     - id: getting-started
       title: Getting Started
     - id: add-react-to-a-website
-      title: Add React to a Website
+      title: Adicione o React a um site
     - id: create-a-new-react-app
-      title: Create a New React App
+      title: Crie um novo React App
     - id: cdn-links
       title: CDN Links
 - title: Main Concepts
@@ -14,31 +14,31 @@
     - id: hello-world
       title: Hello World
     - id: introducing-jsx
-      title: Introducing JSX
+      title: Introduzindo JSX
     - id: rendering-elements
-      title: Rendering Elements
+      title: Renderizando Elementos
     - id: components-and-props
-      title: Components and Props
+      title: Componentes e Props
     - id: state-and-lifecycle
-      title: State and Lifecycle
+      title: Estado e Ciclo de Vida
     - id: handling-events
-      title: Handling Events
+      title: Manipulando eventos
     - id: conditional-rendering
-      title: Conditional Rendering
+      title: Renderização condicional
     - id: lists-and-keys
       title: Listas e Chaves
     - id: forms
       title: Forms
     - id: lifting-state-up
-      title: Lifting State Up
+      title: Elevando o State
     - id: composition-vs-inheritance
       title: Composition vs Inheritance
     - id: thinking-in-react
-      title: Thinking In React
+      title: Pensando do jeito React
 - title: Advanced Guides
   items:
     - id: accessibility
-      title: Accessibility
+      title: Acessibilidade
     - id: code-splitting
       title: Code-Splitting
     - id: context
@@ -46,11 +46,11 @@
     - id: error-boundaries
       title: Error Boundaries
     - id: forwarding-refs
-      title: Forwarding Refs
+      title: Encaminhamento de Refs
     - id: fragments
-      title: Fragments
+      title: Fragmentos
     - id: higher-order-components
-      title: Higher-Order Components
+      title: Componentes de Ordem Superior
     - id: integrating-with-other-libraries
       title: Integrando com outras Bibliotecas
     - id: jsx-in-depth
@@ -62,23 +62,23 @@
     - id: react-without-es6
       title: React Without ES6
     - id: react-without-jsx
-      title: React Without JSX
+      title: React sem JSX
     - id: reconciliation
-      title: Reconciliation
+      title: Reconciliação (Reconciliation)
     - id: refs-and-the-dom
-      title: Refs and the DOM
+      title: Refs e o DOM
     - id: render-props
       title: Render Props
     - id: static-type-checking
       title: Static Type Checking
     - id: strict-mode
-      title: Strict Mode
+      title: Modo Estrito (Strict Mode)
     - id: typechecking-with-proptypes
-      title: Typechecking With PropTypes
+      title: Checagem de tipos (Typechecking) com PropTypes
     - id: uncontrolled-components
-      title: Uncontrolled Components
+      title: Componentes não controlados
     - id: web-components
-      title: Web Components
+      title: Componentes Web
 - title: API Reference
   items:
     - id: react-api
@@ -91,19 +91,19 @@
     - id: react-dom-server
       title: ReactDOMServer
     - id: dom-elements
-      title: DOM Elements
+      title: Elementos DOM
     - id: events
       title: SyntheticEvent
     - id: test-utils
-      title: Test Utilities
+      title: Utilitários de Teste
     - id: shallow-renderer
-      title: Shallow Renderer
+      title: Renderização superficial (Shallow Renderer)
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
-      title: JS Environment Requirements
+      title: Requisitos de Ambiente JavaScript
     - id: glossary
-      title: Glossary
+      title: Glossário
 - title: Hooks (New)
   isOrdered: true
   items:
@@ -116,11 +116,11 @@
       - id: hooks-effect
         title: Using the Effect Hook
       - id: hooks-rules
-        title: Rules of Hooks
+        title: Regras dos Hooks
       - id: hooks-custom
         title: Criando seus próprios Hooks
       - id: hooks-reference
-        title: Hooks API Reference
+        title: Referência da API dos Hooks
       - id: hooks-faq
         title: Hooks FAQ
 - title: Contributing
@@ -132,21 +132,21 @@
   - id: implementation-notes
     title: Implementation Notes
   - id: design-principles
-    title: Design Principles
+    title: Princípios de Design
 - title: FAQ
   items:
     - id: faq-ajax
       title: AJAX and APIs
     - id: faq-build
-      title: Babel, JSX, and Build Steps
+      title: Babel, JSX e Etapas de Build
     - id: faq-functions
-      title: Passing Functions to Components
+      title: Passando Funções para Componentes
     - id: faq-state
       title: Component State
     - id: faq-styling
       title: Estilização e CSS
     - id: faq-structure
-      title: File Structure
+      title: Estrutura de arquivos
     - id: faq-versioning
       title: Versioning Policy
     - id: faq-internals
