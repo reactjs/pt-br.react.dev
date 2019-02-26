@@ -84,33 +84,33 @@ Estes métodos são chamados quando um componente está sendo removido do DOM:
 
 - [**`componentWillUnmount()`**](#componentwillunmount)
 
-#### Tratando erros {#terror}
+#### Tratando erros {#handling errors}
 
 Estes métodos são chamados quando existir um erro durante a renderização, em um método do ciclo de vida, ou no construtor de qualquer componente-filho.
 
 - [`static getDerivedStateFromError()`](#static-getderivedstatefromerror)
 - [`componentDidCatch()`](#componentdidcatch)
 
-### Outras APIs {#outras-apis}
+### Outras APIs {#other-apis}
 
 Cada componente também fornece outras APIs:
 
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
 
-### Propriedades de Classes {#propriedades-de-classes}
+### Propriedades de Classes {#class-properties}
 
   - [`defaultProps`](#defaultprops)
   - [`displayName`](#displayname)
 
-### Propriedades da instância {#propriedades-da-instância}
+### Propriedades da instância {#instance-properties}
 
   - [`props`](#props)
   - [`state`](#state)
 
 * * *
 
-## Referencia {#referencia}
+## Referencia {#reference}
 
 ### Métodos mais usados do Ciclo de Vida {#métodos-mais-usados-do-ciclo-de-vida}
 Os métodos desta seção cobrem a grande maioria dos casos de uso que você encontrará criando componentes React. **Para uma referência visual, veja : [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
@@ -286,13 +286,13 @@ Derivando o state leva a código verboso e faz seus componentes difíceis de com
 
 * Se precisar  **perform a side effect** (por exemplo, buscar dados ou uma animação) em resposta a uma alteração em props, use [`componentDidUpdate`](#componentdidupdate) no lugar.
 
-* Se você quer **re-compute some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+* Se você quer **re-compute some data only when a prop changes**, [use um auxiliar de memorização no lugar](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
-* If you want to **"reset" some state when a prop changes**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled with a `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
+* ISe você quer **"resetar" o state quando uma prop mudar**, considere criar um componente [completamente controlado](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) ou [completamente controlado com uma `chave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
 
-This method doesn't have access to the component instance. If you'd like, you can reuse some code between `getDerivedStateFromProps()` and the other class methods by extracting pure functions of the component props and state outside the class definition.
+Este método não potem acesso a instância do componente. Se você quiser, pode reusar o código entre o método `getDerivedStateFromProps()` e os métodos de outra classe extraindo funções puras para as props e state do componente, fora da definição da classe.
 
-Note that this method is fired on *every* render, regardless of the cause. This is in contrast to `UNSAFE_componentWillReceiveProps`, which only fires when the parent causes a re-render and not as a result of a local `setState`.
+Perceba que este método é disparado a *cada* renderização, independentemente da razão. Isto está em contraste com  `UNSAFE_componentWillReceiveProps`, que dispara somente quando um componente pai causa uma re-renderização e não como resultado de uma chamada local a `setState`.
 
 * * *
 
@@ -302,17 +302,20 @@ Note that this method is fired on *every* render, regardless of the cause. This 
 getSnapshotBeforeUpdate(prevProps, prevState)
 ```
 
-`getSnapshotBeforeUpdate()` is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed. Any value returned by this lifecycle will be passed as a parameter to `componentDidUpdate()`.
+`getSnapshotBeforeUpdate()` é invocado imediatamente antes que o retorno da renderização mais recente seja escrito e.g. no DOM. Isto permite que o componente capture alguma informação do DOM (e.g. posição do scroll) antes que ela seja potencialmente alterada. Qualquer valor retornado por este método do ciclo de vida será passado como parâmetro para `componentDidUpdate()`.
 
-This use case is not common, but it may occur in UIs like a chat thread that need to handle scroll position in a special way.
+Este caso de uso não é comum, mas pode ocorrer em UIs como um thread de um chat que precise tratar a posição do scroll de uma maneira especial.
 
 A snapshot value (or `null`) should be returned.
+O valor do snapshot (ou `null`) deve ser retornado
 
-For example:
+Por exemplo:
 
 `embed:react-component-reference/get-snapshot-before-update.js`
 
 In the above examples, it is important to read the `scrollHeight` property in `getSnapshotBeforeUpdate` because there may be delays between "render" phase lifecycles (like `render`) and "commit" phase lifecycles (like `getSnapshotBeforeUpdate` and `componentDidUpdate`).
+
+No exemplo acima, é importante lermos a propriedade `scrollHeight` em `getSnapshotBeforeUpdate` porque podem ocorrer delays entre a fase do ciclo de vida "renderização"  (`render`) e a fase "commit" (commit `getSnapshotBeforeUpdate` e `componentDidUpdate`).
 
 * * *
 
