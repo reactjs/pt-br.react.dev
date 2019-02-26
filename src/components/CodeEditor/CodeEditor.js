@@ -59,7 +59,10 @@ class CodeEditor extends Component {
           O Babel não pôde ser carregado.
           <br />
           <br />
-          Isto pode ser causado por algum bloqueador de anúncio. Se você está usando algum, considere adicionar o endereço reactjs.org na <i>whitelist</i>, ou lista de permitidos, e feito isso os exemplos com <i>live code</i> irão funcionar.
+          Isto pode ser causado por algum bloqueador de anúncio. Se você está
+          usando algum, considere adicionar o endereço reactjs.org na{' '}
+          <i>whitelist</i>, ou lista de permitidos, e feito isso os exemplos com{' '}
+          <i>live code</i> irão funcionar.
         </span>
       );
     } else if (error != null) {

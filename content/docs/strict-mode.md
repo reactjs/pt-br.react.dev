@@ -1,65 +1,65 @@
 ---
 id: strict-mode
-title: Strict Mode
+title: Modo Estrito (Strict Mode)
 permalink: docs/strict-mode.html
 ---
 
-`StrictMode` is a tool for highlighting potential problems in an application. Like `Fragment`, `StrictMode` does not render any visible UI. It activates additional checks and warnings for its descendants.
+O modo estrito (`Strict Mode`) é uma ferramenta para sinalizar potenciais problemas em uma aplicação. Assim como o `Fragment`, o `StrictMode` não renderiza nenhum elemento visível na interface. Ele ativa, no entanto, verificações e avisos adicionais para os seus descendentes.
 
-> Note:
+> Nota:
 >
-> Strict mode checks are run in development mode only; _they do not impact the production build_.
+> Verificações do modo estrito são executadas somente em modo de desenvolvimento; _elas não impactam na build de produção_.
 
-You can enable strict mode for any part of your application. For example:
+Você pode habilitar o modo estrito para qualquer parte da sua aplicação, por exemplo:
 `embed:strict-mode/enabling-strict-mode.js`
 
-In the above example, strict mode checks will *not* be run against the `Header` and `Footer` components. However, `ComponentOne` and `ComponentTwo`, as well as all of their descendants, will have the checks.
+No exemplo acima, as verificações do modo estrito *não* serão executadas nos componentes `Header` e `Footer`. No entanto, `ComponentOne` e `ComponentTwo`, assim como todos os seus componentes descendentes, serão verificados.
 
-`StrictMode` currently helps with:
-* [Identifying components with unsafe lifecycles](#identifying-unsafe-lifecycles)
-* [Warning about legacy string ref API usage](#warning-about-legacy-string-ref-api-usage)
-* [Warning about deprecated findDOMNode usage](#warning-about-deprecated-finddomnode-usage)
-* [Detecting unexpected side effects](#detecting-unexpected-side-effects)
-* [Detecting legacy context API](#detecting-legacy-context-api)
+O modo estrito ajuda atualmente com:
+* [Identificação de métodos de ciclo de vida (lifecycles) inseguros](#identifying-unsafe-lifecycles)
+* [Avisos em relação ao uso da antiga string ref API](#warning-about-legacy-string-ref-api-usage)
+* [Avisos em relação ao uso do depreciado findDOMNode](#warning-about-deprecated-finddomnode-usage)
+* [Detecção de efeitos colaterais (side effects) inesperados](#detecting-unexpected-side-effects)
+* [Detecção de uso da antiga API de contexto (Context API)](#detecting-legacy-context-api)
 
-Additional functionality will be added with future releases of React.
+Funcionalidades adicionais serão adicionadas em versões futuras do React.
 
-### Identifying unsafe lifecycles {#identifying-unsafe-lifecycles}
+### Identificar métodos de ciclo de vida (lifecycles) inseguros {#identifying-unsafe-lifecycles}
 
-As explained [in this blog post](/blog/2018/03/27/update-on-async-rendering.html), certain legacy lifecycle methods are unsafe for use in async React applications. However, if your application uses third party libraries, it can be difficult to ensure that these lifecycles aren't being used. Fortunately, strict mode can help with this!
+Como explicado [neste post](/blog/2018/03/27/update-on-async-rendering.html), alguns antigos métodos de ciclo de vida (lifecycles) são inseguros de serem usados em aplicações assíncronas do React. Contudo, se a sua aplicação usa bibliotecas customizadas, pode ser difícil de verificar que esses métodos de ciclo de vida não estão sendo usados. Felizmente, o modo estrito pode ajudar nisso!
 
-When strict mode is enabled, React compiles a list of all class components using the unsafe lifecycles, and logs a warning message with information about these components, like so:
+Quando o modo estrito está ativado, o React compila uma lista de todos os componentes classe que usam ciclos de vida inseguros e imprime no console uma mensagem de aviso com informações relativas a estes componentes, como:
 
 ![](../images/blog/strict-mode-unsafe-lifecycles-warning.png)
 
-Addressing the issues identified by strict mode _now_ will make it easier for you to take advantage of async rendering in future releases of React.
+Resolver os problemas identificados pelo modo estrito _agora_, facilitará a utilização da renderização assíncrona em versões futuras do React.
 
-### Warning about legacy string ref API usage {#warning-about-legacy-string-ref-api-usage}
+### Aviso em relação ao uso da antiga string ref API {#warning-about-legacy-string-ref-api-usage}
 
-Previously, React provided two ways for managing refs: the legacy string ref API and the callback API. Although the string ref API was the more convenient of the two, it had [several downsides](https://github.com/facebook/react/issues/1373) and so our official recommendation was to [use the callback form instead](/docs/refs-and-the-dom.html#legacy-api-string-refs).
+Anteriormente, o React fornecia duas maneiras de gerenciar refs: a antiga string ref API e a callback API. Embora a string ref API fosse a mais conveniente das duas, ela apresentava [várias desvantagens](https://github.com/facebook/react/issues/1373) e, portanto, nossa recomendação oficial era [usar o formulário de callback](/docs/refs-and-the-dom.html#legacy-api-string-refs).
 
-React 16.3 added a third option that offers the convenience of a string ref without any of the downsides:
+O React 16.3 adicionou uma terceira opção que oferece a conveniência da string ref sem qualquer desvantagem:
 `embed:16-3-release-blog-post/create-ref-example.js`
 
-Since object refs were largely added as a replacement for string refs, strict mode now warns about usage of string refs.
+Como refs de objetos foram adicionadas como substitutos para as string refs, o modo estrito agora avisa em relação ao uso da antiga string ref API.
 
-> **Note:**
+> **Nota:**
 >
-> Callback refs will continue to be supported in addition to the new `createRef` API.
+> Callback refs continuarão a ter suporte juntamente com a nova `createRef` API (introduzida no React 16.3).
 >
-> You don't need to replace callback refs in your components. They are slightly more flexible, so they will remain as an advanced feature.
+> Você não precisa substituir callback refs em seus componentes. Elas são um pouco mais flexíveis, então continuam a ser um recurso avançado.
 
-[Learn more about the new `createRef` API here.](/docs/refs-and-the-dom.html)
+[Saiba mais sobre a nova `createRef` API aqui.](/docs/refs-and-the-dom.html)
 
-### Warning about deprecated findDOMNode usage {#warning-about-deprecated-finddomnode-usage}
+### Aviso em relação ao uso do depreciado findDOMNode {#warning-about-deprecated-finddomnode-usage}
 
-React used to support `findDOMNode` to search the tree for a DOM node given a class instance. Normally you don't need this because you can [attach a ref directly to a DOM node](/docs/refs-and-the-dom.html#creating-refs).
+O React costumava suportar `findDOMNode` para procurar na árvore por um elemento DOM dada uma instância de classe. Normalmente, você não precisa disso, já que você pode [anexar uma ref diretamente em um elemento DOM](/docs/refs-and-the-dom.html#creating-refs).
 
-`findDOMNode` can also be used on class components but this was breaking abstraction levels by allowing a parent to demand that certain children was rendered. It creates a refactoring hazard where you can't change the implementation details of a component because a parent might be reaching into its DOM node. `findDOMNode` only returns the first child, but with the use of Fragments, it is possible for a component to render multiple DOM nodes. `findDOMNode` is a one time read API. It only gave you an answer when you asked for it. If a child component renders a different node, there is no way to handle this change. Therefore `findDOMNode` only worked if components always return a single DOM node that never changes.
+`findDOMNode` também pode ser usado em componentes de classe, mas isso estava quebrando níveis de abstração ao permitir que um componente pai demandasse que certos componentes filhos fossem renderizados. Ele cria um risco de refatoração em que você não pode alterar os detalhes de implementação de um componente por que um componente pai pode estar alcançando o seu elemento DOM. `findDOMNode` somente retorna o primeiro filho, mas com o uso de fragmentos, é possível que um componente renderize múltiplos elementos DOM. `findDOMNode` é uma API de única leitura. Só enviava resposta quando você chamava. Se um componente filho renderiza um elemento diferente, não há como lidar com essa mudança. Portando, `findDOMNode` só funcionava se os componentes sempre retornassem um único elemento DOM que nunca muda.
 
-You can instead make this explicit by pass a ref to your custom component and pass that along to the DOM using [ref forwarding](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
+Você pode deixar isso explícito se passar uma ref para o seu componente customizado, passando-a através do DOM usando [`encaminhamento de ref`](/docs/forwarding-refs.html#forwarding-refs-to-dom-components).
 
-You can also add a wrapper DOM node in your component and attach a ref directly to it.
+Você também pode adicionar um elemento DOM que envolve o seu componente e anexar uma ref diretamente a ele.
 
 ```javascript{4,7}
 class MyComponent extends React.Component {
@@ -73,19 +73,19 @@ class MyComponent extends React.Component {
 }
 ```
 
-> Note:
+> Nota:
 >
-> In CSS, the [`display: contents`](https://developer.mozilla.org/en-US/docs/Web/CSS/display#display_contents) attribute can be used if you don't want the node to be part of the layout.
+> Em CSS, o atributo [`display: contents`](https://developer.mozilla.org/en-US/docs/Web/CSS/display#display_contents) pode ser usado se você não quer que o elemento faça parte do _layout_.
 
-### Detecting unexpected side effects {#detecting-unexpected-side-effects}
+### Detectar efeitos colaterais (side effects) inesperados {#detecting-unexpected-side-effects}
 
-Conceptually, React does work in two phases:
-* The **render** phase determines what changes need to be made to e.g. the DOM. During this phase, React calls `render` and then compares the result to the previous render.
-* The **commit** phase is when React applies any changes. (In the case of React DOM, this is when React inserts, updates, and removes DOM nodes.) React also calls lifecycles like `componentDidMount` and `componentDidUpdate` during this phase.
+Conceptualmente, o React funciona em duas fases:
+* A **fase de renderização** determina quais mudanças precisam ser feitas para, por exemplo, o DOM. Durante essa fase, o React chama `render` e compara o resultado com a renderização anterior.
+* A **fase de _commit_** é quando o React aplica qualquer mudança. (No caso do React DOM, isso é quando o React insere, atualiza ou remove nós do DOM.) O React também chama métodos de ciclo de vida como `componentDidMount` e `componentDidUpdate` durante essa fase.
 
-The commit phase is usually very fast, but rendering can be slow. For this reason, the upcoming async mode (which is not enabled by default yet) breaks the rendering work into pieces, pausing and resuming the work to avoid blocking the browser. This means that React may invoke render phase lifecycles more than once before committing, or it may invoke them without committing at all (because of an error or a higher priority interruption).
+A fase de _commit_ é geralmente muito rápida, mas a renderização pode ser devagar. Por essa razão, o futuro `modo assíncrono` (que ainda não é habilitado por padrão) quebra a renderização em pedaços, pauzando e resumindo o trabalho para evitar bloquear o navegador. Isso significa que o React pode invocar ciclos de vida da fase de renderização mais de uma vez antes de _commitar_, ou pode ainda invocá-los sem nem _commitar_ (dado um eventual erro ou uma interrupção de maior prioridade).
 
-Render phase lifecycles include the following class component methods:
+Os ciclos de vida da fase da renderização incluem os seguintes métodos do componente classe:
 * `constructor`
 * `componentWillMount`
 * `componentWillReceiveProps`
@@ -93,32 +93,32 @@ Render phase lifecycles include the following class component methods:
 * `getDerivedStateFromProps`
 * `shouldComponentUpdate`
 * `render`
-* `setState` updater functions (the first argument)
+* `setState` funções atualizadoras (o primeiro argumento)
 
-Because the above methods might be called more than once, it's important that they do not contain side-effects. Ignoring this rule can lead to a variety of problems, including memory leaks and invalid application state. Unfortunately, it can be difficult to detect these problems as they can often be [non-deterministic](https://en.wikipedia.org/wiki/Deterministic_algorithm).
+Já que os métodos acima podem ser chamados mais de uma vez, é importante que eles não contenham efeitos colaterais. Ignorar essa regra pode levar a uma variedade de problemas, incluindo vazamento de memória e estado inválido da aplicação. Infelizmente, pode ser difícil detectar esses problemas, já que eles podem ser [não determinísticos](https://en.wikipedia.org/wiki/Deterministic_algorithm).
 
-Strict mode can't automatically detect side effects for you, but it can help you spot them by making them a little more deterministic. This is done by intentionally double-invoking the following methods:
+O modo estrito não pode detectar automaticamente efeitos colaterais para você, mas pode ajudá-lo a achá-los ao torná-los um pouco mais determinísticos. Isso é feito ao invocar duas vezes seguidas os seguintes métodos:
 
-* Class component `constructor` method
-* The `render` method
-* `setState` updater functions (the first argument)
-* The static `getDerivedStateFromProps` lifecycle
+* O `constructor` de componentes classe
+* O método `render`
+* Funções atualizadoras do `setState` (o primeiro argumento)
+* O estático (`static`) ciclo de vida `getDerivedStateFromProps`
 
-> Note:
+> Nota:
 >
-> This only applies to development mode. _Lifecycles will not be double-invoked in production mode._
+> Isso só se aplica em modo de desenvolvimento. _Ciclos de vida não serão invocados duas vezes em produção._
 
-For example, consider the following code:
+Por exemplo, considere o seguinte código:
 `embed:strict-mode/side-effects-in-constructor.js`
 
-At first glance, this code might not seem problematic. But if `SharedApplicationState.recordEvent` is not [idempotent](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning), then instantiating this component multiple times could lead to invalid application state. This sort of subtle bug might not manifest during development, or it might do so inconsistently and so be overlooked.
+À primeira vista, este código pode não parecer problemático. Mas se `SharedApplicationState.recordEvent` não for [idempotente](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning), então instanciar este componente múltiplas vezes pode levar a um estado da aplicação inválido. Este tipo de erro pequeno e sutil pode não se manifestar durante o desenvolvimento, ou pode fazê-lo de forma inconsistente e, portanto, ser ignorado.
 
-By intentionally double-invoking methods like the component constructor, strict mode makes patterns like this easier to spot.
+Ao intencionalmente invocar os métodos de ciclo de vida duas vezes, como o construtor do componente, o modo estrito pode tornar padrões como este mais fácil de localizar.
 
-### Detecting legacy context API {#detecting-legacy-context-api}
+### Detectar o uso da antiga API de contexto (Context API) {#detecting-legacy-context-api}
 
-The legacy context API is error-prone, and will be removed in a future major version. It still works for all 16.x releases but will show this warning message in strict mode:
+A antiga API de contexto era propensa a erros, e será removida em uma futura versão principal (_major version_). Ela ainda funciona para todas versões `16.x`, mas mostrará uma mensagem de aviso no modo estrito: 
 
 ![](../images/blog/warn-legacy-context-in-strict-mode.png)
 
-Read the [new context API documentation](/docs/context.html) to help migrate to the new version.
+Leia a [documentação da nova API de contexto](/docs/context.html) para ajudá-lo a migrar para a nova versão.
