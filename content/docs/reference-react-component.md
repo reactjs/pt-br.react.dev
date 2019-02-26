@@ -151,10 +151,10 @@ constructor(props)
 O construtor para um componente React é chamado antes que este componente seja montado. Quando estiver implementando o construtor para uma subclasse de `React.Component`, você deveria chamar `super(props)` antes de qualquer outra coisa.
 Caso contrário `this.props` será indefinido no construtor, o que pode levar a bugs.
 
-Tipicametne, em React, os construtores são usados somente para dois propósitos:
+Tipicamente, em React, os construtores são usados somente para dois propósitos:
 
 * Inicializar [local state](/docs/state-and-lifecycle.html) através da atribuição de um objeto a `this.state`.
-* Ligação (binding)  de um método [manipulador de eventos](/docs/handling-events.html) à uma instância.
+* Ligação (binding) de um método [manipulador de eventos](/docs/handling-events.html) à uma instância.
 
 Você **não deve chamar `setState()`**  no `constructor()`. Ao invés disso, se seu componente precisa de local state, **atribua o initial state à `this.state`** diretamente no construtor:
 
@@ -166,29 +166,27 @@ constructor(props) {
   this.handleClick = this.handleClick.bind(this);
 }
 ```
+O método consturtor é o único lugar onde você deve atribuir `this.state` diretamente. Em todos os outros métodos, você precisa usar `this.setState()`.
 
-Constructor is the only place where you should assign `this.state` directly. In all other methods, you need to use `this.setState()` instead.
+Evite introduzir qualquer efeito colateral no construtor. Para estes casos use `componentDidMount()`.
 
-Avoid introducing any side-effects or subscriptions in the constructor. For those use cases, use `componentDidMount()` instead.
-
->Note
+>Nota
 >
->**Avoid copying props into state! This is a common mistake:**
+>**Evite copiar props no state! Este é um erro comum:**
 >
 >```js
 >constructor(props) {
 >  super(props);
->  // Don't do this!
+>  // Não faça isso!
 >  this.state = { color: props.color };
 >}
 >```
 >
->The problem is that it's both unnecessary (you can use `this.props.color` directly instead), and creates bugs (updates to the `color` prop won't be reflected in the state).
+>O problema é que isto é desnecessário (você pode usar `this.props.color` diretamente), e cria bugs (atualizações em `color` não serão refletidas no state).
 >
->**Only use this pattern if you intentionally want to ignore prop updates.** In that case, it makes sense to rename the prop to be called `initialColor` or `defaultColor`. You can then force a component to "reset" its internal state by [changing its `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) when necessary.
+>**Use este pattern somente se você quiser ignorar atualizações em props intencionalmente.** Neste caso, faz sentido renomear a prop para ser chamada `initialColor` ou `defaultColor`. É possível então forçar um componente a "resetar" seu state interno através de  [mudando sua `chave`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) quando necessário.
 >
->Read our [blog post on avoiding derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html) to learn about what to do if you think you need some state to depend on the props.
-
+>Leia nosso [post no blog sobre evitar derivações no state](/blog/2018/06/07/you-probably-dont-need-derived-state.html) para aprender sobre o que fazer se você acha que precisa que o state dependa das props.
 
 * * *
 
@@ -198,11 +196,11 @@ Avoid introducing any side-effects or subscriptions in the constructor. For thos
 componentDidMount()
 ```
 
-`componentDidMount()` is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
+`componentDidMount()` É invocado imediatamente após um componente ser montado (inserido na árvore). Inicializações que exijam nós do DOM devem vir aqui. Se precisar carregar data de um endpoint remoto, este é um bom lugar para instanciar sua requisição.
 
-This method is a good place to set up any subscriptions. If you do that, don't forget to unsubscribe in `componentWillUnmount()`.
+Este método é um bom lugar para colocar qualquer subscrição. Se fizer isto, não esqueça de desinscrever no `componentWillUnmount()`.
 
-You **may call `setState()` immediately** in `componentDidMount()`. It will trigger an extra rendering, but it will happen before the browser updates the screen. This guarantees that even though the `render()` will be called twice in this case, the user won't see the intermediate state. Use this pattern with caution because it often causes performance issues. In most cases, you should be able to assign the initial state in the `constructor()` instead. It can, however, be necessary for cases like modals and tooltips when you need to measure a DOM node before rendering something that depends on its size or position.
+Você **pode chamar `setState()` diretamente** dentro do `componentDidMount()`. Ele irá disparar uma renderização extra, mas isto irá ocorrer antes que o browser atualize a tela. Isso garante que mesmo que o `render()` seja chamado duas vezes neste caso, o usuário não verá o state intermediário. Use este pattern com cuidado porque isto frequentemente causa issues de performance. Na maioria dos casos, você deve atribuir o initial state no `constructor()`. Isto pode, no entanto, ser necessário para casos como modais e tooltips quando você precisa mensurar um nó do DOM antes de renderizar algo que dependa de seu tamanho ou posição.
 
 * * *
 
@@ -212,26 +210,26 @@ You **may call `setState()` immediately** in `componentDidMount()`. It will trig
 componentDidUpdate(prevProps, prevState, snapshot)
 ```
 
-`componentDidUpdate()` is invoked immediately after updating occurs. This method is not called for the initial render.
+`componentDidUpdate()` é invocado imediatamente após alguma atualização ocorrer. Este método não é chamado pelo initial render.
 
-Use this as an opportunity to operate on the DOM when the component has been updated. This is also a good place to do network requests as long as you compare the current props to previous props (e.g. a network request may not be necessary if the props have not changed).
+Use isto como uma oportunidade para alterar o DOM quando o componente for atualizado. Este também é um bom lugar para realizar requisições de rede enquanto compara as props atuais com as props anteriores (e.g. uma chamada de rede pode não ser necessária se as props não mudaram).
 
 ```js
 componentDidUpdate(prevProps) {
-  // Typical usage (don't forget to compare props):
+  // Uso típico, (não esqueça de comparar as props):
   if (this.props.userID !== prevProps.userID) {
     this.fetchData(this.props.userID);
   }
 }
 ```
 
-You **may call `setState()` immediately** in `componentDidUpdate()` but note that **it must be wrapped in a condition** like in the example above, or you'll cause an infinite loop. It would also cause an extra re-rendering which, while not visible to the user, can affect the component performance. If you're trying to "mirror" some state to a prop coming from above, consider using the prop directly instead. Read more about [why copying props into state causes bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+Você **pode chamar `setState()` imediatamente** dentro do `componentDidUpdate()` mas perceba que **isto deve estar encapsulado em uma condição** como no exemplo abaixp, ou você irá causar um loop infinito. Isto também causaria uma re-renderização extra, que por mais que não seja visível para o usuário pode afetar a performance do componente. Se você está tentando "espelhar" algum state para uma prop vinda de cima, considere usar a prop diretamente. Leia mais sobre [porque copiar props no state causa bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
-If your component implements the `getSnapshotBeforeUpdate()` lifecycle (which is rare), the value it returns will be passed as a third "snapshot" parameter to `componentDidUpdate()`. Otherwise this parameter will be undefined.
+Se seu componente implementa o método `getSnapshotBeforeUpdate()` (o que é raro), o valor que ele retorna será passado como o terceiro parâmetro "snapshot" para `componentDidUpdate()`. Caso contrário este parâmetro será undefined.
 
-> Note
+> Nota
 >
-> `componentDidUpdate()` will not be invoked if [`shouldComponentUpdate()`](#shouldcomponentupdate) returns false.
+> `componentDidUpdate()` não será invocado se [`shouldComponentUpdate()`](#shouldcomponentupdate) retornar false.
 
 * * *
 
@@ -241,15 +239,15 @@ If your component implements the `getSnapshotBeforeUpdate()` lifecycle (which is
 componentWillUnmount()
 ```
 
-`componentWillUnmount()` is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in `componentDidMount()`.
+`componentWillUnmount()` é invocado imediatamente antes que um componente seja desmontado e destruído. Qualquer limpeza necessária deve ser realizada neste método, como invalidar timers, cancelar requisições de rede, ou limpar qualquer subscrição que foi criada no `componentDidMount()`.
 
-You **should not call `setState()`** in `componentWillUnmount()` because the component will never be re-rendered. Once a component instance is unmounted, it will never be mounted again.
+**Não se deve chamar `setState()`** em `componentWillUnmount()` Porque o componente nunca irá será renderizado novametne. Uma vez que a instância do componente foi desmontada, ela nunca será montada novamente.
 
 * * *
 
-### Rarely Used Lifecycle Methods {#rarely-used-lifecycle-methods}
+### Métodos raramente usados {#rarely-used-lifecycle-methods}
 
-The methods in this section correspond to uncommon use cases. They're handy once in a while, but most of your components probably don't need any of them. **You can see most of the methods below on [this lifecycle diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) if you click the "Show less common lifecycles" checkbox at the top of it.**
+Estes métodos desa seção correspondem a casos de uso incomuns. Eles são úteis de vez em quando, mas na maioria das vezes, seus componentes provavelmente não irão precisar de nenhum deles. **Pode ver a maioria dos métodos abaixo [neste diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se clicar na checkbox"Show less common lifecycles" no topo da página.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
@@ -258,17 +256,18 @@ The methods in this section correspond to uncommon use cases. They're handy once
 shouldComponentUpdate(nextProps, nextState)
 ```
 
-Use `shouldComponentUpdate()` to let React know if a component's output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior.
+Use `shouldComponentUpdate()` para permitir que o React saiba se o resultado de um componente não é afetdo pelas mudanças atuais em state ou props. O comportamento padrão é para re-renderizar a cada mudança do state, e na grande maioria dos casos você deve confiar no comportamento padrão.
 
-`shouldComponentUpdate()` is invoked before rendering when new props or state are being received. Defaults to `true`. This method is not called for the initial render or when `forceUpdate()` is used.
+`shouldComponentUpdate()` é invoado antes do rendring quando novas props ou state são recebigos. O valor default é `true`. Este método não é chamado na renderização inicial ou quando `forceUpdate()`é usado .
 
-This method only exists as a **[performance optimization](/docs/optimizing-performance.html).** Do not rely on it to "prevent" a rendering, as this can lead to bugs. **Consider using the built-in [`PureComponent`](/docs/react-api.html#reactpurecomponent)** instead of writing `shouldComponentUpdate()` by hand. `PureComponent` performs a shallow comparison of props and state, and reduces the chance that you'll skip a necessary update.
+Este método existe somente para **[otimização de performance ](/docs/optimizing-performance.html).** Não confie nele para "evitar" a renderização, pois isso pode levar a bugs. **Considere usar [`PureComponent`](/docs/react-api.html#reactpurecomponent)** no lugar de escrever `shouldComponentUpdate()` manualmente. `PureComponent` realiza uma comparação superficial das props e do state, e reduz as chances the pular um update necessário.
 
-If you are confident you want to write it by hand, you may compare `this.props` with `nextProps` and `this.state` with `nextState` and return `false` to tell React the update can be skipped. Note that returning `false` does not prevent child components from re-rendering when *their* state changes.
+Se você está confiante que quer escrever isto manualmente, pode comparar `this.props` com `nextProps` e `this.state` com `nextState`
+e retornar `false` para informar o React que o update pode ser pulado. Perceba que retornando `false` não evita que componentes filhos sejam renderizados novamente quando o state *deles* sofrer alterações.
 
-We do not recommend doing deep equality checks or using `JSON.stringify()` in `shouldComponentUpdate()`. It is very inefficient and will harm performance.
+Não recomendamos fazer verificações de igualdade profundas ou usar `JSON.stringify()` dentro de `shouldComponentUpdate()`. Isto é ineficiente e irá prejudicar a performance.
 
-Currently, if `shouldComponentUpdate()` returns `false`, then [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render), and [`componentDidUpdate()`](#componentdidupdate) will not be invoked. In the future React may treat `shouldComponentUpdate()` as a hint rather than a strict directive, and returning `false` may still result in a re-rendering of the component.
+Atualmente, se `shouldComponentUpdate()` retornar `false`, então [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate), [`render()`](#render), e [`componentDidUpdate()`](#componentdidupdate) não serão invocados. No futuro, React pode tratar  `shouldComponentUpdate()` como uma dica ao invés de uma rigorosa diretiva. e retornar `false` pode continuar resultando em re-renderização do componente.
 
 * * *
 
@@ -278,16 +277,16 @@ Currently, if `shouldComponentUpdate()` returns `false`, then [`UNSAFE_component
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or null to update nothing.
+`getDerivedStateFromProps` é invocado imediatamente antes de chamar o método render, ambos na montagem inicial e nas atualizações subsequente. Devem retornar um objeto para atualizar o state, ou null para não atualizar nada.
 
-This method exists for [rare use cases](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) where the state depends on changes in props over time. For example, it might be handy for implementing a `<Transition>` component that compares its previous and next children to decide which of them to animate in and out.
+Este método existe para [casos de uso raros] (/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) onde o state depende de mudanças nas props ao longo do tempo. Por exemplo, pode ser útil para implementar um componente `<Transition>` que compara seus filhos anteriores e próimos para decidir quais deles devem ser animados.
 
-Deriving state leads to verbose code and makes your components difficult to think about.  
-[Make sure you're familiar with simpler alternatives:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+Derivando o state leva a código verboso e faz seus componentes difíceis de compreender.
+[Tenha certeza de estar familiarizado com alternativas mais simples:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-* If you need to **perform a side effect** (for example, data fetching or an animation) in response to a change in props, use [`componentDidUpdate`](#componentdidupdate) lifecycle instead.
+* Se precisar  **perform a side effect** (por exemplo, buscar dados ou uma animação) em resposta a uma alteração em props, use [`componentDidUpdate`](#componentdidupdate) no lugar.
 
-* If you want to **re-compute some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
+* Se você quer **re-compute some data only when a prop changes**, [use a memoization helper instead](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
 * If you want to **"reset" some state when a prop changes**, consider either making a component [fully controlled](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component) or [fully uncontrolled with a `key`](/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key) instead.
 
