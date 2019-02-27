@@ -91,7 +91,7 @@
     - id: react-dom-server
       title: ReactDOMServer
     - id: dom-elements
-      title: Elementos DOM
+      title: Elementos do DOM
     - id: events
       title: SyntheticEvent
     - id: test-utils
