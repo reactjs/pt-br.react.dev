@@ -229,7 +229,7 @@ function Timer() {
 }
 ```
 
-Se nós só quiséssemos criar um intervalo, não precisaríamos de ref (`id` poderia ser local do efeito), mas é útil se nós queremos limpar o intervalo usando um manipulador de eventos:
+Se nós só quiséssemos criar um intervalo, não precisaríamos de ref (`id` poderia ser local do efeito), mas é útil se quisermos limpar o intervalo usando um manipulador de eventos:
 
 ```js{3}
   // ...
