@@ -192,7 +192,6 @@ Existem mais algumas heurísticas e talvez elas mudem ao longo do tempo conforme
 ## De Classes para Hooks {#from-classes-to-hooks}
 
 ### Como os métodos de ciclo de vida correspondem aos Hooks? {#how-do-lifecycle-methods-correspond-to-hooks}
-### How do lifecycle methods correspond to Hooks? {#how-do-lifecycle-methods-correspond-to-hooks}
 
 * `constructor`: Funções não precisam de um constructor. Você pode inicializar o estado com o [`useState`](/docs/hooks-reference.html#usestate). Se calcular o estado for custoso, você pode passar uma função para o `useState`.
 
