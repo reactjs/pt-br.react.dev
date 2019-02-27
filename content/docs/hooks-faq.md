@@ -32,7 +32,6 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
   * [O que exatamente as regras de lint impõem? ](#what-exactly-do-the-lint-rules-enforce)
 * **[De Classes para Hooks ](#from-classes-to-hooks)**
   * [Como os métodos de ciclo de vida correspondem aos Hooks? ](#how-do-lifecycle-methods-correspond-to-hooks)
-  * [How do lifecycle methods correspond to Hooks? ](#how-do-lifecycle-methods-correspond-to-hooks)
   * [Existe algo como variáveis de instância? ](#is-there-something-like-instance-variables)
   * [Devo usar uma ou muitas variáveis de estado? ](#should-i-use-one-or-many-state-variables)
   * [Possso usar um efeito somente em updates? ](#can-i-run-an-effect-only-on-updates)
