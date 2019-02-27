@@ -102,7 +102,7 @@ Frequentemente, render props e hoc (higher-order components) renderizam somente 
 
 Você pode continuar a usar exatamente as mesmas APIs que sempre usou; elas vão continuar funcionando.
 
-No futuro, novas versões dessas bibliotecas também pode exportar Hooks custom como `useRedux()` ou `useRouter()` que permitem que você use as mesmas features sempre precisar de componentes em volta.
+No futuro, novas versões dessas bibliotecas também pode exportar Hooks customizados como `useRedux()` ou `useRouter()` que permitem que você use as mesmas features sem precisar de componentes em volta.
 
 ### Hooks funcionam com tipagem estática? {#do-hooks-work-with-static-typing}
 
