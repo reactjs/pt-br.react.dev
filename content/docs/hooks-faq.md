@@ -108,7 +108,7 @@ No futuro, novas versões dessas bibliotecas também pode exportar Hooks custom 
 
 Hooks foram planejados com tipagem estática em mente. Como eles são funções, eles são mais fáceis de tipar corretamente do que padrões como high-order components. As últimas definições do React para Flow e Typescript incluem suporte para React Hooks.
 
-Importante observer que Hooks custom te dão o poder de restring a API do React se você quiser usa-la de alguma maneira mais rigorosa. React te dá as primitivas mas você pode combina-las de diferentes maneiras além das que fornecemos.
+Importante observar, que Hooks customizados te dão o poder de restringir a API do React se você quiser usa-la de alguma maneira mais rigorosa. React te dá as primitivas mas você pode combina-las de diferentes maneiras além das que fornecemos.
 
 ### Como testar componentes que usam Hooks? {#how-to-test-components-that-use-hooks}
 
