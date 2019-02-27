@@ -25,7 +25,7 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
   * [Quanto do meu conhecimento de React continua relevante? ](#how-much-of-my-react-knowledge-stays-relevant)
   * [Devo usar Hooks, classes ou um misto dos dois? ](#should-i-use-hooks-classes-or-a-mix-of-both)
   * [Hooks cobrem todos os casos de uso para classes? ](#do-hooks-cover-all-use-cases-for-classes)
-  * [Hooks substituem render props e higher-order components? ](#do-hooks-replace-render-props-and-higher-order-components)
+  * [Hooks substituem render props e HOC (componente de alta-ordem, do inglês *high-order component*)? ](#do-hooks-replace-render-props-and-higher-order-components)
   * [O que Hooks significam para APIs populares como o connect() do Redux e o React Router? ](#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router)
   * [Hooks funcionam com tipagem estática? ](#do-hooks-work-with-static-typing)
   * [Como testar componentes que usam Hooks? ](#how-to-test-components-that-use-hooks)
@@ -94,9 +94,9 @@ Nosso objetivo é que Hooks cubra todos os casos de uso o mais rápido possível
 
 É o início dos Hooks e algumas bibliotecas de terceiros podem não ser compatíveis com Hooks neste momento.
 
-### Hooks substituem render props e higher-order components? {#do-hooks-replace-render-props-and-higher-order-components}
+### Hooks substituem render props e HOC (componente de alta-ordem, do inglês *high-order component*)? {#do-hooks-replace-render-props-and-higher-order-components}
 
-Frequentemente, render props e hoc (higher-order components) renderizam somente um filho. Nós achamos que Hooks são uma maneira mais simples de atender esse caso de uso. Ainda existe lugar para ambos os padrões (por exemplo, um componente de scroll virtual talvez tenha uma prop `renderItem`, ou um container visual talvez tenha sua própria estrutura DOM). Mas na maioria dos casos, Hooks serão suficiente e podem ajudar a reduzir o aninhamento na sua árvore.
+Frequentemente, render props e HOC renderizam somente um filho. Nós achamos que Hooks são uma maneira mais simples de atender esse caso de uso. Ainda existe lugar para ambos os padrões (por exemplo, um componente de scroll virtual talvez tenha uma prop `renderItem`, ou um container visual talvez tenha sua própria estrutura DOM). Mas na maioria dos casos, Hooks serão suficiente e podem ajudar a reduzir o aninhamento na sua árvore.
 
 ### O que Hooks significam para APIs populares como o `connect()` do Redux e o React Router? {#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
@@ -534,7 +534,7 @@ Em adição, considere que o design de Hooks é mais eficiente por alguns motivo
 
 * Hooks evitam muito da sobrecarga que classes exigem, como o custo de criar instâncas de classes e fazer o bind the manipuladores de eventos no constructor.
 
-* **Código idiomático usando Hooks evita aninhamento profundo de componentes** que prevalece nas codebases que usam componentes de alta-ordem, render props e context. Com árvores de componentes menores, React tem menos trabalho a fazer.
+* **Código idiomático usando Hooks evita aninhamento profundo de componentes** que prevalece nas codebases que usam HOC, render props e context. Com árvores de componentes menores, React tem menos trabalho a fazer.
 
 Tradicionalmente, preocupações de desempenho sobre funções inline no React tem sido relacionadas a como passar novas callbacks em cada renderização quebra as otimizações de `shouldComponentUpdate` nos componentes filho. Hooks abordam esse problema de três maneiras.
 
