@@ -5,8 +5,8 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {colors, media} from 'theme';
+import React, { Component } from 'react';
+import { colors, media } from 'theme';
 
 type State = {
   enabled: boolean,
@@ -22,18 +22,18 @@ class DocSearch extends Component<{}, State> {
     // eslint-disable-next-line no-undef
     if (window.docsearch) {
       window.docsearch({
-        apiKey: '36221914cce388c46d0420343e0bb32e',
-        indexName: 'react',
+        apiKey: 'c87837f14775a7c3e2226c3a9e75a7e3',
+        indexName: 'reactjs_pt-br',
         inputSelector: '#algolia-doc-search',
       });
     } else {
       console.warn('A busca falhou ao ser carregada e está sendo desativada');
-      this.setState({enabled: false});
+      this.setState({ enabled: false });
     }
   }
 
   render() {
-    const {enabled} = this.state;
+    const { enabled } = this.state;
 
     return enabled ? (
       <form
