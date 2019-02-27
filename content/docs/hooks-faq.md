@@ -429,7 +429,7 @@ const Button = React.memo((props) => {
 
 Este não é um Hook porque não compõe como um Hook normalmente faz. `React.memo` é o equivalente de `PureComponent`, mas compara somente props. (Você pode também adicionar um segundo argumento para especificar uma função de comparação que recebe as props velhas e novas. Se esta retorna true, o update é evitado.)
 
-`React.memo` não compara estado porque não há nenhum único objeto de estado para comparar. Mas você pode pode tornar filhos puros também, ou até [otimizar filhos específicos com `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
+`React.memo` não compara estado porque não há nenhum único objeto de estado para comparar. Mas você pode tornar filhos puros também, ou até [otimizar filhos específicos com `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
 
 
 ### Como memorizar cálculos? {#how-to-memoize-calculations}
