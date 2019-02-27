@@ -239,7 +239,7 @@ Se nós só quiséssemos criar um intervalo, não precisaríamos de ref (`id` po
   // ...
 ```
 
-Conceitualmente, você pode pensar em refs como similares a variávels de instância em uma classe. A menos que você esteja fazendo [inicialização lazy](#how-to-create-expensive-objects-lazily), evite definir refs durante a renderização -- isso pode levar a comportamentos inesperados. Ao invés disso, tipicamente você quer modificar refs em um manipulador de events e efeitos.
+Conceitualmente, você pode pensar em refs como similares a variávels de instância em uma classe. A menos que você esteja fazendo [inicialização lazy](#how-to-create-expensive-objects-lazily), evite definir refs durante a renderização -- isso pode levar a comportamentos inesperados. Ao invés disso, normalmente você deseja modificar as refs nos manipuladores de eventos e efeitos.
 
 ### Devo usar uma ou muitas variáveis de estado? {#should-i-use-one-or-many-state-variables}
 
