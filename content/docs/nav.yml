@@ -20,7 +20,7 @@
     - id: components-and-props
       title: Componentes e Props
     - id: state-and-lifecycle
-      title: Estado e Ciclo de Vida
+      title: State e Ciclo de Vida
     - id: handling-events
       title: Manipulando eventos
     - id: conditional-rendering
@@ -50,7 +50,7 @@
     - id: fragments
       title: Fragmentos
     - id: higher-order-components
-      title: Componentes de Ordem Superior
+      title: Componentes de Alta-ordem
     - id: integrating-with-other-libraries
       title: Integrando com outras Bibliotecas
     - id: jsx-in-depth
