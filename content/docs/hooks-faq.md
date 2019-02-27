@@ -534,7 +534,7 @@ Em adição, considere que o design de Hooks é mais eficiente por alguns motivo
 
 * Hooks evitam muito da sobrecarga que classes exigem, como o custo de criar instâncas de classes e fazer o bind the manipuladores de eventos no constructor.
 
-* **Código idiomático usando Hooks evita aninhamento profundo de componentes** que prevalesce nas codebases que usam componentes de alta-ordem, render props e context. Com arvores de componentes menores, React tem menos trabalho a fazer.
+* **Código idiomático usando Hooks evita aninhamento profundo de componentes** que prevalece nas codebases que usam componentes de alta-ordem, render props e context. Com árvores de componentes menores, React tem menos trabalho a fazer.
 
 Tradicionalmente, preocupações de desempenho sobre funções inline no React tem sido relacionadas a como passar novas callbacks em cada renderização quebra as otimizações de `shouldComponentUpdate` nos componentes filho. Hooks abordam esse problema de três maneiras.
 
