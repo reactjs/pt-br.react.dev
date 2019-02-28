@@ -141,7 +141,7 @@ Se você precisar interagir com o browser, faça isto no método `componentDidMo
 
 * * *
 
-### `construtor()` {#constructor}
+### `constructor()` {#constructor}
 
 ```javascript
 constructor(props)
