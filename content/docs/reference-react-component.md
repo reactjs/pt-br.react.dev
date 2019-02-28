@@ -546,7 +546,7 @@ Isto realiza uma mescla superficial de `stateChange` dentro no novo *state*. Por
 this.setState({quantity: 2})
 ```
 
-Esta forma de `setState()` também é assíncrona, e múltiplas chamadas durante o mesmo ciclo podem ser agrupadas numa só. Por exemplo, se você tentar incrementar a quantidade de itens mais que uma vez no mesmo ciclo, isto resultará no equivalente a:
+Esta forma de `setState()` também é assíncrona e múltiplas chamadas durante o mesmo ciclo podem ser agrupadas numa só. Por exemplo, se você tentar incrementar a quantidade de itens mais que uma vez no mesmo ciclo, isto resultará no equivalente a:
 
 ```javaScript
 Object.assign(
