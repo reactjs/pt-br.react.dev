@@ -637,7 +637,7 @@ Em particular, `this.props.children` é uma *prop* especial, tipicamente definid
 
 ### `state` {#state}
 
-O *state* contém dados específicos a este componente que podem mudar com o tempo. O *state* é definido pelo usuário, e deve ser um objeto JavaScript.
+O *state* contém dados específicos a este componente que podem mudar com o tempo. O *state* é definido pelo usuário e deve ser um objeto JavaScript.
 
 Se algum valor não for usado para renderizamento ou para controle de *data flow* (por exemplo, um *ID* de *timer*), você não precisa colocar no *state*. Tais valores podem ser definidos como campos na instância do componente.
 
