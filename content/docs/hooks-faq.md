@@ -173,7 +173,7 @@ it('can render and update a counter', () => {
 
 As chamadas para `act()` também vão descarregar os efeitos dentro dele.
 
-Se você precisa testar um Hook custom, você pode faze-lo criando um componente no seu teste e usando o seu Hook nele. Então você pode testar o componente que escreveu.
+Se você precisa testar um Hook customizados, você pode faze-lo criando um componente no seu teste e usando o seu Hook nele. Então você pode testar o componente que escreveu.
 
 Para reduzir o boilerplate, nós recomendamos usar [`react-testing-library`](https://git.io/react-testing-library) que é projetada para incentivar a escrever testes que usam seus componentes como usuários finais usam.
 
@@ -269,7 +269,7 @@ Agora vamos dizer que queremos escrever uma lógica que muda `left` e `top` quan
 
 Isto é porque quando atualizamos uma variável de estado, nós *substituimos* seu valor. É diferente de `this.setState` em uma classe, que *mescla* os campos atualizados no objeto.
 
-Se você sente falta da mesclagem automática, você pode escrever um Hook custom, `useLegacyState`, que mescla o update no objeto. No entando, **nós recomendamos dividir o estado em múltiplas variáveis de estado baseado nos valores que tendem a mudar juntos.**
+Se você sente falta da mesclagem automática, você pode escrever um Hook customizados, `useLegacyState`, que mescla o update no objeto. No entanto, **nós recomendamos dividir o estado em múltiplas variáveis de estado baseado nos valores que tendem a mudar juntos.**
 
 Por exemplo, poderíamos dividir nosso componente em `position` e `size` e sempre substituir `position` sem a necessidade de mesclar:
 
@@ -666,7 +666,7 @@ Em ambos os casos, **não recomendamos esse padrão** e só estamos mostrando aq
 
 ### Como o React associa chamadas de Hooks com componentes? {#how-does-react-associate-hook-calls-with-components}
 
-React acompanha o componente que está renderizando. Graças as [Regras dos Hooks](/docs/hooks-rules.html), sabemos que Hooks são chamados somentes dentro de componentes React (ou Hooks custom -- que também só são chamados dentro de componentes React).
+React acompanha o componente que está renderizando. Graças as [Regras dos Hooks](/docs/hooks-rules.html), sabemos que Hooks são chamados somente dentro de componentes React (ou Hooks customizados -- que também só são chamados dentro de componentes React).
 
 Existe uma lista interna de "células de memória" associadas a cada componente. Elas são somente objetos JavaScript aonde podemos colocar alguns dados. Quando você chama um Hook como `useState()`, é lido a célula atual (ou inicializada durante a primeira renderização), e então move o ponteiro para a próxima.é assim que múltiplas chamadas de `useState()` recebem seu estado local independente.
 
