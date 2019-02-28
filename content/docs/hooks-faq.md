@@ -173,7 +173,7 @@ it('can render and update a counter', () => {
 
 As chamadas para `act()` também vão descarregar os efeitos dentro dele.
 
-Se você precisa testar um Hook customizados, você pode faze-lo criando um componente no seu teste e usando o seu Hook nele. Então você pode testar o componente que escreveu.
+Se você precisa testar um Hook customizado, você pode faze-lo criando um componente no seu teste e usando o seu Hook nele. Então você pode testar o componente que escreveu.
 
 Para reduzir o boilerplate, nós recomendamos usar [`react-testing-library`](https://git.io/react-testing-library) que é projetada para incentivar a escrever testes que usam seus componentes como usuários finais usam.
 
@@ -183,7 +183,7 @@ Nós fornecems um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-re
 
 Em particular, a regra impõe que:
 
-* Chamadas para Hooks ocorrem ou dentro de uma função usando `PascalCase` (tratada como componente) ou dentro de outra função `useSomething` (tratada como um Hook custom).
+* Chamadas para Hooks ocorrem ou dentro de uma função usando `PascalCase` (tratada como componente) ou dentro de outra função `useSomething` (tratada como um Hook customizado).
 * Hooks são chamados na mesma ordem em toda renderização.
 
 Existem mais algumas heurísticas e talvez elas mudem ao longo do tempo conforme nós regulamos as regras para balancear entre encontrar bugs e evitar falsos positivos.
@@ -269,7 +269,8 @@ Agora vamos dizer que queremos escrever uma lógica que muda `left` e `top` quan
 
 Isto é porque quando atualizamos uma variável de estado, nós *substituimos* seu valor. É diferente de `this.setState` em uma classe, que *mescla* os campos atualizados no objeto.
 
-Se você sente falta da mesclagem automática, você pode escrever um Hook customizados, `useLegacyState`, que mescla o update no objeto. No entanto, **nós recomendamos dividir o estado em múltiplas variáveis de estado baseado nos valores que tendem a mudar juntos.**
+Se você sente falta da mesclagem automática, você pode escrever um Hook 
+izado, `useLegacyState`, que mescla o update no objeto. No entanto, **nós recomendamos dividir o estado em múltiplas variáveis de estado baseado nos valores que tendem a mudar juntos.**
 
 Por exemplo, poderíamos dividir nosso componente em `position` e `size` e sempre substituir `position` sem a necessidade de mesclar:
 
@@ -285,7 +286,7 @@ function Box() {
     // ...
 ```
 
-Separar o estado em variáveis independentes também tem outro benefício. Torna mais fácil para extrair uma lógica relacionada para um Hook custom posteriormente, como por exemplo:
+Separar o estado em variáveis independentes também tem outro benefício. Torna mais fácil para extrair uma lógica relacionada para um Hook customizado posteriormente, como por exemplo:
 
 ```js{2,7}
 function Box() {
@@ -303,13 +304,13 @@ function useWindowPosition() {
 }
 ```
 
-Note como nós conseguimos mover a chamada `useState` da variável de estado `position` e o efeito relacionado para um Hook custom sem alterar o seu código. Se todo o estado estivesse em um único objeto, extrair seria mais difícil.
+Note como nós conseguimos mover a chamada `useState` da variável de estado `position` e o efeito relacionado para um Hook customizado sem alterar o seu código. Se todo o estado estivesse em um único objeto, extrair seria mais difícil.
 
-Tanto colocar todo estado em um único `useState` e usar múltiplos `useState` para cada campo pode funcionar. Componentes tendem a ser mais legíveis quando você encontra um balanço entre esses dois extremos e agrupa estados relacionados em algunas variáveis de estado independentes. Se a lógica do estado se torna muito complexa, nós recomendamos [gerenciá-la com um reducer](/docs/hooks-reference.html#usereducer) ou com um Hook custom.
+Tanto colocar todo estado em um único `useState` e usar múltiplos `useState` para cada campo pode funcionar. Componentes tendem a ser mais legíveis quando você encontra um balanço entre esses dois extremos e agrupa estados relacionados em algunas variáveis de estado independentes. Se a lógica do estado se torna muito complexa, nós recomendamos [gerenciá-la com um reducer](/docs/hooks-reference.html#usereducer) ou com um Hook customizado.
 
 ### Possso usar um efeito somente em updates? {#can-i-run-an-effect-only-on-updates}
 
-Esse é um caso de uso raro. Se você precisar, você pode [usar uma ref mutável](#is-there-something-like-instance-variables) para manualmente armazenar um valor boleano correspondente a se você está no primeiro render ou num subsequente, usando então essa flag no seu efeito. (Se você se encontrar fazendo isso regularmente, pode criar um Hook custom pra isso.)
+Esse é um caso de uso raro. Se você precisar, você pode [usar uma ref mutável](#is-there-something-like-instance-variables) para manualmente armazenar um valor boleano correspondente a se você está no primeiro render ou num subsequente, usando então essa flag no seu efeito. (Se você se encontrar fazendo isso regularmente, pode criar um Hook customizado pra isso.)
 
 ### Como acessar as props ou o estado anterior? {#how-to-get-the-previous-props-or-state}
 
@@ -329,7 +330,7 @@ function Counter() {
 }
 ```
 
-Isso pode ser um pouco confuso mas você pode extrair para um Hook custom:
+Isso pode ser um pouco confuso mas você pode extrair para um Hook customizado:
 
 ```js{3,7}
 function Counter() {
@@ -625,7 +626,7 @@ function Form() {
 }
 ```
 
-Este é um padrão um tanto confuso mas mostra que você pode usar essa válvula de escape se precisar. É mais suportável se você extrair para um Hook custom:
+Este é um padrão um tanto confuso mas mostra que você pode usar essa válvula de escape se precisar. É mais suportável se você extrair para um Hook customizado:
 
 ```js{4,16}
 function Form() {
