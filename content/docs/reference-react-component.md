@@ -557,7 +557,7 @@ Object.assign(
 )
 ```
 
-Chamadas subsequentes irão sobrescrever valores de chamadas anteriores no mesmo ciclo, então a quantidade será incrementada somente uma vez. Se o próximo estado depende do estado atual, recomendamos utilizar a função *updater* como alternativa:
+Chamadas subsequentes irão sobrescrever valores de chamadas anteriores no mesmo ciclo. Com isso, a quantidade será incrementada somente uma vez. Se o próximo estado depende do estado atual, recomendamos utilizar a função *updater* como alternativa:
 
 ```js
 this.setState((state) => {
