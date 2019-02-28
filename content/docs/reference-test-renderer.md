@@ -110,7 +110,7 @@ Cria uma instância do `TestRenderer` com o elemento React fornecido. Este méto
 testRenderer.toJSON()
 ```
 
-Retorna um objeto representando a árvore renderizada. Esta árvore contém apenas os nós específicos da plataforma como `<div>` ou `<View>` e suas props, mas não contém nenhum componente criado pelo usuário. Isso é útil para [testes de snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
+Retorna um objeto representando a árvore renderizada. Essa árvore contém apenas os nós específicos da plataforma como `<div>` ou `<View>` e suas props, mas não contém nenhum componente criado pelo usuário. Isso é útil para [testes de snapshot](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 
