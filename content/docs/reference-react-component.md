@@ -151,7 +151,7 @@ constructor(props)
 O construtor para um componente React é chamado antes que este componente seja montado. Quando estiver implementando o construtor para uma subclasse de `React.Component`, você deveria chamar `super(props)` antes de qualquer outra coisa.
 Caso contrário `this.props` será indefinido no construtor, o que pode levar a bugs.
 
-Tipicamente, em React, os construtores são usados somente para dois propósitos:
+Normalmente, em React, os construtores são usados somente para dois propósitos:
 
 * Inicializar [local state](/docs/state-and-lifecycle.html) através da atribuição de um objeto a `this.state`.
 * Ligação (binding) de um método [manipulador de eventos](/docs/handling-events.html) à uma instância.
