@@ -16,7 +16,7 @@ redirect_from:
 ---
 
 
-Esta página contem uma referência detalhada da API para a definição de classes de componentes React. Nós assumimos que você possui familiaridade com conceitos fundamentais do React, como [Componentes e Props](/docs/components-and-props.html), bem como [State e Lifecycle](/docs/state-and-lifecycle.html). Se isto não é familiar para você, leia essas páginas primeiro.
+Esta página contém uma referência detalhada da API para a definição de classes de componentes React. Nós assumimos que você possui familiaridade com conceitos fundamentais do React, como [Componentes e Props](/docs/components-and-props.html), bem como [State e Ciclo de vida](/docs/state-and-lifecycle.html). Se isto não é familiar para você, leia essas páginas primeiro.
 
 
 ## Visão Geral {#overview}
