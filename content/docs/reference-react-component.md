@@ -633,7 +633,7 @@ A *string* `displayName` é utilizada em mensagens de depuração. Normalmente, 
 
 `this.props` contém as *props* que foram definidas por quem chamou este componente. Veja [Componentes e Props](/docs/components-and-props.html) para uma introdução às *props*.
 
-Em particular, `this.props.children` é uma *prop* especial, tipicamente definida pelas *tags* filhas na expressão JSX, ao invés de na própria *tag*.
+Em particular, `this.props.children` é uma *prop* especial, normalmente definida pelas *tags* filhas na expressão JSX, ao invés de na própria *tag*.
 
 ### `state` {#state}
 
