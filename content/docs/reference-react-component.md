@@ -112,7 +112,8 @@ Cada componente também fornece outras APIs:
 
 ## Referencia {#reference}
 
-### Métodos mais usados do Ciclo de Vida {#métodos-mais-usados-do-ciclo-de-vida}
+### Métodos mais usados do Ciclo de Vida {#commonly-used-lifecycle-methods}
+
 Os métodos desta seção cobrem a grande maioria dos casos de uso que você encontrará criando componentes React. **Para uma referência visual, veja : [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
 
 ### `render()` {#render}
