@@ -84,7 +84,7 @@ Estes métodos são chamados quando um componente está sendo removido do DOM:
 
 - [**`componentWillUnmount()`**](#componentwillunmount)
 
-#### Tratando erros {#handling errors}
+#### Tratando erros {#error-handling}
 
 Estes métodos são chamados quando existir um erro durante a renderização, em um método do ciclo de vida, ou no construtor de qualquer componente-filho.
 
