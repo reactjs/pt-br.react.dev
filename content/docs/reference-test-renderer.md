@@ -126,7 +126,7 @@ Retorna um objeto representando a árvore renderizada. Ao contrário de `toJSON(
 testRenderer.update(element)
 ```
 
-Re-renderiza a árvore na memória com um novo elemento raiz. Isto simula uma atualização do React na raiz. Se o novo elemento tiver o mesmo tipo e chave do elemento anterior, a árvore será atualizada; caso contrário, ele irá montar novamente uma nova árvore.
+Re-renderiza a árvore na memória com um novo elemento raiz. Isso simula uma atualização do React na raiz. Se o novo elemento tiver o mesmo tipo e chave do elemento anterior, a árvore será atualizada; caso contrário, ele irá montar novamente uma nova árvore.
 
 ### `testRenderer.unmount()` {#testrendererunmount}
 
