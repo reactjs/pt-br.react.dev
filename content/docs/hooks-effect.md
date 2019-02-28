@@ -54,7 +54,7 @@ Em um componente de classe do React, o método `render` não deve causar efeitos
 Isso é o porque nas classes do React, nós colocamos efeitos dentro de `componentDidMount` e `componentDidUpdate`. Voltando ao nosso exemplo, aqui está um componente de classe do React chamado contador que atualiza o titulo logo após o React faz as mudanças na DOM:
 
 ```js{9-15}
-class Exemple extends React.Component {
+class Exemplo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -114,7 +114,7 @@ function Example() {
 }
 ```
 
-**O que o `useEffect` faz?** Usando esse Hook, você diz ao React que o componente precisa fazer algo apenas depois da renderização. O React ira se lembrar da função que voce passou (nos referiremos a ele como nosso "efeito"), e chamá-la depois que realizar as atualizações do DOM. Nesse efeito, nós mudamos o título do documento, mas nós podemos também realizar busca de dados ou chamar alguma API imperativa.
+**O que o `useEffect` faz?** Usando esse Hook, você diz ao React que o componente precisa fazer algo apenas depois da renderização. O React ira se lembrar da função que você passou (nos referiremos a ele como nosso "efeito"), e chamá-la depois que realizar as atualizações do DOM. Nesse efeito, mudamos o título do documento, mas podemos também realizar busca de dados ou chamar alguma API imperativa.
 
 **Porque `useEffect` é chamado dentro de um componente?** Colocando `useEffect` dentro do componente nos permite acessar o state `count` (ou qualquer outra prop) direto do efeito. Nós não precisamos de uma API especial para lê-los -- já esta no escopo da função. Hooks adotam as closures do JavaScript e evitam APIs especificas do React onde o JavaScript já provê uma solução.
 
@@ -133,9 +133,9 @@ function Example() {
   });
 ```
 
-Nós declaramos o state `count`, e então dizemos ao React que precisamos usar um efeito. Nós passamos uma função para o Hook `useEffect`. Essa função que nós passamos *é* o nosso efeito. Dentro do nosso efeito, nós definimos o titulo do documento usando `document.title` da API do navegador. Nós podemos ler o último `count` dentro do nosso efeito por que ele está dentro do escopo da nossa função. Quando o React renderizar nosso componente, ele ira se lembrar do efeito que usamos, e então executar os nossos efeitos depois de atualizar o DOM. Isso acontece para cada renderização, incluindo a primeira.
+Declaramos o state `count`, e então dizemos ao React que precisamos usar um efeito. Passamos uma função para o Hook `useEffect`. Essa função que passamos *é* o nosso efeito. Dentro do nosso efeito, definimos o título do documento usando `document.title` da API do navegador. Podemos ler o último `count` dentro do nosso efeito por que ele está dentro do escopo da nossa função. Quando o React renderizar nosso componente, ele ira se lembrar do efeito que usamos, e então executar os nossos efeitos depois de atualizar o DOM. Isso acontece para cada renderização, incluindo a primeira.
 
-Desenvolvedores JavaScript experientes podem perceber que a função passada para o `useEffect` vai ser diferente a cada renderização. Isso é intencional. Na verdade, isso é o que nos deixa ler o valor de `count` de dentro do efeito sem nos preocuparmos com ele ficar obsoleto. Toda vez que nós re-renderizarmos, nós agendamos um efeito _diferente_, substituindo o antigo. De uma maneira, isso faz os efeitos se comportarem mais como o resultado da renderização -- cada efeito "pertence" à sua renderização especifica. Nós vamos ver mais claramente como isso pode ser util [depois, nessa página](#explanation-why-effects-run-on-each-update).
+Desenvolvedores JavaScript experientes podem perceber que a função passada para o `useEffect` vai ser diferente a cada renderização. Isso é intencional. Na verdade, isso é o que nos deixa ler o valor de `count` de dentro do efeito sem nos preocuparmos com ele ficar obsoleto. Toda vez que nós re-renderizarmos, agendamos um efeito _diferente_, substituindo o antigo. De uma maneira, isso faz os efeitos se comportarem mais como o resultado da renderização -- cada efeito "pertence" à sua renderização especifica. Vamos ver mais claramente como isso pode ser útil [depois, nessa página](#explanation-why-effects-run-on-each-update).
 
 >Dica
 >
@@ -262,7 +262,7 @@ O Effect Hook unifica ambos casos com uma única API.
 
 ## Dicas para Usar Efeitos {#tips-for-using-effects}
 
-Nós vamos continuar essa página com um olhar mais aprofundado em alguns aspectos do `useEffect` sobre os quais alguns usuários mais experientes do React provavelmente ficarão curiosos. Não se sinta obrigado a se aprofundar neles agora. Você sempre pode voltar nessa página para saber mais sobe o Effect Hook.
+Vamos continuar essa página com um olhar mais aprofundado em alguns aspectos do `useEffect` sobre os quais alguns usuários mais experientes do React provavelmente ficarão curiosos. Não se sinta obrigado a se aprofundar neles agora. Você sempre pode voltar nessa página para saber mais sobe o Effect Hook.
 
 ### Dica: Use Múltiplos Efeitos para Separar Preocupações {#tip-use-multiple-effects-to-separate-concerns}
 
