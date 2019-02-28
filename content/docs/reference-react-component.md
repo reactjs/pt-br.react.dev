@@ -130,7 +130,7 @@ Quando chamado, ele examina `this.props` e `this.state` e retorna um dos seguint
 - **String e números.** Estes são renderizados como nós de texto no DOM.
 - **Booleanos ou `null`**. Não renderizam nada.(A maioria existe para suportar  o padrão `return test && <Child />` , onde `test` é um booleano.)
 
-A função `render()` deve ser pura, o que significa que ela não modifica o state, ela retorna o mesmo resultado a cada vez que é chamada, e isso não interage diretamente com o browser.
+A função `render()` deve ser pura, o que significa que ela não modifica o state. Pois, ela retorna o mesmo resultado a cada vez que é chamada e isso não interage diretamente com o browser.
 Se você precisar interagir com o browser, faça isto no método `componentDidMount()` ou em outros métodos do ciclo de vida. Manter `render()` puro faz com que os componentes sejam fáceis de se trabalhar.
 
 
