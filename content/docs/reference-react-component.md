@@ -623,7 +623,7 @@ Se `props.color` for igual a `null`, continuará como `null`:
 
 ### `displayName` {#displayname}
 
-A *string* `displayName` é utilizada em mensagens de depuração. Normalmente, você não precisa defini-la explicitamente, pois é isto é inferido do nome da função ou classe que definem o componente. Você pode querer defini-la explicitamente se quiser exibir um nome diferente para propósitos de depuração ou quando você cria um *higher-order component*. Veja [Envolva o Display Name para Facilitar a Depuração](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) para mais detalhes.
+A *string* `displayName` é utilizada em mensagens de depuração. Normalmente, você não precisa defini-la explicitamente. Pois isto é inferido do nome da função ou classe que definem o componente. Você pode querer defini-la explicitamente se quiser exibir um nome diferente para propósitos de depuração ou quando você cria um *higher-order component*. Veja [Envolva o Display Name para Facilitar a Depuração](/docs/higher-order-components.html#convention-wrap-the-display-name-for-easy-debugging) para mais detalhes.
 
 * * *
 
