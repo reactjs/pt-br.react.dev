@@ -20,8 +20,8 @@ The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) pr
 As seguintes checklists das WCAG fornecem uma visão geral:
 
 - [WCAG checklist from Wuhcag](https://www.wuhcag.com/wcag-checklist/)
-- [WCAG checklist from WebAIM](http://webaim.org/standards/wcag/checklist)
-- [Checklist from The A11Y Project](http://a11yproject.com/checklist.html)
+- [WCAG checklist from WebAIM](https://webaim.org/standards/wcag/checklist)
+- [Checklist from The A11Y Project](https://a11yproject.com/checklist.html)
 
 ### WAI-ARIA {#wai-aria}
 
@@ -118,7 +118,7 @@ Todos os elements de um formulário HTML, como `<input>` and `<textarea>`, preci
 Os seguintes artigos nos mostram como fazer isso:
 
 - [The W3C shows us how to label elements](https://www.w3.org/WAI/tutorials/forms/labels/)
-- [WebAIM shows us how to label elements](http://webaim.org/techniques/forms/controls)
+- [WebAIM shows us how to label elements](https://webaim.org/techniques/forms/controls)
 - [The Paciello Group explains accessible names](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
 Embora essas práticas HTML padrão possam ser usadas diretamente em React, observe que o atributo `for` está escrito como `htmlFor` em JSX:
@@ -133,13 +133,13 @@ Embora essas práticas HTML padrão possam ser usadas diretamente em React, obse
 Situações de erro precisam ser entendidas por todos os usuários. O artigos a seguir nos mostram como expor os erros aos leitores de tela:
 
 - [The W3C demonstrates user notifications](https://www.w3.org/WAI/tutorials/forms/notifications/)
-- [WebAIM looks at form validation](http://webaim.org/techniques/formvalidation/)
+- [WebAIM looks at form validation](https://webaim.org/techniques/formvalidation/)
 
 ## Controle de Foco {#focus-control}
 
 Certifique-se de que seu aplicativo da web possa seja totalmente navegável apenas com o teclado:
 
-- [WebAIM talks about keyboard accessibility](http://webaim.org/techniques/keyboard/)
+- [WebAIM talks about keyboard accessibility](https://webaim.org/techniques/keyboard/)
 
 ### Foco no teclado e foco de contorno  {#keyboard-focus-and-focus-outline}
 
@@ -155,13 +155,13 @@ São mecanismos para permitir que os usuários ignorem as seções de navegaçã
 
 `Skiplinks` ou `Links para Pular Navegacão` são links de navegação ocultos que só se tornam visíveis quando os usuários interagem com a página usando o teclado. Eles são muito fáceis de implementar com alguns estilos e âncoras de páginas:
 
-- [WebAIM - Skip Navigation Links](http://webaim.org/techniques/skipnav/)
+- [WebAIM - Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 
 Também use elementos e pontos de referência, como `<main>` e `<aside>`, para demarcar regiões de páginas como tecnologia assistiva, permitindo que o usuário navegue rapidamente para estas seções.
 
 Leia mais sobre o uso desses elementos para melhorar a acessibilidade aqui:
 
-- [Accessible Landmarks](http://www.scottohara.me/blog/2018/03/03/landmarks.html)
+- [Accessible Landmarks](https://www.scottohara.me/blog/2018/03/03/landmarks.html)
 
 ### Programaticamente gerenciando o foco {#programmatically-managing-focus}
 
@@ -386,7 +386,7 @@ Estas são caixas de ferramentas preenchidas com atributos HTML que são totalme
 Cada tipo de widget tem um padrão de design específico e espera-se que funcione de certa forma por usuários e agentes do usuário:
 
 - [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Examples](http://heydonworks.com/practical_aria_examples/)
+- [Heydon Pickering - ARIA Examples](https://heydonworks.com/practical_aria_examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
 ## Outros pontos para consideração {#other-points-for-consideration}
@@ -395,7 +395,7 @@ Cada tipo de widget tem um padrão de design específico e espera-se que funcion
 
 Indique o idioma dos textos de página, pois o software leitor de tela usa isso para selecionar as configurações de voz correta:
 
-- [WCAG - Understanding the Document Title Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html)
+- [WebAIM - Document Language](https://webaim.org/techniques/screenreader/#language)
 
 ### Definindo o título do documento {#setting-the-document-title}
 
@@ -411,15 +411,15 @@ Certifique-se de que todo o texto legível em seu site tenha contraste de cores 
 
 - [WCAG - Understanding the Color Contrast Requirement](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html)
 - [Everything About Color Contrast And Why You Should Rethink It](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
-- [A11yProject - What is Color Contrast](http://a11yproject.com/posts/what-is-color-contrast/)
+- [A11yProject - What is Color Contrast](https://a11yproject.com/posts/what-is-color-contrast/)
 
-Pode ser entediante calcular manualmente as combinações de cores adequadas para todos os casos em seu site. Em vez disso, você pode [calcular uma paleta de cores inteira acessível com Colorable](http://jxnblk.com/colorable/).
+Pode ser entediante calcular manualmente as combinações de cores adequadas para todos os casos em seu site. Em vez disso, você pode [calcular uma paleta de cores inteira acessível com Colorable](https://jxnblk.com/colorable/).
 
 As ferramentas abaixo aXe e WAVE incluem testes de contraste de cores e relatam erros de contraste.
 
 Se você quiser estender suas habilidades de teste de contraste, você pode usar estas ferramentas:
 
-- [WebAIM - Color Contrast Checker](http://webaim.org/resources/contrastchecker/)
+- [WebAIM - Color Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - [The Paciello Group - Color Contrast Analyzer](https://www.paciellogroup.com/resources/contrastanalyser/)
 
 ## Ferramentas de Desenvolvimento e Teste {#development-and-testing-tools}
@@ -467,7 +467,7 @@ Você também pode usar o [react-axe](https://github.com/dylanb/react-axe) módu
 
 #### WebAIM WAVE {#webaim-wave}
 
-O [Web Accessibility Evaluation Tool](http://wave.webaim.org/extension/) é outra extensão do navegador de acessibilidade.
+O [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) é outra extensão do navegador de acessibilidade.
 
 #### Inspectores de Acessibilidade e a Árvore de Acessibilidade {#accessibility-inspectors-and-the-accessibility-tree}
 
@@ -493,7 +493,7 @@ Observe que as combinações de navegador / leitor de tela são importantes. É 
 
 Consulte os seguintes guias sobre como usar melhor o NVDA:
 
-- [WebAIM - Using NVDA to Evaluate Web Accessibility](http://webaim.org/articles/nvda/)
+- [WebAIM - Using NVDA to Evaluate Web Accessibility](https://webaim.org/articles/nvda/)
 - [Deque - NVDA Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
 
 #### VoiceOver no Safari {#voiceover-in-safari}
@@ -502,27 +502,26 @@ O VoiceOver é um leitor de tela integrado em dispositivos Apple.
 
 Consulte os seguintes guias sobre como ativar e usar o VoiceOver:
 
-- [WebAIM - Using VoiceOver to Evaluate Web Accessibility](http://webaim.org/articles/voiceover/)
+- [WebAIM - Using VoiceOver to Evaluate Web Accessibility](https://webaim.org/articles/voiceover/)
 - [Deque - VoiceOver for OS X Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts)
 - [Deque - VoiceOver for iOS Shortcuts](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts)
 
 #### JAWS no Internet Explorer {#jaws-in-internet-explorer}
 
-[Job Access With Speech](http://www.freedomscientific.com/Products/Blindness/JAWS) or JAWS, is a prolifically used screen reader on Windows.
+[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) or JAWS, is a prolifically used screen reader on Windows.
 
 Consulte os seguintes guias sobre como ativar e usar o JAWS:
 
-- [WebAIM - Using JAWS to Evaluate Web Accessibility](http://webaim.org/articles/jaws/)
+- [WebAIM - Using JAWS to Evaluate Web Accessibility](https://webaim.org/articles/jaws/)
 - [Deque - JAWS Keyboard Shortcuts](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts)
 
 ### Outros leitores de tela {#other-screen-readers}
 
 #### ChromeVox no Google Chrome {#chromevox-in-google-chrome}
 
-[ChromeVox](http://www.chromevox.com/) é um leitor de tela integrado nos Chromebooks e está disponível [como extenção](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) para o Google Chrome.
-
+[ChromeVox](https://www.chromevox.com/) é um leitor de tela integrado nos Chromebooks e está disponível [como extensão](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) para o Google Chrome.
 
 Consulte os guias a seguir sobre como usar melhor o ChromeVox:
 
 - [Google Chromebook Help - Use the Built-in Screen Reader](https://support.google.com/chromebook/answer/7031755?hl=en)
-- [ChromeVox Classic Keyboard Shortcuts Reference](http://www.chromevox.com/keyboard_shortcuts.html)
+- [ChromeVox Classic Keyboard Shortcuts Reference](https://www.chromevox.com/keyboard_shortcuts.html)

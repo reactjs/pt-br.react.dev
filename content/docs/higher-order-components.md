@@ -14,11 +14,11 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Enquanto um componente transforma props em UI, um componente de ordem superior transforma um componente em outro componente.
 
-HOCs são comuns em bibliotecas externas para React, como o [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) do Relay.
+HOCs são comuns em bibliotecas externas ao React, como o [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) do Relay.
 
 Neste documento, nós vamos discutir porque componentes de ordem superior são úteis e como escrever o seu.
 
-## Use HOCs para características transversais. {#use-hocs-for-cross-cutting-concerns}
+## Usar HOCs para características transversais. {#use-hocs-for-cross-cutting-concerns}
 
 > **Nota**
 >
@@ -171,7 +171,7 @@ Por `withSubscription` ser uma função normal, você pode adicionar quantos arg
 
 Como componentes, o contrato entre `withSubscription` e o componente encapsulado é completamente baseado em props. Isso faz com que seja fácil trocar um HOC por outro, desde que eles providenciem as mesmas props para o componente encapsulado. Isso pode ser útil se você mudar de bibliotecas para obtenção de dados, por exemplo.
 
-## Não Altere o Componente Original. Use Composição. {#dont-mutate-the-original-component-use-composition}
+## Não alterar o componente original. Usar composição. {#dont-mutate-the-original-component-use-composition}
 
 Resista à tentação de modificar o prototype de um componente (ou alterá-lo de qualquer outra forma) dentro de um HOC.
 
@@ -214,7 +214,7 @@ Esse HOC possui a mesma funcionalidade que a sua versão com mutação e evita o
 
 Você deve ter notado similaridades entre HOCs e um padrão chamado **componentes container**. Componentes container são parte de uma estratégia de separação de responsabilidade entre preocupações de alto nível e baixo nível. Containers gerenciam coisas como subscrições e state, e passam props para componentes que lidam com coisas como renderização da UI. HOCs utilizam containers como parte de sua implementação. Você pode pensar em HOCs como definições de componentes container com parâmetros.
 
-## Convenção: Passe Props Não Relacionadas Para o Componente Encapsulado {#convention-pass-unrelated-props-through-to-the-wrapped-component}
+## Convenção: Passar props não relacionadas para o componente encapsulado {#convention-pass-unrelated-props-through-to-the-wrapped-component}
 
 HOCs adicionam características a um componente. Eles não devem alterar drasticamente o seu contrato. É esperado que um componente retornado de um HOC tenha uma interface similar ao do componente encapsulado.
 
@@ -242,7 +242,7 @@ render() {
 
 Essa convenção ajuda a garantir que HOCs são tão flexíveis e reutilizáves quanto possível.
 
-## Convenção: Maximizando Composabilidade {#convention-maximizing-composability}
+## Convenção: Maximizando composabilidade {#convention-maximizing-composability}
 
 Nem todos os HOCs são iguais. Às vezes eles aceitam apenas um único argumento, o componente encapsulado:
 
@@ -293,9 +293,9 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 (Essa mesma propriedade também permite que `connect` e outros enhancer-style HOCs sejam usados como decoradores, uma proposta experimental do JavaScript.)
 
-A função de conveniência `compose` é disponibilizada por várias bibliotecas de terceiros, incluindo lodash (como o [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](http://redux.js.org/docs/api/compose.html), e [Ramda](http://ramdajs.com/docs/#compose).
+A função de conveniência `compose` é disponibilizada por várias bibliotecas de terceiros, incluindo lodash (como o [`lodash.flowRight`](https://lodash.com/docs/#flowRight)), [Redux](https://redux.js.org/docs/api/compose.html), e [Ramda](https://ramdajs.com/docs/#compose).
 
-## Convenção: Envolva o Nome de Exibição para Depurar Melhor {#convention-wrap-the-display-name-for-easy-debugging}
+## Convenção: Envolver o nome de exibição para melhor depuração {#convention-wrap-the-display-name-for-easy-debugging}
 
 Os componentes container criados por HOCs aparecem no [React Developer Tools](https://github.com/facebook/react-devtools) como qualquer outro componente. Para facilitar a depuração, escolha um nome de exibição que comunique que o componente é o resultado de um HOC.
 
@@ -317,7 +317,7 @@ function getDisplayName(WrappedComponent) {
 
 Componentes de ordem superior vêm com algumas ressalvas que não são imediatamente óbvias se você for novo no React.
 
-### Não Use HOCs Dentro do Método render {#dont-use-hocs-inside-the-render-method}
+### Não usar HOCs dentro do método render {#dont-use-hocs-inside-the-render-method}
 
 O algoritmo de comparação do React (chamado reconciliação) usa a identidade do componente para determinar se ele deve atualizar a sub-árvore existente ou jogá-la fora e montar uma nova. Se o componente que foi retornado do `render` é idêntico (`===`) ao componente do render anterior, o React atualizará a sub-árvore comparando-a recursivamente com uma nova. Se elas não forem iguais, a sub-árvore anterior será completamente desmontada.
 
@@ -340,7 +340,7 @@ Em vez disso, aplique HOCs fora da definição do componente para que o componen
 
 Nesses casos raros em que é preciso aplicar um HOC dinamicamente, isso também pode ser feito dentro dos métodos de ciclo de vida do componente, ou no seu construtor.
 
-### Métodos estáticos devem ser copiados {#static-methods-must-be-copied-over}
+### Métodos estáticos devem ser propagados {#static-methods-must-be-copied-over}
 
 As vezes é útil definir um método estático em um componente do React. Por exemplo, containers do Relay expõem um método estático `getFragment` para facilitar a composição de fragmentos do GraphQL.
 
@@ -392,7 +392,7 @@ export { someFunction };
 import MyComponent, { someFunction } from './MyComponent.js';
 ```
 
-### Refs Não São Passadas Diretamente {#refs-arent-passed-through}
+### Refs não são passadas diretamente {#refs-arent-passed-through}
 
 Enquanto a convenção para componentes de ordem superior é passar diretamente todas as props para o componente encapsulado, isso não funciona para refs. Isso acontece porque `ref` não é exatamente uma prop - tal como `key`, ela é tratada de maneira especial pelo React. Se uma ref for adicionado a um elemento cujo componente é o resultado de um HOC, a ref referenciará à instância mais externa do componente container, não ao componente encapsulado.
 

@@ -228,7 +228,7 @@ Parabéns! Você acabou de passar um "prop" de um componente pai Board para um c
 ### Fazendo um componente interativo {#making-an-interactive-component}
 
 Vamos preencher o componente Square com um "X" quando clicamos nele.
-Primeiro, altere a tag `button` que é retornada na função `render ()` do componente Square para isto:
+Primeiro, altere a tag `button` que é retornada na função `render()` do componente Square para isto:
 
 ```javascript{4}
 class Square extends React.Component {
@@ -1014,7 +1014,7 @@ Em JavaScript, arrays possuem um [método `map()](https://developer.mozilla.org/
 ```js
 const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
-``` 
+```
 
 Utilizando o método `map`, nós podemos mapear nosso histórico de jogadas para elementos React, representando botões na tela, e mostrar uma lista de botões que "pulam" para os jogadas anteriores.
 

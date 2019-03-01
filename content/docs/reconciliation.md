@@ -10,7 +10,7 @@ O React provê uma API declarativa, assim, você não precisa se preocupar em sa
 
 Quando utilizamos React, podemos imaginar a função `render()` como uma função responsável por gerar à árvore de Elementos React. Na próxima atualização de `state` ou `props`, a função `render()` retornará uma árvore de Elementos React diferente. Dessa forma, o React precisará descobrir como ele pode atualizar a UI para sincronizar com a árvore mais recente.
 
-Existem algumas soluções genéricas para o problema deste algoritmo de gerar o menor número de operações necessário para transformar uma árvore em outra. Contudo, o [algoritmo de última geração](http://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) possui uma complexidade da ordem de O(n<sup>3</sup>), onde n é o numero de elementos na àrvore.
+Existem algumas soluções genéricas para o problema deste algoritmo de gerar o menor número de operações necessário para transformar uma árvore em outra. Contudo, o [algoritmo de última geração](https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf) possui uma complexidade da ordem de O(n<sup>3</sup>), onde n é o numero de elementos na àrvore.
 
 Se usássemos isso no React, exibir 1000 elementos iria requerer aproximadamente um bilhão de comparações. Isso é, de longe, muito custoso. Em vez disso, o React implementa um algoritmo heurístico da ordem de O(n) baseado em duas suposições:
 
