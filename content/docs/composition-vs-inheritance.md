@@ -10,7 +10,7 @@ next: thinking-in-react.html
 
 O React tem um poderoso modelo de composição, e por isso recomendamos o uso de composição ao invés de herança para reutilizar código entre componentes.
 
-Nesta seção, iremos demonstrar alguns problemas encontrados pelos desenvolvedores que estão iniciando com o React e esbarram em situações com herança, e mostraremos como podemos resolver utilizando composição.
+Nesta página, iremos demonstrar alguns problemas encontrados pelos desenvolvedores que estão iniciando com o React e esbarram em situações com herança, e mostraremos como podemos resolver utilizando composição.
 
 ## Contenção {#containment}
 
