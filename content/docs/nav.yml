@@ -32,7 +32,7 @@
     - id: lifting-state-up
       title: Elevando o State
     - id: composition-vs-inheritance
-      title: Composition vs Inheritance
+      title: Composição vs Herança
     - id: thinking-in-react
       title: Pensando do jeito React
 - title: Guias Avançados
@@ -56,11 +56,11 @@
     - id: jsx-in-depth
       title: JSX In Depth
     - id: optimizing-performance
-      title: Optimizing Performance
+      title: Otimizando o desempenho
     - id: portals
       title: Portals
     - id: react-without-es6
-      title: React Without ES6
+      title: React sem ES6
     - id: react-without-jsx
       title: React sem JSX
     - id: reconciliation
@@ -70,7 +70,7 @@
     - id: render-props
       title: Render Props
     - id: static-type-checking
-      title: Static Type Checking
+      title: Verificação de Tipo Estático
     - id: strict-mode
       title: Modo Estrito (Strict Mode)
     - id: typechecking-with-proptypes
@@ -108,13 +108,13 @@
   isOrdered: true
   items:
       - id: hooks-intro
-        title: Introducing Hooks
+        title: Introdução aos Hooks
       - id: hooks-overview
         title: Hooks de forma resumida
       - id: hooks-state
-        title: Using the State Hook
+        title: Usando State Hook
       - id: hooks-effect
-        title: Using the Effect Hook
+        title: Usando Effect Hook
       - id: hooks-rules
         title: Regras dos Hooks
       - id: hooks-custom
@@ -126,11 +126,11 @@
 - title: Contribuindo
   items:
   - id: how-to-contribute
-    title: How to Contribute
+    title: Como contribuir
   - id: codebase-overview
-    title: Codebase Overview
+    title: Visão Geral do Codebase
   - id: implementation-notes
-    title: Implementation Notes
+    title: Notas de Implementação
   - id: design-principles
     title: Princípios de Design
 - title: FAQ
@@ -146,8 +146,8 @@
     - id: faq-styling
       title: Estilização e CSS
     - id: faq-structure
-      title: Estrutura de arquivos
+      title: Estrutura de Arquivos
     - id: faq-versioning
-      title: Versioning Policy
+      title: Política de Versão
     - id: faq-internals
-      title: Virtual DOM and Internals
+      title: Virtual DOM e Internos
