@@ -9,7 +9,7 @@ redirect_from:
   - "tips/introduction.html"
 ---
 
-React é um dos primeiros projetos de código aberto do Facebook que está sendo desenvolvido muito ativamente, além de ser usado para entregar código para todos em [facebook.com](https://www.facebook.com). Nós ainda estamos trabalhando para tornar esse projeto mais transparente e fácil possível, mas ainda não estámos lá. Esperamos que essa documentação torne esse processo de contribuição mais clara e responda algumas perguntas que você possa ter.
+React é um dos primeiros projetos de código aberto do Facebook que está sendo desenvolvido muito ativamente, além de ser usado para entregar código para todos em [facebook.com](https://www.facebook.com). Nós ainda estamos trabalhando para tornar esse projeto mais transparente e fácil possível, mas ainda não estamos lá. Esperamos que essa documentação torne esse processo de contribuição mais clara e responda algumas perguntas que você possa ter.
 
 ### [Código de Conduta](https://code.facebook.com/codeofconduct) {#code-of-conduct}
 
@@ -62,7 +62,7 @@ Se você está apenas corrigindo um bug, não tem problema em enviar uma ***pull
 
 ### Sua primeira ***Pull Request*** {#your-first-pull-request}
 
-Trabalhando em sua primera ***Pull Request***. Você pode aprender como desta série de vídeos gratuitos:
+Trabalhando em sua primeira ***Pull Request***. Você pode aprender como desta série de vídeos gratuitos:
 
 **[Como contribuir para um projeto de código aberto no GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
 
@@ -78,7 +78,7 @@ O Core Team está monitorando as ***pull requests***. Analisaremos seu envio e f
 
 **Antes de enviar a sua pull request,** certifique-se de ter feito os seguintes passos:
 
-1. Fala fork do [repositório oficial](https://github.com/facebook/react) and criou sua branch da `master`.
+1. Faça fork do [repositório oficial](https://github.com/facebook/react) and criou sua branch da `master`.
 2. Execute `yarn` no repositório raíz.
 3. Se você corrigiu um bug ou um código adicionado que deve ser testado, adicione testes!
 4. Certifique-se de que a suíte de teste passe (`yarn test`). Dica: `yarn test --watch TestName` é útil no desenvolvimento.
@@ -103,10 +103,10 @@ Para aceitar sua ***pull request***, precisamos que você envie um CLA. Você s�
 
 ### Fluxo de Trabalho de Desenvolvimento {#development-workflow}
 
-Depois de clonar o React, execute `yarn` para buscar suas dependências.E ntão, você pode executar vários comandos:
+Depois de clonar o React, execute `yarn` para buscar suas dependências. Então, você pode executar vários comandos:
 
 * `yarn lint` verifica o estilo de código.
-* `yarn linc` funciona como o `yarn lint` mas ´w mais rápido porque verifica apenas os arquivos que diferem na sua ***branch***.
+* `yarn linc` funciona como o `yarn lint`, mas é mais rápido porque verifica apenas os arquivos que diferem na sua ***branch***.
 * `yarn test` executa o conjunto de testes completo.
 * `yarn test --watch` executa um observador de testes interativo.
 * `yarn test <pattern>` executa testes com nomes de arquivos correspondentes.
@@ -122,7 +122,7 @@ Primeiro, execute `yarn build`. Isto irá produzir pacotes pré-construídos na 
 
 A maneira mais fácil de testar suas alterações é rodar `yarn build react/index,react-dom/index --type=UMD` e depois abrir `fixtures/packaging/babel-standalone/dev.html`. Este arquivo já usa o `react.development.js` a partir da pasta `build` para que ele possa pegar suas alterações.
 
-Se você quiser testar suas alterações em seu projeto React já existente, você pode copiar `build/dist/react.development.js`, `build/dist/react-dom.development.js` ou qualquer outro build em seu aplicativo e usá-los em vez da versão estável. Se o seu projeto usa o React do npm, você pode excluir `react` e` react-dom` em suas dependências e usar `yarn link` para apontá-los para sua pasta` build` local:
+Se você quiser testar suas alterações em seu projeto React já existente, você pode copiar `build/dist/react.development.js`, `build/dist/react-dom.development.js` ou qualquer outro build em seu aplicativo e usá-los em vez da versão estável. Se o seu projeto usa o React do npm, você pode excluir `react` e `react-dom` em suas dependências e usar `yarn link` para apontá-los para sua pasta` build` local:
 
 ```sh
 cd ~/path_to_your_react_clone/build/node_modules/react
@@ -133,7 +133,7 @@ cd /path/to/your/project
 yarn link react react-dom
 ```
 
-Toda vez que você executar `yarn build` na pasta React, as versões atualizadas aparecerão no` node_modules` do seu projeto. Você pode então reconstruir seu projeto para testar suas alterações.
+Toda vez que você executar `yarn build` na pasta React, as versões atualizadas aparecerão no `node_modules` do seu projeto. Você pode então reconstruir seu projeto para testar suas alterações.
 
 Ainda exigimos que sua ***pull request*** contenha testes de unidade para qualquer nova funcionalidade. Dessa forma, podemos garantir que não quebremos seu código no futuro.
 
