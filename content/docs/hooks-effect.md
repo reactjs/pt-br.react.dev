@@ -13,7 +13,7 @@ O *Effect Hook* (Hook de Efeito) te permite executar efeitos colaterais em compo
 ```js{1,6-10}
 import React, { useState, useEffect } from 'react';
 
-function Exemple() {
+function Exemplo() {
   const [count, setCount] = useState(0);
 
   // Similar ao componentDidMount e componentDidUpdate:
