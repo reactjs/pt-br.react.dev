@@ -54,11 +54,7 @@ Considere por exemplo o componente `Page` que passa as props `user` e `avatarSiz
 
 Pode parecer redundante passar para baixo as props `user` e `avatarSize` através de vários níveis se no final apenas o componente `Avatar` realmente precisa usa-las. Além disso, é incômodo sempre que o componente `Avatar` precisar de mais props do topo, você também precisar adicionar todas elas por todos os níveis intermediários.
 
-<<<<<<< HEAD
-A única maneira de resolver este problema **sem contexto** é [atribuir o próprio componente Avatar a uma prop do componente Page](/docs/composition-vs-inheritance.html#containment), assim os componentes intermediários não precisam saber sobre a prop `user`.
-=======
-One way to solve this issue **without context** is to [pass down the `Avatar` component itself](/docs/composition-vs-inheritance.html#containment) so that the intermediate components don't need to know about the `user` or `avatarSize` props:
->>>>>>> c6b6dc2d564190a79fd6bf17af0bb2914749112b
+Uma forma de resolver este problema **sem contexto** é [atribuir o próprio componente Avatar a uma prop do componente Page](/docs/composition-vs-inheritance.html#containment), assim os componentes intermediários não precisam saber sobre a prop `user` ou o `avatarSize`:
 
 ```js
 function Page(props) {
@@ -71,15 +67,9 @@ function Page(props) {
   return <PageLayout userLink={userLink} />;
 }
 
-<<<<<<< HEAD
 // Agora temos:
-<Page user={user} />
-// ... que renderiza ...
-=======
-// Now, we have:
 <Page user={user} avatarSize={avatarSize} />
-// ... which renders ...
->>>>>>> c6b6dc2d564190a79fd6bf17af0bb2914749112b
+// ... que renderiza ...
 <PageLayout userLink={...} />
 // ... que renderiza ...
 <NavigationBar userLink={...} />
