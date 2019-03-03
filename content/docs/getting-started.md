@@ -28,7 +28,7 @@ Esta página é um visão geral da documentação do React e dos recursos relaci
 - [Aprenda React](#learn-react)
 - [Mantenha-se informado](#staying-informed)
 - [Documentação das versões](#versioned-documentation)
-- [Esquecemos algo?](#something-missing)
+- [Esquecemos Algo?](#something-missing)
 
 ## Pratique React {#try-react}
 
@@ -121,6 +121,6 @@ Nem toda versão do React tem sua própria publicação no blog. Mas você encon
 
 Esta documentação sempre refletirá a última versão estável do React. Desde o React 16, você pode encontrar a documentação das versões antigas [em uma página separada](/versions). Note que as documentações das versões antigas foram criadas no momento de seu lançamento e por isso podem não não ficam sendo continuamente atualizadas.
 
-## Esquecemos algo? {#something-missing}
+## Esquecemos Algo? {#something-missing}
 
 Se algo foi esquecido na documentação ou se achou alguma parte confusa, por favor [crie uma issue no repositório da documentação](https://github.com/reactjs/reactjs.org/issues/new) com suas sugestões para melhorá-la ou mande um tweet para [@reactjs](https://twitter.com/reactjs). Nós adoramos sua opinião!
