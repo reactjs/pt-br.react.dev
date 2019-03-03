@@ -43,7 +43,7 @@ Nós estamos utilizando as [GitHub Issues](https://github.com/facebook/react/iss
 
 A melhor maneira de corrigir o problema é fornecer um caso de teste reduzido. Este [template no JSFiddle](https://jsfiddle.net/Luktwrdm/) é um excelente ponto de partida.
 
-#### Bugs de segurança {#security-bugs}
+#### Bugs de Segurança {#security-bugs}
 
 O Facebook tem um [programa de recompensas](https://www.facebook.com/whitehat/) para a divulgação segura de bugs de segurança. Com isso em mente, não reporte esses problemas de forma pública; Percorra o processo descrito nessa página.
 
