@@ -35,7 +35,7 @@ Toda mudança significativa é documentada na [***changelog***](https://github.c
 
 ### Bugs {#bugs}
 
-#### Onde encontrar problemas conhecidos {#where-to-find-known-issues}
+#### Onde Encontrar Problemas Conhecidos {#where-to-find-known-issues}
 
 Nós estamos utilizando as [GitHub Issues](https://github.com/facebook/react/issues) para nossas páginas públicas. Nós vamos ficar de olho e tentar manter claro quando estamos trabalhando internamente na correção de algum bug. Antes de preencher uma nova tarefa, verifique se o problema já existe.
 
