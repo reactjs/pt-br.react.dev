@@ -95,7 +95,7 @@ Para aceitar sua ***pull request***, precisamos que você envie um CLA. Você s�
 
 **[Preencha sua CLA aqui.](https://code.facebook.com/cla)**
 
-### Pré-requisitos de contribuição {#contribution-prerequisites}
+### Pré-requisitos de Contribuição {#contribution-prerequisites}
 
 * Possuir o [Node](https://nodejs.org) instalado na versão v8.0.0+ e [Yarn](https://yarnpkg.com/en/) na versão v1.2.0+.
 * Você deve ter o `gcc` instalado ou está confortável em instalar um compilador, se necessário. Algumas de nossas dependências podem exigir uma etapa de compilação. No OS X, as Ferramentas de Linha de Comando do Xcode cobrirão isso. No Ubuntu, `apt-get install build-essential` instalará os pacotes requeridos. Comandos semelhantes devem funcionar em outras distribuições Linux. O Windows irá requerer alguns passos adicionais, veja as instruções de instalação do [node-gyp](https://github.com/nodejs/node-gyp#installation) para detalhes.
