@@ -162,7 +162,7 @@ Para obter uma visão geral realista do que é o sentimento de contribuir para o
 
 Muitas alterações, incluindo correções de bugs e melhorias na documentação, podem ser implementadas e revisadas por meio do fluxo de trabalho normal de ***pull requests*** do GitHub.
 
-Algumas mudanças, entretanto, são "substanciais", e pedimos que estas sejam submetidas a um pequeno processo de design e produzam um consenso entre o Core Team do React.
+Algumas mudanças, entretanto, são "substanciais" e pedimos que estas sejam submetidas a um pequeno processo de design e produzam um consenso entre o Core Team do React.
 
 O processo "RFC" (pedido de comentários) destina-se a fornecer um caminho consistente e controlado para que novos recursos entrem no projeto. Você pode contribuir visitando o repositório [rfcs](https://github.com/reactjs/rfcs).
 
