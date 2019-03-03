@@ -150,7 +150,7 @@ No entanto, ainda existem alguns estilos que o linter não consegue captar. Se v
 Você pode estar interessado em assistir [este pequeno vídeo](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 minutos), que apresenta uma introdução sobre como contribuir para o React.
 
 #### Destaques no vídeo: {#video-highlights}
-- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Construindo e testando Reagir localmente
+- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Construindo e testando o React localmente
 - [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Criando e enviando ***pull requests***
 - [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizando código
 - [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm registry
