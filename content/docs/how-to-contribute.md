@@ -145,7 +145,7 @@ Então, nosso linter irá capturar a maioria dos problemas que possam existir em
 
 No entanto, ainda existem alguns estilos que o linter não consegue captar. Se você não tem certeza sobre alguma coisa, veja o [Guia de Estilos do Airbnb](https://github.com/airbnb/javascript) para te direcionar no caminho certo.
 
-### Vídeo introdutório {#introductory-video}
+### Vídeo Introdutório {#introductory-video}
 
 Você pode estar interessado em assistir [este pequeno vídeo](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 minutos), que apresenta uma introdução sobre como contribuir para o React.
 
