@@ -6,7 +6,7 @@ permalink: docs/code-splitting.html
 
 ## Empacotamento (Bundling) {#bundling}
 
-A maioria das aplicações React serão "empacotados" usando ferramentas como
+A maioria das aplicações React serão "empacotadas" usando ferramentas como
 [Webpack](https://webpack.js.org/) ou [Browserify](http://browserify.org/).
 Empacotamento (Bundling) é o processo onde vários arquivos importados são unidos
 em um único arquivo: um "pacote" (bundle). Este pacote pode ser incluído em uma página web
@@ -94,7 +94,7 @@ Se você está usando o Create React App, isto já está configurado e você pod
 [começar a usá-lo](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting) imediatamente. Também é suportado por padrão no [Next.js](https://github.com/zeit/next.js/#dynamic-import).
 
 Se você está configurando o Webpack manualmente, provavelmente vai querer ler o
-[guia de divisão de código](https://webpack.js.org/guides/code-splitting/) do Webpack. Sua configuração do Webpack deverá ser parecido [com isto](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
+[guia de divisão de código](https://webpack.js.org/guides/code-splitting/) do Webpack. Sua configuração do Webpack deverá ser parecida [com isto](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
 Ao usar o [Babel](https://babeljs.io/), você precisa se certificar que o Babel consegue analizar a sintaxe de importação dinâmica mas não está a transformando. Para isso, você precisará do [babel-plugin-syntax-dynamic-import](https://yarnpkg.com/en/package/babel-plugin-syntax-dynamic-import).
 
@@ -136,11 +136,11 @@ function MyComponent() {
 
 Isto automaticamente carregará o pacote contendo o `OtherComponent` quando este componente for renderizado.
 
-`React.lazy` recebe uma função que deve retornar um `import()`. Este último retorna uma `Promise` que é resolvida para um módulo com uma exportação `default` que contém um componente React.
+`React.lazy` recebe uma função que deve retornar um `import()`. Este último retorna uma `Promise` que é resolvida para um módulo com um `export default` que contém um componente React.
 
 ### Suspense {#suspense}
 
-If the module containing the `OtherComponent` is not yet loaded by the time `MyComponent` renders, we must show some fallback content while we're waiting for it to load - such as a loading indicator. This is done using the `Suspense` component.
+Se o módulo que contém o `OtherComponent` não foi carregado durante a renderização do `MyComponent`, nós devemos mostrar algum conteúdo temporário enquanto esperamos pelo carregamento – algo como um indicador de carregamento. Isto é feito usando o componente `Suspense`.
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -156,7 +156,7 @@ function MyComponent() {
 }
 ```
 
-The `fallback` prop accepts any React elements that you want to render while waiting for the component to load. You can place the `Suspense` component anywhere above the lazy component. You can even wrap multiple lazy components with a single `Suspense` component.
+A prop `fallback` aceita qualquer elemento React que você deseja renderizar enquanto se espera o componente ser carregado. Você pode colocar o componente `Suspense` em qualquer lugar acima do componente dinâmico. Você pode até mesmo ter vários componentes dinâmicos envolvidos em um único componente `Suspense`.
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
@@ -178,7 +178,7 @@ function MyComponent() {
 
 ### Error boundaries {#error-boundaries}
 
-If the other module fails to load (for example, due to network failure), it will trigger an error. You can handle these errors to show a nice user experience and manage recovery with [Error Boundaries](/docs/error-boundaries.html). Once you've created your Error Boundary, you can use it anywhere above your lazy components to display an error state when there's a network error.
+Se algum outro módulo não for carregado (por exemplo, devido a uma falha na conexão), será disparado um erro. Você pode manusear estes erros para mostrar uma ótima experiência de usuário e gerenciar a recuperação através de [Error Boundaries](/docs/error-boundaries.html). Uma vez que tenha criado seu Error Boundary, você pode usá-lo em qualquer lugar acima de seus componentes dinâmicos para exibir uma mensagem de erro quando houver uma falha de conexão.
 
 ```js
 import MyErrorBoundary from './MyErrorBoundary';
@@ -199,19 +199,18 @@ const MyComponent = () => (
 );
 ```
 
-## Route-based code splitting {#route-based-code-splitting}
+## Divisão de Código Baseada em Rotas {#route-based-code-splitting}
 
-Deciding where in your app to introduce code splitting can be a bit tricky. You
-want to make sure you choose places that will split bundles evenly, but won't
-disrupt the user experience.
+Decidir onde introduzir a divisão de código em seu aplicativo pode ser um pouco complicado. Você
+precisa ter certeza de escolher locais que dividirão os pacotes de forma uniforme, mas que não
+interrompa a experiência do usuário.
 
-A good place to start is with routes. Most people on the web are used to
-page transitions taking some amount of time to load. You also tend to be
-re-rendering the entire page at once so your users are unlikely to be
-interacting with other elements on the page at the same time.
+Um bom lugar para começar é nas rotas. A maioria das pessoas na web estão acostumadas com
+transições entre páginas que levam algum tempo para carregar. Você também tende a
+re-renderizar toda a página de uma só vez para que seus usuários não interajam com outros elementos na página ao mesmo tempo.
 
-Here's an example of how to setup route-based code splitting into your app using
-libraries like [React Router](https://reacttraining.com/react-router/) with `React.lazy`.
+Aqui está um exemplo de como configurar a divisão de código baseada em rotas na sua aplicação usando
+bibliotecas como o [React Router](https://reacttraining.com/react-router/) com `React.lazy`.
 
 ```js
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -232,9 +231,9 @@ const App = () => (
 );
 ```
 
-## Named Exports {#named-exports}
+## Exportações Nomeadas {#named-exports}
 
-`React.lazy` currently only supports default exports. If the module you want to import uses named exports, you can create an intermediate module that reexports it as the default. This ensures that treeshaking keeps working and that you don't pull in unused components.
+`React.lazy` atualmente suporta apenas `export default`. Se o módulo que você deseja importar usa exportações nomeadas, você pode criar um módulo intermediário que usa `export default`. Isso garante que o `treeshaking` continue funcionando e que você não importe componentes não utilizados.
 
 ```js
 // ManyComponents.js
