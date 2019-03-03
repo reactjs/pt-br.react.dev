@@ -56,7 +56,7 @@
     - id: jsx-in-depth
       title: JSX In Depth
     - id: optimizing-performance
-      title: Otimizando o desempenho
+      title: Otimizando o Desempenho
     - id: portals
       title: Portals
     - id: react-without-es6
