@@ -126,7 +126,7 @@
 - title: Contribuindo
   items:
   - id: how-to-contribute
-    title: Como contribuir
+    title: Como Contribuir
   - id: codebase-overview
     title: Visão Geral do Codebase
   - id: implementation-notes
