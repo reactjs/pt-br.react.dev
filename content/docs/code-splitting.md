@@ -201,7 +201,7 @@ const MyComponent = () => (
 
 ## Divisão de Código Baseada em Rotas {#route-based-code-splitting}
 
-Decidir onde introduzir a divisão de código em seu aplicativo pode ser um pouco complicado. Você
+Decidir onde introduzir a divisão de código em sua aplicação pode ser um pouco complicado. Você
 precisa ter certeza de escolher locais que dividirão os pacotes de forma uniforme, mas que não
 interrompa a experiência do usuário.
 
