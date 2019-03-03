@@ -89,7 +89,7 @@ import("./math").then(math => {
 > ECMAScript (JavaScript) que ainda não faz parte da linguagem.
 > Espera-se que seja aceita em breve.
 
-Quando o Webpack encontra esta esta sintaxe, automaticamente ele divide o código de sua aplicação.
+Quando o Webpack encontra esta sintaxe, automaticamente ele divide o código de sua aplicação.
 Se você está usando o Create React App, isto já está configurado e você pode
 [começar a usá-lo](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting) imediatamente. Também é suportado por padrão no [Next.js](https://github.com/zeit/next.js/#dynamic-import).
 
@@ -102,7 +102,7 @@ Ao usar o [Babel](https://babeljs.io/), você precisa se certificar que o Babel 
 
 > Nota:
 >
-> `React.lazy` e Suspense não estão disponíveis para renderização no lado servidor. Se você deseja fazer divisão de código em uma aplicação renderizada no servidor, nós recomendamos [Componentes Carregáveis](https://github.com/smooth-code/loadable-components). Ele possui um ótimo [guia para divisão de pacotes com renderização no servidor](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
+> `React.lazy` e Suspense não estão disponíveis para renderização no lado servidor. Se você deseja fazer divisão de código em uma aplicação renderizada no servidor, nós recomendamos o pacote [Loadable Components](https://github.com/smooth-code/loadable-components). Ele possui um ótimo [guia para divisão de pacotes com renderização no servidor](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
 
 A função do `React.lazy` é permitir a você renderizar uma importação dinâmica como se fosse um componente comum.
 
