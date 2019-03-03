@@ -45,7 +45,7 @@ A melhor maneira de corrigir o problema é fornecer um caso de teste reduzido. E
 
 #### Bugs de Segurança {#security-bugs}
 
-O Facebook tem um [programa de recompensas](https://www.facebook.com/whitehat/) para a divulgação segura de bugs de segurança. Com isso em mente, não reporte esses problemas de forma pública; Percorra o processo descrito nessa página.
+O Facebook tem um [programa de recompensas](https://www.facebook.com/whitehat/) para a divulgação segura de bugs de segurança. Com isso em mente, não reporte esses problemas de forma pública. Percorra o processo descrito nessa página.
 
 ### Como entrar em contato {#how-to-get-in-touch}
 
