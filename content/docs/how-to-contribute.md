@@ -19,7 +19,7 @@ O Facebook adotou um código de contuda que esperamos que todos os participantes
 
 Todo trabalho no React acontece diretamente no [GitHub](https://github.com/facebook/react). Tanto membros do ***Core Team*** quanto contribuidores externos devem enviar ***pull requests*** que vão passar pelo mesmo processo de revisão.
 
-### Organização de ***branches*** {#branch-organization}
+### Organização de Branches {#branch-organization}
 
 Nós buscaremos fazer o nosso melhor para manter [branch `master`](https://github.com/facebook/react/tree/master) organizada, com testes passando todas as vezes. Mas para garantir que seremos rápidos, nós faremos mudanças na API nas quais suas aplicações podem não ser compatíveis. Nós recomendamos que você use [a versão estável do React](/downloads.html).
 
