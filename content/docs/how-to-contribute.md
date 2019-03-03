@@ -137,7 +137,7 @@ Toda vez que você executar `yarn build` na pasta React, as versões atualizadas
 
 Ainda exigimos que sua ***pull request*** contenha testes de unidade para qualquer nova funcionalidade. Dessa forma, podemos garantir que não quebremos seu código no futuro.
 
-### Guia de estilo {#style-guide}
+### Guia de Estilo {#style-guide}
 
 Usamos um formatador de código automático chamado [Prettier](https://prettier.io/). Execute o `yarn prettier` depois de fazer qualquer alteração no seu código.
 
