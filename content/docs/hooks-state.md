@@ -266,7 +266,7 @@ No componente acima, temos `age`, `fruit` e `todos` como variáveis locais e pod
   }
 ```
 
-Você **não tem que** usar muitas variáveis de state. Elas podem conter objetos e arrays muito bem, portanto você ainda pode juntar dados relacionados. De qualquer maneira, diferente de `this.setState` em classe, ao atualizar uma variável de state, ela sempre é *substituida* ao invés de incorporada.
+Você **não tem que** usar muitas variáveis de state. Elas podem conter objetos e arrays muito bem. Portanto você ainda pode juntar dados relacionados. De qualquer maneira, diferente de `this.setState` em classe, ao atualizar uma variável de state, ela sempre é *substituida* ao invés de incorporada.
 
 Damos mais recomendações em separação de variáveis de state independentes [no FAQ](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables).
 
