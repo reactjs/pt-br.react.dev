@@ -130,7 +130,7 @@ function Example() {
   const [count, setCount] = useState(0);
 ```
 
-**O que o `useState` faz?** Ele declara um variável state. Nossa variável é chamada de `count` mas poderiamos chamar de qualquer coisa, como `banana`. Esta é uma maneira de "preservar" alguns valores entre as chamadas de funções — `useState` é uma nova maneira de usar as mesmas capacidades que o `this.state` tem em uma classe. Normalmente, variáveis "desaparecem" quando a função sai mas variáveis de state são preservadas pelo React.
+**O que o `useState` faz?** Ele declara um variável state. Nossa variável é chamada de `count` mas poderíamos chamar de qualquer coisa, como `banana`. Esta é uma maneira de "preservar" alguns valores entre as chamadas de funções — `useState` é uma nova maneira de usar as mesmas capacidades que o `this.state` tem em uma classe. Normalmente, variáveis "desaparecem" quando a função sai mas variáveis de state são preservadas pelo React.
 
 **O que passamos para o `useState` como argumento?** O único argumento para o Hook `useState()` é o state inicial. Diferente de classes, o state não tem que ser um objeto. Podemos manter um número ou uma string se for tudo que precisamos. No nosso exemplo, apenas queremos um número para quantas vezes o usuário clicou, então passamos 0 como state inicial para nossa variável. (Se quiséssemos guardar dois valores diferentes no state, chamariamos `useState()` duas vezes.)
 
