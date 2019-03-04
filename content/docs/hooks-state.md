@@ -146,7 +146,7 @@ function Example() {
   const [count, setCount] = useState(0);
 ```
 
-Nós declaramos uma variável state chamada `count`, e definimos ela para 0. O React vai lembrar o valor atual entre cada re-renderização, e fornecer o valor mais recente para nossa função. Se quisermos atualizar o `count` atual, podemos chamar `setCount`.
+Nós declaramos uma variável state chamada `count` e definimos ela para 0. O React vai lembrar o valor atual entre cada re-renderização e fornecer o valor mais recente para nossa função. Se quisermos atualizar o `count` atual, podemos chamar `setCount`.
 
 >Nota
 >
