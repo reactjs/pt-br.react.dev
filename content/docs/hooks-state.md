@@ -215,7 +215,7 @@ Vamos **recapitular o que aprendemos linha por linha** e checar nosso entendimen
 * **Linha 4:** Dentro do componente `Example`, declaramos uma nova variável de state chamando o Hook `useState`. Ele retorna um par de valores, no qual damos nomes. Estamos chamando nossa variável `count` porque ela mantém o número de cliques no botão. Inicializamos como zero passando `0` como o único argumento do `useState`. O segundo item retornado é a própria função. Ela nos permite atualizar o `count` então nomeamos para `setCount`.
 * **Linha 9:** Quando o usuário clica, chamamos `setCount` com um novo valor. O React então vai re-renderizar o componente `Example`, passando o novo valor de `count` para ele.
 
-À primeira vista pode parecer muita coisa. Não se apresse! Se você está perdido na explicação, olhe o código acima novamente e tente lê-lo de uma ponta a outra. Prometemos que a partir do momento que você "esquecer" como state funciona em classes, e olhar este código com novos olhos, irá fazer sentido.
+À primeira vista pode parecer muita coisa. Não se apresse! Se você está perdido na explicação, olhe o código acima novamente e tente lê-lo de uma ponta a outra. Prometemos que a partir do momento que você "esquecer" como state funciona em classes e olhar este código com novos olhos irá fazer sentido.
 
 ### Dica: O que os Colchetes Significam? {#tip-what-do-square-brackets-mean}
 
