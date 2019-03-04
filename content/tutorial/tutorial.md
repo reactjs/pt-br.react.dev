@@ -31,9 +31,13 @@ O tutorial está dividido em várias seções:
 
 Você não precisa completar todas as seções de uma vez para entender tudo que o tutorial tem a oferecer. Tente chegar o mais longe possível, mesmo que seja uma ou duas seções.
 
+<<<<<<< HEAD
 Não há problema em copiar e colar o código enquanto você acompanha o tutorial. Mas, recomendamos que você o digite à mão. Isso ajudará você a desenvolver uma memória muscular e ter um entendimento mais forte.
 
 ### O que estamos construindo? {#what-are-we-building}
+=======
+### What Are We Building? {#what-are-we-building}
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Neste tutorial, mostraremos como criar um jogo interativo de jogo-da-velha com React.
 
@@ -188,7 +192,13 @@ O componente Square renderiza um único `<button>` e o Board renderiza 9 squares
 
 ### Passando dados através de props {#passing-data-through-props}
 
+<<<<<<< HEAD
 Para aquecer, vamos tentar passar alguns dados do nosso componente Board para o nosso componente Square.
+=======
+To get our feet wet, let's try passing some data from our Board component to our Square component.
+
+We strongly recommend typing code by hand as you're working through the tutorial and not using copy/paste. This will help you develop muscle memory and a stronger understanding.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 No método `renderSquare` do Board, altere o código para passar um prop chamado `value` para o Square:
 
@@ -242,7 +252,11 @@ class Square extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Se clicarmos em um quadrado agora, devemos receber um alerta em nosso navegador.
+=======
+If you click on a Square now, you should see an alert in your browser.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 >Nota
 >
@@ -260,7 +274,11 @@ Se clicarmos em um quadrado agora, devemos receber um alerta em nosso navegador.
 >}
 >```
 >
+<<<<<<< HEAD
 >Note que com `onClick = {() => alert ('click')}`, estamos passando *uma função* como prop `onClick`. Ela só é acionada após um clique. Esquecer o `() =>` e escrever somente `onClick = {alert ('click')}` é um erro comum, e dispararia o alerta toda vez que o componente fosse renderizado novamente.
+=======
+>Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Como próximo passo, queremos que o componente Square "lembre" que foi clicado e preencha com um "X". Para "lembrar" as coisas, os componentes usam o **estado (_state_)**.
 
@@ -293,9 +311,15 @@ class Square extends React.Component {
 
 Agora vamos mudar o método `render` do componente Square para exibir o valor do estado (_state_) atual quando clicado:
 
+<<<<<<< HEAD
 * Substitua `this.props.value` por` this.state.value` dentro da tag `<button>`.
 * Substitua o manipulador de eventos `() => alert ()` por `() => this.setState ({value: 'X'})`.
 * Coloque `className` e` onClick` em linhas separadas para melhor legibilidade.
+=======
+* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
+* Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
+* Put the `className` and `onClick` props on separate lines for better readability.
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Após estas mudanças, a tag `<button>` que é retornada pelo método `render` do Square deve se parecer com isto:
 
@@ -356,7 +380,9 @@ We may think that Board should just ask each Square for the Square's state. Alth
 
 **To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
 
-Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out. We'll add a constructor to the Board and set the Board's initial state to contain an array with 9 nulls. These 9 nulls correspond to the 9 squares:
+Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out.
+
+Add a constructor to the Board and set the Board's initial state to contain an array of 9 nulls corresponding to the 9 squares:
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -370,35 +396,9 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
-
-  render() {
-    const status = 'Next player: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
 ```
 
-When we fill the board in later, the board will look something like this:
+When we fill the board in later, the `this.state.squares` array will look something like this:
 
 ```javascript
 [
@@ -432,7 +432,7 @@ Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or
 
 Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
 
-To maintain the Board's state's privacy, we'll pass down a function from the Board to the Square. This function will get called when a Square is clicked. We'll change the `renderSquare` method in Board to:
+Instead, we'll pass down a function from the Board to the Square, and we'll have Square call that function when a square is clicked. We'll change the `renderSquare` method in Board to:
 
 ```javascript{5}
   renderSquare(i) {
@@ -478,11 +478,11 @@ When a Square is clicked, the `onClick` function provided by the Board is called
 2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
 3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
 4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
 
 >Note
 >
->The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could name the Square's `onClick` prop or Board's `handleClick` method differently. In React, however, it is a convention to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+>The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square's `onClick` prop or Board's `handleClick` method, and the code would work the same. In React, it's conventional to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
 
 When we try to click a Square, we should get an error because we haven't defined `handleClick` yet. We'll now add `handleClick` to the Board class:
 
@@ -539,7 +539,7 @@ class Board extends React.Component {
 
 **[View the full code at this point](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+After these changes, we're again able to click on the Squares to fill them, the same as we had before. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
 
 Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
 
@@ -581,7 +581,7 @@ Detecting changes in mutable objects is difficult because they are modified dire
 
 Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
 
-#### Determining When to Re-render in React {#determining-when-to-re-render-in-react}
+#### Determining When to Re-Render in React {#determining-when-to-re-render-in-react}
 
 The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
 
@@ -611,7 +611,11 @@ Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 
 >Nota
 >
+<<<<<<< HEAD
 >Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parenteses em *ambos* os lados). Em uma classe, nós utilizamos uma arrow function para acessar o valor correto de `this`, mas para um componente funcional não precisamos nos preocupar com `this`.
+=======
+>When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides).
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ### Trocando Turnos {#taking-turns}
 
@@ -643,7 +647,13 @@ Sempre que um jogador fizer uma jogada, `xIsNext` (um boolean) será trocado par
   }
 ```
 
+<<<<<<< HEAD
 Com esse mudança,"X"s e "O"s podem trocar os turnos. Também vamos modificar o texto de "status" na função `render` do Board para que ela passe a exibir quem jogará o próximo turno. 
+=======
+With this change, "X"s and "O"s can take turns. Try it!
+
+Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript{2}
   render() {
@@ -714,7 +724,11 @@ class Board extends React.Component {
 
 ### Declarando um Vencedor {#declaring-a-winner}
 
+<<<<<<< HEAD
 Agora que mostramos quem jogará o próximo turno, também deveríamos mostrar quando o jogo foi vencido e que não há mais turnos a serem jogados. Podemos determinar um vencedor adicionando essa função auxiliar ao final do arquivo:
+=======
+Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. Copy this helper function and paste it at the end of the file:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript
 function calculateWinner(squares) {
@@ -738,7 +752,13 @@ function calculateWinner(squares) {
 }
 ```
 
+<<<<<<< HEAD
 Chamaremos `calculateWinner(squares)` na função `render` do Board para checar se um jogador venceu. Caso tenha vencido, podemos mostrar um texto como "Winner: X" ou "Winner: O". Vamos substituir a declaração de `status` na função `render` com esse código:
+=======
+Given an array of 9 squares, this function will check for a winner and return `'X'`, `'O'`, or `null` as appropriate.
+
+We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+>>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 ```javascript{2-8}
   render() {
