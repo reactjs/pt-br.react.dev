@@ -276,4 +276,4 @@ Nesta página aprendemos sobre um dos Hooks fornecido pelo React, chamado `useSt
 
 Também aprendemos um pouco mais sobre o que são Hooks. Hooks são funções que permitem que você utilize recursos do React em componentes de função. Seus nomes sempre começam com `use`, e existem mais Hooks que não vimos ainda.
 
-**Agora vamos continuar [aprendendo o próximo Hook: `useEffect`.](/docs/hooks-effect.html)** Ele permite que você execute efeitos colaterais em um componente, e é similar ao método de ciclo de vida em classes.
+**Agora vamos continuar [aprendendo o próximo Hook: `useEffect`.](/docs/hooks-effect.html)** Ele permite que você execute efeitos colaterais em um componente e é similar ao método de ciclo de vida em classes.
