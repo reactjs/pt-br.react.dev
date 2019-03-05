@@ -31,13 +31,7 @@ O tutorial está dividido em várias seções:
 
 Você não precisa completar todas as seções de uma vez para entender tudo que o tutorial tem a oferecer. Tente chegar o mais longe possível, mesmo que seja uma ou duas seções.
 
-<<<<<<< HEAD
-Não há problema em copiar e colar o código enquanto você acompanha o tutorial. Mas, recomendamos que você o digite à mão. Isso ajudará você a desenvolver uma memória muscular e ter um entendimento mais forte.
-
 ### O que estamos construindo? {#what-are-we-building}
-=======
-### What Are We Building? {#what-are-we-building}
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
 
 Neste tutorial, mostraremos como criar um jogo interativo de jogo-da-velha com React.
 
@@ -192,13 +186,9 @@ O componente Square renderiza um único `<button>` e o Board renderiza 9 squares
 
 ### Passando dados através de props {#passing-data-through-props}
 
-<<<<<<< HEAD
 Para aquecer, vamos tentar passar alguns dados do nosso componente Board para o nosso componente Square.
-=======
-To get our feet wet, let's try passing some data from our Board component to our Square component.
 
-We strongly recommend typing code by hand as you're working through the tutorial and not using copy/paste. This will help you develop muscle memory and a stronger understanding.
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
+É altamente recomendável digitar o código manualmente, enquanto você está trabalhando no tutorial e não usando copiar/colar. Isso ajudará você a desenvolver a memória muscular e um melhor entendimento.
 
 No método `renderSquare` do Board, altere o código para passar um prop chamado `value` para o Square:
 
@@ -252,11 +242,7 @@ class Square extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-Se clicarmos em um quadrado agora, devemos receber um alerta em nosso navegador.
-=======
-If you click on a Square now, you should see an alert in your browser.
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
+Se você clicar em um quadrado agora, deverá ver um alerta no seu navegador.
 
 >Nota
 >
@@ -274,11 +260,7 @@ If you click on a Square now, you should see an alert in your browser.
 >}
 >```
 >
-<<<<<<< HEAD
->Note que com `onClick = {() => alert ('click')}`, estamos passando *uma função* como prop `onClick`. Ela só é acionada após um clique. Esquecer o `() =>` e escrever somente `onClick = {alert ('click')}` é um erro comum, e dispararia o alerta toda vez que o componente fosse renderizado novamente.
-=======
->Notice how with `onClick={() => alert('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={alert('click')}` is a common mistake, and would fire the alert every time the component re-renders.
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
+>Note que com `onClick = {() => alert ('click')}`, estamos passando *uma função* como prop `onClick`. O React só chamará essa função depois de um clique. Esquecendo `() =>` e escrevendo somente `onClick = {alert ('click')}` é um erro comum, e dispararia o alerta toda vez que o componente fosse renderizado novamente.
 
 Como próximo passo, queremos que o componente Square "lembre" que foi clicado e preencha com um "X". Para "lembrar" as coisas, os componentes usam o **estado (_state_)**.
 
@@ -311,15 +293,9 @@ class Square extends React.Component {
 
 Agora vamos mudar o método `render` do componente Square para exibir o valor do estado (_state_) atual quando clicado:
 
-<<<<<<< HEAD
 * Substitua `this.props.value` por` this.state.value` dentro da tag `<button>`.
-* Substitua o manipulador de eventos `() => alert ()` por `() => this.setState ({value: 'X'})`.
-* Coloque `className` e` onClick` em linhas separadas para melhor legibilidade.
-=======
-* Replace `this.props.value` with `this.state.value` inside the `<button>` tag.
-* Replace the `onClick={...}` event handler with `onClick={() => this.setState({value: 'X'})}`.
-* Put the `className` and `onClick` props on separate lines for better readability.
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
+* Substitua o `onClick={...}` event handler por `onClick={() => this.setState({value: 'X'})}`.
+* Coloque `className` e` onClick` props em linhas separadas para melhor legibilidade.
 
 Após estas mudanças, a tag `<button>` que é retornada pelo método `render` do Square deve se parecer com isto:
 
@@ -647,13 +623,9 @@ Sempre que um jogador fizer uma jogada, `xIsNext` (um boolean) será trocado par
   }
 ```
 
-<<<<<<< HEAD
-Com esse mudança,"X"s e "O"s podem trocar os turnos. Também vamos modificar o texto de "status" na função `render` do Board para que ela passe a exibir quem jogará o próximo turno. 
-=======
-With this change, "X"s and "O"s can take turns. Try it!
+Com esse mudança,"X"s e "O"s podem trocar os turnos. Tente!
 
-Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
+Também vamos modificar o texto de "status" na função `render` do Board para que ela passe a exibir quem jogará o próximo turno.
 
 ```javascript{2}
   render() {
@@ -724,11 +696,7 @@ class Board extends React.Component {
 
 ### Declarando um Vencedor {#declaring-a-winner}
 
-<<<<<<< HEAD
-Agora que mostramos quem jogará o próximo turno, também deveríamos mostrar quando o jogo foi vencido e que não há mais turnos a serem jogados. Podemos determinar um vencedor adicionando essa função auxiliar ao final do arquivo:
-=======
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. Copy this helper function and paste it at the end of the file:
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
+Agora que mostramos quem jogará o próximo turno, também deveríamos mostrar quando o jogo foi vencido e que não há mais turnos a serem jogados. Copie essa função auxiliar e cole-a no final do arquivo:
 
 ```javascript
 function calculateWinner(squares) {
@@ -752,13 +720,9 @@ function calculateWinner(squares) {
 }
 ```
 
-<<<<<<< HEAD
-Chamaremos `calculateWinner(squares)` na função `render` do Board para checar se um jogador venceu. Caso tenha vencido, podemos mostrar um texto como "Winner: X" ou "Winner: O". Vamos substituir a declaração de `status` na função `render` com esse código:
-=======
-Given an array of 9 squares, this function will check for a winner and return `'X'`, `'O'`, or `null` as appropriate.
+Dado um array de 9 quadrados, esta função irá verificar se há um vencedor e retornará `'X'`, `'O'` ou `null` conforme apropriado
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
+Chamaremos `calculateWinner(squares)` na função `render` do Board para checar se um jogador venceu. Caso tenha vencido, podemos mostrar um texto como "Winner: X" ou "Winner: O". Vamos substituir a declaração de `status` na função `render` com esse código:
 
 ```javascript{2-8}
   render() {
@@ -797,6 +761,7 @@ Parabéns! Você agora tem um Jogo da Velha funcionando! E também acaba de apre
 ## Adicionando a Viagem no Tempo (Time Travel){#adding-time-travel}
 
 Como um último exercício, vamos tornar possível fazer uma "volta no tempo" até as jogadas anteriores que aconteceram no jogo.
+
 ### Armazenando um Histórico de Jogadas {#storing-a-history-of-moves}
 
 Se nós tivéssemos modificado o array `squares`, a implementação da volta no tempo seria muito difícil.
