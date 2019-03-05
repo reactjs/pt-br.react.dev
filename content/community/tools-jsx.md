@@ -26,7 +26,7 @@ permalink: community/jsx-integrations.html
 * **[react-jsx](https://github.com/bigpipe/react-jsx):** Compile e use o JSX como modelos independentes que podem ser executados no lado do servidor e do cliente!
 * **[cjsx-codemod](https://github.com/jsdf/cjsx-codemod):** Escreva código JSX com Coffeescript!
 * **[ReactScript](https://github.com/1j01/react-script):** Escreva código React com Coffeescript sem JSX!
-* **[jsxhint](https://npmjs.org/package/jsxhint):** [JSHint](http://jshint.com/) (linting) suporte. (A compilação JSX não afeta os números de linha, portanto, lint também pode ser executado diretamente no JS compilado.)
+* **[jsxhint](https://npmjs.org/package/jsxhint):** Suporte ao [JSHint](http://jshint.com/) (linting). (A compilação JSX não afeta os números de linha, portanto, lint também pode ser executado diretamente no JS compilado.)
 * **[reactify](https://npmjs.org/package/reactify):** Conversor [Browserify](http://browserify.org/).
 * **[Babel](https://babeljs.io/):** Standalone & conversor [Browserify](http://browserify.org/) (anteriormente conhecido como **6to5**).
 * **[node-jsx](https://npmjs.org/package/node-jsx):** Suporte [Node](https://nodejs.org/) nativo.
