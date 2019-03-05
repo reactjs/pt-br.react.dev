@@ -15,7 +15,7 @@ permalink: community/starter-kits.html
 * **[Neutrino](https://neutrino.js.org/)** - Crie e construa aplicativos JavaScript modernos com configuração inicial zero.
 * **[Parcel](https://parceljs.org)** - Rápido, bundler de aplicativos web com zero configuração.
 
-## Outros kits para iniciantes {#other-starter-kits}
+## Outros Kits Iniciais {#other-starter-kits}
 
 * **[kyt](https://github.com/nytimes/kyt)** - O framework que o New York Times usa para desenvolver e construir suas propriedades na web. É um pouco opinativo, mas configurável e inclui kits iniciais com opções para criar aplicativos completos ou estáticos/cliente com as seguintes ferramentas: Express, React, assets estáticos, ES mais recente, módulos CSS/Sass, Jest, divisão de código, ESLint / Prettier, StyleLint, PostCSS e inline SVGs.
 * **[React Redux Boilerplate](https://github.com/iroy2000/react-redux-boilerplate):** O React Redux Boilerplate é um boilerplate de fluxo de trabalho que fornece um ambiente de desenvolvimento virtual e um fluxo de trabalho pronto para produção. (React, Redux, Reselect, Ações Redux, ES6, ESLint, Webpack com suporte a configuração de ambiente integrada).
