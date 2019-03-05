@@ -13,7 +13,7 @@ permalink: community/starter-kits.html
 * **[nwb](https://github.com/insin/nwb)** - Um kit de ferramentas para aplicativos React, bibliotecas e outros módulos npm para a web.
 * **[razzle](https://github.com/jaredpalmer/razzle)** - Criar aplicativos JavaScript universais renderizados pelo servidor sem configuração.
 * **[Neutrino](https://neutrino.js.org/)** - Crie e construa aplicativos JavaScript modernos com configuração inicial zero.
-* **[Parcel](https://parceljs.org)** - Rápido, bundler de aplicativo web de configuração zero.
+* **[Parcel](https://parceljs.org)** - Rápido, bundler de aplicativos web com zero configuração.
 
 ## Outros kits para iniciantes {#other-starter-kits}
 
