@@ -10,4 +10,4 @@ permalink: community/testing.html
 * **[react-testing-library](https://github.com/kentcdodds/react-testing-library):** 🐐 Utilitários de teste React DOM simples e completos que incentivam boas práticas de teste.
 * **[React-unit](https://github.com/pzavolinsky/react-unit):** uma biblioteca de teste de unidade leve para ReactJS com muito poucas dependências (js somente).
 * **[Skin-deep](https://github.com/glenjamin/skin-deep):** Auxiliares de teste para uso com os utilitários de teste shallowRender do React.
-* **[Unexpected-react](https://github.com/bruderstein/unexpected-react/):** Plugin para a biblioteca de asserções [unexpected](https://unexpected.js.org/), que facilita a asserção sobre seus Componentes de Reação e aciona eventos.
+* **[Unexpected-react](https://github.com/bruderstein/unexpected-react/):** Plugin para a biblioteca de asserções(asserts)  [unexpected](https://unexpected.js.org/), que facilita a asserção sobre seus Componentes de Reação e aciona eventos.
