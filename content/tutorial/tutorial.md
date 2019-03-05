@@ -587,11 +587,7 @@ Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 
 >Nota
 >
-<<<<<<< HEAD
->Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parenteses em *ambos* os lados). Em uma classe, nós utilizamos uma arrow function para acessar o valor correto de `this`, mas para um componente funcional não precisamos nos preocupar com `this`.
-=======
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides).
->>>>>>> 8803c6375b153af39a850822d844db94ea4c9b0a
+>Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parenteses em *ambos* os lados).
 
 ### Trocando Turnos {#taking-turns}
 
