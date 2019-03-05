@@ -46,7 +46,7 @@ permalink: community/jsx-integrations.html
 * **[sbt-reactjs](https://github.com/ddispaltro/sbt-reactjs)** Plugin SBT/Play/Scala para compilar JSX.
 * **[mimosa-react](https://github.com/dbashford/mimosa-react):** [Mimosa](http://mimosa.io) plugin.
 * **[react-grails-asset-pipeline](https://github.com/peh/react-grails-asset-pipeline):** Assets para react e pré-compilação de arquivos jsx em [Grails](https://grails.org/).
-* **[gore-gulp](https://github.com/goreutils/gore-gulp):** Empacotador em torno do [webpack](https://webpack.github.io/), [eslint](https://eslint.org/), [mocha](https://mochajs.org/) para facilidade de uso e configuração zero.
+* **[gore-gulp](https://github.com/goreutils/gore-gulp):** Empacotador em torno do [webpack](https://webpack.github.io/), [eslint](https://eslint.org/), [mocha](https://mochajs.org/) para facilidade de uso e zero configuração.
 * **[webpack](https://github.com/webpack/webpack):** Pacotes e módulos CommonJs / AMD para o navegador. Permite dividir sua base de código em vários pacotes, que podem ser carregados sob demanda. Suportar loader para pré-processar arquivos, ou seja, json, jade, coffe, css, less ... e suas coisas personalizadas.
 * **[webpack-bbq](https://github.com/wenbing/webpack-bbq):** Transforma seu src para lib, suporta renderização de servidor e renderização estática.
 * **[jsxtransformer](https://github.com/cronn-de/jsxtransformer):** Compila o pipeline para arquivos jsx em Java
