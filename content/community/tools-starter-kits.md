@@ -5,7 +5,7 @@ layout: community
 permalink: community/starter-kits.html
 ---
 
-## Recomendados pelo time do React {#recommended-by-the-react-team}
+## Recomendados pelo Time do React {#recommended-by-the-react-team}
 
 * **[Create React App](https://github.com/facebook/create-react-app)** - Uma maneira oficial de iniciar um projeto React do lado do cliente sem configuração.
 * **[Next.js](https://nextjs.org/)** - Framework para aplicativos React renderizados por servidor ou exportados estaticamente.
