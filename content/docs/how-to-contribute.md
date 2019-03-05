@@ -23,7 +23,7 @@ Todo trabalho no React acontece diretamente no [GitHub](https://github.com/faceb
 
 Nós buscaremos fazer o nosso melhor para manter [branch `master`](https://github.com/facebook/react/tree/master) organizada, com testes passando todas as vezes. Mas para garantir que seremos rápidos, nós faremos mudanças na API nas quais suas aplicações podem não ser compatíveis. Nós recomendamos que você use [a versão estável do React](/downloads.html).
 
-Se você enviar uma ***pull request***, por favor faça contra a branch `master`. Nós mantemos ***branches*** estáveis para versões maiores separadamente, mas não aceitamos ***pull requests*** para elas diretamente. Ao invés disso, nós fazemos ***cherry-pick*** de mudanças que não quebrem o código da `master` para a última versão mais estável.
+Se você enviar um ***pull request***, por favor faça contra a branch `master`. Nós mantemos ***branches*** estáveis para versões maiores separadamente, mas não aceitamos ***pull requests*** para elas diretamente. Ao invés disso, nós fazemos ***cherry-pick*** de mudanças que não quebrem o código da `master` para a última versão mais estável.
 
 ### Versionamento Semântico {#semantic-versioning}
 
@@ -60,9 +60,9 @@ Se você pretende alterar a API pública ou fazer alterações não triviais na 
 
 Se você está apenas corrigindo um bug, não tem problema em enviar uma ***pull request*** diretamente, mas ainda sim recomendamos abrir uma ***issue*** com detalhes sobre o que você está corrigindo. Isso é útil caso não aceitemos essa correção específica, mas queremos acompanhar o problema.
 
-### Sua primeira ***Pull Request*** {#your-first-pull-request}
+### Seu primeiro ***Pull Request*** {#your-first-pull-request}
 
-Trabalhando em sua primeira ***Pull Request***. Você pode aprender como desta série de vídeos gratuitos:
+Trabalhando em seu primeiro ***Pull Request***. Você pode aprender como desta série de vídeos gratuitos:
 
 **[Como contribuir para um projeto de código aberto no GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
 
@@ -72,11 +72,11 @@ Se você decidir corrigir um bug, por favor, verifique o tópico do comentário 
 
 Se alguém assumir uma ***issue***, mas não fizer o acompanhamento por mais de duas semanas, não há problema em você assumir, mas mesmo assim você ainda deve deixar um comentário.
 
-### Enviando uma ***Pull Request*** {#sending-a-pull-request}
+### Enviando um ***Pull Request*** {#sending-a-pull-request}
 
-O Core Team está monitorando as ***pull requests***. Analisaremos seu envio e fazermos o ***merge***, solicitaremos alterações ou podemos fechá-la com uma explicação plausível. Para alterações de API, podemos precisar corrigir nossos usos internos no Facebook.com, o que pode causar algum atraso. Faremos o nosso melhor para fornecer atualizações e feedback durante todo o processo.
+O Core Team está monitorando os ***pull requests***. Analisaremos seu envio e fazermos o ***merge***, solicitaremos alterações ou podemos fechá-la com uma explicação plausível. Para alterações de API, podemos precisar corrigir nossos usos internos no Facebook.com, o que pode causar algum atraso. Faremos o nosso melhor para fornecer atualizações e feedback durante todo o processo.
 
-**Antes de enviar a sua pull request,** certifique-se de ter feito os seguintes passos:
+**Antes de enviar o seu pull request,** certifique-se de ter feito os seguintes passos:
 
 1. Faça fork do [repositório oficial](https://github.com/facebook/react) and criou sua branch da `master`.
 2. Execute `yarn` no repositório raíz.
@@ -91,7 +91,7 @@ O Core Team está monitorando as ***pull requests***. Analisaremos seu envio e f
 
 ### Licença de Acordo de Contribuidor (***Contributor License Agreement*** - CLA) {#contributor-license-agreement-cla}
 
-Para aceitar sua ***pull request***, precisamos que você envie um CLA. Você só precisa fazer isso uma vez, então se você fez isso para outro projeto de código aberto do Facebook, você está pronto para continuar. Se você estiver enviando uma ***pull request*** pela primeira vez, nos informe que você concluiu o CLA e então podemos fazer uma verificação cruzada com seu GitHub
+Para aceitar seu ***pull request***, precisamos que você envie um CLA. Você só precisa fazer isso uma vez, então se você fez isso para outro projeto de código aberto do Facebook, você está pronto para continuar. Se você estiver enviando um ***pull request*** pela primeira vez, nos informe que você concluiu o CLA e então podemos fazer uma verificação cruzada com seu GitHub
 
 **[Preencha sua CLA aqui.](https://code.facebook.com/cla)**
 
@@ -135,7 +135,7 @@ yarn link react react-dom
 
 Toda vez que você executar `yarn build` na pasta React, as versões atualizadas aparecerão no `node_modules` do seu projeto. Você pode então reconstruir seu projeto para testar suas alterações.
 
-Ainda exigimos que sua ***pull request*** contenha testes de unidade para qualquer nova funcionalidade. Dessa forma, podemos garantir que não quebremos seu código no futuro.
+Ainda exigimos que seu ***pull request*** contenha testes de unidade para qualquer nova funcionalidade. Dessa forma, podemos garantir que não quebremos seu código no futuro.
 
 ### Guia de Estilo {#style-guide}
 
