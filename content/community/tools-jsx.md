@@ -22,7 +22,7 @@ permalink: community/jsx-integrations.html
 * **[nwb](https://github.com/insin/nwb)**:Um kit de ferramentas para aplicativos React, Preact & Inferno, bibliotecas React e outros módulos npm para a web, sem configuração (até que você precise)
 * **[Neutrino](https://neutrino.js.org/)**: Crie e construa aplicativos JavaScript modernos com zero configuração inicial. O Neutrino combina o poder do webpack com a simplicidade dos presets.
 * **[ESLint](https://eslint.org/):** Um linter JavaScript plugável que suporta nativamente a sintaxe JSX. Certifique-se de baixar [eslint-plugin-react](https://npmjs.com/package/eslint-plugin-react) para regras específicas do React.
-* **[Structor](https://www.npmjs.com/package/structor):** Essa ferramenta é um construtor de interface com o usuário para aplicativos da Web node.js com o React UI. O Structor substitui o React UI Builder, agora obsoleto. Assista [Structor Video Tutorials](https://youtu.be/z96xYa51EWI?list=PLAcaUOtEwjoR_U6eE2HQEXwkefeVESix1)
+* **[Structor](https://www.npmjs.com/package/structor):** Essa ferramenta é um construtor de interface do usuário para aplicativos Web em node.js com o React UI. O Structor substitui o React UI Builder, agora obsoleto. Assista [Structor Video Tutorials](https://youtu.be/z96xYa51EWI?list=PLAcaUOtEwjoR_U6eE2HQEXwkefeVESix1)
 * **[react-jsx](https://github.com/bigpipe/react-jsx):** Compile e use o JSX como modelos independentes que podem ser executados no lado do servidor e do cliente!
 * **[cjsx-codemod](https://github.com/jsdf/cjsx-codemod):** Escreva código JSX com Coffeescript!
 * **[ReactScript](https://github.com/1j01/react-script):** Escreva código React com Coffeescript sem JSX!
