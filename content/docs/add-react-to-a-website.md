@@ -110,11 +110,7 @@ Normalmente, você pode querer exibir seus componentes React em vários lugares 
 
 ### Dica: Minifique o JavaScript para Produção {#tip-minify-javascript-for-production}
 
-<<<<<<< HEAD
 Antes de realizar o deploy de seu site para produção, lembre-se que o código JavaScript não minificado pode deixar sua página significamente mais lenta para seus usuários.
-=======
-Before deploying your website to production, be mindful that unminified JavaScript can significantly slow down the page for your users.
->>>>>>> b50fe64c1e88489022eddf2cfff0995778827f84
 
 Se você já minifica os scripts da sua aplicação, **seu site estará pronto para produção** se você garantir que o HTML carregue a versão do React terminando em `production.min.js`:
 
