@@ -132,7 +132,7 @@ Em HTML, `<select>` cria uma lista suspensa (drop-down). Por exemplo, esse HTML 
 ```html
 <select>
   <option value="laranja">Laranja</option>
-  <option value="limão">Limão</option>
+  <option value="limao">Limão</option>
   <option selected value="coco">Coco</option>
   <option value="manga">Manga</option>
 </select>
@@ -166,7 +166,7 @@ class FlavorForm extends React.Component {
           Escolha seu sabor favorito:
           <select value={this.state.value} onChange={this.handleChange}>
             <option value="laranja">Laranja</option>
-            <option value="limão">Limão</option>
+            <option value="limao">Limão</option>
             <option value="coco">Coco</option>
             <option value="manga">Manga</option>
           </select>
