@@ -9,13 +9,13 @@ redirect_from:
   - "contributing/implementation-notes.html"
 ---
 
-Essa seção faz parte de um conjunto de notas de implementação para o [reconciliador de pilha](/docs/codebase-overview.html#stack-reconciler).
+Esta seção é um conjunto de notas de implementação para o [reconciliador de pilha](/docs/codebase-overview.html#stack-reconciler).
 
-Ela é bastante técnica e assume um forte entendimento da API pública do React, assim como da sua divisão em núcleos, renderizadores e o reconciliador. Se você não estiver muito familiarizado com o código do React, leia a [visão geral da base de código](/docs/codebase-overview.html) primeiro.
+Ela é bastante técnica e assume um forte entendimento da API pública do React, assim como da sua divisão em núcleos, renderizadores e o próprio reconciliador. Se você não estiver muito familiarizado com o código do React, leia a [visão geral da base de código](/docs/codebase-overview.html) primeiro.
 
-também é assumido o entendimento da [diferença entre componentes React, suas instâncias e elementos](/blog/2015/12/18/react-components-elements-and-instances.html).
+Também é pressuposto o entendimento da [diferença entre componentes React, suas instâncias e elementos](/blog/2015/12/18/react-components-elements-and-instances.html).
 
-O reconciliador de pilha foi usado no React 15 e até anteriormente. Esta localizado em[src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler).
+O reconciliador de pilha foi usado no React 15 e até anteriormente. Fica localizado em [src/renderers/shared/stack/reconciler](https://github.com/facebook/react/tree/15-stable/src/renderers/shared/stack/reconciler).
 
 ### Video: Construindo React do zero {#video-building-react-from-scratch}
 
@@ -25,9 +25,9 @@ Tanto esse texto quanto a palestra são simplificações da verdadeira base de c
 
 ### Visão geral {#overview}
 
-O reconciliador em si não possui uma API pública. [Renderizadores](/docs/codebase-overview.html#stack-renderers) como o React DOM e React Nativa o usam para atualizar a interface do usuário de acordo com os componentes React escritos pelo usuário.
+O reconciliador em si não possui uma API pública. [Renderizadores](/docs/codebase-overview.html#stack-renderers) como o React DOM e React Native o usam para atualizar a interface do usuário de acordo com os componentes React escritos pelo usuário.
 
-### Montar como um Processo Recursivo {#mounting-as-a-recursive-process}
+### Montagem como um Processo Recursivo {#mounting-as-a-recursive-process}
 
 Vamos considerar a primeira vez que você monta um componente:
 
@@ -35,18 +35,18 @@ Vamos considerar a primeira vez que você monta um componente:
 ReactDOM.render(<App />, rootEl);
 ```
 
-React DOM ira passar `<App />` para o reconciliador. Lembre que `<App />` é um elemento React, isto é, uma descrição *do que* renderizar. Você pode pensar nele como um objeto simples:
+O React DOM passara `<App />` para o reconciliador. Lembre-se que `<App />` é um elemento React, isto é, uma descrição *do que* renderizar. Você pode pensar nele como um objeto simples:
 
 ```js
 console.log(<App />);
 // { type: App, props: {} }
 ```
 
-O reconciliador irá checar se `App` é uma classe ou uma função.
+O reconciliador irá verificar se `App` é uma classe ou uma função.
 
-Se `App` for uma função, o reconciliador irá chamar `App(props)` para obter o elemento renderizado.
+Se `App` for uma função, o reconciliador chama `App(props)` para obter o elemento renderizado.
 
-Se `App` for uma classe, o reconciliador irá instanciar um `App` com `new App(props)`, chamar o método de ciclo de vida `componentWillMount()`, e então irá chamar o método render()` para obter o elemento renderizado.
+Se `App` for uma classe, o reconciliador instancia `App` com `new App(props)`, chama o método de ciclo de vida `componentWillMount()`, e então chama o método render()` para obter o elemento renderizado.
 
 De qualquer forma, o reconciliador irá saber o que o elemento `App` se "renderizou a".
 
@@ -70,19 +70,19 @@ function mount(element) {
   var props = element.props;
 
   // Nós vamos determinar o elemento renderizado
-  // por executar o tipo como função
+  // executando o tipo como função
   // ou criando uma instância e chamando render().
   var renderedElement;
   if (isClass(type)) {
     // Componente de classe
     var publicInstance = new type(props);
-    // Seta as props
+    // Define as props
     publicInstance.props = props;
     // Chama o ciclo de vida se necessário
     if (publicInstance.componentWillMount) {
       publicInstance.componentWillMount();
     }
-    // Obtêm o elemento renderizado por chamar render()
+    // Obtêm o elemento renderizado ao chamar render()
     renderedElement = publicInstance.render();
   } else {
     // Componente de função
@@ -93,7 +93,7 @@ function mount(element) {
   // retornar um elemento com o tipo de outro componente.
   return mount(renderedElement);
 
-  // Nota: essa implementação é incompleta e recursa infinitamente!
+  // Nota: essa implementação é incompleta e recorre infinitamente!
   // Ela só lida com elementos <App /> ou <Button />.
   // Ela não lida com elementos como <div /> ou <p /> ainda.
 }
@@ -105,20 +105,19 @@ rootEl.appendChild(node);
 
 >**Note:**
 >
->Isso realmente *é* um pseudocódigo. Não é semelhante a implementação real. Vai ser causado um stack overflow pois não discutimos quando parar a recursão.
-
+>Isso realmente *é* um pseudocódigo. Não é semelhante a implementação real. Causará um estouro de pilha porque não discutimos quando parar a recursão.
 
 Let's recap a few key ideas in the example above:
 
-* Elementos do React são objetos planos que representam o tipo do componente (e.g. `App`) e o props.
+* Os elementos do React são objetos simples que representam o tipo do componente (e.g. `App`) e as props.
 * Componentes definidos pelo usuário (e.g. `App`) podem ser classes ou funções mas todos eles “se renderizam” a um elemento.
-* "Montar" é um processo recursivo que cria uma árvore DOM ou Nativa dado um elemento React de alto nível (e.g. `<App />`).
+* "Montagem" é um processo recursivo que cria uma árvore DOM ou Nativa dado um elemento React de nível superior (e.g. `<App />`).
 
 ### Montando Elementos Host {#mounting-host-elements}
 
 Esse processo seria inútil se o resultado não fosse renderizar algo na tela.
 
-Em adição aos componentes definidos pelo usuário ("compostos"), elementos React podem também representar componentes para plataformas específicas ("host"). Por exemplo, `Button` pode retornar um `<div />` do seu método render.
+Além dos componentes definidos pelo usuário ("compostos"), elementos React podem também representar componentes para plataformas específicas ("hospedeiros"). Por exemplo, `Button` pode retornar uma `<div />` no seu método render.
 
 Se a propriedade `type` for uma string, estamos lidando com um elemento host:
 
@@ -127,20 +126,19 @@ console.log(<div />);
 // { type: 'div', props: {} }
 ```
 
-Não há código definido pelo usuário associado com elementos host.
+Não há código definido pelo usuário associado com elementos do tipo hospedeiro.
 
-Quando o reconciliador encontra um elemento host, ele permite que o renderizador cuide de o montar. Por exemplo, o React DOM criaria um nó DOM.
-When the reconciliador encounters a host element, it lets the renderer take care of mounting it. For example, React DOM would create a DOM node.
+Quando o reconciliador encontra um elemento hospedeiro, ele permite que o renderizador cuide da montagem. Por exemplo, o React DOM criaria um nó DOM.
 
-Se o elemento host possuir filhos, o reconciliador recursivamente os monta seguindo o mesmo algoritmo descrito acima. Não importa se os filhos são hosts (como `<div><hr /></div>`) ou se são composite (como `<div><Button /></div>`), ou os dois.
+Se o elemento hospedeiro possuir filhos, o reconciliador recursivamente os monta seguindo o mesmo algoritmo descrito acima. Não importa se os filhos são hospedeiros (como `<div><hr /></div>`) ou se são compostos (como `<div><Button /></div>`), ou os dois.
 
-Os nós DOM produzidos pelos componentes filhos serão anexados ao nó DOM pai, e recursivamente, a completa estrutura DOM será construída.
+Os nós DOM produzidos pelos componentes filhos serão anexados ao nó DOM pai, e, recursivamente, a completa estrutura DOM será construída.
 
 >**Note:**
 >
->O reconciliador em si não está ligado ao DOM. O exato resultado da montagem (por vezes chamada de "mount image" no código fonte) depende do renderizador, e pode ser um nó DOM (React DOM), uma string (React DOM Server), ou um número representando uma native view (React Nativa).
+>O reconciliador em si não está ligado ao DOM. O exato resultado da montagem (por vezes chamada de "mount image" no código fonte) depende do renderizador, e pode ser um nó DOM (React DOM), uma string (React DOM Server), ou um número representando uma native view (React Native).
 
-Se fossemos extender o código para lidar com elementos host, ficaria assim:
+Se fossemos extender o código para lidar com elementos hospedeiros, ficaria assim:
 
 ```js
 function isClass(type) {
@@ -151,7 +149,7 @@ function isClass(type) {
   );
 }
 
-// Essa função apenas lida com elementos do tipo composite.
+// Essa função apenas lida com elementos do tipo composto.
 // Por exemplo, ela lida com <App /> e <Button />, mas não com uma <div />.
 function mountComposite(element) {
   var type = element.type;
@@ -161,7 +159,7 @@ function mountComposite(element) {
   if (isClass(type)) {
     // Componente de classe
     var publicInstance = new type(props);
-    // Seta as props
+    // Define as props
     publicInstance.props = props;
     // Chama o ciclo de vida se necessário
     if (publicInstance.componentWillMount) {
@@ -174,11 +172,11 @@ function mountComposite(element) {
   }
 
   // Isso é recursivo mas eventualmente chegaremos no fim da recursão quando
-  // o elemento é host (e.g. <div />) ao invés de composite (e.g. <App />):
+  // o elemento é hospedeiro (e.g. <div />) ao invés de composto (e.g. <App />):
   return mount(renderedElement);
 }
 
-// Essa função apenas lida com elementos do tipo host.
+// Essa função apenas lida com elementos do tipo hospedeiro.
 // Por exemplo, ela lida com <div /> e <p /> mas não com um <App />
 function mountHost(element) {
   var type = element.type;
@@ -190,7 +188,7 @@ function mountHost(element) {
   children = children.filter(Boolean);
 
   // Esse bloco de código não deveria estar no reconciliador.
-  // Renderizadores diferentes podem inicializar nos diferentemente.
+  // Renderizadores diferentes podem inicializar nós diferentemente.
   // Por exemplo, React Native iria criar views de iOS ou Android.
   var node = document.createElement(type);
   Object.keys(props).forEach(propName => {
@@ -201,7 +199,7 @@ function mountHost(element) {
 
   // Monta os filhos
   children.forEach(childElement => {
-    // Filhos podem ser host (e.g. <div />) ou composite (e.g <Button />).
+    // Filhos podem ser hospedeiros (e.g. <div />) ou compostos (e.g <Button />).
     // também os montaremos recursivamente:
     var childNode = mount(childElement);
 
@@ -231,7 +229,7 @@ var node = mount(<App />);
 rootEl.appendChild(node);
 ```
 
-Isso está funcionando mas ainda é longe de como o reconciliador está realmente implementado. O ingrediente faltante é o suporte para atualizações.
+Isso está funcionando mas ainda está longe de como o reconciliador é realmente implementado. O ingrediente faltante é o suporte para atualizações.
 
 
 ### Introduzindo instâncias Internas {#introducing-internal-instances}
