@@ -118,40 +118,42 @@ Isto permitirá que você use a sintaxe do Flow no seu código.
 
 Se você não usa Create React App nem Babel, você pode usar [flow-remove-types](https://github.com/flowtype/flow-remove-types) para remover as anotações de tipos.
 
-### Running Flow {#running-flow}
+### Executando o Flow {#running-flow}
 
-If you followed the instructions above, you should be able to run Flow for the first time.
+Se você seguiu os passos acima, deve ser capaz de executar o Flow pela primeira vez.
+
+Se você usa [Yarn](https://yarnpkg.com/), execute:
 
 ```bash
 yarn flow
 ```
 
-If you use npm, run:
+Se você usa [npm](https://www.npmjs.com/), execute:
 
 ```bash
 npm run flow
 ```
 
-You should see a message like:
+Você deverá ver uma mensagem como esta:
 
 ```
 No errors!
 ✨  Done in 0.17s.
 ```
 
-### Adding Flow Type Annotations {#adding-flow-type-annotations}
+### Adicionando Anotações de Tipo do Flow {#adding-flow-type-annotations}
 
-By default, Flow only checks the files that include this annotation:
+Por padrão, o Flow checa apenas os arquivos que incluem esta anotação:
 
 ```js
 // @flow
 ```
 
-Typically it is placed at the top of a file. Try adding it to some files in your project and run `yarn flow` or `npm run flow` to see if Flow already found any issues.
+Normalmente, é posicionado no topo de um arquivo. Tente adicioná-la em alguns arquivos do seu projeto e execute `yarn flow` ou `npm run flow` para ver se o Flow já achou algum problema.
 
-There is also [an option](https://flow.org/en/docs/config/options/#toc-all-boolean) to force Flow to check *all* files regardless of the annotation. This can be too noisy for existing projects, but is reasonable for a new project if you want to fully type it with Flow.
+Também há [uma opção](https://flow.org/en/docs/config/options/#toc-all-boolean) para forçar o Flow a checar *todos* os arquivos independente se há a anotação ou não. Isto pode ser meio turbulento para projetos já existentes, mas é sensato para um novo projeto se você quer deixá-lo totalmente tipado com o Flow.
 
-Now you're all set! We recommend to check out the following resources to learn more about Flow:
+Agora está tudo certo! Recomendamos dar uma lida nos seguintes recursos para aprender mais sobre o Flow (em inglês):
 
 * [Flow Documentation: Type Annotations](https://flow.org/en/docs/types/)
 * [Flow Documentation: Editors](https://flow.org/en/docs/editors/)
@@ -160,49 +162,49 @@ Now you're all set! We recommend to check out the following resources to learn m
 
 ## TypeScript {#typescript}
 
-[TypeScript](https://www.typescriptlang.org/) is a programming language developed by Microsoft. It is a typed superset of JavaScript, and includes its own compiler. Being a typed language, TypeScript can catch errors and bugs at build time, long before your app goes live. You can learn more about using TypeScript with React [here](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter).
+O [TypeScript](https://www.typescriptlang.org/) é uma linguagem de programação desenvolvida pela Microsoft. É um superset tipado do JavaScript e inclui seu próprio compilador. Sendo uma linguagem tipada, o TypeScript consegue detectar erros e bugs em tempo de compilação, muito antes do seu aplicativo iniciar. Você pode aprender mais sobre o uso do TypeScript com React [aqui](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter).
 
-To use TypeScript, you need to:
-* Add TypeScript as a dependency to your project
-* Configure the TypeScript compiler options
-* Use the right file extensions
-* Add definitions for libraries you use
+Para usar o TypeScript você precisa:
+* Adicionar o TypeScript como uma dependência ao seu projeto
+* Configurar as opções de compilação do TypeScript
+* Usar as extensões de arquivos corretas
+* Adicionar definições para bibliotecas que você usa
 
-Let's go over these in detail.
+Vamos passar por cada uma em detalhes.
 
-### Using TypeScript with Create React App {#using-typescript-with-create-react-app}
+### Usando TypeScript com Create React App {#using-typescript-with-create-react-app}
 
-Create React App supports TypeScript out of the box.
+O Create React App já vem com suporte para o TypeScript.
 
-To create a **new project** with TypeScript support, run:
+Para criar um **novo projeto** com suporte ao TypeScript, execute:
 
 ```bash
 npx create-react-app my-app --typescript
 ```
 
-You can also add it to an **existing Create React App project**, [as documented here](https://facebook.github.io/create-react-app/docs/adding-typescript).
+Vocë também pode adicioná-lo a um **projeto Create React App existente**, [como está documentado aqui](https://facebook.github.io/create-react-app/docs/adding-typescript).
 
->Note:
+>Nota:
 >
->If you use Create React App, you can **skip the rest of this page**. It describes the manual setup which doesn't apply to Create React App users.
+>Se você usa Create React App, você pode **pular o resto desta página**. Ela descreve a configuração manual no qual não se aplicam a usuários do Create React App.
 
 
-### Adding TypeScript to a Project {#adding-typescript-to-a-project}
-It all begins with running one command in your terminal.
+### Adicionando TypeScript a um Projeto {#adding-typescript-to-a-project}
+Tudo começa executando um comando no seu terminal.
 
-If you use [Yarn](https://yarnpkg.com/), run:
+Se você usa [Yarn](https://yarnpkg.com/), execute:
 
 ```bash
 yarn add --dev typescript
 ```
 
-If you use [npm](https://www.npmjs.com/), run:
+Se você usa [npm](https://www.npmjs.com/), execute:
 
 ```bash
 npm install --save-dev typescript
 ```
 
-Congrats! You've installed the latest version of TypeScript into your project. Installing TypeScript gives us access to the `tsc` command. Before configuration, let's add `tsc` to the "scripts" section in our `package.json`:
+Parabéns! Você instalou a versão mais recente do TypeScript no seu projeto. Instalar o TypeScript nos dá acesso ao comando `tsc`. Antes da configuração, vamos adicionar `tsc` à seção "scripts" no nosso `package.json`:
 
 ```js{4}
 {
@@ -215,19 +217,19 @@ Congrats! You've installed the latest version of TypeScript into your project. I
 }
 ```
 
-### Configuring the TypeScript Compiler {#configuring-the-typescript-compiler}
-The compiler is of no help to us until we tell it what to do. In TypeScript, these rules are defined in a special file called `tsconfig.json`. To generate this file run:
+### Configurando o Compilador do TypeScript {#configuring-the-typescript-compiler}
+O compilador não é de ajuda alguma até que o dizemos o que deve fazer. No TypeScript, essas regras são definidas em um arquivo especial chamado `tsconfig.json`. Para gerar esse arquivo execute:
 
 ```bash
 tsc --init
 ```
 
-Looking at the now generated `tsconfig.json`, you can see that there are many options you can use to configure the compiler. For a detailed description of all the options, check [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+Olhando o então gerado `tsconfig.json`, você pode ver que há muitas opções que você pode usar para configurar o compilador. Para uma descrição detalhada de todas as opções, veja [aqui](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
-Of the many options, we'll look at `rootDir` and `outDir`. In its true fashion, the compiler will take in typescript files and generate javascript files. However we don't want to get confused with our source files and the generated output.
+Das muitas opções, daremos uma olhada em `rootDir` e `outDir`. Na sua forma verdadeira, o compilador receberá arquivos typescript e gerará arquivos javascript. Entretanto, não queremos que nossos arquivos fontes e a saída gerada fiquem confusos.
 
-We'll address this in two steps:
-* Firstly, let's arrange our project structure like this. We'll place all our source code in the `src` directory.
+Vamos cobrir isso em dois passos:
+* Primeiramente, vamos organizar a estrutura do nosso projeto desta forma. Iremos colocar todo o nosso código-fonte na pasta `src`.
 
 ```
 ├── package.json
@@ -236,7 +238,7 @@ We'll address this in two steps:
 └── tsconfig.json
 ```
 
-* Next, we'll tell the compiler where our source code is and where the output should go.
+* Depois, diremos ao compilador onde nosso código-fonte está e para onde a saída deverá ir.
 
 ```js{6,7}
 // tsconfig.json
@@ -251,40 +253,42 @@ We'll address this in two steps:
 }
 ```
 
-Great! Now when we run our build script the compiler will output the generated javascript to the `build` folder. The [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) provides a `tsconfig.json` with a good set of rules to get you started.
+Ótimo! Agora quando executarmos o nosso script de build, o compilador vai colocar o javascript gerado na pasta `build`. O [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) oferece um `tsconfig.json` com um bom conjunto de regras para você começar.
 
-Generally, you don't want to keep the generated javascript in your source control, so be sure to add the build folder to your `.gitignore`.
+Geralmente, você não quer manter o javascript gerado no seu repositório, então tenha certeza de que adicionou a pasta do build no seu `.gitignore`.
 
-### File extensions {#file-extensions}
-In React, you most likely write your components in a `.js` file. In TypeScript we have 2 file extensions:
+### Extensões de Arquivos {#file-extensions}
+No React, você provavelmente escreverá seus componentes em um arquivo `.js`. No TypeScript temos 2 extensões de arquivo:
 
-`.ts` is the default file extension while `.tsx` is a special extension used for files which contain `JSX`.
+`.ts` é a extensão de arquivo padrão, enquanto `.tsx` é uma extensão especial usada em arquivos que contém `JSX`.
 
-### Running TypeScript {#running-typescript}
+### Executando o TypeScript {#running-typescript}
 
-If you followed the instructions above, you should be able to run TypeScript for the first time.
+Se você seguiu as instruções acima, você deverá ser capaz de executar o TypeScript pela primeira vez.
+
+Se você usa [Yarn](https://yarnpkg.com/), execute:
 
 ```bash
 yarn build
 ```
 
-If you use npm, run:
+Se você usa [npm](https://www.npmjs.com/), execute:
 
 ```bash
 npm run build
 ```
 
-If you see no output, it means that it completed successfully.
+Se você não vê um output, significa que completou com sucesso.
 
 
-### Type Definitions {#type-definitions}
-To be able to show errors and hints from other packages, the compiler relies on declaration files. A declaration file provides all the type information about a library. This enables us to use javascript libraries like those on npm in our project. 
+### Definições de Tipo {#type-definitions}
+Para ser capaz de mostrar erros e dicas de outros pacotes, o compilador depende dos arquivos de declaração. Um arquivo de declaração oferece todo a informação de tipos sobre uma biblioteca. Isso nos permite usar bibliotecas javascript, como as que estão no npm, no nosso projeto.
 
-There are two main ways to get declarations for a library:
+Existem duas formas principais de conseguir declarações para uma biblioteca:
 
-__Bundled__ - The library bundles its own declaration file. This is great for us, since all we need to do is install the library, and we can use it right away. To check if a library has bundled types, look for an `index.d.ts` file in the project. Some libraries will have it specified in their `package.json` under the `typings` or `types` field.
+__Bundled__ - A biblioteca empacota o seu próprio arquivo de declaração. Isto é ótimo para nós, pois tudo o que precisaremos fazer é instalar a biblioteca e estaremos prontos para usá-la. Para verificar se uma biblioteca tem tipos empacotados, procure por um arquivo `index.d.ts` no projeto. Algumas bibliotecas terá o arquivo especificado em seus `package.json`, no campo `typings` ou `types`.
 
-__[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)__ - DefinitelyTyped is a huge repository of declarations for libraries that don't bundle a declaration file. The declarations are crowd-sourced and managed by Microsoft and open source contributors. React for example doesn't bundle its own declaration file. Instead we can get it from DefinitelyTyped. To do so enter this command in your terminal.
+__[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)__ - DefinitelyTyped é um repositório enorme de declarações para bibliotecas que não empacotam um arquivo de declaração. As declarações são feitas pelo público e gerenciadas pela Microsoft e contribuidores de código aberto. O React, por exemplo, não empacota seu próprio arquivo de declaração. Em vez disso, nós podemos pegá-lo do DefinitelyTyped. Para isso, entre este comando no seu terminal:
 
 ```bash
 # yarn
@@ -294,7 +298,7 @@ yarn add --dev @types/react
 npm i --save-dev @types/react
 ```
 
-__Local Declarations__
+__Declarações Locais__
 Sometimes the package that you want to use doesn't bundle declarations nor is it available on DefinitelyTyped. In that case, we can have a local declaration file. To do this, create a `declarations.d.ts` file in the root of your source directory. A simple declaration could look like this:
 
 ```typescript
