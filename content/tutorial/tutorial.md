@@ -356,7 +356,9 @@ Podemos pensar que o Tabuleiro (Board) poderia apenas perguntar para cada Quadra
 
 **Para coletar dados de múltiplos filhos (children), ou para fazer dois filhos se comunicarem entre si, você precisa declarar um estado compartilhado em seu componente pai. O componente pai pode passar o estado de volta para os filhos através do uso de propriedades (props); isso mantém os componentes filhos em sincronia com os seus irmãos e também com o pai.**
 
-Criar estado em um componente Pai é bem comum quando componentes React são refatorados -- Vamos aproveitar essa oportunidade para tentar o conceito na prática. Vamos adicionar um construtor no Tabuleiro e definir que seu estado inicial irá ter um array com 9 posições preenchidas por nulo (null). Esses 9 nulls corresponderão aos 9 quadrados: 
+Criar estado em um componente Pai é bem comum quando componentes React são refatorados -- Vamos aproveitar essa oportunidade para tentar o conceito, na prática.
+
+Vamos adicionar um construtor no Tabuleiro e definir que seu estado inicial irá ter um array com 9 posições preenchidas por nulo (null). Esses 9 nulls corresponderão aos 9 quadrados: 
 
 ```javascript{2-7}
 class Board extends React.Component {
