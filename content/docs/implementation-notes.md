@@ -21,7 +21,7 @@ O reconciliador de pilha foi usado no React 15 e até anteriormente. Fica locali
 
 [Paul O'Shannessy](https://twitter.com/zpao) deu uma palestra sobre [construir React do zero](https://www.youtube.com/watch?v=_MAD4Oly9yg) que muito inspirou esse documento.
 
-Tanto esse texto quanto a palestra são simplificações da verdadeira base de código, então se familiarizar com os dois pode resultar em um entendimento melhor.
+Tanto esse texto quanto a palestra são simplificações da real base de código, então se familiarizar com os dois pode resultar em um entendimento melhor.
 
 ### Visão geral {#overview}
 
@@ -35,7 +35,7 @@ Vamos considerar a primeira vez que você monta um componente:
 ReactDOM.render(<App />, rootEl);
 ```
 
-O React DOM passara `<App />` para o reconciliador. Lembre-se que `<App />` é um elemento React, isto é, uma descrição *do que* renderizar. Você pode pensar nele como um objeto simples:
+O React DOM passará `<App />` para o reconciliador. Lembre-se que `<App />` é um elemento React, isto é, uma descrição *do que* renderizar. Você pode pensar nele como um objeto simples:
 
 ```js
 console.log(<App />);
