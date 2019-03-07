@@ -592,7 +592,7 @@ Você pode aprender mais sobre `shouldComponentUpdate` e como construir *compone
 
 Nós vamos agora mudar o Square para ser um **componente de função**.
 
-Em React, **componente de função** são os mais simples de serem escritos, contém apenas um método `render` e não possuem seu próprio state. Ao invés de definir uma classe que extende de `React.Component`, nós podemos escrever uma função que recebe `props` como entrada e retorna o que deverá ser renderizado. Esse tipo de componente é menos tedioso de escrever do que classes e muitos componentes podem ser expressados desta maneira.
+Em React, **componentes de função** são os mais simples de serem escritos, contém apenas um método `render` e não possuem seu próprio state. Ao invés de definir uma classe que extende de `React.Component`, nós podemos escrever uma função que recebe `props` como entrada e retorna o que deverá ser renderizado. Esse tipo de componente é menos tedioso de escrever do que classes e muitos componentes podem ser expressados desta maneira.
 
 Troque a classe Square por esta função:
 
