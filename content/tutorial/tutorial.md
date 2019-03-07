@@ -346,7 +346,7 @@ Depois de instalar o React DevTools, você pode clicar com o botão direito do m
 
 ## Completando o jogo {#completing-the-game}
 
-Agora nós temos os blocos para o nosso jogo da velha. Para completar o jogo, nós precisamos preencher os "X"s e os "O"s no tabuleiro e alguma maneira de determinar o vencedor.
+Agora nós temos os blocos básicos para contrução do nosso jogo da velha. Para completar o jogo, nós precisamos preencher os "X"s e os "O"s no tabuleiro e de alguma maneira necessitamos definir o vencedor.
 
 ### Movendo o state para cima {#lifting-state-up}
 
