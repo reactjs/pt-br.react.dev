@@ -128,7 +128,7 @@ console.log(<div />);
 
 Não há código definido pelo usuário associado com elementos do tipo hospedeiro.
 
-Quando o reconciliador encontra um elemento hospedeiro, ele permite que o renderizador cuide da montagem. Por exemplo, o React DOM criaria um nó DOM.
+Quando o reconciliador encontra um elemento hospedeiro, ele permite que o renderizador cuide da montagem. Por exemplo, o React DOM criaria um nó do DOM.
 
 Se o elemento hospedeiro possuir filhos, o reconciliador recursivamente os monta seguindo o mesmo algoritmo descrito acima. Não importa se os filhos são hospedeiros (como `<div><hr /></div>`) ou se são compostos (como `<div><Button /></div>`), ou os dois.
 
@@ -136,7 +136,7 @@ Os nós DOM produzidos pelos componentes filhos serão anexados ao nó DOM pai, 
 
 >**Note:**
 >
->O reconciliador em si não está ligado ao DOM. O exato resultado da montagem (por vezes chamada de "mount image" no código fonte) depende do renderizador, e pode ser um nó DOM (React DOM), uma string (React DOM Server), ou um número representando uma native view (React Native).
+>O reconciliador em si não está ligado ao DOM. O exato resultado da montagem (por vezes chamada de "mount image" no código fonte) depende do renderizador, e pode ser um nó do DOM (React DOM), uma string (React DOM Server), ou um número representando uma native view (React Native).
 
 Se fossemos extender o código para lidar com elementos hospedeiros, ficaria assim:
 
@@ -208,7 +208,7 @@ function mountHost(element) {
     node.appendChild(childNode);
   });
 
-  // Retorna o nó DOM como resultado da montagem.
+  // Retorna o nó do DOM como resultado da montagem.
   // Aqui é onde a recursão acaba.
   return node;
 }
@@ -368,7 +368,7 @@ class DOMComponent {
     var childNodes = renderedChildren.map(child => child.mount());
     childNodes.forEach(childNode => node.appendChild(childNode));
 
-    // Retorna o nó DOM como resultado da montagem
+    // Retorna o nó do DOM como resultado da montagem
     return node;
   }
 }
@@ -406,7 +406,7 @@ A instância interna composta precisa armazenar:
 A instância interna hospedeira precisa armazenar:
 
 * O elemento atual.
-* O nó DOM.
+* O nó do DOM.
 * Todas as instâncias internas filhas. Cada uma delas pode ser tanto um `DOMComponent` ou um `CompositeComponent`.
 
 Se você está tendo dificuldades para imaginar como uma árvore de instâncias internas é estruturada em aplicações mais complexas, [React DevTools](https://github.com/facebook/react-devtools) pode te dar uma boa aproximação, pois instâncias hospedeiras são marcadas com cinza, e instâncias compostas com roxo:
@@ -479,7 +479,7 @@ Podemos agora adicionar uma nova função de alto nível chamada `unmountTree(co
 
 ```js
 function unmountTree(containerNode) {
-  // Le a instância interna de um nó DOM:
+  // Le a instância interna de um nó do DOM:
   // (Isso ainda não funciona, nós vamos precisar mudar mountTree() para guarda-la)
   var node = containerNode.firstChild;
   var rootComponent = node._internalInstance;
@@ -490,7 +490,7 @@ function unmountTree(containerNode) {
 }
 ```
 
-Para que isso funcione, nós precisamos ler uma instância interna raiz de um nó DOM. Nós vamos modificar `mountTree()` para adicionar a propriedade `_internalInstance` ao nó DOM raiz. Nós também ensinaremos a `mountTree()` como destruir qualquer árvore existente para que ela possa ser chamada múltiplas vezes:
+Para que isso funcione, nós precisamos ler uma instância interna raiz de um nó do DOM. Nós vamos modificar `mountTree()` para adicionar a propriedade `_internalInstance` ao nó do DOM raiz. Nós também ensinaremos a `mountTree()` como destruir qualquer árvore existente para que ela possa ser chamada múltiplas vezes:
 
 ```js
 function mountTree(element, containerNode) {
