@@ -596,9 +596,8 @@ class CompositeComponent {
 
 Após isso, nós podemos olhar para o `type` do elemento renderizado. Se o `type` não mudou desde a última renderização, o componente abaixo também pode ser atualizado.
 
-%% Por exemplo, se retornado `<Button color="red" />` na primeira vez, e `<Button color="blue" />` na segunda vez, nós podemos apenas dizer a instância interna correspondente à `receive()` o próximo elemento:
+Por exemplo, se retornado `<Button color="red" />` na primeira vez, e `<Button color="blue" />` na segunda vez, nós podemos apenas dizer a instância interna correspondente para receber (`receive()`) o próximo elemento:
 
-For example, if it returned `<Button color="red" />` the first time, and `<Button color="blue" />` the second time, we can just tell the corresponding internal instance to `receive()` the next element:
 
 ```js
     // ...
@@ -856,7 +855,7 @@ Esse é o básico de como o React funciona internamente.
 
 Esse documento é simples comparado com o código real. Existem alguns aspectos importantes que não abordamos:
 
-* Componentes podem renderizar `null`, e o reconciliador pode lidar com "espaços vazios" em vetores em output renderizado.
+* Componentes podem renderizar `null`, e o reconciliador pode lidar com "espaços vazios" em vetores e em resultados renderizados.
 
 * O reconciliador também lê a chave de seus elementos, e a usa para estabelecer qual instância interna corresponde a qual elemento em um array. Muita da complexidade da implementação real do React está relacionado a isto.
 
@@ -866,15 +865,15 @@ Esse documento é simples comparado com o código real. Existem alguns aspectos 
 
 * A lógica para atualizar a lista de filhos é extraído em um mixin chamado `ReactMultiChild` que é usada pela implementação da classe de instância interna hospedeira tanto no React DOM quanto no React Native.
 
-* O Reconciliador também implementa suporte para `setState()` em elementos compostos. Múltiplas atualizações dentro de event handlers são loteadas em uma só atualização.
+* O Reconciliador também implementa suporte para `setState()` em elementos compostos. Múltiplas atualizações dentro de event handlers são realizadas em uma só atualização.
 
 * O reconciliador também lida com anexar e desanexar refs a componentes compostos e nos hospedeiros.
 
 * Métodos de ciclo de vida são chamados após o DOM estar pronto, como `componentDidMount()` e `componentDidUpdate()`, são coletados em "filas de callback" e são executadas em um só lote.
 
-* O React coloca informações sobre a atualização atual no objeto interno chamado de "transação". Transações são úteis para observar a fila de métodos de ciclo de vida pendentes, o aninhamento do DOM atual para os warnings, e qualquer outra coisa que seja "global" a uma atualização específica. Transações também garantem que o React "limpe tudo" após atualizações. Por exemplo, a classe de transação provida pelo React DOM restaura a seleção de input após qualquer atualização.
+* O React coloca informações sobre a atualização atual no objeto interno chamado de "transação". Transações são úteis para observar a fila de métodos de ciclo de vida pendentes, o aninhamento do DOM atual para alertas, e qualquer outra coisa que seja "global" a uma atualização específica. Transações também garantem que o React "limpe tudo" após atualizações. Por exemplo, a classe de transação provida pelo React DOM restaura a seleção de input após qualquer atualização.
 
-### Mergulhando no código {#jumping-into-the-code}
+### Mergulhando no Código {#jumping-into-the-code}
 
 * [`ReactMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/client/ReactMount.js) é onde o código como `mountTree()` e `unmountTree()` deste tutorial vive.  Ele cuida da montagem e desmontagem de componentes de nível superior. [`ReactNativeMount`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeMount.js) é o análogo para React Native.
 * [`ReactDOMComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/dom/shared/ReactDOMComponent.js) é o equivalente de `DOMComponent` neste tutorial. Ele implementa o componente de classe hospedeira para o renderizador React DOM.[`ReactNativeBaseComponent`](https://github.com/facebook/react/blob/83381c1673d14cd16cf747e34c945291e5518a86/src/renderers/native/ReactNativeBaseComponent.js) é o análogo para React Native.
@@ -893,7 +892,7 @@ Esse documento é simples comparado com o código real. Existem alguns aspectos 
 
 ### Direções Futuras {#future-directions}
 
-O reconciliador de pilha tem limitações inerentes, como ser síncrono e incapaz de interromper trabalhos ou dividi-los em partes. Há um projeto em andamento no [novo Reconciliador de fibra](/docs/codebase-overview.html#fiber-reconciler) com uma [arquitetura completamente diferente](https://github.com/acdlite/react-fiber-architecture). No futuro, pretendemos substituir o reconciliador de pilha por ele, mas no momento está longe de ser completo.
+O reconciliador de pilha tem limitações inerentes, como ser síncrono e incapaz de interromper trabalhos ou dividi-los em partes. Há um projeto em andamento no [novo Reconciliador Fiber](/docs/codebase-overview.html#fiber-reconciler) com uma [arquitetura completamente diferente](https://github.com/acdlite/react-fiber-architecture). No futuro, pretendemos substituir o reconciliador de pilha por ele, mas no momento está longe de ser completo.
 
 ### Next Steps {#next-steps}
 
