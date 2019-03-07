@@ -354,7 +354,7 @@ Atualmente, cada componente Quadrado (Square) mantém o estado do jogo. Para che
 
 Podemos pensar que o Tabuleiro (Board) poderia apenas perguntar para cada Quadrado pelo seu estado. Apesar desse modelo ser possível no React, nós o desencorajamos, pois, o código se torna muito difícil de ser compreendido, suscetível à bugs e difícil de refatorar. Ao invés disso, a melhor opção é guardar o estado do jogo no componente pai (Tabuleiro). Este, irá dizer para cada Quadrado o que deverá ser exibido via prop, [assim como fizemos quando passamos o número de cada Quadrado](#passing-data-through-props).
 
-**Para coletar dados de múltiplos filhos (children), ou para fazer dois filhos se comunicarem entre si, você precisa declarar um estado compartilhado em seu componente pai. O componente pai pode passar o estado de volta para os filhos através do uso de propriedades (props); isso mantém o componentes filhos em sincronia com os seus irmãos e também com o pai.**
+**Para coletar dados de múltiplos filhos (children), ou para fazer dois filhos se comunicarem entre si, você precisa declarar um estado compartilhado em seu componente pai. O componente pai pode passar o estado de volta para os filhos através do uso de propriedades (props); isso mantém os componentes filhos em sincronia com os seus irmãos e também com o pai.**
 
 Criar estado em um componente Pai é bem comum quando componentes React são refatorados -- Vamos aproveitar essa oportunidade para tentar o conceito na prática. Vamos adicionar um construtor no Tabuleiro e definir que seu estado inicial irá ter um array com 9 posições preenchidas por nulo (null). Esses 9 nulls corresponderão aos 9 quadrados: 
 
