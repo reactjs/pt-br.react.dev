@@ -350,7 +350,7 @@ Agora nós temos os blocos básicos para contrução do nosso jogo da velha. Par
 
 ### Movendo o state para cima {#lifting-state-up}
 
-Atualmente, cada componente Quadrado (Square) mantém o estado do jogo. Para checar o vencedor, nós vamos manter o valor de cada um dos 9 quadrados em uma posição.
+Atualmente, cada componente Quadrado (Square) mantém o estado do jogo. Para verificar o vencedor, nós vamos manter o valor de cada um dos 9 quadrados em uma posição.
 
 Podemos pensar que o Tabuleiro (Board) poderia apenas perguntar para cada Quadrado pelo seu estado. Apesar desse modelo ser possível no React, nós o desencorajamos, pois, o código se torna muito difícil de ser compreendido, suscetível à bugs e difícil de refatorar. Ao invés disso, a melhor opção é guardar o estado do jogo no componente pai (Tabuleiro). Este, irá dizer para cada Quadrado o que deverá ser exibido via prop, [assim como fizemos quando passamos o número de cada Quadrado](#passing-data-through-props).
 
