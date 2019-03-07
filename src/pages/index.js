@@ -32,7 +32,7 @@ class Home extends Component {
         });
       },
       error => {
-        console.error('Babel failed to load.');
+        console.error('Falha ao carregar o Babel.');
       },
     );
   }
