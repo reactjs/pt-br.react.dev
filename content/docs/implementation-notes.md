@@ -233,7 +233,7 @@ Isso está funcionando mas ainda está longe de como o reconciliador é realment
 
 
 ### Introduzindo instâncias Internas {#introducing-internal-instances}
-A feature chave do React é que você pode rerenderizar tudo, e ele não irá recriar o DOM ou resetar o estado.
+A feature chave do React é que você pode re-renderizar tudo, e ele não irá recriar o DOM ou resetar o estado.
 
 ```js
 ReactDOM.render(<App />, rootEl);
@@ -550,7 +550,7 @@ class DOMComponent {
 
 Sua responsabilidade é fazer o que for necessário para atualizar o componente (e qualquer um de seus filhos) com a descrição dada pelo `nextElement`.
 
-Essa é a parte geralmente descrita como "diff do virtual DOM" embora o que realmente acontece é que andamos pela árvore interna recursivamente e permitimos que cada instância receba uma atualização.
+Essa é a parte geralmente descrita como "diff do DOM virtual" embora o que realmente acontece é que andamos pela árvore interna recursivamente e permitimos que cada instância receba uma atualização.
 
 ### Atualizando Elementos Compostos {#updating-composite-components}
 
@@ -888,7 +888,7 @@ Esse documento é simples comparado com o código real. Existem alguns aspectos 
 
 * `mount()`, `receive()` e `unmount()` são chamados `mountComponent()`, `receiveComponent()` e `unmountComponent()` na base de código React por razões legadas, mas eles recebem elementos.
 
-* As propriedades nas instâncias internas começam com um underscore, e.g. `_currentElement`. Elas são consideradas como campos públicos de apenas leitura em toda a base de código.
+* As propriedades nas instâncias internas começam com um subtraço, e.g. `_currentElement`. Elas são consideradas como campos públicos de apenas leitura em toda a base de código.
 
 ### Direções Futuras {#future-directions}
 
