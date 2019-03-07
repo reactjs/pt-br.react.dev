@@ -107,7 +107,7 @@ rootEl.appendChild(node);
 >
 >Isso realmente *é* um pseudocódigo. Não é semelhante a implementação real. Causará um estouro de pilha porque não discutimos quando parar a recursão.
 
-Let's recap a few key ideas in the example above:
+Recapitulando alguns conceitos chaves do exemplo acima:
 
 * Os elementos do React são objetos simples que representam o tipo do componente (e.g. `App`) e as props.
 * Componentes definidos pelo usuário (e.g. `App`) podem ser classes ou funções mas todos eles “se renderizam” a um elemento.
@@ -243,7 +243,7 @@ ReactDOM.render(<App />, rootEl);
 
 Contudo, nossa implementação acima apenas sabe como montar a árvore inicial. Ela não executa atualizações na árvore pois não armazena todas as informações necessárias, como todas as `publicInstance`s, ou que nós DOM correspondem a qual componente.
 
-O código do stack reconciliador resolve isso fazendo a função `mount()` um método e a colocando em uma classe. Existem desvantagens para essa abordagem, e nos iremos na direção oposta na [atual reescrita do reconciliador.(/docs/codebase-overview.html#fiber-reconciler). No entanto, é assim que funciona atualmente.
+O código do reconciliador de pilha resolve isso fazendo a função `mount()` um método e a colocando em uma classe. Existem desvantagens para essa abordagem, e nos iremos na direção oposta na [atual reescrita do reconciliador](/docs/codebase-overview.html#fiber-reconciler). No entanto, é assim que funciona atualmente.
 
 Ao invés de funções `mountHost` e `mountComposite` separadas, nos criaremos duas classes: `DOMComponent` e `CompositeComponent`.
 
@@ -376,7 +376,6 @@ class DOMComponent {
 
 A diferença principal depois de refatorar `mountHost()` é que agora nós podemos deixar `this.node` e `this.renderedChildren` associados com a instância interna do componente DOM. Nós também os usaremos para aplicar atualizações não destrutivas no futuro.
 
-
 Como resultado, cada instância interna, composta ou hospedeira, agora aponta para sua instância interna filha. Para auxiliar na visualização disso, se o componente de função `<App>` renderiza um componente de classe, e a classe `Button` renderiza a `<div>`, a árvore da instância interna ficaria assim:
 
 ```js
@@ -420,7 +419,7 @@ function mountTree(element, containerNode) {
   // Create a instância interna de nível superior
   var rootComponent = instantiateComponent(element);
 
-  // Monta o componente de nível superior no container
+  // Monta o componente de nível superior no contêiner
   var node = rootComponent.mount();
   containerNode.appendChild(node);
 
@@ -502,11 +501,11 @@ function mountTree(element, containerNode) {
   // Cria a instância interna de nível superior
   var rootComponent = instantiateComponent(element);
 
-  // Monta o componente de nivel superior no container
+  // Monta o componente de nivel superior no container contêiner
   var node = rootComponent.mount();
   containerNode.appendChild(node);
 
-  // Salva a referência a instância interna
+  // Salva uma referência para a instância interna
   node._internalInstance = rootComponent;
 
   // Retorna a instância pública que é provida
@@ -632,7 +631,7 @@ Nesse caso, temos que desmontar a instância interna existente e montar a nova c
     var nextRenderedComponent = instantiateComponent(nextRenderedElement);
     var nextNode = nextRenderedComponent.mount();
 
-    // Substitui a referencia ao filho
+    // Substitui a referência ao filho
     this.renderedComponent = nextRenderedComponent;
 
     // Substitui o nó antigo com o novo
@@ -783,7 +782,6 @@ Nós coletamos operações DOM feitas em nós filhos em uma lista para que possa
     }
 
     // Aponta a lista de elementos renderizados a versão atualizada.
-    // Point the list of rendered children to the updated version.
     this.renderedChildren = nextRenderedChildren;
 
     // ...
@@ -900,4 +898,3 @@ O reconciliador de pilha tem limitações inerentes, como ser síncrono e incapa
 ### Next Steps {#next-steps}
 
 Leia a [próxima seção](/docs/design-principles.html) para aprender sobre os princípios orientadores que usamos para o desenvolvimento do React.
-
