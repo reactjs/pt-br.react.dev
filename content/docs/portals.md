@@ -27,7 +27,7 @@ render() {
 }
 ```
 
-Entretanto, em algumas situação é útil inserir um elemento filho em um local diferente no DOM:
+Entretanto, em algumas situações é útil inserir um elemento filho em um local diferente no DOM:
 
 ```js{6}
 render() {
