@@ -53,7 +53,7 @@ Se você quiser testar como um JSX em específico é convertido em JavaScript, v
 
 A primeira parte de uma tag JSX determina o tipo do elemento React.
 
-Tipos começando com letra maiúscula se referem a um componente React. Essas tags são compiladas para uma referência direta da variável nomeada, então se você usar a expressão JSX `<Foo />`, `Foo` tem que estar no escopo.
+Tipos que começam com letra maiúscula se referem a um componente React. Essas tags são compiladas para uma referência direta da variável nomeada, então se você usar a expressão JSX `<Foo />`, `Foo` tem que estar no escopo.
 
 ### O React Tem Que Estar no Escopo{#react-must-be-in-scope}
 
@@ -208,7 +208,7 @@ Você pode passar uma string literal como uma prop. Essas duas expressões JSX s
 <MyComponent message={'hello world'} />
 ```
 
-Quando você passa uma string literals, seu valor é um HTML não escapado. Então essas duas expressões são equivalentes:
+Quando você passa uma string literal, seu valor é um HTML não escapado. Então essas duas expressões são equivalentes:
 
 ```js
 <MyComponent message="&lt;3" />
@@ -216,7 +216,7 @@ Quando você passa uma string literals, seu valor é um HTML não escapado. Ent�
 <MyComponent message={'<3'} />
 ```
 
-O comportamento geralmente não é relevante. Ele só é mencionado aqui pela completude.
+O comportamento geralmente não é relevante. Ele só é mencionado aqui pela integridade.
 
 ### Props com Valor Padrão "True" {#props-default-to-true}
 
@@ -232,7 +232,7 @@ No geral, nós não recomendamos seu uso porque pode ser confundido com [abrevia
 
 ### Atributos com Spread {#spread-attributes}
 
-Se você já tiver `props` como um objeto, e você quer passá-la no JSX, você pode usar `...` como um operador "spread" para passar todo o objeto props. Esses dois componentes são equivalentes:
+Se você já tiver `props` como um objeto e quiser passar em JSX, você pode usar `...` como um operador "spread" para passar todo o objeto props. Esses dois componentes são equivalentes:
 
 ```js{7}
 function App1() {
@@ -282,7 +282,7 @@ Você pode por uma string entre tags que abrem e tags que fecham e `props.childr
 <MyComponent>Hello world!</MyComponent>
 ```
 
-Esse é um JSX válido, e `props.children` em `MyComponent` será a string `"Hello world!"`. O HTML não é escapado, então você pode escrever JSX da mesma maneira que você escreveria HTML:
+Esse é um JSX válido e `props.children` em `MyComponent` será a string `"Hello world!"`. O HTML não é escapado, então você pode escrever JSX da mesma maneira que você escreveria HTML:
 
 ```html
 <div>Esse é um HTML válido &amp; e JSX ao mesmo tempo.</div>
@@ -319,7 +319,7 @@ Você pode fornecer mais elementos JSX como elementos filhos. Isso é útil para
 </MyContainer>
 ```
 
-Você pode misturar elementos filhos de tipos diferentes, então você pode usar string literals com elementos filhos JSX. Essa é outra forma em que o JSX é como o HTML, então isso é ao mesmo tempo um HTML e um JSX válido:
+Você pode misturar elementos filhos de tipos diferentes, assim você pode usar string literals com elementos filhos JSX. Essa é outra forma em que o JSX é como o HTML, então isso é ao mesmo tempo um HTML e um JSX válido:
 
 ```html
 <div>
@@ -382,7 +382,7 @@ function Hello(props) {
 
 ### Funções como Elementos Filhos {#functions-as-children}
 
-Normalmente, expressões JavaScript inseridas no JSX vão ser avaliadas em uma string, um elemento React, ou uma lista dessas coisas. No entando, `props.children` funciona como qualquer outra prop podendo passar qualquer tipo de dado, não somente os tipos que o React sabe renderizar. Por exemplo, se você tem um componente customizado, você pode fazê-lo receber um callback na forma de um `props.children`:
+Normalmente, expressões JavaScript inseridas no JSX vão ser avaliadas em uma string, um elemento React ou uma lista dessas coisas. No entando, `props.children` funciona como qualquer outra prop podendo passar qualquer tipo de dado, não somente os tipos que o React sabe renderizar. Por exemplo, se você tem um componente customizado, você pode fazê-lo receber um callback na forma de um `props.children`:
 
 ```js{4,13}
 // Chama o callback do elemento filho numTimes para produzir um componente repetido
