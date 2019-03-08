@@ -1,7 +1,7 @@
 - title: Instalação
   items:
     - id: getting-started
-      title: Getting Started
+      title: Introdução
     - id: add-react-to-a-website
       title: Adicione o React a um site
     - id: create-a-new-react-app
@@ -40,7 +40,7 @@
     - id: accessibility
       title: Acessibilidade
     - id: code-splitting
-      title: Code-Splitting
+      title: Dividindo o Código (Code-Splitting)
     - id: context
       title: Context
     - id: error-boundaries
