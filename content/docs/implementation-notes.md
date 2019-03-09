@@ -1,6 +1,6 @@
 ---
 id: implementation-notes
-title: Implementation Notes
+title: Notas de Implementação
 layout: contributing
 permalink: docs/implementation-notes.html
 prev: codebase-overview.html
@@ -103,7 +103,7 @@ var node = mount(<App />);
 rootEl.appendChild(node);
 ```
 
->**Note:**
+>**Nota:**
 >
 >Isso realmente *é* um pseudocódigo. Não é semelhante a implementação real. Causará um estouro de pilha porque não discutimos quando parar a recursão.
 
@@ -113,11 +113,11 @@ Recapitulando alguns conceitos chaves do exemplo acima:
 * Componentes definidos pelo usuário (e.g. `App`) podem ser classes ou funções mas todos eles “se renderizam” a um elemento.
 * "Montagem" é um processo recursivo que cria uma árvore DOM ou Nativa dado um elemento React de nível superior (e.g. `<App />`).
 
-### Montando Elementos Host {#mounting-host-elements}
+### Montando Elementos Hospedeiros {#mounting-host-elements}
 
 Esse processo seria inútil se o resultado não fosse renderizar algo na tela.
 
-Além dos componentes definidos pelo usuário ("compostos"), elementos React podem também representar componentes para plataformas específicas ("hospedeiros"). Por exemplo, `Button` pode retornar uma `<div />` no seu método render.
+Além dos componentes definidos pelo usuário ("compostos"), elementos React podem também representar componentes ("hospedeiros") para plataformas específicas. Por exemplo, `Button` pode retornar uma `<div />` no seu método render.
 
 Se a propriedade `type` for uma string, estamos lidando com um elemento hospedeiro:
 
@@ -134,7 +134,7 @@ Se o elemento hospedeiro possuir filhos, o reconciliador recursivamente os monta
 
 Os nós DOM produzidos pelos componentes filhos serão anexados ao nó DOM pai, e, recursivamente, a completa estrutura DOM será construída.
 
->**Note:**
+>**Nota:**
 >
 >O reconciliador em si não está ligado ao DOM. O exato resultado da montagem (por vezes chamada de "mount image" no código fonte) depende do renderizador, e pode ser um nó do DOM (React DOM), uma string (React DOM Server), ou um número representando uma view nativa (React Native).
 
@@ -839,7 +839,7 @@ function mountTree(element, containerNode) {
 }
 ```
 
-Agora chamar `mountTree()` duas vezes com o mesmo tipo não é destrutivo:
+Agora executar mountTree() duas vezes com o mesmo tipo não é destrutivo:
 
 ```js
 var rootEl = document.getElementById('root');
@@ -855,7 +855,7 @@ Esse é o básico de como o React funciona internamente.
 
 Esse documento é simples comparado com o código real. Existem alguns aspectos importantes que não abordamos:
 
-* Componentes podem renderizar `null`, e o reconciliador pode lidar com "espaços vazios" em vetores e em resultados renderizados.
+* Componentes podem renderizar `null`, e o reconciliador pode lidar com "espaços vazios" em arrays e em resultados renderizados.
 
 * O reconciliador também lê a chave de seus elementos, e a usa para estabelecer qual instância interna corresponde a qual elemento em um array. Muita da complexidade da implementação real do React está relacionado a isto.
 
@@ -894,6 +894,6 @@ Esse documento é simples comparado com o código real. Existem alguns aspectos 
 
 O reconciliador de pilha tem limitações inerentes, como ser síncrono e incapaz de interromper trabalhos ou dividi-los em partes. Há um projeto em andamento no [novo Reconciliador Fiber](/docs/codebase-overview.html#fiber-reconciler) com uma [arquitetura completamente diferente](https://github.com/acdlite/react-fiber-architecture). No futuro, pretendemos substituir o reconciliador de pilha por ele, mas no momento está longe de estar completo.
 
-### Next Steps {#next-steps}
+### Próximos Passos {#next-steps}
 
 Leia a [próxima seção](/docs/design-principles.html) para aprender sobre os princípios orientadores que usamos para o desenvolvimento do React.
