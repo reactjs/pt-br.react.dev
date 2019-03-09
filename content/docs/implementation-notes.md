@@ -50,7 +50,7 @@ Se `App` for uma classe, o reconciliador instanciará `App` com `new App(props)`
 
 De qualquer forma, o reconciliador saberá em que elemento o `App` foi "renderizado".
 
-Esse processo é recursivo. `App` talvez se renderize a um `<Greeting />`, `Greeting` talvez se renderize a um `<Button />`, e assim em diante. O reconciliador irá “perfurar” os componentes definidos pelo usuário recursivamente enquanto ele aprende ao que cada um se renderiza.
+Esse processo é recursivo. `App` talvez seja renderizado para um `<Greeting />`, `Greeting` talvez seja renderizado para um `<Button />`, e assim por diante. O reconciliador irá “investigar” os componentes definidos pelo usuário recursivamente enquanto ele aprende para o quê cada um será renderizado.
 
 Você pode imaginar esse processo como um pseudo-código:
 
@@ -596,7 +596,7 @@ class CompositeComponent {
 
 Após isso, nós podemos olhar para o `type` do elemento renderizado. Se o `type` não mudou desde a última renderização, o componente abaixo também pode ser atualizado.
 
-Por exemplo, se retornado `<Button color="red" />` na primeira vez, e `<Button color="blue" />` na segunda vez, nós podemos apenas dizer a instância interna correspondente para receber (`receive()`) o próximo elemento:
+Por exemplo, se retorna `<Button color="red" />` na primeira vez, e `<Button color="blue" />` na segunda vez, nós podemos apenas dizer a instância interna correspondente para receber (`receive()`) o segundo elemento:
 
 
 ```js
