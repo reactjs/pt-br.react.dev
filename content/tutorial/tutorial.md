@@ -575,7 +575,6 @@ O resultado final será o mesmo, mas por não mutar (ou alterar os dados subjace
 
 #### Complexidade das features se tornam mais simples {#complex-features-become-simple}
 
-
 Imutabilidades faz a complexidade das features se tornarem bem mais simples de serem implementadas. Mais tarde neste tutorial, implementaremos uma feature de "máquina do tempo" que nos permitirá revisar o histórico do jogo da velha e "voltar" as jogadas anteriores.
 Essa funcionalidade não está ligada somente ao jogo -- uma habilidade de desfazer e refazer certas ações é um requisito comum em aplicações. Evitar mutação nos permite manter o histórico das versões anteriores do jogo intacta e reutiliza-las mais tarde.
 
