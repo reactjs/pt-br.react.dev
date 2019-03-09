@@ -409,6 +409,7 @@ Quando preenchermos o tabuleiro mais tarde, ele ficará parecido com isto:
   'O', null, null,
 ]
 ```
+
 O método `renderSquare` do Tabuleiro atualmente está definido como:
 
 ```javascript
