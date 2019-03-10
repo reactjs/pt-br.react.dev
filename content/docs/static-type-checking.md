@@ -299,7 +299,7 @@ npm i --save-dev @types/react
 ```
 
 __Declarações Locais__
-Sometimes the package that you want to use doesn't bundle declarations nor is it available on DefinitelyTyped. In that case, we can have a local declaration file. To do this, create a `declarations.d.ts` file in the root of your source directory. A simple declaration could look like this:
+Algumas vezes o pacote que você quer usar não empacota declarações nem está disponível no DefinitelyTyped. Neste caso, podemos ter um arquivo de declaração local. Para fazer isto, crie um arquivo `declarations.d.ts` na raiz da pasta do seu código fonte. Uma declaração simples ficaria assim:
 
 ```typescript
 declare module 'querystring' {
@@ -308,7 +308,7 @@ declare module 'querystring' {
 }
 ```
 
-You are now ready to code! We recommend to check out the following resources to learn more about TypeScript:
+Vocé agora pode começar a programar! Nós recomendamos verificar os seguintes recursos para aprender mais sobre TypeScript (em inglês):
 
 * [TypeScript Documentation: Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
 * [TypeScript Documentation: Migrating from Javascript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
