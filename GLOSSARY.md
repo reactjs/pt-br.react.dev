@@ -26,7 +26,7 @@ Veja a [seção iniciando](/getting-started#try-react) para mais informações.
 ❌ NÃO FAÇA:
 
 ```md
-## Tente React {#teste-react}
+## Tente React {#tente-react}
 ```
 
 Isto quebraria o link acima.
