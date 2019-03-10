@@ -1,45 +1,46 @@
 ---
-title: "Is React Translated Yet? ¡Sí! Sim! はい！"
+title: "O React já esta traduzido? ¡Sí! Sim! はい！"
 author: [tesseralis]
 ---
 
-We’re excited to announce an ongoing effort to maintain official translations of the React documentation website into different languages. Thanks to the dedicated efforts of React community members from around the world, React is now being translated into *over 30* languages! You can find them on the new [Languages](/languages) page.
+Temos o prazer de anunciar o esforço continuo para manter traduções oficiais do website de documentação do React em diferentes idiomas. Graças ao esforço dedicado dos membros da comunidade do React de todo o mundo, o React agora está sendo traduzido em *mais de 30* idiomas! Você pode acha-los na nova pagina de [Idiomas](/languages).
 
-In addition, the following three languages have completed translating most of the React Docs! 🎉
+Além disso, as três linguagens a seguir concluíram a tradução da maioria dos documentos do React! 🎉
 
-* **Spanish: [es.reactjs.org](https://es.reactjs.org)**
-* **Japanese: [ja.reactjs.org](https://ja.reactjs.org)**
-* **Brazilian Portuguese: [pt-br.reactjs.org](https://pt-br.reactjs.org)**
+* **Espanhol: [es.reactjs.org](https://es.reactjs.org)**
+* **Japonês: [ja.reactjs.org](https://ja.reactjs.org)**
+* **Português do Brasil: [pt-br.reactjs.org](https://pt-br.reactjs.org)**
 
-Special congratulations to [Alejandro Ñáñez Ortiz](https://github.com/alejandronanez), [Rainer Martínez Fraga](https://github.com/carburo), [David Morales](https://github.com/dmorales), [Miguel Alejandro Bolivar Portilla](https://github.com/Darking360), and all the contributors to the Spanish translation for being the first to *completely* translate the core pages of the docs!
+Parabéns especiais para [Alejandro Ñáñez Ortiz](https://github.com/alejandronanez), [Rainer Martínez Fraga](https://github.com/carburo), [David Morales](https://github.com/dmorales), [Miguel Alejandro Bolívar Portilla](https://github.com/Darking360), e todos os colaboradores da tradução em espanhol por serem os primeiros a *completamente* traduzirem as páginas principais da documentação!
 
-## Why Localization Matters {#why-localization-matters}
+## Por que a localização é importante? {#why-localization-matters}
 
-React already has many meetups and conferences around the world, but many programmers don't use English as their primary language. We’d love to support local communities who use React by making our documentation available in most popular languages.
+O React já tem muitos eventos e conferências no mundo todo, mas muitos desenvolvedores não tem o inglês como idioma principal. Gostaríamos de oferecer suporte às comunidades locais que usam o React, disponibilizando nossa documentação nos idiomas mais populares.
 
-In the past, React community members have created unofficial translations for [Chinese](https://github.com/discountry/react), [Arabic](https://wiki.hsoub.com/React), and [Korean](https://github.com/reactjs/ko.reactjs.org/issues/4); by making an official channel for these translated docs we're hoping to make them easier to find and help make sure that non-English-speaking users of React aren't left behind.
+No passado, membros da comunidade do React criaram traduções não oficiais para o [chinês](https://github.com/discountry/react), [árabe](https://wiki.hsoub.com/React) e [coreano](https://github.com/reactjs/ko.reactjs.org/issues/4); Ao criar um canal oficial para essas traduções, esperamos torna-las mais fáceis de se encontrar e ajudar a garantir que os usuários do React que não falam inglês não sejam deixados para trás.
 
-## Contributing {#contributing}
+## Contribuindo {#contributing}
 
-If you would like to help out on a current translation, check out the [Languages](/languages) page and click on the "Contribute" link for your language.
+Se você quiser ajudar em uma tradução atual, confira a página [Idiomas](/languages) e clique no link "Contribuir" para o seu idioma.
 
-Can't find your language? If you'd like to maintain your langauge's translation fork, follow the instructions in the [translation repo](https://github.com/reactjs/reactjs.org-translation#starting-a-new-translation)!
+Não consegue encontrar o seu idioma? Se você deseja manter o repositório de tradução do seu idioma, siga as instruções no [repositório de tradução](https://github.com/reactjs/reactjs.org-translation#starting-a-new-translation)!
 
 ## Backstory {#backstory}
 
-Hi everyone! I'm [Nat](https://twitter.com/tesseralis)! You may know me as the [polyhedra lady](https://www.youtube.com/watch?v=Ew-UzGC8RqQ). For the past few weeks, I've been helping the React team coordinate their translation effort. Here's how I did it.
+Olá a todos! Me chamo [Nat] (https://twitter.com/tesseralis)! Talvez você me conheça como a [moça dos poliedros](https://www.youtube.com/watch?v=Ew-UzGC8RqQ). Nas últimas semanas, eu ajudei a equipe do React a coordenar os esforços da tradução. Eis como eu fiz isso.
 
-Our original approach for translations was to use a SaaS platform that allows users to submit translations. There was already a [pull request](https://github.com/reactjs/reactjs.org/pull/873) to integrate it and my original responsibility was to finish that integration. However, we had concerns about the feasibility of that integration and the current quality of translations on the platform. Our primary concern was ensuring that translations kept up to date with the main repo and didn't become "stale".
+Nossa abordagem original para as traduções foi usar uma plataforma SaaS que permite usuários a submeter traduções. Já havia um [pull request](https://github.com/reactjs/reactjs.org/pull/873) para integrá-lo e minha responsabilidade original era terminar essa integração. No entanto, tivemos preocupações sobre a viabilidade dessa integração e a qualidade das traduções na plataforma no momento. Nossa principal preocupação era garantir que as traduções continuassem atualizadas com o repositório principal e não se tornassem obsoletas.
 
-[Dan](https://twitter.com/dan_abramov) encouraged me to look for alternate solutions, and we stumbled across how [Vue](https://vuejs.org) maintained its translations -- through different forks of the main repo on GitHub. In particular, the [Japanese translation](https://jp.vuejs.org) used a bot to periodically check for changes in the English repo and submits pull requests whenever there is a change.
+[Dan](https://twitter.com/dan_abramov) me encorajou a procurar soluções alternativas, e nós nos deparamos com a forma como a [Vue](https://vuejs.org) manteve suas traduções - através de diferentes forks dos principais repositórios no GitHub. Em particular, a [tradução em japonês](https://jp.vuejs.org) usou um bot para verificar periodicamente as alterações no repositório em inglês e enviar pull requests sempre que existir uma 
+mudança.
 
-This approach appealed to us for several reasons:
+Essa abordagem nos atraiu por vários motivos:
 
-* It was less code integration to get off the ground.
-* It encouraged active maintainers for each repo to ensure quality.
-* Contributors already understand GitHub as a platform and are motivated to contribute directly to the React organization.
+* Menos código de integração.
+* Encorajou maintainers ativos em cada repositório para garantir qualidade.
+* Os colaboradores já tem entendimento do GitHub como plataforma e ficam motivados para contribuir diretamente a organização do React.
 
-We started of with an initial trial period of three languages: Spanish, Japanese, and Simplified Chinese. This allowed us to work out any kinks in our process and make sure future translations are set up for success. I wanted to give the translation teams freedom to choose whatever tools they felt comfortable with. The only requirement is a [checklist](https://github.com/reactjs/reactjs.org-translation/blob/master/PROGRESS.template.md) that outlines the order of importance for translating pages. 
+Começamos com um período inicial de teste em três idiomas: espanhol, japonês e chinês simplificado. Isso nos permitiu resolver quaisquer problemas no processo e garantir que futuras traduções tenham ótimas chances de sucesso. Eu queria dar a liberdade para que as equipes de tradução pudessem escolher qualquer ferramenta com a qual se sentissem à vontade. O único requisito é uma [checklist](https://github.com/reactjs/reactjs.org-translation/blob/master/PROGRESS.template.md) que descreve a ordem de importância para a tradução de páginas.
 
 After the trial period, we were ready to accept more languages. I created [a script](https://github.com/reactjs/reactjs.org-translation/blob/master/scripts/create.js) to automate the creation of the new language repo, and a site, [Is React Translated Yet?](https://isreacttranslatedyet.com), to track progress on the different translations. We started *10* new translations on our first day alone!
 
