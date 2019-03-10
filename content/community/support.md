@@ -14,7 +14,8 @@ Nesta página, mostraremos algumas comunidades relacionadas ao React que você p
 Veja as outras páginas desta seção para obter materiais de aprendizagem adicionais online e presencial.
 
 ## Stack Overflow {#stack-overflow}
-Stack Overflow é um fórum bastante popular para realizar perguntas a nível de código ou tirar dúvidas sobre determinado erro em específico. Leia as [perguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) marcadas como **reactjs** ou [faça sua própria pergunta](https://stackoverflow.com/questions/ask?tags=reactjs)!
+
+Stack Overflow é um fórum bastante popular para realizar perguntas no nível de código ou tirar dúvidas sobre um erro em específico. Leia as [perguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) marcadas como **reactjs** ou [faça sua própria pergunta](https://stackoverflow.com/questions/ask?tags=reactjs)!
 
 ## Fóruns de Discussões Populares {#popular-discussion-forums}
 
