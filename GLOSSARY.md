@@ -139,7 +139,7 @@ Sugestões de palavras e termos:
 | handler | manipulador |
 | event handler | manipulador de eventos (event handler) |
 
-# Conteúdo que não deve ser traduzido
+## Conteúdo que não deve ser traduzido
 
 * array
 * arrow function
