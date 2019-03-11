@@ -150,4 +150,4 @@
     - id: faq-versioning
       title: Política de Versão
     - id: faq-internals
-      title: Virtual DOM e Internos
+      title: DOM Virtual e Objetos Internos
