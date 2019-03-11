@@ -10,7 +10,7 @@ category: FAQ
 
 O virtual DOM (VDOM) é um conceito de programação onde uma representação ideal, ou "virtual", da interface do usuário é mantida em memória e sincronizada com o DOM "real" por uma biblioteca como o ReactDOM. Esse processo é chamado de [reconciliação](/docs/reconciliation.html).
 
-Essa aproximação permite a API declarativa do React: Você diz ao React qual o state que você quer que a interface do usuário esteja, e ele garante que o DOM seja igual ao state. Isso abstrai a manipulação de atributos, handling de eventos e atualização manual do DOM que, caso ao contrario, você teria que usar para construir o seu app.
+Essa aproximação permite a API declarativa do React: Você diz ao React qual o state que você quer que a interface do usuário esteja, e ele garante que o DOM seja igual ao state. Isso abstrai a manipulação de atributos, manipulação de eventos e atualização manual do DOM que, caso ao contrario, você teria que usar para construir o seu app.
 
 Desde que o "virtual DOM" é mais um padrão do que uma tecnologia específica, as pessoas às vezes o citam para significar coisas diferentes. No mundo do React, o termo "virtual DOM" é geralmente associado aos [Elementos do React](/docs/rendering-elements.html) uma vez que eles são objetos representando a interface do usuário. O React, contudo, também usa objetos internos chamados "fibers" para segurar informações adicionais sobre a árvore de componentes. Eles também podem ser considerados parte da implementação do "virtual DOM" no React.
 
