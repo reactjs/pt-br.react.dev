@@ -45,10 +45,10 @@ class CodepenExample extends Component {
             <input type="hidden" name="data" value={payload} />
 
             <p>
-              Not automatically redirecting?
+              Não foi redirecionado automaticamente?
               <br />
               <br />
-              <input style={primaryStyle} type="submit" value="Click here" />
+              <input style={primaryStyle} type="submit" value="Clique aqui" />
             </p>
           </form>
         </Container>
