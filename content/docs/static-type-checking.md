@@ -320,10 +320,10 @@ A Reason é desenvolvida no Facebook e é usada em alguns dos seus produtos como
 
 ## Kotlin {#kotlin}
 
-[Kotlin](https://kotlinlang.org/) is a statically typed language developed by JetBrains. Its target platforms include the JVM, Android, LLVM, and [JavaScript](https://kotlinlang.org/docs/reference/js-overview.html). 
+[Kotlin](https://kotlinlang.org/) é uma linguagem estaticamente tipada desenvolvida pelo JetBrains. As plataformas alvo dela incluem o JVM, Android, LLVM e [JavaScript](https://kotlinlang.org/docs/reference/js-overview.html).
 
-JetBrains develops and maintains several tools specifically for the React community: [React bindings](https://github.com/JetBrains/kotlin-wrappers) as well as [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app). The latter helps you start building React apps with Kotlin with no build configuration.
+JetBrains desenvolve e mantém algumas ferramentas especificamente para a comunidade do React: [ligações com o React](https://github.com/JetBrains/kotlin-wrappers) assim como [Create React Kotlin App](https://github.com/JetBrains/create-react-kotlin-app). A última auxilia você a começar a construir aplicações React com Kotlin sem precisar configurar um build.
 
-## Other Languages {#other-languages}
+## Outras Linguagens {#other-languages}
 
-Note there are other statically typed languages that compile to JavaScript and are thus React compatible. For example, [F#/Fable](https://fable.io/) with [elmish-react](https://elmish.github.io/react). Check out their respective sites for more information, and feel free to add more statically typed languages that work with React to this page!
+Perceba que há outras linguagens estaticamente tipadas que compilam para JavaScript e assim é compatível com React. Por exemplo, [F#/Fable](https://fable.io/) com [elmish-react](https://elmish.github.io/react). Verifique os respectivos sites para mais informações e sinta-se livre para adicionar à esta página mais linguagens estaticamente tipadas que trabalham com React!
