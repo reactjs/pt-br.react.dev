@@ -2,7 +2,7 @@
 id: static-type-checking
 title: Verificando Tipos Estáticos
 permalink: docs/static-type-checking.html
-prev: typechecking-with-prototypes.html
+prev: typechecking-with-proptypes.html
 next: refs-and-the-dom.html
 ---
 
@@ -221,7 +221,7 @@ Parabéns! Você instalou a versão mais recente do TypeScript no seu projeto. I
 O compilador não é de ajuda alguma até que o dizemos o que deve fazer. No TypeScript, essas regras são definidas em um arquivo especial chamado `tsconfig.json`. Para gerar esse arquivo execute:
 
 ```bash
-tsc --init
+npx tsc --init
 ```
 
 Olhando o então gerado `tsconfig.json`, você pode ver que há muitas opções que você pode usar para configurar o compilador. Para uma descrição detalhada de todas as opções, veja [aqui](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
@@ -328,4 +328,4 @@ JetBrains develops and maintains several tools specifically for the React commun
 
 ## Other Languages {#other-languages}
 
-Note there are other statically typed languages that compile to JavaScript and are thus React compatible. For example, [F#/Fable](http://fable.io) with [elmish-react](https://elmish.github.io/react). Check out their respective sites for more information, and feel free to add more statically typed languages that work with React to this page!
+Note there are other statically typed languages that compile to JavaScript and are thus React compatible. For example, [F#/Fable](https://fable.io/) with [elmish-react](https://elmish.github.io/react). Check out their respective sites for more information, and feel free to add more statically typed languages that work with React to this page!

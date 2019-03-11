@@ -11,6 +11,12 @@ import {LiveEditor, LiveProvider} from 'react-live';
 import {colors, media} from 'theme';
 import MetaTitle from 'templates/components/MetaTitle';
 
+// Replace unicode to text for other languages
+const unicodeToText = text =>
+  text.replace(/\\u([\dA-F]{4})/gi, (_, p1) =>
+    String.fromCharCode(parseInt(p1, 16)),
+  );
+
 const compileES5 = (
   code, // eslint-disable-next-line no-undef
 ) => Babel.transform(code, {presets: ['es2015', 'react']}).code;
@@ -43,7 +49,7 @@ class CodeEditor extends Component {
   }
 
   render() {
-    const {children, containerNodeID} = this.props;
+    const {containerNodeID} = this.props;
     const {
       compiledES6,
       code,
@@ -56,12 +62,13 @@ class CodeEditor extends Component {
     if (showBabelErrorMessage) {
       errorMessage = (
         <span>
-          Babel could not be loaded.
+          O Babel não pôde ser carregado.
           <br />
           <br />
-          This can be caused by an ad blocker. If you're using one, consider
-          adding reactjs.org to the whitelist so the live code examples will
-          work.
+          Isto pode ser causado por algum bloqueador de anúncio. Se você está
+          usando algum, considere adicionar o endereço reactjs.org na{' '}
+          <i>whitelist</i>, ou lista de permitidos, e feito isso os exemplos com{' '}
+          <i>live code</i> irão funcionar.
         </span>
       );
     } else if (error != null) {
@@ -244,8 +251,8 @@ class CodeEditor extends Component {
     const {compiled} = this.state;
 
     try {
-      // Example code requires React, ReactDOM, and Remarkable to be within scope.
-      // It also requires a "mountNode" variable for ReactDOM.render()
+      // O código de exemplo requer que o React, o ReactDOM e o Remarkable estejam dentro do escopo.
+      // Também requer uma variável "mountNode" para ReactDOM.render()
       // eslint-disable-next-line no-new-func
       new Function('React', 'ReactDOM', 'Remarkable', compiled)(
         React,
@@ -271,7 +278,7 @@ class CodeEditor extends Component {
 
       if (showJSX) {
         newState.code = code;
-        newState.compiledES6 = compileES6(code);
+        newState.compiledES6 = unicodeToText(compileES6(code));
       } else {
         newState.compiledES6 = code;
       }
@@ -280,8 +287,8 @@ class CodeEditor extends Component {
     } catch (error) {
       console.error(error);
 
-      // Certain ad blockers (eg Fair AdBlocker) prevent Babel from loading.
-      // If we suspect this is the case, we can show a more helpful error.
+      // Certos bloqueadores de anúncios (ex: Fair AdBlocker) evitam que o Babel carregue.
+      // Se suspeitarmos que este é o caso, nós podemos exibir uma mensagem de ajuda melhor.
       const showBabelErrorMessage = !window.Babel;
 
       return {

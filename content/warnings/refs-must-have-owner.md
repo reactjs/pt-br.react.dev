@@ -1,48 +1,48 @@
 ---
-title: Refs Must Have Owner Warning
+title: Aviso de Refs Precisam Ter um Dono
 layout: single
 permalink: warnings/refs-must-have-owner.html
 ---
 
-You are probably here because you got one of the following error messages:
+Você provavelmente está aqui porque recebeu uma das seguintes mensagens de erro:
 
 *React 16.0.0+*
 > Warning:
 >
 > Element ref was specified as a string (myRefName) but no owner was set. You may have multiple copies of React loaded. (details: https://fb.me/react-refs-must-have-owner).
 
-*earlier versions of React*
+*Versões anteriores do React*
 > Warning:
 >
 > addComponentAsRefTo(...): Only a ReactOwner can have refs. You might be adding a ref to a component that was not created inside a component's `render` method, or you have multiple copies of React loaded.
 
-This usually means one of three things:
+Isso normalmente significa uma destas três coisas:
 
-- You are trying to add a `ref` to a function component.
-- You are trying to add a `ref` to an element that is being created outside of a component's render() function.
-- You have multiple (conflicting) copies of React loaded (eg. due to a misconfigured npm dependency)
+- Você está tentando adicionar uma `ref` a um componente funcional.
+- Você está tentando adicionar uma `ref` a um elemento criado fora da função render() de um componente.
+- Você possui múltiplas (conflitantes) cópias do React carregadas (por exemplo, em função de uma dependência do npm configurada erroneamente).
 
-## Refs on Function Components {#refs-on-function-components}
+## Refs Em Componentes Funcionais {#refs-on-function-components}
 
-If `<Foo>` is a function component, you can't add a ref to it:
+Se `<Foo>` é um componente funcional, você não pode adicionar uma ref nele:
 
 ```js
-// Doesn't work if Foo is a function!
+// Não funciona se Foo é uma função!
 <Foo ref={foo} />
 ```
 
-If you need to add a ref to a component, convert it to a class first, or consider not using refs as they are [rarely necessary](/docs/refs-and-the-dom.html#when-to-use-refs).
+Se você precisa adicionar uma ref a um componente, converta-o em uma classe primeiro, ou considere a não utilização de refs por elas serem [raramente necessárias](/docs/refs-and-the-dom.html#when-to-use-refs)
 
-## Strings Refs Outside the Render Method {#strings-refs-outside-the-render-method}
+## Refs como Strings Fora do Método Render {#strings-refs-outside-the-render-method}
 
-This usually means that you're trying to add a ref to a component that doesn't have an owner (that is, was not created inside of another component's `render` method). For example, this won't work:
+Isso normalmente significa que você está tentando adicionar uma ref para um componente que não possui um dono (isto é, não foi criado dentro do método `render` de outro componente). Por exemplo, isso não funcionará:
 
 ```js
-// Doesn't work!
+// Não funciona!
 ReactDOM.render(<App ref="app" />, el);
 ```
 
-Try rendering this component inside of a new top-level component which will hold the ref. Alternatively, you may use a callback ref:
+Tente renderizar esse componente dentro de um novo componente localizado em um nível acima e que irá possuir essa ref. De outro modo, você pode utilizar uma ref com callback:
 
 ```js
 let app;
@@ -54,10 +54,10 @@ ReactDOM.render(
 );
 ```
 
-Consider if you [really need a ref](/docs/refs-and-the-dom.html#when-to-use-refs) before using this approach.
+Reflita se você [realmente precisa de uma ref](/docs/refs-and-the-dom.html#when-to-use-refs) antes de seguir essa abordagem.
 
-## Multiple copies of React {#multiple-copies-of-react}
+## Múltiplas Cópias do React {#multiple-copies-of-react}
 
-Bower does a good job of deduplicating dependencies, but npm does not. If you aren't doing anything (fancy) with refs, there is a good chance that the problem is not with your refs, but rather an issue with having multiple copies of React loaded into your project. Sometimes, when you pull in a third-party module via npm, you will get a duplicate copy of the dependency library, and this can create problems.
+Bower faz um bom trabalho de desduplicar dependências, mas o npm não. Se você não está fazendo algo (extravagante) com refs, existe uma boa chance do problema não estar com suas refs, mas sim pelo fato de existir múltiplas cópias do React carregadas no seu projeto. Às vezes, quando você instala um módulo externo via npm, você irá obter uma cópia duplicada da dependência, e isso pode causar problemas.
 
-If you are using npm... `npm ls` or `npm ls react` might help illuminate.
+Se você está usando npm... `npm ls` ou `npm ls react` podem ajudar.
