@@ -45,3 +45,6 @@ permalink: community/courses.html
 - [Tyler McGinnis](https://tylermcginnis.com/courses) - Tyler McGinnis fornece acesso aos seus cursos por uma taxa mensal. Os cursos incluem "React Fundamentals" e "Universal React".
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construa apps interativos e profissionais com o React.
+
+- [ReactJS Ninja](https://www.udemy.com/curso-reactjs-ninja/) - Considerado pela comunidade de desenvolvedores, o melhor curso em Português/BR de React.
+
