@@ -316,9 +316,9 @@ Vocé agora pode começar a programar! Nós recomendamos verificar os seguintes 
 
 ## Reason {#reason}
 
-[Reason](https://reasonml.github.io/) is not a new language; it's a new syntax and toolchain powered by the battle-tested language, [OCaml](https://ocaml.org/). Reason gives OCaml a familiar syntax geared toward JavaScript programmers, and caters to the existing NPM/Yarn workflow folks already know.
+[Reason](https://reasonml.github.io/) não é uma linguagem nova; é uma nova sintaxe e cadeia de ferramentas disponibilizada pela linguagem testada em batalha [OCaml](https://ocaml.org/). A Reason dá a OCaml uma sintaxe familiar voltada para programadores JavaScript e atende ao fluxo de trabalho do NPM/Yarn que o pessoal já conhece.
 
-Reason is developed at Facebook, and is used in some of its products like Messenger. It is still somewhat experimental but it has [dedicated React bindings](https://reasonml.github.io/reason-react/) maintained by Facebook and a [vibrant community](https://reasonml.github.io/docs/en/community.html).
+A Reason é desenvolvida no Facebook e é usada em alguns dos seus produtos como o Messenger. Ainda é de alguma forma experimental, mas ela tem [ligações dedicadas com o React](https://reasonml.github.io/reason-react/) mantida pelo Facebook e pela [comunidade vibrante](https://reasonml.github.io/docs/en/community.html).
 
 ## Kotlin {#kotlin}
 
