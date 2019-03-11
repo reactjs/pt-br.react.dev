@@ -266,13 +266,11 @@ No React, você provavelmente escreverá seus componentes em um arquivo `.js`. N
 
 Se você seguiu as instruções acima, você deverá ser capaz de executar o TypeScript pela primeira vez.
 
-Se você usa [Yarn](https://yarnpkg.com/), execute:
-
 ```bash
 yarn build
 ```
 
-Se você usa [npm](https://www.npmjs.com/), execute:
+Se você usa npm, execute:
 
 ```bash
 npm run build
