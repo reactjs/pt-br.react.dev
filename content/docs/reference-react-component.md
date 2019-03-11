@@ -45,7 +45,7 @@ O único método que você *deve* definir em uma subclasse de `React.Component` 
 
 Cada componente possui muitos "métodos do ciclo de vida" que você pode sobrescrever para executar determinado código em momentos particulares do processo. **Você pode usar [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) para consulta.** Na lista abaixo, os métodos do ciclo de vida mais usados estão marcados em **negrito**. O resto deles, existe para o uso em casos relativamente raros.
 
-#### Montando {#mounting}
+#### Montando (mounting) {#mounting}
 
 Estes métodos são chamados na seguinte ordem quando uma instância de um componente está sendo criada e inserida no DOM:
 
@@ -78,7 +78,7 @@ Uma atualização pode ser causada por alterações em props ou no state. Estes 
 >- [`UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
 >- [`UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
 
-#### Desmontando {#unmounting}
+#### Desmontando (unmounting) {#unmounting}
 
 Estes métodos são chamados quando um componente está sendo removido do DOM:
 
@@ -110,7 +110,7 @@ Cada componente também fornece outras APIs:
 
 * * *
 
-## Referencia {#reference}
+## Referência {#reference}
 
 ### Métodos mais usados do Ciclo de Vida {#commonly-used-lifecycle-methods}
 
