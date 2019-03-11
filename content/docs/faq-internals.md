@@ -6,7 +6,7 @@ layout: docs
 category: FAQ
 ---
 
-### Oque é um DOM Virtual?
+### O que é um DOM Virtual?
 
 O DOM Virtual (VDOM) é um conceito de programação onde uma representação ideal, ou "virtual", da interface do usuário é mantida em memória e sincronizada com o DOM "real" por uma biblioteca como o ReactDOM. Esse processo é chamado de [reconciliação](/docs/reconciliation.html).
 
