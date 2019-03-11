@@ -220,6 +220,14 @@ Parabéns! Você instalou a versão mais recente do TypeScript no seu projeto. I
 ### Configurando o Compilador do TypeScript {#configuring-the-typescript-compiler}
 O compilador não é de ajuda alguma até que o dizemos o que deve fazer. No TypeScript, essas regras são definidas em um arquivo especial chamado `tsconfig.json`. Para gerar esse arquivo execute:
 
+Se você usa [Yarn](https://yarnpkg.com/), execute:
+
+```bash
+yarn run tsc --init
+```
+
+Se você usa [npm](https://www.npmjs.com/), execute:
+
 ```bash
 npx tsc --init
 ```
