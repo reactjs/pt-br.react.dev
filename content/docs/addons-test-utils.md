@@ -53,7 +53,7 @@ Para preparar um componente para determinações, coloque o código de renderiza
 Por exemplo, vamos dizer que nós temos esse componente `Counter`:
 
 ```js
-class App extends React.Component {
+class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {count: 0};

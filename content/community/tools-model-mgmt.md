@@ -5,16 +5,16 @@ layout: community
 permalink: community/model-management.html
 ---
 
-* **[Alt](https://alt.js.org/):** Pure vanilla flux made isomorphic and without the boilerplate.
-* **[astarisx](https://zuudo.github.io/astarisx/):** Highly Composable MVVM Framework for React with built-in pushState router.
-* **[avers](https://github.com/wereHamster/avers):** A modern client-side model abstraction library.
-* **[backbone-react-component](https://github.com/magalhas/backbone-react-component):** Use multiple Backbone models and collections with React components both on the client and server sides.
-* **[Baobab](https://github.com/Yomguithereal/baobab):** Persistent data tree supporting cursors.
-* **[cortex](https://github.com/mquan/cortex/):** A JavaScript library for centrally managing data with React.
-* **[DeLorean](https://github.com/deloreanjs/delorean):** A completely agnostic JavaScript framework to apply Flux concepts into your interfaces easily.
-* **[Elsa](https://github.com/JonAbrams/elsa):** A Babel plugin that makes your arrays and objects immutable by default… and gives them super powers!
-* **[Immutable](https://github.com/facebook/immutable-js):** Immutable data structures designed to be more JavaScript-y than Mori.
-* **[js-data](https://www.js-data.io/):** A framework-agnostic frontend datastore, that will also fetch your data.
-* **[McFly](https://github.com/kenwheeler/mcfly):** A lightweight Flux library that adds factories for Stores & Actions.
-* **[NuclearJS](https://github.com/optimizely/nuclear-js):** Immutable, reactive Flux architecture. UI Agnostic.
-* **[Reflux](https://github.com/spoike/refluxjs):** An event-based implementation of the Flux architecture that integrates with React components.
+* **[Alt](https://alt.js.org/):** Flux feito isomorficamente com javascript puro e sem boilerplate.
+* **[astarisx](https://zuudo.github.io/astarisx/):** Estrutura MVVM altamente combinável para React com o roteador pushState integrado.
+* **[avers](https://github.com/wereHamster/avers):** Uma moderna biblioteca de abstração de modelo do lado do cliente.
+* **[backbone-react-component](https://github.com/magalhas/backbone-react-component):** Use vários modelos e coleções do Backbone com componentes do React nos lados do cliente e do servidor.
+* **[Baobab](https://github.com/Yomguithereal/baobab):** Árvore de dados persistente que suporta indicadores.
+* **[cortex](https://github.com/mquan/cortex/):** Uma biblioteca JavaScript para gerenciar dados centralmente com o React.
+* **[DeLorean](https://github.com/deloreanjs/delorean):** Um framework JavaScript totalmente agnóstico para aplicar os conceitos do Flux em suas interfaces facilmente.
+* **[Elsa](https://github.com/JonAbrams/elsa):** Um plugin Babel que torna seus arrays e objetos imutáveis ​​por padrão ... e dá a eles superpoderes!
+* **[Immutable](https://github.com/facebook/immutable-js):** Estruturas de dados imutáveis ​​projetadas para serem mais JavaScript-y do que Mori.
+* **[js-data](https://www.js-data.io/):** Um  framework front-end agnóstico de armazenamento de dados, que também irá fazer fetch dos seus dados.
+* **[McFly](https://github.com/kenwheeler/mcfly):** Uma biblioteca leve do Flux que adiciona factories para stores e actions.
+* **[NuclearJS](https://github.com/optimizely/nuclear-js):** Arquitetura imutável e reativa do Flux. Interface do usuário agnóstica.
+* **[Reflux](https://github.com/spoike/refluxjs):** Uma implementação baseada em eventos da arquitetura Flux que se integra aos componentes do React.
