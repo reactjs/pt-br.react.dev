@@ -20,4 +20,4 @@ Existem vários projetos de exemplos criados pela comunidade do React. Sinta-se 
 * **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Clone do Hacker News reescrito com javascript universal, usando React e GraphQL.
 * **[Bitcoin Price Index](https://github.com/mrkjlchvz/bitcoin-price-index)** Dados simples dos índices de preços do Bitcoin consumindo a API do CoinDesk.
 * **[Builder Book](https://github.com/builderbook/builderbook)** Aplicação web de código aberto para hospedar e escrever documentações ou vender livros. Criada com React, Material-UI, Next, Express, Mongoose e MongoDB. 
-* **[GFonts Space](https://github.com/pankajladhar/GFontsSpace)** Um espaço que permite o usuário testar ou brincar com as fontes do Google. Criado com Rect, Redux e React-Router.
+* **[GFonts Space](https://github.com/pankajladhar/GFontsSpace)** Um espaço que permite o usuário testar ou brincar com as fontes do Google. Criado com React, Redux e React-Router.
