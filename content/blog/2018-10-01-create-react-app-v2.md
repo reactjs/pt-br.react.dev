@@ -81,14 +81,14 @@ Here's a short list of breaking changes in this release:
 
 If either of these points affects you, [2.0.3 release notes](https://github.com/facebook/create-react-app/releases/tag/v2.0.3) contain more detailed instructions.
 
-## Learn More {#learn-more}
+## Saiba Mais {#learn-more}
 
-You can find the full changelog in the [release notes](https://github.com/facebook/create-react-app/releases/tag/v2.0.3). This was a large release, and we may have missed something. Please report any problems to our [issue tracker](https://github.com/facebook/create-react-app/issues/new) and we'll try to help.
+Você pode encontrar todo histórico de mudanças nas [notas de lançamento](https://github.com/facebook/create-react-app/releases/tag/v2.0.3). Esse foi um lançamento grande e podemos ter esquecido de algo. Por favor, reporte qualquer problema para nosso [rastreador de issues](https://github.com/facebook/create-react-app/issues/new) e vamos tentar ajudar.
 
->Note
+>Nota
 >
->If you've been using 2.x alpha versions, we provide [separate migration instructions](https://gist.github.com/gaearon/8650d1c70e436e5eff01f396dffc4114) for them.
+>Se você está usando versões _alpha_ 2.x, temos [instruções de migração diferentes](https://gist.github.com/gaearon/8650d1c70e436e5eff01f396dffc4114) para elas.
 
-## Thanks {#thanks}
+## Agradecimento {#thanks}
 
-Esse lançamento não seria possível sem a maravilhosa comunidade de contribuidores. Gostaríamos de agradecer à [Andreas Cederström](https://github.com/andriijas), [Clement Hoang](https://github.com/clemmy), [Brian Ng](https://github.com/existentialism), [Kent C. Dodds](https://github.com/kentcdodds), [Ade Viankakrisna Fadlil](https://github.com/viankakrisna), [Andrey Sitnik](https://github.com/ai), [Ro Savage](https://github.com/ro-savage), [Fabiano Brito](https://github.com/Fabianopb), [Ian Sutherland](https://github.com/iansu), [Pete Nykänen](https://github.com/petetnt), [Jeffrey Posnick](https://github.com/jeffposnick), [Jack Zhao](https://github.com/bugzpodder), [Tobias Koppers](https://github.com/sokra), [Henry Zhu](https://github.com/hzoo), [Maël Nison](https://github.com/arcanis), [XiaoYan Li](https://github.com/lixiaoyan), [Marko Trebizan](https://github.com/themre), [Marek Suscak](https://github.com/mareksuscak), [Mikhail Osher](https://github.com/miraage) e vários outros que testaram e ofereceram _feedback_ para esse lançamento.
+Esse lançamento não seria possível sem a maravilhosa comunidade de contribuidores. Gostaríamos de agradecer a [Andreas Cederström](https://github.com/andriijas), [Clement Hoang](https://github.com/clemmy), [Brian Ng](https://github.com/existentialism), [Kent C. Dodds](https://github.com/kentcdodds), [Ade Viankakrisna Fadlil](https://github.com/viankakrisna), [Andrey Sitnik](https://github.com/ai), [Ro Savage](https://github.com/ro-savage), [Fabiano Brito](https://github.com/Fabianopb), [Ian Sutherland](https://github.com/iansu), [Pete Nykänen](https://github.com/petetnt), [Jeffrey Posnick](https://github.com/jeffposnick), [Jack Zhao](https://github.com/bugzpodder), [Tobias Koppers](https://github.com/sokra), [Henry Zhu](https://github.com/hzoo), [Maël Nison](https://github.com/arcanis), [XiaoYan Li](https://github.com/lixiaoyan), [Marko Trebizan](https://github.com/themre), [Marek Suscak](https://github.com/mareksuscak), [Mikhail Osher](https://github.com/miraage) e vários outros que testaram e ofereceram _feedback_ para esse lançamento.
