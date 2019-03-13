@@ -45,7 +45,15 @@ setState(newState);
 
 Durante as próximas re-renderizações, o primeiro valor retornado por `useState` sempre será o estado mais recente após a aplicação das atualizações.
 
+<<<<<<< HEAD
 #### Atualizações Funcionais {#functional-updates}
+=======
+>Note
+>
+>React guarantees that `setState` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
+
+#### Functional updates {#functional-updates}
+>>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 
 Se um novo estado for calculado usando o estado anterior, você pode passar uma função para `setSate`. A função receberá o valor anterior e retornará um valor atualizado. Aqui está um exemplo de um componente de contador que usa as duas formas de usar o `setState`:
 
@@ -134,7 +142,11 @@ Embora `useEffect` seja adiado até a próxima renderização do navegador, é m
 
 #### Disparando um Efeito Condicionalmente {#conditionally-firing-an-effect}
 
+<<<<<<< HEAD
 O comportamento padrão para efeitos é disparar o efeito após cada término de renderização. Desta maneira, o efeito é sempre recriado se uma das suas entradas mudar.
+=======
+The default behavior for effects is to fire the effect after every completed render. That way an effect is always recreated if one of its dependencies changes.
+>>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 
 No entanto, isto pode ser excessivo em alguns casos, como o exemplo de assinatura da seção anterior. Nós não precisamos criar uma nova assinatura toda vez que atualizar, apenas se a propriedade `source` for alterada.
 
@@ -154,11 +166,26 @@ useEffect(
 
 Agora a assinatura só será recriada quando `props.source` alterar.
 
+<<<<<<< HEAD
 Passando um array vazio `[]` o React entende que seu efeito não depende de quaisquer valores do componente, então esse efeito será executado apenas na montagem e na limpeza, ao sair do componente; e não será executado em atualizações.
 
 > Note
 > 
 > O array não é usado como argumento para a função de efeito. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
+=======
+>Note
+>
+>If you use this optimization, make sure the array includes **all values from the component scope (such as props and state) that change over time and that are used by the effect**. Otherwise, your code will reference stale values from previous renders. Learn more about [how to deal with functions](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) and what to do when the [array values change too often](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
+>
+>If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array (`[]`) as a second argument. This tells React that your effect doesn't depend on *any* values from props or state, so it never needs to re-run. This isn't handled as a special case -- it follows directly from how the dependencies array always works.
+>
+>If you pass an empty array (`[]`), the props and state as inside the effect will always have their initial values. While passing `[]` as the second argument is closer to the familiar `componentDidMount` and `componentWillUnmount` mental model, there are usually [better](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [solutions](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) to avoid re-running effects too often. Also, don't forget that React defers running `useEffect` until after the browser has painted, so doing extra work is less of a problem.
+>
+>
+>We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+
+The array of dependencies is not passed as arguments to the effect function. Conceptually, though, that's what they represent: every value referenced inside the effect function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+>>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 
 ### `useContext` {#usecontext}
 
@@ -210,7 +237,15 @@ function Counter({initialState}) {
 }
 ```
 
+<<<<<<< HEAD
 #### Determinando o Estado Inicial {#specifying-the-initial-state}
+=======
+>Note
+>
+>React guarantees that `dispatch` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
+
+#### Specifying the initial state {#specifying-the-initial-state}
+>>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 
 Há duas diferentes maneiras para inicializar `useReducer` `state`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é a de passar um estado inicial como segundo argumento:
 
@@ -284,6 +319,7 @@ const memoizedCallback = useCallback(
 
 Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization) memoizado.
 
+<<<<<<< HEAD
 Recebe como argumentos, um callback e um array. `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo ` shouldComponentUpdate `).
 
 `useCallback(fn, inputs)` é equivalente a `useMemo(() => fn, inputs)`
@@ -291,6 +327,17 @@ Recebe como argumentos, um callback e um array. `useCallback` retornará uma ver
 > Note
 > 
 > O array não é usado como argumento para o callback. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
+=======
+Pass an inline callback and an array of dependencies. `useCallback` will return a memoized version of the callback that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders (e.g. `shouldComponentUpdate`).
+
+`useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`.
+
+> Note
+>
+> The array of dependencies is not passed as arguments to the callback. Conceptually, though, that's what they represent: every value referenced inside the callback should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+>
+> We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+>>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 
 ### `useMemo` {#usememo}
 
@@ -300,7 +347,11 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
 Retorna um valor [memoizado](https://en.wikipedia.org/wiki/Memoization).
 
+<<<<<<< HEAD
 Recebe uma função `create` e um array como argumentos. O `useMemo` só recuperará o valor memoizado quando o array receber uma atualização. Esta otimização ajuda a evitar cálculos caros em cada renderização.
+=======
+Pass a "create" function and an array of dependencies. `useMemo` will only recompute the memoized value when one of the dependencies has changed. This optimization helps to avoid expensive calculations on every render.
+>>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 
 Lembre-se de que a função passada para `useMemo` será executa durante a renderização. Não faça nada lá que você normalmente não faria ao renderizar. Por exemplo, os `side effects` pertencem a `useEffect`, não à `useMemo`.
 
@@ -309,8 +360,15 @@ Se nenhum array for fornecido, um novo valor será calculado sempre que uma nova
 **Você pode confiar em `useMemo` como uma otimização de desempenho, não como uma garantia semântica.** No futuro, o React pode escolher "esquecer" alguns valores anteriormente agrupados e recalculá-los na próxima renderização, por exemplo, para liberar memória para outros componentes. Escreva seu código para que ele ainda funcione sem `useMemo` — e depois adicione-o para otimizar o desempenho.
 
 > Note
+<<<<<<< HEAD
 > 
 > The array of inputs is not passed as arguments to the function. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
+=======
+>
+> The array of dependencies is not passed as arguments to the function. Conceptually, though, that's what they represent: every value referenced inside the function should also appear in the dependencies array. In the future, a sufficiently advanced compiler could create this array automatically.
+>
+> We recommend using the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) rule as part of our [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
+>>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 
 ### `useRef` {#useref}
 
@@ -343,7 +401,7 @@ Note que `useRef()` é mais útil do que o atributo `ref`. É útil [para manter
 ### `useImperativeHandle` {#useimperativehandle}
 
 ```js
-useImperativeHandle(ref, createHandle, [inputs])
+useImperativeHandle(ref, createHandle, [deps])
 ```
 
 `useImperativeHandle` personaliza o valor da instância que está exposta aos componentes pai ao usar `ref`. Como sempre, na maioria dos casos, seria bom evitar um código imperativo usando refs. O `useImperativeHandle` deve ser usado com `forwardRef`:
