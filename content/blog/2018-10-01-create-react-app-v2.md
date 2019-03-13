@@ -1,19 +1,19 @@
 ---
-title: "Create React App 2.0: Babel 7, Sass, and More"
+title: "Create React App 2.0: Babel 7, Sass, e Mais"
 author: [timer, gaearon]
 ---
 
-Create React App 2.0 has been released today, and it brings a year's worth of improvements in a single dependency update.
+Create React App 2.0 foi lançado hoje e traz o equivalente a um ano de melhoria numa única atualização de dependência.
 
-While React itself [doesn't require any build dependencies](/docs/create-a-new-react-app.html), it can be challenging to write a complex app without a fast test runner, a production minifier, and a modular codebase. Since the very first release, the goal of [Create React App](https://github.com/facebook/create-react-app) has been to help you focus on what matters the most -- your application code -- and to handle build and testing setup for you.
+Apesar do React por si só [não precisar de nenhuma dependência de compilação](/docs/create-a-new-react-app.html), pode ser desafiador escrever um aplicativo complexo sem um _test runner_ rápido, um minificador para produção e um código fonte modular. Desde do primeiro lançamento, o objetivo do [Create React App](https://github.com/facebook/create-react-app) tem sido ajudar você a focar no que é mais importante -- o código da sua aplicação -- e cuidar da configuração de compilação e testes para você.
 
-Many of the tools it relies on have since released new versions containing new features and performance improvements: [Babel 7](https://babeljs.io/blog/2018/08/27/7.0.0), [webpack 4](https://medium.com/webpack/webpack-4-released-today-6cdb994702d4), and [Jest 23](https://jestjs.io/blog/2018/05/29/jest-23-blazing-fast-delightful-testing.html). However, updating them manually and making them work well together takes a lot of effort. And this is exactly what [Create React App 2.0 contributors](https://github.com/facebook/create-react-app/graphs/contributors) have been busy with for the past few months: **migrating the configuration and dependencies so that you don't need to do it yourself.**
+Várias ferramentas nas quais ele depende já lançaram novas versões contendo novos recursos e melhorias de desempenho: [Babel 7](https://babeljs.io/blog/2018/08/27/7.0.0), [webpack 4](https://medium.com/webpack/webpack-4-released-today-6cdb994702d4) e [Jest 23](https://jestjs.io/blog/2018/05/29/jest-23-blazing-fast-delightful-testing.html). Entretanto, atualizá-las manualmente e fazer com que elas trabalhem bem juntas requer muitos esforços. E é justamente nisso que os [contribuidores do Create React App](https://github.com/facebook/create-react-app/graphs/contributors) tem se mantido ocupados nos últimos meses: **migrando a configuração e dependências para que você não precise fazer sozinho**.
 
-Now that Create React App 2.0 is out of beta, let's see what's new and how you can try it!
+Agora que Create React App 2.0 está fora do período _beta_, vamos ver o que é novo e como podemos testá-lo!
 
->Note
+>Nota
 >
->Don't feel pressured to upgrade anything. If you're satisfied with the current feature set, its performance, and reliability, you can keep using the version you're currently at! It might also be a good idea to let the 2.0 release stabilize a little bit before switching to it in production.
+>Não se sinta pressionado a atualizar nada. Se você está satisfeito com as funcionalidades atuais, o desempenho e a confiabilidade, você pode continuar usando a versão em que você está atualmente! Pode ser uma boa ideia deixar o lançamento 2.0 se estabilizar um pouco antes de alterá-lo em produção.
 
 ## What's New {#whats-new}
 
@@ -91,4 +91,4 @@ You can find the full changelog in the [release notes](https://github.com/facebo
 
 ## Thanks {#thanks}
 
-This release wouldn't be possible without our wonderful community of contributors. We'd like to thank [Andreas Cederström](https://github.com/andriijas), [Clement Hoang](https://github.com/clemmy), [Brian Ng](https://github.com/existentialism), [Kent C. Dodds](https://github.com/kentcdodds), [Ade Viankakrisna Fadlil](https://github.com/viankakrisna), [Andrey Sitnik](https://github.com/ai), [Ro Savage](https://github.com/ro-savage), [Fabiano Brito](https://github.com/Fabianopb), [Ian Sutherland](https://github.com/iansu), [Pete Nykänen](https://github.com/petetnt), [Jeffrey Posnick](https://github.com/jeffposnick), [Jack Zhao](https://github.com/bugzpodder), [Tobias Koppers](https://github.com/sokra), [Henry Zhu](https://github.com/hzoo), [Maël Nison](https://github.com/arcanis), [XiaoYan Li](https://github.com/lixiaoyan), [Marko Trebizan](https://github.com/themre), [Marek Suscak](https://github.com/mareksuscak), [Mikhail Osher](https://github.com/miraage), and many others who provided feedback and testing for this release.
+Esse lançamento não seria possível sem a maravilhosa comunidade de contribuidores. Gostaríamos de agradecer à [Andreas Cederström](https://github.com/andriijas), [Clement Hoang](https://github.com/clemmy), [Brian Ng](https://github.com/existentialism), [Kent C. Dodds](https://github.com/kentcdodds), [Ade Viankakrisna Fadlil](https://github.com/viankakrisna), [Andrey Sitnik](https://github.com/ai), [Ro Savage](https://github.com/ro-savage), [Fabiano Brito](https://github.com/Fabianopb), [Ian Sutherland](https://github.com/iansu), [Pete Nykänen](https://github.com/petetnt), [Jeffrey Posnick](https://github.com/jeffposnick), [Jack Zhao](https://github.com/bugzpodder), [Tobias Koppers](https://github.com/sokra), [Henry Zhu](https://github.com/hzoo), [Maël Nison](https://github.com/arcanis), [XiaoYan Li](https://github.com/lixiaoyan), [Marko Trebizan](https://github.com/themre), [Marek Suscak](https://github.com/mareksuscak), [Mikhail Osher](https://github.com/miraage) e vários outros que testaram e ofereceram _feedback_ para esse lançamento.
