@@ -1,5 +1,5 @@
 ---
-title: "Recapitulando o React Conf: Hooks, Suspense, e Renderização Simultânea"
+title: "Recapitulando a React Conf: Hooks, Suspense, e Renderização Concorrente"
 author: [tomocchino]
 ---
 
