@@ -3,7 +3,7 @@ title: "Recapitulando a React Conf: Hooks, Suspense, e Renderização Concorrent
 author: [tomocchino]
 ---
 
-Neste ano o [React Conf](https://conf.reactjs.org/) aconteceu nos dias 25 e 26 de Outubro em Henderson, Nevada, onde mais de 600 participantes se reuniram para discutir sobre as últimas novidades em engenharia de UI.
+Neste ano a [React Conf](https://conf.reactjs.org/) aconteceu nos dias 25 e 26 de Outubro em Henderson, Nevada, onde mais de 600 participantes se reuniram para discutir sobre as últimas novidades em engenharia de UI.
 
 <br>
 
