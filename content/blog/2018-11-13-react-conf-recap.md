@@ -15,7 +15,7 @@ Sophie Alpert e Dan Abramov começaram o primeiro dia com sua palestra: React To
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ByBPyMBTzM0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Na manhã do segundo dia, Andrew Clark e Brian Vaughn apresentaram Concurrent Rendering in React (Renderização Simultânea em React). Andrew abordou a API recentemente anunciada [React.lazy](/blog/2018/10/23/react-v-16-6.html) para code splitting (divisão de código) e previu dois recursos futuros: concurrent mode e Suspense. Brian demonstrou também como usar a nova ferramenta [React Profiler](/blog/2018/09/10/introducing-the-react-profiler.html) para fazer com que os aplicativos criados no React sejam executados mais rapidamente.
+Na manhã do segundo dia, Andrew Clark e Brian Vaughn apresentaram Concurrent Rendering in React (Renderização Concorrente em React). Andrew abordou a API recentemente anunciada [React.lazy](/blog/2018/10/23/react-v-16-6.html) para code splitting (divisão de código) e previu dois recursos futuros: concurrent mode e Suspense. Brian demonstrou também como usar a nova ferramenta [React Profiler](/blog/2018/09/10/introducing-the-react-profiler.html) para fazer com que os aplicativos criados no React sejam executados mais rapidamente.
 
 <br>
 
