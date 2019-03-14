@@ -21,6 +21,6 @@ Na manhã do segundo dia, Andrew Clark e Brian Vaughn apresentaram Concurrent Re
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UcqRXTriUVI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-À tarde, Parashuram N falou em detalhes sobre a Nova Arquitetura do React Native, um projeto de longo prazo no qual a equipe React Native tem trabalhado no ano passado e [anunciado em junho](https://facebook.github.io/react-native/blog/2018/06/14/state-of-react-native-2018). Estamos muito entusiasmados com o potencial deste projeto para melhorar o desempenho, simplificar a interoperabilidade com outras bibliotecas e estabelecer uma base sólida para o futuro do React Native.
+À tarde, Parashuram N falou em detalhes sobre a Nova Arquitetura do React Native, um projeto de longa data no qual a equipe React Native esteve trabalhando ao longo do ano passado e [foi anunciado em junho](https://facebook.github.io/react-native/blog/2018/06/14/state-of-react-native-2018). Estamos muito entusiasmados com o potencial deste projeto para melhorar o desempenho, simplificar a interoperabilidade com outras bibliotecas e estabelecer uma base sólida para o futuro do React Native.
 
 Agora que a conferência terminou, todas as 28 palestras da conferência estão [disponíveis para transmissão on-line](https://www.youtube.com/playlist?list=PLPxbbTqCLbGE5AihOSExAa4wUM-P42EIJ). Há tonaladas de ótimos conteúdos de ambos os dias. Não podemos esperar até o próximo ano!
