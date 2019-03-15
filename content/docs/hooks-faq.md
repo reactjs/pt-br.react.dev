@@ -41,7 +41,7 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
   * [Como implementar getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
   * [Existe algo como forceUpdate?](#is-there-something-like-forceupdate)
   * [Posso fazer uma ref para um componente de função?](#can-i-make-a-ref-to-a-function-component)
-  * [O que const [thing, setThing] = useState() significa? ](#what-does-const-thing-setthing--usestate-mean)
+  * [O que const [thing, setThing] = useState() significa?](#what-does-const-thing-setthing--usestate-mean)
 * **[Otimizações de Performance](#performance-optimizations)**
   * [Posso pular um efeito nos updates?](#can-i-skip-an-effect-on-updates)
   * [É seguro omitir funções da lista de dependências?](#is-it-safe-to-omit-functions-from-the-list-of-dependencies)
@@ -402,10 +402,7 @@ Se você clicar primeiro em "Mostrar aviso" e incrementar o contador, o alerta m
 
 Se você intencionalmente queser ler o state *lastest* de algum retorno de chamada assincrono, você poderia mantê-lo em [uma ref](/docs/hooks-faq.html#is-there-something-like-instance-variables), mude-o e leia a partir dele.
 
-<<<<<<< HEAD
-=======
-Finally, another possible reason you're seeing stale props or state is if you use the "dependency array" optimization but didn't correctly specify all the dependencies. For example, if an effect specifies `[]` as the second argument but reads `someProp` inside, it will keep "seeing" the initial value of `someProp`. The solution is to either remove the dependency array, or to fix it. Here's [how you can deal with functions](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), and here's [other common strategies](#what-can-i-do-if-my-effect-dependencies-change-too-often) to run effects less often without incorrectly skipping dependencies.
->>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
+Finalmente, outro possível motivo que você está vendo props obsoletos ou state é se você usa a otimização do "array de dependência", mas não especificou corretamente todas as dependências. Por exemplo, se um efeito especifica `[]` como o segundo argumento mas lê `someProp` dentro, ele continuará "vendo" o valor inicial de `someProps`. A solução é remover o array de dependências ou corrigi-lo. Aqui está [como você pode lidar com funções](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), e aqui está [outras estratégias comuns](#what-can-i-do-if-my-effect-dependencies-change-too-often) para executar efeitos com menos frequência sem ignorar incorretamente as dependências.
 
 >Nota
 >
@@ -477,7 +474,7 @@ function Example() {
 
   useEffect(() => {
     doSomething();
-  }, []); // 🔴 This is not safe (it calls `doSomething` which uses `someProp`)
+  }, []); // 🔴 Isto não é seguro (ele chama `doSomething` que usa` someProp`)
 }
 ```
 
@@ -491,7 +488,7 @@ function Example() {
     }
 
     doSomething();
-  }, [someProp]); // ✅ OK (our effect only uses `someProp`)
+  }, [someProp]); // ✅ OK (nosso efeito usa apenas `someProp`)
 }
 ```
 
@@ -504,7 +501,7 @@ useEffect(() => {
   }
 
   doSomething();
-}, []); // ✅ OK in this example because we don't use *any* values from component scope
+}, []); // ✅ OK neste exemplo porque não usamos *nenhum* dos valores do escopo do componente
 ```
 
 Dependendo do seu caso de uso, existem mais algumas opções descritas abaixo.
@@ -515,37 +512,35 @@ Dependendo do seu caso de uso, existem mais algumas opções descritas abaixo.
 
 Vamos ver porque isso é importante.
 
-<<<<<<< HEAD
-=======
-If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values used inside that participate in the React data flow. That includes props, state, and anything derived from them.  
+Se você especificar uma [lista de dependências](/docs/hooks-reference.html#conditionally-firing-an-effect) como o último argumento para `useEffect`, `useMemo`, `useCallback`, ou `useImperativeHandle`, ele deve incluir todos os valores usados dentro que participam do fluxo de dados React. Isso inclui props, state e qualquer coisa derivada deles.
 
-It is **only** safe to omit a function from the dependency list if nothing in it (or the functions called by it) references props, state, or values derived from them. This example has a bug:
+É **somente** seguro omitir uma função da lista de dependências se nada nela (ou as funções chamadas por ela) referenciar props, state ou valores derivados deles. Este exemplo tem um erro:
 
 ```js{5,12}
 function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   async function fetchProduct() {
-    const response = await fetch('http://myapi/product' + productId); // Uses productId prop
+    const response = await fetch('http://myapi/product' + productId); // Usando productId prop
     const json = await response.json();
     setProduct(json);
   }
 
   useEffect(() => {
     fetchProduct();
-  }, []); // 🔴 Invalid because `fetchProduct` uses `productId`
+  }, []); // 🔴 Inválido porque `fetchProduct` usa `productId`
   // ...
 }
 ```
 
-**The recommended fix is to move that function _inside_ of your effect**. That makes it easy to see which props or state your effect uses, and to ensure they're all declared:
+**A correção recomendada é mover essa função _inside_ do seu efeito**. Isso torna mais fácil ver quais props ou state seu efeito usa e garantir que todos sejam declarados:
 
 ```js{5-10,13}
 function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // By moving this function inside the effect, we can clearly see the values it uses.
+    // Ao mover essa função dentro do efeito, podemos ver claramente os valores que ela usa.
     async function fetchProduct() {
       const response = await fetch('http://myapi/product' + productId);
       const json = await response.json();
@@ -553,11 +548,13 @@ function ProductPage({ productId }) {
     }
 
     fetchProduct();
-  }, [productId]); // ✅ Valid because our effect only uses productId
+  }, [productId]); // ✅ Válido porque nosso efeito usa somente productId
   // ...
 }
 ```
 
+<<<<<<< HEAD
+=======
 This also allows you to handle out-of-order responses with a local variable inside the effect:
 
 ```js{2,6,8}
