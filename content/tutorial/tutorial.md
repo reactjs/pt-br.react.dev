@@ -170,7 +170,7 @@ O JSX vem com todo o poder do JavaScript. Você pode colocar *quaisquer* express
 
 O componente `ShoppingList` acima apenas renderiza componentes internos do DOM como `<div />` e ` <li />`. Mas você também pode compor e renderizar componentes React personalizados. Por exemplo, agora podemos nos referir a toda a lista de compras escrevendo `<ShoppingList />`. Cada componente React é encapsulado e pode operar de forma independente; Isso permite que você construa interfaces complexas a partir de componentes simples.
 
-## Inspecting the Starter Code {#inspecting-the-starter-code}
+## Inspecionando o Código Inicial {#inspecting-the-starter-code}
 
 Se você for trabalhar no tutorial **em seu navegador,** abra esse código em uma nova guia: **[Código Inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010 )** Se você vai trabalhar no tutorial **localmente,** abra `src/index.js` em sua pasta de projeto (você já criou este arquivo durante a [configuração](#setup-option-2-local-development-environment)).
 
@@ -344,21 +344,21 @@ Depois de instalar o React DevTools, você pode clicar com o botão direito do m
 3. Clique em "Change View" e escolha "Debug mode".
 4. Na nova aba que se abre, o devtools deve agora ter uma aba React.
 
-## Completing the Game {#completing-the-game}
+## Completando o jogo {#completing-the-game}
 
-We now have the basic building blocks for our tic-tac-toe game. To have a complete game, we now need to alternate placing "X"s and "O"s on the board, and we need a way to determine a winner.
+Agora nós temos os blocos básicos para contrução do nosso jogo da velha. Para completar o jogo, nós precisamos preencher os "X"s e os "O"s no tabuleiro e de alguma maneira necessitamos definir o vencedor.
 
-### Lifting State Up {#lifting-state-up}
+### Movendo o state para cima {#lifting-state-up}
 
-Currently, each Square component maintains the game's state. To check for a winner, we'll maintain the value of each of the 9 squares in one location.
+Atualmente, cada componente Quadrado (Square) mantém o estado do jogo. Para verificar o vencedor, nós vamos manter o valor de cada um dos 9 quadrados em uma posição.
 
-We may think that Board should just ask each Square for the Square's state. Although this approach is possible in React, we discourage it because the code becomes difficult to understand, susceptible to bugs, and hard to refactor. Instead, the best approach is to store the game's state in the parent Board component instead of in each Square. The Board component can tell each Square what to display by passing a prop, [just like we did when we passed a number to each Square](#passing-data-through-props).
+Podemos pensar que o Tabuleiro (Board) poderia apenas perguntar para cada Quadrado pelo seu estado. Apesar desse modelo ser possível no React, nós o desencorajamos, pois, o código se torna difícil de ser compreendido, suscetível à erros e difícil de refatorar. Ao invés disso, a melhor opção é guardar o estado do jogo no componente pai (Tabuleiro) ao invés de cada Quadrado. O componente do tabuleiro pode dizer para cada Quadrado o que pode ser exibido via prop, [assim como fizemos quando passamos o número de cada Quadrado](#passing-data-through-props).
 
-**To collect data from multiple children, or to have two child components communicate with each other, you need to declare the shared state in their parent component instead. The parent component can pass the state back down to the children by using props; this keeps the child components in sync with each other and with the parent component.**
+**Para coletar dados de múltiplos filhos (children), ou para fazer dois filhos se comunicarem entre si, você precisa declarar um estado compartilhado em seu componente pai. O componente pai pode passar o estado de volta para os filhos através do uso de propriedades (props); isso mantém os componentes filhos em sincronia com os seus irmãos e também com o pai.**
 
-Lifting state into a parent component is common when React components are refactored -- let's take this opportunity to try it out.
+Criar estado em um componente Pai é bem comum quando componentes React são refatorados -- Vamos aproveitar essa oportunidade para tentar o conceito, na prática.
 
-Add a constructor to the Board and set the Board's initial state to contain an array of 9 nulls corresponding to the 9 squares:
+Vamos adicionar um construtor no Tabuleiro e definir que seu estado inicial irá ter um array com 9 posições preenchidas por nulo (null). Esses 9 nulls corresponderão aos 9 quadrados: 
 
 ```javascript{2-7}
 class Board extends React.Component {
@@ -372,9 +372,35 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
+
+  render() {
+    const status = 'Next player: X';
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
 ```
 
-When we fill the board in later, the `this.state.squares` array will look something like this:
+Quando preenchermos o tabuleiro mais tarde, ele ficará parecido com isto:
 
 ```javascript
 [
@@ -384,7 +410,7 @@ When we fill the board in later, the `this.state.squares` array will look someth
 ]
 ```
 
-The Board's `renderSquare` method currently looks like this:
+O método `renderSquare` do Tabuleiro atualmente está definido como:
 
 ```javascript
   renderSquare(i) {
@@ -392,9 +418,9 @@ The Board's `renderSquare` method currently looks like this:
   }
 ```
 
-In the beginning, we [passed the `value` prop down](#passing-data-through-props) from the Board to show numbers from 0 to 8 in every Square. In a different previous step, we replaced the numbers with an "X" mark [determined by Square's own state](#making-an-interactive-component). This is why Square currently ignores the `value` prop passed to it by the Board.
+No começo, nós [passamos o seu valor (value) como prop](#passing-data-through-props) para o Tabuleiro mostrar números de 0 a 8 em cada Quadrado. Em outro passo anterior, nós trocamos os números com pela letra "X" [determinado no próprio estado do Quadrado](#making-an-interactive-componente). Isso porque atualmente o Quadrado ignora o valor (`value`) recebido do Tabuleiro.
 
-We will now use the prop passing mechanism again. We will modify the Board to instruct each individual Square about its current value (`'X'`, `'O'`, or `null`). We have already defined the `squares` array in the Board's constructor, and we will modify the Board's `renderSquare` method to read from it:
+Iremos agora utilizar novamente o mesmo mecanismo de propriedades. Vamos modificar o Tabuleiro para instruir cada Quadrado invidiualmente qual é o valor correto (`'X'`, `'O'` ou `null`). Nós já temos definidos o array de `quadrados` no construtor do Tabuleiro e iremos modificar o método `renderSquare` para definir o valor a partir do estado:
 
 ```javascript{2}
   renderSquare(i) {
@@ -402,13 +428,13 @@ We will now use the prop passing mechanism again. We will modify the Board to in
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
+**[Veja o código até este momento](https://codepen.io/gaearon/pen/gWWQPY?editors=0010)**
 
-Each Square will now receive a `value` prop that will either be `'X'`, `'O'`, or `null` for empty squares.
+Cada Square vai receber a proriedade `value` que vai ser `'X'`, `'O'`, ou `null` para quadrados vazios.
 
-Next, we need to change what happens when a Square is clicked. The Board component now maintains which squares are filled. We need to create a way for the Square to update the Board's state. Since state is considered to be private to a component that defines it, we cannot update the Board's state directly from Square.
+Agora, precisamos mudar o que acontece quando um Quadrado é clicado. O componente Tabuleiro agora mantém quais quadrados são preenchidos. Precisamos criar uma maneira para cada Quadrado atualizar o state do Tabuleiro. O state é considerado privado ao componente em que é definido, ou seja, nós não podemos atualizar o state do Tabuleiro diretamente do Quadrado.
 
-Instead, we'll pass down a function from the Board to the Square, and we'll have Square call that function when a square is clicked. We'll change the `renderSquare` method in Board to:
+Para manter a privacidade do state do Tabuleiro, nós vamos passar a função responsável do Tabuleiro para o Quadrado. Essa função irá ser chamada assim que o Quadrado for clicado. Nós então mudaremos o methodo `renderSquare` no Tabuleiro para:
 
 ```javascript{5}
   renderSquare(i) {
@@ -421,17 +447,17 @@ Instead, we'll pass down a function from the Board to the Square, and we'll have
   }
 ```
 
->Note
+>Nota
 >
->We split the returned element into multiple lines for readability, and added parentheses so that JavaScript doesn't insert a semicolon after `return` and break our code.
+>Nós quebramos o retorno do elemento em várias linhas para melhorar a legibilidade e adicionamos parentesis para que o Javascript não insira ponto e virgula após o `return` e quebre o código
 
-Now we're passing down two props from Board to Square: `value` and `onClick`. The `onClick` prop is a function that Square can call when clicked. We'll make the following changes to Square:
+Agora nós iremos passar duas props do Tabuleiro para o Quadrado: `value` e `onClick`. A propriedade `onClick` é uma função que será chamada quando o Quadrado for clicado. Nós manteremos as seguintes mudanças no componente Quadrado:
 
-* Replace `this.state.value` with `this.props.value` in Square's `render` method
-* Replace `this.setState()` with `this.props.onClick()` in Square's `render` method
-* Delete the `constructor` from Square because Square no longer keeps track of the game's state
+* Substituir `this.state.value` por `this.props.value` no método `render`;
+* Substituir `this.setState()` por `this.props.onClick()` no método `render`;
+* Deletar o `constructor` do Quadrado, já que não manteremos mais o state do jogo nele;
 
-After these changes, the Square component looks like this:
+Após essas mudanças, o componente Quadrado se parecerá com isto:
 
 ```javascript{1,2,6,8}
 class Square extends React.Component {
@@ -448,19 +474,19 @@ class Square extends React.Component {
 }
 ```
 
-When a Square is clicked, the `onClick` function provided by the Board is called. Here's a review of how this is achieved:
+Quando um Quadrado for clicado, a função `onClick` provida pelo Tabuleiro será chamada. Aqui está uma revisão de como isso acontece:
 
-1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
-2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
-3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
-4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls `this.handleClick(i)` when clicked.
-5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+1. A propriedade `onClick` do DOM embutida no componente `<button>` diz ao React para criar um evento de escuta (event listener).
+2. Quando o botão é clicado, o React irá chamar a função o manipulador de eventos `onClick` definido no método `render()` do Quadrado.
+3. Esse manipulador de eventos chamará a função recebida através da propriedade `onClick` que foi criada no Tabuleiro (`this.props.onClick()`).
+4. Como o Tabuleiro passou `onClick={() => this.handleClick(i)}` para o Quadrado, a função `this.handleClick(i)` será chamada quando o Quadrado for clicado.
+5. Como nós não definimos a função `handleClick()` ainda, nosso código quebrará.
 
->Note
+>Nota
 >
->The DOM `<button>` element's `onClick` attribute has a special meaning to React because it is a built-in component. For custom components like Square, the naming is up to you. We could give any name to the Square's `onClick` prop or Board's `handleClick` method, and the code would work the same. In React, it's conventional to use `on[Event]` names for props which represent events and `handle[Event]` for the methods which handle the events.
+>O atributo `onClick` dos elementos `<button>` no DOM possuem um significado especial para o React, pois ele é um componente nativo. Para componentes customizados como o Square, o nome é por sua conta. Nós poderíamos renomear a propriedade `onClick` do componente Square para `handleClick`. Em React, no entanto, a convenção é usar nomes `on[Event]` para propriedades que representam eventos e `handle[Event]` para metodos que manipulam os eventos.
 
-When we try to click a Square, we should get an error because we haven't defined `handleClick` yet. We'll now add `handleClick` to the Board class:
+Quando tentamos clicar em um Square, um erro ocorrerá, pois, não definimos a função `handleClick` ainda. O adicionaremos agora na classe Board:
 
 ```javascript{9-13}
 class Board extends React.Component {
@@ -513,63 +539,64 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
+**[Veja o código até este momento](https://codepen.io/gaearon/pen/ybbQJX?editors=0010)**
 
-After these changes, we're again able to click on the Squares to fill them, the same as we had before. However, now the state is stored in the Board component instead of the individual Square components. When the Board's state changes, the Square components re-render automatically. Keeping the state of all squares in the Board component will allow it to determine the winner in the future.
+Após essas mudanças, seremos capazes novamente de clicar nos Squares para preenche-los. Entretanto, agora o state é guardado no componente Board ao invés de em cada Square. Quando o state do Board for alterado, os componentes Square serão re-renderizados automaticamente. Manter o state de todos os quadrados no componente Board nos permitirá determinar o vencedor no futuro.
 
-Since the Square components no longer maintain state, the Square components receive values from the Board component and inform the Board component when they're clicked. In React terms, the Square components are now **controlled components**. The Board has full control over them.
+Como o componente Square não mantém mais state, os componentes Square receberão os valores do Board e o informarão quando forem clicados. Em "termos React", os Squares são agora **componentes controlados** (**controlled components**). O Board terá controle total sobre eles.
 
-Note how in `handleClick`, we call `.slice()` to create a copy of the `squares` array to modify instead of modifying the existing array. We will explain why we create a copy of the `squares` array in the next section.
+Note como na função `handleClick`, nós chamamos `.slice()` para criar uma cópia do array de quadrados para o modificar ao invés de faze-lo no array existente. Explicaremos o motivo quando criarmos uma copia do do array de `quadrados` na próxima sessão.
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### Por que Imutabilidade é Importante {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` operator to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+No código do exemplo anterior nós sugerimos que você usasse o operador `.slice()` para criar uma cópia do array de `quadrados` ao invés de modificar o existente. Iremos agora discutir imutabilidade e porque ela é importante de se aprender.
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+Geralmente existem duas maneiras de se alterar dados. A primeira é *mutar* o dado alterando diretamente seu valor. A segunda maneira é substituir o dado antigo por uma nova cópia com as alterações desejadas.
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### Mudando dados com mutação {#data-change-with-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 player.score = 2;
-// Now player is {score: 2, name: 'Jeff'}
+// Agora o player é {score: 2, name: 'Jeff'}
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### Mudando dados sem mutação {#data-change-without-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 
 var newPlayer = Object.assign({}, player, {score: 2});
-// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+// Agora o player não sofreu alteração, mas o newPlayer é {score: 2, name: 'Jeff'}
 
-// Or if you are using object spread syntax proposal, you can write:
+// Ou então se você estiver usando a sintaxe "object spread", você pode escrever:
 // var newPlayer = {...player, score: 2};
 ```
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+O resultado final será o mesmo, mas por não mutar (ou alterar os dados subjacentes) diretamente, nós ganhamos vários benefícios descritos abaixo
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+#### Complexidade das features se tornam mais simples {#complex-features-become-simple}
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+Imutabilidades faz a complexidade das features se tornarem bem mais simples de serem implementadas. Mais tarde neste tutorial, implementaremos uma feature de "máquina do tempo" que nos permitirá revisar o histórico do jogo da velha e "voltar" as jogadas anteriores.
+Essa funcionalidade não está ligada somente ao jogo -- uma habilidade de desfazer e refazer certas ações é um requisito comum em aplicações. Evitar mutação nos permite manter o histórico das versões anteriores do jogo intacta e reutiliza-las mais tarde.
 
-#### Detecting Changes {#detecting-changes}
+#### Detectar Mudanças {#detecting-changes}
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+Detectar mudanças e objetos mutados é difícil, pois, eles são modificados diretamente. Essa detecção requer um objeto mutado para ser comparado com as cópias das suas próprias versões anteriores e a árvore inteira do object para ser cruzada.
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+Detectar mudanças em objetos imutáveis é consideravelmente fácil. Se ele for imutável que está sendo referenciado for diferente do anterior, concluímos que o objeto foi alterado.
 
-#### Determining When to Re-Render in React {#determining-when-to-re-render-in-react}
+#### Determinar Quando Re-renderizar no React {#determining-when-to-re-render-in-react}
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
+O principal benefício da imutabilidade é que ela ajuda a construir _componentes puros_ em React. Dados imutáveis podem facilmente determinar foram feitas mudanças que ajudarão a decidir quando um componente precisa ser re-renderizado.
 
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+Você pode aprender mais sobre `shouldComponentUpdate` e como construir *componentes puros* lendo o artigo [Otimizando Performance](/docs/optimizing-performance.html#examples).
 
-### Function Components {#function-components}
+### Componentes de Função {#function-components}
 
-We'll now change the Square to be a **function component**.
+Nós vamos agora mudar o Square para ser um **componente de função**.
 
-In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
+Em React, **componentes de função** são os mais simples de serem escritos, contém apenas um método `render` e não possuem seu próprio state. Ao invés de definir uma classe que extende de `React.Component`, nós podemos escrever uma função que recebe `props` como entrada e retorna o que deverá ser renderizado. Esse tipo de componente é menos tedioso de escrever do que classes e muitos componentes podem ser expressados desta maneira.
 
-Replace the Square class with this function:
+Troque a classe Square por esta função:
 
 ```javascript
 function Square(props) {
