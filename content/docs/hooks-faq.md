@@ -405,11 +405,11 @@ Se você intencionalmente queser ler o state *lastest* de algum retorno de chama
 <<<<<<< HEAD
 =======
 Finally, another possible reason you're seeing stale props or state is if you use the "dependency array" optimization but didn't correctly specify all the dependencies. For example, if an effect specifies `[]` as the second argument but reads `someProp` inside, it will keep "seeing" the initial value of `someProp`. The solution is to either remove the dependency array, or to fix it. Here's [how you can deal with functions](#is-it-safe-to-omit-functions-from-the-list-of-dependencies), and here's [other common strategies](#what-can-i-do-if-my-effect-dependencies-change-too-often) to run effects less often without incorrectly skipping dependencies.
-
->Note
->
->We provide an [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It warns when dependencies are specified incorrectly and suggests a fix.
 >>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
+
+>Nota
+>
+>Recomendamos usar as regras do [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte do nosso pacote [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ele avisa quando as dependências são especificadas incorretamente e sugere uma correção.
 
 ### Como implementar `getDerivedStateFromProps`? {#how-do-i-implement-getderivedstatefromprops}
 
@@ -465,12 +465,9 @@ Se essa sintaxe não é familiar para você, confira a [explicação](/docs/hook
 
 Sim. Veja [disparando um efeito condicionalmente](/docs/hooks-reference.html#conditionally-firing-an-effect). Note que esquecer de lidar com updates geralmente [introduz bugs](/docs/hooks-effect.html#explanation-why-effects-run-on-each-update), por isso que este não é o comportamento padrão.
 
-<<<<<<< HEAD
-### Como implementar `shouldComponentUpdate`? {#how-do-i-implement-shouldcomponentupdate}
-=======
-### Is it safe to omit functions from the list of dependencies? {#is-it-safe-to-omit-functions-from-the-list-of-dependencies}
+### É seguro omitir funções da lista de dependências? {#is-it-safe-to-omit-functions-from-the-list-of-dependencies}
 
-Generally speaking, no.
+De um modo geral, não.
 
 ```js{3,8}
 function Example() {
@@ -484,7 +481,7 @@ function Example() {
 }
 ```
 
-It's difficult to remember which props or state are used by functions outside of the effect. This is why **usually you'll want to declare functions needed by an effect *inside* of it.** Then it's easy to see what values from the component scope that effect depends on:
+É difícil lembrar quais props ou state são usados por funções fora do efeito. É por isso que **normalmente você vai querer declarar funções necessárias para um efeito *dentro* dele.** Então é fácil ver em quais valores do escopo do componente esse efeito depende:
 
 ```js{4,8}
 function Example() {
@@ -498,7 +495,7 @@ function Example() {
 }
 ```
 
-If after that we still don't use any values from the component scope, it's safe to specify `[]`:
+Se depois disso ainda não usarmos nenhum valor do escopo do componente, é seguro especificar `[]`:
 
 ```js{7}
 useEffect(() => {
@@ -510,14 +507,16 @@ useEffect(() => {
 }, []); // ✅ OK in this example because we don't use *any* values from component scope
 ```
 
-Depending on your use case, there are a few more options described below.
+Dependendo do seu caso de uso, existem mais algumas opções descritas abaixo.
 
->Note
+>Nota
 >
->We provide the [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) ESLint rule as a part of the [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation) package. It help you find components that don't handle updates consistently.
+>Nós fornecemos o [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) regras do ESLint como parte do pacote [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ele ajuda você a encontrar componentes que não lidam com atualizações de forma consistente.
 
-Let's see why this matters.
+Vamos ver porque isso é importante.
 
+<<<<<<< HEAD
+=======
 If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values used inside that participate in the React data flow. That includes props, state, and anything derived from them.  
 
 It is **only** safe to omit a function from the dependency list if nothing in it (or the functions called by it) references props, state, or values derived from them. This example has a bug:
@@ -669,8 +668,8 @@ function Example(props) {
 
 Only do this if you couldn't find a better alternative, as relying on mutation makes components less predictable. If there's a specific pattern that doesn't translate well, [file an issue](https://github.com/facebook/react/issues/new) with a runnable example code and we can try to help.
 
-### How do I implement `shouldComponentUpdate`? {#how-do-i-implement-shouldcomponentupdate}
 >>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
+### Como implementar `shouldComponentUpdate`? {#how-do-i-implement-shouldcomponentupdate}
 
 Você pode envolver o componente de função com `React.memo` para comparar superficialmente suas props:
 
@@ -684,12 +683,7 @@ Este não é um Hook porque não compõe como um Hook normalmente faz. `React.me
 
 `React.memo` não compara estado porque não há nenhum único objeto de estado para comparar. Mas você pode tornar filhos puros também, ou até [otimizar filhos específicos com `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations).
 
-<<<<<<< HEAD
-
 ### Como memorizar cálculos? {#how-to-memoize-calculations}
-=======
-### How to memoize calculations? {#how-to-memoize-calculations}
->>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 
 O Hook [`useMemo`](/docs/hooks-reference.html#usememo) permite que você evite cáculos entre múltiplas renderizações se "lembrando" dos cálculos feitos anteriormente:
 
