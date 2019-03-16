@@ -210,7 +210,7 @@ Existem mais algumas heurísticas e talvez elas mudem ao longo do tempo conforme
 
 ### Como posso fazer a busca de dados com Hooks? {#how-can-i-do-data-fetching-with-hooks}
 
-Confira [este artigo](https://www.robinwieruch.de/react-hooks-fetch-data/) para saber mais sobre a obtenção de dados com Hooks.
+Aqui está uma [pequena demonstração](https://codesandbox.io/s/jvvkoo8pq3) para você começar. Para saber mais, confira [o artigo](https://www.robinwieruch.de/react-hooks-fetch-data/) sobre a obtenção de dados com Hooks.
 
 ### Existe algo como variáveis de instância? {#is-there-something-like-instance-variables}
 
@@ -467,7 +467,7 @@ Sim. Veja [disparando um efeito condicionalmente](/docs/hooks-reference.html#con
 De um modo geral, não.
 
 ```js{3,8}
-function Example() {
+function Example({ someProp }) {
   function doSomething() {
     console.log(someProp);
   }
@@ -481,7 +481,7 @@ function Example() {
 É difícil lembrar quais props ou state são usados por funções fora do efeito. É por isso que **normalmente você vai querer declarar funções necessárias para um efeito *dentro* dele.** Então é fácil ver em quais valores do escopo do componente esse efeito depende:
 
 ```js{4,8}
-function Example() {
+function Example({ someProp }) {
   useEffect(() => {
     function doSomething() {
       console.log(someProp);
@@ -571,7 +571,7 @@ Nós movemos a função dentro do efeito para que não precise estar em sua list
 
 >Dica
 >
->Confira [este artigo](https://www.robinwieruch.de/react-hooks-fetch-data/) para saber mais sobre a obtenção de dados com Hooks.
+>Confira [esta pequena demostração](https://codesandbox.io/s/jvvkoo8pq3) e [este artigo](https://www.robinwieruch.de/react-hooks-fetch-data/) para saber mais sobre a obtenção de dados com Hooks.
 
 **Se por alguma razão você _não pode_ mover uma função dentro de um efeito, existem mais algumas opções:**
 

@@ -304,7 +304,7 @@ Recebe como argumentos, um callback e um array. `useCallback` retornará uma ver
 `useCallback(fn, inputs)` é equivalente a `useMemo(() => fn, inputs)`
 
 >Nota
-> 
+>
 >O array não é usado como argumento para o callback. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
 >
 >Recomendamos usar as regras do [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte do nosso pacote [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ele avisa quando as dependências são especificadas incorretamente e sugere uma correção.
@@ -321,7 +321,7 @@ Recebe uma função `create` e um array como argumentos. O `useMemo` só recuper
 
 Lembre-se de que a função passada para `useMemo` será executa durante a renderização. Não faça nada lá que você normalmente não faria ao renderizar. Por exemplo, os `side effects` pertencem a `useEffect`, não à `useMemo`.
 
-Se nenhum array for fornecido, um novo valor será calculado sempre que uma nova instância da função é passada como o primeiro argumento. (Com uma função inline, em cada renderização.)
+Se nenhum array for fornecida, um novo valor será calculado em cada renderização.
 
 **Você pode confiar em `useMemo` como uma otimização de desempenho, não como uma garantia semântica.** No futuro, o React pode escolher "esquecer" alguns valores anteriormente agrupados e recalculá-los na próxima renderização, por exemplo, para liberar memória para outros componentes. Escreva seu código para que ele ainda funcione sem `useMemo` — e depois adicione-o para otimizar o desempenho.
 
