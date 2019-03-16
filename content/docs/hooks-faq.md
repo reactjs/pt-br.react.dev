@@ -553,9 +553,7 @@ function ProductPage({ productId }) {
 }
 ```
 
-<<<<<<< HEAD
-=======
-This also allows you to handle out-of-order responses with a local variable inside the effect:
+Isso também permite que você gerencie respostas fora de ordem com uma variável local dentro do efeito:
 
 ```js{2,6,8}
   useEffect(() => {
@@ -569,24 +567,24 @@ This also allows you to handle out-of-order responses with a local variable insi
   }, [productId]);
 ```
 
-We moved the function inside the effect so it doesn't need to be in its dependency list.
+Nós movemos a função dentro do efeito para que não precise estar em sua lista de dependências.
 
->Tip
+>Dica
 >
->Check out [this article](https://www.robinwieruch.de/react-hooks-fetch-data/) to learn more about data fetching with Hooks.
+>Confira [este artigo](https://www.robinwieruch.de/react-hooks-fetch-data/) para saber mais sobre a obtenção de dados com Hooks.
 
-**If for some reason you _can't_ move a function inside an effect, there are a few more options:**
+**Se por alguma razão você _não pode_ mover uma função dentro de um efeito, existem mais algumas opções:**
 
-* **You can try moving that function outside of your component**. In that case, the function is guaranteed to not reference any props or state, and also doesn't need to be in the list of dependencies.
-* If the function you're calling is a pure computation and is safe to call while rendering, you may **call it outside of the effect instead,** and make the effect depend on the returned value.
-* As a last resort, you can **add a function to effect dependencies but _wrap its definition_** into the [`useCallback`](/docs/hooks-reference.html#usecallback) Hook. This ensures it doesn't change on every render unless *its own* dependencies also change:
+* **Você pode tentar mover essa função para fora do seu componente**. Nesse caso, a função é garantida para não referenciar nenhum props ou state, e também não precisa estar na lista de dependências.
+* Se a função que você está chamando é um cálculo puro e é seguro ligar enquanto renderiza, você pode **chamá-lo fora do efeito em vez disso,** e fazer o efeito depender do valor retornado.
+* Como último recurso, você pode **adicione uma função na dependência do efeito, mas _envolva sua definição_** no [`useCallback`](/docs/hooks-reference.html#usecallback) Hook. Isso garante que ele não seja alterado em todas as renderizações, a menos que *suas próprias* dependências também sejam alteradas:
 
 ```js{2-5}
 function ProductPage({ productId }) {
-  // ✅ Wrap with useCallback to avoid change on every render
+  // ✅ Envolva com useCallback para evitar alterações em todos os renderizadores
   const fetchProduct = useCallback(() => {
-    // ... Does something with productId ...
-  }, [productId]); // ✅ All useCallback dependencies are specified
+    // ... Faz algo com productId ...
+  }, [productId]); // ✅ Todas as dependências useCallback são especificadas
 
   return <ProductDetails fetchProduct={fetchProduct} />;
 }
@@ -594,33 +592,18 @@ function ProductPage({ productId }) {
 function ProductDetails({ fetchProduct })
   useEffect(() => {
     fetchProduct();
-  }, [fetchProduct]); // ✅ All useEffect dependencies are specified
+  }, [fetchProduct]); // ✅ Todas as dependências do useEffect são especificadas
   // ...
 }
 ```
 
-Note that in the above example we **need** to keep the function in the dependencies list. This ensures that a change in the `productId` prop of `ProductPage` automatically triggers a refetch in the `ProductDetails` component.
+Note que no exemplo acima nós **precisamos** para manter a função na lista de dependências. Isso garante que uma mudança na `productId` prop do `ProductPage` aciona automaticamente uma busca no componente `ProductDetails`.
 
-### What can I do if my effect dependencies change too often?
+<<<<<<< HEAD
+=======
+### O que posso fazer se minhas dependências de efeito mudarem com muita frequência? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
-Sometimes, your effect may be using reading state that changes too often. You might be tempted to omit that state from a list of dependencies, but that usually leads to bugs:
-
-```js{6,9}
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCount(count + 1); // This effect depends on the `count` state
-    }, 1000);
-    return () => clearInterval(id);
-  }, []); // 🔴 Bug: `count` is not specified as a dependency
-
-  return <h1>{count}</h1>;
-}
-```
-
-Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
+Às vezes, seu efeito pode estar usando o state de leitura que muda com muita freqüência. Você pode ser tentado a omitir esse state de uma lista de dependências, mas isso geralmente leva a erros:
 
 ```js{6,9}
 function Counter() {
@@ -628,24 +611,41 @@ function Counter() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      setCount(c => c + 1); // ✅ This doesn't depend on `count` variable outside
+      setCount(count + 1); // Este efeito depende do estado `count`
     }, 1000);
     return () => clearInterval(id);
-  }, []); // ✅ Our effect doesn't use any variables in the component scope
+  }, []); // 🔴 Bug: `count` não é especificado como uma dependência
 
   return <h1>{count}</h1>;
 }
 ```
 
-(The identity of the `setCount` function is guaranteed to be stable so it's safe to omit.)
+Especificando `[count]` como uma lista de dependências iria corrigir o bug, mas faria com que o intervalo fosse redefinido em cada alteração. Isso pode não ser desejável. Para corrigir isso, podemos usar o [forma de atualização funcional do `setState`](/docs/hooks-reference.html#functional-updates). Ele nos permite especificar *como* o state precisa mudar sem referenciar o state *atual*:
 
-In more complex cases (such as if one state depends on another state), try moving the state update logic outside the effect with the [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [This article](https://adamrackis.dev/state-and-use-reducer/) offers an example of how you can do this. **The identity of the `dispatch` function from `useReducer` is always stable** — even if the reducer function is declared inside the component and reads its props.
+```js{6,9}
+function Counter() {
+  const [count, setCount] = useState(0);
 
-As a last resort, if you want to something like `this` in a class, you can [use a ref](/docs/hooks-faq.html#is-there-something-like-instance-variables) to hold a mutable variable. Then you can write and read to it. For example:
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(c => c + 1); // ✅ Isso não depende da variável `count` fora
+    }, 1000);
+    return () => clearInterval(id);
+  }, []); // ✅ Nosso efeito não usa nenhuma variável no escopo do componente
+
+  return <h1>{count}</h1>;
+}
+```
+
+(A identidade da função `setCount` é garantida como estável, então é seguro omitir.)
+
+Em casos mais complexos (como se um state dependesse de outro state), tente mover a lógica de atualização de state para fora do efeito com o [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [O artigo](https://adamrackis.dev/state-and-use-reducer/) oferece um exemplo de como você pode fazer isso. **A identidade da função `dispatch` do `useReducer` é sempre estável** — mesmo se a função reducer for declarada dentro do componente e ler seus props.
+
+Como último recurso, se você quer algo como `this` em uma classe, você precisa [usar uma ref] (/docs/hooks-faq.html#is-there-something-like-instance-variables) para manter uma variável mutável. Então você pode escrever e ler para ele. Por exemplo:
 
 ```js{2-6,10-11,16}
 function Example(props) {
-  // Keep latest props in a ref.
+  // Mantenha as últimas props em um ref.
   let latestProps = useRef(props);
   useEffect(() => {
     latestProps.current = props;
@@ -653,7 +653,7 @@ function Example(props) {
 
   useEffect(() => {
     function tick() {
-      // Read latest props at any time
+      // Leia as últimas props a qualquer momento
       console.log(latestProps.current);
     }
 
@@ -663,9 +663,8 @@ function Example(props) {
 }
 ```
 
-Only do this if you couldn't find a better alternative, as relying on mutation makes components less predictable. If there's a specific pattern that doesn't translate well, [file an issue](https://github.com/facebook/react/issues/new) with a runnable example code and we can try to help.
+Só faça isso se você não conseguir encontrar uma alternativa melhor, confiar em mutação torna os componentes menos previsíveis. Se houver um padrão específico que não seja bem traduzido, [abra uma issue](https://github.com/facebook/react/issues/new) com um código de exemplo executável e podemos tentar ajudar.
 
->>>>>>> 2cd4d0cf5ddadf90446b3a5038a9bc4875151355
 ### Como implementar `shouldComponentUpdate`? {#how-do-i-implement-shouldcomponentupdate}
 
 Você pode envolver o componente de função com `React.memo` para comparar superficialmente suas props:
