@@ -13,7 +13,7 @@ Além disso, as três linguagens a seguir concluíram a tradução da maioria do
 
 Parabéns especiais para [Alejandro Ñáñez Ortiz](https://github.com/alejandronanez), [Rainer Martínez Fraga](https://github.com/carburo), [David Morales](https://github.com/dmorales), [Miguel Alejandro Bolívar Portilla](https://github.com/Darking360), e todos os colaboradores da tradução em espanhol por serem os primeiros a *completamente* traduzirem as páginas principais da documentação!
 
-## Por que a localização é importante? {#why-localization-matters}
+## Por Que a Localização é Importante? {#why-localization-matters}
 
 O React já tem muitos eventos e conferências no mundo todo, mas muitos desenvolvedores não tem o inglês como idioma principal. Gostaríamos de oferecer suporte às comunidades locais que usam o React, disponibilizando nossa documentação nos idiomas mais populares.
 
@@ -31,8 +31,7 @@ Olá a todos! Me chamo [Nat](https://twitter.com/tesseralis)! Talvez você me co
 
 Nossa abordagem original para as traduções foi usar uma plataforma SaaS que permite usuários a submeter traduções. Já havia um [pull request](https://github.com/reactjs/reactjs.org/pull/873) para integrá-lo e minha responsabilidade original era terminar essa integração. No entanto, tivemos preocupações sobre a viabilidade dessa integração e a qualidade das traduções na plataforma no momento. Nossa principal preocupação era garantir que as traduções continuassem atualizadas com o repositório principal e não se tornassem obsoletas.
 
-[Dan](https://twitter.com/dan_abramov) me encorajou a procurar soluções alternativas, e nós nos deparamos com a forma como a [Vue](https://vuejs.org) manteve suas traduções - através de diferentes forks dos principais repositórios no GitHub. Em particular, a [tradução em japonês](https://jp.vuejs.org) usou um bot para verificar periodicamente as alterações no repositório em inglês e enviar pull requests sempre que existir uma 
-mudança.
+[Dan](https://twitter.com/dan_abramov) me encorajou a procurar soluções alternativas, e nós nos deparamos com a forma como a [Vue](https://vuejs.org) manteve suas traduções - através de diferentes forks dos principais repositórios no GitHub. Em particular, a [tradução em japonês](https://jp.vuejs.org) usou um bot para verificar periodicamente as alterações no repositório em inglês e enviar pull requests sempre que existir uma mudança.
 
 Essa abordagem nos atraiu por vários motivos:
 
@@ -47,6 +46,7 @@ Após o período de testes, estávamos prontos para aceitar mais idiomas. Eu cri
 Por causa da automação, o restante da manutenção foi em geral tranquila. Nós finalmente criamos um [canal no Slack](https://rt-slack-invite.herokuapp.com) para facilitar o compartilhamento de informações pelos tradutores, e eu publiquei um guia para solidificar as [responsabilidades dos mantenedores](https://github.com/reactjs/reactjs.org-translation/blob/master/maintainer-guide.md). Permitir que os tradutores conversassem entre si foi um grande benefício - por exemplo, as traduções em árabe, persa e hebraico eram capazes de se comunicar entre si para obter o [texto da direita para a esquerda](https://en.wikipedia.org/wiki/Right-to-left) funcionando!
 
 ## O Bot {#the-bot}
+
 A parte mais desafiadora foi fazer com que o bot sincronizasse as alterações da versão em inglês do site. Inicialmente, estávamos usando o bot [che-tsumi](https://github.com/vuejs-jp/che-tsumi) criado pela equipe de tradução da Vue em japonês, mas logo decidimos construir nosso próprio bot para atender às nossas necessidades. Em particular, o bot che-tsumi trabalha com [cherry picking](https://git-scm.com/docs/git-cherry-pick) dos novos commits. Isso acabou causando uma confusão de novos problemas que estavam interconectados, especialmente quando [os Hooks foram lançados](/blog/2019/02/06/react-v16.8.0.html).
 
 No final, decidimos que em vez de selecionar cada commit com cherry pick, fazia mais sentido juntar todos os novos commits e criar um novo pull request em torno de uma vez por dia. Conflitos são deixados como estão e listados no [pull request](https://github.com/reactjs/pt-BR.reactjs.org/pull/114), deixando uma lista de pontos para os mantenedores corrigirem.
