@@ -599,8 +599,6 @@ function ProductDetails({ fetchProduct })
 
 Note que no exemplo acima nós **precisamos** para manter a função na lista de dependências. Isso garante que uma mudança na `productId` prop do `ProductPage` aciona automaticamente uma busca no componente `ProductDetails`.
 
-<<<<<<< HEAD
-=======
 ### O que posso fazer se minhas dependências de efeito mudarem com muita frequência? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
 Às vezes, seu efeito pode estar usando o state de leitura que muda com muita freqüência. Você pode ser tentado a omitir esse state de uma lista de dependências, mas isso geralmente leva a erros:
@@ -659,7 +657,7 @@ function Example(props) {
 
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []); // This effect never re-runs
+  }, []); // Esse efeito nunca é executado novamente
 }
 ```
 
