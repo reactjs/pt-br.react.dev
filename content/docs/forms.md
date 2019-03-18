@@ -78,7 +78,7 @@ handleChange(event) {
 
 ## Tag textarea {#the-textarea-tag}
 
-Em HTML, o texto de um elemento <textarea> é definido por seus filhos:
+Em HTML, o texto de um elemento `<textarea>` é definido por seus filhos:
 
 ```html
 <textarea>
