@@ -10,7 +10,6 @@ redirect_from:
 
 Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por favor, mantenha a lista em ordem alfabética)
 
-
 ## Próximas Conferências {#upcoming-conferences}
 
 ### Reactathon 2019 {#reactathon-2019}
