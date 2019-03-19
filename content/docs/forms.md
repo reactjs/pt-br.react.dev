@@ -256,7 +256,7 @@ class Reservation extends React.Component {
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
 
-Observe como usamos a sintaxe ES6 [nomes de propriedades computados] (https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Inicializador_Objeto#Nomes_de_propriedades_computados) para atualizar a chave de estado correspondente ao nome de entrada fornecido:
+Observe como usamos a sintaxe ES6 [nomes de propriedades computados](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Inicializador_Objeto#Nomes_de_propriedades_computados) para atualizar a chave de estado correspondente ao nome de entrada fornecido:
 
 ```js{2}
 this.setState({
