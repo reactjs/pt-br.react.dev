@@ -67,19 +67,19 @@ Here are a few more tips to get you started.
 >
 >Due to a possible bug in npm, you might see warnings about unsatisfied peer dependencies. You should be able to ignore them. As far as we're aware, this issue isn't present with Yarn.
 
-## Breaking Changes {#breaking-changes}
+## Mudanças Radicais {#breaking-changes}
 
-Here's a short list of breaking changes in this release:
+Aqui está uma lista de mudanças neste lançamento que podem quebrar suas aplicações.
 
-* Node 6 is no longer supported.
-* Support for older browsers (such as IE 9 to IE 11) is now opt-in with a [separate package](https://github.com/facebook/create-react-app/tree/master/packages/react-app-polyfill).
-* Code-splitting with `import()` now behaves closer to specification, while `require.ensure()` is disabled.
-* The default Jest environment now includes jsdom.
-* Support for specifying an object as `proxy` setting was replaced with support for a custom proxy module.
-* Support for `.mjs` extension was removed until the ecosystem around it stabilizes.
-* PropTypes definitions are automatically stripped out of the production builds.
+* Node 6 não é mais suportado.
+* Suporte para navegadores antigos (como do IE 9 até IE 11) agora é opcional em um [pacote separado](https://github.com/facebook/create-react-app/tree/master/packages/react-app-polyfill).
+* Agora a divisão de código (code-splitting) utilizando `import()` se comporta mais semelhante à especificação, enquanto que `require.ensure()` foi desativado.
+* O ambiente padrão do Jest agora inclui jsdom.
+* Suporte para especificar um objeto como configuração de `proxy` foi substituído pelo suporte para módulo proxy customizado.
+* Suporte para extensão `.mjs` foi removido até que seu ecossistema se estabilize.
+* Definições de PropTypes são automaticamente removidas na compilação em ambiente de produção.
 
-If either of these points affects you, [2.0.3 release notes](https://github.com/facebook/create-react-app/releases/tag/v2.0.3) contain more detailed instructions.
+Se algum desses pontos afeta você, as [notas de lançamento 2.0.3](https://github.com/facebook/create-react-app/releases/tag/v2.0.3) tem mais instruções detalhadas.
 
 ## Saiba Mais {#learn-more}
 
