@@ -204,7 +204,7 @@ Como seu valor é de somente leitura, ele é um componente **não controlado** d
 
 Quando você precisa manipular múltiplos inputs controlados, você pode adicionar um atributo `name` a cada elemento e deixar a função manipuladora escolher o que fazer com base no valor de `event.target.name`.
 
-Por examplo:
+Por exemplo:
 
 ```javascript{15,18,28,37}
 class Reservation extends React.Component {
