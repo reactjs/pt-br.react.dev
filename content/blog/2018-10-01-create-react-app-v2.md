@@ -1,5 +1,5 @@
 ---
-title: "Create React App 2.0: Babel 7, Sass, e Mais"
+title: "Create React App 2.0: Babel 7, Sass e Mais"
 author: [timer, gaearon]
 ---
 
@@ -40,32 +40,33 @@ Você não precisar atualizar nada. A partir de hoje, quando você executar `cre
 
 Se você quer **usar o modelo antigo 1.x** por alguma razão, você pode fazer isso adicionando o argumento `--scripts-version=react-scripts@1.x` ao comando `create-react-app`.
 
-## Updating a Project to Create React App 2.0 {#updating-a-project-to-create-react-app-20}
+## Atualizando um Projeto para o Create React App 2.0 {#updating-a-project-to-create-react-app-20}
 
-Upgrading a non-ejected project to Create React App 2.0 should usually be straightforward. Open `package.json` in the root of your project and find `react-scripts` there.
+Atualizando um projeto não ejetado para Create React App 2.0 deve ser sem complicações. Abra o `package.json` na raiz do seu projeto e encontre o `react-scripts` nele.
 
-Then change its version to `2.0.3`:
+Agora altere a versão dele para `2.0.3`:
 
 ```js{2}
   // ... other dependencies ...
   "react-scripts": "2.0.3"
 ```
 
-Run `npm install` (or `yarn`, if you use it). **For many projects, this one-line change is sufficient to upgrade!**
+Execute `npm install` (ou `yarn`, se for seu caso). **Para a maioria dos projetos, essa mudança de uma linha é suficiente para atualizar!**
 
 <blockquote class="twitter-tweet" data-conversation="none" data-dnt="true"><p lang="en" dir="ltr">working here... thanks for all the new functionality 👍</p>&mdash; Stephen Haney (@sdothaney) <a href="https://twitter.com/sdothaney/status/1046822703116607490?ref_src=twsrc%5Etfw">October 1, 2018</a></blockquote>
 
-Here are a few more tips to get you started.
+Mais algumas dicas para ajudar você.
 
-**When you run `npm start` for the first time after the upgrade,** you'll get a prompt asking about which browsers you'd like to support. Press `y` to accept the default ones. They'll be written to your `package.json` and you can edit them any time. Create React App will use this information to produce smaller or polyfilled CSS bundles depending on whether you target modern browsers or older browsers.
+**Quando você executar `npm start` pela primeira vez depois da atualização,** será perguntado quais navegadores você gostaria de suportar. Pressione `y` para aceitar os padrões. Ele serão escritos no seu `package.json` e você pode editá-los a qualquer momento. Create React App usará essa informação para produzir bundles CSS menores ou adicionar [polyfills](https://developer.mozilla.org/pt-BR/docs/Glossario/Polyfill) dependendo se você planeja suportar navegadores modernos ou antigos.
 
-**If `npm start` still doesn't quite work for you after the upgrade,** [check out the more detailed migration instructions in the release notes](https://github.com/facebook/create-react-app/releases/tag/v2.0.3). There *are* a few breaking changes in this release but the scope of them is limited, so they shouldn't take more than a few hours to sort out. Note that **[support for older browsers](https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md) is now opt-in** to reduce the polyfill size.
 
-**If you previously ejected but now want to upgrade,** one common solution is to find the commits where you ejected (and any subsequent commits changing the configuration), revert them, upgrade, and later optionally eject again. It's also possible that the feature you ejected for (maybe Sass or CSS Modules?) is now supported out of the box.
+**Se `npm start` ainda assim não funcionar depois da atualização,** [veja as instruções de migração detalhadas nas notas de lançamento](https://github.com/facebook/create-react-app/releases/tag/v2.0.3). Há algumas mudanças radicais nesse lançamento, mas o escopo delas são limitadas, então elas não devem tomar mais do que algumas horas para resolver. Veja que o **[suporte para navegadores antigos](https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md) agora é opcional** para reduzir o tamanho de [polyfills](https://developer.mozilla.org/pt-BR/docs/Glossario/Polyfill).
 
->Note
+**Se você ejetou anteriormente, mas agora quer atualizar,** uma solução comum é encontrar os commits onde você ejetou (e qualquer commit subsequence que altere a configuração), revertê-los, atualizar e depois talvez ejetar novamente. Também é possível que a funcionalidade pela qual você precisou ejetar (talvez Sass ou CSS Modules?), agora seja suportada por padrão.
+
+>Nota
 >
->Due to a possible bug in npm, you might see warnings about unsatisfied peer dependencies. You should be able to ignore them. As far as we're aware, this issue isn't present with Yarn.
+>Devido a um possível erro no npm, você pode acabar vendo avisos sobre dependências _peer_ não satisfeitas. Você deve poder ignorá-las. Pelo que sabemos, esse problema não está presente com Yarn.
 
 ## Mudanças Radicais {#breaking-changes}
 
