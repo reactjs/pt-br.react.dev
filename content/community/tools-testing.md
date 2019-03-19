@@ -5,9 +5,9 @@ layout: community
 permalink: community/testing.html
 ---
 
-* **[Enzyme](https://github.com/airbnb/enzyme/):** a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
-* **[Jest](https://facebook.github.io/jest/):** Delightful JavaScript testing used by Facebook to test all JavaScript code including React applications.
-* **[react-testing-library](https://github.com/kentcdodds/react-testing-library):** 🐐 Simple and complete React DOM testing utilities that encourage good testing practices.
-* **[React-unit](https://github.com/pzavolinsky/react-unit):** a lightweight unit test library for ReactJS with very few (js-only) dependencies.
-* **[Skin-deep](https://github.com/glenjamin/skin-deep):** Testing helpers for use with React's shallowRender test utils.
-* **[Unexpected-react](https://github.com/bruderstein/unexpected-react/):** Plugin for the [unexpected](https://unexpected.js.org/) assertion library that makes it easy to assert over your React Components and trigger events.
+* **[Enzyme](https://github.com/airbnb/enzyme/):**um utilitário de testes JavaScript para o React que torna mais fácil fazer asserções (asserts), manipular e percorrer a saída dos componentes do React.
+* **[Jest](https://facebook.github.io/jest/):** Estrutura de teste JavaScript usado pelo Facebook para testar todo o código JavaScript, incluindo os aplicativos React.
+* **[react-testing-library](https://github.com/kentcdodds/react-testing-library):** 🐐 Utilitários de teste React DOM simples e completos que incentivam boas práticas de teste.
+* **[React-unit](https://github.com/pzavolinsky/react-unit):** uma biblioteca de teste de unidade leve para ReactJS com muito poucas dependências (js somente).
+* **[Skin-deep](https://github.com/glenjamin/skin-deep):** Auxiliares de teste para uso com os utilitários de teste shallowRender do React.
+* **[Unexpected-react](https://github.com/bruderstein/unexpected-react/):** Plugin para a biblioteca de asserções(asserts)  [unexpected](https://unexpected.js.org/), que facilita a asserção sobre seus Componentes de Reação e aciona eventos.

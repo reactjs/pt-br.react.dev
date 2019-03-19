@@ -156,7 +156,7 @@ Existem vários pontos de injeção no código-base. No futuro, pretendemos nos 
 
 ### Pacotes Múltiplos {#multiple-packages}
 
-React é um [monorepo](http://danluu.com/monorepo/). Seu repositório contém vários pacotes separados para que suas alterações possam ser coordenadas em conjunto e os problemas residam em um só lugar.
+React é um [monorepo](https://danluu.com/monorepo/). Seu repositório contém vários pacotes separados para que suas alterações possam ser coordenadas em conjunto e os problemas residam em um só lugar.
 
 ### React Core {#react-core}
 
@@ -172,7 +172,7 @@ O código do React core está localizado em [`packages/react`](https://github.co
 
 ### Renderizadores {#renderers}
 
-O React foi originalmente criado para o DOM, mas depois foi adaptado para também suportar plataformas nativas com o [React Native](http://facebook.github.io/react-native/). Isso introduziu o conceito de "renderizadores" para as partes internas do React.
+O React foi originalmente criado para o DOM, mas depois foi adaptado para também suportar plataformas nativas com o [React Native](https://facebook.github.io/react-native/). Isso introduziu o conceito de "renderizadores" para as partes internas do React.
 
 **Os renderizadores gerenciam como uma árvore no React se transforma nas chamadas de subjacentes da plataforma.**
 
@@ -212,7 +212,7 @@ Seus principais objetivos são:
 * Capacidade de retornar vários elementos do método `render()`.
 * Melhor suporte para limites de erro.
 
-Você pode ler mais sobre a arquitetura do React Fiber [aqui](https://github.com/acdlite/react-fiber-architecture) e [aqui](https://blog.ag-grid.com/index.php/2018/11/29/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react). Embora tenha sido fornecido com o React 16, os recursos assíncronos ainda não estão habilitados por padrão.
+Você pode ler mais sobre a arquitetura do React Fiber [aqui](https://github.com/acdlite/react-fiber-architecture) e [aqui](https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e). Embora tenha sido fornecido com o React 16, os recursos assíncronos ainda não estão habilitados por padrão.
 
 Seu código-fonte está localizado em [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
 
