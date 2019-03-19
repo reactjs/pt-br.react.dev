@@ -32,13 +32,13 @@ Aqui está um pequeno resumo das novidades nesse lançamento:
 * ✂️ Agora você pode opcionalmente conseguir um CSS bundle menor se você apenas planeja suportar apenas navegadores modernos.
 * 👷‍♀️ Service workers agora são opcionais e implementados utilizando o [Workbox](https://developers.google.com/web/tools/workbox/) do Google.
 
-**Todas essas funcionalidades estão disponíveis por padrão** -- para ativá-las, siga as instruções abaixo.
+**Todas essas funcionalidades estão disponíveis por padrão** -- para ativá-las, siga as instruções acima.
 
-## Starting a Project with Create React App 2.0 {#starting-a-project-with-create-react-app-20}
+## Começando um Projeto com Create React App 2.0 {#starting-a-project-with-create-react-app-20}
 
-You don't need to update anything special. Starting from today, when you run `create-react-app` it will use the 2.0 version of the template by default. Have fun!
+Você não precisar atualizar nada. A partir de hoje, quando você executar `create-react-app`, ele usará a versão 2.0 do modelo por padrão. Divirta-se!
 
-If you want to **use the old 1.x template** for some reason, you can do that by passing `--scripts-version=react-scripts@1.x` as an argument to `create-react-app`.
+Se você quer **usar o modelo antigo 1.x** por alguma razão, você pode fazer isso adicionando o argumento `--scripts-version=react-scripts@1.x` ao comando `create-react-app`.
 
 ## Updating a Project to Create React App 2.0 {#updating-a-project-to-create-react-app-20}
 
