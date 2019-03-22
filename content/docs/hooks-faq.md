@@ -57,6 +57,8 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
   * [Como o React associa chamadas de Hooks com componentes?](#how-does-react-associate-hook-calls-with-components)
   * [Quais são as referências que influênciaram a criação dos Hooks?](#what-is-the-prior-art-for-hooks)
 
+## Estratégia de Adoção {#adoption-strategy}
+
 ### Quais versões do React incluem Hooks? {#which-versions-of-react-include-hooks}
 
 Começando com 16.8.0, React inclui uma implementação estável dos Hooks para:
