@@ -98,6 +98,8 @@ const [state, setState] = useState(() => {
 
 Se você atualizar o estado do Hook com o mesmo valor do estado atual, React irá pular a atualização sem renderizar os filhos ou disparar os efeitos. (React usa o algoritimo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
+Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+
 ### `useEffect` {#useeffect}
 
 ```js
@@ -174,12 +176,24 @@ O array de dependências não é passada como argumentos para a função de efei
 ### `useContext` {#usecontext}
 
 ```js
-const context = useContext(Context);
+const value = useContext(MyContext);
 ```
 
-Aceita um objeto de contexto (o valor retornado de `React.createContext`) e retorna o valor atual do contexto, como determinado pelo provedor de contexto mais próximo para o contexto específicado.
+Aceita um objeto de contexto (o valor retornado de `React.createContext`) e retorna o valor atual do contexto. O valor de contexto atual é determinado pela prop `value` do` <MyContext.Provider> `mais próximo acima do componente de chamada na árvore.
 
-Quando o `provider` atualizar, este Hook irá acionar uma re-renderização com o valor mais recente do contexto.
+Não esqueça que o argumento para `useContext` deve ser o *objeto de contexto em si*:
+
+ * **Correto:** `useContext(MyContext)`
+ * **Incorreto:** `useContext(MyContext.Consumer)`
+ * **Incorreto:** `useContext(MyContext.Provider)`
+
+Um componente que chama `useContext` será sempre renderizado novamente quando o valor do contexto for alterado. Se voltar a renderizar o componente é caro, você pode [otimizá-lo usando o memoization](https://github.com/facebook/react/issues/15156#issuecomment-474590693).
+
+>Dica
+>
+>Se você estiver familiarizado com a API de contexto antes de Hooks, `useContext (MyContext)` é equivalente a `static contextType = MyContext` em uma classe, ou a `<MyContext.Consumer>`.
+>
+>`useContext(MyContext)` só permite que você *leia* o contexto e assine suas alterações. Você ainda precisa de um `<MyContext.Provider>` acima na árvore para *fornecer* o valor para este contexto.
 
 ## Hooks Adicionais {#additional-hooks}
 
@@ -286,6 +300,8 @@ function Counter({initialCount}) {
 Se você retornar o mesmo valor do Hook Reducer que o valor do `state` atual, React irá pular a ação sem renderizar os filhos ou disparar os efeitos. (React usa o algoritimo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
 
+Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+
 ### `useCallback` {#usecallback}
 
 ```js
@@ -351,13 +367,21 @@ function TextInputWithFocusButton() {
   return (
     <>
       <input ref={inputEl} type="text" />
-      <button onClick={onButtonClick}>Focus the input</button>
+      <button onClick={onButtonClick}>Focus no input</button>
     </>
   );
 }
 ```
 
-Note que `useRef()` é mais útil do que o atributo `ref`. É útil [para manter qualquer valor mutável ao seu redor.](/docs/hooks-faq.html#is-there-something-like-instance-variables) Semelhante a como você usaria campos de instância em classes.
+Essencialmente, `useRef` é como uma "caixa" que pode conter um valor mutável em sua propriedade `.current`.
+
+Você pode estar familiarizado com os refs principalmente como uma forma de [acessar o DOM](/docs/refs-and-the-dom.html). Se você passar um objeto ref para React com `<div ref = {myRef} />`, React definirá sua propriedade `.current` para o nó DOM correspondente sempre que esse nó for alterado.
+
+No entanto, `useRef ()` é útil para mais do que o atributo `ref`. É [útil para manter qualquer valor mutável em torno](/docs/hooks-faq.html#is-there-something-like-instance-variables), semelhante a como você usaria campos de instância em classes.
+
+Isso funciona porque `useRef ()` cria um objeto JavaScript simples. A única diferença entre `useRef ()` e a criação de um objeto `{current: ...}` é que `useRef` lhe dará o mesmo objeto ref em cada render.
+
+Tenha em mente que o `useRef` *não* avisa quando o conteúdo é alterado. Mover a propriedade `.current` não causa uma nova renderização. Se você quiser executar algum código quando o React anexar ou desanexar um ref a um nó DOM, convém usar um [callback ref](/docs/hooks-faq.html#how-can-i-measure-a-dom-node) instead.
 
 ### `useImperativeHandle` {#useimperativehandle}
 
@@ -390,7 +414,11 @@ Prefira o padrão `useEffect` quando possível, para evitar bloquear atualizaç�
 
 > Dica
 > 
-> Se você está migrando código de um componente de classe, `useLayoutEffect` dispara na mesma fase que `componentDidMount` e `componentDidUpdate`, então se você não tem certeza de qual `effect` Hook usar, provavelmente o risco é menor.
+> Se você está migrando código de um componente de classe, `useLayoutEffect` dispara na mesma fase que `componentDidMount` e `componentDidUpdate`, No entanto, **recomendamos iniciar com `useEffect` primeiro** e apenas tentar `useLayoutEffect` se isso causar algum problema.
+>
+> Se você usar a renderização do servidor, tenha em mente que *nem* `useLayoutEffect` nem` useEffect` podem ser executados até que o JavaScript seja baixado. É por isso que React avisa quando um componente renderizado pelo servidor contém `useLayoutEffect`. Para corrigir isso, mova essa lógica para `useEffect` (se não for necessário para a primeira renderização) ou retarde a exibição desse componente até depois que o cliente renderizar (se o HTML parecer quebrado até que `useLayoutEffect` seja executado).
+>
+> Para excluir um componente que precisa de efeitos de layout do HTML renderizado pelo servidor, renderize-o condicionalmente com `showChild && <Child />` e adie a exibição dele com `useEffect (() => { setShowChild(true); }, [])`. Dessa forma, a UI não parece quebrada antes da hidratação.
 
 ### `useDebugValue` {#usedebugvalue}
 
