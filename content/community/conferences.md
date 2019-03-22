@@ -8,7 +8,7 @@ redirect_from:
   - "docs/conferences.html"
 ---
 
-Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por favor, mantenha a lista em ordem alfabética)
+Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por favor, mantenha a lista em ordem cronológica)
 
 ## Próximas Conferências {#upcoming-conferences}
 
