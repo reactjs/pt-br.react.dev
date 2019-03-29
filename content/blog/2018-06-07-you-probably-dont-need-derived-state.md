@@ -344,4 +344,4 @@ Ao usar memoização, lembre-se de algumas restrições:
 
 Em aplicações do mundo real, os componentes geralmente contêm uma mistura de comportamentos controlados e descontrolados. Isso é ok! Se cada valor tiver uma fonte clara de verdade, você poderá evitar os anti-padrões mencionados acima.
 
-Também vale a pena reiterar que `getDerivedStateFromProps` (e o estado derivado em geral) é um recurso avançado e deve ser usado com parcimônia devido a essa complexidade. Se o seu caso de uso ficar fora desses padrões, compartilhe-o conosco no [GitHub](https://github.com/reactjs/reactjs.org/issues/new) ou [Twitter](https://twitter.com/reactjs)!
+Também vale a pena reiterar que `getDerivedStateFromProps` (e o estado derivado em geral) é um recurso avançado e deve ser usado com moderação devido a essa complexidade. Se o seu caso de uso ficar fora desses padrões, compartilhe-o conosco no [GitHub](https://github.com/reactjs/reactjs.org/issues/new) ou [Twitter](https://twitter.com/reactjs)!
