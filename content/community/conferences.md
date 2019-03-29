@@ -52,11 +52,6 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
 
-### React Week '19 {#RWNY19}
-15 a 21 de Julho de 2019. Nova Iorque, Estados Unidos
-
-[Website](https://reactweek.nyc) - [Twitter](https://twitter.com/ReactWeek)
-
 ### React Rally 2019
 August 22-23, 2019. Salt Lake City, USA.
 
