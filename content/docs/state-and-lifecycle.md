@@ -72,13 +72,7 @@ Para implementá-lo, precisamos adicionar um "state" ao componente `Clock`.
 
 O state do componente é similar as props, mas é privado e totalmente controlado pelo componente.
 
-<<<<<<< HEAD
-Nós [mencionamos antes](/docs/components-and-props.html#functional-and-class-components) que os componentes definidos como classes possuem alguns recursos adicionais. O estado local é exatamente isso: um recurso disponível apenas para classes.
-
 ## Convertendo uma Função para uma Classe {#converting-a-function-to-a-class}
-=======
-## Converting a Function to a Class {#converting-a-function-to-a-class}
->>>>>>> d0f2db967a38e358bd59c65e981862cdf38f3d0b
 
 Você pode converter um componente de função como `Clock` em uma classe em cinco etapas:
 
