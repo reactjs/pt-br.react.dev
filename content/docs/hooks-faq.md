@@ -41,6 +41,7 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
   * [Como implementar getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
   * [Existe algo como forceUpdate?](#is-there-something-like-forceupdate)
   * [Posso fazer uma ref para um componente de função?](#can-i-make-a-ref-to-a-function-component)
+  * [Como posso medir um nó DOM?](#how-can-i-measure-a-dom-node)
   * [O que const [thing, setThing] = useState() significa?](#what-does-const-thing-setthing--usestate-mean)
 * **[Otimizações de Performance](#performance-optimizations)**
   * [Posso pular um efeito nos updates?](#can-i-skip-an-effect-on-updates)
@@ -451,6 +452,59 @@ Tente evitar esse padrão se possível.
 
 Enquanto você não deve precisar muito disso, você pode expor alguns métodos imperativos para um parente com o Hook [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle).
 
+### Como posso medir um nó DOM? {#how-can-i-measure-a-dom-node}
+
+Para medir a posição ou o tamanho de um nó DOM, você pode usar um [callback ref](/docs/refs-and-the-dom.html#callback-refs). React chamará esse callback sempre que a ref for anexado a um nó diferente. Aqui está uma [pequena demonstração](https://codesandbox.io/s/l7m0v5x4v9):
+
+```js{4-8,12}
+function MeasureExample() {
+  const [height, setHeight] = useState(0);
+
+  const measuredRef = useCallback(node => {
+    if (node !== null) {
+      setHeight(node.getBoundingClientRect().height);
+    }
+  }, []);
+
+  return (
+    <>
+      <h1 ref={measuredRef}>Hello, world</h1>
+      <h2>O header acima tem {Math.round(height)}px de altura</h2>
+    </>
+  );
+}
+```
+
+Nós não escolhemos `useRef` neste exemplo porque um objeto ref não nos avisa sobre *alterações* para o valor atual da ref. A utilização de um callback ref garante que [mesmo que um componente filho exiba o nó medido posteriormente](https://codesandbox.io/s/818zzk8m78) (e.g. em resposta a um clique), ainda somos notificados sobre isso no componente pai e podemos atualizar as medições.
+
+Note que nós passamos `[]` como um array de dependências para `useCallback`. Isso garante que nosso ref callback não seja alterado entre as novas renderizações e, portanto, o React não o chamará desnecessariamente.
+
+Se você quiser, você pode [extrair essa lógica](https://codesandbox.io/s/m5o42082xy) em um Hook reutilizável:
+
+```js{2}
+function MeasureExample() {
+  const [rect, ref] = useClientRect();
+  return (
+    <>
+      <h1 ref={ref}>Hello, world</h1>
+      {rect !== null &&
+        <h2>O header acima tem {Math.round(rect.height)}px de altura</h2>
+      }
+    </>
+  );
+}
+
+function useClientRect() {
+  const [rect, setRect] = useState(null);
+  const ref = useCallback(node => {
+    if (node !== null) {
+      setRect(node.getBoundingClientRect());
+    }
+  }, []);
+  return [rect, ref];
+}
+```
+
 ### O que `const [thing, setThing] = useState()` significa? {#what-does-const-thing-setthing--usestate-mean}
 
 Se essa sintaxe não é familiar para você, confira a [explicação](/docs/hooks-state.html#tip-what-do-square-brackets-mean) na documentação do Hook State.
@@ -853,7 +907,7 @@ function Form() {
   const [text, updateText] = useState('');
   const textRef = useRef();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     textRef.current = text; // Guarda o valor na ref
   });
 
@@ -894,7 +948,7 @@ function useEventCallback(fn, dependencies) {
     throw new Error('Cannot call an event handler while rendering.');
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     ref.current = fn;
   }, [fn, ...dependencies]);
 
