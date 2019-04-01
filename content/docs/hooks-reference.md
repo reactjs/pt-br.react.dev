@@ -67,11 +67,7 @@ function Counter({initialCount}) {
 }
 ```
 
-<<<<<<< HEAD
-Os botões "+" and "-" usam a forma funcional, porque o valor atualizado é baseado no valor anterior. Mas o botão "Reset" usa a forma normal, porque ele sempre define a contagem de volta para 0.
-=======
-The "+" and "-" buttons use the functional form, because the updated value is based on the previous value. But the "Reset" button uses the normal form, because it always sets the count back to the initial value.
->>>>>>> 59c3c0a1551841cedfc8478524808492289e61f5
+Os botões "+" and "-" usam a forma funcional, porque o valor atualizado é baseado no valor anterior. Mas o botão "Reset" usa a forma normal, porque ele sempre define a contagem de volta para o valor inicial.
 
 > Nota
 > 
