@@ -1,6 +1,6 @@
 ---
 id: hooks-intro
-title: Introducing Hooks
+title: Introdução aos Hooks
 permalink: docs/hooks-intro.html
 next: hooks-overview.html
 ---

@@ -78,7 +78,7 @@ handleChange(event) {
 
 ## Tag textarea {#the-textarea-tag}
 
-Em HTML, o texto de um elemento <textarea> é definido por seus filhos:
+Em HTML, o texto de um elemento `<textarea>` é definido por seus filhos:
 
 ```html
 <textarea>
@@ -204,7 +204,7 @@ Como seu valor é de somente leitura, ele é um componente **não controlado** d
 
 Quando você precisa manipular múltiplos inputs controlados, você pode adicionar um atributo `name` a cada elemento e deixar a função manipuladora escolher o que fazer com base no valor de `event.target.name`.
 
-Por examplo:
+Por exemplo:
 
 ```javascript{15,18,28,37}
 class Reservation extends React.Component {
@@ -256,7 +256,7 @@ class Reservation extends React.Component {
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
 
-Observe como usamos a sintaxe ES6 [nomes de propriedades computados] (https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Inicializador_Objeto#Nomes_de_propriedades_computados) para atualizar a chave de estado correspondente ao nome de entrada fornecido:
+Observe como usamos a sintaxe ES6 [nomes de propriedades computados](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Inicializador_Objeto#Nomes_de_propriedades_computados) para atualizar a chave de estado correspondente ao nome de entrada fornecido:
 
 ```js{2}
 this.setState({
