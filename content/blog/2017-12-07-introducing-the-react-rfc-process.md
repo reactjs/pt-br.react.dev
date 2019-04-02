@@ -5,7 +5,7 @@ author: [acdlite]
 
 Estamos adotando um processo de RFC ("request for comments", em portugês, "Pedido de comentários") para ideias que possam contribuir com o React.
 
-Seguindo o exemplo de [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://github.com/emberjs/rfcs), e [Rust](https://github.com/rust-lang/rfcs), o objetivo é permitir que membros da equipe principal do React e membros da comunidade possam colaborar no desenvolvimento de novas funcionalidades. Também tem o objetivo de fornecer um caminho claro para novas ideias entrarem no projeto:
+Seguindo o exemplo de [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://github.com/emberjs/rfcs), e [Rust](https://github.com/rust-lang/rfcs), o objetivo é permitir que membros da equipe principal do React e membros da comunidade possam contribuir no desenvolvimento de novas funcionalidades. Também temos o objetivo de fornecer um caminho claro para novas ideias entrarem no projeto:
 
 - Crie um documento RFC detalhando seu proposito.
 - Submeta uma PR para [Repositório RFC](https://github.com/reactjs/rfcs)
@@ -33,8 +33,7 @@ Nós possuimos diversos repositorios onde você pode enviar contribuições para
 - **Ideias para alterações que precisam de revisões adicionais antes de serem implementadas**: [reactjs/rfcs](https://github.com/reactjs/rfcs)
 
 ## RFC para uma nova Context API
-Coinciding with the launch of our RFC process, we've submitted a [proposal for a new version of context](https://github.com/reactjs/rfcs/pull/2). The proposal has already received many valuable comments from the community that we will incorporate into the design of the new API.
 
-Coincidindo com o lançamento do nosso processo RFC, submetemos uma [proposta para uma nova versão do context]((https://github.com/reactjs/rfcs/pull/2)). A proposta já recebeu muitos comentários valiosos da comunidade que colocaremos no planejamento da nova API.
+Coincidindo com o lançamento do nosso processo RFC, submetemos uma [proposta para uma nova versão do context]((https://github.com/reactjs/rfcs/pull/2)). A proposta já recebeu muitos comentários valiosos da comunidade que utilizaremos no planejamento da nova API.
 
 A PR do context é um bom exemplo de como uma RFC deve ser estruturada. Estamos ansiosos para começarmos a receber suas propostas!
