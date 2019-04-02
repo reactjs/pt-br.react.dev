@@ -1,16 +1,16 @@
 ---
-title: "Introdução ao processo React RFC"
+title: "Apresentando o processo React RFC"
 author: [acdlite]
 ---
 
-Estamos adotando um processo de RFC ("request for comments", em portugês, "Pedido de comentários") para ideias que possam contribuir com o React.
+Estamos adotando um processo de RFC ("request for comments", em português, "Pedido de comentários") para ideias que possam contribuir com o React.
 
-Seguindo o exemplo de [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://github.com/emberjs/rfcs), e [Rust](https://github.com/rust-lang/rfcs), o objetivo é permitir que membros da equipe principal do React e membros da comunidade possam contribuir no desenvolvimento de novas funcionalidades. Também temos o objetivo de fornecer um caminho claro para novas ideias entrarem no projeto:
+Seguindo o exemplo de [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://github.com/emberjs/rfcs), e [Rust](https://github.com/rust-lang/rfcs), o objetivo é permitir que membros da equipe principal do React e membros da comunidade possam contribuir no desenvolvimento de novas funcionalidades. Também temos o objetivo de fornecer um caminho claro para a entrada de novas ideias no projeto:
 
 - Crie um documento RFC detalhando seu proposito.
-- Submeta uma PR para [Repositório RFC](https://github.com/reactjs/rfcs)
+- Submeta uma PR para [Repositório RFC](https://github.com/reactjs/rfcs).
 - Coloque seu feedback na proposta.
-- Após a discussão, o time principal talvez possa aceitar o RFC ou talvez possa não aceitar.
+- Após a discussão, o time principal talvez possa aceitar ou não o RFC.
 - Se o RFC for aceito, a PR é adicionada.
 
 Documentos RFCs são aceitos quando eles são aprovados para implementação no React. Uma descrição mais detalhada do processo está disponível no repositório [README](https://github.com/reactjs/rfcs/blob/master/README.md). Os detalhes exatos podem ser melhorados no futuro.
@@ -19,11 +19,11 @@ Documentos RFCs são aceitos quando eles são aprovados para implementação no 
 
 Qualquer pessoa! Nenhum conhecimento avançado em React é necessário, também não é esperado que você implemente a proposta sozinho.
 
-Como fazemos com nossos outros repositórios, pedimos que você complete um [Contrato de licença de Contribuidor](https://github.com/reactjs/rfcs#contributor-license-agreement-cla) antes que possamos aceitar sua PR.
+Como fazemos com nossos outros repositórios, pedimos que você complete um [Contrato de Licença de Contribuidor](https://github.com/reactjs/rfcs#contributor-license-agreement-cla) antes que possamos aceitar sua PR.
 
-## Que tipos de alterações devem ser enviadas como RFCs {#what-types-of-changes-should-be-submitted-as-rfcs}
+## Que tipos de alterações devem ser enviadas como RFCs? {#what-types-of-changes-should-be-submitted-as-rfcs}
 
-Geralmente, qualquer ideia que se beneficiaria de uma revisão adicional ou planejada antes de ser implementada é um bom candidato para uma RFC. Como regra geral, isso significa qualquer proposta que adicione, altere, ou remova uma API do React.
+Geralmente, qualquer ideia que se beneficiaria de uma revisão ou projeto adicional antes de ser implementada é um bom candidato para uma RFC. Como regra geral,isso significa qualquer proposta que adicione, altere, ou remova uma API do React.
 
 Nem todas as alterações devem passar pelo processo de RFC. Correção de bugs ou melhorias de desempenho que não tocam uma API podem ser enviadas diretamente para a biblioteca principal.
 
@@ -34,6 +34,6 @@ Nós possuimos diversos repositorios onde você pode enviar contribuições para
 
 ## RFC para uma nova Context API
 
-Coincidindo com o lançamento do nosso processo RFC, submetemos uma [proposta para uma nova versão do context]((https://github.com/reactjs/rfcs/pull/2)). A proposta já recebeu muitos comentários valiosos da comunidade que utilizaremos no planejamento da nova API.
+Coincidindo com o lançamento do nosso processo RFC, submetemos uma [proposta para uma nova versão do context](https://github.com/reactjs/rfcs/pull/2). A proposta já recebeu muitos comentários valiosos da comunidade que utilizaremos no projeto da nova API.
 
 A PR do context é um bom exemplo de como uma RFC deve ser estruturada. Estamos ansiosos para começarmos a receber suas propostas!
