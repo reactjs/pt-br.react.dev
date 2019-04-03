@@ -28,7 +28,7 @@ Geralmente, qualquer ideia que se beneficiaria de uma revisão ou projeto adicio
 Nem todas as alterações devem passar pelo processo de RFC. Correção de bugs ou melhorias de desempenho que não tocam uma API podem ser enviadas diretamente para a biblioteca principal.
 
 Nós possuimos diversos repositorios onde você pode enviar contribuições para o React:
-- **Erros, Correção de busg, e alterações de código para a biblioteca principal**: [facebook/react](https://github.com/facebook/react)
+- **Erros, Correção de bugs, e alterações de código para a biblioteca principal**: [facebook/react](https://github.com/facebook/react)
 - **Site e documentação**: [reactjs/reactjs.org](https://github.com/reactjs/reactjs.org)
 - **Ideias para alterações que precisam de revisões adicionais antes de serem implementadas**: [reactjs/rfcs](https://github.com/reactjs/rfcs)
 
