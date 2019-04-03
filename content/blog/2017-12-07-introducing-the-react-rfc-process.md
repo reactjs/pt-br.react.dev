@@ -10,7 +10,7 @@ Seguindo o exemplo de [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://g
 - Crie um documento RFC detalhando seu proposito.
 - Submeta uma PR para o [Repositório RFC](https://github.com/reactjs/rfcs).
 - Coloque seu feedback na proposta.
-- Após a discussão, o time principal talvez possa aceitar ou não o RFC.
+- Após a discussão, o time principal pode aceitar ou não o RFC.
 - Se o RFC for aceito, a PR é adicionada.
 
 Documentos RFCs são aceitos quando eles são aprovados para implementação no React. Uma descrição mais detalhada do processo está disponível no repositório [README](https://github.com/reactjs/rfcs/blob/master/README.md). Os detalhes exatos podem ser melhorados no futuro.
