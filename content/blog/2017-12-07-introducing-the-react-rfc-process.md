@@ -5,7 +5,7 @@ author: [acdlite]
 
 Estamos adotando um processo de RFC ("request for comments", em português, "Pedido de comentários") para ideias que possam contribuir com o React.
 
-Seguindo o exemplo de [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://github.com/emberjs/rfcs), e [Rust](https://github.com/rust-lang/rfcs), o objetivo é permitir que membros da equipe principal do React e membros da comunidade possam contribuir no desenvolvimento de novas funcionalidades. Também temos o objetivo de fornecer um caminho claro para a entrada de novas ideias no projeto:
+Seguindo o exemplo do [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://github.com/emberjs/rfcs), e [Rust](https://github.com/rust-lang/rfcs), o objetivo é permitir que membros da equipe principal do React e membros da comunidade possam contribuir no desenvolvimento de novas funcionalidades. Também temos o objetivo de fornecer um caminho claro para a entrada de novas ideias no projeto:
 
 - Crie um documento RFC detalhando seu proposito.
 - Submeta uma PR para o [Repositório RFC](https://github.com/reactjs/rfcs).
