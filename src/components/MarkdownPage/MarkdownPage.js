@@ -88,7 +88,7 @@ const MarkdownPage = ({
                   {date}{' '}
                   {hasAuthors && (
                     <span>
-                      by{' '}
+                      por{' '}
                       {toCommaSeparatedList(authors, author => (
                         <a
                           css={sharedStyles.link}
@@ -115,7 +115,7 @@ const MarkdownPage = ({
                       href={`https://github.com/reactjs/pt-br.reactjs.org/tree/master/${
                         markdownRemark.fields.path
                       }`}>
-                      Edit this page
+                      Edite esta página
                     </a>
                   </div>
                 )}

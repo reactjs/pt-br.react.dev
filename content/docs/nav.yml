@@ -1,85 +1,85 @@
-- title: Installation
+- title: Instalação
   items:
     - id: getting-started
-      title: Getting Started
+      title: Introdução
     - id: add-react-to-a-website
-      title: Add React to a Website
+      title: Adicione o React a um site
     - id: create-a-new-react-app
-      title: Create a New React App
+      title: Crie um novo React App
     - id: cdn-links
       title: CDN Links
-- title: Main Concepts
+- title: Principais Conceitos
   isOrdered: true
   items:
     - id: hello-world
       title: Hello World
     - id: introducing-jsx
-      title: Introducing JSX
+      title: Introduzindo JSX
     - id: rendering-elements
-      title: Rendering Elements
+      title: Renderizando Elementos
     - id: components-and-props
-      title: Components and Props
+      title: Componentes e Props
     - id: state-and-lifecycle
-      title: State and Lifecycle
+      title: State e Ciclo de Vida
     - id: handling-events
-      title: Handling Events
+      title: Manipulando eventos
     - id: conditional-rendering
-      title: Conditional Rendering
+      title: Renderização condicional
     - id: lists-and-keys
       title: Listas e Chaves
     - id: forms
       title: Forms
     - id: lifting-state-up
-      title: Lifting State Up
+      title: Elevando o State
     - id: composition-vs-inheritance
-      title: Composition vs Inheritance
+      title: Composição vs Herança
     - id: thinking-in-react
-      title: Thinking In React
-- title: Advanced Guides
+      title: Pensando do jeito React
+- title: Guias Avançados
   items:
     - id: accessibility
-      title: Accessibility
+      title: Acessibilidade
     - id: code-splitting
-      title: Code-Splitting
+      title: Dividindo o Código (Code-Splitting)
     - id: context
       title: Context
     - id: error-boundaries
       title: Error Boundaries
     - id: forwarding-refs
-      title: Forwarding Refs
+      title: Encaminhamento de Refs
     - id: fragments
-      title: Fragments
+      title: Fragmentos
     - id: higher-order-components
-      title: Higher-Order Components
+      title: Componentes de Alta-ordem
     - id: integrating-with-other-libraries
       title: Integrando com outras Bibliotecas
     - id: jsx-in-depth
       title: JSX In Depth
     - id: optimizing-performance
-      title: Optimizing Performance
+      title: Otimizando o Desempenho
     - id: portals
       title: Portals
     - id: react-without-es6
-      title: React Without ES6
+      title: React sem ES6
     - id: react-without-jsx
-      title: React Without JSX
+      title: React sem JSX
     - id: reconciliation
-      title: Reconciliation
+      title: Reconciliação (Reconciliation)
     - id: refs-and-the-dom
-      title: Refs and the DOM
+      title: Refs e o DOM
     - id: render-props
       title: Render Props
     - id: static-type-checking
-      title: Static Type Checking
+      title: Verificação de Tipo Estático
     - id: strict-mode
-      title: Strict Mode
+      title: Modo Estrito (Strict Mode)
     - id: typechecking-with-proptypes
-      title: Typechecking With PropTypes
+      title: Checagem de tipos (Typechecking) com PropTypes
     - id: uncontrolled-components
-      title: Uncontrolled Components
+      title: Componentes não controlados
     - id: web-components
-      title: Web Components
-- title: API Reference
+      title: Componentes Web
+- title: Referência da API
   items:
     - id: react-api
       title: React
@@ -91,63 +91,63 @@
     - id: react-dom-server
       title: ReactDOMServer
     - id: dom-elements
-      title: DOM Elements
+      title: Elementos do DOM
     - id: events
       title: SyntheticEvent
     - id: test-utils
-      title: Test Utilities
+      title: Utilitários de Teste
     - id: shallow-renderer
-      title: Shallow Renderer
+      title: Renderização superficial (Shallow Renderer)
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
-      title: JS Environment Requirements
+      title: Requisitos de Ambiente JavaScript
     - id: glossary
-      title: Glossary
-- title: Hooks (New)
+      title: Glossário
+- title: Hooks (Novo)
   isOrdered: true
   items:
       - id: hooks-intro
-        title: Introducing Hooks
+        title: Introdução aos Hooks
       - id: hooks-overview
         title: Hooks de forma resumida
       - id: hooks-state
-        title: Using the State Hook
+        title: Usando State Hook
       - id: hooks-effect
-        title: Using the Effect Hook
+        title: Usando Effect Hook (Hook de Efeito)
       - id: hooks-rules
-        title: Rules of Hooks
+        title: Regras dos Hooks
       - id: hooks-custom
         title: Criando seus próprios Hooks
       - id: hooks-reference
-        title: Hooks API Reference
+        title: Referência da API dos Hooks
       - id: hooks-faq
         title: Hooks FAQ
-- title: Contributing
+- title: Contribuindo
   items:
   - id: how-to-contribute
-    title: How to Contribute
+    title: Como Contribuir
   - id: codebase-overview
-    title: Codebase Overview
+    title: Visão Geral do Codebase
   - id: implementation-notes
-    title: Implementation Notes
+    title: Notas de Implementação
   - id: design-principles
-    title: Design Principles
+    title: Princípios de Design
 - title: FAQ
   items:
     - id: faq-ajax
       title: AJAX and APIs
     - id: faq-build
-      title: Babel, JSX, and Build Steps
+      title: Babel, JSX e Etapas de Build
     - id: faq-functions
-      title: Passing Functions to Components
+      title: Passando Funções para Componentes
     - id: faq-state
       title: State dos Componentes
     - id: faq-styling
       title: Estilização e CSS
     - id: faq-structure
-      title: File Structure
+      title: Estrutura de Arquivos
     - id: faq-versioning
-      title: Versioning Policy
+      title: Política de Versão
     - id: faq-internals
-      title: Virtual DOM and Internals
+      title: Virtual DOM e Objetos Internos
