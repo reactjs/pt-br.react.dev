@@ -122,7 +122,7 @@ class BemVindo extends React.Component {
 
 Um componente precisa de `state` quando algum dado associado com este é alterado com o tempo. Por exemplo, um `Checkbox` componente pode precisar da propriedade `isChecked` no seu estado (_state_), e um componente `NewsFeed` pode querer observar a propriedade `fetchedPosts` do seu estado.
 
-A diferença mais importante entre `state` e `props` é que `props` é passada de um componente pai, mas o `state` é gerenciado pelo próprio componente. Um componente não pode alterar suas `props`, mas pode alterar seu `state`. Para isso, deve chamar `this.setState()`. Somente componentes definidos como classes podem ter state.
+A diferença mais importante entre `state` e `props` é que `props` é passada de um componente pai, mas o `state` é gerenciado pelo próprio componente. Um componente não pode alterar suas `props`, mas pode alterar seu `state`.
 
 Para cada parte específica de dados alterados, deve haver apenas um componente que o "possua" em seu estado. Não tente sincronizar estados de dois componentes diferentes. Em vez disso, [passe-o] (/ docs / lifting-state-up.html) para o seu ancestral compartilhado mais próximo e passe-o para baixo como props para ambos.
 
