@@ -63,11 +63,7 @@ August 22-23, 2019. Salt Lake City, USA.
 [Website](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
 
 ### ComponentsConf 2019 {#componentsconf-2019}
-<<<<<<< HEAD
 6 de Setembro de 2019 em Melbourne, Austrália
-=======
-September 6, 2019 in Melbourne, Australia
->>>>>>> 2a1b08943c2c65bbf5a6a1e63777488833909f45
 
 [Website](https://www.componentsconf.com.au/) - [Twitter](https://twitter.com/componentsconf)
 
