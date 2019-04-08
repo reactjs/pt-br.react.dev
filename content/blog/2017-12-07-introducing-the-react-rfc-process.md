@@ -1,40 +1,40 @@
 ---
-title: "Introducing the React RFC Process"
+title: "Apresentando o processo React RFC"
 author: [acdlite]
 ---
 
-We're adopting an RFC ("request for comments") process for contributing ideas to React. 
+Estamos adotando um processo de RFC ("request for comments", em português, "Pedido de comentários") para ideias que possam contribuir com o React.
 
-Inspired by [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://github.com/emberjs/rfcs), and [Rust](https://github.com/rust-lang/rfcs), the goal is to allow React core team members and community members to collaborate on the design of new features. It's also intended to provide a clear path for ideas to enter the project:
+Seguindo o exemplo do [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://github.com/emberjs/rfcs), e [Rust](https://github.com/rust-lang/rfcs), o objetivo é permitir que membros da equipe principal do React e membros da comunidade possam contribuir no desenvolvimento de novas funcionalidades. Também temos o objetivo de fornecer um caminho claro para a entrada de novas ideias no projeto:
 
-- Create an RFC document detailing your proposal.
-- Submit a PR to the [RFC repository](https://github.com/reactjs/rfcs).
-- Incorporate feedback into the proposal.
-- After discussion, the core team may or may not accept the RFC.
-- If the RFC is accepted, the PR is merged.
+- Crie um documento RFC detalhando seu proposito.
+- Submeta uma PR para o [Repositório RFC](https://github.com/reactjs/rfcs).
+- Coloque seu feedback na proposta.
+- Após a discussão, o time principal pode aceitar ou não o RFC.
+- Se o RFC for aceito, a PR é aceita.
 
-RFCs are accepted when they are approved for implementation in React. A more thorough description of the process is available in the repository's [README](https://github.com/reactjs/rfcs/blob/master/README.md). The exact details may be refined in the future.
+Documentos RFCs são aceitos quando eles são aprovados para implementação no React. Uma descrição mais detalhada do processo está disponível no  [README](https://github.com/reactjs/rfcs/blob/master/README.md) do repositório. Os detalhes exatos podem ser melhorados no futuro.
 
-## Who Can Submit RFCs? {#who-can-submit-rfcs}
+## Quem Pode Submeter RFCs? {#who-can-submit-rfcs}
 
-Anyone! No knowledge of React's internals is required, nor are you expected to implement the proposal yourself.
+Qualquer pessoa! Nenhum conhecimento avançado em React é necessário, também não é esperado que você implemente a proposta sozinho.
 
-As with our other repositories, we do ask that you complete a [Contributor License Agreement](https://github.com/reactjs/rfcs#contributor-license-agreement-cla) before we can accept your PR.
+Como fazemos com nossos outros repositórios, pedimos que você complete um [Contrato de Licença de Contribuidor](https://github.com/reactjs/rfcs#contributor-license-agreement-cla) antes que possamos aceitar sua PR.
 
-## What Types of Changes Should Be Submitted As RFCs? {#what-types-of-changes-should-be-submitted-as-rfcs}
+## Que tipos de alterações devem ser enviadas como RFCs? {#what-types-of-changes-should-be-submitted-as-rfcs}
 
-Generally, any idea that would benefit from additional review or design before being implemented is a good candidate for an RFC. As a rule of thumb, this means any proposal that adds, changes, or removes a React API.
+Geralmente, qualquer ideia que se beneficiaria de uma revisão ou projeto adicional antes de ser implementada é um bom candidato para uma RFC. Como regra geral, isso significa qualquer proposta que adicione, altere, ou remova uma API do React.
 
-Not every change must go through the RFC process. Bug fixes or performance improvements that don't touch the API can be submitted directly to the main library.
+Nem todas as alterações devem passar pelo processo de RFC. Correção de bugs ou melhorias de desempenho que não tocam uma API podem ser enviadas diretamente para a biblioteca principal.
 
-We now have several repositories where you can submit contributions to React:
+Possuímos diversos repositórios onde você pode enviar contribuições para o React:
 
-- **Issues, bugfixes, and code changes to the main library**: [facebook/react](https://github.com/facebook/react)
-- **Website and documentation**: [reactjs/reactjs.org](https://github.com/reactjs/reactjs.org)
-- **Ideas for changes that need additional review before being implemented**: [reactjs/rfcs](https://github.com/reactjs/rfcs)
+- **Erros, Correção de bugs, e alterações de código para a biblioteca principal**: [facebook/react](https://github.com/facebook/react)
+- **Site e documentação**: [reactjs/reactjs.org](https://github.com/reactjs/reactjs.org)
+- **Ideias para alterações que precisam de revisões adicionais antes de serem implementadas**: [reactjs/rfcs](https://github.com/reactjs/rfcs)
 
-## RFC for A New Context API {#rfc-for-a-new-context-api}
+## RFC para uma Nova Context API {#rfc-for-a-new-context-api}
 
-Coinciding with the launch of our RFC process, we've submitted a [proposal for a new version of context](https://github.com/reactjs/rfcs/pull/2). The proposal has already received many valuable comments from the community that we will incorporate into the design of the new API.
+Coincidindo com o lançamento do nosso processo RFC, submetemos uma [proposta para uma nova versão do context](https://github.com/reactjs/rfcs/pull/2). A proposta já recebeu muitos comentários valiosos da comunidade que utilizaremos no projeto da nova API.
 
-The context PR is a good example of how a typical RFC should be structured. We're excited to start receiving your proposals!
+A PR do context é um bom exemplo de como uma RFC deve ser estruturada. Estamos ansiosos para começarmos a receber suas propostas!

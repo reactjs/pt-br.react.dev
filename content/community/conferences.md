@@ -52,8 +52,13 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
 
+### Chain React 2019
+11 e 12 de Julho de 2019. Portland, OR, USA.
+
+[Website](https://infinite.red/ChainReactConf)
+
 ### React Rally 2019
-August 22-23, 2019. Salt Lake City, USA.
+22 e 23 de Agosto de 2019. Salt Lake City, USA.
 
 [Website](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
 
