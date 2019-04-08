@@ -418,7 +418,7 @@ O método `renderSquare` do Tabuleiro atualmente está definido como:
   }
 ```
 
-No começo, nós [passamos o seu valor (value) como prop](#passing-data-through-props) para o Tabuleiro mostrar números de 0 a 8 em cada Quadrado. Em outro passo anterior, nós trocamos os números com pela letra "X" [determinado no próprio estado do Quadrado](#making-an-interactive-componente). Isso porque atualmente o Quadrado ignora o valor (`value`) recebido do Tabuleiro.
+No começo, nós [passamos o seu valor (value) como prop](#passing-data-through-props) para o Tabuleiro mostrar números de 0 a 8 em cada Quadrado. Em outro passo anterior, nós trocamos os números pela letra "X" [determinado no próprio estado do Quadrado](#making-an-interactive-componente). Isso porque atualmente o Quadrado ignora o valor (`value`) recebido do Tabuleiro.
 
 Iremos agora utilizar novamente o mesmo mecanismo de propriedades. Vamos modificar o Tabuleiro para instruir cada Quadrado invidiualmente qual é o valor correto (`'X'`, `'O'` ou `null`). Nós já temos definidos o array de `quadrados` no construtor do Tabuleiro e iremos modificar o método `renderSquare` para definir o valor a partir do estado:
 
