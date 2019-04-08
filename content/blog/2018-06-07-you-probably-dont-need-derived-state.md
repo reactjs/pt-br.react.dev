@@ -38,7 +38,7 @@ Os problemas surgem quando qualquer uma dessas restrições é alterada. Isso ge
 
 ### Anti-padrão: Copiando incondicionalmente props ao estado {#anti-pattern-unconditionally-copying-props-to-state}
 
-Um equívoco comum é achar que `getDerivedStateFromProps` e` componentWillReceiveProps` só são chamados quando as props "mudam". Esses ciclos de vida são chamados sempre que um componente pai é renderizado, independentemente de os objetos serem "diferentes" de antes. Por causa disso, sempre foi inseguro _incondicionalmente_ substituir o estado usando qualquer um desses ciclos de vida. **Isso fará com que as atualizações de estado sejam perdidas.**
+Um equívoco comum é achar que `getDerivedStateFromProps` e `componentWillReceiveProps` só são chamados quando as props "mudam". Esses ciclos de vida são chamados sempre que um componente pai é renderizado, independentemente de os objetos serem "diferentes" de antes. Por causa disso, sempre foi inseguro _incondicionalmente_ substituir o estado usando qualquer um desses ciclos de vida. **Isso fará com que as atualizações de estado sejam perdidas.**
 
 Vamos considerar um exemplo para demonstrar o problema. Aqui está um componente `EmailInput` que "espelha" uma prop de email no estado:
 ```js
@@ -61,7 +61,7 @@ class EmailInput extends Component {
 }
 ```
 
-No início, este componente pode parecer certo. O estado é inicializado com o valor especificado pelas props e atualizado quando digitamos no `<input>`. Mas se os pais de nossos componentes forem re-renderizados, tudo que digitarmos no `<input>` será perdido! ([Veja esta demo para um exemplo.](https://codesandbox.io/s/m3w9zn1z8x)) Isso se aplica mesmo se compararmos `nextProps.email! == this.state.email` antes de redefinir.
+No início, este componente pode parecer certo. O estado é inicializado com o valor especificado pelas props e atualizado quando digitamos no `<input>`. Mas se os pais de nossos componentes forem re-renderizados, tudo que digitarmos no `<input>` será perdido! ([Veja esta demo para um exemplo.](https://codesandbox.io/s/m3w9zn1z8x)) Isso se aplica mesmo se compararmos `nextProps.email !== this.state.email` antes de redefinir.
 
 Neste exemplo simples, adicionar `shouldComponentUpdate` para re-renderizar somente quando o endereço de email foi alterado poderia corrigir isso. No entanto, na prática, os componentes geralmente aceitam múltiplas props; outra prop mudando ainda causaria uma renderização e um reset incorreto. Props de função e objeto também são frequentemente criados inline, dificultando a implementação de um `shouldComponentUpdate` que retorne true de forma confiável somente quando uma mudança de material ocorrer. [Aqui está uma demo que mostra isso acontecendo.](https://codesandbox.io/s/jl0w6r9w59) Como resultado, `shouldComponentUpdate` é melhor usado como uma otimização de desempenho, e não para garantir a correção do estado derivado.
 
@@ -92,7 +92,7 @@ class EmailInput extends Component {
 
 > Nota
 >
-> Mesmo que o exemplo acima mostre `componentWillReceiveProps`, o mesmo anti-padrão se aplica a` getDerivedStateFromProps`.
+> Mesmo que o exemplo acima mostre `componentWillReceiveProps`, o mesmo anti-padrão se aplica a `getDerivedStateFromProps`.
 
 Acabamos de fazer uma grande melhora. Agora nosso componente irá apagar o que digitamos apenas quando os objetos realmente mudarem.
 
@@ -180,7 +180,7 @@ Isso também fornece a flexibilidade de apenas redefinir partes do estado intern
 
 > Nota
 >
-> Mesmo que o exemplo acima mostre `getDerivedStateFromProps`, a mesma técnica pode ser usada com` componentWillReceiveProps`.
+> Mesmo que o exemplo acima mostre `getDerivedStateFromProps`, a mesma técnica pode ser usada com `componentWillReceiveProps`.
 
 #### Alternativa 2: Redefinir componente não-controlado com um método de instância {#alternative-2-reset-uncontrolled-component-with-an-instance-method}
 
