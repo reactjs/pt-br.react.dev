@@ -23,7 +23,7 @@ Como fazemos com nossos outros repositórios, pedimos que você complete um [Con
 
 ## Que tipos de alterações devem ser enviadas como RFCs? {#what-types-of-changes-should-be-submitted-as-rfcs}
 
-Geralmente, qualquer ideia que se beneficiaria de uma revisão ou projeto adicional antes de ser implementada é um bom candidato para uma RFC. Como regra geral,isso significa qualquer proposta que adicione, altere, ou remova uma API do React.
+Geralmente, qualquer ideia que se beneficiaria de uma revisão ou projeto adicional antes de ser implementada é um bom candidato para uma RFC. Como regra geral, isso significa qualquer proposta que adicione, altere, ou remova uma API do React.
 
 Nem todas as alterações devem passar pelo processo de RFC. Correção de bugs ou melhorias de desempenho que não tocam uma API podem ser enviadas diretamente para a biblioteca principal.
 
