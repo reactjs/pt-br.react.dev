@@ -1,24 +1,24 @@
 ---
-title: "Behind the Scenes: Improving the Repository Infrastructure"
+title: "Nos Bastidores: Melhorando a Infraestrutura do Repositório"
 author: [gaearon, bvaughn]
 ---
 
-As we worked on [React 16](/blog/2017/09/26/react-v16.0.html), we revamped the folder structure and much of the build tooling in the React repository. Among other things, we introduced projects such as [Rollup](https://rollupjs.org/), [Prettier](https://prettier.io/), and [Google Closure Compiler](https://developers.google.com/closure/compiler/) into our workflow. People often ask us questions about how we use those tools. In this post, we would like to share some of the changes that we've made to our build and test infrastructure in 2017, and what motivated them.
+Como nós trabalhamos [React 16](/blog/2017/09/26/react-v16.0.html), nós reformulamos a estrutura de pastas e muito do ferramental de construção no repositório React. Entre outras coisas, introduzimos projetos como [Rollup](https://rollupjs.org/), [Prettier](https://prettier.io/), e [Google Closure Compiler](https://developers.google.com/closure/compiler/) em nosso fluxo de trabalho. As pessoas freqüentemente nos fazem perguntas sobre como usamos essas ferramentas. Neste post, nós gostaríamos de compartilhar algumas das alterações que fizemos em nossa infraestrura de build e teste em 2017, e o que nos motivou.
 
-While these changes helped us make React better, they don't affect most React users directly. However, we hope that blogging about them might help other library authors solve similar problems. Our contributors might also find these notes helpful!
+Enquanto essas mudanças nos ajudaram a fazer o React melhor, elas não afetam a maioria do usuários React diretamente. Contudo, Esperamos que os posts sobre eles possam ajudar outros autores de bibliotecas a resolver problemas semelhantes. Nossos colaboradores também podem achar essas anotações úteis!
 
-## Formatting Code with Prettier {#formatting-code-with-prettier}
+## Formatando Código com Prettier {#formatting-code-with-prettier}
 
-React was one of the first large repositories to [fully embrace](https://github.com/facebook/react/pull/9101) opinionated automatic code formatting with [Prettier](https://prettier.io/). Our current Prettier setup consists of:
+O React foi um dos primeiros grandes repositórios a [abraçar completamente](https://github.com/facebook/react/pull/9101) formatação automática de código opinativo com [Prettier](https://prettier.io/). Nossa configuração atual do Prettier consiste em:
 
-* A local [`yarn prettier`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/package.json#L115) script that [uses the Prettier Node API](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/prettier/index.js#L71-L77) to format files in place. We typically run it before committing changes. It is fast because it only checks the [files changed since diverging from remote master](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/shared/listChangedFiles.js#L29-L33).
-* A script that [runs Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/prettier/index.js#L79-L90) as part of our [continuous integration checks](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/circleci/test_entry_point.sh#L10). It won't attempt to overwrite the files, but instead will fail the build if any file differs from the Prettier output for that file. This ensures that we can't merge a pull request unless it has been fully formatted.
+* Um local [`yarn prettier`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/package.json#L115) script que [usa o Prettier Node API](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/prettier/index.js#L71-L77) para formatar arquivos no lugar. Normalmente, executamos isso antes de confirmar alterações. É rápido porque só verifica o [arquivo alterado desde  que esteja divergente com a remote master](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/shared/listChangedFiles.js#L29-L33).
+* O script que [roda o Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/prettier/index.js#L79-L90) como parte dos nossos [checks de integração contínua](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/circleci/test_entry_point.sh#L10). Não tentará sobrescrever os arquivos, mas, em vez disso, falhará a compilação se algum arquivo for diferente da saída Prettier desse arquivo. Isso garante que não possamos mergear um pull request, a menos que ela tenha sido totalmente formatado.
 
-Some team members have also set up the [editor integrations](https://prettier.io/docs/en/editors.html). Our experience with Prettier has been fantastic, and we recommend it to any team that writes JavaScript.
+Alguns membros da equipe também configuraram [integrações com o editor](https://prettier.io/docs/en/editors.html). Nossa experiência com o Prettier tem sido fantástica, e recomendamos a qualquer equipe que escreva JavaScript.
 
-## Restructuring the Monorepo {#restructuring-the-monorepo}
+## Reestruturando o Monorepo {#restructuring-the-monorepo}
 
-Ever since React was split into packages, it has been a [monorepo](https://danluu.com/monorepo/): a set of packages under the umbrella of a single repository. This made it easier to coordinate changes and share the tooling, but our folder structure was deeply nested and difficult to understand. It was not clear which files belonged to which package. After releasing React 16, we've decided to completely reorganize the repository structure. Here is how we did it.
+Desde que o React foi dividido em pacotes, tem sido um [monorepo](https://danluu.com/monorepo/): um conjunto de pacotes sob o guarda-chuva de um único repositório. Isso facilitou a coordenação de alterações e o compartilhamento das ferramentas, mas nossa estrutura de pastas estava profundamente aninhada e difícil de entender. Não ficou claro quais arquivos pertenciam a qual pacote. Depois de liberar o React 16, decidimos reorganizar completamente a estrutura do repositório. Aqui está como nós fizemos isso.
 
 ### Migrating to Yarn Workspaces {#migrating-to-yarn-workspaces}
 
