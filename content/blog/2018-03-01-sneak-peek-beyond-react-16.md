@@ -21,4 +21,4 @@ Na segunda demonstração, Dan explica: "Criamos uma maneira genérica para os c
 
 "Importantemente, esse ainda é o React que você conhece. Esse ainda é o paradigma do componente declarativo que você provavelmente gosta no React."
 
-Estamos ansiosos para para liberar esses novos recursos de renderização assíncrona no final do ano. Siga este blog e [@reactjs no Twitter](https://twitter.com/reactjs) para atualizações.
+Estamos ansiosos para liberar esses novos recursos de renderização assíncrona no final do ano. Siga este blog e [@reactjs no Twitter](https://twitter.com/reactjs) para atualizações.
