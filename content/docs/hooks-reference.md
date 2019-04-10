@@ -448,7 +448,7 @@ function useFriendStatus(friendID) {
 > 
 > Não recomendamos adicionar valores de depuração a cada custom hook criado. É mais valioso para `custom hooks` que são partes de bibliotecas compartilhas.
 
-#### Adiar a formatação de valores de depuração
+#### Adiar a formatação de valores de depuração {#adiar-a-formatação-de-valores-de-depuração}
 
 Em alguns casos, exibir um valor formatado pode ser uma operação cara. Também é desnecessário a menos que um hook seja realmente inspecionado.
 
