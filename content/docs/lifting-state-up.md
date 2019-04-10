@@ -201,7 +201,7 @@ Agora, quando o `TemperatureInput` quiser atualizar sua temperatura, ele executa
 
 >Observação:
 >
->O nome das props `temperature` ou `onTemperatureChange` não possui nenhum significado especial. Elas poderiam ter quaisquer outros nomes, tais como `value` e `onChange`, o que é uma convensão comum.
+>O nome das props `temperature` ou `onTemperatureChange` não possui nenhum significado especial. Elas poderiam ter quaisquer outros nomes, tais como `value` e `onChange`, o que é uma convenção comum.
 
 A prop `onTemperatureChange` será fornecida juntamente com a prop `temperature` pelo componente pai `Calculator`. Esse irá cuidar das alterações ao modificar seu próprio state local, fazendo com que ambos os inputs sejam renderizados com novos valores. Vamos conferir a nova implementação do componente `Calculator` em breve.
 
