@@ -3,25 +3,25 @@ title: "DOM Attributes in React 16"
 author: [gaearon]
 ---
 
-In the past, React used to ignore unknown DOM attributes. If you wrote JSX with an attribute that React doesn't recognize, React would just skip it. For example, this:
+No passado, o React ignorava atributos do DOM desconhecidos. Se você escreveu arquivos JSX com um atributo que o React não reconhece, ele apenas ignoraria. Por exemplo: 
 
 ```js
-// Your code:
-<div mycustomattribute="something" />
+// Seu código:
+<div mycustomattribute="alguma coisa" />
 ```
 
-would render an empty div to the DOM with React 15:
+renderizaria uma div vazia no DOM com React 15:  
 
 ```js
-// React 15 output:
+// Renderização no React 15:
 <div />
 ```
 
-In React 16, we are making a change. Now, any unknown attributes will end up in the DOM:
+No React 16, estamos fazendo uma mudança. Agora, qualquer atributo desconhecido será colocado no DOM:
 
 ```js
-// React 16 output:
-<div mycustomattribute="something" />
+// Renderização no React 16:
+<div mycustomattribute="alguma coisa" />
 ```
 
 ## Why Are We Changing This? {#why-are-we-changing-this}
