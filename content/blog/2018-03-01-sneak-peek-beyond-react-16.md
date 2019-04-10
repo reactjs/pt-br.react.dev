@@ -1,24 +1,24 @@
 ---
-title: "Sneak Peek: Beyond React 16"
+title: "Espiada: Além do React 16"
 author: [sophiebits]
 ---
 
-[Dan Abramov](https://twitter.com/dan_abramov) from our team just spoke at [JSConf Iceland 2018](https://2018.jsconf.is/) with a preview of some new features we've been working on in React. The talk opens with a question: "With vast differences in computing power and network speed, how do we deliver the best user experience for everyone?"
+O [Dan Abramov](https://twitter.com/dan_abramov) do nosso time acabou de palestrar na [JSConf Iceland 2018](https://2018.jsconf.is/) com uma prévia de alguns novos recursos em que estamos trabalhando no React. A palestra começa com uma pergunta: "Com as vastas diferenças em poder de computação e velocidade de rede, como podemos oferecer a melhor experiência de usuário para todos?"
 
-Here's the video courtesy of JSConf Iceland:
+Aqui está o vídeo cortesia da JSConf Iceland:
 
 <br>
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nLF0n9SACd4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-I think you'll enjoy the talk more if you stop reading here and just watch the video. If you don't have time to watch, a (very) brief summary follows.
+Acho que você irá gostar mais da palestra, se você parar de ler aqui e apenas assistir ao vídeo. Se você não tiver tempo para assistir, segue um (bem) breve resumo.
 
-## About the Two Demos {#about-the-two-demos}
+## Sobre as Duas Demonstrações {#about-the-two-demos}
 
-On the first demo, Dan says: "We've built a generic way to ensure that high-priority updates don't get blocked by a low-priority update, called **time slicing**. If my device is fast enough, it feels almost like it's synchronous; if my device is slow, the app still feels responsive. It adapts to the device thanks to the [requestIdleCallback](https://developers.google.com/web/updates/2015/08/using-requestidlecallback) API. Notice that only the final state was displayed; the rendered screen is always consistent and we don't see visual artifacts of slow rendering causing a janky user experience."
+Na primeira demonstração, Dan diz: "Criamos uma maneira genérica de garantir que as atualizações de alta prioridade não sejam bloqueadas por uma atualização de baixa prioridade, chamada **time slicing**. Se meu dispositivo for rápido o suficiente, parece quase síncrono; se o meu dispositivo estiver lento, o aplicativo ainda parece responsivo. Ele se adapta ao dispositivo graças a API do [requestIdleCallback](https://developers.google.com/web/updates/2015/08/using-requestidlecallback). Entretanto, apenas o estado final será apresentado; a página renderizada é sempre consistente e não vemos artifícios visuais da renderização lenta, causando uma experiência ruim ao usuário.
 
-On the second demo, Dan explains: "We've built a generic way for components to suspend rendering while they load async data, which we call **suspense**. You can pause any state update until the data is ready, and you can add async loading to any component deep in the tree without plumbing all the props and state through your app and hoisting the logic. On a fast network, updates appear very fluid and instantaneous without a jarring cascade of spinners that appear and disappear. On a slow network, you can intentionally design which loading states the user should see and how granular or coarse they should be, instead of showing spinners based on how the code is written. The app stays responsive throughout."
+Na segunda demonstração, Dan explica: "Criamos uma maneira genérica para os componentes suspenderem a renderização enquanto carregam dados assíncronos, que chamamos de **suspense**. Você pode pausar qualquer atualização de estado até que os dados estejam prontos, e também adicionar carregamento assíncrono a qualquer componente no fundo da árvore sem descer todas as props e estados através do seu aplicativo e elevando a lógica. Em uma rede rápida, as atualizações parecem muito fluidas e instantâneas sem uma inconstância de carregamentos que aparecem e desaparecem. Em uma rede lenta, você pode intencionalmente projetar quais os estados de carregamento que o usuário deve ver e como eles devem ser granulares ou grosseiros, em vez de exibir os carregamentos com base em como o código é escrito. O aplicativo permanece responsivo durante todo o processo."
 
-"Importantly, this is still the React you know. This is still the declarative component paradigm that you probably like about React."
+"Importantemente, esse ainda é o React que você conhece. Esse ainda é o paradigma do componente declarativo que você provavelmente gosta no React."
 
-We can't wait to release these new async rendering features later this year. Follow this blog and [@reactjs on Twitter](https://twitter.com/reactjs) for updates.
+Estamos ansiosos para liberar esses novos recursos de renderização assíncrona no final do ano. Siga este blog e [@reactjs no Twitter](https://twitter.com/reactjs) para atualizações.
