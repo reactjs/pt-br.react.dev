@@ -1,11 +1,11 @@
 ---
-title: "Error Handling in React 16"
+title: "Tratamento de Error no React 16"
 author: [gaearon]
 ---
 
-As React 16 release is getting closer, we would like to announce a few changes to how React handles JavaScript errors inside components. These changes are included in React 16 beta versions, and will be a part of React 16.
+Como a versão 16 do React está próxima, nós gostaríamos de anunciar algumas pequenas mudanças de como o React lida com os erros JavaScript dentro dos componentes. Estas mudanças foram incluidas na versão beta do React 16 e fará parte do React 16.  
 
-**By the way, [we just released the first beta of React 16 for you to try!](https://github.com/facebook/react/issues/10294)**
+**A propósito, [nós acabamos de lançar a primeira versão beta do React 16 para você testar!](https://github.com/facebook/react/issues/10294)**
 
 ## Behavior in React 15 and Earlier {#behavior-in-react-15-and-earlier}
 
