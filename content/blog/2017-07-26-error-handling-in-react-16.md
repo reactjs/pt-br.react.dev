@@ -7,9 +7,9 @@ Como a versão 16 do React está próxima, nós gostaríamos de anunciar algumas
 
 **A propósito, [nós acabamos de lançar a primeira versão beta do React 16 para você testar!](https://github.com/facebook/react/issues/10294)**
 
-## Behavior in React 15 and Earlier {#behavior-in-react-15-and-earlier}
+## Funcionamento no React 15 e Antecessor {#behavior-in-react-15-and-earlier}
 
-In the past, JavaScript errors inside components used to corrupt React’s internal state and cause it to [emit](https://github.com/facebook/react/issues/4026) [cryptic](https://github.com/facebook/react/issues/6895) [errors](https://github.com/facebook/react/issues/8579) on next renders. These errors were always caused by an earlier error in the application code, but React did not provide a way to handle them gracefully in components, and could not recover from them.
+Anteriormente, os erros JavaScript dentro dos componentes constumanvam corromper o estato interno do React e fazer com que ele [emita](https://github.com/facebook/react/issues/4026) [erros](https://github.com/facebook/react/issues/8579) [difíceis de entender](https://github.com/facebook/react/issues/6895) nos próximos renderizadores. Estes erros foram sempre causados por erros antecessores no código da aplicação, mas o React não providenciava uma forma de manipulá-los de um modo elegante nos componentes, e não poderia se recuperar a partir deles.
 
 ## Introducing Error Boundaries {#introducing-error-boundaries}
 
