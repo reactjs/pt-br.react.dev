@@ -56,9 +56,9 @@ O método `componentDidCatch()` funciona como o block `catch {}` do JavaScript, 
 
 Observe que **limitadores de erros, apenas conseguem capturar erros nos componentes abaixo deles na árvore**. Um limitador de erro não consegue capturar um erro dentro de sí próprio. Se um limitador de erro falhar ao tentar renderizar a mensagem de erro, o erro irá propagar até o limitador de erro máis próximo, localizado acima dele. Este também é de modo similar, a como o block `catch {}` funciona no JavaScript.
 
-## Live Demo {#live-demo}
+## Demonstração Ao Vivo {#live-demo}
 
-Check out [this example of declaring and using an error boundary](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) with [React 16 beta](https://github.com/facebook/react/issues/10294).
+Confira [este exemplo de declaração e uso do limitador de erro](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) com o [React 16 beta](https://github.com/facebook/react/issues/10294).
 
 ## Where to Place Error Boundaries {#where-to-place-error-boundaries}
 
