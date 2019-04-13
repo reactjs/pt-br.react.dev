@@ -1,5 +1,5 @@
 ---
-title: "Tratamento de Error no React 16"
+title: "Tratamento de Erro no React 16"
 author: [gaearon]
 ---
 
@@ -11,13 +11,14 @@ Como a versão 16 do React está próxima, nós gostaríamos de anunciar algumas
 
 Anteriormente, os erros JavaScript dentro dos componentes constumanvam corromper o estato interno do React e fazer com que ele [emita](https://github.com/facebook/react/issues/4026) [erros](https://github.com/facebook/react/issues/8579) [difíceis de entender](https://github.com/facebook/react/issues/6895) nos próximos renderizadores. Estes erros foram sempre causados por erros antecessores no código da aplicação, mas o React não providenciava uma forma de manipulá-los de um modo elegante nos componentes, e não poderia se recuperar a partir deles.
 
-## Introducing Error Boundaries {#introducing-error-boundaries}
+## Introduzindo as Limitações de Erros {#introducing-error-boundaries}
+<!-- ## Introducing Error Boundaries {#introducing-error-boundaries} -->
 
-A JavaScript error in a part of the UI shouldn’t break the whole app. To solve this problem for React users, React 16 introduces a new concept of an “error boundary”.
+Um erro JavaScript na parte da UI não deve parar todo a aplicação. Para resolver estes problemas para os usuário do React, o React 16 introduz um novo conceito de "limitação de erro"  
 
-Error boundaries are React components that **catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI** instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+Limitações de erros são componentes React, que **capturam os erros JavaScript em qualquer lugar referente à arvore de seus componentes filhos, registra os erros e mostra uma alterantiva de UI** ao invés da árvore do componente que foi danificada. As limitações de erros capturam os erros durante a renderização, nos métodos de ciclo de vida e nos construtores de toda a árvore abaixo dele.
 
-A class component becomes an error boundary if it defines a new lifecycle method called `componentDidCatch(error, info)`:
+Um componente de classe torna-se um limitador de erro, se ele definir um novo método do ciclo de vida, chamado `componentDidCatch(error, info)`:
 
 ```js{7-12,15-18}
 class ErrorBoundary extends React.Component {
@@ -27,23 +28,23 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    // Display fallback UI
+    // Mostra uma UI alternativa
     this.setState({ hasError: true });
-    // You can also log the error to an error reporting service
+    // Você também pode registrar o erro em um serviço de relatório de erros
     logErrorToMyService(error, info);
   }
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
+      // Você pode renderizar qualquer alternativa de UI
+      return <h1>Algo deu errado.</h1>;
     }
     return this.props.children;
   }
 }
 ```
 
-Then you can use it as a regular component:
+Então você pode usar ele como um componente comum:
 
 ```js
 <ErrorBoundary>
@@ -51,9 +52,9 @@ Then you can use it as a regular component:
 </ErrorBoundary>
 ```
 
-The `componentDidCatch()` method works like a JavaScript `catch {}` block, but for components. Only class components can be error boundaries. In practice, most of the time you’ll want to declare an error boundary component once and use it throughout your application.
+O método `componentDidCatch()` funciona como o block `catch {}` do JavaScript, porém, para componentes. Apenas componentes de classe podem ser limitadores de erros. Na prática, na maioria das vezes, você vai querer declarar um componente limitador de error apenas uma vez e usá-lo ao longo da sua aplicação. 
 
-Note that **error boundaries only catch errors in the components below them in the tree**. An error boundary can’t catch an error within itself. If an error boundary fails trying to render the error message, the error will propagate to the closest error boundary above it. This, too, is similar to how `catch {}` block works in JavaScript.
+Observe que **limitadores de erros, apenas conseguem capturar erros nos componentes abaixo deles na árvore**. Um limitador de erro não consegue capturar um erro dentro de sí próprio. Se um limitador de erro falhar ao tentar renderizar a mensagem de erro, o erro irá propagar até o limitador de erro máis próximo, localizado acima dele. Este também é de modo similar, a como o block `catch {}` funciona no JavaScript.
 
 ## Live Demo {#live-demo}
 
