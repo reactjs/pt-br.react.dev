@@ -60,9 +60,9 @@ Observe que **limitadores de erros, apenas conseguem capturar erros nos componen
 
 Confira [este exemplo de declaração e uso do limitador de erro](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) com o [React 16 beta](https://github.com/facebook/react/issues/10294).
 
-## Where to Place Error Boundaries {#where-to-place-error-boundaries}
+## Onde Posicionar os Limitadores de Erros  {#where-to-place-error-boundaries}
 
-The granularity of error boundaries is up to you. You may wrap top-level route components to display a “Something went wrong” message to the user, just like server-side frameworks often handle crashes. You may also wrap individual widgets in an error boundary to protect them from crashing the rest of the application.
+Os pequenos detalhes dos limitadores de erros depende de você. Você pode envolver componentes de rota (superior aos outros componentes) para mostrar uma mensagem, como "Algo deu errado" para o usuário, semelhante aos frameworks de lado do servidor, que geralmente lidam com os conflitos. Você também pode envolver widgets individualmente em um limitador de erro, para os proteger de colidirem com o resto da aplicação.
 
 ## New Behavior for Uncaught Errors {#new-behavior-for-uncaught-errors}
 
