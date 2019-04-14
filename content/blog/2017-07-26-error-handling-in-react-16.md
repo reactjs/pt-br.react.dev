@@ -108,8 +108,8 @@ Porém, componentes React são declarativos e especificam *o que* deve ser rende
 
 Limitadores de erros preservam a natureza declarativa do React, e se comportam como você esperaria. Por exemplo, mesmo se um erro ocorresse no método `componentDidUpdate`, causado por um `setState` em algum lugar profundo da árvore, ainda assim irá propagar corretamente para o limitador de erro mais próximo.
 
-## Naming Changes from React 15 {#naming-changes-from-react-15}
+## Mudanças de Nomenclatura do React 15 {#naming-changes-from-react-15}
 
-React 15 included a very limited support for error boundaries under a different method name: `unstable_handleError`. This method no longer works, and you will need to change it to `componentDidCatch` in your code starting from the first 16 beta release.
+O React 15 incluiu um suporte muito restrito aos limitadores de erros utilizando um nome de método diferente: `unstable_handleError`. Este método não funciona mais, e você precisará trocar em seu código para `componentDidCatch` a partir da primeira versão beta 16.  
 
-For this change, we’ve provided [a codemod](https://github.com/reactjs/react-codemod#error-boundaries) to automatically migrate your code.
+Para esta mudança, nós fornecemos [uma ferramenta de refatoração](https://github.com/reactjs/react-codemod#error-boundaries) para migrar seu código automaticamente.
