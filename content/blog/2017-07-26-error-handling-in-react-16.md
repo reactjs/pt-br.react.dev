@@ -76,17 +76,17 @@ Por exemplo, o Facebook Messenger envolve o conteúdo da barra lateral, o painel
 
 Nós também incentivamos você a usar serviços de relatórios de erros JS (ou construir o seu própiro), de modo que você possa aprender sobre exceções não tratadas conforme elas acontecem em produção e corrigi-las.
 
-## Component Stack Traces {#component-stack-traces}
+## Rastros da Pilha do Componente {#component-stack-traces}
 
-React 16 prints all errors that occurred during rendering to the console in development, even if the application accidentally swallows them. In addition to the error message and the JavaScript stack, it also provides component stack traces. Now you can see where exactly in the component tree the failure has happened:
+O React 16 exibe todos os erros que ocorreram durante a renderização de desenvolvimento no console, mesmo se a aplicação acidentalmente tenha os aceitado. Além da mensagen de erro e da pilha JavaScript, também é fornecido os rastros da pilha do componente. Agora você pode ver exatamente onde na àrvode do componente a falha ocorreu:
 
-<img src="../images/docs/error-boundaries-stack-trace.png" alt="Component stack traces in error message" style="width: 100%;">
+<img src="../images/docs/error-boundaries-stack-trace.png" alt="Rastros da pilha do componente em uma mensagem de erro" style="width: 100%;">
 
-You can also see the filenames and line numbers in the component stack trace. This works by default in [Create React App](https://github.com/facebookincubator/create-react-app) projects:
+Você também consegue ver os nomes dos arquivos e os números das linhas no rastro da pilha do componente. Isto funciona por padrão nos projetos [Create React App](https://github.com/facebookincubator/create-react-app):
 
-<img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" alt="Component stack traces with line numbers in error message" style="width: 100%;">
+<img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" alt="Rastro da pilha do componente com número de linhas em uma mensagem de erro" style="width: 100%;">
 
-If you don’t use Create React App, you can add [this plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) manually to your Babel configuration. Note that it’s intended only for development and **must be disabled in production**.
+Se você não usa o Create React App, você pode adicionar [este plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) manualmente as configurações do seu Babel. Observe que isto destina-se apenas para desenvolvimento e **deve ser desativado em produção**.
 
 ## Why Not Use `try` / `catch`? {#why-not-use-try--catch}
 
