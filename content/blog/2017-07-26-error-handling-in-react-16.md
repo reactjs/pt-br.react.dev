@@ -64,17 +64,17 @@ Confira [este exemplo de declaração e uso do limitador de erro](https://codepe
 
 Os pequenos detalhes dos limitadores de erros depende de você. Você pode envolver componentes de rota (superior aos outros componentes) para mostrar uma mensagem, como "Algo deu errado" para o usuário, semelhante aos frameworks de lado do servidor, que geralmente lidam com os conflitos. Você também pode envolver widgets individualmente em um limitador de erro, para os proteger de colidirem com o resto da aplicação.
 
-## New Behavior for Uncaught Errors {#new-behavior-for-uncaught-errors}
+## Novo Comportamento para Erros Não Capturados {#new-behavior-for-uncaught-errors}
 
-This change has an important implication. **As of React 16, errors that were not caught by any error boundary will result in unmounting of the whole React component tree.**
+Esta mudança tem uma consequência importante. A partir do React 16, os erros que não forem capturados pelos limitadores de erros, resultará no desmontamento completo da àrvore do componente React. 
 
-We debated this decision, but in our experience it is worse to leave corrupted UI in place than to completely remove it. For example, in a product like Messenger leaving the broken UI visible could lead to somebody sending a message to the wrong person. Similarly, it is worse for a payments app to display a wrong amount than to render nothing.
+Nós discutimos esta decisão, mas pela nossa experiência é pior deixar a UI corrompida ao invés de removê-la completamente. Por exemplo, em um produto como Messenger, deixar uma UI corrompida visível pode levar alguém a enviar uma mensagem para uma pessoa errada. De forma similar, é pior para um app de pagamento mostrar uma quantia errada do que renderizar nada.  
 
-This change means that as you migrate to React 16, you will likely uncover existing crashes in your application that have been unnoticed before. Adding error boundaries lets you provide better user experience when something goes wrong.
+Esta mudança significa que à medida que você migra para o React 16, você provavelmente descobrirá falhas existentes na sua aplicação que não foram percebidas anteriormente. Adicionar limitadores de erros permite você prover uma melhor experiência de usuário, quando algo dá errado.
 
-For example, Facebook Messenger wraps content of the sidebar, the info panel, the conversation log, and the message input into separate error boundaries. If some component in one of these UI areas crashes, the rest of them remain interactive.
+Por exemplo, o Facebook Messenger envolve o conteúdo da barra lateral, o painel de informações, o log de conversação e o campo de entrada da mensagem dentro de limitadores de erros separados. Se algum componente de uma dessas áreas da UI falharem, o resto deles permanecem interativo.
 
-We also encourage you to use JS error reporting services (or build your own) so that you can learn about unhandled exceptions as they happen in production, and fix them.
+Nós também incentivamos você a usar serviços de relatórios de erros JS (ou construir o seu própiro), de modo que você possa aprender sobre exceções não tratadas conforme elas acontecem em produção e corrigi-las.
 
 ## Component Stack Traces {#component-stack-traces}
 
