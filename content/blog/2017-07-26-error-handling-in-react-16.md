@@ -9,7 +9,7 @@ Como a versão 16 do React está próxima, nós gostaríamos de anunciar algumas
 
 ## Funcionamento no React 15 e Antecessor {#behavior-in-react-15-and-earlier}
 
-Anteriormente, os erros JavaScript dentro dos componentes constumanvam corromper o estato interno do React e fazer com que ele [emita](https://github.com/facebook/react/issues/4026) [erros](https://github.com/facebook/react/issues/8579) [difíceis de entender](https://github.com/facebook/react/issues/6895) nos próximos renderizadores. Estes erros foram sempre causados por erros antecessores no código da aplicação, mas o React não providenciava uma forma de manipulá-los de um modo elegante nos componentes, e não poderia se recuperar a partir deles.
+Anteriormente, os erros JavaScript dentro dos componentes costumavam corromper o estado interno do React e fazer com que ele [emita](https://github.com/facebook/react/issues/4026) [erros](https://github.com/facebook/react/issues/8579) [difíceis de entender](https://github.com/facebook/react/issues/6895) nos próximos renderizadores. Estes erros foram sempre causados por erros antecessores no código da aplicação, mas o React não providenciava uma forma de manipulá-los de um modo elegante nos componentes, e não poderia se recuperar a partir deles.
 
 ## Introduzindo as Limitações de Erros {#introducing-error-boundaries}
 <!-- ## Introducing Error Boundaries {#introducing-error-boundaries} -->
@@ -54,7 +54,7 @@ Então você pode usar ele como um componente comum:
 
 O método `componentDidCatch()` funciona como o block `catch {}` do JavaScript, porém, para componentes. Apenas componentes de classe podem ser limitadores de erros. Na prática, na maioria das vezes, você vai querer declarar um componente limitador de error apenas uma vez e usá-lo ao longo da sua aplicação. 
 
-Observe que **limitadores de erros, apenas conseguem capturar erros nos componentes abaixo deles na árvore**. Um limitador de erro não consegue capturar um erro dentro de sí próprio. Se um limitador de erro falhar ao tentar renderizar a mensagem de erro, o erro irá propagar até o limitador de erro máis próximo, localizado acima dele. Este também é de modo similar, a como o block `catch {}` funciona no JavaScript.
+Observe que **limitadores de erros, apenas conseguem capturar erros nos componentes abaixo deles na árvore**. Um limitador de erro não consegue capturar um erro dentro de sí próprio. Se um limitador de erro falhar ao tentar renderizar a mensagem de erro, o erro irá propagar até o limitador de erro máis próximo, localizado acima dele. Este também é de modo similar, como o block `catch {}` funciona no JavaScript.
 
 ## Demonstração Ao Vivo {#live-demo}
 
@@ -70,7 +70,7 @@ Esta mudança tem uma consequência importante. A partir do React 16, os erros q
 
 Nós discutimos esta decisão, mas pela nossa experiência é pior deixar a UI corrompida ao invés de removê-la completamente. Por exemplo, em um produto como Messenger, deixar uma UI corrompida visível pode levar alguém a enviar uma mensagem para uma pessoa errada. De forma similar, é pior para um app de pagamento mostrar uma quantia errada do que renderizar nada.  
 
-Esta mudança significa que à medida que você migra para o React 16, você provavelmente descobrirá falhas existentes na sua aplicação que não foram percebidas anteriormente. Adicionar limitadores de erros permite você prover uma melhor experiência de usuário, quando algo dá errado.
+Esta mudança significa que à medida que você migra para o React 16, você provavelmente descobrirá falhas existentes na sua aplicação que não foram percebidas anteriormente. Adicionar limitadores de erros permite você prover uma melhor experiência de usuário quando algo dá errado.
 
 Por exemplo, o Facebook Messenger envolve o conteúdo da barra lateral, o painel de informações, o log de conversação e o campo de entrada da mensagem dentro de limitadores de erros separados. Se algum componente de uma dessas áreas da UI falharem, o resto deles permanecem interativo.
 
