@@ -88,9 +88,9 @@ Você também consegue ver os nomes dos arquivos e os números das linhas no ras
 
 Se você não usa o Create React App, você pode adicionar [este plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) manualmente as configurações do seu Babel. Observe que isto destina-se apenas para desenvolvimento e **deve ser desativado em produção**.
 
-## Why Not Use `try` / `catch`? {#why-not-use-try--catch}
+## Por que não usar `try` / `catch`? {#why-not-use-try--catch}
 
-`try` / `catch` is great but it only works for imperative code:
+`try` / `catch` é ótimo, mas funciona apenas para código imperativo:
 
 ```js
 try {
@@ -100,13 +100,13 @@ try {
 }
 ```
 
-However, React components are declarative and specify *what* should be rendered:
+Porém, componentes React são declarativos e especificam *o que* deve ser renderizado:
 
 ```js
 <Button />
 ```
 
-Error boundaries preserve the declarative nature of React, and behave as you would expect. For example, even if an error occurs in a `componentDidUpdate` method caused by a `setState` somewhere deep in the tree, it will still correctly propagate to the closest error boundary.
+Limitadores de erros preservam a natureza declarativa do React, e se comportam como você esperaria. Por exemplo, mesmo se um erro ocorresse no método `componentDidUpdate`, causado por um `setState` em algum lugar profundo da árvore, ainda assim irá propagar corretamente para o limitador de erro mais próximo.
 
 ## Naming Changes from React 15 {#naming-changes-from-react-15}
 
