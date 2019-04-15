@@ -73,7 +73,7 @@ Esta mudança significa que à medida que você migra para o React 16, você pro
 
 Por exemplo, o Facebook Messenger envolve o conteúdo da barra lateral, o painel de informações, o log de conversação e o campo de entrada da mensagem dentro de limitadores de erros separados. Se algum componente de uma dessas áreas da UI falharem, o resto deles permanecem interativo.
 
-Nós também incentivamos você a usar serviços de relatórios de erros JS (ou construir o seu própiro), de modo que você possa aprender sobre exceções não tratadas conforme elas acontecem em produção e corrigi-las.
+Nós também incentivamos você a usar serviços de relatórios de erros JS (ou construir o seu próprio), de modo que você possa aprender sobre exceções não tratadas conforme elas acontecem em produção e corrigi-las.
 
 ## Rastros da Pilha do Componente {#component-stack-traces}
 
