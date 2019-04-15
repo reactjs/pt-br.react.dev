@@ -12,7 +12,6 @@ Como a versão 16 do React está próxima, nós gostaríamos de anunciar algumas
 Anteriormente, os erros JavaScript dentro dos componentes costumavam corromper o estado interno do React e fazer com que ele [emita](https://github.com/facebook/react/issues/4026) [erros](https://github.com/facebook/react/issues/8579) [difíceis de entender](https://github.com/facebook/react/issues/6895) nos próximos renderizadores. Estes erros foram sempre causados por erros antecessores no código da aplicação, mas o React não providenciava uma forma de manipulá-los de um modo elegante nos componentes, e não poderia se recuperar a partir deles.
 
 ## Introduzindo as Limitações de Erros {#introducing-error-boundaries}
-<!-- ## Introducing Error Boundaries {#introducing-error-boundaries} -->
 
 Um erro JavaScript na parte da UI não deve parar todo a aplicação. Para resolver estes problemas para os usuário do React, o React 16 introduz um novo conceito de "limitação de erro"  
 
