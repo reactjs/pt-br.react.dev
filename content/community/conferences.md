@@ -13,7 +13,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ## Próximas Conferências {#upcoming-conferences}
 
 ### ReactJS Girls Conference
-May 3, 2019 in Londres, Inglaterra
+3 de Maio de 2019 in Londres, Inglaterra
 
 [Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
 
