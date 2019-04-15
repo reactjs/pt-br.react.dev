@@ -1,5 +1,5 @@
 ---
-title: "DOM Attributes in React 16"
+title: "Atributos do DOM no React 16"
 author: [gaearon]
 ---
 
@@ -24,17 +24,14 @@ No React 16, estamos fazendo uma mudança. Agora, qualquer atributo desconhecido
 <div mycustomattribute="alguma coisa" />
 ```
 
-<!-- ## Why Are We Changing This? {#why-are-we-changing-this} -->
 ## Por Que Estamos Mudando Isso? {#why-are-we-changing-this}
 
-<!--React has always provided a JavaScript-centric API to the DOM. Since React components often take both custom and DOM-related props, it makes sense for React to use the `camelCase` convention just like the DOM APIs:-->
 O React sempre forneceu uma API central do JavaScript para o DOM. Visto que os componentes do React constantemente usam props customizadas e relacionadas ao DOM, faz sentido para o React usar a convenção `camelCase` como nas APis do DOM. 
 
 ```js
 <div tabIndex="-1" />
 ```
 
-<!--This has not changed. However, the way we enforced it in the past forced us to maintain a whitelist of all valid React DOM attributes in the bundle:-->
 Isso não mudou. Porém, a maneira como aplicamos isso no passado, nos forçou manter uma lista de permissões de todos os atributos do DOM válidos para o React no bundle.
 
 ```js
