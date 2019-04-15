@@ -63,11 +63,11 @@ Com uma nova abordagem, ambos problemas foram solucionados. No React 16, você p
 
 Em outras palavras, a maneira como se usa componentes do DOM no React não mudou, mas agora você tem novos recursos. 
 
-## Should I Keep Data in Custom Attributes? {#should-i-keep-data-in-custom-attributes}
+## Devo Manter Dados Em Atributos Personalizados? {#should-i-keep-data-in-custom-attributes}
 
-No. We don't encourage you to keep data in DOM attributes. Even if you have to, `data-` attributes are probably a better approach, but in most cases data should be kept in React component state or external stores.
+Não. Nós não recomendamos você manter dados em atributos do DOM. Mesmo se você tiver que fazer isso, usar atributos `data-` provavelmente é uma escolha melhor, porém na maioria dos casos deve ser mantido em um estado de um componente React, ou em armazenamentos externos.
 
-However, the new feature is handy if you need to use a non-standard or a new DOM attribute, or if you need to integrate with a third-party library that relies on such attributes.
+Entretanto, a nova funcionalidade é de fácil manuseio se você precisa usar um atributo não padronizado, ou um novo atributo do DOM, ou até mesmo se você precisa integrar com bibliotecas terceiras que dependa de tais atributos.
 
 ## Data and ARIA Attributes {#data-and-aria-attributes}
 
