@@ -24,15 +24,18 @@ No React 16, estamos fazendo uma mudança. Agora, qualquer atributo desconhecido
 <div mycustomattribute="alguma coisa" />
 ```
 
-## Why Are We Changing This? {#why-are-we-changing-this}
+<!-- ## Why Are We Changing This? {#why-are-we-changing-this} -->
+## Por Que Estamos Mudando Isso? {#why-are-we-changing-this}
 
-React has always provided a JavaScript-centric API to the DOM. Since React components often take both custom and DOM-related props, it makes sense for React to use the `camelCase` convention just like the DOM APIs:
+<!--React has always provided a JavaScript-centric API to the DOM. Since React components often take both custom and DOM-related props, it makes sense for React to use the `camelCase` convention just like the DOM APIs:-->
+O React sempre forneceu uma API central do JavaScript para o DOM. Visto que os componentes do React constantemente usam props customizadas e relacionadas ao DOM, faz sentido para o React usar a convenção `camelCase` como nas APis do DOM. 
 
 ```js
 <div tabIndex="-1" />
 ```
 
-This has not changed. However, the way we enforced it in the past forced us to maintain a whitelist of all valid React DOM attributes in the bundle:
+<!--This has not changed. However, the way we enforced it in the past forced us to maintain a whitelist of all valid React DOM attributes in the bundle:-->
+Isso não mudou. Porém, a maneira como aplicamos isso no passado, nos forçou manter uma lista de permissões de todos os atributos do DOM válidos para o React no bundle.
 
 ```js
 // ...
@@ -43,25 +46,25 @@ title: 'title',
 // ...
 ```
 
-This had two downsides:
+Isso tem duas desvantagens:
 
-* You could not [pass a custom attribute](https://github.com/facebook/react/issues/140). This is useful for supplying browser-specific non-standard attributes, trying new DOM APIs, and integrating with opinionated third-party libraries.
+* Você não pode [passar um atributo personalizado](https://github.com/facebook/react/issues/140). Isso é útil por fornecer atributos não padronizados específicos de um navegador, tentando novas APIs do DOM, e interagindo com arbitrárias bibliotecas de terceiros.
 
-* The attribute list kept growing over time, but most React canonical attribute names are already valid in the DOM. Removing most of the whitelist helped us reduce the bundle size a little bit.
+* A lista de atributos continuou crescendo ao longo do tempo, porém, a maioria dos atributos canônicos do React já são válidos no DOM. Removendo a maioria das listas de permissões, tornou-se possível reduzir bastante o tamanho do bundle. 
 
-With the new approach, both of these problems are solved. With React 16, you can now pass custom attributes to all HTML and SVG elements, and React doesn't have to include the whole attribute whitelist in the production version.
+Com uma nova abordagem, ambos problemas foram solucionados. No React 16, você pode passar um atributo personalizado para qualquer elemento HTML e SVG, que o React não irá incluir toda lista de permissões do atributo na versão de produção. 
 
-**Note that you should still use the canonical React naming for known attributes:**
+**Observe que você ainda deve usar atributos canônicos do React para atributos desconhecidos:**
 
 ```js
-// Yes, please
+// Sim, por favor
 <div tabIndex="-1" />
 
-// Warning: Invalid DOM property `tabindex`. Did you mean `tabIndex`?
+// Atenção: Propriedade do DOM `tabindex` inválida. Você quis dizer `tabIndex`?
 <div tabindex="-1" />
 ```
 
-In other words, the way you use DOM components in React hasn't changed, but now you have some new capabilities.
+Em outras palavras, a maneira como se usa componentes do DOM no React não mudou, mas agora você tem novos recursos. 
 
 ## Should I Keep Data in Custom Attributes? {#should-i-keep-data-in-custom-attributes}
 
