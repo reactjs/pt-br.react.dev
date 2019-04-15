@@ -126,7 +126,7 @@ Tipicamente, novos aplicativos React tem um único componente `App` no topo. Con
 
 Não tenha medo de dividir componentes em componentes menores.
 
-Por exemplo, considere esse commponente `Comment`:
+Por exemplo, considere esse componente `Comment`:
 
 ```js
 function Comment(props) {
