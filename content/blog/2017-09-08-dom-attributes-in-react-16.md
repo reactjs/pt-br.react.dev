@@ -69,18 +69,18 @@ Não. Nós não recomendamos você manter dados em atributos do DOM. Mesmo se vo
 
 Entretanto, a nova funcionalidade é de fácil manuseio se você precisa usar um atributo não padronizado, ou um novo atributo do DOM, ou até mesmo se você precisa integrar com bibliotecas terceiras que dependa de tais atributos.
 
-## Data and ARIA Attributes {#data-and-aria-attributes}
+## Atributos de Dados e ARIA {#data-and-aria-attributes}
 
-Just like before, React lets you pass `data-` and `aria-` attributes freely:
+Assim como antes, o React deixa você passar atributos `data-` e `aria-` livremente: 
 
 ```js
 <div data-foo="42" />
 <button aria-label="Close" onClick={onClose} />
 ```
 
-This has not changed.
+Isso não mudou.
 
-[Accessibility](/docs/accessibility.html) is very important, so even though React 16 passes any attributes through, it still validates that `aria-` props have correct names in development mode, just like React 15 did.
+[Acessibilidade](/docs/accessibility.html) é muito importante, por isso que o React 16 passa qualquer atributo e também valida se `aria-` props tem seus nomes corretos no modo de desenvolvimento, como o React 15 fazia. 
 
 ## Migration Path {#migration-path}
 
