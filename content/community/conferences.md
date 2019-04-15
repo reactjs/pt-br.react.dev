@@ -12,6 +12,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
+<<<<<<< HEAD
 ### Reactathon 2019 {#reactathon-2019}
 30 a 31 de Março de 2019 em São Francisco, Estados Unidos
 
@@ -29,8 +30,17 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ### ReactJS Girls Conference 
 3 de Maio de 2019 em Londres, Reino Unido
+=======
+### ReactJS Girls Conference
+May 3, 2019 in London, UK
+>>>>>>> d211df89290c85261614e6180b82c68fb4bd1058
 
 [Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
+
+### <React.NotAConf /> 2019 {#reactnotaconf--2019}
+May 11 in Sofia, Bulgaria
+
+[Website](http://react-not-a-conf.com/) - [Twitter](https://twitter.com/reactnotaconf) - [Facebook](https://www.facebook.com/events/780891358936156)
 
 ### ReactEurope 2019 {#reacteurope-2019}
 23 a 24 de Maio de 2019 em Paris, França
@@ -87,7 +97,21 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](http://reactalicante.es/) - [Twitter](https://twitter.com/reactalicante) - [Facebook](https://www.facebook.com/ReactAlicante)
 
+<<<<<<< HEAD
 ## Conferências passadas {#past-conferences}
+=======
+### React Advanced 2019 {#react-advanced-2019}
+October 25, 2019 in London, UK
+
+[Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
+
+### React Day Berlin 2019 {#react-day-berlin-2019}
+December 6, 2019 in Berlin, Germany
+
+[Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/reactdayberlin)
+
+## Past Conferences {#past-conferences}
+>>>>>>> d211df89290c85261614e6180b82c68fb4bd1058
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
 28 e 29 de Janeiro no Facebook HQ, Califórnia, Estados Unidos
@@ -114,7 +138,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Amsterdam 2016 {#react-amsterdam-2016}
 16 de Abril em Amsterdã, Holanda (Países Baixos)
 
+<<<<<<< HEAD
 [Website](https://react.amsterdam/2016) - [Vídeos](https://youtu.be/sXDZBxbRRag?list=PLNBNS7NRGKMG3uLrm5fgY02hJ87Wzb4IU)
+=======
+[Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
+>>>>>>> d211df89290c85261614e6180b82c68fb4bd1058
 
 ### ReactEurope 2016 {#reacteurope-2016}
 2 e 3 de Junho em Paris, França
@@ -164,7 +192,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Amsterdam 2017 {#react-amsterdam-2017}
 21 de Abril em Amsterdã, Holanda (Países Baixos)
 
+<<<<<<< HEAD
 [Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Vídeos](https://www.youtube.com/watch?v=NQyL-Dm7Kig&list=PLNBNS7NRGKMHxfm0CcYNuINLdRw7r4a9M)
+=======
+[Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
+>>>>>>> d211df89290c85261614e6180b82c68fb4bd1058
 
 ### ReactEurope 2017 {#reacteurope-2017}
 18 e 19 de Maio em Paris, França
@@ -360,3 +392,18 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 31 de Janeiro de 2019 em Teerã, Irã
 
 [Website](http://reactiran.com) - [Instagram](https://www.instagram.com/reactiran/)
+
+### Reactathon 2019 {#reactathon-2019}
+March 30-31, 2019 in San Francisco, USA
+
+[Website](https://www.reactathon.com/) - [Twitter](https://twitter.com/reactathon)
+
+### App.js Conf 2019 {#appjs-conf-2019}
+April 4-5, 2019 in Kraków, Poland
+
+[Website](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
+
+### React Amsterdam 2019 {#react-amsterdam-2019}
+April 12, 2019 in Amsterdam, The Netherlands
+
+[Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
