@@ -97,7 +97,7 @@ Cada componente também fornece outras APIs:
   - [`setState()`](#setstate)
   - [`forceUpdate()`](#forceupdate)
 
-### Propriedades da Classes {#class-properties}
+### Propriedades da Classe {#class-properties}
 
   - [`defaultProps`](#defaultprops)
   - [`displayName`](#displayname)
