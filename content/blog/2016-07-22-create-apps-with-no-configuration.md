@@ -1,5 +1,5 @@
 ---
-title: "Crie Apps sem configuração"
+title: "Crie Apps Sem Configuração"
 author: [gaearon]
 ---
 
@@ -25,7 +25,7 @@ Agora você pode usá-lo para criar um novo app:
 create-react-app hello-world
 ```
 
-Isso levará algum tempo, já que o npm instale as dependências transitivas, mas, depois de concluído, você verá uma lista de comandos que podem ser executados na pasta criada:
+Isso levará algum tempo, já que o npm instala as dependências transitivas, mas, depois de concluído, você verá uma lista de comandos que podem ser executados na pasta criada:
 
 ![pasta criada](../images/blog/create-apps-with-no-configuration/created-folder.png)
 
@@ -52,7 +52,7 @@ Para construir um pacote otimizado, execute `npm run build`:
 
 ![npm run build](../images/blog/create-apps-with-no-configuration/npm-run-build.png)
 
-Ele é reduzido, corretamente envificado e os recursos incluem hashes de conteúdo para armazenamento em cache.
+Ele é minificado, montado corretamente e os recursos incluem hashes de conteúdo para armazenamento em cache.
 
 ### Uma Dependência {#one-dependency}
 
@@ -135,7 +135,7 @@ Isso não significa que essas ferramentas não sejam ótimas. Para muitos de nó
 
 Mesmo assim, sabíamos que era frustrante passar dias montando um projeto quando tudo que você queria era aprender React. Nós queríamos consertar isso.
 
-## Poderíamos corrigir isso? {#could-we-fix-this}
+## Poderíamos Corrigir Isso? {#could-we-fix-this}
 
 Nós nos encontramos em um dilema incomum.
 
@@ -151,7 +151,6 @@ Tendo acabado de assistir a [EmberCamp](http://embercamp.com/) há uma semana, f
 
 Proporcionar uma experiência coesa e curada é valioso por si só, mesmo que o usuário possa, em teoria, montar essas partes. Kathy Sierra [explica melhor](http://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat):
 
-
 >If your UX asks the user to make *choices*, for example, even if those choices are both clear and useful, the act of *deciding* is a cognitive drain. And not just *while* they’re deciding... even *after* we choose, an unconscious cognitive background thread is slowly consuming/leaking resources, “Was *that* the right choice?”
 
 Eu nunca tentei escrever uma ferramenta de linha de comando para aplicativos React, e nem [Christopher](https://twitter.com/vjeux). Estávamos conversando sobre o Messenger sobre essa ideia e decidimos trabalhar juntos por uma semana como um projeto de hackathon.
@@ -160,6 +159,6 @@ Sabíamos que tais projetos tradicionalmente não tiveram muito sucesso no ecoss
 
 Ainda assim, decidimos que valeria outra chance. Christopher e eu criamos uma prova de conceito muito difícil no fim de semana, e [Kevin](https://twitter.com/lacker) logo se juntou a nós.
 
-Convidamos alguns membros da comunidade para colaborar conosco e passamos essa semana trabalhando nessa ferramenta. Esperamos que você goste de usá-lo! [Deixe-nos saber o que você pensa.](Https://github.com/facebookincubator/create-react-app/issues/11)
+Convidamos alguns membros da comunidade para colaborar conosco e passamos essa semana trabalhando nessa ferramenta. Esperamos que você goste de usá-lo! [Deixe-nos saber o que você pensa.](https://github.com/facebookincubator/create-react-app/issues/11)
 
 Gostaríamos de expressar nossa gratidão a [Max Stoiber](https://twitter.com/mxstbr), [Jonny Buchanan](https://twitter.com/jbscript), [Ean Platter](https://twitter.com/eanplatter), [Tyler McGinnis](https://github.com/tylermcginnis), [Kent C. Dodds](https://github.com/kentcdodds) e [Eric Clemmons](https://twitter.com/ericclemmons) pelo feedback, ideias e contribuições iniciais.
