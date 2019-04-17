@@ -1,62 +1,62 @@
 ---
-title: "Create Apps with No Configuration"
+title: "Crie Apps Sem Configuração"
 author: [gaearon]
 ---
 
-**[Create React App](https://github.com/facebookincubator/create-react-app)** is a new officially supported way to create single-page React applications. It offers a modern build setup with no configuration.
+**[Create React App](https://github.com/facebookincubator/create-react-app)** é a nova forma oficialmente suportada para criar aplicativos React de página única. Ele oferece um ambiente moderno sem configurações.
 
-## Getting Started {#getting-started}
+## Começando {#getting-started}
 
-### Installation {#installation}
+### Instalação {#installation}
 
-First, install the global package:
+Primeiro, instale o pacote global:
 
 ```sh
 npm install -g create-react-app
 ```
 
-Node.js 4.x or higher is required.
+Node.js 4.x ou superior é nescessário.
 
-### Creating an App {#creating-an-app}
+### Criando um App {#creating-an-app}
 
-Now you can use it to create a new app:
+Agora você pode usá-lo para criar um novo app:
 
 ```sh
 create-react-app hello-world
 ```
 
-This will take a while as npm installs the transitive dependencies, but once it’s done, you will see a list of commands you can run in the created folder:
+Isso levará algum tempo, já que o npm instala as dependências transitivas, mas, depois de concluído, você verá uma lista de comandos que podem ser executados na pasta criada:
 
-![created folder](../images/blog/create-apps-with-no-configuration/created-folder.png)
+![pasta criada](../images/blog/create-apps-with-no-configuration/created-folder.png)
 
-### Starting the Server {#starting-the-server}
+### Iniciando o Servidor {#starting-the-server}
 
-Run `npm start` to launch the development server. The browser will open automatically with the created app’s URL.
+Execute o `npm start` para iniciar o servidor de desenvolvimento. O navegador será aberto automaticamente com a URL do aplicativo criado.
 
-![compiled successfully](../images/blog/create-apps-with-no-configuration/compiled-successfully.png)
+![compilado com sucesso](../images/blog/create-apps-with-no-configuration/compiled-successfully.png)
 
-Create React App uses both webpack and Babel under the hood.
-The console output is tuned to be minimal to help you focus on the problems:
+Create React App usa tanto o webpack quanto o Babel por de baixo dos panos.
+A saída do console é ajustada para ser mínima para ajudá-lo a se concentrar nos problemas:
 
-![failed to compile](../images/blog/create-apps-with-no-configuration/failed-to-compile.png)
+![não conseguiu compilar](../images/blog/create-apps-with-no-configuration/failed-to-compile.png)
 
-ESLint is also integrated so lint warnings are displayed right in the console:
+O ESLint também é integrado, de modo que os avisos de lint são exibidos diretamente no console:
 
-![compiled with warnings](../images/blog/create-apps-with-no-configuration/compiled-with-warnings.png)
+![compilado com avisos](../images/blog/create-apps-with-no-configuration/compiled-with-warnings.png)
 
-We only picked a small subset of lint rules that often lead to bugs.
+Nós só escolhemos um pequeno subconjunto de regras de lint que muitas vezes levam a bugs.
 
-### Building for Production {#building-for-production}
+### Contruindo para Produção {#building-for-production}
 
-To build an optimized bundle, run `npm run build`:
+Para construir um pacote otimizado, execute `npm run build`:
 
 ![npm run build](../images/blog/create-apps-with-no-configuration/npm-run-build.png)
 
-It is minified, correctly envified, and the assets include content hashes for caching.
+Ele é minificado, montado corretamente e os recursos incluem hashes de conteúdo para armazenamento em cache.
 
-### One Dependency {#one-dependency}
+### Uma Dependência {#one-dependency}
 
-Your `package.json` contains only a single build dependency and a few scripts:
+Seu `package.json` contém apenas uma única dependência de compilação e alguns scripts:
 
 ```js
 {
@@ -76,11 +76,11 @@ Your `package.json` contains only a single build dependency and a few scripts:
 }
 ```
 
-We take care of updating Babel, ESLint, and webpack to stable compatible versions so you can update a single dependency to get them all.
+Nós cuidamos de atualizar o Babel, o ESLint e o Webpack para versões compatíveis estáveis, para que você possa atualizar uma única dependência para obter todas elas.
 
-### Zero Configuration {#zero-configuration}
+### Configuração Zero {#zero-configuration}
 
-It is worth repeating: there are no configuration files or complicated folder structures. The tool only generates the files you need to build your app.
+Vale a pena repetir: não há arquivos de configuração ou estruturas de pastas complicadas. A ferramenta gera apenas os arquivos necessários para você criar seu aplicativo.
 
 ```
 hello-world/
@@ -97,68 +97,68 @@ hello-world/
     logo.svg
 ```
 
-All the build settings are preconfigured and can’t be changed. Some features, such as testing, are currently missing. This is an intentional limitation, and we recognize it might not work for everybody. And this brings us to the last point.
+Todas as configurações de criação são pré-configuradas e não podem ser alteradas. Alguns recursos, como testes, estão ausentes no momento. Esta é uma limitação intencional e reconhecemos que pode não funcionar para todos. E isso nos leva ao último ponto.
 
-### No Lock-In {#no-lock-in}
+### Sem Bloqueio {#no-lock-in}
 
-We first saw this feature in [Enclave](https://github.com/eanplatter/enclave), and we loved it. We talked to [Ean](https://twitter.com/EanPlatter), and he was excited to collaborate with us. He already sent a few pull requests!
+Nós vimos esse recurso pela primeira vez em [Enclave](https://github.com/eanplatter/enclave), e nós adoramos. Nós conversamos com [Ean](https://twitter.com/EanPlatter), e ele estava animado para colaborar conosco. Ele já enviou alguns pull requests!
 
-“Ejecting” lets you leave the comfort of Create React App setup at any time. You run a single command, and all the build dependencies, configs, and scripts are moved right into your project. At this point you can customize everything you want, but effectively you are forking our configuration and going your own way. If you’re experienced with build tooling and prefer to fine-tune everything to your taste, this lets you use Create React App as a boilerplate generator.
+"Ejetar" permite que você deixe o conforto da configuração do Create React App a qualquer momento. Você executa um único comando e todas as dependências, configurações e scripts de compilação são movidos diretamente para o seu projeto. Neste ponto, você pode personalizar tudo o que quiser, mas efetivamente você está bifurcando nossa configuração e seguindo seu próprio caminho. Se você tem experiência com ferramentas de construção e prefere ajustar tudo ao seu gosto, isso permite usar o Create React App como um gerador geral.
 
-We expect that at early stages, many people will “eject” for one reason or another, but as we learn from them, we will make the default setup more and more compelling while still providing no configuration.
+Esperamos que, nos estágios iniciais, muitas pessoas “ejetem” por um motivo ou outro, mas à medida que aprendermos com elas, tornaremos a configuração padrão cada vez mais atraente, sem fornecer configuração.
 
-## Try It Out! {#try-it-out}
+## Experimente! {#try-it-out}
 
-You can find [**Create React App**](https://github.com/facebookincubator/create-react-app) with additional instructions on GitHub.
+Você pode encontrar o [**Create React App**](https://github.com/facebookincubator/create-react-app) com instruções adicionais sobre o GitHub.
 
-This is an experiment, and only time will tell if it becomes a popular way of creating and building React apps, or fades into obscurity.
+Este é um experimento, e só o tempo dirá se ele irá se torna uma maneira popular de criar aplicativos React ou desaparecer na obscuridade.
 
-We welcome you to participate in this experiment. Help us build the React tooling that more people can use. We are always [open to feedback](https://github.com/facebookincubator/create-react-app/issues/11).
+Convidamos você a participar desta experiência. Ajude-nos a construir o conjunto de ferramentas React que mais pessoas podem usar. Estamos sempre [abertos ao feedback](https://github.com/facebookincubator/create-react-app/issues/11).
 
-## The Backstory {#the-backstory}
+## A História por Trás {#the-backstory}
 
-React was one of the first libraries to embrace transpiling JavaScript. As a result, even though you can [learn React without any tooling](https://github.com/facebook/react/blob/3fd582643ef3d222a00a0c756292c15b88f9f83c/examples/basic-jsx/index.html), the React ecosystem has commonly become associated with an overwhelming explosion of tools.
+O React foi uma das primeiras bibliotecas a adotar o JavaScript transpilado. Como resultado, mesmo que você possa [aprender React sem qualquer ferramenta](https://github.com/facebook/react/blob/3fd582643ef3d222a00a0c756292c15b88f9f83c/examples/basic-jsx/index.html), o ecossistema React se tornou comumente associado com uma esmagadora explosão de ferramentas.
 
-Eric Clemmons called this phenomenon the “[JavaScript Fatigue](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4)”:
+Eric Clemmons chamou esse fenômeno de "[JavaScript fadiga](https://medium.com/@ericclemmons/javascript-fatigue-48d4011b6fc4)":
 
->Ultimately, the problem is that by choosing React (and inherently JSX), you’ve unwittingly opted into a confusing nest of build tools, boilerplate, linters, & time-sinks to deal with before you ever get to create anything.
+> Em última análise, o problema é que, escolhendo React (e inerentemente JSX), você inadvertidamente optou por um ninho confuso de ferramentas de construção, boilerplate, linters e time-pinks para lidar antes mesmo de criar algo.
 
-It is tempting to write code in ES2015 and JSX. It is sensible to use a bundler to keep the codebase modular, and a linter to catch the common mistakes. It is nice to have a development server with fast rebuilds, and a command to produce optimized bundles for production.
+É tentador escrever código no ES2015 e no JSX. É sensato usar um bundler para manter a base de código modular e um linter para capturar os erros comuns. É bom ter um servidor de desenvolvimento com reconstruções rápidas e um comando para produzir pacotes otimizados para produção.
 
-Combining these tools requires some experience with each of them. Even so, it is far too easy to get dragged into fighting small incompatibilities, unsatisfied peerDependencies, and illegible configuration files.
+Combinar essas ferramentas requer alguma experiência com cada uma delas. Mesmo assim, é muito fácil ser arrastado para combater pequenas incompatibilidades, peerDependencies não-satisfeitas e arquivos de configuração ilegíveis.
 
-Many of those tools are plugin platforms and don’t directly acknowledge each other’s existence. They leave it up to the users to wire them together. The tools mature and change independently, and tutorials quickly get out of date.
+Muitas dessas ferramentas são plataformas de plugins e não reconhecem diretamente a existência umas das outras. Eles deixam para os usuários conectá-los juntos. As ferramentas amadurecem e mudam de forma independente, e os tutoriais ficam rapidamente desatualizados.
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Marc was almost ready to implement his &quot;hello world&quot; React app <a href="https://t.co/ptdg4yteF1">pic.twitter.com/ptdg4yteF1</a></p>&mdash; Thomas Fuchs (@thomasfuchs) <a href="https://twitter.com/thomasfuchs/status/708675139253174273">March 12, 2016</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="pt"><p lang="pt" dir="ltr"> Marc estava quase pronto para implementar o seu &quot;hello world&quot; Aplicativo React <a href="https://t.co/ptdg4yteF1">pic.twitter.com/ptdg4yteF1</a></p> &mdash; Thomas Fuchs (@thomasfuchs) <a href="https://twitter.com/thomasfuchs/status/708675139253174273"> 12 de março de 2016 </a></blockquote>
 
-This doesn’t mean those tools aren’t great. To many of us, they have become indispensable, and we very much appreciate the effort of their maintainers. They already have too much on their plates to worry about the state of the React ecosystem.
+Isso não significa que essas ferramentas não sejam ótimas. Para muitos de nós, eles se tornaram indispensáveis, e nós apreciamos muito o esforço de seus mantenedores. Eles já têm muito em seus pratos para se preocupar com o estado do ecossistema React.
 
-Still, we knew it was frustrating to spend days setting up a project when all you wanted was to learn React. We wanted to fix this.
+Mesmo assim, sabíamos que era frustrante passar dias montando um projeto quando tudo que você queria era aprender React. Nós queríamos consertar isso.
 
-## Could We Fix This? {#could-we-fix-this}
+## Poderíamos Corrigir Isso? {#could-we-fix-this}
 
-We found ourselves in an unusual dilemma.
+Nós nos encontramos em um dilema incomum.
 
-So far, [our strategy](/docs/design-principles.html#dogfooding) has been to only release the code that we are using at Facebook. This helped us ensure that every project is battle-tested and has clearly defined scope and priorities.
+Até agora, [nossa estratégia](/docs/design-principles.html#dogfooding) foi apenas liberar o código que estamos usando no Facebook. Isso nos ajudou a garantir que todos os projetos sejam testados em batalha e tenham um escopo e prioridades claramente definidos.
 
-However, tooling at Facebook is different than at many smaller companies. Linting, transpilation, and packaging are all handled by powerful remote development servers, and product engineers don’t need to configure them. While we wish we could give a dedicated server to every user of React, even Facebook cannot scale that well!
+No entanto, ferramentas no Facebook é diferente do que em muitas empresas menores. O linting, o transpilation e o empacotamento são todos gerenciados por poderosos servidores remotos de desenvolvimento, e os engenheiros de produtos não precisam configurá-los. Apesar de desejarmos dar um servidor dedicado a todos os usuários do React, mesmo o Facebook não pode escalar tão bem!
 
-The React community is very important to us. We knew that we couldn’t fix the problem within the limits of our open source philosophy. This is why we decided to make an exception, and to ship something that we didn’t use ourselves, but that we thought would be useful to the community.
+A comunidade React é muito importante para nós. Sabíamos que não poderíamos resolver o problema dentro dos limites da nossa filosofia de código aberto. É por isso que decidimos abrir uma exceção e enviar algo que não usamos, mas achamos que seria útil para a comunidade.
 
-## The Quest for a React <abbr title="Command Line Interface">CLI</abbr> {#the-quest-for-a-react-abbr-titlecommand-line-interfacecliabbr}
+## A Busca por um React <abbr title="Interface de Linha de Comando">CLI</abbr> {#the-quest-for-a-react-abbr-titlecommand-line-interfacecliabbr}
 
-Having just attended [EmberCamp](http://embercamp.com/) a week ago, I was excited about [Ember CLI](https://ember-cli.com/). Ember users have a great “getting started” experience thanks to a curated set of tools united under a single command-line interface. I have heard similar feedback about [Elm Reactor](https://github.com/elm-lang/elm-reactor).
+Tendo acabado de assistir a [EmberCamp](http://embercamp.com/) há uma semana, fiquei animado com [Ember CLI](https://ember-cli.com/). Os usuários da Ember têm uma ótima experiência de "introdução" graças a um conjunto de ferramentas unidas sob uma única interface de linha de comando. Eu ouvi comentários semelhantes sobre [Elm Reactor](https://github.com/elm-lang/elm-reactor).
 
-Providing a cohesive curated experience is valuable by itself, even if the user could in theory assemble those parts themselves. Kathy Sierra [explains it best](http://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat):
+Proporcionar uma experiência coesa e curada é valioso por si só, mesmo que o usuário possa, em teoria, montar essas partes. Kathy Sierra [explica melhor](http://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat):
 
 >If your UX asks the user to make *choices*, for example, even if those choices are both clear and useful, the act of *deciding* is a cognitive drain. And not just *while* they’re deciding... even *after* we choose, an unconscious cognitive background thread is slowly consuming/leaking resources, “Was *that* the right choice?”
 
-I never tried to write a command-line tool for React apps, and neither has [Christopher](https://twitter.com/vjeux). We were chatting on Messenger about this idea, and we decided to work together on it for a week as a hackathon project.
+Eu nunca tentei escrever uma ferramenta de linha de comando para aplicativos React, e nem [Christopher](https://twitter.com/vjeux). Estávamos conversando sobre o Messenger sobre essa ideia e decidimos trabalhar juntos por uma semana como um projeto de hackathon.
 
-We knew that such projects traditionally haven’t been very successful in the React ecosystem. Christopher told me that multiple “React CLI” projects have started and failed at Facebook. The community tools with similar goals also exist, but so far they have not yet gained enough traction.
+Sabíamos que tais projetos tradicionalmente não tiveram muito sucesso no ecossistema React. Christopher me disse que vários projetos “React CLI” começaram e falharam no Facebook. As ferramentas da comunidade com objetivos similares também existem, mas até agora elas ainda não ganharam tração suficiente.
 
-Still, we decided it was worth another shot. Christopher and I created a very rough proof of concept on the weekend, and [Kevin](https://twitter.com/lacker) soon joined us.
+Ainda assim, decidimos que valeria outra chance. Christopher e eu criamos uma prova de conceito muito difícil no fim de semana, e [Kevin](https://twitter.com/lacker) logo se juntou a nós.
 
-We invited some of the community members to collaborate with us, and we have spent this week working on this tool. We hope that you’ll enjoy using it! [Let us know what you think.](https://github.com/facebookincubator/create-react-app/issues/11)
+Convidamos alguns membros da comunidade para colaborar conosco e passamos essa semana trabalhando nessa ferramenta. Esperamos que você goste de usá-lo! [Deixe-nos saber o que você pensa.](https://github.com/facebookincubator/create-react-app/issues/11)
 
-We would like to express our gratitude to [Max Stoiber](https://twitter.com/mxstbr), [Jonny Buchanan](https://twitter.com/jbscript), [Ean Platter](https://twitter.com/eanplatter), [Tyler McGinnis](https://github.com/tylermcginnis), [Kent C. Dodds](https://github.com/kentcdodds), and [Eric Clemmons](https://twitter.com/ericclemmons) for their early feedback, ideas, and contributions.
+Gostaríamos de expressar nossa gratidão a [Max Stoiber](https://twitter.com/mxstbr), [Jonny Buchanan](https://twitter.com/jbscript), [Ean Platter](https://twitter.com/eanplatter), [Tyler McGinnis](https://github.com/tylermcginnis), [Kent C. Dodds](https://github.com/kentcdodds) e [Eric Clemmons](https://twitter.com/ericclemmons) pelo feedback, ideias e contribuições iniciais.
