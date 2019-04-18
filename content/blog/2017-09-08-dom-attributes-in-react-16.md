@@ -82,11 +82,12 @@ Isso não mudou.
 
 [Acessibilidade](/docs/accessibility.html) é muito importante, por isso que o React 16 passa qualquer atributo e também valida se `aria-` props tem seus nomes corretos no modo de desenvolvimento, como o React 15 fazia. 
 
-## Migration Path {#migration-path}
+## Caminho de MIgração {#migration-path}
 
-We have included [a warning about unknown attributes](/warnings/unknown-prop.html) since [React 15.2.0](https://github.com/facebook/react/releases/tag/v15.2.0) which came out more than a year ago. The vast majority of third-party libraries have already updated their code. If your app doesn't produce warnings with React 15.2.0 or higher, this change should not require modifications in your application code.
+Nós incluimos uma [notificação sobre atributos desconhecidos](/warnings/unknown-prop.html) desde o [React 15.2.0](https://github.com/facebook/react/releases/tag/v15.2.0) que saiu há mais de um ano. A grande maioria das bibliotecas terceiras já atualizaram seu código. Se sua aplicação ainda não apresenta notificações com o React 15.2.0 ou em suas versões superiores, essa mudança não exigirá modificações no código da sua aplicação.
 
-If you still accidentally forward non-DOM props to DOM components, with React 16 you will start seeing those attributes in the DOM, for example:
+<!--If you still accidentally forward non-DOM props to DOM components, with React 16 you will start seeing those attributes in the DOM, for example:-->
+Se você ainda envia acidentalmente props que não pertencem ao DOM, à componentes do DOM, com o React 16 você começará a ver esses atributos, por exemplo:
 
 ```js
 <div myData='[Object object]' />
