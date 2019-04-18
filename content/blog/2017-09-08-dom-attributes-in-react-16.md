@@ -82,7 +82,7 @@ Isso não mudou.
 
 [Acessibilidade](/docs/accessibility.html) é muito importante, por isso que o React 16 passa qualquer atributo e também valida se `aria-` props tem seus nomes corretos no modo de desenvolvimento, como o React 15 fazia. 
 
-## Caminho de MIgração {#migration-path}
+## Caminho de Migração {#migration-path}
 
 Nós incluimos uma [notificação sobre atributos desconhecidos](/warnings/unknown-prop.html) desde o [React 15.2.0](https://github.com/facebook/react/releases/tag/v15.2.0) que saiu há mais de um ano. A grande maioria das bibliotecas terceiras já atualizaram seu código. Se sua aplicação ainda não apresenta notificações com o React 15.2.0 ou em suas versões superiores, essa mudança não exigirá modificações no código da sua aplicação.
 
