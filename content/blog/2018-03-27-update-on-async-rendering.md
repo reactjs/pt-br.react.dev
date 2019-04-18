@@ -1,5 +1,5 @@
 ---
-title: Update on Async Rendering
+title: Atualização em Renderização Assíncrona
 author: [bvaughn]
 ---
 
