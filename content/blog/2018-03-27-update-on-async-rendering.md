@@ -200,15 +200,15 @@ The two lifecycles can be used together like this:
 
 While we tried to cover the most common use cases in this post, we recognize that we might have missed some of them. If you are using `componentWillMount`, `componentWillUpdate`, or `componentWillReceiveProps` in ways that aren't covered by this blog post, and aren't sure how to migrate off these legacy lifecycles, please [file a new issue against our documentation](https://github.com/reactjs/reactjs.org/issues/new) with your code examples and as much background information as you can provide. We will update this document with new alternative patterns as they come up.
 
-## Open source project maintainers {#open-source-project-maintainers}
+## Mantenedores de projetos de código aberto {#open-source-project-maintainers}
 
-Open source maintainers might be wondering what these changes mean for shared components. If you implement the above suggestions, what happens with components that depend on the new static `getDerivedStateFromProps` lifecycle? Do you also have to release a new major version and drop compatibility for React 16.2 and older?
+Os mantenedores de código aberto podem estar se perguntando o que essas alterações significam para componentes compartilhados. Se você implementar as sugestões acima, o que acontece com componentes que dependem do novo ciclo de vida estático `getDerivedStateFromProps`? Você também terá que liberar uma nova versão principal e quebrar a compatibilidade com o React 16.2 e versões anteriores?
 
-Fortunately, you do not!
+Felizmente, não!
 
-When React 16.3 is published, we'll also publish a new npm package, [`react-lifecycles-compat`](https://github.com/reactjs/react-lifecycles-compat). This package polyfills components so that the new `getDerivedStateFromProps` and `getSnapshotBeforeUpdate` lifecycles will also work with older versions of React (0.14.9+).
+Quando o React 16.3 for publicado, também publicaremos um novo pacote npm, [`react-lifecycles-compat`](https://github.com/reactjs/react-lifecycles-compat). Este pacote contém polyfills de componentes para que os novos ciclos de vida `getDerivedStateFromProps` e `getSnapshotBeforeUpdate` funcionem também com versões mais antigas do React (0.14.9+).
 
-To use this polyfill, first add it as a dependency to your library:
+Para usar esse polyfill, primeiro adicione-o como uma dependência à sua biblioteca:
 
 ```bash
 # Yarn
@@ -218,7 +218,7 @@ yarn add react-lifecycles-compat
 npm install react-lifecycles-compat --save
 ```
 
-Next, update your components to use the new lifecycles (as described above).
+Em seguida, atualize seus componentes para utilizarem os novos ciclos de vida (como descrito acima).
 
-Lastly, use the polyfill to make your component backwards compatible with older versions of React:
+Por fim, utilize o polyfill para tornar seu componente compatível com versões anteriores do React:
 `embed:update-on-async-rendering/using-react-lifecycles-compat.js`
