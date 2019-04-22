@@ -59,19 +59,19 @@ You can find their type signatures [in this gist](https://gist.github.com/gaearo
 
 We'll look at examples of how both of these lifecycles can be used below.
 
-## Examples {#examples}
-- [Initializing state](#initializing-state)
-- [Fetching external data](#fetching-external-data)
-- [Adding event listeners (or subscriptions)](#adding-event-listeners-or-subscriptions)
-- [Updating `state` based on props](#updating-state-based-on-props)
-- [Invoking external callbacks](#invoking-external-callbacks)
-- [Side effects on props change](#side-effects-on-props-change)
-- [Fetching external data when props change](#fetching-external-data-when-props-change)
-- [Reading DOM properties before an update](#reading-dom-properties-before-an-update)
+## Exemplos {#examples}
+- [Inicializando o state](#initializing-state)
+- [Buscando dados externos](#fetching-external-data)
+- [Adicionando ouvintes de eventos (ou inscriçoes)](#adding-event-listeners-or-subscriptions)
+- [Atualizando o `state` baseado em props](#updating-state-based-on-props)
+- [Invocando callbacks externos](#invoking-external-callbacks)
+- [Efeitos colaterais em mudanças de props](#side-effects-on-props-change)
+- [Buscando dados externos quando houver alteração de props](#fetching-external-data-when-props-change)
+- [Lendo propriedades do DOM antes de uma atualização](#reading-dom-properties-before-an-update)
 
-> Note
+> Nota
 >
-> For brevity, the examples below are written using the experimental class properties transform, but the same migration strategies apply without it.
+> Para brevidade, os exemplos abaixo são escritos usando a classe experimental de transformação de propriedades, mas as mesmas estratégias de migração se aplicam sem ela.
 
 ### Initializing state {#initializing-state}
 
