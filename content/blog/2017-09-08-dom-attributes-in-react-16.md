@@ -87,7 +87,7 @@ Isso não mudou.
 Nós incluimos uma [notificação sobre atributos desconhecidos](/warnings/unknown-prop.html) desde o [React 15.2.0](https://github.com/facebook/react/releases/tag/v15.2.0) que saiu há mais de um ano. A grande maioria das bibliotecas terceiras já atualizaram seu código. Se sua aplicação ainda não apresenta notificações com o React 15.2.0 ou em suas versões superiores, essa mudança não exigirá modificações no código da sua aplicação.
 
 <!--If you still accidentally forward non-DOM props to DOM components, with React 16 you will start seeing those attributes in the DOM, for example:-->
-Se você ainda envia acidentalmente props que não pertencem ao DOM, à componentes do DOM, com o React 16 você começará a v er esses atributos, por exemplo:
+Se você ainda envia acidentalmente props que não pertencem ao DOM, à componentes do DOM, com o React 16 você começará a ver esses atributos, por exemplo:
 
 ```js
 <div myData='[Object object]' />
