@@ -87,13 +87,13 @@ Isso não mudou.
 Nós incluimos uma [notificação sobre atributos desconhecidos](/warnings/unknown-prop.html) desde o [React 15.2.0](https://github.com/facebook/react/releases/tag/v15.2.0) que saiu há mais de um ano. A grande maioria das bibliotecas terceiras já atualizaram seu código. Se sua aplicação ainda não apresenta notificações com o React 15.2.0 ou em suas versões superiores, essa mudança não exigirá modificações no código da sua aplicação.
 
 <!--If you still accidentally forward non-DOM props to DOM components, with React 16 you will start seeing those attributes in the DOM, for example:-->
-Se você ainda envia acidentalmente props que não pertencem ao DOM, à componentes do DOM, com o React 16 você começará a ver esses atributos, por exemplo:
+Se você ainda envia acidentalmente props que não pertencem ao DOM, à componentes do DOM, com o React 16 você começará a v er esses atributos, por exemplo:
 
 ```js
 <div myData='[Object object]' />
 ```
 
-This is somewhat safe (the browser will just ignore them) but we recommend to fix these cases when you see them. One potential hazard is if you pass an object that implements a custom `toString()` or `valueOf()` method that throws. Another possible issue is that legacy HTML attributes like `align` and `valign` will now be passed to the DOM. They used to be stripped out because React didn't support them.
+Isso é um pouco seguro (o navegador vai somente ignora-lo), porém nos recomendamos corrigir esses casos assim que eles forem encontrados. Um potencial risco é se você passar um objeto que implementa um método `toString()` ou `valueOf()` personalizado. Outra possível discussão é que os atributos legados de HTML como `align` e `valign` vão ser passados agora pelo DOM. Eles costumavam ser retirados pois o React não os suportava. 
 
 To avoid these problems, we suggest to fix the warnings you see in React 15 before upgrading to React 16.
 
