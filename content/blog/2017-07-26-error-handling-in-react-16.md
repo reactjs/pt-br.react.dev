@@ -13,7 +13,7 @@ Anteriormente, os erros JavaScript dentro dos componentes costumavam corromper o
 
 ## Introduzindo as Limitações de Erros {#introducing-error-boundaries}
 
-Um erro JavaScript na parte da UI não deve parar todo a aplicação. Para resolver estes problemas para os usuário do React, o React 16 introduz um novo conceito de "limitação de erro"  
+Um erro JavaScript na parte da UI não deve parar toda a aplicação. Para resolver estes problemas para os usuário do React, o React 16 introduz um novo conceito de "limitação de erro"  
 
 Limitações de erros são componentes React, que **capturam os erros JavaScript em qualquer lugar referente à arvore de seus componentes filhos, registra os erros e mostra uma alterantiva de UI** ao invés da árvore do componente que foi danificada. As limitações de erros capturam os erros durante a renderização, nos métodos de ciclo de vida e nos construtores de toda a árvore abaixo dele.
 
