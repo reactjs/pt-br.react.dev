@@ -197,13 +197,10 @@ Esta *API* foi introduzida como uma reposição ao `React.addons.cloneWithProps(
 ```javascript
 React.createFactory(type)
 ```
-Retorna uma função que produz elementos React do tipo determinado. Assim como em [`React.createElement()`](#createElement), o argumento `type` pode ser uma *string* contendo o *tag name* (como, por exemplo, `'div'` ou `'span'`), um [componente React](/docs/components-and-props.html) (uma classe ou uma função), ou um [React *fragment*](#reactfragment).
 
-<<<<<<< HEAD
+Retorna uma função que produz elementos React do tipo determinado. Assim como em [`React.createElement()`](#createelement), o argumento `type` pode ser uma *string* contendo o *tag name* (como, por exemplo, `'div'` ou `'span'`), um [componente React](/docs/components-and-props.html) (uma classe ou uma função), ou um [React *fragment*](#reactfragment).
+
 Este *helper* é considerado legado, e nós encorajamos você a utilizar JSX ou `React.createElement()` diretamente como alternativa.
-=======
-Return a function that produces React elements of a given type. Like [`React.createElement()`](#createelement), the type argument can be either a tag name string (such as `'div'` or `'span'`), a [React component](/docs/components-and-props.html) type (a class or a function), or a [React fragment](#reactfragment) type.
->>>>>>> 6bc6e7b1411d4befc3ecfbe45b898ca474116020
 
 Em geral você não invocará `React.createFactory()` diretamente se estiver utilizando JSX. Veja [React sem JSX](/docs/react-without-jsx.html) para aprender mais.
 
