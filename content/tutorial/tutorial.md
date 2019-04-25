@@ -983,7 +983,7 @@ Uma vez que o componente Game agora está renderizando o status do jogo, nós po
   }
 ```
 
-Finalmente, precisamos mover o método `handleClick` do componente Board para o componente Game. Nós também precisamos modificar `handelClick` pois o state do componente Game está estruturado de maneira diferente. No componente Game, dentro do método `handleClick`, nós concatenamos novas entradas do histórico de jogadas em `history`.
+Finalmente, precisamos mover o método `handleClick` do componente Board para o componente Game. Nós também precisamos modificar `handleClick` pois o state do componente Game está estruturado de maneira diferente. No componente Game, dentro do método `handleClick`, nós concatenamos novas entradas do histórico de jogadas em `history`.
 
 ```javascript{2-4,10-12}
   handleClick(i) {
