@@ -17,7 +17,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
 
-### ReactJS Girls Conference
+### ReactJS Girls Conference {#reactjs-girls-conference}
 3 de Maio de 2019 em Londres, Inglaterra
 
 [Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
@@ -47,12 +47,12 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
 
-### Chain React 2019
+### Chain React 2019 {#chain-react-2019}
 11 e 12 de Julho de 2019. Portland, OR, USA.
 
 [Website](https://infinite.red/ChainReactConf)
 
-### React Rally 2019
+### React Rally 2019 {#react-rally-2019}
 22 e 23 de Agosto de 2019. Salt Lake City, USA.
 
 [Website](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
