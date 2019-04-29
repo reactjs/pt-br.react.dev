@@ -1,29 +1,48 @@
 ---
 id: addons
 title: Add-Ons
+#title: Complementos
 permalink: docs/addons.html
 ---
 
-> Note:
+<!-- > Notas:
 >
-> `React.addons` entry point is deprecated as of React v15.5. The add-ons have moved to separate modules, and some of them have been deprecated.
+> `React.addons` entry point is deprecated as of React v15.5. The add-ons have moved to separate modules, and some of them have been deprecated. -->
 
-The React add-ons are a collection of useful utility modules for building React apps. **These should be considered experimental** and tend to change more often than the core.
+> Notas:
+>
+> O ponto de entrada `React.addons` é obsoleto a partir da versão v15.5 do React. Os add-ons foram movidos para módulos separados e alguns deles foram descontinuados.
 
-- [`createFragment`](/docs/create-fragment.html), to create a set of externally-keyed children.
+<!-- The React add-ons are a collection of useful utility modules for building React apps. **These should be considered experimental** and tend to change more often than the core. -->
 
-The add-ons below are in the development (unminified) version of React only:
+Os add-ons do React são uma coleção de módulos utilitários úteis para criar aplicativos React. **Estes devem ser considerados experimentais** e tendem a mudar com mais frequência do que a base.
 
-- [`Perf`](/docs/perf.html), a performance profiling tool for finding optimization opportunities.
-- [`ReactTestUtils`](/docs/test-utils.html), simple helpers for writing test cases.
+<!-- - [`createFragment`](/docs/create-fragment.html), to create a set of externally-keyed children. -->
+- [`createFragment`](/docs/create-fragment.html), para criar um conjunto filhos de chaves externas.
 
-### Legacy Add-ons {#legacy-add-ons}
+<!-- The add-ons below are in the development (unminified) version of React only: -->
+Os add-ons abaixo estão apenas na versão de desenvolvimento(não minificados) do React:
 
-The add-ons below are considered legacy and their use is discouraged. They will keep working in observable future, but there is no further development.
+<!-- - [`Perf`](/docs/perf.html), a performance profiling tool for finding optimization opportunities. -->
+- [`Perf`](/docs/perf.html), uma ferramenta de perfil de desempenho para encontrar oportunidades de otimização.
 
-- [`PureRenderMixin`](/docs/pure-render-mixin.html). Use [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) instead.
-- [`shallowCompare`](/docs/shallow-compare.html), a helper function that performs a shallow comparison for props and state in a component to decide if a component should update. We recommend using [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) instead.
-- [`update`](/docs/update.html). Use [`kolodny/immutability-helper`](https://github.com/kolodny/immutability-helper) instead.
+<!-- - [`ReactTestUtils`](/docs/test-utils.html), simple helpers for writing test cases. -->
+- [`ReactTestUtils`](/docs/test-utils.html), ajudantes simples para escrever casos de teste.
+
+### Add-ons herdados {#legacy-add-ons}
+
+<!-- The add-ons below are considered legacy and their use is discouraged. They will keep working in observable future, but there is no further development. -->
+Os add-ons abaixo são considerados legados e seu uso é desencorajado. Eles continuarão trabalhando em um futuro observável, mas não há mais desenvolvimento.
+
+<!-- - [`PureRenderMixin`](/docs/pure-render-mixin.html). Use [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) instead. -->
+- [`PureRenderMixin`](/docs/pure-render-mixin.html). Use [`React.PureComponent`](/docs/react-api.html#reactpurecomponent).
+
+<!-- - [`shallowCompare`](/docs/shallow-compare.html), a helper function that performs a shallow comparison for props and state in a component to decide if a component should update. We recommend using [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) instead. -->
+
+- [`shallowCompare`](/docs/shallow-compare.html), uma função auxiliar que executa uma comparação superficial para props e state em um componente para decidir se um componente deve atualizar. Nós recomendamos utilizar [`React.PureComponent`](/docs/react-api.html#reactpurecomponent).
+  
+- [`update`](/docs/update.html). Use [`kolodny/immutability-helper`](https://github.com/kolodny/immutability-helper).
+- 
 - [`ReactDOMFactories`](https://www.npmjs.com/package/react-dom-factories), pre-configured DOM factories to make React easier to use without JSX.
 
 ### Deprecated Add-ons {#deprecated-add-ons}
