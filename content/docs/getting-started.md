@@ -99,7 +99,7 @@ Muitos usuários do React dão créditos à leitura [Pensando em React](/docs/th
 
 ### Conceitos Avançados {#advanced-concepts}
 
-Uma vez que você esteja confortável com os [conceitos principais](#main-concepts) e brincou um pouco com o React, talvez você possa se interessar em tópicos mais avançados. Esta seção apresentará poderosos, porém menos utilizados, recursos do React, como [context](/docs/context.html) e [refs](/docs/refs-and-the-dom.html).
+Uma vez que você esteja confortável com os [conceitos principais](/docs/hello-world.html) e brincou um pouco com o React, talvez você possa se interessar em tópicos mais avançados. Esta seção apresentará poderosos, porém menos utilizados, recursos do React, como [context](/docs/context.html) e [refs](/docs/refs-and-the-dom.html).
 
 ### Referência da API {#api-reference}
 
