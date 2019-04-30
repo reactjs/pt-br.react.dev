@@ -22,15 +22,12 @@ Os add-ons do React são uma coleção de módulos utilitários úteis para cria
 
 <!-- The add-ons below are in the development (unminified) version of React only: -->
 Os add-ons abaixo estão apenas na versão de desenvolvimento(não minificados) do React:
-
 <!-- - [`Perf`](/docs/perf.html), a performance profiling tool for finding optimization opportunities. -->
 - [`Perf`](/docs/perf.html), uma ferramenta de perfil de desempenho para encontrar oportunidades de otimização.
-
 <!-- - [`ReactTestUtils`](/docs/test-utils.html), simple helpers for writing test cases. -->
 - [`ReactTestUtils`](/docs/test-utils.html), ajudantes simples para escrever casos de teste.
 
 ### Add-ons herdados {#legacy-add-ons}
-
 <!-- The add-ons below are considered legacy and their use is discouraged. They will keep working in observable future, but there is no further development. -->
 Os add-ons abaixo são considerados legados e seu uso é desencorajado. Eles continuarão trabalhando em um futuro observável, mas não há mais desenvolvimento.
 
@@ -49,7 +46,6 @@ Os add-ons abaixo são considerados legados e seu uso é desencorajado. Eles con
 - [`TransitionGroup` and `CSSTransitionGroup`](/docs/animation.html) foi descontinuado em favor de [suas substituições drop-in](https://github.com/reactjs/react-transition-group/tree/v1-stable).
 
 ## Utilizandos React com Add-ons {#using-react-with-add-ons}
-
 <!-- You can install the add-ons individually from npm (e.g. `npm install react-addons-create-fragment`) and import them: -->
 Você pode instalar os add-ons individualmente via npm (e.g. `npm install react-addons-create-fragment`) e importá-lo:
 
@@ -57,13 +53,11 @@ Você pode instalar os add-ons individualmente via npm (e.g. `npm install react-
 import createFragment from 'react-addons-create-fragment'; // ES6
 var createFragment = require('react-addons-create-fragment'); // ES5 with npm
 ```
-
 <!-- When using React 15 or earlier from a CDN, you can use `react-with-addons.js` instead of `react.js`: -->
 Quando utilizar React 15 ou anterior via CDN, você pode usar `react-with-addons.js` ao invés de `react.js`:
 
 ```html
 <script src="https://unpkg.com/react@15/dist/react-with-addons.js"></script>
 ```
-
 <!-- Os add-ons will be available via the `React.addons` global (e.g. `React.addons.TestUtils`). -->
 Os add-ons estarão disponíveis através do global `React.addons` (e.g. `React.addons.TestUtils`).
