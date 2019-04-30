@@ -72,6 +72,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactnewyork.com/) - [Twitter](https://twitter.com/reactnewyork)
 
+### React Boston 2019 {#react-boston-2019}
+21 e 22 de Setembro de 2019 em Boston, Massachusetts USA
+
+[Website](https://www.reactboston.com/) - [Twitter](https://twitter.com/reactboston)
+
 ### React India 2019 {#react-india-2019}
 26 a 28 de Setembro de 2019 em Goa, Índia
 
