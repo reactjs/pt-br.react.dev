@@ -86,7 +86,6 @@ Isso não mudou.
 
 Nós incluimos uma [notificação sobre atributos desconhecidos](/warnings/unknown-prop.html) desde o [React 15.2.0](https://github.com/facebook/react/releases/tag/v15.2.0) que saiu há mais de um ano. A grande maioria das bibliotecas terceiras já atualizaram seu código. Se sua aplicação ainda não apresenta notificações com o React 15.2.0 ou em suas versões superiores, essa mudança não exigirá modificações no código da sua aplicação.
 
-<!--If you still accidentally forward non-DOM props to DOM components, with React 16 you will start seeing those attributes in the DOM, for example:-->
 Se você ainda envia acidentalmente props que não pertencem ao DOM, à componentes do DOM, com o React 16 você começará a ver esses atributos, por exemplo:
 
 ```js
@@ -95,17 +94,17 @@ Se você ainda envia acidentalmente props que não pertencem ao DOM, à componen
 
 Isso é um pouco seguro (o navegador vai somente ignora-lo), porém nos recomendamos corrigir esses casos assim que eles forem encontrados. Um potencial risco é se você passar um objeto que implementa um método `toString()` ou `valueOf()` personalizado. Outra possível discussão é que os atributos legados de HTML como `align` e `valign` vão ser passados agora pelo DOM. Eles costumavam ser retirados pois o React não os suportava. 
 
-To avoid these problems, we suggest to fix the warnings you see in React 15 before upgrading to React 16.
+Para evitar esses problemas, nós sugerimos corrigir os avisos no React 15 antes de atualizar para o React 16.
 
-## Changes in Detail {#changes-in-detail}
+## Mudanças nos Detalhes {#changes-in-detail}
 
-We've made a few other changes to make the behavior more predictable and help ensure you're not making mistakes. We don't anticipate that these changes are likely to break real-world applications.
+Nós fizemos algumas outras mudanças para tornar o comportamento mais previsível e garantir que você não esteja cometendo erros. Nós não esperamos que essas mudanças possam quebrar aplicações existentes. 
 
-**These changes only affect DOM components like `<div>`, not your own components.**  
+**Essas mudanças somente afetam componentes do DOM como `<div>`, mas não seus próprios componentes.**
 
-Below is a detailed list of them.
+Abaixo está uma lista detalhada delas. 
 
-* **Unknown attributes with string, number, and object values:**  
+* **Atributos desconhecidos com string, números, e objetos:** 
 
     ```js
     <div mycustomattribute="value" />
@@ -113,60 +112,60 @@ Below is a detailed list of them.
     <div mycustomattribute={myObject} />
     ```
 
-    React 15: Warns and ignores them.  
-    React 16: Converts values to strings and passes them through.
+    React 15: Avisa e ignora eles.  
+    React 16: Converte os valores para string e passa os valores dos atributos.
 
-    *Note: attributes starting with `on` are not passed through as an exception because this could become a potential security hole.*
+    *Nota: Atributos que começam com `on` não tem seus valores passados como exceção pois pode se tornar uma potencial falha de segurança.* 
 
-* **Known attributes with a different canonical React name:**  
+* **Atributos React conhecidos com um nome canônico diferente:** 
 
     ```js
     <div tabindex="-1" />
     <div class="hi" />
     ```
 
-    React 15: Warns and ignores them.  
-    React 16: Warns but converts values to strings and passes them through.
+    React 15: Avisa e ignora eles.
+    React 16: Avisa mas converte os valores para strings e passa os valores.
 
-    *Note: always use the canonical React naming for all supported attributes.*
+    *Nota: Sempre use a nomenclatura canônica React para todos os atributos suportados.* 
 
-* **Non-boolean attributes with boolean values:**  
+* **Atributos não boleanos com valores boleanos:**
 
     ```js
     <div className={false} />
     ```
 
-    React 15: Converts booleans to strings and passes them through.  
-    React 16: Warns and ignores them.
+    React 15: Converte boleano para string e passa os valores.
+    React 16: Avisa e ignora eles.
 
-* **Non-event attributes with function values:**  
+* **Atributos não relacionados a eventos com valores funções:**
 
     ```js
     <div className={function() {}} />
     ```
 
-    React 15: Converts functions to strings and passes them through.  
-    React 16: Warns and ignores them.
+    React 15: Converte funções para strings e passa os valores.
+    React 16: Avisa e ignora eles.
 
-* **Attributes with Symbol values:**
+* **Atributos com valores de símbolo:**
 
     ```js
     <div className={Symbol('foo')} />
     ```
 
-    React 15: Crashes.  
-    React 16: Warns and ignores them.
+    React 15: Erro.
+    React 16: Avisa e ignora eles.
 
-* **Attributes with `NaN` values:**
+* **Atributos com valores `NaN`:**
 
     ```js
     <div tabIndex={0 / 0} />
     ```
 
-    React 15: Converts `NaN`s to strings and passes them through.  
-    React 16: Converts `NaN`s to strings and passes them through with a warning.
+    React 15: Converte `NaN`s para strings e passa os valores.
+    React 16: Converte `NaN`s para strings e passa os valores com um aviso. 
 
-While testing this release, we have also [created an automatically generated table](https://github.com/facebook/react/blob/master/fixtures/attribute-behavior/AttributeTableSnapshot.md) for all known attributes to track potential regressions.
+Ao testar esta versão, nós também criamos uma [tabela para todos os atributos conhecidos](https://github.com/facebook/react/blob/master/fixtures/attribute-behavior/AttributeTableSnapshot.md), que atualiza automaticamente, para rastrear possíveis regressões. 
 
 ## Try It! {#try-it}
 
