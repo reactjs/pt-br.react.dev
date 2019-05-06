@@ -167,10 +167,10 @@ Abaixo está uma lista detalhada delas.
 
 Ao testar esta versão, nós também criamos uma [tabela para todos os atributos conhecidos](https://github.com/facebook/react/blob/master/fixtures/attribute-behavior/AttributeTableSnapshot.md), que atualiza automaticamente, para rastrear possíveis regressões. 
 
-## Try It! {#try-it}
+## Tente! {#try-it}
 
-You can try the change in [this CodePen](https://codepen.io/gaearon/pen/gxNVdP?editors=0010).  
-It uses React 16 RC, and you can [help us by testing the RC in your project!](https://github.com/facebook/react/issues/10294)
+Você pode tentar essa mudança neste [CodePen](https://codepen.io/gaearon/pen/gxNVdP?editors=0010).
+Ele usa React 16 RC, e você pode [nos ajudar testando o RC em seu projeto!](https://github.com/facebook/react/issues/10294)
 
 ## Thanks {#thanks}
 
