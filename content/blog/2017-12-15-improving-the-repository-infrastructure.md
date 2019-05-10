@@ -51,27 +51,27 @@ Nós decidimos [remover o Haste](https://github.com/facebook/react/pull/11303) e
 |  |  |-shared
 ```
 
-This way, the relative paths can only contain one `./` or `../` followed by the filename. If one package needs to import something from another package, it can do so with an absolute import from a top-level entry point.
+Neste caminho, os caminhos relativos só podem ter um `./` ou `../` seguido pelo nome do arquivo. Se um pacote precisa importar algo de outro pacote, pode fazê-lo com uma importação absoluta no nível superior do ponto de entrada.
 
-In practice, we still have [some cross-package "internal" imports](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/src/client/ReactDOMFiberComponent.js#L10-L11) that violate this principle, but they're explicit, and we plan to gradually get rid of them.
+Na prática, nós ainda temos [alguns importações "internas" cross-package](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/src/client/ReactDOMFiberComponent.js#L10-L11) que violam este princípio, mas eles são explícitos, e planejamos gradualmente nos livrar deles.
 
-## Compiling Flat Bundles {#compiling-flat-bundles}
+## Compilando Pacotes Simples {#compiling-flat-bundles}
 
-Historically, React was distributed in two different formats: as a single-file build that you can add as a `<script>` tag in the browser, and as a collection of CommonJS modules that you can bundle with a tool like webpack or Browserify. 
+Historicamente, o React era distribuído em dois diferentes formatos: como uma compilação de arquivo único que você pode adicionar com uma tag `<script>` no navegador, e como uma coleção de CommonJS módulos que você pode empacotar como uma ferramenta como webpack ou Browserify. 
 
-Before React 16, each React source file had a corresponding CommonJS module that was published as part of the npm packages. Importing `react` or `react-dom` led bundlers to the package [entry point](https://unpkg.com/react@15/index.js) from which they would build a dependency tree with the CommonJS modules in the [internal `lib` folder](https://unpkg.com/react@15/lib/).
+Antes do React 16, cada arquivo fonte React tinha um módulo CommonJS correspondente que foi publicado como parte de um pacote npm. Importando `react` ou `react-dom` empacotadores conduzidos para o [ponto de entrada](https://unpkg.com/react@15/index.js) do pacote a partir do qual eles iriam construir uma árvore de dependência com os módulos CommonJS na [pasta interna `lib`](https://unpkg.com/react@15/lib/).
 
-However, this approach had multiple disadvantages:
+Entretanto, esta abordagem teve várias desvantagens:
 
-* **It was inconsistent.** Different tools produce bundles of different sizes for identical code importing React, with the difference going as far as 30 kB (before gzip).
-* **It was inefficient for bundler users.** The code produced by most bundlers today contains a lot of "glue code" at the module boundaries. It keeps the modules isolated from each other, but increases the parse time, the bundle size, and the build time.
-* **It was inefficient for Node users.** When running in Node, performing `process.env.NODE_ENV` checks before development-only code incurs the overhead of actually looking up environment variables. This slowed down React server rendering. We couldn't cache it in a variable either because it prevented dead code elimination with Uglify.
-* **It broke encapsulation.** React internals were exposed both in the open source (as `react-dom/lib/*` imports) and internally at Facebook. It was convenient at first as a way to share utilities between projects, but with time it became a maintenance burden because renaming or changing argument types of internal functions would break unrelated projects.
-* **It prevented experimentation.** There was no way for the React team to experiment with any advanced compilation techniques. For example, in theory, we might want to apply [Google Closure Compiler Advanced](https://developers.google.com/closure/compiler/docs/api-tutorial3) optimizations or [Prepack](https://prepack.io/) to some of our code, but they are designed to work on complete bundles rather than small individual modules that we used to ship to npm.
+* **Foi inconsistente.** Diferentes ferramentas produzem pacotes de tamanhos diferentes para código idêntico importando o React, com a diferença indo até 30 kB (antes do gzip).
+* **Foi ineficiente para usuários de bundlers.** O código produzido pela maioria dos bunlder hoje, possuem mutios "código de cola" nos limites do módulo. Mantém os módulos isolados uns dos outros, mas aumenta o tempo de parse, o tamanho do bundle, e o tempo de build.
+* **Foi ineficiente para usuários de Node.** Ao rodar em Node, realizando `process.env.NODE_ENV` verifica antes development-only código incorre na sobrecarga de realmente procurar variáveis ​​de ambiente. Isto desacelerou o React rendrizado no servidor. Não foi possível armazenar em cache em uma variável porque impediu a eliminação do código morto com Uglify.
+* **Quebrou o encapsulamento.** React internals foram expostos tanto no open source (como `react-dom/lib/*` imports) e internamente no Facebook. Foi conveniente a princípio como uma maneira de compartilhar utilitários entre projetos, mas com o tempo tornou-se um fardo de manutenção porque renomear ou alterar os tipos de argumento de funções internas iria quebrar projetos não relacionados.
+* **Isso impediu a experimentação.** Não havia como o time do React experimentar com qualquer técnica avançada de compilação. Por exemplo, na teoria, poderíamos poder aplicar o [Google Closure Compiler Advanced](https://developers.google.com/closure/compiler/docs/api-tutorial3) otimizações ou [Prepack](https://prepack.io/) para alguns dos nossos códigos, mas eles são projetados para trabalhar em pacotes completos ao invés de pequenos módulos individuais que usamos para enviar para o npm.
 
-Due to these and other issues, we've changed the strategy in React 16. We still ship CommonJS modules for Node.js and bundlers, but instead of publishing many individual files in the npm package, we publish just two CommonJS bundles per entry point.
+Devido a estas e outras questões, nós mudamos nossa estratégia no React 16. Nós ainda enviamos módulos CommonJS para Node.js e empacotadores, mas em vez de publicar muitos arquivos individuais no pacote npm, nós publicamos apenas dois bundles CommonJS por ponto de entrada.
 
-For example, when you import `react` with React 16, the bundler [finds the entry point](https://unpkg.com/react@16/index.js) that just re-exports one of the two files:
+Por exemplo, quando você importa o `react` com React 16, o empacotador [encontra o ponto de entrada](https://unpkg.com/react@16/index.js) que apenas reexporta um dos dois arquivos:
 
 ```js
 'use strict';
@@ -83,13 +83,13 @@ if (process.env.NODE_ENV === 'production') {
 }
 ```
 
-In every package provided by React, the [`cjs` folder](https://unpkg.com/react@16/cjs/) (short for "CommonJS") contains a development and a production pre-built bundle for each entry point. 
+Em todos os pacotes fornecidos pelo React, a [pasta `cjs`](https://unpkg.com/react@16/cjs/) (abreviatura de "CommonJS") contém um desenvolvimento e um pacote pré-construído de produção para cada ponto de entrada. 
 
-For example, [`react.development.js`](https://unpkg.com/react@16/cjs/react.development.js) is the version intended for development. It is readable and includes comments. On the other hand, [`react.production.min.js`](https://unpkg.com/react@16/cjs/react.production.min.js) was minified and optimized before it was published to npm.
+Por exemplo, [`react.development.js`](https://unpkg.com/react@16/cjs/react.development.js) é a versão destinada ao desenvolvimento. É legível e inclui comentários. Por outro lado, [`react.production.min.js`](https://unpkg.com/react@16/cjs/react.production.min.js) foi reduzido e otimizado antes de ser publicado no npm.
 
-Note how this is essentially the same strategy that we've been using for the single-file browser builds (which now reside in the [`umd` directory](https://unpkg.com/react@16/umd/), short for [Universal Module Definition](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/)). Now we just apply the same strategy to the CommonJS builds as well.
+Observe como essa é essencialmente a mesma estratégia que usamos para as compilações de navegador de arquivo único (que agora residem no [diretório `umd`](https://unpkg.com/react@16/umd/), abreviatura para [Universal Module Definition](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/)). Agora apenas aplicamos a mesma estratégia ao CommonJS builds também.
 
-### Migrating to Rollup {#migrating-to-rollup}
+### Migrando para o Rollup {#migrating-to-rollup}
 
 Just compiling CommonJS modules into single-file bundles doesn't solve all of the above problems. The really significant wins came from [migrating our build system](https://github.com/facebook/react/pull/9327) from Browserify to [Rollup](https://rollupjs.org/).
 
