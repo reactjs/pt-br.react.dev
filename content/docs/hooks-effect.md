@@ -473,7 +473,11 @@ No futuro, talvez o segundo argumento seja adicionado automaticamente por uma tr
 >
 >Se você usar essa otimização, tenha certeza de que a array inclua **qualquer valor do escopo acima (como props e state) que mude com o tempo e que ele seja usado pelo efeito**. Caso contrário, seu código fará referência a valores obsoletos de renderizações anteriores. Saiba mais sobre [como lidar com funções](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) e [o que fazer quando a matriz muda com muita frequência](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often).
 >
+<<<<<<< HEAD
 >Se você quer executar um efeito e limpá-lo apenas uma vez (na montagem e desmontagem), você pode passar um array vazio (`[]`) como segundo argumento. Isso conta ao React que o seu efeito não depende de *nenhum* valor das props ou state, então ele nunca precisa re-executar. Isso não é tratado como um caso especial -- ele segue diretamente a maneira como o array de entrada sempre funcionam.
+=======
+>If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array (`[]`) as a second argument. This tells React that your effect doesn't depend on *any* values from props or state, so it never needs to re-run. This isn't handled as a special case -- it follows directly from how the dependencies array always works.
+>>>>>>> b91049c05702b53445367e54a1652053b6081c1d
 >
 >Se você passar um array vazio (`[]`), a props e o state passados dentro do efeito sempre terão seus valores iniciais.  Enquanto passando `[]` como segundo parametro aproxima-se do modelo mental familiar de `componentDidMount` e `componentWillUnmount`, geralmente hás [melhores](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [soluções](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) para evitar efeitos repetidos com muita freqüência. Além disso, não esqueça de que o React adia a execução do `useEffect` até o navegador ser pintado, então fazer trabalho extra é menos problemático.
 >

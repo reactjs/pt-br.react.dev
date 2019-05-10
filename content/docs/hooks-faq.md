@@ -739,7 +739,11 @@ O Hook [`useMemo`](/docs/hooks-reference.html#usememo) permite que você evite c
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
+<<<<<<< HEAD
 Esse código chama `computeExpensiveValue(a, b)`. Mas se as entradas `[a, b]` não mudaram desde o último valor, `useMemo` não chama a função novamente e simplesmente retorna o valor retornado anteriormente.
+=======
+This code calls `computeExpensiveValue(a, b)`. But if the dependencies `[a, b]` haven't changed since the last value, `useMemo` skips calling it a second time and simply reuses the last value it returned.
+>>>>>>> b91049c05702b53445367e54a1652053b6081c1d
 
 Lembre-se que a função passada para `useMemo` é executada durante a renderização. Não faça nada que você normalmente não faria durante a renderização. Por exemplo, efeitos colaterais devem ser feitos usando `useEffect`, não `useMemo`.
 
@@ -766,7 +770,11 @@ Note que essa abordagem não vai funcionar em um loop porque Hooks [não podem](
 
 ### Como criar objetos custosos a demanda? {#how-to-create-expensive-objects-lazily}
 
+<<<<<<< HEAD
 `useMemo` permite [memorizar um cálculo custoso](#how-to-memoize-calculations) se as inputs são as mesmas. No entanto, ele não *garante* que a computação não será re-executada. Algumas vezes você precisa ter certeza que um objeto só é criado uma vez.
+=======
+`useMemo` lets you [memoize an expensive calculation](#how-to-memoize-calculations) if the dependencies are the same. However, it only serves as a hint, and doesn't *guarantee* the computation won't re-run. But sometimes you need to be sure an object is only created once.
+>>>>>>> b91049c05702b53445367e54a1652053b6081c1d
 
 **O primeiro caso de uso comum é quando criar o estado inicial é custoso:**
 
