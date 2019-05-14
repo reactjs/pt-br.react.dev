@@ -196,9 +196,9 @@ The two lifecycles can be used together like this:
 >
 > If you're writing a shared component, the [`react-lifecycles-compat`](https://github.com/reactjs/react-lifecycles-compat) polyfill enables the new `getSnapshotBeforeUpdate` lifecycle to be used with older versions of React as well. [Learn more about how to use it below.](#open-source-project-maintainers)
 
-## Other scenarios {#other-scenarios}
+## Outros cenários {#other-scenarios}
 
-While we tried to cover the most common use cases in this post, we recognize that we might have missed some of them. If you are using `componentWillMount`, `componentWillUpdate`, or `componentWillReceiveProps` in ways that aren't covered by this blog post, and aren't sure how to migrate off these legacy lifecycles, please [file a new issue against our documentation](https://github.com/reactjs/reactjs.org/issues/new) with your code examples and as much background information as you can provide. We will update this document with new alternative patterns as they come up.
+Enquanto tentamos cobrir os casos de uso mais comuns nesta publicação, reconhecemos que podemos ter perdido alguns deles. Se você estiver usando `componentWillMount`, `componentWillUpdate`, ou `componentWillReceiveProps` de maneiras não cobertas por esta postagem e não tem certeza de como migrar esses ciclos de vida legados, por favor [envie-nos uma nova issue referente a nossa documentação](https://github.com/reactjs/reactjs.org/issues/new) com o seu código de exemplo e o máximo de informações que puder fornecer. Atualizaremos este documento com novos padrões alternativos à medida que eles aparecerem.
 
 ## Mantenedores de projetos de código aberto {#open-source-project-maintainers}
 
