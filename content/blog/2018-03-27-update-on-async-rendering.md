@@ -73,12 +73,12 @@ We'll look at examples of how both of these lifecycles can be used below.
 >
 > Para brevidade, os exemplos abaixo são escritos usando a classe experimental de transformação de propriedades, mas as mesmas estratégias de migração se aplicam sem ela.
 
-### Initializing state {#initializing-state}
+### Inicializando o state {#initializing-state}
 
-This example shows a component with `setState` calls inside of `componentWillMount`:
+Este exemplo mostra um componente com a chamada de `setState` dentro de `componentWillMount`:
 `embed:update-on-async-rendering/initializing-state-before.js`
 
-The simplest refactor for this type of component is to move state initialization to the constructor or to a property initializer, like so:
+A refatoração mais simples para este tipo de componente é mover a inicialização do state para o construtor ou para um inicializador de propriedade, assim:
 `embed:update-on-async-rendering/initializing-state-after.js`
 
 ### Fetching external data {#fetching-external-data}
