@@ -739,7 +739,7 @@ O Hook [`useMemo`](/docs/hooks-reference.html#usememo) permite que você evite c
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Esse código chama `computeExpensiveValue(a, b)`. Mas se as entradas `[a, b]` não mudaram desde o último valor, `useMemo` não chama a função novamente e simplesmente retorna o valor retornado anteriormente.
+Esse código chama `computeExpensiveValue(a, b)`. Mas se as dependências `[a, b]` não mudaram desde o último valor, `useMemo` não chama a função novamente e simplesmente retorna o valor retornado anteriormente.
 
 Lembre-se que a função passada para `useMemo` é executada durante a renderização. Não faça nada que você normalmente não faria durante a renderização. Por exemplo, efeitos colaterais devem ser feitos usando `useEffect`, não `useMemo`.
 
@@ -766,7 +766,7 @@ Note que essa abordagem não vai funcionar em um loop porque Hooks [não podem](
 
 ### Como criar objetos custosos a demanda? {#how-to-create-expensive-objects-lazily}
 
-`useMemo` permite [memorizar um cálculo custoso](#how-to-memoize-calculations) se as inputs são as mesmas. No entanto, ele não *garante* que a computação não será re-executada. Algumas vezes você precisa ter certeza que um objeto só é criado uma vez.
+`useMemo` permite [memorizar um cálculo custoso](#how-to-memoize-calculations) se as dependências são as mesmas. No entanto, ele não *garante* que a computação não será re-executada. Algumas vezes você precisa ter certeza que um objeto só é criado uma vez.
 
 **O primeiro caso de uso comum é quando criar o estado inicial é custoso:**
 
@@ -808,13 +808,10 @@ function Image(props) {
 
   // ✅ IntersectionObserver é criado somente uma vez
   function getObserver() {
-    let observer = ref.current;
-    if (observer !== null) {
-      return observer;
+    if (ref.current === null) {
+      ref.current = new IntersectionObserver(onIntersect);
     }
-    let newObserver = new IntersectionObserver(onIntersect);
-    ref.current = newObserver;
-    return newObserver;
+    return ref.current;
   }
 
   // Quando você precisar, execute getObserver()

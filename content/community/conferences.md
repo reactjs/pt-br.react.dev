@@ -12,8 +12,13 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
-### ReactJS Girls Conference
-3 de Maio de 2019 in Londres, Inglaterra
+### React Finland 2019 {#react-finland-2019}
+24 e 26 de Abril em Helsinque, Finlândia
+
+[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
+
+### ReactJS Girls Conference {#reactjs-girls-conference}
+3 de Maio de 2019 em Londres, Inglaterra
 
 [Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
 
@@ -42,12 +47,12 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
 
-### Chain React 2019
+### Chain React 2019 {#chain-react-2019}
 11 e 12 de Julho de 2019. Portland, OR, USA.
 
 [Website](https://infinite.red/ChainReactConf)
 
-### React Rally 2019
+### React Rally 2019 {#react-rally-2019}
 22 e 23 de Agosto de 2019. Salt Lake City, USA.
 
 [Website](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
@@ -66,6 +71,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 13 de Setembro de 2019 em Nova Iorque, Estados Unidos
 
 [Website](https://reactnewyork.com/) - [Twitter](https://twitter.com/reactnewyork)
+
+### React Boston 2019 {#react-boston-2019}
+21 e 22 de Setembro de 2019 em Boston, Massachusetts USA
+
+[Website](https://www.reactboston.com/) - [Twitter](https://twitter.com/reactboston)
 
 ### React India 2019 {#react-india-2019}
 26 a 28 de Setembro de 2019 em Goa, Índia
