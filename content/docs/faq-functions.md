@@ -83,11 +83,7 @@ class Foo extends Component {
 
 >**Nota:**
 >
-<<<<<<< HEAD
->Ao usar uma arrow function no render, uma nova função é criada cada vez que o componente é renderizado, o que pode afetar a performance (veja abaixo).
-=======
->Using an arrow function in render creates a new function each time the component renders, which may break optimizations based on strict identity comparison.
->>>>>>> d2d2ee420de13803fa3f02dca55e2020d42a411f
+>Ao usar uma arrow function no render, uma nova função é criada cada vez que o componente é renderizado, que pode quebrar otimizações com base em comparação de identidade `on strict`.
 
 ### Devemos usar arrow functions em métodos de render? {#is-it-ok-to-use-arrow-functions-in-render-methods}
 
