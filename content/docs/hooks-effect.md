@@ -333,7 +333,11 @@ function FriendStatusWithCounter(props) {
 }
 ```
 
+<<<<<<< HEAD
 **Hooks nos permite dividir o código com base no que ele está fazendo** em vez de encaixá-lo em algum nome dos métodos do ciclo de vida. React irá aplicar *todos* os efeitos usados por um componente, na ordem em que eles foram especificados.
+=======
+**Hooks let us split the code based on what it is doing** rather than a lifecycle method name. React will apply *every* effect used by the component, in the order they were specified.
+>>>>>>> 06deefa56756f8dac13af59ee657186a81d28151
 
 ### Explicação: Por Que Efeitos Executam em Cada Atualização {#explanation-why-effects-run-on-each-update}
 
