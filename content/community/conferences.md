@@ -23,9 +23,9 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://reactconf.am/) - [Twitter](https://twitter.com/ReactConfAM) - [Facebook](https://www.facebook.com/reactconf.am/) - [YouTube](https://www.youtube.com/c/JavaScriptConferenceArmenia) - [CFP](http://bit.ly/speakReact)
 
 ### ReactNext 2019 {#react-next-2019}
-June 11, 2019. Tel Aviv, Israel
+11 de Junho de 2019 em Telavive, Israel
 
-[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Videos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
+[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Vídeos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
 
 ### React Norway 2019 {#react-norway-2019}
 12 de Junho de 2019. Larvik, Noruega
@@ -63,7 +63,7 @@ June 11, 2019. Tel Aviv, Israel
 [Website](https://reactnewyork.com/) - [Twitter](https://twitter.com/reactnewyork)
 
 ### React Live 2019 {#react-live-2019}
-September 13th, 2019. Amsterdam, The Netherlands
+13 de Setembro de 2019 em Amsterdã, Holanda
 
 [Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
 
