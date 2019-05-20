@@ -843,9 +843,9 @@ Tradicionalmente, preocupações de desempenho sobre funções inline no React t
     }, [a, b]);
     ```
 
-* O [Hook `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) torna mais fácil controlar quando filhos específicos atualizam, reduzindo a necessidade de pure components.
+* O Hook [`useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) torna mais fácil controlar quando filhos específicos atualizam, reduzindo a necessidade de pure components.
 
-* Finalmente, o Hook `useReducer` reduz a necessidade de passar callbacks profundamente, como explicado abaixo.
+* Finalmente, o Hook [`useReducer`](/docs/hooks-reference.html#usereducer) reduz a necessidade de passar callbacks profundamente, como explicado abaixo.
 
 ### Como evitar passar callbacks para baixo? {#how-to-avoid-passing-callbacks-down}
 

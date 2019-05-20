@@ -549,7 +549,7 @@ Note como na função `handleClick`, nós chamamos `.slice()` para criar uma có
 
 ### Por que Imutabilidade é Importante {#why-immutability-is-important}
 
-No código do exemplo anterior nós sugerimos que você usasse o operador `.slice()` para criar uma cópia do array de `quadrados` ao invés de modificar o existente. Iremos agora discutir imutabilidade e porque ela é importante de se aprender.
+No código do exemplo anterior nós sugerimos que você usasse o método `.slice()` para criar uma cópia do array de `quadrados` ao invés de modificar o existente. Iremos agora discutir imutabilidade e porque ela é importante de se aprender.
 
 Geralmente existem duas maneiras de se alterar dados. A primeira é *mutar* o dado alterando diretamente seu valor. A segunda maneira é substituir o dado antigo por uma nova cópia com as alterações desejadas.
 
