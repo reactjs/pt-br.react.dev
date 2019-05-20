@@ -30,7 +30,7 @@ const AllBlogPosts = ({data, location}: Props) => (
         <div css={sharedStyles.articleLayout.content}>
           <Header>Todas as Publicações</Header>
           <TitleAndMetaTags
-            ogUrl={`${urlRoot}/blog/all.html`}
+            canonicalUrl={`${urlRoot}/blog/all.html`}
             title="React - Todas as Publicações"
           />
           <ul
