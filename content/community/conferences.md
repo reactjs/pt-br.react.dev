@@ -12,24 +12,6 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
-<<<<<<< HEAD
-### React Finland 2019 {#react-finland-2019}
-24 e 26 de Abril em Helsinque, Finlândia
-
-[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
-
-### ReactJS Girls Conference {#reactjs-girls-conference}
-3 de Maio de 2019 em Londres, Inglaterra
-
-[Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
-
-### <React.NotAConf /> 2019 {#reactnotaconf--2019}
-11 de Maio de 2019 em Sófia, Bulgária
-
-[Website](http://react-not-a-conf.com/) - [Twitter](https://twitter.com/reactnotaconf) - [Facebook](https://www.facebook.com/events/780891358936156)
-
-=======
->>>>>>> 06deefa56756f8dac13af59ee657186a81d28151
 ### ReactEurope 2019 {#reacteurope-2019}
 23 a 24 de Maio de 2019 em Paris, França
 
@@ -387,23 +369,20 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Amsterdam 2019 {#react-amsterdam-2019}
 12 de Abril de 2019 em Amsterdã, Holanda
 
-<<<<<<< HEAD
 [Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
-=======
-[Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
 
 ### React Finland 2019 {#react-finland-2019}
-April 24-26 in Helsinki, Finland
+24 e 26 de Abril em Helsinque, Finlândia
 
 [Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
 
 ### ReactJS Girls Conference {#reactjs-girls-conference}
-May 3, 2019 in London, UK
+3 de Maio de 2019 em Londres, Inglaterra
 
 [Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
 
 ### <React.NotAConf /> 2019 {#reactnotaconf--2019}
-May 11 in Sofia, Bulgaria
+11 de Maio de 2019 em Sófia, Bulgária
 
 [Website](http://react-not-a-conf.com/) - [Twitter](https://twitter.com/reactnotaconf) - [Facebook](https://www.facebook.com/events/780891358936156)
->>>>>>> 06deefa56756f8dac13af59ee657186a81d28151
+
