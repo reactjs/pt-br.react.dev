@@ -212,7 +212,11 @@ Seus principais objetivos são:
 * Capacidade de retornar vários elementos do método `render()`.
 * Melhor suporte para limites de erro.
 
+<<<<<<< HEAD
 Você pode ler mais sobre a arquitetura do React Fiber [aqui](https://github.com/acdlite/react-fiber-architecture) e [aqui](https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e). Embora tenha sido fornecido com o React 16, os recursos assíncronos ainda não estão habilitados por padrão.
+=======
+You can read more about React Fiber Architecture [here](https://github.com/acdlite/react-fiber-architecture) and [here](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react). While it has shipped with React 16, the async features are not enabled by default yet.
+>>>>>>> 1f27bba9484f26ec6dab383b09730ad7ed59f732
 
 Seu código-fonte está localizado em [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
 
