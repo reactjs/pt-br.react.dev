@@ -201,11 +201,7 @@ Hooks customizados oferecem a flexibilidade de compartilhar lógica de uma forma
 
 Tente resistir à tentação de adicionar uma abstração cedo demais. Agora que componentes de função podem fazer mais, provavelmente os componentes de função no seu código irão se tornar maiores. Isso é normal -- não sinta que você **têm** de os separar imediatamente em Hooks. Mas também incentivamos você a começar a achar casos onde um Hook customizado pode esconder uma lógica complexa atrás de uma interface simples ou ajudar a organizar um componente bagunçado.
 
-<<<<<<< HEAD
 Por exemplo, você pode ter um componente complexo que tenha um estado local `state` grande que seja manipulado de forma ad-hoc. `useState` não torna mais fácil a centralização da lógica de atualização, então você pode preferir escrever isso como um *reducer* do [Redux](https://redux.js.org/):
-=======
-For example, maybe you have a complex component that contains a lot of local state that is managed in an ad-hoc way. `useState` doesn't make centralizing the update logic any easier so you might prefer to write it as a [Redux](https://redux.js.org/) reducer:
->>>>>>> 1f27bba9484f26ec6dab383b09730ad7ed59f732
 
 ```js
 function todosReducer(state, action) {
