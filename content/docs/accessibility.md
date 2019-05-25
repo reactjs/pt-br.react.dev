@@ -113,7 +113,7 @@ Para mais informações, veja a [doumentação para Fragments](/docs/fragments.h
 
 ### Rótulos {#labeling}
 
-Todos os elements de um formulário HTML, como `<input>` and `<textarea>`, precisam ser routalados. Precisamos fornecer rótulos descritivos pois são expostos aos leitores de tela.
+Todos os elements de um formulário HTML, como `<input>` e `<textarea>`, precisam ser rotulados. Precisamos fornecer rótulos descritivos pois são expostos aos leitores de tela.
 
 Os seguintes artigos nos mostram como fazer isso:
 
@@ -128,22 +128,22 @@ Embora essas práticas HTML padrão possam ser usadas diretamente em React, obse
 <input id="nomeDaEntrada" type="text" name="nome"/>
 ```
 
-### Notificando o usuário de erros {#notifying-the-user-of-errors}
+### Notificando erros ao usuário {#notifying-the-user-of-errors}
 
-Situações de erro precisam ser entendidas por todos os usuários. O artigos a seguir nos mostram como expor os erros aos leitores de tela:
+Situações de erro precisam ser entendidas por todos os usuários. Os artigos a seguir nos mostram como expor os erros aos leitores de tela:
 
 - [The W3C demonstrates user notifications](https://www.w3.org/WAI/tutorials/forms/notifications/)
 - [WebAIM looks at form validation](https://webaim.org/techniques/formvalidation/)
 
 ## Controle de Foco {#focus-control}
 
-Certifique-se de que seu aplicativo da web possa seja totalmente navegável apenas com o teclado:
+Certifique-se de que seu aplicativo da web seja totalmente navegável apenas com o teclado:
 
 - [WebAIM talks about keyboard accessibility](https://webaim.org/techniques/keyboard/)
 
 ### Foco no teclado e foco de contorno  {#keyboard-focus-and-focus-outline}
 
-Foco no teclado se refere ao elemento no DOM que foi selecionado e aceita ações do teclado. Nos podemos ver o contorno do foco nesta imagem: 
+Foco no teclado se refere ao elemento no DOM que foi selecionado e aceita ações do teclado. Podemos ver o contorno do foco na imagem a seguir: 
 
 <img src="../images/docs/keyboard-focus.png" alt="Contorno de foco azul envolta do link selecionado" />
 
@@ -199,7 +199,7 @@ Então podemos nos concentrar em outro lugar em nosso componente quando necessá
  ```javascript
  focus() {
    // Focalize explicitamente a entrada de texto usando a API DOM 
-   // Nota: estamos acessando "atual" DOM para obter o elemento
+   // Nota: estamos acessando o DOM "atual" para obter o elemento
    this.textInput.current.focus();
  }
  ```
@@ -244,11 +244,11 @@ Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://githu
 >Use-o para reparar o comportamento do foco do teclado quando ele é alterado, e não para tentar antecipar como os usuários desejam usar os aplicativos.
 
 
-## Movimentos do mouse e apontadores {#mouse-and-pointer-events}
+## Movimentos do mouse e ponteiro (cursor) {#mouse-and-pointer-events}
 
-Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou apontador também possam ser acessadas usando apenas o teclado. Se dependender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderam usar seu aplicativo.
+Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou ponteiro também possam ser acessadas usando apenas o teclado. Se dependender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderão usar seu aplicativo.
 
-Para ilustrar isso, vamos ver um exemplo clássico de quebra da acessibilidade causada por cliques. Esse é o padrão de clique externo, em que um usuário pode desativar um popover aberto clicando fora do elemento.
+Para ilustrar isso, abaixo pode-se ver um exemplo clássico de quebra da acessibilidade causada por cliques. Esse é o padrão de clique externo, em que um usuário pode desativar um popover aberto clicando fora do elemento.
 
 <img src="../images/docs/outerclick-with-mouse.gif" alt=" Um botão de que abre uma lista pop-over implementada com o clique e operado com um mouse mostrando que a ação de fechamento funciona." />
 
@@ -303,7 +303,7 @@ constructor(props) {
 }
 ```
 
-Isso pode funcionar bem para usuários com dispositivos com apontadores, como um mouse. Mas, operá-lo apenas com o teclado quebra a funcionalidade ao passar para o próximo elemento, já que o objeto `window` nunca recebe um evento `click`. Isso pode levar a uma funcionalidade escondida que impede os usuários de usar seu aplicativo.
+Isso pode funcionar bem para usuários com dispositivos com ponteiro, como um mouse. Mas, operá-lo apenas com o teclado quebra a funcionalidade ao passar para o próximo elemento, já que o objeto `window` nunca recebe um evento `click`. Isso pode levar a uma funcionalidade escondida que impede os usuários de usar seu aplicativo.
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
 
@@ -346,7 +346,7 @@ class ExamploDeBlur extends React.Component {
   }
 
   render() {
-    // React nos ajuda React cancelando o blur e
+    // O React nos ajuda cancelando o blur e
     // focando nos eventos do elemento pai.
     return (
       <div onBlur={this.onBlurHandler}
@@ -369,7 +369,7 @@ class ExamploDeBlur extends React.Component {
 }
 ```
 
-Esse código expõe a funcionalidade para usuários de dispositivo de ponteiro e teclado. Observe também os `aria-*` `props` adicionados para suportar usuários de leitores de tela. Por motivos de simplicidade a interação com as setas nas opções de popover não foram implementados.
+Esse código expõe a funcionalidade para usuários de dispositivo de mouse e teclado. Observe também os `aria-*` `props` adicionados para suportar usuários de leitores de tela. Por motivos de simplicidade a interação com as setas nas opções de popover não foram implementados.
 
 <img src="../images/docs/blur-popover-close.gif" alt="Uma lista popover que fecha corretamente para usuários de mouse e teclado." />
 
@@ -377,7 +377,7 @@ Este é um exemplo de muitos casos em que, depender apenas dos eventos de pontei
 
 ## Widgets mais complexos {#more-complex-widgets}
 
-Para uma experiência do usuário  que seja mais complexa não significa que será menos acessível. Considerando que a acessibilidade é mais facilmente alcançada programando o mais próximo possível do HTML,
+Uma experiência do usuário mais complexa não significa ser menos acessível. Considerando que a acessibilidade é mais facilmente alcançada programando o mais próximo possível do HTML,
 até mesmo o widget mais complexo pode ser programado de forma acessível.
 
 Aqui, exigimos conhecimento de [ARIA Roles](https://www.w3.org/TR/wai-aria/#role), bem como [ARIA States and Properties](https://www.w3.org/TR/wai-aria/#states_and_properties).
@@ -389,7 +389,7 @@ Cada tipo de widget tem um padrão de design específico e espera-se que funcion
 - [Heydon Pickering - ARIA Examples](https://heydonworks.com/practical_aria_examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
-## Outros pontos para consideração {#other-points-for-consideration}
+## Outros pontos a serem consideração {#other-points-for-consideration}
 
 ### Definindo o idioma {#setting-the-language}
 
@@ -430,10 +430,10 @@ Há várias ferramentas que podemos usar para ajudar na criação de aplicativos
 
 Há várias ferramentas que podemos usar para ajudar na criação de aplicativos da Web acessíveis.
 
-1. Disconecte o seu mouse.
+1. Desconecte o seu mouse.
 2. Usando `Tab` e `Shift+Tab` navegue pelo site.
 3. Usando `Enter` para clicar elementos.
-3. Se necessário, usando o teclado e as setas interaja com alguns elementos, como menus e dropdowns.
+3. Se necessário, usando o teclado e as setas, interaja com alguns elementos, como menus e dropdowns.
 
 ### Assistência ao desenvolvimento {#development-assistance}
 
@@ -461,9 +461,9 @@ Existem várias ferramentas que podem executar auditorias de acessibilidade em p
 
 Deque Systems oferece [aXe-core](https://github.com/dequelabs/axe-core) para testes de acessibilidade automatizados e de ponta a ponta de seus aplicativos. Este módulo inclui integrações para o Selenium.
 
-[O mecanismo de acessibilidade](https://www.deque.com/products/axe/) or aXe, é uma extensão de navegador de inspetor de acessibilidade construída com `aXe-core`.
+[O mecanismo de acessibilidade aXe](https://www.deque.com/products/axe/) é uma extensão de navegador de inspetor de acessibilidade construída com `aXe-core`.
 
-Você também pode usar o [react-axe](https://github.com/dylanb/react-axe) módulo para logar essas descobertas de acessibilidade diretamente no console durante o desenvolvimento e avaliação.
+Você também pode usar o [react-axe](https://github.com/dylanb/react-axe), um módulo para logar essas descobertas de acessibilidade diretamente no console durante o desenvolvimento e avaliação.
 
 #### WebAIM WAVE {#webaim-wave}
 
@@ -508,7 +508,7 @@ Consulte os seguintes guias sobre como ativar e usar o VoiceOver:
 
 #### JAWS no Internet Explorer {#jaws-in-internet-explorer}
 
-[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) or JAWS, is a prolifically used screen reader on Windows.
+[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) ou JAWS, é um leitor de tela muito popular, utilizado no sistema Windows.
 
 Consulte os seguintes guias sobre como ativar e usar o JAWS:
 
