@@ -32,7 +32,6 @@ Dev stack e starter kit para aplicativos React funcionais e universais (browser,
  * **[starter-react-flux](https://github.com/SokichiFujita/starter-react-flux)** Um gerador para o projeto React e Flux com Flux-Utils, Jest, Immutable.js, Addons React, Webpack, ESLint, Babel e ES2015.
  * **[react-async-starter](https://github.com/didierfranc/react-async-starter):** React + Redux + Fetch + ES7 Assíncrono com Webpack, Babel e recarregamento a quente.
  * **[Kriasoft React Starter Kit](https://github.com/kriasoft/react-starter-kit):** Gulp, Webpack, BrowserSync + [React Starter Kit for Visual Studio](https://marketplace.visualstudio.com/items?itemName=KonstantinTarkus.ReactjsStarterKit)
-<<<<<<< HEAD
  * **[electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)** Um boilerplate React + Flux Electron baseado em React, Flux, React Router, Webpack e React Hot Loader.
  * **[react-boilerplate](https://github.com/mxstbr/react-boilerplate)** Configuração rápida para aplicativos React.js orientados para desempenho, offline-first com Redux, hot-reloading, PostCSS, react-router, ServiceWorker, AppCache, FontFaceObserver e Mocha.
  * **[vortigern](https://github.com/barbar/vortigern)** Um boilerplate universal para criar aplicativos da Web com TypeScript, React, Redux e muito mais.
@@ -40,13 +39,4 @@ Dev stack e starter kit para aplicativos React funcionais e universais (browser,
  * **[EDGE Platform](https://github.com/sebastian-software/edge)** Universal React / SSR + Apollo GraphQL + Separação de Código JS / CSS + Fine-Tuned Webpack + Localização / Internacionalização. A maioria das coisas são dependências externas. Boilerplate disponível.
  * **[bae](https://github.com/siddharthkp/bae)** Toolkit de configuração zero. SSR (com busca de dados) + roteamento + streaming + estilização (com styled-components) + HMR fora da caixa.
  * **[breko-hub](https://github.com/tomatau/breko-hub)** Um boilerplate pronto para produção para aplicações react. Completo com separação de código, server render (usando koa), redux, sagas, depuração, hot-reloading (atualizações ao vivo no servidor), css-modules, scss, testes de integração super rápidos e testes de unidade. Há também um grande foco em código limpo e arquivos menores.
-=======
- * **[electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)** A React + Flux Electron application boilerplate based on React, Flux, React Router, Webpack, React Hot Loader
- * **[react-boilerplate](https://github.com/mxstbr/react-boilerplate)** Quick setup for performance orientated, offline-first React.js applications featuring Redux, hot-reloading, PostCSS, react-router, ServiceWorker, AppCache, FontFaceObserver and Mocha.
- * **[vortigern](https://github.com/barbar/vortigern)** A universal boilerplate for building web applications w/ TypeScript, React, Redux and more.
- * **[CRA Universal CLI](https://github.com/antonybudianto/cra-universal)** CLI to initialize universal create-react-app without ejecting. Supports Server-side rendering with Code-splitting, and Node Stream rendering.
- * **[EDGE Platform](https://github.com/sebastian-software/edge)** Universal React/SSR + Apollo GraphQL + JS/CSS Code Splitting + Fine-Tuned Webpack + Localization/Internationalization. Most things are external dependencies. Boilerplate available.
- * **[bae](https://github.com/siddharthkp/bae)** Zero config toolkit. SSR (with data fetching) + routing + streaming + styling (with styled-components) + HMR out of the box.
- * **[breko-hub](https://github.com/tomatau/breko-hub)** A production ready boilerplate for universal react applications. Complete with code splitting, server render (using koa), redux, sagas, debugging, hot-reloading (live updates on the server), css-modules, scss, super fast integration tests and unit tests. There's also a big focus on clean code and smaller files.
- * **[appseed](https://github.com/rosoftdeveloper/appseed)** A production ready boilerplate for UI-Ready react applications. The frontend can be bundled with various backends: Flask, Laravel, Express. 
->>>>>>> 04f3dc58db98b6350912a2eff3abe6d20b31df3a
+ * **[appseed](https://github.com/rosoftdeveloper/appseed)** Um boilerplate pronto para produção para aplicativos react. O frontend pode ser empacotado com vários backends: Flask, Laravel, Express. 
