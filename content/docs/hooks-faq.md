@@ -655,7 +655,7 @@ Note que no exemplo acima nós **precisamos** para manter a função na lista de
 
 ### O que posso fazer se minhas dependências de efeito mudarem com muita frequência? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
-Às vezes, seu efeito pode estar usando o state de leitura que muda com muita freqüência. Você pode ser tentado a omitir esse state de uma lista de dependências, mas isso geralmente leva a erros:
+Às vezes, seu efeito pode estar usando o state que muda com muita freqüência. Você pode ser tentado a omitir esse state de uma lista de dependências, mas isso geralmente leva a erros:
 
 ```js{6,9}
 function Counter() {
