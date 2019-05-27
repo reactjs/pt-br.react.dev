@@ -153,7 +153,7 @@ Somente use CSS que elimine este contorno, por exemplo, definindo `outline: 0`, 
 
 São mecanismos para permitir que os usuários ignorem as seções de navegação anteriores em seu aplicativo, pois isso ajuda e acelera a navegação pelo teclado.
 
-`Skiplinks` ou `Links para Pular Navegacão` são links de navegação ocultos que só se tornam visíveis quando os usuários interagem com a página usando o teclado. Eles são muito fáceis de implementar com alguns estilos e âncoras de páginas:
+Skiplinks ou Links para Pular Navegacão são links de navegação ocultos que só se tornam visíveis quando os usuários interagem com a página usando o teclado. Eles são muito fáceis de implementar com alguns estilos e âncoras de páginas:
 
 - [WebAIM - Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 
@@ -165,8 +165,7 @@ Leia mais sobre o uso desses elementos para melhorar a acessibilidade aqui:
 
 ### Programaticamente gerenciando o foco {#programmatically-managing-focus}
 
-Aplicações em React modificam continuamente o HTML DOM durante o tempo de execução, às vezes levando à perda de foco do teclado ou a um elemento inesperado. Para consertar isso,
-precisamos programar o foco do teclado na direção certa, de maneira programática. Por exemplo, redefinindo o foco do teclado para um botão que abriu uma janela modal depois que essa janela restrita é fechada.
+Aplicações em React modificam continuamente o HTML DOM durante o tempo de execução, às vezes levando à perda de foco do teclado ou a um elemento inesperado. Para consertar isso, precisamos programar o foco do teclado na direção certa, de maneira programática. Por exemplo, redefinindo o foco do teclado para um botão que abriu uma janela modal depois que essa janela restrita é fechada.
 
 Você pode encotrar mais informações de como fazer isto no MDN [navegação por teclado de JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
@@ -233,10 +232,7 @@ this.inputElement.current.focus();
 
 Ao usar um HOC (Componente de alta ordem) para estender componentes é recomendado [encaminhar a ref](/docs/forwarding-refs.html) para o componente de menor order usando a função  de React `forwardRef`. Se um terceiro HOC não passar a referência, o padrão acima ainda pode ser usado como fallback.
 
-
-
 Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Este é um exemplo relativamente raro de uma janela modal totalmente acessível. Não só define o foco inicial o botão cancelar (impedindo o usuário do teclado de ativar acidentalmente a ação de sucesso) e interceptar o foco do teclado dentro do modal, ele também redefine o foco de volta para o elemento que inicialmente acionou o modal.
-
 
 >Nota:
 >
@@ -377,8 +373,7 @@ Este é um exemplo de muitos casos em que, depender apenas dos eventos de pontei
 
 ## Widgets mais complexos {#more-complex-widgets}
 
-Uma experiência do usuário mais complexa não significa ser menos acessível. Considerando que a acessibilidade é mais facilmente alcançada programando o mais próximo possível do HTML,
-até mesmo o widget mais complexo pode ser programado de forma acessível.
+Uma experiência do usuário mais complexa não significa ser menos acessível. Considerando que a acessibilidade é mais facilmente alcançada programando o mais próximo possível do HTML, até mesmo o widget mais complexo pode ser programado de forma acessível.
 
 Aqui, exigimos conhecimento de [ARIA Roles](https://www.w3.org/TR/wai-aria/#role), bem como [ARIA States and Properties](https://www.w3.org/TR/wai-aria/#states_and_properties).
 Estas são caixas de ferramentas preenchidas com atributos HTML que são totalmente suportados no JSX e nos permitem construir componentes em React totalmente funcionais e totalmente acessíveis.
@@ -443,8 +438,7 @@ Podemos verificar alguns recursos de acessibilidade diretamente em nosso código
 
 O [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) plugin para ESLint fornece feedback sobre o linting da AST em relação a problemas de acessibilidade no seu JSX. Muitos dos IDE permitem integrar essas descobertas diretamente na análise de código e nas janelas de código-fonte.
 
-[Create React App](https://github.com/facebookincubator/create-react-app) tem este plugin com um subconjunto de regras ativadas. Se você quiser ativar ainda mais regras de acessibilidade,
-você pode criar um arquivo `.eslintrc` na raiz do seu projeto com este conteúdo:
+[Create React App](https://github.com/facebookincubator/create-react-app) tem este plugin com um subconjunto de regras ativadas. Se você quiser ativar ainda mais regras de acessibilidade, você pode criar um arquivo `.eslintrc` na raiz do seu projeto com este conteúdo:
 
   ```json
   {
