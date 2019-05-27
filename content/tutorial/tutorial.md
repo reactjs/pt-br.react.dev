@@ -20,7 +20,7 @@ Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentad
 
 > Dica
 >
-> Este tutorial foi criado para pessoas que preferem ** aprender fazendo **. Se você preferir aprender conceitos do zero, confira nosso [step-by-step guide](/docs/hello-world.html). Você pode achar este tutorial e o guia complementares um ao outro.
+> Este tutorial foi criado para pessoas que preferem **aprender fazendo**. Se você preferir aprender conceitos do zero, confira nosso [step-by-step guide](/docs/hello-world.html). Você pode achar este tutorial e o guia complementares um ao outro.
 
 O tutorial está dividido em várias seções:
 
@@ -337,7 +337,7 @@ O React DevTools permite que você verifique as props e o estado (_state_) de se
 
 Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas de desenvolvedor, e a guia React aparecerá como a última guia à direita.
 
-** No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen: **
+**No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen:**
 
 1. Faça o login ou registre-se e confirme seu e-mail (necessário para evitar spam).
 2. Clique no botão "Fork".
@@ -1017,7 +1017,7 @@ Uma vez que estamos gravando o histórico do Jogo da Velha, agora podemos mostr�
 
 Aprendemos anterioremente que os elementos React são objetos JavaScript de primeira classe; podemos passá-los livremente por nossas aplicações. Para renderizar múltiplos itens em React, podemos utilizar um array de elementos React.
 
-Em JavaScript, arrays possuem um [método `map()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que é normalmente utilizado para mapear uma fonte de dados para outra fonte de dados, por exemplo:
+Em JavaScript, arrays possuem um [método `map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que é normalmente utilizado para mapear uma fonte de dados para outra fonte de dados, por exemplo:
 
 ```js
 const numbers = [1, 2, 3];
