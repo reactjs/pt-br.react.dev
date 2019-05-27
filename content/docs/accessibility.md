@@ -425,10 +425,17 @@ Há várias ferramentas que podemos usar para ajudar na criação de aplicativos
 
 Há várias ferramentas que podemos usar para ajudar na criação de aplicativos da Web acessíveis.
 
+<<<<<<< HEAD
 1. Desconecte o seu mouse.
 2. Usando `Tab` e `Shift+Tab` navegue pelo site.
 3. Usando `Enter` para clicar elementos.
 3. Se necessário, usando o teclado e as setas, interaja com alguns elementos, como menus e dropdowns.
+=======
+1. Disconnecting your mouse.
+1. Using `Tab` and `Shift+Tab` to browse.
+1. Using `Enter` to activate elements.
+1. Where required, using your keyboard arrow keys to interact with some elements, such as menus and dropdowns.
+>>>>>>> 23b242edc4c7eeee5798953ba205e36cc71016b8
 
 ### Assistência ao desenvolvimento {#development-assistance}
 
