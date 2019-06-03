@@ -252,7 +252,7 @@ Isso geralmente é implementado ao anexar um `click` ao objeto de janela que fec
 
 ```javascript{12-14,26-30}
 class ClickForaExemplo extends React.Component {
-constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = { estaAberto: false };
