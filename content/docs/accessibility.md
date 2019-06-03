@@ -251,8 +251,13 @@ Para ilustrar isso, abaixo pode-se ver um exemplo clássico de quebra da acessib
 Isso geralmente é implementado ao anexar um `click` ao objeto de janela que fecha o popover:
 
 ```javascript{12-14,26-30}
+<<<<<<< HEAD
 class ClickForaExemplo extends React.Component {
 constructor(props) {
+=======
+class OuterClickExample extends React.Component {
+  constructor(props) {
+>>>>>>> c93286c071bca17ecba91cd130908fe2e33a4766
     super(props);
 
     this.state = { estaAberto: false };
@@ -303,7 +308,11 @@ Isso pode funcionar bem para usuários com dispositivos com ponteiro, como um mo
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
 
+<<<<<<< HEAD
 A mesma funcionalidade pode ser obtida usando manipuladores de eventos apropriados, como `onBlur` e `onFocus`:
+=======
+The same functionality can be achieved by using appropriate event handlers instead, such as `onBlur` and `onFocus`:
+>>>>>>> c93286c071bca17ecba91cd130908fe2e33a4766
 
 ```javascript{19-29,31-34,37-38,40-41}
 class ExamploDeBlur extends React.Component {
