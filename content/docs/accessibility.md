@@ -285,14 +285,19 @@ class ClickForaExemplo extends React.Component {
   render() {
     return (
       <div ref={this.toggleContainer}>
+<<<<<<< HEAD
         <button onClick={this.onClickHandler}>Select an option:</button>
         {this.state.estaAberto ? (
+=======
+        <button onClick={this.onClickHandler}>Select an option</button>
+        {this.state.isOpen && (
+>>>>>>> 5849f604ccd59b009f7f3e03d5460757bfc2ab34
           <ul>
             <li>Option 1</li>
             <li>Option 2</li>
             <li>Option 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
@@ -352,13 +357,13 @@ class ExamploDeBlur extends React.Component {
                 aria-expanded={this.state.isOpen}>
           Select an option
         </button>
-        {this.state.isOpen ? (
+        {this.state.isOpen && (
           <ul>
             <li>Option 1</li>
             <li>Option 2</li>
             <li>Option 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
