@@ -255,7 +255,7 @@ class ClickForaExemplo extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { estaAberto: false };
+    this.state = { isOpen: false };
     this.toggleContainer = React.createRef();
 
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -271,28 +271,28 @@ class ClickForaExemplo extends React.Component {
   }
 
   onClickHandler() {
-    this.setState(estadoAtual => ({
-      estaAberto: !estadoAtual.estaAberto
+    this.setState(currentState => ({
+      isOpen: !currentState.isOpen
     }));
   }
 
   onClickOutsideHandler(event) {
-    if (this.state.estaAberto && !this.toggleContainer.current.contains(event.target)) {
-      this.setState({ estaAberto: false });
+    if (this.state.isOpen && !this.toggleContainer.current.contains(event.target)) {
+      this.setState({ isOpen: false });
     }
   }
 
   render() {
     return (
       <div ref={this.toggleContainer}>
-        <button onClick={this.onClickHandler}>Select an option:</button>
-        {this.state.estaAberto ? (
+        <button onClick={this.onClickHandler}>Select an option</button>
+        {this.state.isOpen && (
           <ul>
             <li>Option 1</li>
             <li>Option 2</li>
             <li>Option 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
@@ -352,13 +352,13 @@ class ExamploDeBlur extends React.Component {
                 aria-expanded={this.state.isOpen}>
           Select an option
         </button>
-        {this.state.isOpen ? (
+        {this.state.isOpen && (
           <ul>
             <li>Option 1</li>
             <li>Option 2</li>
             <li>Option 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }

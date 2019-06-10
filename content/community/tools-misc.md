@@ -9,7 +9,7 @@ permalink: community/misc.html
 
 * **[react-inspector](https://github.com/xyc/react-inspector):** Use os inspetores de objetos do tipo DevTools dentro do seu aplicativo React.
 * **[jreact](https://github.com/KnisterPeter/jreact):** Renderização react do lado do servidor dentro de uma JVM (Java 7 ou Java 8)
-* **[react-jss](https://github.com/jsstyles/react-jss):** Injetar e montar estilos jss em componentes React.
+* **[react-jss](https://github.com/cssinjs/jss/tree/master/packages/react-jss):** Injetar e montar estilos jss em componentes React.
 * **[django-react](https://github.com/markfinger/django-react):** Renderização no lado do servidor de componentes React para aplicativos django.
 * **[react-engine](https://github.com/paypal/react-engine):** Mecanismo de renderização composto para aplicativos express isomórficos para renderizar visualizações simples e reativas.
 * **[react-render-visualizer](https://github.com/redsunsoft/react-render-visualizer):** Uma maneira visual de ver o que é (re) renderizado e por quê.
