@@ -255,7 +255,7 @@ class ClickForaExemplo extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { estaAberto: false };
+    this.state = { isOpen: false };
     this.toggleContainer = React.createRef();
 
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -271,27 +271,22 @@ class ClickForaExemplo extends React.Component {
   }
 
   onClickHandler() {
-    this.setState(estadoAtual => ({
-      estaAberto: !estadoAtual.estaAberto
+    this.setState(currentState => ({
+      isOpen: !currentState.isOpen
     }));
   }
 
   onClickOutsideHandler(event) {
-    if (this.state.estaAberto && !this.toggleContainer.current.contains(event.target)) {
-      this.setState({ estaAberto: false });
+    if (this.state.isOpen && !this.toggleContainer.current.contains(event.target)) {
+      this.setState({ isOpen: false });
     }
   }
 
   render() {
     return (
       <div ref={this.toggleContainer}>
-<<<<<<< HEAD
-        <button onClick={this.onClickHandler}>Select an option:</button>
-        {this.state.estaAberto ? (
-=======
         <button onClick={this.onClickHandler}>Select an option</button>
         {this.state.isOpen && (
->>>>>>> 5849f604ccd59b009f7f3e03d5460757bfc2ab34
           <ul>
             <li>Option 1</li>
             <li>Option 2</li>
