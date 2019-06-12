@@ -20,9 +20,8 @@ permalink: community/ui-components.html
 * **[Onsen UI React Components](https://onsen.io/v2/react.html):** Componentes de interface do usuário para aplicativos móveis híbridos com material design para Android e flat design para iOS.
 * **[PrimeReact](https://www.primefaces.org/primereact/):** Um rico conjunto de componentes de UI para o React, com mais de 70 componentes de código aberto.
 * **[React Amazing Grid](https://github.com/Amazing-Space-Invader/react-amazing-grid)** Flex grid with inline styles.
-<<<<<<< HEAD
-* **[React Mdl](https://github.com/tleunen/react-mdl)** Componentes React com Material Design Lite.
-* **[React Web](https://github.com/taobaofed/react-web)** Um framework para criar aplicativos web com o React.
+* **[Material Components for React](https://github.com/material-components/material-components-web-react)** MDC React é a implementação oficial do (Google) Material Design Components.
+* **[React Native for Web](https://github.com/necolas/react-native-web)** Possibilita rodar componentes do React Native e suas APIs na web usando React DOM.
 * **[react-amiga-guru-meditation](https://github.com/gfazioli/react-amiga-guru-meditation):** Classe React para exibir uma homenagem à meditação Amiga Guru
 * **[react-autosuggest](https://github.com/moroshko/react-autosuggest)** Componentes React compatível com WAI-ARIA
 * **[react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd):** Arrastar e soltar bonito e acessível para listas com o React.js
@@ -51,7 +50,7 @@ permalink: community/ui-components.html
 * **[react-slick](https://github.com/akiran/react-slick):** Componente Carousel feito com React
 * **[react-sparklines](https://borisyankov.github.io/react-sparklines/):** Componente bonito e expressivo de sparklines
 * **[react-spreadsheet](https://github.com/felixrieseberg/React-Spreadsheet-Component):** React Spreadsheets / tabelas editáveis ​​com entrada de teclado e navegação no estilo Excel
-* **[react-switch-button](https://github.com/gfazioli/react-switch-button):** Lindo componente botão Switch feito com React.
+* **[react-toggle](https://github.com/gfazioli/react-toggle):** Um componente React para mostrar um controle _toggle_
 * **[react-tappable](https://github.com/JedWatson/react-tappable)** Um componente React tocável que fornece eventos onTap com sensação nativa para aplicativos React para dispositivos móveis
 * **[react-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize):** Como `<textarea />`, mas redimensiona automaticamente para caber todo o seu conteúdo.
 * **[react-toastify](https://github.com/fkhadra/react-toastify):** Notificação de forma fácil com React.
@@ -69,56 +68,6 @@ permalink: community/ui-components.html
 * **[valuelink](https://github.com/Volicon/valuelink):** Ligação de dados bidirecional repleta de recursos e validação de formulários com links React estendidos.
 * **[video-react](https://github.com/video-react/video-react)**: Um player de vídeo da Web criado para o mundo HTML5 usando a biblioteca React.
 * **[Winterfell](https://github.com/andrewhathaway/Winterfell):** Gerar formulários complexos, validados e prorrogáveis ​​baseados em JSON no React.
-=======
-* **[Material Components for React](https://github.com/material-components/material-components-web-react)** MDC React is the official implementation of Google's Material Design Components.
-* **[React Native for Web](https://github.com/necolas/react-native-web)** Makes it possible to run React Native components and APIs on the web using React DOM.
-* **[react-amiga-guru-meditation](https://github.com/gfazioli/react-amiga-guru-meditation):** React JS Class to display a Amiga Guru Meditation Tribute
-* **[react-autosuggest](https://github.com/moroshko/react-autosuggest)** WAI-ARIA compliant React autosuggest component
-* **[react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd):** Beautiful, accessible drag and drop for lists with React.js
-* **[react-bootstrap](https://github.com/stevoland/react-bootstrap):** Bootstrap 3 components built with React.
-* **[react-bootstrap-dialog](https://github.com/akiroom/react-bootstrap-dialog):** React Dialog component for react-bootstrap, instead of `window.alert` or `window.confirm`
-* **[react-bootstrap-table2](https://github.com/react-bootstrap-table/react-bootstrap-table2):** It's a react table for Bootstrap.
-* **[react-component](https://github.com/react-component/):** A collection of react components maintained by Alibaba/Alipay employee.
-* **[react-data-menu](https://github.com/dkozar/react-data-menu):** Smart data-driven menu rendered in an overlay. Hints-based aligning with custom renderers and factories. Never clipped by other components or screen edges.
-* **[react-date-picker](https://github.com/Hacker0x01/react-datepicker):** A simple and reusable datepicker component for React.
-* **[react-dates](https://github.com/OpusCapita/react-dates):** Date-inputs + date-picker
-* **[react-dnd](https://github.com/gaearon/react-dnd)** Flexible HTML5 drag-and-drop mixin for React with full DOM control
-* **[react-document-title](https://github.com/gaearon/react-document-title)** Declarative, nested, stateful, isomorphic document.title for React
-* **[react-dropzone](https://github.com/felixrieseberg/React-Dropzone):** React Dropzone for File-Uploads
-* **[react-forms](https://prometheusresearch.github.io/react-forms/):** Form rendering and validation for React
-* **[react-highlight](https://github.com/akiran/react-highlight):** React component for syntax highlighting
-* **[react-image](https://github.com/mbrevda/react-image):** Like `<img />` and Enhanced Image Component for React.
-* **[react-input-autosize](https://github.com/JedWatson/react-input-autosize):** Like `<input />` but resizes automatically to fit all its content.
-* **[react-intense](https://github.com/brycedorn/react-intense):** A component for viewing large images up close
-* **[react-joyride](https://github.com/gilbarbara/react-joyride):** Create walkthroughs and guided tours for your ReactJS apps.
-* **[react-ladda](https://github.com/jsdir/react-ladda):** React wrapper for Ladda buttons.
-* **[react-lorem-component](https://github.com/martinandert/react-lorem-component):** Lorem Ipsum placeholder component.
-* **[react-notification](https://github.com/pburtchaell/react-notification):** Snackbar style notifications
-* **[react-select](https://github.com/JedWatson/react-select):** Native React Select / Multiselect input field, similar to Selectize / Chosen / Select2
-* **[react-selectize](https://furqanzafar.github.io/react-selectize/):** A stateless & flexible Select component, designed as a drop in replacement for React.DOM.Select, inspired by Selectize
-* **[react-sigma](https://www.npmjs.com/package/react-sigma)**: Lightweight but powerful library for drawing network graphs
-* **[react-slick](https://github.com/akiran/react-slick):** Carousel component built with React
-* **[react-sparklines](https://borisyankov.github.io/react-sparklines/):** Beautiful and expressive sparklines component
-* **[react-spreadsheet](https://github.com/felixrieseberg/React-Spreadsheet-Component):** React Spreadsheets / Editable tables with Excel-Style keyboard input and navigation
-* **[react-toggle](https://github.com/gfazioli/react-toggle):** A React UI component to display a toggle button control
-* **[react-tappable](https://github.com/JedWatson/react-tappable)** A Tappable React Component that provides native-feeling onTap events for mobile React apps
-* **[react-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize):** Like `<textarea />` but resizes automatically to fit all its content.
-* **[react-toastify](https://github.com/fkhadra/react-toastify):** React notification made easy
-* **[React-TimeAgo](https://www.npmjs.org/package/react-timeago)** A minimal live updating Time Ago component that smartly converts any time to a 'ago' or 'from now' format and keeps it updated.
-* **[react-translate-component](https://github.com/martinandert/react-translate-component):** React component for i18n.
-* **[react-treeview](https://github.com/chenglou/react-treeview):** Easy, light, flexible tree view.
-* **[react-uwp](https://www.react-uwp.com)** A set of React Components that Implement Microsoft's UWP Design & Fluent Design..
-* **[react-validate-framework](https://github.com/MinJieLiu/react-validate-framework)**: A lightweight and extensible React validation component.
-* **[reactstrap](https://reactstrap.github.io/):** Simple Bootstrap 4 components built with [tether](http://tether.io/)
-* **[recharts](https://github.com/recharts/recharts)**: A composable charting library built on React components.
-* **[Selectivity](https://arendjr.github.io/selectivity/):** Modular and light-weight selection library.
-* **[Semantic-ui](https://react.semantic-ui.com/)**: The official Semantic-UI-React integration, Advanced components and declarative UI.
-* **[storybook-addon-material-ui](https://github.com/sm-react/storybook-addon-material-ui)** A storybook addon for material-ui.
-* **[tcomb-form](https://github.com/gcanti/tcomb-form):** Automatically generate form markup, automatic labels and inline validation from a domain model.
-* **[valuelink](https://github.com/Volicon/valuelink):** Full-featured two-way data binding and forms validation with extended React links.
-* **[video-react](https://github.com/video-react/video-react)**: A web video player built for the HTML5 world using React library.
-* **[Winterfell](https://github.com/andrewhathaway/Winterfell):** Generate complex, validated and extendable JSON-based forms in React
->>>>>>> 133aa06c178a5b1b57bf3baa900d3f9dd6d058a0
 
 ## Fee Based Components {#fee-based-components}
 
