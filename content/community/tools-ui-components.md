@@ -20,8 +20,8 @@ permalink: community/ui-components.html
 * **[Onsen UI React Components](https://onsen.io/v2/react.html):** Componentes de interface do usuário para aplicativos móveis híbridos com material design para Android e flat design para iOS.
 * **[PrimeReact](https://www.primefaces.org/primereact/):** Um rico conjunto de componentes de UI para o React, com mais de 70 componentes de código aberto.
 * **[React Amazing Grid](https://github.com/Amazing-Space-Invader/react-amazing-grid)** Flex grid with inline styles.
-* **[React Mdl](https://github.com/tleunen/react-mdl)** Componentes React com Material Design Lite.
-* **[React Web](https://github.com/taobaofed/react-web)** Um framework para criar aplicativos web com o React.
+* **[Material Components for React](https://github.com/material-components/material-components-web-react)** MDC React é a implementação oficial do (Google) Material Design Components.
+* **[React Native for Web](https://github.com/necolas/react-native-web)** Possibilita rodar componentes do React Native e suas APIs na web usando React DOM.
 * **[react-amiga-guru-meditation](https://github.com/gfazioli/react-amiga-guru-meditation):** Classe React para exibir uma homenagem à meditação Amiga Guru
 * **[react-autosuggest](https://github.com/moroshko/react-autosuggest)** Componentes React compatível com WAI-ARIA
 * **[react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd):** Arrastar e soltar bonito e acessível para listas com o React.js
@@ -50,7 +50,7 @@ permalink: community/ui-components.html
 * **[react-slick](https://github.com/akiran/react-slick):** Componente Carousel feito com React
 * **[react-sparklines](https://borisyankov.github.io/react-sparklines/):** Componente bonito e expressivo de sparklines
 * **[react-spreadsheet](https://github.com/felixrieseberg/React-Spreadsheet-Component):** React Spreadsheets / tabelas editáveis ​​com entrada de teclado e navegação no estilo Excel
-* **[react-switch-button](https://github.com/gfazioli/react-switch-button):** Lindo componente botão Switch feito com React.
+* **[react-toggle](https://github.com/gfazioli/react-toggle):** Um componente React para mostrar um controle _toggle_
 * **[react-tappable](https://github.com/JedWatson/react-tappable)** Um componente React tocável que fornece eventos onTap com sensação nativa para aplicativos React para dispositivos móveis
 * **[react-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize):** Como `<textarea />`, mas redimensiona automaticamente para caber todo o seu conteúdo.
 * **[react-toastify](https://github.com/fkhadra/react-toastify):** Notificação de forma fácil com React.
