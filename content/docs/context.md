@@ -231,7 +231,7 @@ Para que o contexto possa continuar renderizando rápidamente, o React precisa m
 
 `embed:context/multiple-contexts.js`
 
-Se dois ou mais valores de contexto são utilizados juntos com frequência, você pode considerar criar o seu próprio_render prop_.
+Se dois ou mais valores de contexto são utilizados juntos com frequência, você pode considerar criar o seu próprio _render prop_.
 
 > Nota
 >

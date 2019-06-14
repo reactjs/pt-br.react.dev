@@ -655,7 +655,7 @@ Note que no exemplo acima nós **precisamos** para manter a função na lista de
 
 ### O que posso fazer se minhas dependências de efeito mudarem com muita frequência? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
-Às vezes, seu efeito pode estar usando o state de leitura que muda com muita freqüência. Você pode ser tentado a omitir esse state de uma lista de dependências, mas isso geralmente leva a erros:
+Às vezes, seu efeito pode estar usando o state que muda com muita freqüência. Você pode ser tentado a omitir esse state de uma lista de dependências, mas isso geralmente leva a erros:
 
 ```js{6,9}
 function Counter() {
@@ -739,7 +739,7 @@ O Hook [`useMemo`](/docs/hooks-reference.html#usememo) permite que você evite c
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Esse código chama `computeExpensiveValue(a, b)`. Mas se as entradas `[a, b]` não mudaram desde o último valor, `useMemo` não chama a função novamente e simplesmente retorna o valor retornado anteriormente.
+Esse código chama `computeExpensiveValue(a, b)`. Mas se as dependências `[a, b]` não mudaram desde o último valor, `useMemo` não chama a função novamente e simplesmente retorna o valor retornado anteriormente.
 
 Lembre-se que a função passada para `useMemo` é executada durante a renderização. Não faça nada que você normalmente não faria durante a renderização. Por exemplo, efeitos colaterais devem ser feitos usando `useEffect`, não `useMemo`.
 
@@ -766,7 +766,7 @@ Note que essa abordagem não vai funcionar em um loop porque Hooks [não podem](
 
 ### Como criar objetos custosos a demanda? {#how-to-create-expensive-objects-lazily}
 
-`useMemo` permite [memorizar um cálculo custoso](#how-to-memoize-calculations) se as inputs são as mesmas. No entanto, ele não *garante* que a computação não será re-executada. Algumas vezes você precisa ter certeza que um objeto só é criado uma vez.
+`useMemo` permite [memorizar um cálculo custoso](#how-to-memoize-calculations) se as dependências são as mesmas. No entanto, ele não *garante* que a computação não será re-executada. Algumas vezes você precisa ter certeza que um objeto só é criado uma vez.
 
 **O primeiro caso de uso comum é quando criar o estado inicial é custoso:**
 
@@ -843,9 +843,9 @@ Tradicionalmente, preocupações de desempenho sobre funções inline no React t
     }, [a, b]);
     ```
 
-* O [Hook `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) torna mais fácil controlar quando filhos específicos atualizam, reduzindo a necessidade de pure components.
+* O Hook [`useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) torna mais fácil controlar quando filhos específicos atualizam, reduzindo a necessidade de pure components.
 
-* Finalmente, o Hook `useReducer` reduz a necessidade de passar callbacks profundamente, como explicado abaixo.
+* Finalmente, o Hook [`useReducer`](/docs/hooks-reference.html#usereducer) reduz a necessidade de passar callbacks profundamente, como explicado abaixo.
 
 ### Como evitar passar callbacks para baixo? {#how-to-avoid-passing-callbacks-down}
 
