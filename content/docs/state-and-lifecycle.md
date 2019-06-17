@@ -193,7 +193,7 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Em seguinda, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
+Em seguida, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
 
 ## Adicionando Métodos de Ciclo de Vida a Classe {#adding-lifecycle-methods-to-a-class}
 

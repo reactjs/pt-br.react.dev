@@ -12,21 +12,6 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
-### React Finland 2019 {#react-finland-2019}
-24 e 26 de Abril em Helsinque, Finlândia
-
-[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
-
-### ReactJS Girls Conference {#reactjs-girls-conference}
-3 de Maio de 2019 em Londres, Inglaterra
-
-[Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
-
-### <React.NotAConf /> 2019 {#reactnotaconf--2019}
-11 de Maio de 2019 em Sófia, Bulgária
-
-[Website](http://react-not-a-conf.com/) - [Twitter](https://twitter.com/reactnotaconf) - [Facebook](https://www.facebook.com/events/780891358936156)
-
 ### ReactEurope 2019 {#reacteurope-2019}
 23 a 24 de Maio de 2019 em Paris, França
 
@@ -36,6 +21,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 25 de Maio de 2019 em Erevan, Arménia
 
 [Website](https://reactconf.am/) - [Twitter](https://twitter.com/ReactConfAM) - [Facebook](https://www.facebook.com/reactconf.am/) - [YouTube](https://www.youtube.com/c/JavaScriptConferenceArmenia) - [CFP](http://bit.ly/speakReact)
+
+### ReactNext 2019 {#react-next-2019}
+11 de Junho de 2019 em Telavive, Israel
+
+[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Vídeos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
 
 ### React Norway 2019 {#react-norway-2019}
 12 de Junho de 2019. Larvik, Noruega
@@ -71,6 +61,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 13 de Setembro de 2019 em Nova Iorque, Estados Unidos
 
 [Website](https://reactnewyork.com/) - [Twitter](https://twitter.com/reactnewyork)
+
+### React Live 2019 {#react-live-2019}
+13 de Setembro de 2019 em Amsterdã, Holanda
+
+[Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
 
 ### React Boston 2019 {#react-boston-2019}
 21 e 22 de Setembro de 2019 em Boston, Massachusetts USA
@@ -385,3 +380,19 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 12 de Abril de 2019 em Amsterdã, Holanda
 
 [Website](https://react.amsterdam) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
+
+### React Finland 2019 {#react-finland-2019}
+24 e 26 de Abril em Helsinque, Finlândia
+
+[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
+
+### ReactJS Girls Conference {#reactjs-girls-conference}
+3 de Maio de 2019 em Londres, Inglaterra
+
+[Website](https://reactjsgirls.com/) - [Twitter](https://twitter.com/reactjsgirls)
+
+### <React.NotAConf /> 2019 {#reactnotaconf--2019}
+11 de Maio de 2019 em Sófia, Bulgária
+
+[Website](http://react-not-a-conf.com/) - [Twitter](https://twitter.com/reactnotaconf) - [Facebook](https://www.facebook.com/events/780891358936156)
+
