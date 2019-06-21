@@ -38,7 +38,7 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-Você pode usar o recurso de teste de snapshot do Jest para salvar automaticamente uma cópia da árvore JSON em um arquivo e verificar em seus testes que ela não foi alterada: [Aprenda mais sobre isso](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
+Você pode usar o recurso de teste de snapshot do Jest para salvar automaticamente uma cópia da árvore JSON em um arquivo e verificar em seus testes que ela não foi alterada: [aprenda mais](https://jestjs.io/docs/en/snapshot-testing).
 
 Você também pode percorrer o resultado para encontrar nós específicos e fazer verificações sobre eles.
 
