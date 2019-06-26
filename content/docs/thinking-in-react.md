@@ -37,7 +37,11 @@ A primeira coisa que você vai querer fazer é dar nomes e desenhar retângulos 
 
 Mas como você sabe o que deveria ser seu próprio componente? Use as mesmas técnicas que você usaria para decidir se você deveria criar uma nova função ou objeto. Uma dessas técnicas é o [princípio da responsabilidade única](https://en.wikipedia.org/wiki/Single_responsibility_principle), ou seja, um componente deve idealmente fazer apenas uma coisa. Se ele acabar crescendo, deverá ser decomposto em subcomponentes menores.
 
+<<<<<<< HEAD
 Visto que você estará frequentemente exibindo um modelo de dados em JSON ao usuário, você perceberá que caso o seu modelo esteja corretamente construído, sua UI (e portanto a sua estrutura de componente) será mapeada satisfatoriamente. Isso acontece pois UI e modelo de dados tendem a aderir à mesma *arquitetura de informação*, o que significa que o trabalho de separar a UI em componentes é muitas vezes trivial. Separe em componentes o que representa exatamente um pedaço do seu modelo de dados.
+=======
+Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*. Separate your UI into components, where each component matches one piece of your data model.
+>>>>>>> cb5a61cdbfa5e72646cfb954056c6a4fde490a8c
 
 ![Diagrama de componentes](../images/blog/thinking-in-react-components.png)
 
