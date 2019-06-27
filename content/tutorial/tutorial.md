@@ -35,7 +35,7 @@ Você não precisa completar todas as seções de uma vez para entender tudo que
 
 Neste tutorial, mostraremos como criar um jogo interativo de jogo-da-velha com React.
 
-Você pode ver o que vamos construir aqui: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se o código não fizer sentido para você ou se você não estiver familiarizado com a sintaxe do código, não se preocupe! O objetivo deste tutorial é ajudár você a entender o React e sua sintaxe.
+Você pode ver o que vamos construir aqui: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se o código não fizer sentido para você ou se você não estiver familiarizado com a sintaxe do código, não se preocupe! O objetivo deste tutorial é ajudar você a entender o React e sua sintaxe.
 
 Recomendamos que você confira o jogo tic-tac-toe (jogo da velha) antes de continuar com o tutorial. Uma das características que você notará é que existe uma lista numerada à direita do tabuleiro do jogo. Esta lista fornece um histórico de todas as jogadas que ocorreram no jogo e é atualizada à medida que o jogo avança.
 
@@ -162,7 +162,7 @@ return React.createElement('div', {className: 'shopping-list'},
 );
 ```
 
-[Veja a versão completa completa.](babel://tutorial-expanded-version)
+[Veja a versão completa.](babel://tutorial-expanded-version)
 
 Se você está curioso, o `createElement()` é descrito em mais detalhes na [referência da API](/docs/react-api.html#createelement), mas não iremos usá-lo neste tutorial. Em vez disso, continuaremos usando o JSX.
 
@@ -545,7 +545,7 @@ Após essas mudanças, seremos capazes novamente de clicar nos Squares para pree
 
 Como o componente Square não mantém mais state, os componentes Square receberão os valores do Board e o informarão quando forem clicados. Em "termos React", os Squares são agora **componentes controlados** (**controlled components**). O Board terá controle total sobre eles.
 
-Note como na função `handleClick`, nós chamamos `.slice()` para criar uma cópia do array de quadrados para o modificar ao invés de faze-lo no array existente. Explicaremos o motivo quando criarmos uma copia do do array de `quadrados` na próxima sessão.
+Note como na função `handleClick`, nós chamamos `.slice()` para criar uma cópia do array de quadrados para o modificar ao invés de faze-lo no array existente. Explicaremos o motivo quando criarmos uma copia do array de `quadrados` na próxima sessão.
 
 ### Por que Imutabilidade é Importante {#why-immutability-is-important}
 
@@ -586,7 +586,7 @@ Detectar mudanças em objetos imutáveis é consideravelmente fácil. Se ele for
 
 #### Determinar Quando Re-renderizar no React {#determining-when-to-re-render-in-react}
 
-O principal benefício da imutabilidade é que ela ajuda a construir _componentes puros_ em React. Dados imutáveis podem facilmente determinar foram feitas mudanças que ajudarão a decidir quando um componente precisa ser re-renderizado.
+O principal benefício da imutabilidade é que ela ajuda a construir _componentes puros_ em React. Dados imutáveis podem facilmente determinar se foram feitas mudanças que ajudarão a decidir quando um componente precisa ser re-renderizado.
 
 Você pode aprender mais sobre `shouldComponentUpdate` e como construir *componentes puros* lendo o artigo [Otimizando Performance](/docs/optimizing-performance.html#examples).
 
@@ -1178,7 +1178,7 @@ Em seguida, definiremos o método `jumpTo` no componente Game para atualizar aqu
 
 Agora faremos algumas modificações no método `handleClick` do componente Game, que é disparado quando você clica em um quadradado do tabuleiro (square).
 
-O state `stepNumber` que adicionamos reflete a jogada mostrada ao usuário nesse momento. Após fizermos uma nova jogada, precisamos atualizar `stepNumber` adicionando `stepNumber: history.length` como parte do argumento de `this.setState`. Isso certifica que não ficaremos presos mostrando a mesma jogada após uma novo ter sido feita. 
+O state `stepNumber` que adicionamos reflete a jogada mostrada ao usuário nesse momento. Após fazermos uma nova jogada, precisamos atualizar `stepNumber` adicionando `stepNumber: history.length` como parte do argumento de `this.setState`. Isso certifica que não ficaremos presos mostrando a mesma jogada após uma novo ter sido feita. 
 
 Também iremos substituir a leitura de `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Isso certifica que se nós "voltarmos no tempo", e então fizermos uma nova jogada a partir daquele ponto, descartamos todo o histórico do "futuro" que agora se tornaria incorreto.
 

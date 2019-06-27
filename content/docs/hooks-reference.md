@@ -313,7 +313,7 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization) memoizado.
+Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization).
 
 Recebe como argumentos, um callback e um array. `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo ` shouldComponentUpdate `).
 
