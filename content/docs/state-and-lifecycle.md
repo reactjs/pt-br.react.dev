@@ -144,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-Note como nos passamos `props` para o construtor:
+Note como nós passamos `props` para o construtor:
 
 ```js{2}
   constructor(props) {
