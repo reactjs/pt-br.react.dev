@@ -22,7 +22,13 @@ permalink: community/courses.html
 
 - [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Gravações de três dias de um bootcamp online gratuito de React.
 
+<<<<<<< HEAD
 ## Cursos pagos {#paid-courses}
+=======
+- [Scrimba: Learn React for free](https://scrimba.com/g/glearnreact) - 48 hands-on video tutorials building react apps.
+
+## Paid Courses {#paid-courses}
+>>>>>>> c024001caf50180a896c09467d06b2ad7b2fb8f4
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Pequenos vídeos instrutivos sobre React e muitos outros tópicos.
 
