@@ -102,7 +102,11 @@ Ao usar o [Babel](https://babeljs.io/), você precisa se certificar que o Babel 
 
 > Nota:
 >
+<<<<<<< HEAD
 > `React.lazy` e Suspense não estão disponíveis para renderização no lado servidor. Se você deseja fazer divisão de código em uma aplicação renderizada no servidor, nós recomendamos o pacote [Loadable Components](https://github.com/smooth-code/loadable-components). Ele possui um ótimo [guia para divisão de pacotes com renderização no servidor](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
+=======
+> `React.lazy` and Suspense are not yet available for server-side rendering. If you want to do code-splitting in a server rendered app, we recommend [Loadable Components](https://github.com/smooth-code/loadable-components). It has a nice [guide for bundle splitting with server-side rendering](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
+>>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
 
 A função do `React.lazy` é permitir a você renderizar uma importação dinâmica como se fosse um componente comum.
 
