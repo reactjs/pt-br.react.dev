@@ -69,6 +69,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Bangalore](https://www.meetup.com/ReactJS-Bangalore/)
 * [Chennai](https://www.meetup.com/React-Chennai/)
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
+* [Jaipur](https://www.meetup.com/JaipurJS-Developer-Meetup/)
 
 ## Irlanda {#ireland}
 * [Dublin](https://www.meetup.com/ReactJS-Dublin/)
