@@ -674,13 +674,9 @@ function Counter() {
 }
 ```
 
-<<<<<<< HEAD
-Especificando `[count]` como uma lista de dependências iria corrigir o bug, mas faria com que o intervalo fosse redefinido em cada alteração. Isso pode não ser desejável. Para corrigir isso, podemos usar o [forma de atualização funcional do `setState`](/docs/hooks-reference.html#functional-updates). Ele nos permite especificar *como* o state precisa mudar sem referenciar o state *atual*:
-=======
-The empty set of dependencies, `[]`, means that the effect will only run once when the component mounts, and not on every re-render. The problem is that inside the `setInterval` callback, the value of `count` does not change, because we've created a closure with the value of `count` set to `0` as it was when the effect callback ran. Every second, this callback then calls `setCount(0 + 1)`, so the count never goes above 1.
+O conjunto vazio de dependências, `[]`, significa que o efeito só será executado uma vez quando o componente for montado, e não em todas as re-renderizações. O problema é que dentro do callback `setInterval`, o valor de `count` não muda, porque nós criamos um fechamento com o valor de `count` configurando para `0` como era quando o retorno de chamada do efeito era executado. A cada segundo, este callback então chama `setCount(0 + 1)`, então a contagem nunca vai acima de 1.
 
-Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+Especificando `[count]` como uma lista de dependências iria corrigir o bug, mas faria com que o intervalo fosse redefinido em cada alteração. Efetivamente, cada `setInterval` teria uma chance de executar antes de ser limpo (semelhante a um `setTimeout`). Isso pode não ser desejável. Para corrigir isso, podemos usar o [form de atualização funcional do `setState`](/docs/hooks-reference.html#functional-updates). Ele nos permite especificar *como* o state precisa mudar sem referenciar o state *atual*:
 
 ```js{6,9}
 function Counter() {
@@ -699,13 +695,9 @@ function Counter() {
 
 (A identidade da função `setCount` é garantida como estável, então é seguro omitir.)
 
-<<<<<<< HEAD
-Em casos mais complexos (como se um state dependesse de outro state), tente mover a lógica de atualização de state para fora do efeito com o [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [O artigo](https://adamrackis.dev/state-and-use-reducer/) oferece um exemplo de como você pode fazer isso. **A identidade da função `dispatch` do `useReducer` é sempre estável** — mesmo se a função reducer for declarada dentro do componente e ler seus props.
-=======
-Now, the `setInterval` callback executes once a second, but each time the inner call to `setCount` can use an up-to-date value for `count` (called `c` in the callback here.)
+Agora, o retorno de chamada `setInterval` é executado uma vez por segundo, mas sempre que a chamada interna para `setCount` pode usar um valor atualizado para `count` (chamado `c` no retorno do callback aqui.)
 
-In more complex cases (such as if one state depends on another state), try moving the state update logic outside the effect with the [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [This article](https://adamrackis.dev/state-and-use-reducer/) offers an example of how you can do this. **The identity of the `dispatch` function from `useReducer` is always stable** — even if the reducer function is declared inside the component and reads its props.
->>>>>>> ed9d73105a93239f94d84c619e84ae8adec43483
+Em casos mais complexos (como se um state dependesse de outro state), tente mover a lógica de atualização de state para fora do efeito com o [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [O artigo](https://adamrackis.dev/state-and-use-reducer/) oferece um exemplo de como você pode fazer isso. **A identidade da função `dispatch` do `useReducer` é sempre estável** — mesmo se a função reducer for declarada dentro do componente e ler seus props.
 
 Como último recurso, se você quer algo como `this` em uma classe, você precisa [usar uma ref] (/docs/hooks-faq.html#is-there-something-like-instance-variables) para manter uma variável mutável. Então você pode escrever e ler para ele. Por exemplo:
 
@@ -977,7 +969,9 @@ Em ambos os casos, **não recomendamos esse padrão** e só estamos mostrando aq
 
 ### Como o React associa chamadas de Hooks com componentes? {#how-does-react-associate-hook-calls-with-components}
 
-React acompanha o componente que está renderizando. Graças as [Regras dos Hooks](/docs/hooks-rules.html), sabemos que Hooks são chamados somente dentro de componentes React (ou Hooks customizados -- que também só são chamados dentro de componentes React).
+React acompanha o componente que está renderizando. Graças as [Regras dos Hooks](/docs/hooks-rules.html), sabemos que Hooks são chamados somente dentro de componentes React (ou Hooks customizados -- que também só são chamados dentro de componentes React).The empty set of dependencies, `[]`, means that the effect will only run once when the component mounts, and not on every re-render. The problem is that inside the `setInterval` callback, the value of `count` does not change, because we've created a closure with the value of `count` set to `0` as it was when the effect callback ran. Every second, this callback then calls `setCount(0 + 1)`, so the count never goes above 1.
+
+Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state: 
 
 Existe uma lista interna de "células de memória" associadas a cada componente. Elas são somente objetos JavaScript aonde podemos colocar alguns dados. Quando você chama um Hook como `useState()`, é lido a célula atual (ou inicializada durante a primeira renderização), e então move o ponteiro para a próxima.é assim que múltiplas chamadas de `useState()` recebem seu estado local independente.
 
