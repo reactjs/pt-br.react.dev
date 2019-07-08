@@ -1,5 +1,6 @@
 ---
 title: "O React já esta traduzido? ¡Sí! Sim! はい！"
+author: [tesseralis]
 ---
 
 Temos o prazer de anunciar o esforço continuo para manter traduções oficiais do website de documentação do React em diferentes idiomas. Graças ao esforço dedicado dos membros da comunidade do React de todo o mundo, o React agora está sendo traduzido em *mais de 30* idiomas! Você pode acha-los na nova pagina de [Idiomas](/languages).
