@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: "O React já esta traduzido? ¡Sí! Sim! はい！"
+=======
+title: "Is React Translated Yet? ¡Sí! Sim! はい！"
+>>>>>>> 40e96a44e5d42b57a453afeb5f6daed792025371
 author: [tesseralis]
 ---
 
