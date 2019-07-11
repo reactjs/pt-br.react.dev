@@ -470,7 +470,7 @@ O [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) é out
 Em alguns navegadores, podemos visualizar facilmente as informações de acessibilidade de cada elemento na árvore de acessibilidade:
 
 - [Using the Accessibility Inspector in Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
-- [Activate the Accessibility Inspector in Chrome](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
+- [Using the Accessibility Inspector in Chrome](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
 - [Using the Accessibility Inspector in OS X Safari](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
 ### Leitores de tela {#screen-readers}
