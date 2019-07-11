@@ -12,36 +12,6 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
-### ReactEurope 2019 {#reacteurope-2019}
-23 a 24 de Maio de 2019 em Paris, França
-
-[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Vídeos](https://www.youtube.com/c/ReacteuropeOrgConf)
-
-### React Conf Armenia 2019 {#react-conf-am-19}
-25 de Maio de 2019 em Erevan, Arménia
-
-[Website](https://reactconf.am/) - [Twitter](https://twitter.com/ReactConfAM) - [Facebook](https://www.facebook.com/reactconf.am/) - [YouTube](https://www.youtube.com/c/JavaScriptConferenceArmenia) - [CFP](http://bit.ly/speakReact)
-
-### ReactNext 2019 {#react-next-2019}
-11 de Junho de 2019 em Telavive, Israel
-
-[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Vídeos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
-
-### React Norway 2019 {#react-norway-2019}
-12 de Junho de 2019. Larvik, Noruega
-
-[Website](https://reactnorway.com) - [Twitter](https://twitter.com/ReactNorway)
-
-### React Loop 2019 {#react-loop-2019}
-21 de Junho de 2019 Chicago, Illinois - Estados Unidos
-
-[Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
-
-### Chain React 2019 {#chain-react-2019}
-11 e 12 de Julho de 2019. Portland, OR, USA.
-
-[Website](https://infinite.red/ChainReactConf)
-
 ### React Rally 2019 {#react-rally-2019}
 22 e 23 de Agosto de 2019. Salt Lake City, USA.
 
@@ -396,3 +366,32 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](http://react-not-a-conf.com/) - [Twitter](https://twitter.com/reactnotaconf) - [Facebook](https://www.facebook.com/events/780891358936156)
 
+### ReactEurope 2019 {#reacteurope-2019}
+23 a 24 de Maio de 2019 em Paris, França
+
+[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Vídeos](https://www.youtube.com/c/ReacteuropeOrgConf)
+
+### React Conf Armenia 2019 {#react-conf-am-19}
+25 de Maio de 2019 em Erevan, Arménia
+
+[Website](https://reactconf.am/) - [Twitter](https://twitter.com/ReactConfAM) - [Facebook](https://www.facebook.com/reactconf.am/) - [YouTube](https://www.youtube.com/c/JavaScriptConferenceArmenia) - [CFP](http://bit.ly/speakReact)
+
+### ReactNext 2019 {#react-next-2019}
+11 de Junho de 2019 em Telavive, Israel
+
+[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Vídeos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
+
+### React Norway 2019 {#react-norway-2019}
+12 de Junho de 2019. Larvik, Noruega
+
+[Website](https://reactnorway.com) - [Twitter](https://twitter.com/ReactNorway)
+
+### React Loop 2019 {#react-loop-2019}
+21 de Junho de 2019 Chicago, Illinois - Estados Unidos
+
+[Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
+
+### Chain React 2019 {#chain-react-2019}
+11 e 12 de Julho de 2019. Portland, OR, USA.
+
+[Website](https://infinite.red/ChainReactConf)
