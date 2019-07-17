@@ -37,7 +37,7 @@ O único método que você *deve* definir em uma subclasse de `React.Component` 
 
 >Nota:
 >
->React não te obriga a utilizar a sintaxe ES6 para classes. Se preferir não usá-la, você pode usar o módulo `create-react-class` ou alguma outra abstração similar. Dê uma olhada em
+>React não lhe obriga a utilizar a sintaxe ES6 para classes. Se preferir não usá-la, você pode usar o módulo `create-react-class` ou alguma outra abstração similar. Dê uma olhada em
 [Usando React sem ES6](/docs/react-without-es6.html) para mais sobre este assunto.
 
 ### O Ciclo de Vida de um Componente {#component-life-cycle}
