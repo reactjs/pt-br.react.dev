@@ -5,11 +5,11 @@ layout: community
 permalink: community/component-workbenches.html
 ---
 
-* **[Storybook for React](https://github.com/storybooks/storybook):** UI component development environment for React.
-* **[React Styleguidist](https://github.com/styleguidist/react-styleguidist):** Style guide generator & component workbench for React.
-* **[React Showroom](https://github.com/OpusCapita/react-showroom-client):** React based components catalog which provides you with markdown documentation and live examples
-* **[patternplate](https://github.com/sinnerschrader/patternplate)**: A platform for pattern and component library development using React.
-* **[UiZoo.js](https://github.com/myheritage/UiZoo.js)**: Auto-generated component development environment by the JSDoc of React components.
-* **[Neutrino React components preset](https://neutrino.js.org/packages/react-components/)**: Create generic React components and preview them without the need to embed in an application. Plays nicely with other Neutrino middleware, so you can build, test, and publish multiple React components from a single repository.
-* **[React Cosmos](https://github.com/react-cosmos/react-cosmos)**: Dev tool for creating reusable React components. It scans your project for components and enables you to: render components in different states, mock dependencies (API, localStorage, etc.), see app state evolve in real time.
-* **[Bit](https://github.com/teambit/bit)**: Isolate and share components from existing projects to make them available to install in other projects while tracking changes across projects. It helps save the overhead of keeping components in separate repositories.
+* **[Storybook for React](https://github.com/storybooks/storybook):**  Ambiente de desenvolvimento de componentes de interface do usuário para o React.
+* **[React Styleguidist](https://github.com/styleguidist/react-styleguidist):** Gerador de guia de estilos para react.
+* **[React Showroom](https://github.com/OpusCapita/react-showroom-client):** Catálogo de componentes React com documentação e exemplos.
+* **[patternplate](https://github.com/sinnerschrader/patternplate)**: Uma plataforma para desenvolvimento de bibliotecas de componentes e padrões usando o React.
+* **[UiZoo.js](https://github.com/myheritage/UiZoo.js)**: Ambiente de desenvolvimento de componentes gerados automaticamente pelo JSDoc de componentes React.
+* **[Neutrino React components preset](https://neutrino.js.org/packages/react-components/)**: Crie componentes genéricos do React e visualize-os sem a necessidade de incorporar em um aplicativo. Funciona muito bem com outros middlewares da Neutrino, para que você possa criar, testar e publicar vários componentes do React a partir de um único repositório.
+* **[React Cosmos](https://github.com/react-cosmos/react-cosmos)**: Ferramenta de desenvolvimento para criar componentes React reutilizáveis. Ele varre os componentes do seu projeto e permite: renderizar componentes em estados diferentes, dependências simuladas (API, localStorage, etc.), ver o estado do aplicativo evoluir em tempo real.
+* **[Bit](https://github.com/teambit/bit)**: Isole e compartilhe componentes de projetos existentes e os disponibilize para instalação em outros projetos enquanto rastreia alterações. Isso ajuda a economizar a sobrecarga de manter os componentes em repositórios separados.

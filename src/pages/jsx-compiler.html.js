@@ -24,13 +24,13 @@ const JsxCompiler = ({location}: Props) => (
           <div css={sharedStyles.markdown}>
             <p>
               <strong>
-                This tool has been removed as JSXTransformer has been
-                deprecated.
+                Esta ferramenta foi removida pois o JSXTransformer foi
+                depreciado.
               </strong>
             </p>
             <p>
-              We recommend using another tool such as{' '}
-              <a href="https://babeljs.io/repl/">the Babel REPL</a>.
+              Nós recomendamos usar outra ferramenta como o{' '}
+              <a href="https://babeljs.io/repl/">Babel REPL</a>.
             </p>
           </div>
         </div>

@@ -54,7 +54,7 @@ Considere por exemplo o componente `Page` que passa as props `user` e `avatarSiz
 
 Pode parecer redundante passar para baixo as props `user` e `avatarSize` através de vários níveis se no final apenas o componente `Avatar` realmente precisa usa-las. Além disso, é incômodo sempre que o componente `Avatar` precisar de mais props do topo, você também precisar adicionar todas elas por todos os níveis intermediários.
 
-A única maneira de resolver este problema **sem contexto** é [atribuir o próprio componente Avatar a uma prop do componente Page](/docs/composition-vs-inheritance.html#containment), assim os componentes intermediários não precisam saber sobre a prop `user`.
+Uma forma de resolver este problema **sem contexto** é [atribuir o próprio componente Avatar a uma prop do componente Page](/docs/composition-vs-inheritance.html#containment), assim os componentes intermediários não precisam saber sobre a prop `user` ou o `avatarSize`:
 
 ```js
 function Page(props) {
@@ -68,7 +68,7 @@ function Page(props) {
 }
 
 // Agora temos:
-<Page user={user} />
+<Page user={user} avatarSize={avatarSize} />
 // ... que renderiza ...
 <PageLayout userLink={...} />
 // ... que renderiza ...
@@ -227,11 +227,11 @@ Geralmente é necessário atualizar o contexto de um componente que está aninha
 
 ### Consumindo vários Contextos {#consuming-multiple-contexts}
 
-Para que o contexto possa continuar renderizando rápidamente, o React precisa manter cada consumidor de contexto separado em um nó da árvore.
+Para que o contexto possa continuar renderizando rapidamente, o React precisa manter cada consumidor de contexto separado em um nó da árvore.
 
 `embed:context/multiple-contexts.js`
 
-Se dois ou mais valores de contexto são utilizados juntos com frequência, você pode considerar criar o seu próprio_render prop_.
+Se dois ou mais valores de contexto são utilizados juntos com frequência, você pode considerar criar o seu próprio _render prop_.
 
 > Nota
 >

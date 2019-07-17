@@ -20,7 +20,7 @@ const toSectionList = allMarkdownRemark => [
       }))
       .concat({
         id: '/blog/all.html',
-        title: 'All posts ...',
+        title: 'Todas as publicações ...',
       }),
   },
 ];
@@ -57,7 +57,7 @@ export const pageQuery = graphql`
         }
       }
       fields {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD \\d\\e MMMM \\d\\e YYYY", locale: "pt-br")
         path
         slug
       }

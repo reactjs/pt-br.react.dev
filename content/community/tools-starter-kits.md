@@ -5,34 +5,38 @@ layout: community
 permalink: community/starter-kits.html
 ---
 
-## Recommended by the React Team {#recommended-by-the-react-team}
+## Recomendados pelo Time do React {#recommended-by-the-react-team}
 
-* **[Create React App](https://github.com/facebook/create-react-app)** - An officially supported way to start a client-side React project with no configuration
-* **[Next.js](https://nextjs.org/)** - Framework for server-rendered or statically-exported React apps
-* **[Gatsby](https://www.gatsbyjs.org/)** - Static site generator for React optimized for speed
-* **[nwb](https://github.com/insin/nwb)** - A toolkit for React apps, libraries and other npm modules for the web
-* **[razzle](https://github.com/jaredpalmer/razzle)** - Create server-rendered universal JavaScript applications with no configuration
-* **[Neutrino](https://neutrino.js.org/)** - Create and build modern JavaScript applications with zero initial configuration
-* **[Parcel](https://parceljs.org)** - Fast, zero configuration web application bundler
+* **[Create React App](https://github.com/facebook/create-react-app)** - Uma maneira oficial de iniciar um projeto React do lado do cliente sem configuração.
+* **[Next.js](https://nextjs.org/)** - Framework para aplicativos React renderizados por servidor ou exportados estaticamente.
+* **[Gatsby](https://www.gatsbyjs.org/)** - Gerador de site estático para React otimizado para velocidade.
+* **[nwb](https://github.com/insin/nwb)** - Um kit de ferramentas para aplicativos React, bibliotecas e outros módulos npm para a web.
+* **[razzle](https://github.com/jaredpalmer/razzle)** - Criar aplicativos JavaScript universais renderizados pelo servidor sem configuração.
+* **[Neutrino](https://neutrino.js.org/)** - Crie e construa aplicativos JavaScript modernos com configuração inicial zero.
+* **[Parcel](https://parceljs.org)** - Rápido, bundler de aplicativos web com zero configuração.
 
-## Other Starter Kits {#other-starter-kits}
+## Outros Kits Iniciais {#other-starter-kits}
 
-* **[kyt](https://github.com/nytimes/kyt)** - The framework that the New York Times uses to develop and build their web properties. It's somewhat opinionated but configurable, and includes starter kits with options to build full-stack or static/client-side apps with the following tools: Express, React, static assets, latest ES, CSS/Sass Modules, Jest, code-splitting, ESLint/Prettier, StyleLint, PostCSS, and inline SVGs.
-* **[React Redux Boilerplate](https://github.com/iroy2000/react-redux-boilerplate):** React Redux Boilerplate is a workflow boilerplate providing a virtual development environment and production ready build workflow out of the box. (React, Redux, Reselect, Redux Actions, ES6, ESLint, Webpack with integrated environment config support)
+* **[kyt](https://github.com/nytimes/kyt)** - O framework que o New York Times usa para desenvolver e construir suas propriedades na web. É um pouco opinativo, mas configurável e inclui kits iniciais com opções para criar aplicativos completos ou estáticos/cliente com as seguintes ferramentas: Express, React, assets estáticos, ES mais recente, módulos CSS/Sass, Jest, divisão de código, ESLint / Prettier, StyleLint, PostCSS e inline SVGs.
+* **[React Redux Boilerplate](https://github.com/iroy2000/react-redux-boilerplate):** O React Redux Boilerplate é um boilerplate de fluxo de trabalho que fornece um ambiente de desenvolvimento virtual e um fluxo de trabalho pronto para produção. (React, Redux, Reselect, Ações Redux, ES6, ESLint, Webpack com suporte a configuração de ambiente integrada).
 * **[React + Redux + Saga Boilerplate](https://github.com/gilbarbara/react-redux-saga-boilerplate)** -
-Ready to grow boilerplate with react-router, redux, saga, webpack 3, jest w/ coverage and enzyme.
-* **[Create React App + Redux + React Router](https://github.com/notrab/create-react-app-redux)**: Based on Create React App, this boilerplate comes with Redux, Redux Thunk and React Router all configured ready to go.
-* **[react-slingshot](https://github.com/coryhouse/react-slingshot):** React + Redux starter kit with Babel, hot reloading, testing, linting and a working example app.
-* **[Este](https://github.com/este/este):** Dev stack and starter kit for functional and universal (browser, server, mobile) React applications. Everything you need to start is included.
-* **[Rekit](https://github.com/supnate/rekit)** - Toolkit and boilerplates for building scalable web applications with React, Redux and React-router.
-* **[webcube](https://github.com/dexteryy/Project-WebCube)** - A JS infrastructure for modern Universal JS web app/sites and static websites. Provides built-in support and simplification for Redux sub-app, reducer bundle, router, immutable, eslint + prettier, docker, monorepo and many other tools.
- * **[starter-react-flux](https://github.com/SokichiFujita/starter-react-flux)** A generator for React and Flux project with Flux-Utils, Jest, Immutable.js, React Addons, Webpack, ESLint, Babel and ES2015.
- * **[react-async-starter](https://github.com/didierfranc/react-async-starter):** React + Redux + Fetch + ES7 Async with Webpack, Babel and hot reloading.
+Boilerplate com react-router, redux, saga, webpack 3, jest w/ coverage e enzyme.
+* **[Create React App + Redux + React Router](https://github.com/notrab/create-react-app-redux)**: 
+Baseado no Create React App, este boilerplate vem com Redux, Redux Thunk e React Router, todos configurados prontos para serem usados.
+* **[react-slingshot](https://github.com/coryhouse/react-slingshot):**
+React + Redux starter kit com Babel, hot reloading, teste, linting e um aplicativo de exemplo.
+* **[Este](https://github.com/este/este):**
+Dev stack e starter kit para aplicativos React funcionais e universais (browser, server, mobile). Tudo que você precisa para começar está incluído.
+* **[Rekit](https://github.com/supnate/rekit)** - Kit de ferramentas e padrões para a criação de aplicativos da Web escalonáveis ​​com o React, Redux e React-router.
+* **[webcube](https://github.com/dexteryy/Project-WebCube)** - Uma infra-estrutura JS para aplicativos/sites modernos e sites estáticos. Fornece suporte interno e simplificação para o Redux sub-app, reducer bundle, router, imutável, eslint + prettier, docker, monorepo e muitas outras ferramentas.
+ * **[starter-react-flux](https://github.com/SokichiFujita/starter-react-flux)** Um gerador para o projeto React e Flux com Flux-Utils, Jest, Immutable.js, Addons React, Webpack, ESLint, Babel e ES2015.
+ * **[react-async-starter](https://github.com/didierfranc/react-async-starter):** React + Redux + Fetch + ES7 Assíncrono com Webpack, Babel e recarregamento a quente.
  * **[Kriasoft React Starter Kit](https://github.com/kriasoft/react-starter-kit):** Gulp, Webpack, BrowserSync + [React Starter Kit for Visual Studio](https://marketplace.visualstudio.com/items?itemName=KonstantinTarkus.ReactjsStarterKit)
- * **[electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)** A React + Flux Electron application boilerplate based on React, Flux, React Router, Webpack, React Hot Loader
- * **[react-boilerplate](https://github.com/mxstbr/react-boilerplate)** Quick setup for performance orientated, offline-first React.js applications featuring Redux, hot-reloading, PostCSS, react-router, ServiceWorker, AppCache, FontFaceObserver and Mocha.
- * **[vortigern](https://github.com/barbar/vortigern)** A universal boilerplate for building web applications w/ TypeScript, React, Redux and more.
- * **[CRA Universal CLI](https://github.com/antonybudianto/cra-universal)** CLI to initialize universal create-react-app without ejecting. Supports Server-side rendering with Code-splitting, and Node Stream rendering.
- * **[EDGE Platform](https://github.com/sebastian-software/edge)** Universal React/SSR + Apollo GraphQL + JS/CSS Code Splitting + Fine-Tuned Webpack + Localization/Internationalization. Most things are external dependencies. Boilerplate available.
- * **[bae](https://github.com/siddharthkp/bae)** Zero config toolkit. SSR (with data fetching) + routing + streaming + styling (with styled-components) + HMR out of the box.
- * **[breko-hub](https://github.com/tomatau/breko-hub)** A production ready boilerplate for universal react applications. Complete with code splitting, server render (using koa), redux, sagas, debugging, hot-reloading (live updates on the server), css-modules, scss, super fast integration tests and unit tests. There's also a big focus on clean code and smaller files.
+ * **[electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate)** Um boilerplate React + Flux Electron baseado em React, Flux, React Router, Webpack e React Hot Loader.
+ * **[react-boilerplate](https://github.com/mxstbr/react-boilerplate)** Configuração rápida para aplicativos React.js orientados para desempenho, offline-first com Redux, hot-reloading, PostCSS, react-router, ServiceWorker, AppCache, FontFaceObserver e Mocha.
+ * **[vortigern](https://github.com/barbar/vortigern)** Um boilerplate universal para criar aplicativos da Web com TypeScript, React, Redux e muito mais.
+ * **[CRA Universal CLI](https://github.com/antonybudianto/cra-universal)** CLI para inicializar o universal create-react-app sem eject. Suporta renderização do lado do servidor com divisão de código e Node Stream rendering.
+ * **[EDGE Platform](https://github.com/sebastian-software/edge)** Universal React / SSR + Apollo GraphQL + Separação de Código JS / CSS + Fine-Tuned Webpack + Localização / Internacionalização. A maioria das coisas são dependências externas. Boilerplate disponível.
+ * **[bae](https://github.com/siddharthkp/bae)** Toolkit de configuração zero. SSR (com busca de dados) + roteamento + streaming + estilização (com styled-components) + HMR fora da caixa.
+ * **[breko-hub](https://github.com/tomatau/breko-hub)** Um boilerplate pronto para produção para aplicações react. Completo com separação de código, server render (usando koa), redux, sagas, depuração, hot-reloading (atualizações ao vivo no servidor), css-modules, scss, testes de integração super rápidos e testes de unidade. Há também um grande foco em código limpo e arquivos menores.
+ * **[appseed](https://github.com/rosoftdeveloper/appseed)** Um boilerplate pronto para produção para aplicativos react. O frontend pode ser empacotado com vários backends: Flask, Laravel, Express. 
