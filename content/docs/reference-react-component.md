@@ -37,7 +37,7 @@ O único método que você *deve* definir em uma subclasse de `React.Component` 
 
 >Nota:
 >
->React não te obriga a utilizar a sintaxe ES6 para classes. Se preferir não usá-la, você pode usar o módulo `create-react-class` ou alguma outra abstração similar. Dê uma olhada em 
+>React não te obriga a utilizar a sintaxe ES6 para classes. Se preferir não usá-la, você pode usar o módulo `create-react-class` ou alguma outra abstração similar. Dê uma olhada em
 [Usando React sem ES6](/docs/react-without-es6.html) para mais sobre este assunto.
 
 ### O Ciclo de Vida de um Componente {#component-life-cycle}
@@ -284,7 +284,7 @@ Este método existe para [casos de uso raros](/blog/2018/06/07/you-probably-dont
 Derivando o state leva a código verboso e faz seus componentes difíceis de compreender.
 [Tenha certeza de estar familiarizado com alternativas mais simples:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-* Se precisar  **perform a side effect** (por exemplo, buscar dados ou uma animação) em resposta a uma alteração em props, use [`componentDidUpdate`](#componentdidupdate) no lugar.
+* Se precisar  **executar um side effect** (por exemplo, buscar dados ou uma animação) em resposta a uma alteração em props, use [`componentDidUpdate`](#componentdidupdate) no lugar.
 
 * Se você quer **recomputar alguns dados somente quando uma prop muda**, [use um auxiliar de memorização no lugar](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
@@ -357,7 +357,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
@@ -411,7 +411,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
