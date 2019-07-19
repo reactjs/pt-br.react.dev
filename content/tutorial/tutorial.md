@@ -1120,7 +1120,7 @@ Chaves não precisam ser globalmente únicas; elas precisam ser únicas apenas e
 
 ### Implementando a Viagem no Tempo (Time Travel) {#implementing-time-travel}
 
-No histórico do Jogo da Velha, cada jogada anterior tem um único ID associado a ela: é o número sequencial da jogada. As jogadas nunca são reordenadas, apagadas, ou inseridas no meio, entá é seguro utilizar o index da jogada como a chave.
+No histórico do Jogo da Velha, cada jogada anterior tem um único ID associado a ela: é o número sequencial da jogada. As jogadas nunca são reordenadas, apagadas, ou inseridas no meio, então é seguro utilizar o index da jogada como a chave.
 
 No método `render` do componente Game, nós podemos adicionar a chave como `<li key={move}>` e o aviso do React sobre as chaves deve desaparecer.
 
