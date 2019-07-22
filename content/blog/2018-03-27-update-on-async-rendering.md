@@ -179,22 +179,22 @@ The recommended upgrade path for this component is to move data updates into `co
 >
 > If you're using an HTTP library that supports cancellation, like [axios](https://www.npmjs.com/package/axios), then it's simple to cancel an in-progress request when unmounting. For native Promises, you can use an approach like [the one shown here](https://gist.github.com/bvaughn/982ab689a41097237f6e9860db7ca8d6).
 
-### Reading DOM properties before an update {#reading-dom-properties-before-an-update}
+### Lendo propriedades do DOM antes de uma atualização {#reading-dom-properties-before-an-update}
 
-Here is an example of a component that reads a property from the DOM before an update in order to maintain scroll position within a list:
+Aqui está um exemplo de um componente que lê uma propriedade do DOM antes de uma atualização a fim de manter a posição de rolagem dentro de uma lista:
 `embed:update-on-async-rendering/react-dom-properties-before-update-before.js`
 
-In the above example, `componentWillUpdate` is used to read the DOM property. However with async rendering, there may be delays between "render" phase lifecycles (like `componentWillUpdate` and `render`) and "commit" phase lifecycles (like `componentDidUpdate`). If the user does something like resize the window during this time, the `scrollHeight` value read from `componentWillUpdate` will be stale.
+No exemplo acima, `componentWillUpdate` é usado para ler a propriedade DOM. No entanto, com renderização assíncrona, pode haver atrasos entre os ciclos de vida de fase "render" (como `componentWillUpdate` e `render`) e  os ciclos de vida de fase "commit" (como `componentDidUpdate`). Se o usuário fizer algo como redimensionar a janela durante esse tempo, o valor de `scrollHeight` lido de `componentWillUpdate` será obsoleto.
 
-The solution to this problem is to use the new "commit" phase lifecycle, `getSnapshotBeforeUpdate`. This method gets called _immediately before_ mutations are made (e.g. before the DOM is updated). It can return a value for React to pass as a parameter to `componentDidUpdate`, which gets called _immediately after_ mutations.
+A solução para esse problema é usar o novo ciclo de vida de fase "commit", `getSnapshotBeforeUpdate`. Este método é chamado _imediatamente antes_ de mutações serem realizadas (por exemplo, antes do DOM ser atualizado). Ele pode retornar um valor para o React passar como um parâmetro para `componentDidUpdate`, que é chamado _imediatamente após_ as mutações.
 
-The two lifecycles can be used together like this:
+Os dois ciclos de vida podem ser usados juntos assim:
 
 `embed:update-on-async-rendering/react-dom-properties-before-update-after.js`
 
-> Note
+> Nota
 >
-> If you're writing a shared component, the [`react-lifecycles-compat`](https://github.com/reactjs/react-lifecycles-compat) polyfill enables the new `getSnapshotBeforeUpdate` lifecycle to be used with older versions of React as well. [Learn more about how to use it below.](#open-source-project-maintainers)
+> Se você estiver escrevendo um componente compartilhado, o polyfill [`react-lifecycles-compat`](https://github.com/reactjs/react-lifecycles-compat) permite que o novo ciclo de vida `getSnapshotBeforeUpdate` seja usado com versões mais antigas do React também. [Saiba mais sobre como usá-lo abaixo.](#open-source-project-maintainers)
 
 ## Outros cenários {#other-scenarios}
 
