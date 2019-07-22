@@ -167,17 +167,18 @@ Like `componentWillUpdate`, `componentWillReceiveProps` might get called multipl
 
 `embed:update-on-async-rendering/side-effects-when-props-change-after.js`
 
-### Fetching external data when `props` change {#fetching-external-data-when-props-change}
+### Buscando dados externos quando `props` mudarem {#fetching-external-data-when-props-change}
 
-Here is an example of a component that fetches external data based on `props` values:
+Aqui está um exemplo de um componente que busca dados externos com base em valores de `props`:
 `embed:update-on-async-rendering/updating-external-data-when-props-change-before.js`
 
-The recommended upgrade path for this component is to move data updates into `componentDidUpdate`. You can also use the new `getDerivedStateFromProps` lifecycle to clear stale data before rendering the new props:
+A solução recomendado para este componente é mover as atualizações de dados para `componentDidUpdate`. Você também pode usar o novo ciclo de vida `getDerivedStateFromProps` para limpar dados obsoletos antes de renderizar as novas props:
+
 `embed:update-on-async-rendering/updating-external-data-when-props-change-after.js`
 
-> Note
+> Nota
 >
-> If you're using an HTTP library that supports cancellation, like [axios](https://www.npmjs.com/package/axios), then it's simple to cancel an in-progress request when unmounting. For native Promises, you can use an approach like [the one shown here](https://gist.github.com/bvaughn/982ab689a41097237f6e9860db7ca8d6).
+> Se você estiver usando uma biblioteca HTTP que ofereça suporte ao cancelamento, como [axios](https://www.npmjs.com/package/axios), é simples cancelar uma solicitação em andamento ao desmontar o componente. Para Promises nativas, você pode usar uma abordagem como a [mostrada aqui](https://gist.github.com/bvaughn/982ab689a41097237f6e9860db7ca8d6).
 
 ### Lendo propriedades do DOM antes de uma atualização {#reading-dom-properties-before-an-update}
 
