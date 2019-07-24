@@ -677,11 +677,7 @@ function Counter() {
 
 O conjunto vazio de dependências, `[]`, significa que o efeito só será executado uma vez quando o componente for montado, e não em todas as re-renderizações. O problema é que dentro do callback `setInterval`, o valor de `count` não muda, porque nós criamos um fechamento com o valor de `count` configurando para `0` como era quando o retorno de chamada do efeito era executado. A cada segundo, este callback então chama `setCount(0 + 1)`, então a contagem nunca vai acima de 1.
 
-<<<<<<< HEAD
 Especificando `[count]` como uma lista de dependências iria corrigir o bug, mas faria com que o intervalo fosse redefinido em cada alteração. Efetivamente, cada `setInterval` teria uma chance de executar antes de ser limpo (semelhante a um `setTimeout`). Isso pode não ser desejável. Para corrigir isso, podemos usar o [form de atualização funcional do `setState`](/docs/hooks-reference.html#functional-updates). Ele nos permite especificar *como* o state precisa mudar sem referenciar o state *atual*:
-=======
-Specifying `[count]` as a list of dependencies would fix the bug, but would cause the interval to be reset on every change. Effectively, each `setInterval` would get one chance to execute before being cleared (similar to a `setTimeout`.) That may not be desirable. To fix this, we can use the [functional update form of `setState`](/docs/hooks-reference.html#functional-updates). It lets us specify *how* the state needs to change without referencing the *current* state:
->>>>>>> d00058b1f922438cd9a6ac858cf4c0883c28eddc
 
 ```js{6,9}
 function Counter() {
