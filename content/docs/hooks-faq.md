@@ -618,7 +618,7 @@ Isso também permite que você gerencie respostas fora de ordem com uma variáve
       const json = await response.json();
       if (!ignore) setProduct(json);
     }
-    
+
     fetchProduct();
     return () => { ignore = true };
   }, [productId]);
