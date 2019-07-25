@@ -67,7 +67,7 @@ Depois de manipular o nó do DOM, o React itera recursivamente sobre os filhos.
 
 ### Componentes de Elementos do Mesmo Tipo {#component-elements-of-the-same-type}
 
-Quando um componente atualiza, a instância continua a mesma, então o estado é mantido entre as renderizações. O React atualiza as props das instâncias dos componente subjacentes para sincronizar com o novo elemento e então chama `componentWillReceiveProps()` e `componentWillUpdate()` na instância subjacente.
+Quando um componente atualiza, a instância continua a mesma, então o estado é mantido entre as renderizações. O React atualiza as props das instâncias dos componentes subjacentes para sincronizar com o novo elemento e então chama `componentWillReceiveProps()` e `componentWillUpdate()` na instância subjacente.
 
 Depois, o método `render()` é chamado e o Algoritmo de Diferenciação itera recursivamente no resultado anterior e no novo resultado.
 
