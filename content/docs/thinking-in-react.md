@@ -76,7 +76,11 @@ Recorra à [documentação do React](/docs/) caso você precise de ajuda para ex
 
 ### Um Breve Interlúdio: Props vs State {#a-brief-interlude-props-vs-state}
 
+<<<<<<< HEAD
 Existem dois tipos de "modelo" de dados em React: props e state. É de suma importância entender a distinção entre os dois; dê uma olhada na [documentação oficial do React](/docs/interactivity-and-dynamic-uis.html) caso você ainda não esteja certo da diferença.
+=======
+There are two types of "model" data in React: props and state. It's important to understand the distinction between the two; skim [the official React docs](/docs/state-and-lifecycle.html) if you aren't sure what the difference is. See also [FAQ: What is the difference between state and props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
+>>>>>>> eef56ffdcfa995e3478f85cd9d02f4be01f65b79
 
 ## Passo 3: Identifique a Representação Mínima (mas completa) do State da UI{#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
