@@ -15,7 +15,7 @@ React suporta totalmente a construção de sites acessíveis, muitas vezes usand
 
 ### WCAG  {#wcag} 
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites.
+O [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) fornece diretrizes para a criação de sites acessíveis.
 
 As seguintes checklists das WCAG fornecem uma visão geral:
 
