@@ -67,6 +67,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/reactdayberlin)
 
+### ReactConf AU 2020 {#reactconfau}
+27 e 28 de fevereiro de 2020 em Sydney, Australia
+
+[Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
+
 ## Conferências passadas {#past-conferences}
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
