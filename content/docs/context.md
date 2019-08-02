@@ -227,7 +227,7 @@ Geralmente é necessário atualizar o contexto de um componente que está aninha
 
 ### Consumindo vários Contextos {#consuming-multiple-contexts}
 
-Para que o contexto possa continuar renderizando rápidamente, o React precisa manter cada consumidor de contexto separado em um nó da árvore.
+Para que o contexto possa continuar renderizando rapidamente, o React precisa manter cada consumidor de contexto separado em um nó da árvore.
 
 `embed:context/multiple-contexts.js`
 

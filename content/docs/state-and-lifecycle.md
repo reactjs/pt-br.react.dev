@@ -59,7 +59,7 @@ setInterval(tick, 1000);
 
 No entanto, falta um requisito crucial: o fato de que o `Clock` configura um temporizador e atualiza a UI a cada segundo deve ser um detalhe de implementação do `Clock`.
 
-Idealmente, queremos escrever isto uma vez e ter o `Clock` se atualizado:
+Idealmente, queremos escrever isto uma vez e ter o `Clock` se atualizando:
 
 ```js{2}
 ReactDOM.render(
@@ -144,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-Note como nos passamos `props` para o construtor:
+Note como nós passamos `props` para o construtor:
 
 ```js{2}
   constructor(props) {
@@ -244,7 +244,7 @@ O método `componentDidMount()` é executado depois que a saída do componente �
   }
 ```
 
-Note como nós salvamos o ID do temporizador em `this`.
+Note como nós salvamos o ID do temporizador em `this` (`this.timerID`).
 
 Enquanto `this.props` é configurado pelo próprio React e `this.state` tem um significado especial, você está livre para adicionar campos adicionais à classe manualmente se precisar armazenar algo que não participe do fluxo de dados (como um ID do temporizador)
 

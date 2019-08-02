@@ -241,7 +241,7 @@ function Counter() {
 
 #### Determinando o Estado Inicial {#specifying-the-initial-state}
 
-Há duas diferentes maneiras para inicializar `useReducer` `state`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é a de passar um estado inicial como segundo argumento:
+Há duas maneiras diferentes de inicializar o estado `useReducer`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é passar o estado inicial como um segundo argumento:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -313,7 +313,7 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization) memoizado.
+Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization).
 
 Recebe como argumentos, um callback e um array. `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo ` shouldComponentUpdate `).
 

@@ -434,7 +434,7 @@ Cada Square vai receber a proriedade `value` que vai ser `'X'`, `'O'`, ou `null`
 
 Agora, precisamos mudar o que acontece quando um Quadrado é clicado. O componente Tabuleiro agora mantém quais quadrados são preenchidos. Precisamos criar uma maneira para cada Quadrado atualizar o state do Tabuleiro. O state é considerado privado ao componente em que é definido, ou seja, nós não podemos atualizar o state do Tabuleiro diretamente do Quadrado.
 
-Para manter a privacidade do state do Tabuleiro, nós vamos passar a função responsável do Tabuleiro para o Quadrado. Essa função irá ser chamada assim que o Quadrado for clicado. Nós então mudaremos o methodo `renderSquare` no Tabuleiro para:
+Para manter a privacidade do state do Tabuleiro, nós vamos passar a função responsável do Tabuleiro para o Quadrado. Essa função irá ser chamada assim que o Quadrado for clicado. Nós então mudaremos o método `renderSquare` no Tabuleiro para:
 
 ```javascript{5}
   renderSquare(i) {
@@ -1120,7 +1120,7 @@ Chaves não precisam ser globalmente únicas; elas precisam ser únicas apenas e
 
 ### Implementando a Viagem no Tempo (Time Travel) {#implementing-time-travel}
 
-No histórico do Jogo da Velha, cada jogada anterior tem um único ID associado a ela: é o número sequencial da jogada. As jogadas nunca são reordenadas, apagadas, ou inseridas no meio, entá é seguro utilizar o index da jogada como a chave.
+No histórico do Jogo da Velha, cada jogada anterior tem um único ID associado a ela: é o número sequencial da jogada. As jogadas nunca são reordenadas, apagadas, ou inseridas no meio, então é seguro utilizar o index da jogada como a chave.
 
 No método `render` do componente Game, nós podemos adicionar a chave como `<li key={move}>` e o aviso do React sobre as chaves deve desaparecer.
 
