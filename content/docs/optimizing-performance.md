@@ -403,11 +403,11 @@ Se você está usando Create React App, ambos `Object.assign` e a sintaxe de esp
 
 ## Usando Estruturas De Dados Mutáveis {#using-immutable-data-structures}
 
-[Immutable.js](https://github.com/facebook/immutable-js) é uma outra maneira de resolver esse problema. Ele fornece imutabilidade, persistente coleções que trabalham via compartilhamento estrutural:
+[Immutable.js](https://github.com/facebook/immutable-js) é uma outra maneira de resolver esse problema. Ele fornece coleções persistentes e imutáveis que trabalham via compartilhamento estrutural:
 
-* *Imutabilidade*: uma vez criado, uma coleção não pode ser mais alterada.
-* *Persistência*: novas coleções podem ser criadas de coleções antigas e uma mutação como um conjunto. A coleção original ainda é válida depois que a nova coleção é criada.
-* *Compartilhamento estrutural*: novas coleções são criadas usando o máximo possível de mesma estrutura original, reduzindo cópia para o mínimo para melhorar a performance.
+* *Imutabilidade*: uma vez criada, uma coleção não pode ser mais alterada.
+* *Persistência*: novas coleções podem ser criadas a partir de coleções antigas e uma mutação como um conjunto. A coleção original ainda é válida depois que a nova coleção é criada.
+* *Compartilhamento estrutural*: novas coleções são criadas usando o máximo possível de mesma estrutura original, reduzindo a cópia ao mínimo para melhorar a performance.
 
 Imutabilidade faz rastrear mudanças de forma barata. Uma mudança irá sempre resultar em um novo objeto onde nós somente precisaremos checar se a referência para o objeto mudou. Por exemplo, nesse exemplo de código JavaScript:
 
