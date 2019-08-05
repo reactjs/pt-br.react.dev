@@ -72,6 +72,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
 
+### Render-Atlanta 2020 {#render-atlanta-2020}
+4 a 6 de maio de 2020. Atlanta, GA, EUA.
+
+[Website](https://renderatl.com)
+
 ## Conferências passadas {#past-conferences}
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
@@ -405,3 +410,4 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 11 e 12 de julho de 2019. Portland, OR, USA.
 
 [Website](https://infinite.red/ChainReactConf)
+
