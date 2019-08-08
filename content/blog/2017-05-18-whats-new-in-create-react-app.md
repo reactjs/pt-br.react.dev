@@ -1,15 +1,15 @@
 ---
-title: "What's New in Create React App"
+title: "O que há de novo no Create React App"
 author: [gaearon]
 ---
 
-Less than a year ago, we introduced [Create React App](/blog/2016/07/22/create-apps-with-no-configuration.html) as an officially supported way to create apps with zero configuration. The project has since enjoyed tremendous growth, with over 950 commits by more than 250 contributors.
+A menos de um ano atrás, nós introduzimos [Create React App](/blog/2016/07/22/create-apps-with-no-configuration.html) como uma forma oficialmente apoiada de criar aplicações com zero configuração. Desde então, o projeto teve um enorme crescimento, com mais de 950 commits de mais de 250 contribuidores.
 
-Today, we are excited to announce that many features that have been in the pipeline for the last few months are finally released.
+Hoje, estamos entusiasmados em anunciar que muitos recursos que estiveram na pipeline dos últimos meses foram finalmente lançados.
 
-As usual with Create React App, **you can enjoy these improvements in your existing non-ejected apps by updating a single dependency** and following our [migration instructions](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
+Como de costume com o Create React App, **você pode aproveitar essas melhorias em suas aplicações não ejetadas existentes atualizando uma única dependência** e seguindo nossas [instruções de migração](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
 
-Newly created apps will get these improvements automatically.
+Aplicações recém-criadas obterão essas melhorias automaticamente.
 
 ### webpack 2 {#webpack-2}
 
