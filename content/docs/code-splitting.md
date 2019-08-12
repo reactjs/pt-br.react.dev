@@ -6,11 +6,20 @@ permalink: docs/code-splitting.html
 
 ## Empacotamento (Bundling) {#bundling}
 
+<<<<<<< HEAD
 A maioria das aplicações React serão "empacotadas" usando ferramentas como
 [Webpack](https://webpack.js.org/) ou [Browserify](http://browserify.org/).
 Empacotamento (Bundling) é o processo onde vários arquivos importados são unidos
 em um único arquivo: um "pacote" (bundle). Este pacote pode ser incluído em uma página web
 para carregar uma aplicação toda de uma vez.
+=======
+Most React apps will have their files "bundled" using tools like
+[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) or 
+[Browserify](http://browserify.org/).
+Bundling is the process of following imported files and merging them into a
+single file: a "bundle". This bundle can then be included on a webpage to load
+an entire app at once.
+>>>>>>> ddbd064d41d719f9ec0c2f6a4227f797a5828310
 
 #### Exemplo {#example}
 
