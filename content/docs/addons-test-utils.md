@@ -121,7 +121,9 @@ it('can render and update a counter', () => {
 });
 ```
 
-Não esqueça que disparando eventos DOM apenas funciona quando o conteúdo do DOM  é adicionado no `document`. Você pode usar um auxiliador como  [`react-testing-library`](https://github.com/kentcdodds/react-testing-library) para reduzir o código de boilerplate.
+- Não esqueça que disparando eventos DOM apenas funciona quando o conteúdo do DOM  é adicionado no `document`. Você pode usar um auxiliador como  [`react-testing-library`](https://testing-library.com/react) para reduzir o código de boilerplate.
+
+- O documento [`recipes`](/docs/recipes.html) contém mais detalhes sobre como `act()` se comporta, como exemplos e uso.
 
 * * *
 
@@ -138,7 +140,7 @@ Passe um módulo de componente mockado para este método para melhorá-lo com m�
 
 > Nota:
 >
-> `mockComponent()` é uma API legada. Nós recomendamos utilizar [shallow rendering](/docs/shallow-renderer.html) ou [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
+> `mockComponent()` é uma API legada. Nós recomendamos utilizar [`jest.mock()`](https://facebook.github.io/jest/docs/en/tutorial-react-native.html#mock-native-modules-using-jestmock).
 
 * * *
 
