@@ -108,14 +108,10 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Escócia (UK) {#scotland-uk}
 * [Edinburgh](https://www.meetup.com/React-Scotland/)
 
-<<<<<<< HEAD
-## Espanha {#spain}
-=======
-## Singapore {#singapore}
+## Singapura {#singapore}
 * [Singapore - React Knowledgeable](https://reactknowledgeable.org/)
 
-## Spain {#spain}
->>>>>>> ddbd064d41d719f9ec0c2f6a4227f797a5828310
+## Espanha {#spain}
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 * [Canarias](https://www.meetup.com/React-Canarias/)
 

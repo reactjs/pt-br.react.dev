@@ -13,7 +13,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ## Próximas Conferências {#upcoming-conferences}
 
 ### React Conf Iran 2019 {#react-conf-iran-2019}
-August 29, 2019. Tehran, Iran.
+29 de agosto de 2019 em Tehran, Iran.
 
 [Website](https://reactconf.ir/) - [Twitter](https://twitter.com/reactconf_ir) - [Instagram](https://www.instagram.com/reactconf/)
 
