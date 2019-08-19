@@ -49,7 +49,7 @@ Você verá que nós temos cinco componentes nessa aplicação. Em itálico est�
   4. **`ProductCategoryRow` (turquesa):** exibe um cabeçalho para cada *categoria*
   5. **`ProductRow` (vermelho):** exibe uma linha para cada *produto*
 
-Se você olhar para `ProductTable`, verá que o cabeçalho da tabela (contendo as etiquetas "Name" and "Price") não é um componente separado. Isso é uma questão de preferência, e pode-se fazer um argumento contrário. Para esse exemplo, nós o deixamos como parte de `ProductTable` pois o cabeçalho faz parte da renderização da *coleção de dados*, que é responsabilidade de `ProductTable`. Entretanto, se a sua complexidade aumentar (i.e. se nós adicionássemos a capacidade de ordenação), certamente faria sentido a criação do componente `ProductTableHeader`.
+Se você olhar para `ProductTable`, verá que o cabeçalho da tabela (contendo as etiquetas "Name" and "Price") não é um componente separado. Isso é uma questão de preferência, e pode-se fazer um argumento contrário. Para esse exemplo, nós o deixamos como parte de `ProductTable` pois o cabeçalho faz parte da renderização da *coleção de dados*, que é responsabilidade de `ProductTable`. Entretanto, se a sua complexidade aumentar (e.g. se nós adicionássemos a capacidade de ordenação), certamente faria sentido a criação do componente `ProductTableHeader`.
 
 Agora que nós já identificamos os componentes do nosso mock, vamos organizá-los em uma hierarquia. Componentes que aparecem dentro de outros no mock devem aparecer como filhos na hierarquia:
 

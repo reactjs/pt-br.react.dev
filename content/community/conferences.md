@@ -12,6 +12,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
+### React Conf Iran 2019 {#react-conf-iran-2019}
+29 de agosto de 2019 em Tehran, Iran.
+
+[Website](https://reactconf.ir/) - [Twitter](https://twitter.com/reactconf_ir) - [Instagram](https://www.instagram.com/reactconf/)
+
 ### React Rally 2019 {#react-rally-2019}
 22 e 23 de agosto de 2019. Salt Lake City, USA.
 
@@ -71,6 +76,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 27 e 28 de fevereiro de 2020 em Sydney, Australia
 
 [Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
+
+### Render-Atlanta 2020 {#render-atlanta-2020}
+4 a 6 de maio de 2020. Atlanta, GA, EUA.
+
+[Website](https://renderatl.com)
 
 ## Conferências passadas {#past-conferences}
 
@@ -405,3 +415,4 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 11 e 12 de julho de 2019. Portland, OR, USA.
 
 [Website](https://infinite.red/ChainReactConf)
+
