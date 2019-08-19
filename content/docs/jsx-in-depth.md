@@ -423,7 +423,11 @@ Elementos filhos passados a um componente customizado podem ser qualquer coisa, 
 <div>{true}</div>
 ```
 
+<<<<<<< HEAD
 Isso pode ser útil para renderizar condicionalmente elementos React. Esse JSX só renderiza um `<Header />` se `showHeader` for `true`:
+=======
+This can be useful to conditionally render React elements. This JSX renders the `<Header />` component only if `showHeader` is `true`:
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ```js{2}
 <div>

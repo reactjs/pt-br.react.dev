@@ -82,7 +82,17 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://renderatl.com)
 
+<<<<<<< HEAD
 ## Conferências passadas {#past-conferences}
+=======
+### React Next 2020 {#react-next-2020}
+June 15, 2020. Tel Aviv, Israel.
+
+[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/) 
+
+
+## Past Conferences {#past-conferences}
+>>>>>>> de497e250340ff597ce4964279369f16315b8b4b
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
