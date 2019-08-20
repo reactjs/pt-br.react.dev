@@ -14,13 +14,13 @@ Os dois projetos &mdash; Relay e GraphQL &mdash; têm sido utilizados em ambient
 
 <script async class="speakerdeck-embed" data-id="7af7c2f33bf9451a892dcd91de55b7c2" data-ratio="1.29456384323641" src="//speakerdeck.com/assets/embed.js"></script>
 
-## What is Relay? {#what-is-relay}
+## O que é Relay? {#what-is-relay}
 
-Relay is a new framework from Facebook that provides data-fetching functionality for React applications. It was announced at React.js Conf (January 2015).
+Relay é um novo framework do Facebook que provêm funcionalidades de data-fetching para aplicações React. Ele foi anunciado na React.js Conf (Janeiro 2015).
 
-Each component specifies its own data dependencies declaratively using a query language called GraphQL. The data is made available to the component via properties on `this.props`.
+Cada componente especifica de forma declarativa suas dependências de dados using uma linguagem de query chamada GraphQL. Os dados ficam disponíveis para o componente via propriedades em `this.props`.
 
-Developers compose these React components naturally, and Relay takes care of composing the data queries into efficient batches, providing each component with exactly the data that it requested (and no more), updating those components when the data changes, and maintaining a client-side store (cache) of all data.
+Desenvolvedores compõem naturalmente esses componentes React, e o Relay toma conta de compor as queries em batches eficientes, provendo exatamente cada componente com os dados que ele precisa (e não mais), atualizando esses componentes quando os dados mudam e mantendo um store do lado do cliente (com cache) de todos os dados.  
 
 ## What is GraphQL? {#what-is-graphql}
 
