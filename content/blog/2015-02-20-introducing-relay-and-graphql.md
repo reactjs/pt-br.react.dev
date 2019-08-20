@@ -1,16 +1,16 @@
 ---
-title: "Introducing Relay and GraphQL"
+title: "Introduzindo Relay e GraphQL"
 layout: post
 author: [wincent]
 ---
 
-## Data fetching for React applications {#data-fetching-for-react-applications}
+## Data fetching para aplicações React {#data-fetching-for-react-applications}
 
-There's more to building an application than creating a user interface. Data fetching is still a tricky problem, especially as applications become more complicated. At [React.js Conf](http://conf.reactjs.com/) we announced two projects we've created at Facebook to make data fetching simple for developers, even as a product grows to include dozens of contributors and the application becomes as complex as Facebook itself.
+É mais complicado construir uma aplicação do que criar uma interface para o usuário. Data fetching ainda é um problema complicado, principalmente quando as aplicações se tornam mais complicadas. Na [React.js Conf](http://conf.reactjs.com/) nós anunciamos dois projetos que nós criamos no Facebook para tornar simples o data fetching para desenvolvedores, mesmo quando um produto cresce o bastante para incluir dezenas de contribuidores e a aplicação se torna tão complexa quanto o próprio Facebook.
 
 <iframe width="650" height="315" src="https://www.youtube-nocookie.com/embed/9sc8Pyc51uU" frameborder="0" allowfullscreen></iframe>
 
-The two projects &mdash; Relay and GraphQL &mdash; have been in use in production at Facebook for some time, and we're excited to be bringing them to the world as open source in the future. In the meantime, we wanted to share some additional information about the projects here.
+Os dois projetos &mdash; Relay e GraphQL &mdash; têm sido utilizados em ambiente de produção no Facebook por algum tempo, e nós estávamos empolgados em trazê-los ao mundo open source no futuro. No meio tempo, nós queríamos compartilhar algumas informações adicionais sobre os projetos aqui.
 
 <script async class="speakerdeck-embed" data-id="7af7c2f33bf9451a892dcd91de55b7c2" data-ratio="1.29456384323641" src="//speakerdeck.com/assets/embed.js"></script>
 
