@@ -22,11 +22,11 @@ Cada componente especifica de forma declarativa suas dependências de dados usin
 
 Desenvolvedores compõem naturalmente esses componentes React, e o Relay toma conta de compor as queries em batches eficientes, provendo exatamente cada componente com os dados que ele precisa (e não mais), atualizando esses componentes quando os dados mudam e mantendo um store do lado do cliente (com cache) de todos os dados.  
 
-## What is GraphQL? {#what-is-graphql}
+## O que é GraphQL? {#what-is-graphql}
 
-GraphQL is a data querying language designed to describe the complex, nested data dependencies of modern applications. It's been in production use in Facebook's native apps for several years.
+GraphQL é uma linguagem para fazer data querying desenvolvida para descrever as dependências complexas e aninhadas de uma aplicação moderna. Ela está em ambiente de produção nos aplicativos nativos do Facebook há muitos anos.
 
-On the server, we configure the GraphQL system to map queries to underlying data-fetching code. This configuration layer allows GraphQL to work with arbitrary underlying storage mechanisms. Relay uses GraphQL as its query language, but it is not tied to a specific implementation of GraphQL.
+No servidor, nós configuramos o sistema do GraphQL para mapear as queries às camadas de código de data-fetching. Essa camada de configuração permite o uso do GraphQL com mecanismos de armazenamento arbitrários. Relay use GraphQL como a sua linguagem de query, mas não está amarrado a uma implementação específica de GraphQL.
 
 ## The value proposition {#the-value-proposition}
 
