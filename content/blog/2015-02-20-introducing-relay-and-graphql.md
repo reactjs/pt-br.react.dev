@@ -28,9 +28,9 @@ GraphQL é uma linguagem para fazer data querying desenvolvida para descrever as
 
 No servidor, nós configuramos o sistema do GraphQL para mapear as queries às camadas de código de data-fetching. Essa camada de configuração permite o uso do GraphQL com mecanismos de armazenamento arbitrários. Relay use GraphQL como a sua linguagem de query, mas não está amarrado a uma implementação específica de GraphQL.
 
-## The value proposition {#the-value-proposition}
+## A proposta de valor {#the-value-proposition}
 
-Relay was born out of our experiences building large applications at Facebook. Our overarching goal is to enable developers to create correct, high-performance applications in a straightforward and obvious way. The design enables even large teams to make changes with a high degree of isolation and confidence. Fetching data is hard, dealing with ever-changing data is hard, and performance is hard. Relay aims to reduce these problems to simple ones, moving the tricky bits into the framework and freeing you to concentrate on building your application.
+Relay nasceu a partir da nossa experiência em construir grandes aplicações no Facebook. Nosso objetivo mais abrangente é possibilitar desenvolvedores criarem aplicações de alto desempenho da forma correta, direta e óbvia. O projeto possibilita até grandes times fazerem mudanças com um alto grau de isolação e confiabilidade. Fazer fetch dos dados é difícil, lidar com dados que estão sempre mudando também é difícil e desempenho mais ainda. Relay visa reduzir o grau de complexidade desses problemas, movendo os pedaços complicados para o framework e possibilitando você concentrar em construir a sua aplicação.
 
 By co-locating the queries with the view code, the developer can reason about what a component is doing by looking at it in isolation; it's not necessary to consider the context where the component was rendered in order to understand it. Components can be moved anywhere in a render hierarchy without having to apply a cascade of modifications to parent components or to the server code which prepares the data payload.
 
