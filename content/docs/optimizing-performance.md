@@ -212,6 +212,7 @@ O React cria e mantém sua representação interna da UI renderizada. Ele inclui
 
 Quando uma propriedade ou estado de um componente é alterado, o React decide se uma atualização do DOM atual é necessária comparando o novo elemento retornado com o antigo. Quando eles não forem iguais, o React irá alterar o DOM.
 
+<<<<<<< HEAD
 Você pode agora visualizar essas re-renderizações do virtual DOM como o React DevTools:
 
 - [Extensão para Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
@@ -231,6 +232,9 @@ Considere esse exemplo:
 Perceba que quando nós estamos acessando o segundo _todo_, o primeiro todo também pisca na tela a cada tecla digitada. Isto significa que ele está sendo re-renderizando pelo React junto com o input. Isso algumas vez é chamado render desperdiçado (wasted render). Nós sabemos que ele é desnecessário porque o conteúdo do primeiro todo não tem nenhuma mudança, mas o React não sabe sobre isso.
 
 Embora o React somente altere os nós de DOM alterados, o re-rendering ainda leva algum tempo. Em muitos casos isso não é um problema, mas se a lentidão é perceptível, você pode aumentar velocidade dele sobrescrevendo a função de lifecycle `shouldComponentUpdate`, na qual é chamada antes do processo de re-rendering começar. A implementação padrão dessa função retorna `true`, deixando o React performar a alteração:
+=======
+Even though React only updates the changed DOM nodes, re-rendering still takes some time. In many cases it's not a problem, but if the slowdown is noticeable, you can speed all of this up by overriding the lifecycle function `shouldComponentUpdate`, which is triggered before the re-rendering process starts. The default implementation of this function returns `true`, leaving React to perform the update:
+>>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
@@ -403,6 +407,7 @@ Se você está usando Create React App, ambos `Object.assign` e a sintaxe de esp
 
 ## Usando Estruturas De Dados Mutáveis {#using-immutable-data-structures}
 
+<<<<<<< HEAD
 [Immutable.js](https://github.com/facebook/immutable-js) é uma outra maneira de resolver esse problema. Ele fornece coleções persistentes e imutáveis que trabalham via compartilhamento estrutural:
 
 * *Imutabilidade*: uma vez criada, uma coleção não pode ser mais alterada.
@@ -435,3 +440,6 @@ Nesse caso, já que uma nova referência é retornada quando mutamos `x`, nós p
 Outras bibliotecas que podem ajudar a usar dados imutáveis são [Immer](https://github.com/mweststrate/immer), [immutability-helper](https://github.com/kolodny/immutability-helper), e [seamless-immutable](https://github.com/rtfeldman/seamless-immutable).
 
 Estruturas de dados imutáveis fornecem para você uma maneira barata para rastrear mudanças em objetos, no qual é tudo que nós precisamos para implementar `shouldComponentUpdate`. Isso pode oferecer a você um bom impulsionamento de performance.
+=======
+When you deal with deeply nested objects, updating them in an immutable way can feel convoluted. If you run into this problem, check out [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). These libraries let you write highly readable code without losing the benefits of immutability.
+>>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a

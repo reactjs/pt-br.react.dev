@@ -80,7 +80,18 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### Render-Atlanta 2020 {#render-atlanta-2020}
 4 a 6 de maio de 2020. Atlanta, GA, EUA.
 
-[Website](https://renderatl.com)
+[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) 
+
+### React Finland 2020 {#react-finland-2020}
+May 26-29 in Helsinki, Finland
+
+[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
+
+### React Next 2020 {#react-next-2020}
+June 15, 2020. Tel Aviv, Israel.
+
+[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/) 
+
 
 ## Conferências passadas {#past-conferences}
 

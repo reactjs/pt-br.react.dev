@@ -69,6 +69,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 
 ## Índia {#india}
 * [Bangalore](https://www.meetup.com/ReactJS-Bangalore/)
+* [Chandigarh](https://www.meetup.com/Chandigarh-React-Developers/)
 * [Chennai](https://www.meetup.com/React-Chennai/)
 * [Delhi NCR](https://www.meetup.com/React-Delhi-NCR/)
 * [Jaipur](https://www.meetup.com/JaipurJS-Developer-Meetup/)
@@ -79,7 +80,14 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
 
+<<<<<<< HEAD
 ## Países Baixos (Holanda) {#netherlands}
+=======
+## Malaysia {#malaysia}
+* [Penang](https://www.facebook.com/groups/reactpenang/)
+
+## Netherlands {#netherlands}
+>>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
 * [Amsterdam](https://www.meetup.com/React-Amsterdam/)
 
 ## Nova Zelândia {#new-zealand}
