@@ -212,29 +212,7 @@ O React cria e mantém sua representação interna da UI renderizada. Ele inclui
 
 Quando uma propriedade ou estado de um componente é alterado, o React decide se uma atualização do DOM atual é necessária comparando o novo elemento retornado com o antigo. Quando eles não forem iguais, o React irá alterar o DOM.
 
-<<<<<<< HEAD
-Você pode agora visualizar essas re-renderizações do virtual DOM como o React DevTools:
-
-- [Extensão para Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-- [Extensão para Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
-- [Pacote separado](https://www.npmjs.com/package/react-devtools)
-
-No console de desenvolvedor selecione a opção **Highlight Updates** na aba de **React**:
-
-<center><img src="../images/blog/devtools-highlight-updates.png" style="max-width:100%; margin-top:10px;" alt="Como habilitar os destaques de alteração (highlight updates)" /></center>
-
-Interaja com sua página e você deve ver as bordas coloridas aparecendo ao redor de qualquer componente que foi re-renderizado. Isto faz com que você perceba re-renders que não são necessários. Você pode aprender mais sobre essa funcionalidade do React DevTools nesse [post](https://blog.logrocket.com/make-react-fast-again-part-3-highlighting-component-updates-6119e45e6833) do [Ben Edelstein](https://blog.logrocket.com/@edelstein).
-
-Considere esse exemplo:
-
-<center><img src="../images/blog/highlight-updates-example.gif" style="max-width:100%; margin-top:20px;" alt="Exemplo dos destaques de alterações do React DevTools" /></center>
-
-Perceba que quando nós estamos acessando o segundo _todo_, o primeiro todo também pisca na tela a cada tecla digitada. Isto significa que ele está sendo re-renderizando pelo React junto com o input. Isso algumas vez é chamado render desperdiçado (wasted render). Nós sabemos que ele é desnecessário porque o conteúdo do primeiro todo não tem nenhuma mudança, mas o React não sabe sobre isso.
-
 Embora o React somente altere os nós de DOM alterados, o re-rendering ainda leva algum tempo. Em muitos casos isso não é um problema, mas se a lentidão é perceptível, você pode aumentar velocidade dele sobrescrevendo a função de lifecycle `shouldComponentUpdate`, na qual é chamada antes do processo de re-rendering começar. A implementação padrão dessa função retorna `true`, deixando o React performar a alteração:
-=======
-Even though React only updates the changed DOM nodes, re-rendering still takes some time. In many cases it's not a problem, but if the slowdown is noticeable, you can speed all of this up by overriding the lifecycle function `shouldComponentUpdate`, which is triggered before the re-rendering process starts. The default implementation of this function returns `true`, leaving React to perform the update:
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {
