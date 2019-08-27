@@ -80,14 +80,10 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
 
-<<<<<<< HEAD
-## Países Baixos (Holanda) {#netherlands}
-=======
-## Malaysia {#malaysia}
+## Malásia {#malaysia}
 * [Penang](https://www.facebook.com/groups/reactpenang/)
 
-## Netherlands {#netherlands}
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
+## Países Baixos (Holanda) {#netherlands}
 * [Amsterdam](https://www.meetup.com/React-Amsterdam/)
 
 ## Nova Zelândia {#new-zealand}
