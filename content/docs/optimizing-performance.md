@@ -383,41 +383,4 @@ function updateColorMap(colormap) {
 
 Se você está usando Create React App, ambos `Object.assign` e a sintaxe de espalhador de objeto estão disponíveis por padrão.
 
-## Usando Estruturas De Dados Mutáveis {#using-immutable-data-structures}
-
-<<<<<<< HEAD
-[Immutable.js](https://github.com/facebook/immutable-js) é uma outra maneira de resolver esse problema. Ele fornece coleções persistentes e imutáveis que trabalham via compartilhamento estrutural:
-
-* *Imutabilidade*: uma vez criada, uma coleção não pode ser mais alterada.
-* *Persistência*: novas coleções podem ser criadas a partir de coleções antigas e uma mutação como um conjunto. A coleção original ainda é válida depois que a nova coleção é criada.
-* *Compartilhamento estrutural*: novas coleções são criadas usando o máximo possível de mesma estrutura original, reduzindo a cópia ao mínimo para melhorar a performance.
-
-Imutabilidade faz rastrear mudanças de forma barata. Uma mudança irá sempre resultar em um novo objeto onde nós somente precisaremos checar se a referência para o objeto mudou. Por exemplo, nesse exemplo de código JavaScript:
-
-
-```javascript
-const x = { foo: 'bar' };
-const y = x;
-y.foo = 'baz';
-x === y; // true
-```
-
-Embora `y` foi editado, desde que sua referência para o objeto `x`, essa comparação retorna `true`. Você pode escrever um código similar com immutable.js:
-
-```javascript
-const SomeRecord = Immutable.Record({ foo: null });
-const x = new SomeRecord({ foo: 'bar' });
-const y = x.set('foo', 'baz');
-const z = x.set('foo', 'bar');
-x === y; // false
-x === z; // true
-```
-
-Nesse caso, já que uma nova referência é retornada quando mutamos `x`, nós podemos usar a referência para checar a equalidade `(x === y)` para verificar que o novo valor armazenado em `y` é diferente que o valor original em `x`.
-
-Outras bibliotecas que podem ajudar a usar dados imutáveis são [Immer](https://github.com/mweststrate/immer), [immutability-helper](https://github.com/kolodny/immutability-helper), e [seamless-immutable](https://github.com/rtfeldman/seamless-immutable).
-
-Estruturas de dados imutáveis fornecem para você uma maneira barata para rastrear mudanças em objetos, no qual é tudo que nós precisamos para implementar `shouldComponentUpdate`. Isso pode oferecer a você um bom impulsionamento de performance.
-=======
-When you deal with deeply nested objects, updating them in an immutable way can feel convoluted. If you run into this problem, check out [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). These libraries let you write highly readable code without losing the benefits of immutability.
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
+Quando você lida com objetos profundamente aninhados, atualizá-los de maneira imutável pode parecer complicado. Se você enfrentar esse problema, consulte [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). Essas bibliotecas permitem escrever código altamente legível sem perder os benefícios da imutabilidade.
