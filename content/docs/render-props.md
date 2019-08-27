@@ -14,11 +14,7 @@ Um componente com uma _render prop_ recebe uma função que retorna um elemento 
 )}/>
 ```
 
-<<<<<<< HEAD
-Bibliotecas que usam render props incluem [React Router](https://reacttraining.com/react-router/web/api/Route/render-func) e [Downshift](https://github.com/paypal/downshift).
-=======
-Libraries that use render props include [React Router](https://reacttraining.com/react-router/web/api/Route/render-func), [Downshift](https://github.com/paypal/downshift) and [Formik](https://github.com/jaredpalmer/formik).
->>>>>>> 519a3aec91a426b0c8c9ae59e292d064df48c66a
+Bibliotecas que usam render props incluem [React Router](https://reacttraining.com/react-router/web/api/Route/render-func), [Downshift](https://github.com/paypal/downshift) e [Formik](https://github.com/jaredpalmer/formik).
 
 Nesse documento vamos discutir por que _render props_ são úteis e como escrevê-las.
 
