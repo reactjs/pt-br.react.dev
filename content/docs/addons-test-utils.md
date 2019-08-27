@@ -123,7 +123,7 @@ it('can render and update a counter', () => {
 
 - Não esqueça que disparando eventos DOM apenas funciona quando o conteúdo do DOM  é adicionado no `document`. Você pode usar um auxiliador como  [`react-testing-library`](https://testing-library.com/react) para reduzir o código de boilerplate.
 
-- O documento [`recipes`](/docs/recipes.html) contém mais detalhes sobre como `act()` se comporta, como exemplos e uso.
+- O documento [`recipes`](/docs/testing-recipes.html) contém mais detalhes sobre como `act()` se comporta, como exemplos e uso.
 
 * * *
 
