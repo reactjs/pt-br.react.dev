@@ -30,6 +30,7 @@ render(
   </App>
 );
 ```
+
 Múltiplos componentes `Profiler` podem ser utilizados para mensurar diferentes partes de uma aplicação:
 ```js{3,6:
 render(
