@@ -34,6 +34,7 @@ render(
 ```
 
 Múltiplos componentes `Profiler` podem ser utilizados para mensurar diferentes partes de uma aplicação:
+
 ```js{3,6:
 render(
   <App>
@@ -46,7 +47,9 @@ render(
   </App>
 );
 ```
+
 Componentes `Profiler` também podem estar aninhados para mensurar diferentes componentes em uma mesma subárvore:
+
 ```js{2,6,8}
 render(
   <App>
