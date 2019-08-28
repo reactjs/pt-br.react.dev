@@ -21,6 +21,7 @@ O `Profiler` pode ser adicionado em qualquer lugar dentro da árvore de React pa
 Ele exige duas _props_: um `id` (formato _string_) e uma função de callback `onRender`, o qual o react executa no momento em que a árvore "envia" uma atualização.
 
 Por exemplo, para executar um _profile_ em um componente de `Navigation` e seus descendentes:
+
 ```js{3}
 render(
   <App>
