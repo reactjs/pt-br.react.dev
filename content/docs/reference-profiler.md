@@ -38,7 +38,7 @@ render(
     <Profiler id="Main" onRender={callback}>
       <Main {...props} />
     </Profiler>
-    </App>
+  </App>
 );
 ```
 Componentes `Profiler` também podem estar aninhados para mensurar diferentes componentes em uma mesma subárvore:

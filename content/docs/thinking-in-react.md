@@ -49,11 +49,7 @@ Você verá que nós temos cinco componentes nessa aplicação. Em itálico est�
   4. **`ProductCategoryRow` (turquesa):** exibe um cabeçalho para cada *categoria*
   5. **`ProductRow` (vermelho):** exibe uma linha para cada *produto*
 
-<<<<<<< HEAD
-Se você olhar para `ProductTable`, verá que o cabeçalho da tabela (contendo as etiquetas "Name" and "Price") não é um componente separado. Isso é uma questão de preferência, e pode-se fazer um argumento contrário. Para esse exemplo, nós o deixamos como parte de `ProductTable` pois o cabeçalho faz parte da renderização da *coleção de dados*, que é responsabilidade de `ProductTable`. Entretanto, se a sua complexidade aumentar (i.e. se nós adicionássemos a capacidade de ordenação), certamente faria sentido a criação do componente `ProductTableHeader`.
-=======
-If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (e.g., if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
->>>>>>> ddbd064d41d719f9ec0c2f6a4227f797a5828310
+Se você olhar para `ProductTable`, verá que o cabeçalho da tabela (contendo as etiquetas "Name" and "Price") não é um componente separado. Isso é uma questão de preferência, e pode-se fazer um argumento contrário. Para esse exemplo, nós o deixamos como parte de `ProductTable` pois o cabeçalho faz parte da renderização da *coleção de dados*, que é responsabilidade de `ProductTable`. Entretanto, se a sua complexidade aumentar (e.g. se nós adicionássemos a capacidade de ordenação), certamente faria sentido a criação do componente `ProductTableHeader`.
 
 Agora que nós já identificamos os componentes do nosso mock, vamos organizá-los em uma hierarquia. Componentes que aparecem dentro de outros no mock devem aparecer como filhos na hierarquia:
 
