@@ -16,7 +16,8 @@ O componente `Profiler` mede a frequência de renderização de uma aplicação 
 > Leia mais sobre como utilizar esse _build_ em [fb.me/react-profiling](https://fb.me/react-profiling)
 
 ## Utilização
-O `Profiler` pode ser adicionado em qualquer lugar dentro da árvore de React para mensurar o custo de renderização dessa parte da árvore. Ele exige duas _props_: um `id` (formato _string_) e uma função de callback `onRender`, o qual o react executa no momento em que a árvore "envia" uma atualização.
+O `Profiler` pode ser adicionado em qualquer lugar dentro da árvore de React para mensurar o custo de renderização dessa parte da árvore.
+Ele exige duas _props_: um `id` (formato _string_) e uma função de callback `onRender`, o qual o react executa no momento em que a árvore "envia" uma atualização.
 
 Por exemplo, para executar um _profile_ em um componente de `Navigation` e seus descendentes:
 ```js{3}
