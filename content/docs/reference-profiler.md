@@ -5,24 +5,19 @@ layout: docs
 category: Reference
 permalink: docs/profiler.html
 ---
+O componente `Profiler` mede a frequência de renderização de uma aplicação React e o "custo" dessa renderização. Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations)
 
-The `Profiler` measures how often a React application renders and what the "cost" of rendering is.
-Its purpose is to help identify parts of an application that are slow and may benefit from [optimizations such as memoization](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations).
-
-> Note:
+> Nota:
 >
-> Profiling adds some additional overhead, so **it is disabled in [the production build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)**.
->
-> To opt into production profiling, React provides a special production build with profiling enabled.
-> Read more about how to use this build at [fb.me/react-profiling](https://fb.me/react-profiling)
+> O uso do `Profiler` adiciona uma sobrecarga de processamento, sendo portanto **desabilitada no [_build_ de produção](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)**.
+> 
+> Ao optar pelo uso do `Profiler` em produção, o React provisiona um _build_ especial de produção com o `Profiler` habilitado.
+> Leia mais sobre como utilizar esse _build_ em [fb.me/react-profiling](https://fb.me/react-profiling)
 
-## Usage
+## Utilização
+O `Profiler` pode ser adicionado em qualquer lugar dentro da árvore de React para mensurar o custo de renderização dessa parte da árvore. Ele exige duas _props_: um `id` (formato _string_) e uma função de callback `onRender`, o qual o react executa no momento em que a árvore "envia" uma atualização.
 
-A `Profiler` can be added anywhere in a React tree to measure the cost of rendering that part of the tree.
-It requires two props: an `id` (string) and an `onRender` callback (function) which React calls any time a component within the tree "commits" an update.
-
-For example, to profile a `Navigation` component and its descendants:
-
+Por exemplo, para executar um _profile_ em um componente de `Navigation` e seus descendentes:
 ```js{3}
 render(
   <App>
@@ -33,9 +28,8 @@ render(
   </App>
 );
 ```
-
-Multiple `Profiler` components can be used to measure different parts of an application:
-```js{3,6}
+Múltiplos componentes `Profiler` podem ser utilizados para mensurar diferentes partes de uma aplicação:
+```js{3,6:
 render(
   <App>
     <Profiler id="Navigation" onRender={callback}>
@@ -47,8 +41,7 @@ render(
     </App>
 );
 ```
-
-`Profiler` components can also be nested to measure different components within the same subtree:
+Componentes `Profiler` também podem estar aninhados para mensurar diferentes componentes em uma mesma subárvore:
 ```js{2,6,8}
 render(
   <App>
@@ -66,54 +59,53 @@ render(
 );
 ```
 
-> Note
+> Nota
 >
-> Although `Profiler` is a light-weight component, it should be used only when necessary; each use adds some CPU and memory overhead to an application.
+> Apesar do `Profiler` ser um componente leve, deve ser usado apenas quando necessário; cada uso traz uma carga adicional de CPU e memória para uma aplicação.
 
-## `onRender` Callback
+## _Callback_ `onRender` 
 
-The `Profiler` requires an `onRender` function as a prop.
-React calls this function any time a component within the profiled tree "commits" an update.
-It receives parameters describing what was rendered and how long it took.
+O `Profiler` requer uma função `onRender` como _prop_.
+O React chama essa função em todo momento que o a árvore dentro dele "envia" uma atualização.
+Ela recebe parâmetros descrevendo o que foi renderizado e quanto tempo levou.
 
 ```js
 function onRenderCallback(
-  id, // the "id" prop of the Profiler tree that has just committed
-  phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
-  actualDuration, // time spent rendering the committed update
-  baseDuration, // estimated time to render the entire subtree without memoization
-  startTime, // when React began rendering this update
-  commitTime, // when React committed this update
-  interactions // the Set of interactions belonging to this update
+  id, // o prop "id" da árvore Profiler que acabou de atualizar 
+  phase, //  "mount" (se a árvore acabou de ser montada) ou "update" (se foi renderizada novamente)
+  actualDuration, // tempo gasto renderizando a atualização enviada
+  baseDuration, // tempo estimado para renderizar totalmente a subárvore sem memorização
+  startTime, // quando o React começou renderizar essa atualização
+  commitTime, // quando o React enviou essa atualização
+  interactions // um Set de interações pertencentes â essa atualização
 ) {
-  // Aggregate or log render timings...
+  // Agregue ou registre os tempos de renderização..
 }
 ```
 
-Let's take a closer look at each of the props:
+Vamos ver no detalhe cada uma dessas _props_:
 
 * **`id: string`** - 
-The `id` prop of the `Profiler` tree that has just committed.
-This can be used to identify which part of the tree was committed if you are using multiple profilers.
+O `id` da árvore Profiler que acabou de atualizar.
+Isso pode ser utilizado para identificar qual parte da árvore foi atualizada se você está utilizando múltiplos componentes `Profiler`.
 * **`phase: "mount" | "update"`** -
-Identifies whether the tree has just been mounted for the first time or re-rendered due to a change in props, state, or hooks.
+Identifica se a árvore que foi montada pela primeira vez ou renderizada novamente por uma mudança na _props_, no estado ou por _hooks_.
 * **`actualDuration: number`** -
-Time spent rendering the `Profiler` and its descendants for the current update.
-This indicates how well the subtree makes use of memoization (e.g. [`React.memo`](/docs/react-api.html#reactmemo), [`useMemo`](/docs/hooks-reference.html#usememo), [`shouldComponentUpdate`](/docs/hooks-faq.html#how-do-i-implement-shouldcomponentupdate)).
-Ideally this value should decrease significantly after the initial mount as many of the descendants will only need to re-render if their specific props change.
+Tempo desprendido renderizańdo o `Profiler` e seus descententes para a atualização corrente. 
+Isso indica o quão bem essa subárvore faz o uso da memorização (e.g. [`React.memo`](/docs/react-api.html#reactmemo), [`useMemo`](/docs/hooks-reference.html#usememo), [`shouldComponentUpdate`](/docs/hooks-faq.html#how-do-i-implement-shouldcomponentupdate)). Idealmente esse valor deve diminuir significativamente depois da montagem inicial visto que os descendentes só precisarão renderizar novamente se as suas _props_ específicas forem alteradas.
 * **`baseDuration: number`** -
-Duration of the most recent `render` time for each individual component within the `Profiler` tree.
-This value estimates a worst-case cost of rendering (e.g. the initial mount or a tree with no memoization).
+A duração da renderização mais recente para cada componente individual dentro da árvore `Profiler`.
+Esse valor estima um pior cenário de renderização (por exemplo, a montagem inicial de uma árvore sem memorização).
 * **`startTime: number`** -
-Timestamp when React began rendering the current update.
+_Timestamp_ de quando o React começou a renderizar a atualização corrente.
 * **`commitTime: number`** -
-Timestamp when React committed the current update.
-This value is shared between all profilers in a commit, enabling them to be grouped if desirable.
+_Timestamp_ de quando o React enviou a atualização corrente.
+Esse valor é compartilhado entre todos os componentes `Profiler` em um envio, permitindo o agrupamento deles se desejável.
 * **`interactions: Set`** -
-Set of ["interactions"](http://fb.me/react-interaction-tracing) that were being traced the update was scheduled (e.g. when `render` or `setState` were called).
+_Set_ de ["interações"](http://fb.me/react-interaction-tracing) que estavam sendo rastreadas quando a atualização foi agendada (por exemplo, quando um `render` ou `setState` foi invocado).
 
-> Note
+> Nota
 >
-> Interactions can be used to identify the cause of an update, although the API for tracing them is still experimental.
+> Interações podem ser usadas para identificar a causa de uma atualização, apesar da API para rastreá-las ainda ser experimental.
 >
-> Learn more about it at [fb.me/react-interaction-tracing](http://fb.me/react-interaction-tracing)
+> Aprenda mais sobre em [fb.me/react-interaction-tracing](http://fb.me/react-interaction-tracing)
