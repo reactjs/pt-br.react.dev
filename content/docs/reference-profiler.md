@@ -101,7 +101,8 @@ Isso pode ser utilizado para identificar qual parte da árvore foi atualizada se
 Identifica se a árvore que foi montada pela primeira vez ou renderizada novamente por uma mudança na _props_, no estado ou por _hooks_.
 * **`actualDuration: number`** -
 Tempo desprendido renderizańdo o `Profiler` e seus descententes para a atualização corrente. 
-Isso indica o quão bem essa subárvore faz o uso da memorização (e.g. [`React.memo`](/docs/react-api.html#reactmemo), [`useMemo`](/docs/hooks-reference.html#usememo), [`shouldComponentUpdate`](/docs/hooks-faq.html#how-do-i-implement-shouldcomponentupdate)). Idealmente esse valor deve diminuir significativamente depois da montagem inicial visto que os descendentes só precisarão renderizar novamente se as suas _props_ específicas forem alteradas.
+Isso indica o quão bem essa subárvore faz o uso da memorização (e.g. [`React.memo`](/docs/react-api.html#reactmemo), [`useMemo`](/docs/hooks-reference.html#usememo), [`shouldComponentUpdate`](/docs/hooks-faq.html#how-do-i-implement-shouldcomponentupdate)).
+Idealmente esse valor deve diminuir significativamente depois da montagem inicial visto que os descendentes só precisarão renderizar novamente se as suas _props_ específicas forem alteradas.
 * **`baseDuration: number`** -
 A duração da renderização mais recente para cada componente individual dentro da árvore `Profiler`.
 Esse valor estima um pior cenário de renderização (por exemplo, a montagem inicial de uma árvore sem memorização).
