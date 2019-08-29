@@ -6,7 +6,8 @@ category: Reference
 permalink: docs/profiler.html
 ---
 
-O componente `Profiler` mede a frequência de renderização de uma aplicação React e o "custo" dessa renderização. Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations)
+O componente `Profiler` mede a frequência de renderização de uma aplicação React e o "custo" dessa renderização.
+Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations)
 
 > Nota:
 >
