@@ -231,7 +231,7 @@ function FriendListItem(props) {
 
 O estado (state) destes componentes é completamente independente. Hooks são a forma de reutilizar *lógica de state*, não o state em si. De fato, cada *chamada* para um Hook tem um state completamente isolado -- então você pode até utilizar o mesmo Hook custom duas vezes em um componente.
 
-Hooks customizados são mais uma convenção do que uma funcionalidade. Se o nome de uma função começa com "`use`" e chama outros Hooks, consideramos que é um Hoook customizado. A convenção de nome `useSomething` é como nosso plugin de linter é capaz de encontrar bugs no nosso código que utiliza Hooks.
+Hooks customizados são mais uma convenção do que uma funcionalidade. Se o nome de uma função começa com "`use`" e chama outros Hooks, consideramos que é um Hook customizado. A convenção de nome `useSomething` é como nosso plugin de linter é capaz de encontrar bugs no nosso código que utiliza Hooks.
 
 Você pode escrever Hooks customizados que abrangem uma ampla gama de casos de uso, como manipulação de formulários, animações, subscrições declarativas, temporizadores e provavelmente muitos outros que não consideramos. Estamos animados para ver quais Hooks customizados a comunidade React irá criar.
 
