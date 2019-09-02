@@ -49,7 +49,6 @@ render(
 ```
 
 Componentes `Profiler` também podem estar aninhados para mensurar diferentes componentes em uma mesma subárvore:
-
 ```js{2,6,8}
 render(
   <App>
