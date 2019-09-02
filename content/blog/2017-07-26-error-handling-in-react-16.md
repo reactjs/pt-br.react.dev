@@ -111,4 +111,8 @@ Limitadores de erros preservam a natureza declarativa do React, e se comportam c
 
 O React 15 incluiu um suporte muito restrito aos limitadores de erros utilizando um nome de método diferente: `unstable_handleError`. Este método não funciona mais, e você precisará trocar em seu código para `componentDidCatch` a partir da primeira versão beta 16.  
 
+<<<<<<< HEAD
 Para esta mudança, nós fornecemos [uma ferramenta de refatoração](https://github.com/reactjs/react-codemod#error-boundaries) para migrar seu código automaticamente.
+=======
+For this change, we’ve provided a [codemod](https://github.com/reactjs/react-codemod#error-boundaries) to automatically migrate your code.
+>>>>>>> 941f54180ef5e652221f54ef6d1f6f2e9e063597
