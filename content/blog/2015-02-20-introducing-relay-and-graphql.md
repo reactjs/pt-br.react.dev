@@ -46,18 +46,22 @@ Com o manuseio de todo o data-fetching através de uma única abstração, nós 
 - **Subscriptions:** Todos os dados fluem em um único store, e todas as leituras do store são feitas via framework. Isso significa que o framework sabe quais componentes precisam de quais dados e quais deles devem ser re-renderizados quando os dados mudarem; componentes nunca têm que setar subscriptions individuais.
 - **Padrões comuns:** Nós podemos fazer com que padrões comuns se tornem fáceis. Paginação é o exemplo que o [Jing](https://twitter.com/jingc) deu na conferência: se você tem 10 registros inicialmente, pegar a próxima página só quer dizer que você quer 15 registros no total, e o framework automaticamente constrói a query mínima para pegar a diferença entre o que você tem e o que você precisa, faz a requisição e re-renderiza o componente quando os dados se tornam disponíveis.
 - **Implementação simplificada no servidor:** Ao invés de ter uma proliferação de end-points (por ação, por rota), um único end-point GraphQL pode servir como uma fachada para inúmeras camadas de recursos.
-- **Uniform mutations:** There is one consistent pattern for performing mutations (writes), and it is conceptually baked into the data querying model itself. You can think of a mutation as a query with side-effects: you provide some parameters that describe the change to be made (eg. attaching a comment to a record) and a query that specifies the data you'll need to update your view of the world after the mutation completes (eg. the comment count on the record), and the data flows through the system using the normal flow. We can do an immediate "optimistic" update on the client (ie. update the view under the assumption that the write will succeed), and finally commit it, retry it or roll it back in the event of an error when the server payload comes back.
+- **Mutations uniformes:** Existe um padrão consistente para realizar mutations (escritas). Ele é conceitualmente englobado no modelo de query de dados em si. Você pode pensar que uma mutation é uma query com efeitos colaterais: você provém alguns parâmetros que descrevem as mudanças a serem feitas (por exemplo, anexando um comentário à um registro) e uma query especificando os dados que você vai precisar pra atualizar a sua view depois que a mutation completa (por exemplo, a contagem de comentários no registro), e os dados seguem o fluxo através do sistema. Nós podemos atulizar o cliente de forma "otimista" (ou seja, atualizar a view assumindo que tudo dará certo), e finalmente commitar, tentar novamente ou reverter com um evento de erro quando a payload do server retornar.
 
-## How does it relate to Flux? {#how-does-it-relate-to-flux}
+## Como ele se relaciona com o Flux? {#how-does-it-relate-to-flux}
 
-In some ways Relay is inspired by Flux, but the mental model is much simpler. Instead of multiple stores, there is one central store that caches all GraphQL data. Instead of explicit subscriptions, the framework itself can track which data each component requests, and which components should be updated whenever the data change. Instead of actions, modifications take the form of mutations.
+Pode-se dizer que Relay é inspirado pelo Flux, mas o modelo mental é muito mais simples. Ao invés de múltiplos stores, só há um único store central que guarda todos os dados GraphQL. Ao invés de subscriptions explícitas, o framework por si só consegue rastrear quais dados que cada componente precisa, e quais componentes devem ser atualizados quando os dados mudarem. Ao invés de ações, modificações tomam forma de mutations.
 
-At Facebook, we have apps built entirely using Flux, entirely using Relay, or with both. One pattern we see emerging is letting Relay manage the bulk of the data flow for an application, but using Flux stores on the side to handle a subset of application state.
+No Facebook nós temos apps construidos inteiramente com Flux, inteiramente com Relay, ou com ambos. Um padrão que nós estamos vendo surgir é deixar o Relay gerenciar a massa de dados e o fluxo para uma aplicação, mas utilizando paralelamente os stores do Flux para lidar com subconjuntos do estado da aplicação.
 
-## Open source plans {#open-source-plans}
+## Planos open source {#open-source-plans}
+
+Nós estamos trabalhando duro atualmente para disponibilizar o GraphQL (uma especificação e uma implementação como referência) e o Relay ao público (sem datas específicas ainda, mas nós estamos super empolgados para trazê-los pra cá).
+
+No meio tempo, nós estaremos disponibilizando mais e mais informações na forma de posts de blog (e em [outros canais](https://gist.github.com/wincent/598fa75e22bdfa44cf47)). 
 
 We're working very hard right now on getting both GraphQL (a spec, and a reference implementation) and Relay ready for public release (no specific dates yet, but we are super excited about getting these out there).
 
-In the meantime, we'll be providing more and more information in the form of blog posts (and in [other channels](https://gist.github.com/wincent/598fa75e22bdfa44cf47)). As we get closer to the open source release, you can expect more concrete details, syntax and API descriptions and more.
+In the meantime, we'll be providing more and more information in the form of blog posts (and in [other channels](https://gist.github.com/wincent/598fa75e22bdfa44cf47)). À medida que chegamos perto do lançamento open source, vocês podem esperar por detalhes mais concretos, sintaxe, documentações de API e mais.
 
-Watch this space!
+Fique de olho!
