@@ -149,7 +149,7 @@ Retorna um objeto representando a árvore renderizada. Essa árvore contém apen
 testRenderer.toTree()
 ```
 
-Retorna um objeto representando a árvore renderizada. Ao contrário de `toJSON()`, a representação é mais detalhada que a fornecida por `toJSON()`, e inclui os componentes criados pelo usuário. Você provavelmente não precisa desse método, a menos que esteja escrevendo sua própria biblioteca de asserções sobre o renderizador de teste.
+Retorna um objeto representando a árvore renderizada. A representação é mais detalhada que a fornecida por `toJSON()`, e inclui os componentes criados pelo usuário. Você provavelmente não precisa desse método, a menos que esteja escrevendo sua própria biblioteca de asserções sobre o renderizador de teste.
 
 ### `testRenderer.update()` {#testrendererupdate}
 
