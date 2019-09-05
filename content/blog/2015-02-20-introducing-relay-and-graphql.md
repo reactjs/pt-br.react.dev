@@ -58,10 +58,6 @@ No Facebook nós temos apps construidos inteiramente com Flux, inteiramente com 
 
 Nós estamos trabalhando duro atualmente para disponibilizar o GraphQL (uma especificação e uma implementação como referência) e o Relay ao público (sem datas específicas ainda, mas nós estamos super empolgados para trazê-los pra cá).
 
-No meio tempo, nós estaremos disponibilizando mais e mais informações na forma de posts de blog (e em [outros canais](https://gist.github.com/wincent/598fa75e22bdfa44cf47)). 
-
-We're working very hard right now on getting both GraphQL (a spec, and a reference implementation) and Relay ready for public release (no specific dates yet, but we are super excited about getting these out there).
-
-In the meantime, we'll be providing more and more information in the form of blog posts (and in [other channels](https://gist.github.com/wincent/598fa75e22bdfa44cf47)). À medida que chegamos perto do lançamento open source, vocês podem esperar por detalhes mais concretos, sintaxe, documentações de API e mais.
+No meio tempo, nós estaremos disponibilizando mais e mais informações na forma de posts de blog (e em [outros canais](https://gist.github.com/wincent/598fa75e22bdfa44cf47)). À medida que chegamos perto do lançamento open source, vocês podem esperar por detalhes mais concretos, sintaxe, documentações de API e mais.
 
 Fique de olho!
