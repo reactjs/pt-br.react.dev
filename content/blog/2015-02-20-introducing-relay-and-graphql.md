@@ -26,7 +26,7 @@ Desenvolvedores compõem naturalmente esses componentes React, e o Relay toma co
 
 GraphQL é uma linguagem para fazer data querying desenvolvida para descrever as dependências complexas e aninhadas de uma aplicação moderna. Ela está em ambiente de produção nos aplicativos nativos do Facebook há muitos anos.
 
-No servidor, nós configuramos o sistema do GraphQL para mapear as queries às camadas de código de data-fetching. Essa camada de configuração permite o uso do GraphQL com mecanismos de armazenamento arbitrários. Relay use GraphQL como a sua linguagem de query, mas não está amarrado a uma implementação específica de GraphQL.
+No servidor, nós configuramos o sistema do GraphQL para mapear as queries às camadas de código de data-fetching. Essa camada de configuração permite o uso do GraphQL com mecanismos de armazenamento arbitrários. Relay usa GraphQL como a sua linguagem de query, mas não está amarrado a uma implementação específica de GraphQL.
 
 ## A proposta de valor {#the-value-proposition}
 
