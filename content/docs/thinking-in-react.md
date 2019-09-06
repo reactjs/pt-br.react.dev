@@ -37,7 +37,7 @@ A primeira coisa que você vai querer fazer é dar nomes e desenhar retângulos 
 
 Mas como você sabe o que deveria ser seu próprio componente? Use as mesmas técnicas que você usaria para decidir se você deveria criar uma nova função ou objeto. Uma dessas técnicas é o [princípio da responsabilidade única](https://en.wikipedia.org/wiki/Single_responsibility_principle), ou seja, um componente deve idealmente fazer apenas uma coisa. Se ele acabar crescendo, deverá ser decomposto em subcomponentes menores.
 
-Visto que você estará frequentemente exibindo um modelo de dados em JSON ao usuário, você perceberá que caso o seu modelo esteja corretamente construído, sua UI (e portanto a sua estrutura de componente) será mapeada satisfatoriamente. Isso acontece pois UI e modelo de dados tendem a aderir à mesma *arquitetura de informação*, o que significa que o trabalho de separar a UI em componentes é muitas vezes trivial. Separe em componentes o que representa exatamente um pedaço do seu modelo de dados.
+Visto que você estará frequentemente exibindo um modelo de dados em JSON ao usuário, você perceberá que caso o seu modelo esteja corretamente construído, sua UI (e portanto a sua estrutura de componente) será mapeada satisfatoriamente. Isso acontece pois UI e modelo de dados tendem a aderir à mesma *arquitetura de informação*, Separe sua UI em componentes, onde cada componente corresponde a uma parte do seu modelo de dados.
 
 ![Diagrama de componentes](../images/blog/thinking-in-react-components.png)
 
@@ -49,7 +49,7 @@ Você verá que nós temos cinco componentes nessa aplicação. Em itálico est�
   4. **`ProductCategoryRow` (turquesa):** exibe um cabeçalho para cada *categoria*
   5. **`ProductRow` (vermelho):** exibe uma linha para cada *produto*
 
-Se você olhar para `ProductTable`, verá que o cabeçalho da tabela (contendo as etiquetas "Name" and "Price") não é um componente separado. Isso é uma questão de preferência, e pode-se fazer um argumento contrário. Para esse exemplo, nós o deixamos como parte de `ProductTable` pois o cabeçalho faz parte da renderização da *coleção de dados*, que é responsabilidade de `ProductTable`. Entretanto, se a sua complexidade aumentar (i.e. se nós adicionássemos a capacidade de ordenação), certamente faria sentido a criação do componente `ProductTableHeader`.
+Se você olhar para `ProductTable`, verá que o cabeçalho da tabela (contendo as etiquetas "Name" and "Price") não é um componente separado. Isso é uma questão de preferência, e pode-se fazer um argumento contrário. Para esse exemplo, nós o deixamos como parte de `ProductTable` pois o cabeçalho faz parte da renderização da *coleção de dados*, que é responsabilidade de `ProductTable`. Entretanto, se a sua complexidade aumentar (e.g. se nós adicionássemos a capacidade de ordenação), certamente faria sentido a criação do componente `ProductTableHeader`.
 
 Agora que nós já identificamos os componentes do nosso mock, vamos organizá-los em uma hierarquia. Componentes que aparecem dentro de outros no mock devem aparecer como filhos na hierarquia:
 
@@ -76,7 +76,7 @@ Recorra à [documentação do React](/docs/) caso você precise de ajuda para ex
 
 ### Um Breve Interlúdio: Props vs State {#a-brief-interlude-props-vs-state}
 
-Existem dois tipos de "modelo" de dados em React: props e state. É de suma importância entender a distinção entre os dois; dê uma olhada na [documentação oficial do React](/docs/interactivity-and-dynamic-uis.html) caso você ainda não esteja certo da diferença.
+Existem dois tipos de "modelo" de dados em React: props e state. É de suma importância entender a distinção entre os dois; dê uma olhada na [documentação oficial do React](/docs/interactivity-and-dynamic-uis.html) caso você ainda não esteja certo da diferença. Também veja [FAQ: Qual a diferença entre state e props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
 ## Passo 3: Identifique a Representação Mínima (mas completa) do State da UI{#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 

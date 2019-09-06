@@ -241,7 +241,7 @@ function Counter() {
 
 #### Determinando o Estado Inicial {#specifying-the-initial-state}
 
-Há duas diferentes maneiras para inicializar `useReducer` `state`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é a de passar um estado inicial como segundo argumento:
+Há duas maneiras diferentes de inicializar o estado `useReducer`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é passar o estado inicial como um segundo argumento:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -353,7 +353,7 @@ Se nenhum array for fornecida, um novo valor será calculado em cada renderizaç
 const refContainer = useRef(initialValue);
 ```
 
-`useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá no durante todo o ciclo de vida do componente.
+`useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
 Um caso comum de uso é o acesso imperativamente a um componente filho:
 

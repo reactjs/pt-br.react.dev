@@ -227,7 +227,7 @@ Geralmente é necessário atualizar o contexto de um componente que está aninha
 
 ### Consumindo vários Contextos {#consuming-multiple-contexts}
 
-Para que o contexto possa continuar renderizando rápidamente, o React precisa manter cada consumidor de contexto separado em um nó da árvore.
+Para que o contexto possa continuar renderizando rapidamente, o React precisa manter cada consumidor de contexto separado em um nó da árvore.
 
 `embed:context/multiple-contexts.js`
 
@@ -239,7 +239,7 @@ Se dois ou mais valores de contexto são utilizados juntos com frequência, voc�
 
 ## Ressalvas {#caveats}
 
-Contexto (context) usa referência de identidate para determinar quando renderizar novamente, por este motivo, existem alguns casos que podem desencadear renderizações não intencionais em consumidores quando algum componente que antecede um Provider é renderizados. Por exemplo, o código abaixo vai re-renderizar todos consumidores toda vez que o Provider re-renderizar porque um novo objeto é sempre criado para `value`:
+Contexto (context) usa referência de identidade para determinar quando renderizar novamente, por este motivo, existem alguns casos que podem desencadear renderizações não intencionais em consumidores quando algum componente que antecede um Provider é renderizados. Por exemplo, o código abaixo vai re-renderizar todos consumidores toda vez que o Provider re-renderizar porque um novo objeto é sempre criado para `value`:
 
 `embed:context/reference-caveats-problem.js`
 

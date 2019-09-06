@@ -37,7 +37,7 @@ O único método que você *deve* definir em uma subclasse de `React.Component` 
 
 >Nota:
 >
->React não te obriga a utilizar a sintaxe ES6 para classes. Se preferir não usá-la, você pode usar o módulo `create-react-class` ou alguma outra abstração similar. Dê uma olhada em 
+>React não lhe obriga a utilizar a sintaxe ES6 para classes. Se preferir não usá-la, você pode usar o módulo `create-react-class` ou alguma outra abstração similar. Dê uma olhada em
 [Usando React sem ES6](/docs/react-without-es6.html) para mais sobre este assunto.
 
 ### O Ciclo de Vida de um Componente {#component-life-cycle}
@@ -223,7 +223,7 @@ componentDidUpdate(prevProps) {
 }
 ```
 
-Você **pode chamar `setState()` imediatamente** dentro do `componentDidUpdate()` mas perceba que **isto deve estar encapsulado em uma condição** como no exemplo abaixp, ou você irá causar um loop infinito. Isto também causaria uma re-renderização extra, que por mais que não seja visível para o usuário pode afetar a performance do componente. Se você está tentando "espelhar" algum state para uma prop vinda de cima, considere usar a prop diretamente. Leia mais sobre [porque copiar props no state causa bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
+Você **pode chamar `setState()` imediatamente** dentro do `componentDidUpdate()` mas perceba que **isto deve estar encapsulado em uma condição** como no exemplo abaixo, ou você irá causar um loop infinito. Isto também causaria uma re-renderização extra, que por mais que não seja visível para o usuário pode afetar a performance do componente. Se você está tentando "espelhar" algum state para uma prop vinda de cima, considere usar a prop diretamente. Leia mais sobre [porque copiar props no state causa bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html).
 
 Se seu componente implementa o método `getSnapshotBeforeUpdate()` (o que é raro), o valor que ele retorna será passado como o terceiro parâmetro "snapshot" para `componentDidUpdate()`. Caso contrário este parâmetro será undefined.
 
@@ -247,7 +247,7 @@ componentWillUnmount()
 
 ### Métodos Raramente Usados {#rarely-used-lifecycle-methods}
 
-Estes métodos desa seção correspondem a casos de uso incomuns. Eles são úteis de vez em quando, mas na maioria das vezes, seus componentes provavelmente não irão precisar de nenhum deles. **Pode ver a maioria dos métodos abaixo [neste diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se clicar na checkbox "Mostrar ciclos de vida menos comuns" no topo da página.**
+Estes métodos dessa seção correspondem a casos de uso incomuns. Eles são úteis de vez em quando, mas na maioria das vezes, seus componentes provavelmente não irão precisar de nenhum deles. **Pode ver a maioria dos métodos abaixo [neste diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se clicar na checkbox "Mostrar ciclos de vida menos comuns" no topo da página.**
 
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
@@ -256,7 +256,7 @@ Estes métodos desa seção correspondem a casos de uso incomuns. Eles são úte
 shouldComponentUpdate(nextProps, nextState)
 ```
 
-Use `shouldComponentUpdate()` para permitir que o React saiba se o resultado de um componente não é afetdo pelas mudanças atuais em state ou props. O comportamento padrão é para re-renderizar a cada mudança do state, e na grande maioria dos casos você deve confiar no comportamento padrão.
+Use `shouldComponentUpdate()` para permitir que o React saiba se o resultado de um componente não é afetado pelas mudanças atuais em state ou props. O comportamento padrão é para re-renderizar a cada mudança do state, e na grande maioria dos casos você deve confiar no comportamento padrão.
 
 `shouldComponentUpdate()` é executado antes da renderização, quando novas props ou state são recebidos. O valor default é `true`. Este método não é chamado na renderização inicial ou quando `forceUpdate()`é usado.
 
@@ -284,7 +284,7 @@ Este método existe para [casos de uso raros](/blog/2018/06/07/you-probably-dont
 Derivando o state leva a código verboso e faz seus componentes difíceis de compreender.
 [Tenha certeza de estar familiarizado com alternativas mais simples:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-* Se precisar  **perform a side effect** (por exemplo, buscar dados ou uma animação) em resposta a uma alteração em props, use [`componentDidUpdate`](#componentdidupdate) no lugar.
+* Se precisar  **executar um side effect** (por exemplo, buscar dados ou uma animação) em resposta a uma alteração em props, use [`componentDidUpdate`](#componentdidupdate) no lugar.
 
 * Se você quer **recomputar alguns dados somente quando uma prop muda**, [use um auxiliar de memorização no lugar](/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization).
 
@@ -357,7 +357,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
@@ -411,7 +411,7 @@ class ErrorBoundary extends React.Component {
       return <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 ```
