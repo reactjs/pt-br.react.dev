@@ -52,7 +52,7 @@ Com o manuseio de todo o data-fetching através de uma única abstração, nós 
 
 Pode-se dizer que Relay é inspirado pelo Flux, mas o modelo mental é muito mais simples. Ao invés de múltiplos stores, só há um único store central que guarda todos os dados GraphQL. Ao invés de subscriptions explícitas, o framework por si só consegue rastrear quais dados que cada componente precisa, e quais componentes devem ser atualizados quando os dados mudarem. Ao invés de ações, modificações tomam forma de mutations.
 
-No Facebook nós temos apps construidos inteiramente com Flux, inteiramente com Relay, ou com ambos. Um padrão que nós estamos vendo surgir é deixar o Relay gerenciar a massa de dados e o fluxo para uma aplicação, mas utilizando paralelamente os stores do Flux para lidar com subconjuntos do estado da aplicação.
+No Facebook nós temos apps construídos inteiramente com Flux, inteiramente com Relay ou com ambos. Um padrão que nós estamos vendo surgir é deixar o Relay gerenciar a massa de dados e o fluxo para uma aplicação, mas utilizando paralelamente os stores do Flux para lidar com subconjuntos do estado da aplicação.
 
 ## Planos open source {#open-source-plans}
 
