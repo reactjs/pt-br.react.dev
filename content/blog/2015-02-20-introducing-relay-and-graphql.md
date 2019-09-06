@@ -18,7 +18,7 @@ Os dois projetos &mdash; Relay e GraphQL &mdash; têm sido utilizados em ambient
 
 Relay é um novo framework do Facebook que provêm funcionalidades de data-fetching para aplicações React. Ele foi anunciado na React.js Conf (Janeiro 2015).
 
-Cada componente especifica de forma declarativa suas dependências de dados using uma linguagem de query chamada GraphQL. Os dados ficam disponíveis para o componente via propriedades em `this.props`.
+Cada componente especifica de forma declarativa suas dependências de dados usando uma linguagem de query chamada GraphQL. Os dados ficam disponíveis para o componente via propriedades em `this.props`.
 
 Desenvolvedores compõem naturalmente esses componentes React, e o Relay toma conta de compor as queries em batches eficientes, provendo exatamente cada componente com os dados que ele precisa (e não mais), atualizando esses componentes quando os dados mudam e mantendo um store do lado do cliente (com cache) de todos os dados.  
 
@@ -30,9 +30,9 @@ No servidor, nós configuramos o sistema do GraphQL para mapear as queries às c
 
 ## A proposta de valor {#the-value-proposition}
 
-Relay nasceu a partir da nossa experiência em construir grandes aplicações no Facebook. Nosso objetivo mais abrangente é possibilitar desenvolvedores criarem aplicações de alto desempenho da forma correta, direta e óbvia. O projeto possibilita até grandes times fazerem mudanças com um alto grau de isolação e confiabilidade. Fazer fetch dos dados é difícil, lidar com dados que estão sempre mudando também é difícil e desempenho mais ainda. Relay visa reduzir o grau de complexidade desses problemas, movendo os pedaços complicados para o framework e possibilitando você concentrar em construir a sua aplicação.
+Relay nasceu a partir da nossa experiência em construir grandes aplicações no Facebook. Nosso objetivo mais abrangente é possibilitar desenvolvedores criarem aplicações de alto desempenho da forma correta, direta e óbvia. O projeto possibilita até grandes times fazerem mudanças com um alto grau de isolamento e confiabilidade. Fazer fetch dos dados é difícil, lidar com dados que estão sempre mudando também é difícil e desempenho mais ainda. Relay visa reduzir o grau de complexidade desses problemas, movendo os pedaços complicados para o framework e possibilitando você concentrar em construir a sua aplicação.
 
-Situando as queries com o código da view, o desenvolvedor pode verificar o que o componente está fazendo olhando ele isoladamente; não é necessário considerar o contexto onde o componente foi renderizado para entende-lo. Componentes pode ser movidos para qualquer lugar na hierarquia de renderização sem ter que aplicar modificações nos componentes pais em cascada ou ter que codar a preparação dos dados do servidor separadamente.
+Situando as queries com o código da view, o desenvolvedor pode verificar o que o componente está fazendo olhando ele isoladamente; não é necessário considerar o contexto onde o componente foi renderizado para entende-lo. Componentes podem ser movidos para qualquer lugar na hierarquia de renderização sem ter que aplicar modificações nos componentes pais em cascata ou ter que codar a preparação dos dados do servidor separadamente.
 
 Essa colocação leva os desenvolvedores a cair no ["pit de sucesso"](https://english.stackexchange.com/a/77541), porque eles pegam exatamente os dados que eles pediram e os dados que eles pediram são definidos explicitamente, bem perto de onde foi usado. Isso significa que o desempenho vem por padrão (se torna muito difícil causar over-fetch acidentalmente), e os componentes são mais robustos (under-fetching também se torna menos provável pela mesma razão, então componentes não vão tentar renderizar dados que estão faltando e dar pau em tempo de execução).
 
@@ -40,11 +40,11 @@ Relay provêm um ambiente previsível para desenvolvedores mantendo uma constant
 
 Só os campos de um objeto que um componente explicitamente pede serão acessíveis àquele componente, mesmo que outros campos sejam conhecidos e cacheados no store (porque outro componente pediu por eles). Isso faz com que seja impossível ocorrer bugs por dependências de dados implícitos posteriormente no sistema. 
 
-Com o manuseio de todo o data-fetching através de uma única abstração, nós somos capazes de lidar com um monte de coisas que de outra forma teriam que ler lidadas de forma repetitiva por toda aplicação:
+Com o manuseio de todo o data-fetching através de uma única abstração, nós somos capazes de lidar com um monte de coisas que de outra forma teriam que ser lidadas de forma repetitiva por toda aplicação:
 
-- **Performance:** Todas as queries seguem pelo fluxo do framework, onde coisas que de outra forma seriam ineficientes, padrões repetidos de queries são automaticamente colapsadas em lotes eficientes, queries mínimas. Da mesma forma, o framework sabe quais dados foram previamente pedidos, ou quais requisições ainda estão acontecendo, assim, queries podem ser "disduplicadas" e queries mínimas podem ser produzidas.
+- **Performance:** Todas as queries seguem pelo fluxo do framework, onde coisas que de outra forma seriam ineficientes, padrões repetidos de queries são automaticamente colapsadas em lotes eficientes, queries mínimas. Da mesma forma, o framework sabe quais dados foram previamente pedidos, ou quais requisições ainda estão acontecendo, assim, queries podem ser "desduplicadas" e queries mínimas podem ser produzidas.
 - **Subscriptions:** Todos os dados fluem em um único store, e todas as leituras do store são feitas via framework. Isso significa que o framework sabe quais componentes precisam de quais dados e quais deles devem ser re-renderizados quando os dados mudarem; componentes nunca têm que setar subscriptions individuais.
-- **Padrões comuns:** Nós podemos fazer com que padrões comuns se tornem fáceis. Paginação é o exemplo que o [Jing](https://twitter.com/jingc) deu na conferência: se você tem 10 registros inicialmente, pegar a próxima página só quer dizer que você quer 15 registros no total, e o framework automaticamente constrói a query mínima para pegar a diferença entre o que você tem e o que você precisa, faz a requisição e re-renderiza o componente quando os dados se tornam disponíveis.
+- **Padrões comuns:** Nós podemos fazer com que padrões comuns se tornem fáceis. Paginação é o exemplo que o [Jing](https://twitter.com/jingc) deu na conferência: se você tem 10 registros inicialmente, ir para a próxima página só quer dizer que você precisa de 15 registros no total. O framework automaticamente constrói a query mínima para buscar a diferença entre o que você tem e o que você precisa, faz a requisição e re-renderiza o componente quando os dados se tornam disponíveis.
 - **Implementação simplificada no servidor:** Ao invés de ter uma proliferação de end-points (por ação, por rota), um único end-point GraphQL pode servir como uma fachada para inúmeras camadas de recursos.
 - **Mutations uniformes:** Existe um padrão consistente para realizar mutations (escritas). Ele é conceitualmente englobado no modelo de query de dados em si. Você pode pensar que uma mutation é uma query com efeitos colaterais: você provém alguns parâmetros que descrevem as mudanças a serem feitas (por exemplo, anexando um comentário à um registro) e uma query especificando os dados que você vai precisar pra atualizar a sua view depois que a mutation completa (por exemplo, a contagem de comentários no registro), e os dados seguem o fluxo através do sistema. Nós podemos atulizar o cliente de forma "otimista" (ou seja, atualizar a view assumindo que tudo dará certo), e finalmente commitar, tentar novamente ou reverter com um evento de erro quando a payload do server retornar.
 
@@ -58,6 +58,6 @@ No Facebook nós temos apps construídos inteiramente com Flux, inteiramente com
 
 Nós estamos trabalhando duro atualmente para disponibilizar o GraphQL (uma especificação e uma implementação como referência) e o Relay ao público (sem datas específicas ainda, mas nós estamos super empolgados para trazê-los pra cá).
 
-No meio tempo, nós estaremos disponibilizando mais e mais informações na forma de posts de blog (e em [outros canais](https://gist.github.com/wincent/598fa75e22bdfa44cf47)). À medida que chegamos perto do lançamento open source, vocês podem esperar por detalhes mais concretos, sintaxe, documentações de API e mais.
+No meio tempo, nós estaremos disponibilizando mais e mais informações na forma de artigos de blog (e em [outros canais](https://gist.github.com/wincent/598fa75e22bdfa44cf47)). À medida que chegamos perto do lançamento open source, vocês podem esperar por detalhes mais concretos, sintaxe, documentações de API e mais.
 
 Fique de olho!
