@@ -64,6 +64,7 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
 Começando com 16.8.0, React inclui uma implementação estável dos Hooks para:
 
 * React DOM
+* React Native
 * React DOM Server
 * React Test Renderer
 * React Shallow Renderer
@@ -71,7 +72,6 @@ Começando com 16.8.0, React inclui uma implementação estável dos Hooks para:
 Note que **para habilitar Hooks, todos os pacotes precisam estar na versão 16.8.0 ou maior**. Hooks não vão funcionar se você esquecer de atualizar, por exemplo, o React DOM.
 
 React Native 0.59 e superiores suportam Hooks.
-
 
 ### Preciso reescrever todos os meus componentes usando classe? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -107,7 +107,9 @@ Frequentemente, render props e HOC renderizam somente um filho. Nós achamos que
 
 Você pode continuar a usar exatamente as mesmas APIs que sempre usou; elas vão continuar funcionando.
 
-No futuro, novas versões dessas bibliotecas também pode exportar Hooks customizados como `useRedux()` ou `useRouter()` que permitem que você use as mesmas features sem precisar de componentes em volta.
+React Redux desde a v7.1.0 [suporta Hooks API](https://react-redux.js.org/api/hooks) e expóe hooks como `useDispatch` ou `useSelector`.
+
+Libraries like React Router might support hooks in the future.
 
 ### Hooks funcionam com tipagem estática? {#do-hooks-work-with-static-typing}
 
@@ -118,6 +120,10 @@ Importante observar, que Hooks customizados te dão o poder de restringir a API 
 ### Como testar componentes que usam Hooks? {#how-to-test-components-that-use-hooks}
 
 Do ponto de vista do React, um componente usando Hooks é somente um componente regular. Se sua solução para testes não depende do funcionamento interno do React, testar componentes com Hooks não deveria ser diferente de como você normalmente testa componentes.
+
+>Nota
+>
+>Em [Testing Recipes](/docs/testing-recipes.html) tem muitos exemplos que você pode copiar e colar.
 
 Por exemplo, digamos que temos este componente contador:
 
@@ -181,7 +187,9 @@ As chamadas para `act()` também vão descarregar os efeitos dentro dele.
 
 Se você precisa testar um Hook customizado, você pode faze-lo criando um componente no seu teste e usando o seu Hook nele. Então você pode testar o componente que escreveu.
 
-Para reduzir o boilerplate, nós recomendamos usar [`react-testing-library`](https://git.io/react-testing-library) que é projetada para incentivar a escrever testes que usam seus componentes como usuários finais usam.
+Para reduzir o boilerplate, nós recomendamos usar [React Testing Library](https://testing-library.com/react) que é projetada para incentivar a escrever testes que usam seus componentes como usuários finais usam.
+
+Para mais informações, confira [Testing Recipes](/docs/testing-recipes.html).
 
 ### O que exatamente as [regras de lint](https://www.npmjs.com/package/eslint-plugin-react-hooks) impõem? {#what-exactly-do-the-lint-rules-enforce}
 

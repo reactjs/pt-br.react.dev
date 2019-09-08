@@ -353,7 +353,7 @@ Se nenhum array for fornecida, um novo valor será calculado em cada renderizaç
 const refContainer = useRef(initialValue);
 ```
 
-`useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá no durante todo o ciclo de vida do componente.
+`useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
 Um caso comum de uso é o acesso imperativamente a um componente filho:
 

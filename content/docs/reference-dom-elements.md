@@ -34,7 +34,7 @@ Se você usar React com Web Components (que é uma prática incomum), use o atri
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-`dangerouslySetInnerHTML` é o substituto do React para o uso do `innerHTML` no DOM do navegador. Em geral, adicionar HTML através de código é arriscado pois é fácil expor inadvertidamente seus usuários a um ataque de [cross-site scripting (XSS)](https://pt.wikipedia.org/wiki/Cross-site_scripting). Então, você pode definir HTML diretamente através do React, mas vocẽ tem que digitar `dangerouslySetInnerHTML` e passar um objeto com a chave `__html`, para te relembrar que é perigoso. Por exemplo: -->
+`dangerouslySetInnerHTML` é o substituto do React para o uso do `innerHTML` no DOM do navegador. Em geral, adicionar HTML através de código é arriscado pois é fácil expor inadvertidamente seus usuários a um ataque de [cross-site scripting (XSS)](https://pt.wikipedia.org/wiki/Cross-site_scripting). Então, você pode definir HTML diretamente através do React, mas vocẽ tem que digitar `dangerouslySetInnerHTML` e passar um objeto com a chave `__html`, para lhe relembrar que é perigoso. Por exemplo: -->
 
 ```js
 function createMarkup() {
@@ -117,7 +117,7 @@ Normalmente, existe um alerta quando um elemento contém outros elementos que ta
 Se você usa a renderização do React no lado do servidor, normalmente existe um alerta para quando o servidor e o lado do cliente renderizam conteúdo de formas diferentes. Entretanto, em alguns casos raros, é muito difícil ou impossível de garantir a correspondência exata. Por exemplo, é esperado que _timestamps_ estejam diferentes no servidor e no cliente. 
 
 
-Se você definir `suppressHydrationWarning` para `true`, o React te avisará sobre incompatibilidades nos atributos e no conteúdo daquele elemento. Isto só funciona dentro de 1 nível de profundidade e destina-se a ser usado como uma saída de emergência. Não use excessivamente. Você pode ler mais sobre _hydration_ na [documentação do `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
+Se você definir `suppressHydrationWarning` para `true`, o React não lhe avisará sobre incompatibilidades nos atributos e no conteúdo daquele elemento. Isto só funciona dentro de 1 nível de profundidade e destina-se a ser usado como uma saída de emergência. Não use excessivamente. Você pode ler mais sobre _hydration_ na [documentação do `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
 
 ### value {#value}
 

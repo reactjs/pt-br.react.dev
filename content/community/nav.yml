@@ -9,7 +9,7 @@
     - id: meetups
       title: Meetups
     - id: conferences
-      title: Conferencias
+      title: Conferências
     - id: articles
       title: Artigos
     - id: podcasts
@@ -34,8 +34,6 @@
       title: Gestão de Modelos
     - id: data-fetching
       title: Busca de dados
-    - id: testing
-      title: Testando
     - id: ui-components
       title: UI Componentes
     - id: misc
