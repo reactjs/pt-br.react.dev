@@ -6,7 +6,6 @@ author: [wincent]
 
 ## Data fetching para aplicações React {#data-fetching-for-react-applications}
 
-
 Há mais conhecimento agregado para criar um aplicativo do para que criar uma interface de usuário. Data fetching ainda é um problema complicado, principalmente quando as aplicações se tornam mais complicadas. Na [React.js Conf](http://conf.reactjs.com/) nós anunciamos dois projetos que nós criamos no Facebook para tornar simples o data fetching para desenvolvedores, mesmo quando um produto cresce o bastante para incluir dezenas de contribuidores e a aplicação se torna tão complexa quanto o próprio Facebook.
 
 <iframe width="650" height="315" src="https://www.youtube-nocookie.com/embed/9sc8Pyc51uU" frameborder="0" allowfullscreen></iframe>
