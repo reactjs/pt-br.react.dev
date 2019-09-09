@@ -145,7 +145,7 @@ O Webpack v4+ irá diminuir seu código por padrão no modo de produção.
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  mode: 'production'
+  mode: 'production',
   optimization: {
     minimizer: [new TerserPlugin({ /* opções adicionais aqui */ })],
   },
