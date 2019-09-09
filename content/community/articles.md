@@ -13,4 +13,4 @@ permalink: community/articles.html
 - [Timeline for Learning React](https://daveceddia.com/timeline-for-learning-react/) - O Cronograma recomendado por Dave Ceddia para aprender React e seu ecossistema.
 - [Simple React Development in 2017](https://hackernoon.com/simple-react-development-in-2017-113bd563691f) - O Guia de Joshua Comeau para mostrar como é fácil começar o desenvolvimento moderno com React.
 - [Visual Guide to State in React](https://daveceddia.com/visual-guide-to-state-in-react/) - O Guia visual de Dave Ceddia para o estado ("state") do React.
-- [The Hands-On Guide to Learning React Hooks](https://www.telerik.com/kendo-react-ui/react-hooks-guide/)
+- [The Hands-On Guide to Learning React Hooks](https://www.telerik.com/kendo-react-ui/react-hooks-guide/) - Guia passo a passo de Eric Bishard para aprender React Hooks.

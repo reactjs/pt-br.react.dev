@@ -103,7 +103,7 @@ expect(testInstance.findByProps({className: "sub"}).children).toEqual(['Sub']);
 TestRenderer.create(element, options);
 ```
 
-Cria uma instância do `TestRenderer` com o elemento React fornecido. Este método não usa o DOM real, mas ainda renderiza completamente a árvore de componentes na memória para que você possa fazer verificações sobre ela. A instância retornada possui os seguintes métodos e propriedades.
+Cria uma instância do `TestRenderer` com o elemento React fornecido. Este método não usa o DOM real, mas ainda renderiza completamente a árvore de componentes na memória para que você possa fazer verificações sobre ela. Retorna uma [instância TestRender](#testrenderer-instance).
 
 ### `TestRenderer.act()` {#testrendereract}
 
@@ -149,7 +149,7 @@ Retorna um objeto representando a árvore renderizada. Essa árvore contém apen
 testRenderer.toTree()
 ```
 
-Retorna um objeto representando a árvore renderizada. Ao contrário de `toJSON()`, a representação é mais detalhada que a fornecida por `toJSON()`, e inclui os componentes criados pelo usuário. Você provavelmente não precisa desse método, a menos que esteja escrevendo sua própria biblioteca de asserções sobre o renderizador de teste.
+Retorna um objeto representando a árvore renderizada. A representação é mais detalhada que a fornecida por `toJSON()`, e inclui os componentes criados pelo usuário. Você provavelmente não precisa desse método, a menos que esteja escrevendo sua própria biblioteca de asserções sobre o renderizador de teste.
 
 ### `testRenderer.update()` {#testrendererupdate}
 
