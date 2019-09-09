@@ -19,14 +19,14 @@ const Acknowlegements = ({data, location}) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-          <Header>Acknowledgements</Header>
+          <Header>Agradecimentos</Header>
           <TitleAndMetaTags
-            ogUrl={`${urlRoot}/acknowledgements.html`}
-            title="React - Acknowledgements"
+            canonicalUrl={`${urlRoot}/acknowledgements.html`}
+            title="React - Agradecimentos"
           />
 
           <div css={sharedStyles.markdown}>
-            <p>We'd like to thank all of our contributors:</p>
+            <p>Nós gostaríamos de agradecer a todos os nossos contribuintes:</p>
 
             <ul
               css={{
@@ -44,38 +44,38 @@ const Acknowlegements = ({data, location}) => (
               ))}
             </ul>
 
-            <p>In addition, we're grateful to</p>
+            <p>Além disso, somos gratos a</p>
             <ul>
               <li>
-                <a href="https://github.com/jeffbski">Jeff Barczewski</a> for
-                allowing us to use the{' '}
-                <a href="https://www.npmjs.com/package/react">react</a> package
-                name on npm.
+                <a href="https://github.com/jeffbski">Jeff Barczewski</a> por
+                nos permitir usar o nome{' '}
+                <a href="https://www.npmjs.com/package/react">react</a>
+                no npm.
               </li>
               <li>
-                <a href="https://christopheraue.net/">Christopher Aue</a> for
-                letting us use the <a href="http://reactjs.com/">reactjs.com</a>{' '}
-                domain name and the{' '}
-                <a href="https://twitter.com/reactjs">@reactjs</a> username on
-                Twitter.
+                <a href="https://christopheraue.net/">Christopher Aue</a> por
+                nos permitir usar o domínio{' '}
+                <a href="https://reactjs.com/">reactjs.com</a> e a conta
+                <a href="https://twitter.com/reactjs">@reactjs</a>
+                no Twitter.
               </li>
               <li>
-                <a href="https://github.com/ProjectMoon">ProjectMoon</a> for
-                letting us use the{' '}
-                <a href="https://www.npmjs.com/package/flux">flux</a> package
-                name on npm.
+                <a href="https://github.com/ProjectMoon">ProjectMoon</a> por nos
+                permitir usar o nome{' '}
+                <a href="https://www.npmjs.com/package/flux">flux</a>
+                no npm.
               </li>
               <li>
-                Shane Anderson for allowing us to use the{' '}
-                <a href="https://github.com/react">react</a> org on GitHub.
+                Shane Anderson por nos permitir usar a organização{' '}
+                <a href="https://github.com/react">react</a> no GitHub.
               </li>
               <li>
                 <a href="https://github.com/voronianski">Dmitri Voronianski</a>{' '}
-                for letting us use the{' '}
+                por nos permitir usar o esquema de cores{' '}
                 <a href="https://labs.voronianski.com/oceanic-next-color-scheme/">
                   Oceanic Next
                 </a>{' '}
-                color scheme on this website.
+                neste website.
               </li>
             </ul>
           </div>

@@ -10,6 +10,7 @@ import Container from 'components/Container';
 import Header from 'components/Header';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
 import React from 'react';
+import {urlRoot} from 'site-constants';
 import {sharedStyles} from 'theme';
 
 // $FlowFixMe This is a valid path
@@ -24,24 +25,26 @@ const Versions = ({location}: Props) => (
     <Container>
       <div css={sharedStyles.articleLayout.container}>
         <div css={sharedStyles.articleLayout.content}>
-          <Header>React Versions</Header>
-          <TitleAndMetaTags title="React - Versions" />
+          <Header>Versões do React</Header>
+          <TitleAndMetaTags
+            canonicalUrl={`${urlRoot}/versions/`}
+            title="React - Versões"
+          />
           <div css={sharedStyles.markdown}>
             <p>
-              A complete release history for React is available{' '}
+              O histórico completo de lançamentos do React está disponível{' '}
               <a
                 href="https://github.com/facebook/react/releases"
                 target="_blank"
                 rel="noopener">
-                on GitHub
+                no GitHub
               </a>
-              .<br />
-              Documentation for recent releases can also be found below.
+              .<br />A documentação mais recente pode ser encontrada abaixo.
             </p>
             <p>
-              See our FAQ for information about{' '}
+              Veja nosso FAQ para se informar sobre{' '}
               <a href="/docs/faq-versioning.html">
-                our versioning policy and commitment to stability
+                nossa política de versionamento e compromisso com estabilidade
               </a>
               .
             </p>
@@ -57,7 +60,7 @@ const Versions = ({location}: Props) => (
                   {version.path && (
                     <li>
                       <a href={version.path} rel="nofollow">
-                        Documentation
+                        Documentação
                       </a>
                     </li>
                   )}

@@ -1,30 +1,30 @@
 ---
 id: hooks-overview
-title: Hooks at a Glance
+title: Hooks de forma resumida
 permalink: docs/hooks-overview.html
 next: hooks-state.html
 prev: hooks-intro.html
 ---
 
-*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+*Hooks* são uma nova adição no React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 
-Hooks are [backwards-compatible](/docs/hooks-intro.html#no-breaking-changes). This page provides an overview of Hooks for experienced React users. This is a fast-paced overview. If you get confused, look for a yellow box like this:
+Hooks são [retrocompatíveis](/docs/hooks-intro.html#no-breaking-changes). Esta página fornece uma visão geral de Hooks para usuários experientes em React. Esta é uma visão geral rápida. Se você se sentir confuso, procure uma caixa amarela com esta:
 
->Detailed Explanation
+>Explicação Detalhada
 >
->Read the [Motivation](/docs/hooks-intro.html#motivation) to learn why we're introducing Hooks to React.
+>Leia a [Motivação](/docs/hooks-intro.html#motivation) para entender porque estamos introduzindo Hooks para o React.
 
-**↑↑↑ Each section ends with a yellow box like this.** They link to detailed explanations.
+**↑↑↑ Cada seção termina com uma caixa amarela como esta.** Elas linkam para explicações detalhadas.
 
-## 📌 State Hook {#-state-hook}
+## 📌 State Hook {#state-hook}
 
-This example renders a counter. When you click the button, it increments the value:
+Este exemplo renderiza um contador. Quando você clica no botão, ele incrementa o valor:
 
 ```js{1,4,5}
 import React, { useState } from 'react';
 
 function Example() {
-  // Declare a new state variable, which we'll call "count"
+  // Declara uma nova variável de state, que chamaremos de "count"
   const [count, setCount] = useState(0);
 
   return (
@@ -38,17 +38,17 @@ function Example() {
 }
 ```
 
-Here, `useState` is a *Hook* (we'll talk about what this means in a moment). We call it inside a function component to add some local state to it. React will preserve this state between re-renders. `useState` returns a pair: the *current* state value and a function that lets you update it. You can call this function from an event handler or somewhere else. It's similar to `this.setState` in a class, except it doesn't merge the old and new state together. (We'll show an example comparing `useState` to `this.state` in [Using the State Hook](/docs/hooks-state.html).)
+Aqui, `useState` é um *Hook* (nós vamos falar sobre o que isso significa em instantes). Nós o chamamos dentro de um componente funcional para adicionar alguns states locais a ele. React irá presevar este state entre re-renderizações. `useState` retorna um par: o valor do state *atual* e uma função que permite atualizá-lo. Você pode chamar essa função a partir de um manipulador de evento ou de qualquer outro lugar. É parecido com `this.setState` em uma classe, exceto que não mescla o antigo state com o novo. (Nós iremos mostrar um exemplo comparando `useState` com `this.state` em [Utilizando o State Hook](/docs/hooks-state.html).)
 
-The only argument to `useState` is the initial state. In the example above, it is `0` because our counter starts from zero. Note that unlike `this.state`, the state here doesn't have to be an object -- although it can be if you want. The initial state argument is only used during the first render.
+O único argumento para `useState` é o state inicial. No exemplo acima, é `0` porque nosso contador começa do zero. Perceba que diferente de `this.state`, o state não precisa ser um objeto -- apesar de que possa ser se você quiser. O argumento de state inicial é utilizado apenas durante a primeira renderização.
 
-#### Declaring multiple state variables {#declaring-multiple-state-variables}
+#### Declarando multiplas variáveis de state {#declaring-multiple-state-variables}
 
-You can use the State Hook more than once in a single component:
+Você pode utilizar o State Hook mais de uma vez em um único componente:
 
 ```js
 function ExampleWithManyStates() {
-  // Declare multiple state variables!
+  // Declara várias variáveis de state!
   const [age, setAge] = useState(42);
   const [fruit, setFruit] = useState('banana');
   const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
@@ -56,25 +56,26 @@ function ExampleWithManyStates() {
 }
 ```
 
-The [array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring) syntax lets us give different names to the state variables we declared by calling `useState`. These names aren't a part of the `useState` API. Instead, React assumes that if you call `useState` many times, you do it in the same order during every render. We'll come back to why this works and when this is useful later.
+A sintaxe de [desestruturação de arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring) nos permite atribuir diferentes nomes para as variáveis de state que declaramos chamando `useState`. Esses nomes não fazem parte da API `useState`. Em vez disso, React presume que se você chamar `useState` muitas vezes, você faz isso na mesma ordem a cada renderização. Mais tarde, voltaremos no porquê disso funcionar e quando será útil.
 
-#### But what is a Hook? {#but-what-is-a-hook}
+#### Mas, o que é um Hook? {#but-what-is-a-hook}
 
-Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes -- they let you use React without classes. (We [don't recommend](/docs/hooks-intro.html#gradual-adoption-strategy) rewriting your existing components overnight but you can start using Hooks in the new ones if you'd like.)
+Hooks são funções que permitem a você "ligar-se" aos recursos de state e ciclo de vida do React a partir de componentes funcionais. Hooks não funcionam dentro de classes -- eles permitem que você use React sem classes. (Nós [não recomendamos](/docs/hooks-intro.html#gradual-adoption-strategy) reescrever seus componentes já existentes de um dia para o outro, mas você pode começar a usar Hooks nos novos se você quiser.)
 
-React provides a few built-in Hooks like `useState`. You can also create your own Hooks to reuse stateful behavior between different components. We'll look at the built-in Hooks first.
+React fornece alguns Hooks internos como `useState`. Você também pode criar os seus próprios Hooks para reutilizar o comportamento de state entre componentes diferentes. Vamos dar uma olhada nos Hooks internos primeiramente.
 
->Detailed Explanation
+>Explicação Detalhada
 >
->You can learn more about the State Hook on a dedicated page: [Using the State Hook](/docs/hooks-state.html).
+>Você pode aprender mais sobre State Hook em sua página dedicada: [Utilizando o State Hook](/docs/hooks-state.html).
 
-## ⚡️ Effect Hook {#️-effect-hook}
 
-You've likely performed data fetching, subscriptions, or manually changing the DOM from React components before. We call these operations "side effects" (or "effects" for short) because they can affect other components and can't be done during rendering.
+## ⚡️ Hook de Efeito {#effect-hook}
 
-The Effect Hook, `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in React classes, but unified into a single API. (We'll show examples comparing `useEffect` to these methods in [Using the Effect Hook](/docs/hooks-effect.html).)
+Você provavelmente já realizou obtenção de dados (data fetching), subscrições (subscriptions) ou mudanças manuais no DOM através de componentes React antes. Nós chamamos essas operações de "efeitos colaterais" (side effects ou apenas effects) porque eles podem afetar outros componentes e não podem ser feitos durante a renderização.
 
-For example, this component sets the document title after React updates the DOM:
+O Hook de Efeito, `useEffect`, adiciona a funcionalidade de executar efeitos colaterais através de um componente funcional. Segue a mesma finalidade do `componentDidMount`, `componentDidUpdate`, e `componentWillUnmount` em classes React, mas unificado em uma mesma API. (Nós mostraremos exemplos comparando `useEffect` com esses métodos em [Utilizando o Hook de Efeito](/docs/hooks-effect.html).)
+
+Por exemplo, este componente define o título da página após o React atualizar o DOM:
 
 ```js{1,6-10}
 import React, { useState, useEffect } from 'react';
@@ -82,9 +83,9 @@ import React, { useState, useEffect } from 'react';
 function Example() {
   const [count, setCount] = useState(0);
 
-  // Similar to componentDidMount and componentDidUpdate:
+  // Similar a componentDidMount e componentDidUpdate:
   useEffect(() => {
-    // Update the document title using the browser API
+    // Atualiza o título do documento utilizando a API do navegador
     document.title = `You clicked ${count} times`;
   });
 
@@ -99,9 +100,9 @@ function Example() {
 }
 ```
 
-When you call `useEffect`, you're telling React to run your "effect" function after flushing changes to the DOM. Effects are declared inside the component so they have access to its props and state. By default, React runs the effects after every render -- *including* the first render. (We'll talk more about how this compares to class lifecycles in [Using the Effect Hook](/docs/hooks-effect.html).)
+Quando você chama `useEffect`, você está dizendo ao React para executar a sua função de "efeito" após liberar as mudanças para o DOM. Efeitos são declarados dentro do componente, para que eles tenham acesso as suas props e state. Por padrão, React executa os efeitos após cada renderização -- *incluindo* a primeira renderização. (Falaremos mais sobre como isso se compara aos ciclos de vida das classes em [Utilizando o Hook de Efeito](/docs/hooks-effect.html).)
 
-Effects may also optionally specify how to "clean up" after them by returning a function. For example, this component uses an effect to subscribe to a friend's online status, and cleans up by unsubscribing from it:
+Efeitos também podem opcionalmente especificar como "limpar" (clean up) retornando uma função após a execução deles. Por exemplo, este componente utiliza um efeito para se subscrever ao status online de um amigo e limpa-se (clean up) cancelando a sua subscrição:
 
 ```js{10-16}
 import React, { useState, useEffect } from 'react';
@@ -128,9 +129,9 @@ function FriendStatus(props) {
 }
 ```
 
-In this example, React would unsubscribe from our `ChatAPI` when the component unmounts, as well as before re-running the effect due to a subsequent render. (If you want, there's a way to [tell React to skip re-subscribing](/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) if the `props.friend.id` we passed to `ChatAPI` didn’t change.)
+Neste exemplo, o React cancelaria a subscrição da nossa `ChatAPI` quando o componente se desmontar, e também antes de reexecutar o efeito devido a uma renderização subsequente. (Se você quiser, há uma maneira de [dizer ao React para ignorar a nova subscrição](/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects) se o `props.friend.id` que passamos para `ChatAPI` não tiver mudado.)
 
-Just like with `useState`, you can use more than a single effect in a component:
+Assim como `useState`, você pode utilizar mais de um efeito em um componente:
 
 ```js{3,8}
 function FriendStatusWithCounter(props) {
@@ -153,32 +154,32 @@ function FriendStatusWithCounter(props) {
   // ...
 ```
 
-Hooks let you organize side effects in a component by what pieces are related (such as adding and removing a subscription), rather than forcing a split based on lifecycle methods.
+Hooks permitem a você organizar efeitos colaterais *(side effects)* em um componente por partes relacionadas (como adicionar e remover uma subscrição), em vez de forçar uma divisão baseada nos métodos de ciclo de vida.
 
->Detailed Explanation
+> Explicação Detalhada
 >
->You can learn more about `useEffect` on a dedicated page: [Using the Effect Hook](/docs/hooks-effect.html).
+> Você pode aprender mais sobre `useEffect` na sua página dedicada: [Utilizando o Hook de Efeito](/docs/hooks-effect.html).
 
-## ✌️ Rules of Hooks {#️-rules-of-hooks}
+## ✌️ Regras dos Hooks {#rules-of-hooks}
 
-Hooks are JavaScript functions, but they impose two additional rules:
+Hooks são funções JavaScript, mas eles impões duas regras adicionais:
 
-* Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions.
-* Only call Hooks **from React function components**. Don’t call Hooks from regular JavaScript functions. (There is just one other valid place to call Hooks -- your own custom Hooks. We'll learn about them in a moment.)
+* Apenas chame Hooks **no nível mais alto**. Não chame Hooks dentro de loops, condições ou funções aninhadas.
+* Apenas chame Hooks **de componentes funcionais**. Não chame Hooks de funções JavaScript comuns. (Há apenas um outro lugar válido para se chamar Hooks -- dentro dos seus próprios Hooks customizados. Iremos aprender sobre eles em breve.)
 
-We provide a [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to enforce these rules automatically. We understand these rules might seem limiting or confusing at first, but they are essential to making Hooks work well.
+Nós fornecemos um [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) para assegurar essas regras automaticamente. Entendemos que essas regras podem parecer limitantes ou confusas a princípio, mas são essenciais para fazer com que os Hooks funcionem bem.
 
->Detailed Explanation
+> Explicação Detalhada
 >
->You can learn more about these rules on a dedicated page: [Rules of Hooks](/docs/hooks-rules.html).
+> Você pode aprender mais sobre essas regras na sua página dedicada: [Regras dos Hooks](/docs/hooks-rules.html).
 
-## 💡 Building Your Own Hooks {#-building-your-own-hooks}
+## 💡 Construindo Seus Próprios Hooks {#building-your-own-hooks}
 
-Sometimes, we want to reuse some stateful logic between components. Traditionally, there were two popular solutions to this problem: [higher-order components](/docs/higher-order-components.html) and [render props](/docs/render-props.html). Custom Hooks let you do this, but without adding more components to your tree.
+Às vezes, queremos reutilizar algumas lógicas de state entre componentes. Tradicionalmente, haviam duas soluções populares para este problema: [componentes de ordem superior](/docs/higher-order-components.html) e [renderização de props](/docs/render-props.html). Hooks Customizados te permitem fazer isso, mas sem adicionar mais componentes para a sua árvore.
 
-Earlier on this page, we introduced a `FriendStatus` component that calls the `useState` and `useEffect` Hooks to subscribe to a friend's online status. Let's say we also want to reuse this subscription logic in another component.
+Anteriormente nesta página, nós introduzimos um componente `FriendStatus` que chama os Hooks `useState` e `useEffect` para subscrever-se ao status de online de um amigo. Digamos que também precisaremos reutilizar essa lógica de subscrição em outro componente.
 
-First, we'll extract this logic into a custom Hook called `useFriendStatus`:
+Primeiramente, iremos extrair esta lógica para um Hook customizado chamado `useFriendStatus`:
 
 ```js{3}
 import React, { useState, useEffect } from 'react';
@@ -201,10 +202,9 @@ function useFriendStatus(friendID) {
 }
 ```
 
-It takes `friendID` as an argument, and returns whether our friend is online.
+Que recebe `friendID` como um argumento, e sempre retorna se nosso amigo está online.
 
-Now we can use it from both components:
-
+Agora podemos utilizar a partir dos dois componentes:
 
 ```js{2}
 function FriendStatus(props) {
@@ -229,19 +229,19 @@ function FriendListItem(props) {
 }
 ```
 
-The state of these components is completely independent. Hooks are a way to reuse *stateful logic*, not state itself. In fact, each *call* to a Hook has a completely isolated state -- so you can even use the same custom Hook twice in one component.
+O estado (state) destes componentes é completamente independente. Hooks são a forma de reutilizar *lógica de state*, não o state em si. De fato, cada *chamada* para um Hook tem um state completamente isolado -- então você pode até utilizar o mesmo Hook custom duas vezes em um componente.
 
-Custom Hooks are more of a convention than a feature. If a function's name starts with "`use`" and it calls other Hooks, we say it is a custom Hook. The `useSomething` naming convention is how our linter plugin is able to find bugs in the code using Hooks.
+Hooks customizados são mais uma convenção do que uma funcionalidade. Se o nome de uma função começa com "`use`" e chama outros Hooks, consideramos que é um Hook customizado. A convenção de nome `useSomething` é como nosso plugin de linter é capaz de encontrar bugs no nosso código que utiliza Hooks.
 
-You can write custom Hooks that cover a wide range of use cases like form handling, animation, declarative subscriptions, timers, and probably many more we haven't considered. We are excited to see what custom Hooks the React community will come up with.
+Você pode escrever Hooks customizados que abrangem uma ampla gama de casos de uso, como manipulação de formulários, animações, subscrições declarativas, temporizadores e provavelmente muitos outros que não consideramos. Estamos animados para ver quais Hooks customizados a comunidade React irá criar.
 
->Detailed Explanation
+> Explicação Detalhada
 >
->You can learn more about custom Hooks on a dedicated page: [Building Your Own Hooks](/docs/hooks-custom.html).
+> Você pode aprender mais sobre Hooks Customizados na sua página dedicada: [Construindo Seus Próprios Hooks](/docs/hooks-custom.html).
 
-## 🔌 Other Hooks {#-other-hooks}
+## 🔌 Outros Hooks {#other-hooks}
 
-There are a few less commonly used built-in Hooks that you might find useful. For example, [`useContext`](/docs/hooks-reference.html#usecontext) lets you subscribe to React context without introducing nesting:
+Existem alguns Hooks internos menos utilizados que você pode achar úteis. Por exemplo, [`useContext`](/docs/hooks-reference.html#usecontext) permite subscrever-se para o context do React sem adicionar aninhamento:
 
 ```js{2,3}
 function Example() {
@@ -251,7 +251,7 @@ function Example() {
 }
 ```
 
-And [`useReducer`](/docs/hooks-reference.html#usereducer) lets you manage local state of complex components with a reducer:
+E [`useReducer`](/docs/hooks-reference.html#usereducer) permite gerenciar state local de componentes complexos com um reducer:
 
 ```js{2}
 function Todos() {
@@ -259,14 +259,14 @@ function Todos() {
   // ...
 ```
 
->Detailed Explanation
+> Explicação Detalhada
 >
->You can learn more about all the built-in Hooks on a dedicated page: [Hooks API Reference](/docs/hooks-reference.html).
+> Você pode aprender mais sobre todos os Hooks internos na sua página dedicada: [Referência da API de Hooks](/docs/hooks-reference.html).
 
-## Next Steps {#next-steps}
+## Próximos Passos {#next-steps}
 
-Phew, that was fast! If some things didn't quite make sense or you'd like to learn more in detail, you can read the next pages, starting with the [State Hook](/docs/hooks-state.html) documentation.
+Ufa, essa foi rápida! Se algumas coisas não fizeram sentido ou se você quiser aprender mais detalhes, você pode ler as próximas páginas, começando com a documentação de [State Hook](/docs/hooks-state.html).
 
-You can also check out the [Hooks API reference](/docs/hooks-reference.html) and the [Hooks FAQ](/docs/hooks-faq.html).
+Você também pode conferir a [Referência de API de Hooks ](/docs/hooks-reference.html) e o [FAQ de Hooks](/docs/hooks-faq.html).
 
-Finally, don't miss the [introduction page](/docs/hooks-intro.html) which explains *why* we're adding Hooks and how we'll start using them side by side with classes -- without rewriting our apps.
+Por fim, não perca a [página de introdução](/docs/hooks-intro.html) que explica *porque* estamos adicionando Hooks e como iremos começar a utilizá-los lado a lado com as classes -- sem reescrever os nossos apps.

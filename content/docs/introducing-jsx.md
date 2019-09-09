@@ -71,7 +71,7 @@ ReactDOM.render(
 
 [](codepen://introducing-jsx)
 
-Separamos o JSX em múltiplas linhas para melhorar a legibilidade. Mesmo que não seja obrigatório, quando fizer isso, também recomendamos colocar dentro de parênteses para evitar as armadilhas da [inserção automática de ponto-e-vírgula](http://stackoverflow.com/q/2846283).
+Separamos o JSX em múltiplas linhas para melhorar a legibilidade. Mesmo que não seja obrigatório, quando fizer isso, também recomendamos colocar dentro de parênteses para evitar as armadilhas da [inserção automática de ponto-e-vírgula](https://stackoverflow.com/q/2846283).
 
 ### JSX Também é uma Expressão {#jsx-is-an-expression-too}
 
@@ -139,7 +139,7 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-Por padrão, o React DOM [escapa](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) quaisquer valores incorporados no JSX antes de renderizá-los. Assim, assegura que você nunca injete algo que não esteja explicitamente escrito na sua aplicação. Tudo é convertido para string antes de ser renderizado. Isso ajuda a prevenir ataques [XSS (cross-site-scripting)](https://pt.wikipedia.org/wiki/Cross-site_scripting).
+Por padrão, o React DOM [escapa](https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) quaisquer valores incorporados no JSX antes de renderizá-los. Assim, assegura que você nunca injete algo que não esteja explicitamente escrito na sua aplicação. Tudo é convertido para string antes de ser renderizado. Isso ajuda a prevenir ataques [XSS (cross-site-scripting)](https://pt.wikipedia.org/wiki/Cross-site_scripting).
 
 ### JSX Representa Objetos {#jsx-represents-objects}
 
@@ -182,4 +182,4 @@ Exploraremos a renderização de elementos React no DOM na próxima seção.
 
 >**Dica:**
 >
->Recomendamos o uso da [definição de linguagem "Babel"](http://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados. Este website usa o esquema de cores [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), no qual é compatível com o Babel.
+> Recomendamos o uso da [definição de linguagem "Babel"](https://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados. Este website usa o esquema de cores [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), no qual é compatível com o Babel.

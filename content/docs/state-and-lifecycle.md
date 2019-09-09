@@ -29,7 +29,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/gwoJZk?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)
 
 Esta seção, aprenderemos como tornar o componente `Clock` verdadeiramente reutilizável e encapsulado. Ele irá configurar seu próprio temporizador e se atualizar a cada segundo.
 
@@ -55,11 +55,11 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/dpdoYR?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/dpdoYR?editors=0010)
 
 No entanto, falta um requisito crucial: o fato de que o `Clock` configura um temporizador e atualiza a UI a cada segundo deve ser um detalhe de implementação do `Clock`.
 
-Idealmente, queremos escrever isto uma vez e ter o `Clock` se atualizado:
+Idealmente, queremos escrever isto uma vez e ter o `Clock` se atualizando:
 
 ```js{2}
 ReactDOM.render(
@@ -71,8 +71,6 @@ ReactDOM.render(
 Para implementá-lo, precisamos adicionar um "state" ao componente `Clock`.
 
 O state do componente é similar as props, mas é privado e totalmente controlado pelo componente.
-
-Nós [mencionamos antes](/docs/components-and-props.html#functional-and-class-components) que os componentes definidos como classes possuem alguns recursos adicionais. O estado local é exatamente isso: um recurso disponível apenas para classes.
 
 ## Convertendo uma Função para uma Classe {#converting-a-function-to-a-class}
 
@@ -101,7 +99,7 @@ class Clock extends React.Component {
 }
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRGpo?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/zKRGpo?editors=0010)
 
 `Clock` agora é definido como uma classe em vez de uma função.
 
@@ -146,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-Note como nos passamos `props` para o construtor:
+Note como nós passamos `props` para o construtor:
 
 ```js{2}
   constructor(props) {
@@ -193,9 +191,9 @@ ReactDOM.render(
 );
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/KgQpJd?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Em seguinda, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
+Em seguida, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
 
 ## Adicionando Métodos de Ciclo de Vida a Classe {#adding-lifecycle-methods-to-a-class}
 
@@ -246,7 +244,7 @@ O método `componentDidMount()` é executado depois que a saída do componente �
   }
 ```
 
-Note como nós salvamos o ID do temporizador em `this`.
+Note como nós salvamos o ID do temporizador em `this` (`this.timerID`).
 
 Enquanto `this.props` é configurado pelo próprio React e `this.state` tem um significado especial, você está livre para adicionar campos adicionais à classe manualmente se precisar armazenar algo que não participe do fluxo de dados (como um ID do temporizador)
 
@@ -302,13 +300,13 @@ ReactDOM.render(
 );
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/amqdNA?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
 
 Agora o relógio bate a cada segundo.
 
 Vamos recapitular rapidamente o que está acontencendo e a ordem na qual os métodos são chamados:
 
-1) Quando `<Clock />` é passado para `ReactDOM.render()`, o React chama o construtor do componente `Clock`. Como `Clock` precisa exibir a hora atual, ele inicializa `this.state` com um objeto incluindo a hora atual. Mas tarde, atualizaremos este state.
+1) Quando `<Clock />` é passado para `ReactDOM.render()`, o React chama o construtor do componente `Clock`. Como `Clock` precisa exibir a hora atual, ele inicializa `this.state` com um objeto incluindo a hora atual. Mais tarde, atualizaremos este state.
 
 2) React chama então o método `render()` do componente `Clock`. É assim que o React aprende o que deve ser exibido na tela. React em seguida, atualiza o DOM para coincidir com a saída de renderização do `Clock`.
 
@@ -437,7 +435,7 @@ function FormattedDate(props) {
 }
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/zKRqNB?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)
 
 Isso é comumente chamado de fluxo de dados "top-down" ou "unidirecional". Qualquer state é sempre de propriedade de algum componente específico, e qualquer dado ou interface do usuário derivado desse state só pode afetar os componentes "abaixo" deles na árvore.
 
@@ -462,7 +460,7 @@ ReactDOM.render(
 );
 ```
 
-[**Experimente no CodePen**](http://codepen.io/gaearon/pen/vXdGmd?editors=0010)
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
 
 Cada `Clock` configura seu próprio temporizador e atualiza de forma independente.
 
