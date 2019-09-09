@@ -10,18 +10,22 @@
 - name: Arabic
   translated_name: العربية
   code: ar
-  status: 0
+  status: 2
 - name: Azerbaijani
   translated_name: Azərbaycanca
   code: az
-  status: 0
+  status: 1
 - name: Bulgarian
   translated_name: Български
   code: bg
-  status: 0
+  status: 1
 - name: Bengali
   translated_name: বাংলা
   code: bn
+  status: 0
+- name: Catalan
+  translated_name: Català
+  code: ca
   status: 0
 - name: German
   translated_name: Deutsch
@@ -30,7 +34,7 @@
 - name: Greek
   translated_name: Ελληνικά
   code: el
-  status: 0
+  status: 1
 - name: Spanish
   translated_name: Español
   code: es
@@ -55,6 +59,10 @@
   translated_name: हिन्दी
   code: hi
   status: 0
+- name: Hungarian
+  translated_name: magyar
+  code: hu
+  status: 0
 - name: Armenian
   translated_name: Հայերեն
   code: hy
@@ -62,7 +70,7 @@
 - name: Indonesian
   translated_name: Bahasa Indonesia
   code: id
-  status: 0
+  status: 1
 - name: Italian
   translated_name: Italiano
   code: it
@@ -86,7 +94,7 @@
 - name: Korean
   translated_name: 한국어
   code: ko
-  status: 1
+  status: 2
 - name: Kurdish
   translated_name: کوردی‎
   code: ku
@@ -99,6 +107,10 @@
   translated_name: മലയാളം
   code: ml
   status: 0
+- name: Mongolian
+  translated_name: Монгол хэл
+  code: mn
+  status: 1
 - name: Nepali
   translated_name: नेपाली
   code: ne
@@ -110,7 +122,7 @@
 - name: Polish
   translated_name: Polski
   code: pl
-  status: 1
+  status: 2
 - name: Portuguese (Brazil)
   translated_name: Português do Brasil
   code: pt-br
@@ -154,7 +166,7 @@
 - name: Ukrainian
   translated_name: Українська
   code: uk
-  status: 1
+  status: 2
 - name: Urdu
   translated_name: اردو
   code: ur
@@ -166,7 +178,7 @@
 - name: Vietnamese
   translated_name: Tiếng Việt
   code: vi
-  status: 0
+  status: 1
 - name: Simplified Chinese
   translated_name: 简体中文
   code: zh-hans

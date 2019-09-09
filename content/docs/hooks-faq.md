@@ -64,13 +64,14 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
 Começando com 16.8.0, React inclui uma implementação estável dos Hooks para:
 
 * React DOM
+* React Native
 * React DOM Server
 * React Test Renderer
 * React Shallow Renderer
 
 Note que **para habilitar Hooks, todos os pacotes precisam estar na versão 16.8.0 ou maior**. Hooks não vão funcionar se você esquecer de atualizar, por exemplo, o React DOM.
 
-React Native vai suportar Hooks completamente na sua próxima release estável.
+React Native 0.59 e superiores suportam Hooks.
 
 ### Preciso reescrever todos os meus componentes usando classe? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -106,7 +107,9 @@ Frequentemente, render props e HOC renderizam somente um filho. Nós achamos que
 
 Você pode continuar a usar exatamente as mesmas APIs que sempre usou; elas vão continuar funcionando.
 
-No futuro, novas versões dessas bibliotecas também pode exportar Hooks customizados como `useRedux()` ou `useRouter()` que permitem que você use as mesmas features sem precisar de componentes em volta.
+React Redux desde a v7.1.0 [suporta Hooks API](https://react-redux.js.org/api/hooks) e expóe hooks como `useDispatch` ou `useSelector`.
+
+Libraries like React Router might support hooks in the future.
 
 ### Hooks funcionam com tipagem estática? {#do-hooks-work-with-static-typing}
 
@@ -117,6 +120,10 @@ Importante observar, que Hooks customizados te dão o poder de restringir a API 
 ### Como testar componentes que usam Hooks? {#how-to-test-components-that-use-hooks}
 
 Do ponto de vista do React, um componente usando Hooks é somente um componente regular. Se sua solução para testes não depende do funcionamento interno do React, testar componentes com Hooks não deveria ser diferente de como você normalmente testa componentes.
+
+>Nota
+>
+>Em [Testing Recipes](/docs/testing-recipes.html) tem muitos exemplos que você pode copiar e colar.
 
 Por exemplo, digamos que temos este componente contador:
 
@@ -180,7 +187,9 @@ As chamadas para `act()` também vão descarregar os efeitos dentro dele.
 
 Se você precisa testar um Hook customizado, você pode faze-lo criando um componente no seu teste e usando o seu Hook nele. Então você pode testar o componente que escreveu.
 
-Para reduzir o boilerplate, nós recomendamos usar [`react-testing-library`](https://git.io/react-testing-library) que é projetada para incentivar a escrever testes que usam seus componentes como usuários finais usam.
+Para reduzir o boilerplate, nós recomendamos usar [React Testing Library](https://testing-library.com/react) que é projetada para incentivar a escrever testes que usam seus componentes como usuários finais usam.
+
+Para mais informações, confira [Testing Recipes](/docs/testing-recipes.html).
 
 ### O que exatamente as [regras de lint](https://www.npmjs.com/package/eslint-plugin-react-hooks) impõem? {#what-exactly-do-the-lint-rules-enforce}
 
@@ -609,7 +618,7 @@ function ProductPage({ productId }) {
 
 Isso também permite que você gerencie respostas fora de ordem com uma variável local dentro do efeito:
 
-```js{2,6,8}
+```js{2,6,10}
   useEffect(() => {
     let ignore = false;
     async function fetchProduct() {
@@ -617,6 +626,8 @@ Isso também permite que você gerencie respostas fora de ordem com uma variáve
       const json = await response.json();
       if (!ignore) setProduct(json);
     }
+
+    fetchProduct();
     return () => { ignore = true };
   }, [productId]);
 ```
@@ -655,7 +666,7 @@ Note que no exemplo acima nós **precisamos** para manter a função na lista de
 
 ### O que posso fazer se minhas dependências de efeito mudarem com muita frequência? {#what-can-i-do-if-my-effect-dependencies-change-too-often}
 
-Às vezes, seu efeito pode estar usando o state de leitura que muda com muita freqüência. Você pode ser tentado a omitir esse state de uma lista de dependências, mas isso geralmente leva a erros:
+Às vezes, seu efeito pode estar usando o state que muda com muita freqüência. Você pode ser tentado a omitir esse state de uma lista de dependências, mas isso geralmente leva a erros:
 
 ```js{6,9}
 function Counter() {
@@ -672,7 +683,9 @@ function Counter() {
 }
 ```
 
-Especificando `[count]` como uma lista de dependências iria corrigir o bug, mas faria com que o intervalo fosse redefinido em cada alteração. Isso pode não ser desejável. Para corrigir isso, podemos usar o [forma de atualização funcional do `setState`](/docs/hooks-reference.html#functional-updates). Ele nos permite especificar *como* o state precisa mudar sem referenciar o state *atual*:
+O conjunto vazio de dependências, `[]`, significa que o efeito só será executado uma vez quando o componente for montado, e não em todas as re-renderizações. O problema é que dentro do callback `setInterval`, o valor de `count` não muda, porque nós criamos um fechamento com o valor de `count` configurando para `0` como era quando o retorno de chamada do efeito era executado. A cada segundo, este callback então chama `setCount(0 + 1)`, então a contagem nunca vai acima de 1.
+
+Especificando `[count]` como uma lista de dependências iria corrigir o bug, mas faria com que o intervalo fosse redefinido em cada alteração. Efetivamente, cada `setInterval` teria uma chance de executar antes de ser limpo (semelhante a um `setTimeout`). Isso pode não ser desejável. Para corrigir isso, podemos usar o [form de atualização funcional do `setState`](/docs/hooks-reference.html#functional-updates). Ele nos permite especificar *como* o state precisa mudar sem referenciar o state *atual*:
 
 ```js{6,9}
 function Counter() {
@@ -690,6 +703,8 @@ function Counter() {
 ```
 
 (A identidade da função `setCount` é garantida como estável, então é seguro omitir.)
+
+Agora, o retorno de chamada `setInterval` é executado uma vez por segundo, mas sempre que a chamada interna para `setCount` pode usar um valor atualizado para `count` (chamado `c` no retorno do callback aqui.)
 
 Em casos mais complexos (como se um state dependesse de outro state), tente mover a lógica de atualização de state para fora do efeito com o [`useReducer` Hook](/docs/hooks-reference.html#usereducer). [O artigo](https://adamrackis.dev/state-and-use-reducer/) oferece um exemplo de como você pode fazer isso. **A identidade da função `dispatch` do `useReducer` é sempre estável** — mesmo se a função reducer for declarada dentro do componente e ler seus props.
 
@@ -739,7 +754,7 @@ O Hook [`useMemo`](/docs/hooks-reference.html#usememo) permite que você evite c
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Esse código chama `computeExpensiveValue(a, b)`. Mas se as entradas `[a, b]` não mudaram desde o último valor, `useMemo` não chama a função novamente e simplesmente retorna o valor retornado anteriormente.
+Esse código chama `computeExpensiveValue(a, b)`. Mas se as dependências `[a, b]` não mudaram desde o último valor, `useMemo` não chama a função novamente e simplesmente retorna o valor retornado anteriormente.
 
 Lembre-se que a função passada para `useMemo` é executada durante a renderização. Não faça nada que você normalmente não faria durante a renderização. Por exemplo, efeitos colaterais devem ser feitos usando `useEffect`, não `useMemo`.
 
@@ -766,7 +781,7 @@ Note que essa abordagem não vai funcionar em um loop porque Hooks [não podem](
 
 ### Como criar objetos custosos a demanda? {#how-to-create-expensive-objects-lazily}
 
-`useMemo` permite [memorizar um cálculo custoso](#how-to-memoize-calculations) se as inputs são as mesmas. No entanto, ele não *garante* que a computação não será re-executada. Algumas vezes você precisa ter certeza que um objeto só é criado uma vez.
+`useMemo` permite [memorizar um cálculo custoso](#how-to-memoize-calculations) se as dependências são as mesmas. No entanto, ele não *garante* que a computação não será re-executada. Algumas vezes você precisa ter certeza que um objeto só é criado uma vez.
 
 **O primeiro caso de uso comum é quando criar o estado inicial é custoso:**
 
@@ -808,13 +823,10 @@ function Image(props) {
 
   // ✅ IntersectionObserver é criado somente uma vez
   function getObserver() {
-    let observer = ref.current;
-    if (observer !== null) {
-      return observer;
+    if (ref.current === null) {
+      ref.current = new IntersectionObserver(onIntersect);
     }
-    let newObserver = new IntersectionObserver(onIntersect);
-    ref.current = newObserver;
-    return newObserver;
+    return ref.current;
   }
 
   // Quando você precisar, execute getObserver()
@@ -846,9 +858,9 @@ Tradicionalmente, preocupações de desempenho sobre funções inline no React t
     }, [a, b]);
     ```
 
-* O [Hook `useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) torna mais fácil controlar quando filhos específicos atualizam, reduzindo a necessidade de pure components.
+* O Hook [`useMemo`](/docs/hooks-faq.html#how-to-memoize-calculations) torna mais fácil controlar quando filhos específicos atualizam, reduzindo a necessidade de pure components.
 
-* Finalmente, o Hook `useReducer` reduz a necessidade de passar callbacks profundamente, como explicado abaixo.
+* Finalmente, o Hook [`useReducer`](/docs/hooks-reference.html#usereducer) reduz a necessidade de passar callbacks profundamente, como explicado abaixo.
 
 ### Como evitar passar callbacks para baixo? {#how-to-avoid-passing-callbacks-down}
 

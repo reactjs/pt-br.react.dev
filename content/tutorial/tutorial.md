@@ -20,7 +20,7 @@ Vamos construir um pequeno jogo durante este tutorial. **Você pode ficar tentad
 
 > Dica
 >
-> Este tutorial foi criado para pessoas que preferem ** aprender fazendo **. Se você preferir aprender conceitos do zero, confira nosso [step-by-step guide](/docs/hello-world.html). Você pode achar este tutorial e o guia complementares um ao outro.
+> Este tutorial foi criado para pessoas que preferem **aprender fazendo**. Se você preferir aprender conceitos do zero, confira nosso [step-by-step guide](/docs/hello-world.html). Você pode achar este tutorial e o guia complementares um ao outro.
 
 O tutorial está dividido em várias seções:
 
@@ -35,7 +35,7 @@ Você não precisa completar todas as seções de uma vez para entender tudo que
 
 Neste tutorial, mostraremos como criar um jogo interativo de jogo-da-velha com React.
 
-Você pode ver o que vamos construir aqui: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se o código não fizer sentido para você ou se você não estiver familiarizado com a sintaxe do código, não se preocupe! O objetivo deste tutorial é ajudár você a entender o React e sua sintaxe.
+Você pode ver o que vamos construir aqui: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Se o código não fizer sentido para você ou se você não estiver familiarizado com a sintaxe do código, não se preocupe! O objetivo deste tutorial é ajudar você a entender o React e sua sintaxe.
 
 Recomendamos que você confira o jogo tic-tac-toe (jogo da velha) antes de continuar com o tutorial. Uma das características que você notará é que existe uma lista numerada à direita do tabuleiro do jogo. Esta lista fornece um histórico de todas as jogadas que ocorreram no jogo e é atualizada à medida que o jogo avança.
 
@@ -45,7 +45,7 @@ Você pode fechar o jogo da velha assim que estiver familiarizado com ele. Come�
 
 Vamos presumir que você já tenha alguma familiaridade com HTML e JavaScript. Porém, você deve ser capaz de acompanhá-lo mesmo que esteja vindo de uma linguagem de programação diferente. Também vamos presumir que você também já esteja familiarizado com conceitos de programação. Tais como: funções, objetos, matrizes em menor escala e classes.
 
-Se você precisa revisar JavaScript, recomendamos ler [este guia](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Observe que também estamos usando alguns recursos do ES6 - uma versão recente do JavaScript. Neste tutorial, estamos usando [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/let), e declarações [`const`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/const). Você pode usar o [Babel REPL] (babel://es5-syntax-example) para verificar o código ES6 compilado.
+Se você precisa revisar JavaScript, recomendamos ler [este guia](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Observe que também estamos usando alguns recursos do ES6 - uma versão recente do JavaScript. Neste tutorial, estamos usando [arrow function](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/let), e declarações [`const`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/const). Você pode usar o [Babel REPL](babel://es5-syntax-example) para verificar o código ES6 compilado.
 
 ## Configuração para o tutorial {#setup-for-the-tutorial}
 
@@ -162,7 +162,7 @@ return React.createElement('div', {className: 'shopping-list'},
 );
 ```
 
-[Veja a versão completa completa.](babel://tutorial-expanded-version)
+[Veja a versão completa.](babel://tutorial-expanded-version)
 
 Se você está curioso, o `createElement()` é descrito em mais detalhes na [referência da API](/docs/react-api.html#createelement), mas não iremos usá-lo neste tutorial. Em vez disso, continuaremos usando o JSX.
 
@@ -337,7 +337,7 @@ O React DevTools permite que você verifique as props e o estado (_state_) de se
 
 Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas de desenvolvedor, e a guia React aparecerá como a última guia à direita.
 
-** No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen: **
+**No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen:**
 
 1. Faça o login ou registre-se e confirme seu e-mail (necessário para evitar spam).
 2. Clique no botão "Fork".
@@ -434,7 +434,7 @@ Cada Square vai receber a proriedade `value` que vai ser `'X'`, `'O'`, ou `null`
 
 Agora, precisamos mudar o que acontece quando um Quadrado é clicado. O componente Tabuleiro agora mantém quais quadrados são preenchidos. Precisamos criar uma maneira para cada Quadrado atualizar o state do Tabuleiro. O state é considerado privado ao componente em que é definido, ou seja, nós não podemos atualizar o state do Tabuleiro diretamente do Quadrado.
 
-Para manter a privacidade do state do Tabuleiro, nós vamos passar a função responsável do Tabuleiro para o Quadrado. Essa função irá ser chamada assim que o Quadrado for clicado. Nós então mudaremos o methodo `renderSquare` no Tabuleiro para:
+Para manter a privacidade do state do Tabuleiro, nós vamos passar a função responsável do Tabuleiro para o Quadrado. Essa função irá ser chamada assim que o Quadrado for clicado. Nós então mudaremos o método `renderSquare` no Tabuleiro para:
 
 ```javascript{5}
   renderSquare(i) {
@@ -545,11 +545,11 @@ Após essas mudanças, seremos capazes novamente de clicar nos Squares para pree
 
 Como o componente Square não mantém mais state, os componentes Square receberão os valores do Board e o informarão quando forem clicados. Em "termos React", os Squares são agora **componentes controlados** (**controlled components**). O Board terá controle total sobre eles.
 
-Note como na função `handleClick`, nós chamamos `.slice()` para criar uma cópia do array de quadrados para o modificar ao invés de faze-lo no array existente. Explicaremos o motivo quando criarmos uma copia do do array de `quadrados` na próxima sessão.
+Note como na função `handleClick`, nós chamamos `.slice()` para criar uma cópia do array de quadrados para o modificar ao invés de faze-lo no array existente. Explicaremos o motivo quando criarmos uma copia do array de `quadrados` na próxima sessão.
 
 ### Por que Imutabilidade é Importante {#why-immutability-is-important}
 
-No código do exemplo anterior nós sugerimos que você usasse o operador `.slice()` para criar uma cópia do array de `quadrados` ao invés de modificar o existente. Iremos agora discutir imutabilidade e porque ela é importante de se aprender.
+No código do exemplo anterior nós sugerimos que você usasse o método `.slice()` para criar uma cópia do array de `quadrados` ao invés de modificar o existente. Iremos agora discutir imutabilidade e porque ela é importante de se aprender.
 
 Geralmente existem duas maneiras de se alterar dados. A primeira é *mutar* o dado alterando diretamente seu valor. A segunda maneira é substituir o dado antigo por uma nova cópia com as alterações desejadas.
 
@@ -586,7 +586,7 @@ Detectar mudanças em objetos imutáveis é consideravelmente fácil. Se ele for
 
 #### Determinar Quando Re-renderizar no React {#determining-when-to-re-render-in-react}
 
-O principal benefício da imutabilidade é que ela ajuda a construir _componentes puros_ em React. Dados imutáveis podem facilmente determinar foram feitas mudanças que ajudarão a decidir quando um componente precisa ser re-renderizado.
+O principal benefício da imutabilidade é que ela ajuda a construir _componentes puros_ em React. Dados imutáveis podem facilmente determinar se foram feitas mudanças que ajudarão a decidir quando um componente precisa ser re-renderizado.
 
 Você pode aprender mais sobre `shouldComponentUpdate` e como construir *componentes puros* lendo o artigo [Otimizando Performance](/docs/optimizing-performance.html#examples).
 
@@ -983,7 +983,7 @@ Uma vez que o componente Game agora está renderizando o status do jogo, nós po
   }
 ```
 
-Finalmente, precisamos mover o método `handleClick` do componente Board para o componente Game. Nós também precisamos modificar `handelClick` pois o state do componente Game está estruturado de maneira diferente. No componente Game, dentro do método `handleClick`, nós concatenamos novas entradas do histórico de jogadas em `history`.
+Finalmente, precisamos mover o método `handleClick` do componente Board para o componente Game. Nós também precisamos modificar `handleClick` pois o state do componente Game está estruturado de maneira diferente. No componente Game, dentro do método `handleClick`, nós concatenamos novas entradas do histórico de jogadas em `history`.
 
 ```javascript{2-4,10-12}
   handleClick(i) {
@@ -1017,7 +1017,7 @@ Uma vez que estamos gravando o histórico do Jogo da Velha, agora podemos mostr�
 
 Aprendemos anterioremente que os elementos React são objetos JavaScript de primeira classe; podemos passá-los livremente por nossas aplicações. Para renderizar múltiplos itens em React, podemos utilizar um array de elementos React.
 
-Em JavaScript, arrays possuem um [método `map()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que é normalmente utilizado para mapear uma fonte de dados para outra fonte de dados, por exemplo:
+Em JavaScript, arrays possuem um [método `map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) que é normalmente utilizado para mapear uma fonte de dados para outra fonte de dados, por exemplo:
 
 ```js
 const numbers = [1, 2, 3];
@@ -1120,7 +1120,7 @@ Chaves não precisam ser globalmente únicas; elas precisam ser únicas apenas e
 
 ### Implementando a Viagem no Tempo (Time Travel) {#implementing-time-travel}
 
-No histórico do Jogo da Velha, cada jogada anterior tem um único ID associado a ela: é o número sequencial da jogada. As jogadas nunca são reordenadas, apagadas, ou inseridas no meio, entá é seguro utilizar o index da jogada como a chave.
+No histórico do Jogo da Velha, cada jogada anterior tem um único ID associado a ela: é o número sequencial da jogada. As jogadas nunca são reordenadas, apagadas, ou inseridas no meio, então é seguro utilizar o index da jogada como a chave.
 
 No método `render` do componente Game, nós podemos adicionar a chave como `<li key={move}>` e o aviso do React sobre as chaves deve desaparecer.
 
@@ -1178,7 +1178,7 @@ Em seguida, definiremos o método `jumpTo` no componente Game para atualizar aqu
 
 Agora faremos algumas modificações no método `handleClick` do componente Game, que é disparado quando você clica em um quadradado do tabuleiro (square).
 
-O state `stepNumber` que adicionamos reflete a jogada mostrada ao usuário nesse momento. Após fizermos uma nova jogada, precisamos atualizar `stepNumber` adicionando `stepNumber: history.length` como parte do argumento de `this.setState`. Isso certifica que não ficaremos presos mostrando a mesma jogada após uma novo ter sido feita. 
+O state `stepNumber` que adicionamos reflete a jogada mostrada ao usuário nesse momento. Após fazermos uma nova jogada, precisamos atualizar `stepNumber` adicionando `stepNumber: history.length` como parte do argumento de `this.setState`. Isso certifica que não ficaremos presos mostrando a mesma jogada após uma novo ter sido feita. 
 
 Também iremos substituir a leitura de `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Isso certifica que se nós "voltarmos no tempo", e então fizermos uma nova jogada a partir daquele ponto, descartamos todo o histórico do "futuro" que agora se tornaria incorreto.
 

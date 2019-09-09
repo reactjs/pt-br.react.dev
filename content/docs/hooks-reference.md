@@ -223,7 +223,7 @@ function reducer(state, action) {
   }
 }
 
-function Counter({initialState}) {
+function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
@@ -241,7 +241,7 @@ function Counter({initialState}) {
 
 #### Determinando o Estado Inicial {#specifying-the-initial-state}
 
-Há duas diferentes maneiras para inicializar `useReducer` `state`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é a de passar um estado inicial como segundo argumento:
+Há duas maneiras diferentes de inicializar o estado `useReducer`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é passar o estado inicial como um segundo argumento:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -313,7 +313,7 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization) memoizado.
+Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization).
 
 Recebe como argumentos, um callback e um array. `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo ` shouldComponentUpdate `).
 
@@ -353,7 +353,7 @@ Se nenhum array for fornecida, um novo valor será calculado em cada renderizaç
 const refContainer = useRef(initialValue);
 ```
 
-`useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá no durante todo o ciclo de vida do componente.
+`useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
 Um caso comum de uso é o acesso imperativamente a um componente filho:
 
@@ -448,7 +448,7 @@ function useFriendStatus(friendID) {
 > 
 > Não recomendamos adicionar valores de depuração a cada custom hook criado. É mais valioso para `custom hooks` que são partes de bibliotecas compartilhas.
 
-#### Adiar a formatação de valores de depuração
+#### Adiar a formatação de valores de depuração {#defer-formatting-debug-values}
 
 Em alguns casos, exibir um valor formatado pode ser uma operação cara. Também é desnecessário a menos que um hook seja realmente inspecionado.
 

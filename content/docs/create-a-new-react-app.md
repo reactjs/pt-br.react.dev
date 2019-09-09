@@ -39,7 +39,7 @@ A equipe React recomenda principalmente as seguintes soluções:
 
 [Create React App](https://github.com/facebookincubator/create-react-app) é um ambiente confortável para **aprender React**, e é a melhor maneira de começar um **[single-page](/docs/glossary.html#single-page-application) application** em React. 
 
-Além de configurar seu ambiente de desenvolvimento para utilizar as funcionalidades mais recentes do JavaScript, ele fornece uma experiência de desenvolvimento agradável, e otimiza o seu app para produção. Será necessário ter Node >= 6 e npm >= 5.2 na sua máquina. Para criar um novo projeto, rode:
+Além de configurar seu ambiente de desenvolvimento para utilizar as funcionalidades mais recentes do JavaScript, ele fornece uma experiência de desenvolvimento agradável, e otimiza o seu app para produção. Será necessário ter Node >= 8.10 e npm >= 5.6 na sua máquina. Para criar um novo projeto, rode:
 
 ```bash
 npx create-react-app my-app
@@ -53,7 +53,7 @@ npm start
 
 Create React App não lida com lógica de backend nem banco de dados. Ele apenas cria um build pipeline para o frontend, podendo portanto ser utilizado com qualquer backend de sua escolha. Por trás, [Babel](https://babeljs.io/) e [Webpack](https://webpack.js.org/) estão sendo utilizados, mas não é necessário saber nada sobre eles.
 
-Quando estiver pronto pra mandar pra produção, rode `npm run build` para criar e mandar o build otimizado de seu app para a pasta `build`. Você pode saber mais sobre o Create React App [através de seu README](https://github.com/facebookincubator/create-react-app#create-react-app-) e o [Guia de Usuário](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#table-of-contents).
+Quando estiver pronto pra mandar pra produção, rode `npm run build` para criar e mandar o build otimizado de seu app para a pasta `build`. Você pode saber mais sobre o Create React App [através de seu README](https://github.com/facebookincubator/create-react-app#create-react-app--) e o [Guia de Usuário](https://facebook.github.io/create-react-app/).
 
 ### Next.js {#nextjs}
 

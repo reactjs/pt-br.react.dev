@@ -7,7 +7,8 @@ permalink: docs/code-splitting.html
 ## Empacotamento (Bundling) {#bundling}
 
 A maioria das aplicações React serão "empacotadas" usando ferramentas como
-[Webpack](https://webpack.js.org/) ou [Browserify](http://browserify.org/).
+[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) ou 
+[Browserify](http://browserify.org/).
 Empacotamento (Bundling) é o processo onde vários arquivos importados são unidos
 em um único arquivo: um "pacote" (bundle). Este pacote pode ser incluído em uma página web
 para carregar uma aplicação toda de uma vez.
@@ -233,7 +234,7 @@ const App = () => (
 
 ## Exportações Nomeadas {#named-exports}
 
-`React.lazy` atualmente suporta apenas `export default`. Se o módulo que você deseja importar usa exportações nomeadas, você pode criar um módulo intermediário que usa `export default`. Isso garante que o `treeshaking` continue funcionando e que você não importe componentes não utilizados.
+`React.lazy` atualmente suporta apenas `export default`. Se o módulo que você deseja importar usa exportações nomeadas, você pode criar um módulo intermediário que usa `export default`. Isso garante que o `tree shaking` continue funcionando e que você não importe componentes não utilizados.
 
 ```js
 // ManyComponents.js

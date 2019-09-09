@@ -8,7 +8,7 @@ prev: hooks-overview.html
 
 _Hooks_ são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 
-A [página anterior](/docs/hooks-intro.html) introduziu Hooks com o seguinte exemplo:
+A [página de introdução](/docs/hooks-intro.html) usou este exemplo para familiarizar com Hooks:
 
 ```js{4-5}
 import React, { useState } from 'react';

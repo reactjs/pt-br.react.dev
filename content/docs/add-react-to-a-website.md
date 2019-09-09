@@ -149,7 +149,7 @@ return (
 
 Esses dois blocos de código são equivalentes. Enquanto o **JSX é [completamente opcional](/docs/react-without-jsx.html)**, muitas pessoas acham útil para escrever código de UI -- junto com React e com outras bibliotecas.
 
-Você pode testar com JSX usando [esse conversor online](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2%2Cstage-3&prettier=true&targets=Node-6.12&version=6.26.0&envVersion=).
+Você pode testar com JSX usando [esse conversor online](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3).
 
 ### Experimente Rapidamente JSX {#quickly-try-jsx}
 
@@ -159,7 +159,7 @@ A maneira mais rápida de experimentar o JSX em seu projeto é adicionando essa 
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 ```
 
-Agora você pode usar o JSX in qualquer tag `<script>` somente adicionando o atributo `type="text/babel"` a ele. Aqui está [um exemplo de arquivo HTML com JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) em que você pode efetuar o download e testar.
+Agora você pode usar o JSX em qualquer tag `<script>` somente adicionando o atributo `type="text/babel"` a ele. Aqui está [um exemplo de arquivo HTML com JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) em que você pode efetuar o download e testar.
 
 Essa abordagem é boa para aprender e criar demostrações simples. Portanto, o site fica lento e **não fica adequado para produção**. Quando você estiver pronto para seguir em frente, remova essa nova tag `<script>` e os atributos `type="text/babel"` que você adicionou. Em vez disso, na seção a seguir você ira configurar um pré-processador JSX para converter todas suas tags `<script>` automaticamente.
 
