@@ -91,7 +91,7 @@ De um modo geral, sim, é certo. E muitas das vezes é a maneira mais fácil de 
 
 Se você tiver problemas de performance, de qualquer jeito, otimize!
 
-### Porque binding é necessário afinal? {#why-is-binding-necessary-at-all}
+### Porquê binding é necessário afinal? {#why-is-binding-necessary-at-all}
 
 Em JavaScript, estes dois code snippets **não** são equivalentes:
 
@@ -110,7 +110,7 @@ Com React, tipicamente você precisa dar bind apenas nos métodos que você *pas
   
 [Este post por Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica o que binding é e como funcionam as funções do Javascript, em detalhes.
 
-### Porque minha função é chamada toda vez que o componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
+### Porquê minha função é chamada toda vez que o componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
 
 Certifique-se que você não está _chamando a função_ quando for passar para o componente:
 
