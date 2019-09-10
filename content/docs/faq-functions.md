@@ -164,7 +164,7 @@ class Alphabet extends React.Component {
   render() {
     return (
       <div>
-        Just clicked: {this.state.justClicked}
+        Você clicou: {this.state.justClicked}
         <ul>
           {this.state.letters.map(letter =>
             <li key={letter} onClick={() => this.handleClick(letter)}>
@@ -180,7 +180,7 @@ class Alphabet extends React.Component {
 
 #### Exemplo: Passando parâmetros usando data-attributes {#example-passing-params-using-data-attributes}
 
-Em vez disso, você pode usar APIs do DOM para armazenar dados necessários pra manipuladores de evento. Considere este approach caso você precise otimizar um grande número de elementos ou possua uma render tree que depende de verificações de igualdade do React.PureComponent.
+Em vez disso, você pode usar APIs do DOM para armazenar dados necessários para manipuladores de evento. Considere este approach caso você precise otimizar um grande número de elementos ou possua uma render tree que depende de verificações de igualdade do React.PureComponent.
 
 ```jsx
 const A = 65 // código de caractere ASCII
@@ -204,7 +204,7 @@ class Alphabet extends React.Component {
   render() {
     return (
       <div>
-        Just clicked: {this.state.justClicked}
+        Você clicou: {this.state.justClicked}
         <ul>
           {this.state.letters.map(letter =>
             <li key={letter} data-letter={letter} onClick={this.handleClick}>
