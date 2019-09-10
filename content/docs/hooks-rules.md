@@ -8,7 +8,7 @@ prev: hooks-effect.html
 
 _Hooks_ são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 
-Hooks são funções Javascript, mas você precisa seguir duas regras ao utilizá-los. Nós providenciamos um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) para aplicar essas regras automaticamente:
+Hooks são funções JavaScript, mas você precisa seguir duas regras ao utilizá-los. Nós providenciamos um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) para aplicar essas regras automaticamente:
 
 ### Use Hooks Apenas no Nível Superior {#only-call-hooks-at-the-top-level}
 
@@ -16,7 +16,7 @@ Hooks são funções Javascript, mas você precisa seguir duas regras ao utiliz�
 
 ### Use Hooks Apenas Dentro de Funções do React {#only-call-hooks-from-react-functions}
 
-**Não use Hooks dentro de funções Javascript comuns.** Em vez disso, você pode:
+**Não use Hooks dentro de funções JavaScript comuns.** Em vez disso, você pode:
 
 * ✅  Chamar Hooks em componentes React.
 * ✅  Chamar Hooks dentro de Hooks Customizados (Nós iremos aprender sobre eles [na próxima página.](/docs/hooks-custom.html)).

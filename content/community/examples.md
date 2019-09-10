@@ -17,7 +17,7 @@ Existem vários projetos de exemplos criados pela comunidade do React. Sinta-se 
 * **[Shopping Cart](https://github.com/jeffersonRibeiro/react-shopping-cart)** Aplicação simples de carrinho para e-commerce construída usando React.
 * **[Progressive Web Tetris](https://github.com/skidding/flatris)** Além de uma implementação bonita e amigável de Tetris, este projeto é um playgroud para integrar e experimentar tecnologias web.
 * **[Product Comparison Page](https://github.com/Rhymond/product-compare-react)** Página Simples de comparação de Produtos construída em React.
-* **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Clone do Hacker News reescrito com javascript universal, usando React e GraphQL.
+* **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Clone do Hacker News reescrito com JavaScript universal, usando React e GraphQL.
 * **[Bitcoin Price Index](https://github.com/mrkjlchvz/bitcoin-price-index)** Dados simples dos índices de preços do Bitcoin consumindo a API do CoinDesk.
 * **[Builder Book](https://github.com/builderbook/builderbook)** Aplicação web de código aberto para hospedar e escrever documentações ou vender livros. Criada com React, Material-UI, Next, Express, Mongoose e MongoDB. 
 * **[GFonts Space](https://github.com/pankajladhar/GFontsSpace)** Um espaço que permite o usuário testar ou brincar com as fontes do Google. Criado com React, Redux e React-Router.
