@@ -144,7 +144,7 @@ Isto é equivalente que chamar o `.bind`:
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 
-#### Exemplo: Passando parametros usando arrow functions {#exemplo-passando-parametros-usando-arrow-functions}
+#### Exemplo: Passando parâmetros usando arrow functions {#exemplo-passando-parâmetros-usando-arrow-functions}
 
 ```jsx
 const A = 65 // cógido de caractere ASCII
