@@ -121,7 +121,7 @@ render() {
 }
 ```
 
-Em vez disso, *passe a própria função* (sem parenteses):
+Em vez disso, *passe a própria função* (sem parentêses):
 
 ```jsx
 render() {

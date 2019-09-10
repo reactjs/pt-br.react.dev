@@ -614,7 +614,7 @@ Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 
 >Nota
 >
->Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parenteses em *ambos* os lados).
+>Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parentêses em *ambos* os lados).
 
 ### Trocando Turnos {#taking-turns}
 
