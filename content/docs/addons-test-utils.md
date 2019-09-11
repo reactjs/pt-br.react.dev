@@ -15,7 +15,7 @@ var ReactTestUtils = require('react-dom/test-utils'); // ES5 com npm
 
 ## Visão Geral {#overview}
 
-`ReactTestUtils` torna fácil para testar componentes em React utilizando framework de teste à sua escolha. No Facebook, nós utilizamos [Jest](https://facebook.github.io/jest/) para testar Javascript sem dores. Aprenda como utilizar o Jest através do website do Jest [Tutorial para React](https://facebook.github.io/jest/docs/en/tutorial-react.html#content).
+`ReactTestUtils` torna fácil para testar componentes em React utilizando framework de teste à sua escolha. No Facebook, nós utilizamos [Jest](https://facebook.github.io/jest/) para testar JavaScript sem dores. Aprenda como utilizar o Jest através do website do Jest [Tutorial para React](https://facebook.github.io/jest/docs/en/tutorial-react.html#content).
 
 > Nota:
 >

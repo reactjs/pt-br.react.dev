@@ -345,7 +345,7 @@ render() {
 }
 ```
 
-### Expressões Javascript como Elementos Filhos {#javascript-expressions-as-children}
+### Expressões JavaScript como Elementos Filhos {#javascript-expressions-as-children}
 
 Você pode passar expressões JavaScript como elementos filhos, envolvendo elas com `{}`. Por exemplo, essas expressões são equivalentes:
 
