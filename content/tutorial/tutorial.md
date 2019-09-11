@@ -449,7 +449,7 @@ Para manter a privacidade do state do Tabuleiro, nós vamos passar a função re
 
 >Nota
 >
->Nós quebramos o retorno do elemento em várias linhas para melhorar a legibilidade e adicionamos parentesis para que o Javascript não insira ponto e virgula após o `return` e quebre o código
+>Nós quebramos o retorno do elemento em várias linhas para melhorar a legibilidade e adicionamos parentesis para que o JavaScript não insira ponto e virgula após o `return` e quebre o código
 
 Agora nós iremos passar duas props do Tabuleiro para o Quadrado: `value` e `onClick`. A propriedade `onClick` é uma função que será chamada quando o Quadrado for clicado. Nós manteremos as seguintes mudanças no componente Quadrado:
 
