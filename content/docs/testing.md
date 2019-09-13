@@ -18,6 +18,7 @@ Esta seção da documentação se concentra nas estratégias de teste para o pri
 
 ### Tradeoffs {#tradeoffs}
 
+
 Ao escolher uma ferramenta de teste, vale a pena considerar alguns tradeoffs:
 
 * **Velocidade de iteração vs Ambiente real:** Algumas ferramentas oferecem um ciclo de feedback muito rápido entre fazer uma alteração e ver o resultado, mas não reflete o comportamento do navegador com precisão. Outras ferramentas podem usar um ambiente de navegador real, mas reduzem a velocidade da iteração e são mais precárias em um servidor de integração contínua.
