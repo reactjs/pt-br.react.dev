@@ -27,15 +27,20 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](http://reactalicante.es/) - [Twitter](https://twitter.com/reactalicante) - [Facebook](https://www.facebook.com/ReactAlicante)
 
-### React Conf 2019 {#react-conf-2019}
-24 e 25 de outubro de 2019 em Henderson, Nevada USA
-
-[Website](https://conf.reactjs.org/) - [Twitter](https://twitter.com/reactjs)
-
 ### React Advanced 2019 {#react-advanced-2019}
 15 de outubro de 2019 em London, UK
 
 [Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
+
+### React Conf Brasil 2019 {#react-conf-2019}
+19 de outubro de 2019 em São Paulo, São Paulo BR
+
+[Website](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Slack](https://react.now.sh/)
+
+### React Conf 2019 {#react-conf-2019}
+24 e 25 de outubro de 2019 em Henderson, Nevada USA
+
+[Website](https://conf.reactjs.org/) - [Twitter](https://twitter.com/reactjs)
 
 ### React Day Berlin 2019 {#react-day-berlin-2019}
 6 de dezembro de 2019 em Berlin, Germany
