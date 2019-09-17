@@ -2,8 +2,6 @@
 id: static-type-checking
 title: Verificando Tipos Estáticos
 permalink: docs/static-type-checking.html
-prev: typechecking-with-proptypes.html
-next: refs-and-the-dom.html
 ---
 
 Verificadores de tipos estáticos, como [Flow](https://flow.org/) e [TypeScript](https://www.typescriptlang.org/), identificam certos tipos de problemas mesmo antes do seu código ser executado. Eles também melhoram o fluxo de trabalho do desenvolvedor adicionando features como preenchimento automático. Por isso, recomendamos usar Flow ou TypeScript ao invés de `PropTypes` para bases de código maiores.
