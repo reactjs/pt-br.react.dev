@@ -64,6 +64,7 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
 Começando com 16.8.0, React inclui uma implementação estável dos Hooks para:
 
 * React DOM
+* React Native
 * React DOM Server
 * React Test Renderer
 * React Shallow Renderer
@@ -71,7 +72,6 @@ Começando com 16.8.0, React inclui uma implementação estável dos Hooks para:
 Note que **para habilitar Hooks, todos os pacotes precisam estar na versão 16.8.0 ou maior**. Hooks não vão funcionar se você esquecer de atualizar, por exemplo, o React DOM.
 
 React Native 0.59 e superiores suportam Hooks.
-
 
 ### Preciso reescrever todos os meus componentes usando classe? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -654,7 +654,7 @@ function ProductPage({ productId }) {
   return <ProductDetails fetchProduct={fetchProduct} />;
 }
 
-function ProductDetails({ fetchProduct })
+function ProductDetails({ fetchProduct }) {
   useEffect(() => {
     fetchProduct();
   }, [fetchProduct]); // ✅ Todas as dependências do useEffect são especificadas

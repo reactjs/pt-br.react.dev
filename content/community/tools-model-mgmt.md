@@ -5,7 +5,7 @@ layout: community
 permalink: community/model-management.html
 ---
 
-* **[Alt](https://alt.js.org/):** Flux feito isomorficamente com javascript puro e sem boilerplate.
+* **[Alt](https://alt.js.org/):** Flux feito isomorficamente com JavaScript puro e sem boilerplate.
 * **[astarisx](https://zuudo.github.io/astarisx/):** Estrutura MVVM altamente combinável para React com o roteador pushState integrado.
 * **[avers](https://github.com/wereHamster/avers):** Uma moderna biblioteca de abstração de modelo do lado do cliente.
 * **[backbone-react-component](https://github.com/magalhas/backbone-react-component):** Use vários modelos e coleções do Backbone com componentes do React nos lados do cliente e do servidor.
