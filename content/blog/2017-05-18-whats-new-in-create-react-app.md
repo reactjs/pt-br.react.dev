@@ -13,19 +13,19 @@ Aplicações recém-criadas obterão essas melhorias automaticamente.
 
 ### webpack 2 {#webpack-2}
 
->*This change was contributed by [@Timer](https://github.com/Timer) in [#1291](https://github.com/facebookincubator/create-react-app/pull/1291).*
+>*Esta mudança foi contribuída por [@Timer](https://github.com/Timer) em [#1291](https://github.com/facebookincubator/create-react-app/pull/1291).*
 
-We have upgraded to webpack 2 which has been [officially released](https://medium.com/webpack/webpack-2-and-beyond-40520af9067f) a few months ago. It is a big upgrade with many bugfixes and general improvements. We have been testing it for a while, and now consider it stable enough to recommend it to everyone.
+Atualizamos para o webpack 2, que foi [oficialmente lançado](https://medium.com/webpack/webpack-2-and-beyond-40520af9067f) há alguns meses. É uma grande atualização com muitas correções de bugs e melhorias gerais. Temos testado por um tempo, e agora consideramos estável o suficiente para recomendar a todos.
 
-While the Webpack configuration format has changed, Create React App users who didn't eject don't need to worry about it as we have updated the configuration on our side.
+Embora o formato de configuração do webpack tenha mudado, os usuários do Create React App que não ejetaram não precisam se peocupar com isso, pois atualizamos a configuração do nosso lado.
 
-If you had to eject your app for one reason or another, Webpack provides a [configuration migration guide](https://webpack.js.org/guides/migrating/) that you can follow to update your apps. Note that with each release of Create React App, we are working to support more use cases out of the box so that you don't have to eject in the future.
+Se você ejetou sua aplicção por algum motivo, Webpack provê um [guia de migração de configuraçãp](https://webpack.js.org/guides/migrating/) que você pode seguir para atualizar suas aplicações. Note que com cada release do Create React App, nós estamos trabalhando para suportar mais casos de uso fora da caixa para que você não tenha que ejetar no futuro.
 
-The biggest notable webpack 2 feature is the ability to write and import [ES6 modules](http://2ality.com/2014/09/es6-modules-final.html) directly without compiling them to CommonJS. This shouldn’t affect how you write code since you likely already use `import` and `export` statements, but it will help catch more mistakes like missing named exports at compile time:
+A funcionalidade mais notável do webpack 2 é a habilidade de escrever e importar [módulos ES6](http://2ality.com/2014/09/es6-modules-final.html) diretamente sem compilar eles para CommonJS. Isso não deve afetar como você escreve código desde que você já use instruções `import` e `export`, mas ajudará a detectar mais erros, como a falta de exportações nomeadas em tempo de compilação:
 
-![Export validation](../images/blog/cra-update-exports.gif) 
+![Validação de export](../images/blog/cra-update-exports.gif) 
 
-In the future, as the ecosystem around ES6 modules matures, you can expect more improvements to your app's bundle size thanks to [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+No futuro, à medida que o ecossistema em torno dos módulos ES6 amadurecer, você poderá esperar mais melhorias no tamanho do bundle do seu aplicativo, graças a [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 ### Runtime Error Overlay {#error-overlay}
 
