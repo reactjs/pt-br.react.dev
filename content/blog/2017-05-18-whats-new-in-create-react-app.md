@@ -19,7 +19,7 @@ Atualizamos para o webpack 2, que foi [oficialmente lançado](https://medium.com
 
 Embora o formato de configuração do webpack tenha mudado, os usuários do Create React App que não ejetaram não precisam se peocupar com isso, pois atualizamos a configuração do nosso lado.
 
-Se você ejetou sua aplicção por algum motivo, Webpack provê um [guia de migração de configuraçãp](https://webpack.js.org/guides/migrating/) que você pode seguir para atualizar suas aplicações. Note que com cada release do Create React App, nós estamos trabalhando para suportar mais casos de uso fora da caixa para que você não tenha que ejetar no futuro.
+Se você ejetou sua aplicção por algum motivo, Webpack provê um [guia de migração de configuração](https://webpack.js.org/guides/migrating/) que você pode seguir para atualizar suas aplicações. Note que com cada release do Create React App, nós estamos trabalhando para suportar mais casos de uso fora da caixa para que você não tenha que ejetar no futuro.
 
 A funcionalidade mais notável do webpack 2 é a habilidade de escrever e importar [módulos ES6](http://2ality.com/2014/09/es6-modules-final.html) diretamente sem compilar eles para CommonJS. Isso não deve afetar como você escreve código desde que você já use instruções `import` e `export`, mas ajudará a detectar mais erros, como a falta de exportações nomeadas em tempo de compilação:
 
@@ -27,22 +27,21 @@ A funcionalidade mais notável do webpack 2 é a habilidade de escrever e import
 
 No futuro, à medida que o ecossistema em torno dos módulos ES6 amadurecer, você poderá esperar mais melhorias no tamanho do bundle do seu aplicativo, graças a [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
-### Runtime Error Overlay {#error-overlay}
+### Sobreposição de erro em tempo de execução {#error-overlay}
 
->*This change was contributed by [@Timer](https://github.com/Timer) and [@nicinabox](https://github.com/nicinabox) in [#1101](https://github.com/facebookincubator/create-react-app/pull/1101), [@bvaughn](https://github.com/bvaughn) in [#2201](https://github.com/facebookincubator/create-react-app/pull/2201).*
+>*Esta mudança foi contribuída por [@Timer](https://github.com/Timer) e [@nicinabox](https://github.com/nicinabox) em [#1101](https://github.com/facebookincubator/create-react-app/pull/1101), [@bvaughn](https://github.com/bvaughn) em [#2201](https://github.com/facebookincubator/create-react-app/pull/2201).*
 
-Have you ever made a mistake in code and only realized it after the console is flooded with cryptic errors? Or worse, have you ever shipped an app with crashes in production because you accidentally missed an error in development?
+Você já cometeu algum erro no código e só percebeu isso depois que o console foi inundado por erros enigmáticos? Ou pior, você já enviou uma aplicação com falhas para produção porque acidentalmente perdeu um erro no desenvolvimento?
 
-To address these issues, we are introducing an overlay that pops up whenever there is an uncaught error in your application. It only appears in development, and you can dismiss it by pressing Escape. 
+Para resolver esses problemas, estamos introduzindo uma sobreposição sempre que houver um erro não detectado na sua aplicação. Ele só aparece no desenvolvimento e você pode descartá-lo pressionando Escape. 
 
-A GIF is worth a thousand words:
+Um GIF vale mais que mil palavras:
     
 ![Runtime error overlay](../images/blog/cra-runtime-error.gif) 
 
-(Yes, it integrates with your editor!)
+(Sim, ele se integra ao seu editor!)
 
-In the future, we plan to teach the runtime error overlay to understand more about your React app. For example, after React 16 we plan to show React component stacks in addition to the JavaScript stacks when an error is thrown.
-
+No futuro, planejamos ensinar a sobreposição de erros de tempo de execução para entender mais sobre sua aplicação React. Por exemplo, após o React 16, planejamos mostrar pilhas de componentes React além das pilhas JavaScript quando um erro é gerado.
 
 ### Progressive Web Apps by Default {#progressive-web-apps-by-default}
 
