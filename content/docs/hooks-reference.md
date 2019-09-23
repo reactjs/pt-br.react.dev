@@ -207,6 +207,8 @@ const [state, dispatch] = useReducer(reducer, initialArg, init);
 
 Uma alternativa para [`useState`](#usestate). Aceita um `reducer` do tipo `(state, action) => newState` e retorna o estado atual, junto com um método `dispatch`. (Se você está familiarizado com o Redux, você já sabe como isso funciona.)
 
+`useReducer` é geralmente preferível em relação ao `useState` quando se tem uma lógica de estado complexa que envolve múltiplos sub-valores, ou quando o próximo estado depende do estado anterior. `useReducer` também possibilita a otimização da performance de componentes que disparam atualizações profundas porque [é possível passar o `dispatch` para baixo, ao invés de `callbacks`](https://pt-br.reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
+
 Aqui está o exemplo do contador na seção [`useState`](#usestate), reescrito para usar um `reducer`:
 
 ```js
@@ -237,7 +239,7 @@ function Counter() {
 
 >Nota
 >
->React garante que a identidade da função `setState` é estável e não será alterada nos re-renderizadores. É por isso que é seguro omitir da lista de dependências `useEffect` ou` useCallback`.
+>React garante que a identidade da função `dispatch` é estável e não será alterada nos re-renderizadores. É por isso que é seguro omitir da lista de dependências `useEffect` ou` useCallback`.
 
 #### Determinando o Estado Inicial {#specifying-the-initial-state}
 
