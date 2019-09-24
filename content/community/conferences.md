@@ -38,7 +38,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
 
 ### React Conf Brasil 2019 {#react-conf-2019}
-October 19, 2019 in São Paulo, BR
+19 de outubro de 2019 em São Paulo, BR
 
 [Website](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Slack](https://react.now.sh/)
 
