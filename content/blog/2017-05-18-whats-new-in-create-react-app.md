@@ -13,7 +13,7 @@ Aplicações recém-criadas obterão essas melhorias automaticamente.
 
 ### webpack 2 {#webpack-2}
 
->*Esta mudança foi contribuída por [@Timer](https://github.com/Timer) em [#1291](https://github.com/facebookincubator/create-react-app/pull/1291).*
+>*Esta mudança foi uma contribuição de [@Timer](https://github.com/Timer) em [#1291](https://github.com/facebookincubator/create-react-app/pull/1291).*
 
 Atualizamos para o webpack 2, que foi [oficialmente lançado](https://medium.com/webpack/webpack-2-and-beyond-40520af9067f) há alguns meses. É uma grande atualização com muitas correções de bugs e melhorias gerais. Temos testado por um tempo, e agora consideramos estável o suficiente para recomendar a todos.
 
@@ -29,7 +29,7 @@ No futuro, à medida que o ecossistema em torno dos módulos ES6 amadurecer, voc
 
 ### Sobreposição de erro em tempo de execução {#error-overlay}
 
->*Esta mudança foi contribuída por [@Timer](https://github.com/Timer) e [@nicinabox](https://github.com/nicinabox) em [#1101](https://github.com/facebookincubator/create-react-app/pull/1101), [@bvaughn](https://github.com/bvaughn) em [#2201](https://github.com/facebookincubator/create-react-app/pull/2201).*
+>*Esta mudança foi uma contribuição de [@Timer](https://github.com/Timer) e [@nicinabox](https://github.com/nicinabox) em [#1101](https://github.com/facebookincubator/create-react-app/pull/1101), [@bvaughn](https://github.com/bvaughn) em [#2201](https://github.com/facebookincubator/create-react-app/pull/2201).*
 
 Você já cometeu algum erro no código e só percebeu isso depois que o console foi inundado por erros enigmáticos? Ou pior, você já enviou uma aplicação com falhas para produção porque acidentalmente perdeu um erro no desenvolvimento?
 
@@ -37,24 +37,23 @@ Para resolver esses problemas, estamos introduzindo uma sobreposição sempre qu
 
 Um GIF vale mais que mil palavras:
     
-![Runtime error overlay](../images/blog/cra-runtime-error.gif) 
+![Sobreposição de erro em tempo de execução](../images/blog/cra-runtime-error.gif) 
 
 (Sim, ele se integra ao seu editor!)
 
 No futuro, planejamos ensinar a sobreposição de erros de tempo de execução para entender mais sobre sua aplicação React. Por exemplo, após o React 16, planejamos mostrar pilhas de componentes React além das pilhas JavaScript quando um erro é gerado.
 
-### Progressive Web Apps by Default {#progressive-web-apps-by-default}
+### Aplicações Web Progressivas por Padrão {#progressive-web-apps-by-default}
 
->*This change was contributed by [@jeffposnick](https://github.com/jeffposnick) in [#1728](https://github.com/facebookincubator/create-react-app/pull/1728).*
+>*Esta mudança foi uma contribuição de [@jeffposnick](https://github.com/jeffposnick) em [#1728](https://github.com/facebookincubator/create-react-app/pull/1728).*
 
-Newly created projects are built as [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/) by default. This means that they employ [service workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) with an [offline-first caching strategy](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) to minimize the time it takes to serve the app to the users who visit it again. You can opt out of this behavior, but we recommend it both for new and existing apps, especially if you target mobile devices.
+Projetos criados recentemente são construídos como [Aplicações Web Progressivas](https://developers.google.com/web/progressive-web-apps/) por padrão. Isso significa que eles empregam [trabalhadores de serviço](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) com uma [estratégia de cache offline-first](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) para minimizar o tempo necessário para veicular o aplicativo aos usuários que o visitam novamente. Você pode desativar esse comportamento, mas recomendamos para aplicativos novos e existentes, especialmente se você tem como alvo dispositivos móveis.
 
-![Loading assets from service worker](../images/blog/cra-pwa.png) 
+![Carregando ativos do trabalhador de serviço](../images/blog/cra-pwa.png) 
 
-New apps automatically have these features, but you can easily convert an existing project to a Progressive Web App  by following [our migration guide](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
+Os novos aplicativos têm esses recursos automaticamente, mas você pode converter facilmente um projeto existente em uma Aplicações Web Progressiva seguindo [nosso guia de migração](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
 
-We will be adding [more documentation](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app) on this topic in the coming weeks. Please feel free to [ask any questions](https://github.com/facebookincubator/create-react-app/issues/new) on the issue tracker!
-
+Adicionaremos [mais documentação](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app ) sobre esse tópico nas próximas semanas. Por favor, fique à vontade para [fazer qualquer pergunta](https://github.com/facebookincubator/create-react-app/issues/new) no rastreador de problemas!
 
 ### Jest 20 {#jest-20}
 
