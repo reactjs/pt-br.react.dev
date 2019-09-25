@@ -2,8 +2,6 @@
 id: static-type-checking
 title: Verificando Tipos Estáticos
 permalink: docs/static-type-checking.html
-prev: typechecking-with-proptypes.html
-next: refs-and-the-dom.html
 ---
 
 Verificadores de tipos estáticos, como [Flow](https://flow.org/) e [TypeScript](https://www.typescriptlang.org/), identificam certos tipos de problemas mesmo antes do seu código ser executado. Eles também melhoram o fluxo de trabalho do desenvolvedor adicionando features como preenchimento automático. Por isso, recomendamos usar Flow ou TypeScript ao invés de `PropTypes` para bases de código maiores.
@@ -261,9 +259,9 @@ Vamos cobrir isso em dois passos:
 }
 ```
 
-Ótimo! Agora quando executarmos o nosso script de build, o compilador vai colocar o javascript gerado na pasta `build`. O [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) oferece um `tsconfig.json` com um bom conjunto de regras para você começar.
+Ótimo! Agora quando executarmos o nosso script de build, o compilador vai colocar o JavaScript gerado na pasta `build`. O [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) oferece um `tsconfig.json` com um bom conjunto de regras para você começar.
 
-Geralmente, você não quer manter o javascript gerado no seu repositório, então tenha certeza de que adicionou a pasta do build no seu `.gitignore`.
+Geralmente, você não quer manter o JavaScript gerado no seu repositório, então tenha certeza de que adicionou a pasta do build no seu `.gitignore`.
 
 ### Extensões de Arquivos {#file-extensions}
 No React, você provavelmente escreverá seus componentes em um arquivo `.js`. No TypeScript temos 2 extensões de arquivo:
@@ -317,7 +315,7 @@ declare module 'querystring' {
 Vocé agora pode começar a programar! Nós recomendamos verificar os seguintes recursos para aprender mais sobre TypeScript (em inglês):
 
 * [TypeScript Documentation: Basic Types](https://www.typescriptlang.org/docs/handbook/basic-types.html)
-* [TypeScript Documentation: Migrating from Javascript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
+* [TypeScript Documentation: Migrating from JavaScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html)
 * [TypeScript Documentation: React and Webpack](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html)
 
 ## Reason {#reason}

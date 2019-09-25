@@ -335,7 +335,7 @@ A extensão React Devtools para [Chrome](https://chrome.google.com/webstore/deta
 
 O React DevTools permite que você verifique as props e o estado (_state_) de seus componentes React.
 
-Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas de desenvolvedor, e a guia React aparecerá como a última guia à direita.
+Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas de desenvolvedor, e as guias React ("⚛️ Components" e "⚛️ Profiler") aparecerá como a última guia à direita.  Use "⚛️ Components" para inspecionar a árvore de componentes.
 
 **No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen:**
 
@@ -449,7 +449,7 @@ Para manter a privacidade do state do Tabuleiro, nós vamos passar a função re
 
 >Nota
 >
->Nós quebramos o retorno do elemento em várias linhas para melhorar a legibilidade e adicionamos parentesis para que o Javascript não insira ponto e virgula após o `return` e quebre o código
+>Nós quebramos o retorno do elemento em várias linhas para melhorar a legibilidade e adicionamos parentesis para que o JavaScript não insira ponto e virgula após o `return` e quebre o código
 
 Agora nós iremos passar duas props do Tabuleiro para o Quadrado: `value` e `onClick`. A propriedade `onClick` é uma função que será chamada quando o Quadrado for clicado. Nós manteremos as seguintes mudanças no componente Quadrado:
 
@@ -614,7 +614,7 @@ Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 
 >Nota
 >
->Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parenteses em *ambos* os lados).
+>Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parentêses em *ambos* os lados).
 
 ### Trocando Turnos {#taking-turns}
 

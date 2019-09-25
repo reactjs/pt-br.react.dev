@@ -59,8 +59,9 @@ permalink: community/ui-components.html
 * **[react-treeview](https://github.com/chenglou/react-treeview):** Visualização em árvore fácil, leve e flexível.
 * **[react-uwp](https://www.react-uwp.com)** Um conjunto de componentes React que implementam o design UWP e o design fluente da Microsoft.
 * **[react-validate-framework](https://github.com/MinJieLiu/react-validate-framework)**: Um componente de validação React leve e extensível.
-* **[recharts](https://github.com/recharts/recharts)**: Uma biblioteca de gráficos feitos em componentes React.
 * **[reactstrap](https://reactstrap.github.io/):** Simples componentes do  Bootstrap 4 feitos com [tether](http://tether.io/)
+* **[Reakit](https://reakit.io/):** Kit de ferramentas para criar aplicativos da Web avançados acessíveis com o React.
+* **[recharts](https://github.com/recharts/recharts)**: Uma biblioteca de gráficos feitos em componentes React.
 * **[Selectivity](https://arendjr.github.io/selectivity/):** Biblioteca de seleção modular e leve.
 * **[Semantic-ui](https://react.semantic-ui.com/)**: A integração oficial Semantic-UI-React, componentes avançados e interface de usuário declarativa.
 * **[storybook-addon-material-ui](https://github.com/sm-react/storybook-addon-material-ui)** Um complemento de storybook para material-ui.
