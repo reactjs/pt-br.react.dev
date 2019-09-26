@@ -109,7 +109,7 @@ O método `render` será chamado toda vez que uma atualização acontecer, mas e
 
 Vamos mover a `date` da props para o state em três passos:
 
-1) Substitua `this.props.date` por `this.state.date` no médoto `render()`:
+1) Substitua `this.props.date` por `this.state.date` no método `render()`:
 
 ```js{6}
 class Clock extends React.Component {
@@ -164,7 +164,7 @@ ReactDOM.render(
 );
 ```
 
-Mais tarde, adiconaremos o código do temporizador de volta ao próprio componente.
+Mais tarde, adicionaremos o código do temporizador de volta ao próprio componente.
 
 O Resultado se parece com:
 
