@@ -25,7 +25,7 @@ A funcionalidade mais notável do webpack 2 é a habilidade de escrever e import
 
 ![Validação de export](../images/blog/cra-update-exports.gif) 
 
-No futuro, à medida que o ecossistema em torno dos módulos ES6 amadurecer, você poderá esperar mais melhorias no tamanho do bundle do seu aplicativo, graças a [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+No futuro, à medida que o ecossistema em torno dos módulos ES6 amadurecer, você poderá esperar mais melhorias no tamanho do bundle da sua aplicação, graças a [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 ### Sobreposição de erro em tempo de execução {#error-overlay}
 
@@ -47,25 +47,25 @@ No futuro, planejamos ensinar a sobreposição de erros de tempo de execução p
 
 >*Esta mudança foi uma contribuição de [@jeffposnick](https://github.com/jeffposnick) em [#1728](https://github.com/facebookincubator/create-react-app/pull/1728).*
 
-Projetos criados recentemente são construídos como [Aplicações Web Progressivas](https://developers.google.com/web/progressive-web-apps/) por padrão. Isso significa que eles empregam [trabalhadores de serviço](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) com uma [estratégia de cache offline-first](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) para minimizar o tempo necessário para veicular o aplicativo aos usuários que o visitam novamente. Você pode desativar esse comportamento, mas recomendamos para aplicativos novos e existentes, especialmente se você tem como alvo dispositivos móveis.
+Projetos criados recentemente são construídos como [Aplicações Web Progressivas](https://developers.google.com/web/progressive-web-apps/) por padrão. Isso significa que eles empregam [trabalhadores de serviço](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) com uma [estratégia de cache offline-first](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-falling-back-to-network) para minimizar o tempo necessário para veicular a aplicação aos usuários que o visitam novamente. Você pode desativar esse comportamento, mas recomendamos para aplicações novas e existentes, especialmente se você tem como alvo dispositivos móveis.
 
 ![Carregando ativos do trabalhador de serviço](../images/blog/cra-pwa.png) 
 
-Os novos aplicativos têm esses recursos automaticamente, mas você pode converter facilmente um projeto existente em uma Aplicações Web Progressiva seguindo [nosso guia de migração](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
+As novas aplicações têm esses recursos automaticamente, mas você pode converter facilmente um projeto existente em uma Aplicações Web Progressiva seguindo [nosso guia de migração](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
 
 Adicionaremos [mais documentação](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app ) sobre esse tópico nas próximas semanas. Por favor, fique à vontade para [fazer qualquer pergunta](https://github.com/facebookincubator/create-react-app/issues/new) no rastreador de problemas!
 
 ### Jest 20 {#jest-20}
 
->*This change was contributed by [@rogeliog](https://github.com/rogeliog) in [#1614](https://github.com/facebookincubator/create-react-app/pull/1614) and [@gaearon](https://github.com/gaearon) in [#2171](https://github.com/facebookincubator/create-react-app/pull/2171).*
+>*Esta mudança foi uma contribuição de [@rogeliog](https://github.com/rogeliog) em [#1614](https://github.com/facebookincubator/create-react-app/pull/1614) e [@gaearon](https://github.com/gaearon) in [#2171](https://github.com/facebookincubator/create-react-app/pull/2171).*
    
-We are now using the latest version of Jest that includes numerous bugfixes and improvements. You can read more about the changes in [Jest 19](https://facebook.github.io/jest/blog/2017/02/21/jest-19-immersive-watch-mode-test-platform-improvements.html) and [Jest 20](http://facebook.github.io/jest/blog/2017/05/06/jest-20-delightful-testing-multi-project-runner.html) blog posts.
+Agora estamos usando a versão mais recente do Jest, que inclui inúmeras correções e melhorias. Você pode ler mais sobre as mudanças nas postagens [Jest 19](https://facebook.github.io/jest/blog/2017/02/21/jest-19-immersive-watch-mode-test-platform-improvements.html) e [Jest 20](http://facebook.github.io/jest/blog/2017/05/06/jest-20-delightful-testing-multi-project-runner.html).
 
-Highlights include a new [immersive watch mode](https://facebook.github.io/jest/blog/2017/02/21/jest-19-immersive-watch-mode-test-platform-improvements.html#immersive-watch-mode), [a better snapshot format](https://facebook.github.io/jest/blog/2017/02/21/jest-19-immersive-watch-mode-test-platform-improvements.html#snapshot-updates), [improvements to printing skipped tests](https://facebook.github.io/jest/blog/2017/02/21/jest-19-immersive-watch-mode-test-platform-improvements.html#improved-printing-of-skipped-tests), and [new testing APIs](https://facebook.github.io/jest/blog/2017/05/06/jest-20-delightful-testing-multi-project-runner.html#new-improved-testing-apis).
+Os destaques incluem um novo [modo de onservação imersivo](https://facebook.github.io/jest/blog/2017/02/21/jest-19-immersive-watch-mode-test-platform-improvements.html#immersive-watch-mode), [um melhor formato de snapshot](https://facebook.github.io/jest/blog/2017/02/21/jest-19-immersive-watch-mode-test-platform-improvements.html#snapshot-updates), [melhorias na impressão de testes ignorados](https://facebook.github.io/jest/blog/2017/02/21/jest-19-immersive-watch-mode-test-platform-improvements.html#improved-printing-of-skipped-tests), e [novas APIs de teste](https://facebook.github.io/jest/blog/2017/05/06/jest-20-delightful-testing-multi-project-runner.html#new-improved-testing-apis).
 
-![Immersive test watcher](../images/blog/cra-jest-search.gif) 
+![Observador de teste imersivo](../images/blog/cra-jest-search.gif) 
 
-Additionally, Create React App now support configuring a few Jest options related to coverage reporting.
+Além disso, o Create React App agora suporta a configuração de algumas opções do Jest relacionadas aos relatórios de cobertura.
 
 ### Code Splitting with Dynamic import() {#code-splitting-with-dynamic-import}
 
