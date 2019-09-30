@@ -44,17 +44,17 @@ Antes de começarmos, aqui está uma rápida visão geral das alterações de ci
 * Estamos **adicionando os seguintes pseudônimos de ciclo de vida**: `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, e `UNSAFE_componentWillUpdate`. (Os nomes de ciclo de vida antigos e os novos pseudônimos serão suportados.)
 * Estamos **introduzingo dois novos ciclos de vida**, estático `getDerivedStateFromProps` e `getSnapshotBeforeUpdate`.
 
-### New lifecycle: `getDerivedStateFromProps` {#new-lifecycle-getderivedstatefromprops}
+### Novo ciclo de vida: `getDerivedStateFromProps` {#new-lifecycle-getderivedstatefromprops}
 
 `embed:update-on-async-rendering/definition-getderivedstatefromprops.js`
 
-The new static `getDerivedStateFromProps` lifecycle is invoked after a component is instantiated as well as before it is re-rendered. It can return an object to update `state`, or `null` to indicate that the new `props` do not require any `state` updates.
+O novo ciclo de vida estático `getDerivedStateFromProps` é invocado depois que um componente é instanciado, bem como antes de ser renderizado novamente. Ele pode retornar um objeto para atualizar o `state`, ou `null` para indicar que as novas `props` não exigem quaisquer atualizações de `state`.
 
-Together with `componentDidUpdate`, this new lifecycle should cover all use cases for the legacy `componentWillReceiveProps`.
+Juntamente com `componentDidUpdate`, esse novo ciclo de vida deve abranger todos os casos de uso para o legado `componentWillReceiveProps`.
 
->Note:
+>Nota:
 >
->Both the older `componentWillReceiveProps` and the new `getDerivedStateFromProps` methods add significant complexity to components. This often leads to [bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html#common-bugs-when-using-derived-state). Consider **[simpler alternatives to derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html)** to make components predictable and maintainable.
+> Tanto o antigo método `componentWillReceiveProps` e quanto o novo `getDerivedStateFromProps` adicionam uma complexidade significativa para os componentes. Isso muitas vezes leva a [bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html#common-bugs-when-using-derived-state). Considere **[alternativas mais simples ao `state` derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html)** para tornar os componentes previsíveis e sustentáveis.
 
 ### New lifecycle: `getSnapshotBeforeUpdate` {#new-lifecycle-getsnapshotbeforeupdate}
 
