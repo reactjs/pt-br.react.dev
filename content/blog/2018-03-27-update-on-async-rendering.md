@@ -56,17 +56,17 @@ Juntamente com `componentDidUpdate`, esse novo ciclo de vida deve abranger todos
 >
 > Tanto o antigo método `componentWillReceiveProps` e quanto o novo `getDerivedStateFromProps` adicionam uma complexidade significativa para os componentes. Isso muitas vezes leva a [bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html#common-bugs-when-using-derived-state). Considere **[alternativas mais simples ao `state` derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html)** para tornar os componentes previsíveis e sustentáveis.
 
-### New lifecycle: `getSnapshotBeforeUpdate` {#new-lifecycle-getsnapshotbeforeupdate}
+### Novo ciclo de vida: `getSnapshotBeforeUpdate` {#new-lifecycle-getsnapshotbeforeupdate}
 
 `embed:update-on-async-rendering/definition-getsnapshotbeforeupdate.js`
 
-The new `getSnapshotBeforeUpdate` lifecycle is called right before mutations are made (e.g. before the DOM is updated). The return value for this lifecycle will be passed as the third parameter to `componentDidUpdate`. (This lifecycle isn't often needed, but can be useful in cases like manually preserving scroll position during rerenders.)
+O novo ciclo de vida `getSnapshotBeforeUpdate` é chamado logo antes que as mutações sejam feitas (por exemplo, antes que o DOM seja atualizado). O valor de retorno para este ciclo de vida será passado como o terceiro parâmetro para `componentDidUpdate`. (Esse ciclo de vida não é freqüentemente necessário, mas pode ser útil em casos como preservar manualmente a posição de rolagem durante as renderizações.)
 
-Together with `componentDidUpdate`, this new lifecycle should cover all use cases for the legacy `componentWillUpdate`.
+Juntamente com `componentDidUpdate`, esse novo ciclo de vida deve abranger todos os casos de uso para o legado `componentWillUpdate`.
 
-You can find their type signatures [in this gist](https://gist.github.com/gaearon/88634d27abbc4feeb40a698f760f3264).
+Você pode encontrar as assinaturas de tipo [neste gist](https://GIST.github.com/gaearon/88634d27abbc4feeb40a698f760f3264).
 
-We'll look at examples of how both of these lifecycles can be used below.
+Vamos ver exemplos de como ambos os ciclos de vida podem ser usados abaixo.
 
 ## Exemplos {#examples}
 - [Inicializando o state](#initializing-state)
