@@ -3,15 +3,15 @@ title: Update on Async Rendering
 author: [bvaughn]
 ---
 
-For over a year, the React team has been working to implement asynchronous rendering. Last month during his talk at JSConf Iceland, [Dan unveiled some of the exciting new possibilities async rendering unlocks](/blog/2018/03/01/sneak-peek-beyond-react-16.html). Now we'd like to share with you some of the lessons we've learned while working on these features, and some recipes to help prepare your components for async rendering when it launches.
+Por mais de um ano, a equipe do React tem trabalhado para implementar a renderização assíncrona. No mês passado, durante sua palestra no JSConf na Islândia, [Dan revelou algumas das novas possibilidades excitantes que a renderização assíncrona desbloqueia](/blog/2018/03/01/sneak-peek-beyond-react-16.html). Agora, gostaríamos de compartilhar com você algumas das lições que aprendemos ao trabalhar nesses recursos e algumas receitas para ajudar a preparar seus componentes para renderização assíncrona quando ela for lançada.
 
-One of the biggest lessons we've learned is that some of our legacy component lifecycles tend to encourage unsafe coding practices. They are:
+Uma das maiores lições que aprendemos é que alguns dos nossos ciclos de vida de componentes legados tendem a incentivar práticas de codificação inseguras. Eles são:
 
 * `componentWillMount`
 * `componentWillReceiveProps`
 * `componentWillUpdate`
 
-These lifecycle methods have often been misunderstood and subtly misused; furthermore, we anticipate that their potential misuse may be more problematic with async rendering. Because of this, we will be adding an "UNSAFE_" prefix to these lifecycles in an upcoming release. (Here, "unsafe" refers not to security but instead conveys that code using these lifecycles will be more likely to have bugs in future versions of React, especially once async rendering is enabled.)
+Estes métodos de ciclo de vida têm sido muitas vezes incompreendidos e sutilmente usurpados; Além disso, prevemos que o seu potencial uso indevido pode ser mais problemático com a renderização assíncrona. Devido a isso, nós estaremos adicionando um prefixo  "UNSAFE_" para esses ciclos de vida em uma próxima versão. (Aqui,  "inseguro" não refere-se à segurança, mas sim que códigos utilizando esses ciclos de vida terão mais chances de ter bugs em versões futuras do React, especialmente quando a renderização assíncrona estiver habilitada.)
 
 ## Gradual Migration Path {#gradual-migration-path}
 
