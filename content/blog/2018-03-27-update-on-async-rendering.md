@@ -25,24 +25,24 @@ Estes métodos de ciclo de vida têm sido muitas vezes incompreendidos e sutilme
 
 Mantemos mais de 50.000 componentes do React no Facebook, e não planejamos reescrevê-los imediatamente. Entendemos que as migrações levam tempo. Tomaremos o caminho de migração gradual junto com todos na comunidade React.
 
-If you don't have the time to migrate or test these components, we recommend running a ["codemod"](https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb) script that renames them automatically:
+Se você não tiver tempo para migrar ou testar esses componentes, recomendamos executar um script ["codemod"](https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb) que os renomeia automaticamente:
 
 ```bash
-cd your_project
+cd seu_projeto
 npx react-codemod rename-unsafe-lifecycles
 ```
 
-Learn more about this codemod on the [16.9.0 release post.](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#renaming-unsafe-lifecycle-methods) 
+Saiba mais sobre este codemod no [post da versão 16.9.0.](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#renaming-unsafe-lifecycle-methods)
 
 ---
 
-## Migrating from Legacy Lifecycles {#migrating-from-legacy-lifecycles}
+## Migrando de Ciclos de Vida Legados {#migrating-from-legacy-lifecycles}
 
-If you'd like to start using the new component APIs introduced in React 16.3 (or if you're a maintainer looking to update your library in advance) here are a few examples that we hope will help you to start thinking about components a bit differently. Over time, we plan to add additional "recipes" to our documentation that show how to perform common tasks in a way that avoids the problematic lifecycles.
+Se gostaria de começar a usar as novas APIs de componentes introduzidas no React 16.3 (ou se você for um mantenedor procurando atualizar sua biblioteca com antecedência) aqui estão alguns exemplos que esperamos que o ajudem a começar a pensar em componentes um pouco diferente. Ao longo do tempo, planejamos adicionar "receitas" adicionais à nossa documentação que mostram como executar tarefas comuns de uma forma que evite os ciclos de vida problemáticos.
 
-Before we begin, here's a quick overview of the lifecycle changes planned for version 16.3:
-* We are **adding the following lifecycle aliases**: `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, and `UNSAFE_componentWillUpdate`. (Both the old lifecycle names and the new aliases will be supported.)
-* We are **introducing two new lifecycles**, static `getDerivedStateFromProps` and `getSnapshotBeforeUpdate`.
+Antes de começarmos, aqui está uma rápida visão geral das alterações de ciclo de vida planejadas para a versão 16.3:
+* Estamos **adicionando os seguintes pseudônimos de ciclo de vida**: `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, e `UNSAFE_componentWillUpdate`. (Os nomes de ciclo de vida antigos e os novos pseudônimos serão suportados.)
+* Estamos **introduzingo dois novos ciclos de vida**, estático `getDerivedStateFromProps` e `getSnapshotBeforeUpdate`.
 
 ### New lifecycle: `getDerivedStateFromProps` {#new-lifecycle-getderivedstatefromprops}
 
