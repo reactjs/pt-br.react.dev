@@ -19,6 +19,7 @@ O Facebook adotou o [Convênio do Contribuinte](https://www.contributor-covenant
 
 Todo trabalho no React acontece diretamente no [GitHub](https://github.com/facebook/react). Tanto membros do ***Core Team*** quanto contribuidores externos devem enviar ***pull requests*** que vão passar pelo mesmo processo de revisão.
 
+<<<<<<< HEAD
 ### Organização de Branches {#branch-organization}
 
 Nós buscaremos fazer o nosso melhor para manter [branch `master`](https://github.com/facebook/react/tree/master) organizada, com testes passando todas as vezes. Mas para garantir que seremos rápidos, nós faremos mudanças na API nas quais suas aplicações podem não ser compatíveis. Nós recomendamos que você use [a versão estável do React](/versions.html).
@@ -32,6 +33,27 @@ O React segue o [versionamento semântico](http://semver.org/). Buscar lançar v
 Nós marcamos com ***tags*** qualquer ***pull request*** com um marcador que indica se a alteração deve ir para o próximo [patch](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-patch), [versão secundária (minor version)](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-minor) ou em uma [versão principal (major version)](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-major). Nós lançamos novas versões de ***patch*** a cada poucas semanas, versões secundários a cada poucos meses e versões principais uma ou duas vezes por ano.
 
 Toda mudança significativa é documentada na [***changelog***](https://github.com/facebook/react/blob/master/CHANGELOG.md).
+=======
+### Semantic Versioning {#semantic-versioning}
+
+React follows [semantic versioning](https://semver.org/). We release patch versions for critical bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance. Learn more about our commitment to stability and incremental migration in [our versioning policy](https://reactjs.org/docs/faq-versioning.html).
+
+Every significant change is documented in the [changelog file](https://github.com/facebook/react/blob/master/CHANGELOG.md).
+
+### Branch Organization {#branch-organization}
+
+Submit all changes directly to the [`master branch`](https://github.com/facebook/react/tree/master). We don't use separate branches for development or for upcoming releases. We do our best to keep `master` in good shape, with all tests passing.
+
+Code that lands in `master` must be compatible with the latest stable release. It may contain additional features, but no breaking changes. We should be able to release a new minor version from the tip of `master` at any time.
+
+### Feature Flags {#feature-flags}
+
+To keep the `master` branch in a releasable state, breaking changes and experimental features must be gated behind a feature flag.
+
+Feature flags are defined in [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js). Some builds of React may enable different sets of feature flags; for example, the React Native build may be configured differently than React DOM. These flags are found in [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks). Feature flags are statically typed by Flow, so you can run `yarn flow` to confirm that you've updated all the necessary files.
+
+React's build system will strip out disabled feature branches before publishing. A continuous integration job runs on every commit to check for changes in bundle size. You can use the change in size as a signal that a feature was gated correctly.
+>>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 ### Bugs {#bugs}
 

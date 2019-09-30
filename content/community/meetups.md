@@ -25,6 +25,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Joinville](https://www.meetup.com/pt-BR/React-Joinville/)
 * [Rio de Janeiro](https://www.meetup.com/pt-BR/React-Rio-de-Janeiro/)
 * [São Paulo](https://www.meetup.com/pt-BR/ReactJS-SP/)
+* [Vila Velha](https://www.meetup.com/pt-BR/React-ES/)
 
 ## Bolívia {#bolivia}
 * [Bolivia](https://www.meetup.com/ReactBolivia/)
@@ -58,7 +59,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Karlsruhe](https://www.meetup.com/react_ka/)
 * [Kiel](https://www.meetup.com/Kiel-React-Native-Meetup/)
 * [Munich](https://www.meetup.com/ReactJS-Meetup-Munich/)
-* [React Berlin](https://www.meetup.com/React-Berlin/)
+* [React Berlin](https://www.meetup.com/React-Open-Source/)
 * [React.JS Girls Berlin](https://www.meetup.com/ReactJS-Girls-Berlin/)
 
 ## Grécia {#greece}
