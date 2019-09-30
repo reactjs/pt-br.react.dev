@@ -3,27 +3,27 @@ title: Atualização em Renderização Assíncrona
 author: [bvaughn]
 ---
 
-For over a year, the React team has been working to implement asynchronous rendering. Last month during his talk at JSConf Iceland, [Dan unveiled some of the exciting new possibilities async rendering unlocks](/blog/2018/03/01/sneak-peek-beyond-react-16.html). Now we'd like to share with you some of the lessons we've learned while working on these features, and some recipes to help prepare your components for async rendering when it launches.
+Por mais de um ano, a equipe do React tem trabalhado para implementar a renderização assíncrona. No mês passado, durante sua palestra no JSConf na Islândia, [Dan revelou algumas das novas possibilidades excitantes que a renderização assíncrona desbloqueia](/blog/2018/03/01/sneak-peek-beyond-react-16.html). Agora, gostaríamos de compartilhar com você algumas das lições que aprendemos ao trabalhar nesses recursos e algumas receitas para ajudar a preparar seus componentes para renderização assíncrona quando ela for lançada.
 
-One of the biggest lessons we've learned is that some of our legacy component lifecycles tend to encourage unsafe coding practices. They are:
+Uma das maiores lições que aprendemos é que alguns dos nossos ciclos de vida de componentes legados tendem a incentivar práticas de codificação inseguras. Eles são:
 
 * `componentWillMount`
 * `componentWillReceiveProps`
 * `componentWillUpdate`
 
-These lifecycle methods have often been misunderstood and subtly misused; furthermore, we anticipate that their potential misuse may be more problematic with async rendering. Because of this, we will be adding an "UNSAFE_" prefix to these lifecycles in an upcoming release. (Here, "unsafe" refers not to security but instead conveys that code using these lifecycles will be more likely to have bugs in future versions of React, especially once async rendering is enabled.)
+Estes métodos de ciclo de vida têm sido muitas vezes incompreendidos e sutilmente usurpados; Além disso, prevemos que o seu potencial uso indevido pode ser mais problemático com a renderização assíncrona. Devido a isso, nós estaremos adicionando um prefixo  "UNSAFE_" para esses ciclos de vida em uma próxima versão. (Aqui,  "inseguro" não refere-se à segurança, mas sim que códigos utilizando esses ciclos de vida terão mais chances de ter bugs em versões futuras do React, especialmente quando a renderização assíncrona estiver habilitada.)
 
-## Gradual Migration Path {#gradual-migration-path}
+## Caminho de Migração Gradual {#gradual-migration-path}
 
-[React follows semantic versioning](/blog/2016/02/19/new-versioning-scheme.html), so this change will be gradual. Our current plan is:
+[React segue o controle de versão semântica](/blog/2016/02/19/new-versioning-scheme.html), portanto, essa alteração será gradual. Nosso plano atual é:
 
-* **16.3**: Introduce aliases for the unsafe lifecycles, `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, and `UNSAFE_componentWillUpdate`. (Both the old lifecycle names and the new aliases will work in this release.)
-* **A future 16.x release**: Enable deprecation warning for `componentWillMount`, `componentWillReceiveProps`, and `componentWillUpdate`. (Both the old lifecycle names and the new aliases will work in this release, but the old names will log a DEV-mode warning.)
-* **17.0**: Remove `componentWillMount`, `componentWillReceiveProps`, and `componentWillUpdate` . (Only the new "UNSAFE_" lifecycle names will work from this point forward.)
+* **16.3**: Introdução de pseudônimos para os ciclos de vida não seguros, `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, e `UNSAFE_componentWillUpdate`. (Tanto os nomes de ciclos de vida antigos quanto os novos pseudônimos funcionarão nesta versão.)
+* **Uma versão futura do 16. x**: Habilita o aviso de substituição para `componentWillMount`, `componentWillReceiveProps`, e `componentWillUpdate`. (Tanto os nomes de ciclos de vida antigos e os novos pseudônimos funcionarão nesta versão, mas os nomes antigos registrarão um aviso em modo de desenvolvimento.)
+* **17.0**: Remoção de `componentWillMount`, `componentWillReceiveProps`, e `componentWillUpdate` . (Apenas os novos nomes de ciclo de vida "UNSAFE_" funcionarão a partir deste ponto para a frente.)
 
-**Note that if you're a React application developer, you don't have to do anything about the legacy methods yet. The primary purpose of the upcoming version 16.3 release is to enable open source project maintainers to update their libraries in advance of any deprecation warnings. Those warnings will not be enabled until a future 16.x release.**
+**Observe que, se você for um desenvolvedor de aplicativos React, não precisará fazer nada sobre os métodos legados por enquanto. O objetivo principal da próxima versão 16.3 é permitir que os mantenedores do projeto de código aberto atualizem suas bibliotecas antes de quaisquer avisos de substituição. Esses avisos não serão ativados até uma versão 16.x futura.**
 
-We maintain over 50,000 React components at Facebook, and we don't plan to rewrite them all immediately. We understand that migrations take time. We will take the gradual migration path along with everyone in the React community.
+Mantemos mais de 50.000 componentes do React no Facebook, e não planejamos reescrevê-los imediatamente. Entendemos que as migrações levam tempo. Tomaremos o caminho de migração gradual junto com todos na comunidade React.
 
 If you don't have the time to migrate or test these components, we recommend running a ["codemod"](https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb) script that renames them automatically:
 
