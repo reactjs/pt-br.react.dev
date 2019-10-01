@@ -51,7 +51,7 @@ Dito isso, se nós percebermos que uma mudança desta lista possa causar problem
 
 ### Se uma versão secundária não inclui novos recursos, por que não é um Patch? {#minors-versus-patches}
 
-É possível que uma versão minor não inclua novos recursos. [Isso é permitido por semver](https://semver.org/#spec-item-7), que afirma que **"[uma versão minor] PODE ser incrementada se novas funcionalidades substanciais ou melhorias forem introduzidas no código privado. como PODE incluir alterações no nível do patch."**
+É possível que uma versão minor não inclua novos recursos. [Isso é permitido por semver](https://semver.org/#spec-item-7), que afirma que **"[uma versão minor] PODE ser incrementada se novas funcionalidades substanciais ou melhorias forem introduzidas no código privado. Como PODE incluir alterações no nível do patch."**
 
 No entanto, levanta a questão de por que esses lançamentos não são versionados como patches.
 
