@@ -210,6 +210,7 @@ MyContext.displayName = 'MyDisplayName';
 
 <MyContext.Provider> // "MyDisplayName.Provider" in DevTools
 <MyContext.Consumer> // "MyDisplayName.Consumer" in DevTools
+```
 
 ## Exemplos {#examples}
 
