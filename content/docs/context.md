@@ -15,22 +15,13 @@ Em uma aplicação típica do React, os dados são passados de cima para baixo (
   - [Context.Provider](#contextprovider)
   - [Class.contextType](#classcontexttype)
   - [Context.Consumer](#contextconsumer)
-<<<<<<< HEAD
+  - [Context.displayName](#contextdisplayname)
 - [Exemplos](#examples)
   - [Contexto Dinâmico](#dynamic-context)
   - [Atualizando o Contexto de um componente aninhado](#updating-context-from-a-nested-component)
   - [Consumindo vários Contextos](#consuming-multiple-contexts)
 - [Ressalvas](#caveats)
 - [API Legada](#legacy-api)
-=======
-  - [Context.displayName](#contextdisplayname)
-- [Examples](#examples)
-  - [Dynamic Context](#dynamic-context)
-  - [Updating Context from a Nested Component](#updating-context-from-a-nested-component)
-  - [Consuming Multiple Contexts](#consuming-multiple-contexts)
-- [Caveats](#caveats)
-- [Legacy API](#legacy-api)
->>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
 
 ## Quando Usar Contexto {#when-to-use-context}
 
@@ -207,14 +198,11 @@ Requer uma [*function as a child*](/docs/render-props.html#using-props-other-tha
 > 
 > Para mais informações sobre o padrão *"function as a child"* veja, [render props](/docs/render-props.html).
 
-<<<<<<< HEAD
-## Exemplos {#examples}
-=======
 ### `Context.displayName` {#contextdisplayname}
 
-Context object accepts a `displayName` string property. React DevTools uses this string to determine what to display for the context.
+O objeto de Context aceita uma propriedade string `displayName`. React DevTools usa essa string para determinar o que exibir para o contexto.
 
-For example, the following component will appear as MyDisplayName in the DevTools:
+Por exemplo, o seguinte componente aparecerá como MyDisplayName no DevTools:
 
 ```js{2}
 const MyContext = React.createContext(/* some value */);
@@ -222,10 +210,8 @@ MyContext.displayName = 'MyDisplayName';
 
 <MyContext.Provider> // "MyDisplayName.Provider" in DevTools
 <MyContext.Consumer> // "MyDisplayName.Consumer" in DevTools
-```
 
-## Examples {#examples}
->>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
+## Exemplos {#examples}
 
 ### Contexto Dinâmico {#dynamic-context}
 
