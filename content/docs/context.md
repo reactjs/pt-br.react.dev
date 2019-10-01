@@ -200,7 +200,7 @@ Requer uma [*function as a child*](/docs/render-props.html#using-props-other-tha
 
 ### `Context.displayName` {#contextdisplayname}
 
-O objeto de Context aceita uma propriedade string `displayName`. React DevTools usa essa string para determinar o que exibir para o contexto.
+O objeto Context aceita uma propriedade string `displayName`. React DevTools usa essa string para determinar o que exibir para o contexto.
 
 Por exemplo, o seguinte componente aparecerá como MyDisplayName no DevTools:
 
