@@ -10,7 +10,7 @@ O React segue os princípios de [versionamento semântico (semver)](https://semv
 
 Isso significa que com um número de versão **x.y.z**:  
 
-* Ao liberarmos um **bug crítico corrige**, fazemos um **patch release** alterando o número **z** (ex: 15.6.2 para 15.6.3).
+* Ao liberarmos uma **correção de um bug crítico**, fazemos um **patch release** alterando o número **z** (ex: 15.6.2 para 15.6.3).
 * Ao liberarmos uma **atualização com novas funcionalidades**, fazemos uma **minor release** alterando o número **y** (ex: 15.6.2 para 15.7.0).
 * Ao liberarmos uma **atualização que quebra compatibilidade**, fazemos uma **major release** alterando o número **x** (ex: 15.6.2 para 16.0.0).
 
