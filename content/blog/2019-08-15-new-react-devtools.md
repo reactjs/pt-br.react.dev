@@ -46,7 +46,7 @@ Host nodes (por exemplo, HTML `<div>`, React Native `<View>`) são *escondidos p
 
 ## Como eu volto para a versão antiga?
 
-Se você está trabalhando com React Native na versão 60 (or anterior), você pode instalar a versão anterior do DevTools a partir do NPM:
+Se você está trabalhando com React Native na versão 60 (ou anterior), você pode instalar a versão anterior do DevTools a partir do NPM:
 
 ```shell
 npm install --dev react-devtools@^3
@@ -75,5 +75,5 @@ yarn build:extension
 Nós gostaríamos de agradecer quem testou a versão antecipada do DevTools versão 4.
 Seus feedbacks ajudaram a melhorar significativamente a versão inicial.
 
-Nós anda temos muitas funcionalidades excitantes planejadas e feedbacks são muito bem-vindos!
+Nós ainda temos muitas funcionalidades excitantes planejadas e feedbacks são muito bem-vindos!
 Sinta-se a vontada para abrir uma [issue no GitHub](https://github.com/facebook/react/issues/new?labels=Component:%20Developer%20Tools) ou marcar [@reactjs no Twitter](https://twitter.com/reactjs).
