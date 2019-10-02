@@ -90,25 +90,25 @@ Este exemplo mostra um componente com a chamada de `setState` dentro de `compone
 A refatoração mais simples para este tipo de componente é mover a inicialização do state para o construtor ou para um inicializador de propriedade, assim:
 `embed:update-on-async-rendering/initializing-state-after.js`
 
-### Fetching external data {#fetching-external-data}
+### Buscando dados externos {#fetching-external-data}
 
-Here is an example of a component that uses `componentWillMount` to fetch external data:
+Aqui está um exemplo de um componente que usa `componentWillMount` para buscar dados externos:
 `embed:update-on-async-rendering/fetching-external-data-before.js`
 
-The above code is problematic for both server rendering (where the external data won't be used) and the upcoming async rendering mode (where the request might be initiated multiple times).
+O código acima é problemático para a renderização do servidor (onde os dados externos não serão usados) e o próximo modo de renderização assíncrona (onde a solicitação pode ser iniciada várias vezes).
 
-The recommended upgrade path for most use cases is to move data-fetching into `componentDidMount`:
+O caminho de atualização recomendado para a maioria dos casos de uso é mover os dados-buscados para `componentDidMount`:
 `embed:update-on-async-rendering/fetching-external-data-after.js`
 
-There is a common misconception that fetching in `componentWillMount` lets you avoid the first empty rendering state. In practice this was never true because React has always executed `render` immediately after `componentWillMount`. If the data is not available by the time `componentWillMount` fires, the first `render` will still show a loading state regardless of where you initiate the fetch. This is why moving the fetch to `componentDidMount` has no perceptible effect in the vast majority of cases.
+Há um equívoco comum que buscando os dados no `componentWillMount` permitirá que você evite o primeiro estado de renderização vazio. Na prática, isso nunca foi verdade porque o React sempre executa o `render` imediatamente após o `componentWillMount`. Se os dados não estiverem disponíveis no momento em que `componentWillMount` é acionado, o primeiro `render` ainda mostrará um estado de carregamento, independentemente de onde você iniciar a busca. É por isso que mover a busca para `componentWillMount` não tem nenhum efeito perceptível na grande maioria dos casos.
 
-> Note
+> Nota
 >
-> Some advanced use-cases (e.g. libraries like Relay) may want to experiment with eagerly prefetching async data. An example of how this can be done is available [here](https://gist.github.com/bvaughn/89700e525ff423a75ffb63b1b1e30a8f).
+> Alguns casos de uso avançados (por exemplo, bibliotecas como Relay) podem querer experimentar de forma ansiosa os dados assíncronos pré-buscados. Um exemplo de como isso pode ser feito está disponível [aqui](https://gist.github.com/bvaughn/89700e525ff423a75ffb63b1b1e30a8f).
 >
-> In the longer term, the canonical way to fetch data in React components will likely be based on the “suspense” API [introduced at JSConf Iceland](/blog/2018/03/01/sneak-peek-beyond-react-16.html). Both simple data fetching solutions and libraries like Apollo and Relay will be able to use it under the hood. It is significantly less verbose than either of the above solutions, but will not be finalized in time for the 16.3 release.
+> A longo prazo, a forma canônica de buscar dados em componentes do React provavelmente será baseada na API de "suspense" [introduzida no JSConf Islândia](https://github.com/reebr/pt-BR.reactjs.org/blob/2018-03-27-update-on-async-rendering/blog/2018/03/01/sneak-peek-beyond-react-16.html). Ambas as soluções para buscar dados dados simples buscando e bibliotecas como Apollo e Relay serão capazes de utilizá-la por baixo dos panos. É significativamente menos verboso do que qualquer uma das soluções acima, mas não será finalizado em tempo para a versão 16.3.
 >
-> When supporting server rendering, it's currently necessary to provide the data synchronously – `componentWillMount` was often used for this purpose but the constructor can be used as a replacement. The upcoming suspense APIs will make async data fetching cleanly possible for both client and server rendering.
+> Ao oferecer suporte a renderização do servidor, é atualmente necessário fornecer os dados sincronicamente – `componentWillMount` foi freqüentemente usado para essa finalidade, mas o construtor pode ser usado como uma substituição. As próximas APIs de suspense farão com que os dados assíncronos sejam obtidos de forma limpa para renderização de cliente e servidor.
 
 ### Adding event listeners (or subscriptions) {#adding-event-listeners-or-subscriptions}
 
