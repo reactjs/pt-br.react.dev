@@ -2,7 +2,7 @@
 title: "Apresentando o novo React DevTools"
 author: [bvaughn]
 ---
-Nós estamos animados em anunciar uma nova versão do React Developer Tools, disponível hoje para Chrome, Firefox, e (Chromium) Edge!
+Nós estamos animados em anunciar uma nova versão do React Developer Tools, disponível hoje para Chrome, Firefox e (Chromium) Edge!
 
 ## O que mudou?
 
@@ -12,7 +12,7 @@ Ela também oferece suporte completo para React Hooks, incluindo a possibilidade
 
 ![Screenshot da DevTools versão 4](../images/blog/devtools-v4-screenshot.png)
 
-[Visite o tutorial interativo](https://react-devtools-tutorial.now.sh/) para testar a nova versão ou [veja o changelog](https://github.com/facebook/react/blob/master/packages/react-devtools/CHANGELOG.md#400-august-15-2019) para videos de demonstração e mais detalhes.
+[Visite o tutorial interativo](https://react-devtools-tutorial.now.sh/) para testar a nova versão ou [veja o changelog](https://github.com/facebook/react/blob/master/packages/react-devtools/CHANGELOG.md#400-august-15-2019) para vídeos de demonstração e mais detalhes.
 
 ## Quais versões do React são suportadas?
 
@@ -37,11 +37,10 @@ Se você usa a versão independente (por exemplo, no React Native ou Safari), vo
 npm install -g react-devtools@^4
 ```
 
-## Where did all of the DOM elements go?
 ## Para onde foram todos os elementos do DOM?
 
-O novo DevTools provê uma maneira de filtrar os componentes da árvore para facilitar a navegação de heirarquies profundamente aninhadas.
-Host nodes (por exemplo, HTML `<div>`, React Native `<View>`) são *escondidos por default*, mas este filtro pode ser desabilitado:
+O novo DevTools provê uma maneira de filtrar os componentes da árvore para facilitar a navegação de hierarquias profundamente aninhadas.
+Host nodes (por exemplo, HTML `<div>`, React Native `<View>`) são *escondidos por padrão*, mas este filtro pode ser desabilitado:
 
 ![Filtros de component do DevTools](../images/blog/devtools-component-filters.gif)
 
@@ -61,7 +60,7 @@ git clone https://github.com/facebook/react-devtools
 
 cd react-devtools
 
-# Facá checkout do branch da versão anterior
+# Faça checkout do branch da versão anterior
 git checkout v3
 
 # Instale as dependências e faça o build da extensão descompactada
@@ -76,5 +75,5 @@ yarn build:extension
 Nós gostaríamos de agradecer quem testou a versão antecipada do DevTools versão 4.
 Seus feedbacks ajudaram a melhorar significativamente a versão inicial.
 
-Nós anda temos muitas funcionalidades excitantes planejadas e feedbacks são muito bem vindos!
+Nós anda temos muitas funcionalidades excitantes planejadas e feedbacks são muito bem-vindos!
 Sinta-se a vontada para abrir uma [issue no GitHub](https://github.com/facebook/react/issues/new?labels=Component:%20Developer%20Tools) ou marcar [@reactjs no Twitter](https://twitter.com/reactjs).
