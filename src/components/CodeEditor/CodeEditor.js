@@ -11,6 +11,12 @@ import {LiveEditor, LiveProvider} from 'react-live';
 import {colors, media} from 'theme';
 import MetaTitle from 'templates/components/MetaTitle';
 
+// Replace unicode to text for other languages
+const unicodeToText = text =>
+  text.replace(/\\u([\dA-F]{4})/gi, (_, p1) =>
+    String.fromCharCode(parseInt(p1, 16)),
+  );
+
 const compileES5 = (
   code, // eslint-disable-next-line no-undef
 ) => Babel.transform(code, {presets: ['es2015', 'react']}).code;
@@ -43,7 +49,7 @@ class CodeEditor extends Component {
   }
 
   render() {
-    const {children, containerNodeID} = this.props;
+    const {containerNodeID} = this.props;
     const {
       compiledES6,
       code,
@@ -59,7 +65,10 @@ class CodeEditor extends Component {
           O Babel não pôde ser carregado.
           <br />
           <br />
-          Isto pode ser causado por algum bloqueador de anúncio. Se você está usando algum, considere adicionar o endereço reactjs.org na <i>whitelist</i>, ou lista de permitidos, e feito isso os exemplos com <i>live code</i> irão funcionar.
+          Isto pode ser causado por algum bloqueador de anúncio. Se você está
+          usando algum, considere adicionar o endereço reactjs.org na{' '}
+          <i>whitelist</i>, ou lista de permitidos, e feito isso os exemplos com{' '}
+          <i>live code</i> irão funcionar.
         </span>
       );
     } else if (error != null) {
@@ -262,14 +271,14 @@ class CodeEditor extends Component {
 
   _updateState(code, showJSX = true) {
     try {
-      let newState = {
+      const newState = {
         compiled: compileES5(code),
         error: null,
       };
 
       if (showJSX) {
         newState.code = code;
-        newState.compiledES6 = compileES6(code);
+        newState.compiledES6 = unicodeToText(compileES6(code));
       } else {
         newState.compiledES6 = code;
       }

@@ -126,7 +126,7 @@ Tipicamente, novos aplicativos React tem um único componente `App` no topo. Con
 
 Não tenha medo de dividir componentes em componentes menores.
 
-Por exemplo, considere esse commponente `Comment`:
+Por exemplo, considere esse componente `Comment`:
 
 ```js
 function Comment(props) {
@@ -245,7 +245,7 @@ function sum(a, b) {
 }
 ```
 
-Tais funções são chamadas ["puras"](https://en.wikipedia.org/wiki/Pure_function) porque elas não tentam alterar suas entradas e sempre retornan o mesmo resultado para as mesmas entradas.
+Tais funções são chamadas ["puras"](https://en.wikipedia.org/wiki/Pure_function) porque elas não tentam alterar suas entradas e sempre retornam o mesmo resultado para as mesmas entradas.
 
 Em contraste, essa função é impura porque altera sua própria entrada:
 

@@ -1,6 +1,6 @@
 ---
 id: support
-title: Where To Get Support
+title: Onde Obter Suporte
 layout: community
 sectionid: community
 permalink: community/support.html
@@ -8,19 +8,23 @@ redirect_from:
   - "support.html"
 ---
 
-React has a community of millions of developers.
+O React conta com uma comunidade de milhões de desenvolvedores.
 
-On this page we've listed some React-related communities that you can be a part of; see the other pages in this section for additional online and in-person learning materials.
+Nesta página, mostraremos algumas comunidades relacionadas ao React que você pode fazer parte;
+Veja as outras páginas desta seção para obter materiais de aprendizagem adicionais online e presencial.
+
+Antes de participar das comunidades do React, [leia nosso Código de Conduta](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md). Adotamos o [Convênio do Colaborador](https://www.contributor-covenant.org/) e esperamos que todos os membros da comunidade sigam as diretrizes contidas nele.
 
 ## Stack Overflow {#stack-overflow}
 
-Stack Overflow is a popular forum to ask code-level questions or if you're stuck with a specific error. Read through the [existing questions](https://stackoverflow.com/questions/tagged/reactjs) tagged with **reactjs** or [ask your own](https://stackoverflow.com/questions/ask?tags=reactjs)!
+Stack Overflow é um fórum bastante popular para realizar perguntas no nível de código ou tirar dúvidas sobre um erro em específico. Leia as [perguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) marcadas como **reactjs** ou [faça sua própria pergunta](https://stackoverflow.com/questions/ask?tags=reactjs)!
 
-## Popular Discussion Forums {#popular-discussion-forums}
+## Fóruns de Discussões Populares {#popular-discussion-forums}
 
-There are many online forums which are a great place for discussion about best practices and application architecture as well as the future of React. If you have an answerable code-level question, Stack Overflow is usually a better fit.
+Existem diversos fóruns online que são ótimos lugares para discutir sobre as melhores práticas, arquitetura de aplicativos e claro sobre o futuro do React. Se você tem alguma pergunta a nível de código, o Stack Overflow normalmente é o mais adequado.
 
-Each community consists of many thousands of React users.
+Cada comunidade consiste em milhares de usuários do React.
+
 
 * [DEV's React community](https://dev.to/t/react)
 * [Hashnode's React community](https://hashnode.com/n/reactjs)
@@ -28,6 +32,6 @@ Each community consists of many thousands of React users.
 * [Reddit's React community](https://www.reddit.com/r/reactjs/)
 * [Spectrum's React community](https://spectrum.chat/react)
 
-## News {#news}
+## Novidades {#news}
 
-For the latest news about React, [follow **@reactjs** on Twitter](https://twitter.com/reactjs) and the [official React blog](/blog/) on this website.
+Para receber as últimas notícias sobre o React, [Siga **@reactjs** no Twitter](https://twitter.com/reactjs) e o [Blog Oficial do React](/blog/) neste website.
