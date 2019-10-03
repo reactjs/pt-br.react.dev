@@ -118,7 +118,7 @@ Recomendamos seguir [estas instruções](https://babeljs.io/docs/editors/) para 
 
 ### Me Ajudem. Estou com Dificuldades! {#help-im-stuck}
 
-Se você não conseguir proseguir no tutorial por algum motivo, confira os [recursos de suporte da comunidade](/community/support.html). Em particular, o [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) é uma ótima maneira de obter ajuda rapidamente. Se você não receber uma resposta ou se permanecer preso, registre um problema e nós ajudaremos você.
+Se você não conseguir proseguir no tutorial por algum motivo, confira os [recursos de suporte da comunidade](/community/support.html). Em particular, o [Reactiflux Chat](https://discord.gg/reactiflux) é uma ótima maneira de obter ajuda rapidamente. Se você não receber uma resposta ou se permanecer preso, registre um problema e nós ajudaremos você.
 
 ## Visão geral {#overview}
 
