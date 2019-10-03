@@ -19,19 +19,25 @@ O Facebook adotou o [Convênio do Contribuinte](https://www.contributor-covenant
 
 Todo trabalho no React acontece diretamente no [GitHub](https://github.com/facebook/react). Tanto membros do ***Core Team*** quanto contribuidores externos devem enviar ***pull requests*** que vão passar pelo mesmo processo de revisão.
 
-### Organização de Branches {#branch-organization}
-
-Nós buscaremos fazer o nosso melhor para manter [branch `master`](https://github.com/facebook/react/tree/master) organizada, com testes passando todas as vezes. Mas para garantir que seremos rápidos, nós faremos mudanças na API nas quais suas aplicações podem não ser compatíveis. Nós recomendamos que você use [a versão estável do React](/versions.html).
-
-Se você enviar um ***pull request***, por favor faça contra a branch `master`. Nós mantemos ***branches*** estáveis para versões maiores separadamente, mas não aceitamos ***pull requests*** para elas diretamente. Ao invés disso, nós fazemos ***cherry-pick*** de mudanças que não quebrem o código da `master` para a última versão mais estável.
-
 ### Versionamento Semântico {#semantic-versioning}
 
-O React segue o [versionamento semântico](http://semver.org/). Buscar lançar versões de ***patch*** para correções de bugs, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência.
-
-Nós marcamos com ***tags*** qualquer ***pull request*** com um marcador que indica se a alteração deve ir para o próximo [patch](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-patch), [versão secundária (minor version)](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-minor) ou em uma [versão principal (major version)](https://github.com/facebook/react/pulls?q=is:open+is:pr+label:semver-major). Nós lançamos novas versões de ***patch*** a cada poucas semanas, versões secundários a cada poucos meses e versões principais uma ou duas vezes por ano.
+O React segue o [versionamento semântico](http://semver.org/). Lançamos versões de ***patch*** para correções críticas, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência. Saiba mais sobre nosso compromisso com a estabilidade e a migração incremental em [nossa política de versão](https://reactjs.org/docs/faq-versioning.html).
 
 Toda mudança significativa é documentada na [***changelog***](https://github.com/facebook/react/blob/master/CHANGELOG.md).
+
+### Organização de Branches {#branch-organization}
+
+Envie todas as alterações para a [`branch master`](https://github.com/facebook/react/tree/master). Não usamos ramificações separadas para desenvolvimento ou para os próximos lançamentos. Fazemos o possível para manter a `master` em boas condições, com testes passando todas as vezes.
+
+O código que chega na `master` deve ser compatível com a versão estável mais recente. Pode conter recursos adicionais, mas nenhuma alteração de última hora. Deveríamos ser capazes de lançar uma nova versão secundária apartir da `master` a qualquer momento.
+
+### Feature Flags {#feature-flags}
+
+Para manter o ramo da `master` em um estado liberável, as alterações de interrupção e os recursos experimentais devem ser colocados atrás de uma feature flag.
+
+Feature flags são definidas em [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js). Algums builds do React podem ativar conjuntos diferentes de features flags; por exemplo, o React Native build pode ser configurado de maneira diferente que o React DOM. Essas flags são encontradas em [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks). Feature flags são digitados estaticamente pelo Flow, para que você possa executar o `yarn flow` para confirmar que atualizou todos os arquivos necessários.
+
+O sistema de build do React removerá as branches de recursos desativados antes da publicação. Um trabalho de integração contínua é executado em todas as confirmações para verificar alterações no tamanho do pacote. Você pode usar a alteração de tamanho como um sinal de que o recurso foi bloqueado corretamente.
 
 ### Bugs {#bugs}
 
