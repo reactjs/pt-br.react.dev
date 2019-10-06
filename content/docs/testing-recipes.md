@@ -538,6 +538,7 @@ it("should accept selections", () => {
 ```
 
 Você pode usar os temporizadores fictícios apenas em alguns testes. Acima, nós habilitamos eles usando `jest.useFakeTimers()`. A principal vantagem que eles fornecem é que seus testes não precisam esperar os 5 segundos para executar e você também não precisa fazer o código ser mais convoluto apenas para o teste.
+
 ---
 
 ### Testes de _Snapshot_ {#snapshot-testing}
