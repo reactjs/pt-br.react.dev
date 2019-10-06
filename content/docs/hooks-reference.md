@@ -302,7 +302,7 @@ function Counter({initialCount}) {
 Se você retornar o mesmo valor do Hook Reducer que o valor do `state` atual, React irá pular a ação sem renderizar os filhos ou disparar os efeitos. (React usa o algoritimo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Note que o React ainda pode precisar renderizar aquele componente específico novamente antes de pular para fora da ação. Isso não deve ser um problema porque o React não vai se aprofundar desnecessariamente na árvore. Se você está fazendo cálculos de alto custo enquanto renderiza, você pode optimizá-los usando o `useMemo`.
 
 ### `useCallback` {#usecallback}
 
