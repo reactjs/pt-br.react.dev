@@ -167,9 +167,9 @@ export default function User(props) {
   return (
     <details>
       <summary>{user.name}</summary>
-      <strong>{user.age}</strong> anos
+      <strong>{user.age}</strong> years old
       <br />
-      mora em {user.address}
+      lives in {user.address}
     </details>
   );
 }
