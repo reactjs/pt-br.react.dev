@@ -6,6 +6,7 @@ permalink: community/ui-components.html
 ---
 
 ## Free Components {#free-components}
+<<<<<<< HEAD
 * **[Amaze UI React](https://github.com/amazeui/amazeui-react) (em Chinês):** [Amaze UI](https://github.com/allmobilize/amazeui) componentes feitos com React.
 * **[Ant Design of React](https://github.com/ant-design/ant-design)** Uma linguagem de UI design baseada em React.
 * **[Belle](https://github.com/nikgraf/belle/):** Componentes Configuráveis do React ​​com ótimo UX.
@@ -13,6 +14,17 @@ permalink: community/ui-components.html
 * **[Elemental UI](http://elemental-ui.com):** Um kit de ferramentas de UI para sites e aplicativos React, personalizável e composto por componentes encapsulados individualmente
 * **[Grommet](https://grommet.io/)** A mais avançada estrutura de UX de código aberto para aplicativos corporativos.
 * **[Halogen](https://yuanyan.github.io/halogen/):** Uma coleção de animações giratórias de carregamento altamente personalizáveis ​​com o React.
+=======
+* **[Amaze UI React](https://github.com/amazeui/amazeui-react) (in Chinese):** [Amaze UI](https://github.com/allmobilize/amazeui) components built with React.
+* **[Ant Design of React](https://github.com/ant-design/ant-design)** An enterprise-class UI design language and React-based implementation.
+* **[Base Web](http://baseweb.design):** A foundation for initiating, evolving, and unifying web products.
+* **[Belle](https://github.com/nikgraf/belle/):** Configurable React Components with great UX.
+* **[Chakra UI](https://chakra-ui.com/)**: Simple, modular and accessible component library.
+* **[chartify](https://github.com/kirillstepkin/chartify)**: Ultra lightweight and customizable React.js chart component.
+* **[Elemental UI](http://elemental-ui.com):** A UI toolkit for React websites and apps, themeable and composed of individually packaged components
+* **[Grommet](https://grommet.io/)** The most advanced open source UX framework for enterprise applications.
+* **[Halogen](https://yuanyan.github.io/halogen/):** A collection of highly customizable loading spinner animations with React.
+>>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
 * **[Khan Academy's component library](https://khan.github.io/react-components/)**
 * **[markdown-to-jsx](https://www.npmjs.com/package/markdown-to-jsx)**: Compila o markdown em React JSX de forma segura e sem usar escotilhas de escape perigosas.
 * **[Material-UI](https://material-ui.com/):** Componentes React implementados com o material design do Google.
