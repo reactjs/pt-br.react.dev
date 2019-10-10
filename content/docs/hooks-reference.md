@@ -61,12 +61,8 @@ function Counter({initialCount}) {
       Count: {count}
       <button onClick={() => setCount(initialCount)}>Reset</button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
-<<<<<<< HEAD
-   </>
-=======
       <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
     </>
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
   );
 }
 ```
@@ -116,11 +112,7 @@ Mutações, assinaturas, temporizadores, logs e outros `side effects` não são 
 
 Em vez disso, use `useEffect`. A função passada para `useEffect` será executada depois que a renderização estiver disponível na tela. Pense em efeitos como um rota de fuga do mundo puramente funcional do React para o mundo imperativo.
 
-<<<<<<< HEAD
 Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por disparar [somente quando certos valores receberam atualização](#conditionally-firing-an-effect).
-=======
-By default, effects run after every completed render, but you can choose to fire them [only when certain values have changed](#conditionally-firing-an-effect).
->>>>>>> 5c371e5e3fd8f92e1d06dfdf1f28edc50fb5d83f
 
 #### Limpando um Efeito {#cleaning-up-an-effect}
 
