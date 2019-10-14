@@ -60,9 +60,13 @@ function Counter({initialCount}) {
     <>
       Count: {count}
       <button onClick={() => setCount(initialCount)}>Reset</button>
-      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
+<<<<<<< HEAD
    </>
+=======
+      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
+    </>
+>>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
   );
 }
 ```
@@ -112,7 +116,11 @@ Mutações, assinaturas, temporizadores, logs e outros `side effects` não são 
 
 Em vez disso, use `useEffect`. A função passada para `useEffect` será executada depois que a renderização estiver disponível na tela. Pense em efeitos como um rota de fuga do mundo puramente funcional do React para o mundo imperativo.
 
+<<<<<<< HEAD
 Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por disparar [somente quando certos valores receberam atualização](#conditionally-firing-an-effect).
+=======
+By default, effects run after every completed render, but you can choose to fire them [only when certain values have changed](#conditionally-firing-an-effect).
+>>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 #### Limpando um Efeito {#cleaning-up-an-effect}
 
@@ -195,7 +203,55 @@ Um componente que chama `useContext` será sempre renderizado novamente quando o
 >
 >`useContext(MyContext)` só permite que você *leia* o contexto e assine suas alterações. Você ainda precisa de um `<MyContext.Provider>` acima na árvore para *fornecer* o valor para este contexto.
 
+<<<<<<< HEAD
 ## Hooks Adicionais {#additional-hooks}
+=======
+**Putting it together with Context.Provider**
+```js{31-36}
+const themes = {
+  light: {
+    foreground: "#000000",
+    background: "#eeeeee"
+  },
+  dark: {
+    foreground: "#ffffff",
+    background: "#222222"
+  }
+};
+
+const ThemeContext = React.createContext(themes.light);
+
+function App() {
+  return (
+    <ThemeContext.Provider value={themes.dark}>
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+function Toolbar(props) {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <button style={{ background: theme.background, color: theme.foreground }}>
+      I am styled by theme context!
+    </button>
+  );
+}
+```
+This example is modified for hooks from a previous example in the [Context Advanced Guide](/docs/context.html), where you can find more information about when and how to use Context.
+
+
+## Additional Hooks {#additional-hooks}
+>>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 
 Os próximos Hooks são variações dos princípios básicos da seção anterior ou apenas necessários para um caso de uso específico. Não se estresse sobre aprendê-las antes dos princípios básicos.
 
@@ -230,8 +286,8 @@ function Counter() {
   return (
     <>
       Count: {state.count}
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
   );
 }
@@ -290,8 +346,8 @@ function Counter({initialCount}) {
 
         Reset
       </button>
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
   );
 }
