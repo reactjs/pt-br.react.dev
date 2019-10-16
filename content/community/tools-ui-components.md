@@ -8,7 +8,9 @@ permalink: community/ui-components.html
 ## Free Components {#free-components}
 * **[Amaze UI React](https://github.com/amazeui/amazeui-react) (em Chinês):** [Amaze UI](https://github.com/allmobilize/amazeui) componentes feitos com React.
 * **[Ant Design of React](https://github.com/ant-design/ant-design)** Uma linguagem de UI design baseada em React.
+* **[Base Web](http://baseweb.design):** Uma base para iniciar, evoluir e unificar produtos da Web.
 * **[Belle](https://github.com/nikgraf/belle/):** Componentes Configuráveis do React ​​com ótimo UX.
+* **[Chakra UI](https://chakra-ui.com/)**: Biblioteca de componentes simples, modular e acessível.
 * **[chartify](https://github.com/kirillstepkin/chartify)**: Componente de gráfico React.js ultra leve e personalizável.
 * **[Elemental UI](http://elemental-ui.com):** Um kit de ferramentas de UI para sites e aplicativos React, personalizável e composto por componentes encapsulados individualmente
 * **[Grommet](https://grommet.io/)** A mais avançada estrutura de UX de código aberto para aplicativos corporativos.

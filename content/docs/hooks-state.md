@@ -272,7 +272,7 @@ Damos mais recomendações em separação de variáveis de state independentes [
 
 ## Próximos Passos {#next-steps}
 
-Nesta página aprendemos sobre um dos Hooks fornecido pelo React, chamado `useState`. Também, em algumas vezes, vamos nos referir como o "State do Hook". Ele nos permite adicionar um state local a um componenete de função -- o que fizemos pela primeira vez!
+Nesta página aprendemos sobre um dos Hooks fornecido pelo React, chamado `useState`. Também, em algumas vezes, vamos nos referir como o "State do Hook". Ele nos permite adicionar um state local a um componente de função -- o que fizemos pela primeira vez!
 
 Também aprendemos um pouco mais sobre o que são Hooks. Hooks são funções que permitem que você utilize recursos do React em componentes de função. Seus nomes sempre começam com `use`, e existem mais Hooks que não vimos ainda.
 

@@ -334,7 +334,7 @@ Note que renderizar componentes `lazy` requer que exista um componente `<React.S
 
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` permite que você especifique o indicador de carregamento em caso de alguns componentes abaixo na árvore ainda não estarem prontos para renderizar. Atualmente, componentes de carregamento *lazy* são a **única** finalidade que o `<React.Suspense>` presta suporte:
+`React.Suspense` permite especificar o indicador de carregamento em caso de alguns componentes abaixo na árvore ainda não estarem prontos para renderizar. Atualmente, componentes de carregamento *lazy* são a **única** finalidade que o `<React.Suspense>` presta suporte:
 
 ```js
 // Este componente é carregado dinamicamente
