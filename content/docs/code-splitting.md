@@ -58,9 +58,9 @@ se você estiver usando grandes bibliotecas de terceiros. Você precisa ficar de
 incluindo no seu pacote, pois assim você evitará que o mesmo fique tão grande que faça sua aplicação levar
 um tempo maior para carregar.
 
-Para não terminar ficando com um pacote grande, é bom se antecipar ao problema e começar
-a dividir seu pacote. [Divisão de Código (Code-Splitting)](https://webpack.js.org/guides/code-splitting/) é
-um recurso suportado por empacotadores como Webpack e Browserify (através de [coeficiente de empacotamento (factor-bundle)](https://github.com/browserify/factor-bundle)) no qual pode-se criar múltiplos pacotes que podem ser carregados dinamicamente em tempo de execução.
+Para evitar acabar com um pacote grande, é bom se antecipar ao problema e começar
+a "dividir" seu pacote. A divisão de código é um recurso
+suportado por empacotadores como [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) e Browserify (através de [coeficiente de empacotamento (factor-bundle)](https://github.com/browserify/factor-bundle)) no qual pode-se criar múltiplos pacotes que podem ser carregados dinamicamente em tempo de execução.
 
 Dividir o código de sua aplicação pode te ajudar a carregar somente o necessário ao usuário, o que pode melhorar dramaticamente o desempenho de sua aplicação. Embora você não tenha reduzido a quantidade total de código de sua aplicação, você evitou carregar código que o usuário talvez nunca precise e reduziu o código inicial necessário durante o carregamento.
 
