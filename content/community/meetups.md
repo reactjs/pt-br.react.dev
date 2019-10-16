@@ -30,12 +30,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Bolívia {#bolivia}
 * [Bolivia](https://www.meetup.com/ReactBolivia/)
 
-<<<<<<< HEAD
 ## Canadá {#canada}
-* [Montreal, QC - ReactJS](https://www.meetup.com/fr-FR/ReactMontreal/)
-=======
-## Canada {#canada}
->>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 * [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)
@@ -54,12 +49,8 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Manchester](https://www.meetup.com/Manchester-React-User-Group/)
 * [React.JS Girls London](https://www.meetup.com/ReactJS-Girls-London/)
 
-<<<<<<< HEAD
 ## França {#france}
-=======
-## France {#france}
 * [Lille](https://www.meetup.com/ReactBeerLille/)
->>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
 * [Paris](https://www.meetup.com/ReactJS-Paris/)
 
 ## Alemanha {#germany}
