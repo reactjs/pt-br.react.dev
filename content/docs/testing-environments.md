@@ -35,13 +35,13 @@ Frameworks como [Cypress](https://www.cypress.io/), [puppeteer](https://github.c
 
 ### Fazendo o mock de funções {#mocking-functions}
 
-Ao escrever testes, nós gostaríamos de fazer o mock nas partes do nosso código que não possuem um equivalente dentro do nosso ambiente de testes (por exemplo, checar o status `navigator.onLine` dentro do Node.js). Testes também podem espiar algumas funções e observar como outras partes do teste interagem com elas. Portanto, a possibilidade de fazer o _mock_ de funções selecionadas por versões mais amigáveis para testes é algo bem útil.
+Ao escrever testes, nós gostaríamos de fazer o mock nas partes do nosso código que não possuem um equivalente dentro do nosso ambiente de testes (por exemplo, checar o status `navigator.onLine` dentro do Node.js). Testes também podem espiar algumas funções e observar como outras partes do teste interagem com elas. Portanto, a possibilidade de fazer o mock de funções selecionadas por versões mais amigáveis para testes é algo bem útil.
 
 Isso é algo especialmente útil para a obtenção de dados (data fetching). Prefere-se normalmente que sejam usados dados "falsos" para testes a fim de evitar a lentidão e a inconstância causada pelo fetching de endpoints de uma API de verdade [<small>(exemplo)</small>](/docs/testing-recipes.html#data-fetching). Isso ajuda a fazer com que os testes sejam previsíveis. Bibliotecas como [Jest](https://jestjs.io/) e [sinon](https://sinonjs.org/), dentre outras, suportam o mock de funções. Para testes _end-to-end_, fazer o mock da sua rede de internet pode ser mais difícil, mas você provavelmente irá querer testar os endpoints da API de verdade ao fazê-los.
 
 ### Fazendo o mock de módulos {#mocking-modules}
 
-Alguns componentes dependem de módulos que podem não funcionar corretamente em ambientes de testes, ou que não são essenciais para os nossos testes. Um _mock_ seletivo desses módulos pode ser útil, com o uso de substitutos adequados[<small>(exemplo)</small>](/docs/testing-recipes.html#mocking-modules).
+Alguns componentes dependem de módulos que podem não funcionar corretamente em ambientes de testes, ou que não são essenciais para os nossos testes. Um mock seletivo desses módulos pode ser útil, com o uso de substitutos adequados[<small>(exemplo)</small>](/docs/testing-recipes.html#mocking-modules).
 
 No Node.js, executadores de teste como o Jest [dão suporte ao mock de módulos](https://jestjs.io/docs/en/manual-mocks). Você também pode usar bibliotecas como [`mock-require`](https://www.npmjs.com/package/mock-require).
 
@@ -49,7 +49,7 @@ No Node.js, executadores de teste como o Jest [dão suporte ao mock de módulos]
 
 Alguns componentes podem estar usando funções com base no tempo como `setTimeout`, `setInterval`, ou `Date.now`. Em ambientes de teste, fazer o mock dessas funções com substitutos que lhe permitam "avançar no tempo" pode ser de grande ajuda. Isso é ótimo para garantir que os seus testes executem de forma rápida! Testes que dependem de temporizadores ainda seriam resolvidos ordenadamente, mas de forma mais rápida[<small>(exemplo)</small>](/docs/testing-recipes.html#timers). A maioria dos frameworks, incluindo o [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) e [lolex](https://github.com/sinonjs/lolex), permitem que você faça o mock de temporizadores nos seus testes.
 
-Às vezes, você pode não querer fazer o _mock_ de temporizadores. Por exemplo, talvez você está testando uma animação, ou interagindo com um endpoint que é sensível a tempo (como uma API com um rate limiter). Bibliotecas com _mocks_ de temporizadores te permitem habilitar e desabilitar esses _mocks_ para cada teste/suíte de testes, de forma que você pode explicitamente escolher como esses testes irão ser executados.
+Às vezes, você pode não querer fazer o mock de temporizadores. Por exemplo, talvez você está testando uma animação, ou interagindo com um endpoint que é sensível a tempo (como uma API com um limitador de requisições). Bibliotecas com mocks de temporizadores te permitem habilitar e desabilitar esses mocks para cada teste/suíte de testes, de forma que você pode explicitamente escolher como esses testes irão ser executados.
 
 ### Testes end-to-end {#end-to-end-tests-aka-e2e-tests}
 
