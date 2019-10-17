@@ -32,7 +32,7 @@ Pete Hunt no Mountain West JavaScript 2014 discute por que um Virtual DOM foi co
 
 ### Renderização no Fluxo e no Servidor {#flux-and-server-side-rendering}
 
-Pete Hunt discute a renderização do fluxo e do lado do servidor no React - (2014 - 0h55m).
+Pete Hunt discute o fluxo e a renderização em React do lado do servidor - (2014 - 0h55m).
 <iframe title="YUI Open Roundtable with Pete Hunt" width="650" height="366" src="https://www.youtube-nocookie.com/embed/ZLfe0i2RDtY" frameborder="0" allowfullscreen></iframe>
 
 ### Repensando o Desenvolvimento de Aplicativos Web no Facebook {#rethinking-web-app-development-at-facebook}
@@ -47,7 +47,7 @@ Stoyan Stefanov faz uma introdução ao React no LAWebSpeed meetup - (2014 - 0h5
 
 ### React e Flux: Construindo aplicativos com um fluxo de dados unidirecional {#react-and-flux-building-applications-with-a-unidirectional-data-flow}
 
-Os engenheiros do Facebook Bill Fisher e Jing Chen falam sobre Flux e React no Forward JS 2014, e como o uso de uma arquitetura de aplicativo com um fluxo de dados unidirecional limpa grande parte do código deles.
+Os engenheiros do Facebook Bill Fisher e Jing Chen falam sobre Flux e React no Forward JS 2014, e como o uso de uma arquitetura de aplicativo com um fluxo de dados unidirecional limpa grande parte do seu código.
 <iframe title="React and Flux: Building Applications with a Unidirectional Data Flow" width="650" height="366" src="https://www.youtube-nocookie.com/embed/i__969noyAM" frameborder="0" allowfullscreen></iframe>
 
 ### Escalando com React {#going-big-with-react}
