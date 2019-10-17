@@ -426,7 +426,7 @@ Os diferentes eventos do DOM e suas propriedades estão descritas em [MDN](https
 
 ### Temporizadores {#timers}
 
-Seu código pode usar funções baseadas em tempo como `setTimeout` para programar mais trabalhos no futor. Nesse exemplo abaixo, um painel de múltipla escolha espera por uma seleção e avança, esgotando o tempo se uma seleção não é feita em 5 segundos:
+Seu código pode usar funções baseadas em tempo como `setTimeout` para programar mais trabalhos no futuro. Nesse exemplo abaixo, um painel de múltipla escolha espera por uma seleção e avança, esgotando o tempo se uma seleção não é feita em 5 segundos:
 
 ```jsx
 // card.js
