@@ -16,7 +16,7 @@ Nessa página, nós iremos primeiramente usar componentes funcionais. Entretanto
 
 - [Detalhamento da configuração](#setup--teardown)
 - [`act()`](#act)
-- [Renderização](#rendering)
+- [Renderizando](#rendering)
 - [Busca de dados](#data-fetching)
 - [Transformando módulos em _mock_](#mocking-modules)
 - [Eventos](#events)
@@ -27,7 +27,7 @@ Nessa página, nós iremos primeiramente usar componentes funcionais. Entretanto
 
 ---
 
-### Configuração {#setup--teardown}
+### Detalhamento da configuração {#setup--teardown}
 
 Para cada teste, nós geralmente queremos renderizar nossa árvore React para um elemento do DOM que está atrelado a um `documento`. Isso é importante para que ele recebe eventos do DOM. Quando o teste finaliza, nós queremos realizar uma "limpeza" e desmontar a árvore do `documento`.
 
