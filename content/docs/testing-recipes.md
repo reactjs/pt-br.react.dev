@@ -12,7 +12,7 @@ Padrões de teste comuns para componentes React.
 >
 > Esta página assume que você está utilizando o [Jest](https://jestjs.io/) como executor de testes. Se você está utilizando um executor de testes diferente, pode ser necessário mudar a API porém no geral o desenho da solução provavelmente será o mesmo. Leia mais detalhes sobre como configurar um ambiente de testes na página [Ambientes de Teste](/docs/testing-environments.html).
 
-Nessa página, nós iremos primeiramente usar componentes funcionais. Entretanto, essas estratégias não dependem desses detalhes de implementação e também funcionam em componentes de classe também.
+Nessa página, nós iremos primeiramente usar componentes funcionais. Entretanto, essas estratégias não dependem desses detalhes de implementação e também funcionam em componentes de classe.
 
 - [Detalhamento da configuração](#setup--teardown)
 - [`act()`](#act)
