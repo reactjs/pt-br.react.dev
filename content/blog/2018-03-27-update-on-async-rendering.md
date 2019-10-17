@@ -156,15 +156,14 @@ Você pode se perguntar por que nós não apenas passamos as props anteriores co
 >
 > Se você está escrevendo um componente compartilhado, o polyfill [`react-lifecycles-compat`](https://github.com/reactjs/react-lifecycles-compat) permite que o novo ciclo de vida `getDerivedStateFromProps` seja usado em versões mais antigas do React também. [Saiba mais sobre como usá-lo abaixo.](#open-source-project-maintainers)
 
-### Invoking external callbacks {#invoking-external-callbacks}
+### Invocando callbacks externos {#invoking-external-callbacks}
 
-Here is an example of a component that calls an external function when its internal state changes:
+Aqui está um exemplo de um componente que chama uma função externa quando seu state interno é alterado:
 `embed:update-on-async-rendering/invoking-external-callbacks-before.js`
 
-Sometimes people use `componentWillUpdate` out of a misplaced fear that by the time `componentDidUpdate` fires, it is "too late" to update the state of other components. This is not the case. React ensures that any `setState` calls that happen during `componentDidMount` and `componentDidUpdate` are flushed before the user sees the updated UI. In general, it is better to avoid cascading updates like this, but in some cases they are necessary (for example, if you need to position a tooltip after measuring the rendered DOM element).
+Às vezes, as pessoas usam `componentWillUpdate` com medo de que quando `componentDidUpdate` for disparado, isso seja "tarde demais" para atualizar o state de outros componentes. Este não é o caso. O React garante que qualquer chamada ao `setState` que esteja ocorrendo durante `componentDidMount` e `componentDidUpdate` sejam liberadas antes que o usuário veja a UI atualizada. Em geral, é melhor evitar atualizações em cascatas como esta, mas em alguns casos elas podem ser necessárias (por exemplo, se você precisa posicionar uma *tooltip* medir o elemento renderizado no DOM).
 
-Either way, it is unsafe to use `componentWillUpdate` for this purpose in async mode, because the external callback might get called multiple times for a single update. Instead, the `componentDidUpdate` lifecycle should be used since it is guaranteed to be invoked only once per update:
-`embed:update-on-async-rendering/invoking-external-callbacks-after.js`
+De qualquer maneira, não é seguro fazer o uso de `componentWillUpdate` para este propósito em modo assíncrono, porque o retorno de uma chamada externa pode ser executada múltiplas em uma única atualização. Em vez disso, o ciclo de vida `componentDidUpdate` deve ser utilizado pois é gerantido que seja invocado uma única vez por atualização: `embed:update-on-async-rendering/invoking-external-callbacks-after.js`
 
 ### Side effects on props change {#side-effects-on-props-change}
 
