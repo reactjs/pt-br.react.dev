@@ -163,15 +163,16 @@ Aqui está um exemplo de um componente que chama uma função externa quando seu
 
 Às vezes, as pessoas usam `componentWillUpdate` com medo de que quando `componentDidUpdate` for disparado, isso seja "tarde demais" para atualizar o state de outros componentes. Este não é o caso. O React garante que qualquer chamada ao `setState` que esteja ocorrendo durante `componentDidMount` e `componentDidUpdate` sejam liberadas antes que o usuário veja a UI atualizada. Em geral, é melhor evitar atualizações em cascatas como esta, mas em alguns casos elas podem ser necessárias (por exemplo, se você precisa posicionar uma *tooltip* medir o elemento renderizado no DOM).
 
-De qualquer maneira, não é seguro fazer o uso de `componentWillUpdate` para este propósito em modo assíncrono, porque o retorno de uma chamada externa pode ser executada múltiplas em uma única atualização. Em vez disso, o ciclo de vida `componentDidUpdate` deve ser utilizado pois é gerantido que seja invocado uma única vez por atualização: `embed:update-on-async-rendering/invoking-external-callbacks-after.js`
+De qualquer maneira, não é seguro fazer o uso de `componentWillUpdate` para este propósito em modo assíncrono, porque o retorno de uma chamada externa pode ser executada múltiplas em uma única atualização. Em vez disso, o ciclo de vida `componentDidUpdate` deve ser utilizado pois é gerantido que seja invocado uma única vez por atualização:
+`embed:update-on-async-rendering/invoking-external-callbacks-after.js`
 
-### Side effects on props change {#side-effects-on-props-change}
+### Efeitos colaterais em mudanças de props {#side-effects-on-props-change}
 
-Similar to the [example above](#invoking-external-callbacks), sometimes components have side effects when `props` change.
+Similar ao [exemplo acima](#invoking-external-callbacks), às vezes os componentes tem efeitos colaterais quando ocorrem mudanças de `props`.
 
 `embed:update-on-async-rendering/side-effects-when-props-change-before.js`
 
-Like `componentWillUpdate`, `componentWillReceiveProps` might get called multiple times for a single update. For this reason it is important to avoid putting side effects in this method. Instead, `componentDidUpdate` should be used since it is guaranteed to be invoked only once per update:
+Assim como o `componentWillUpdate`, o `componentWillReceiveProps` pode ser chamado várias vezes para uma única atualização. Por esta razão, é importante evitar colocar efeitos colaterais neste método. Em vez disso, `componentDidUpdate` deve ser usado uma vez que é garantido que seja invocado uma única vez por atualização:
 
 `embed:update-on-async-rendering/side-effects-when-props-change-after.js`
 
