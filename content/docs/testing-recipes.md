@@ -51,7 +51,7 @@ afterEach(() => {
 });
 ```
 
-Você pode utilizar um diferente padrão mas tenha em mente de que nós quetemos executar uma limpeza _mesmo que o teste falhe_. Caso contrário, os testes podem impactar outros, alterando o comportamento. Isso faz com que eles sejam difíceis de serem depurados.
+Você pode utilizar um diferente padrão, mas tenha em mente de que queremos executar uma limpeza _mesmo que o teste falhe_. Caso contrário, os testes podem impactar outros, alterando o comportamento. Isso faz com que eles sejam difíceis de serem depurados.
 
 ---
 
