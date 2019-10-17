@@ -132,29 +132,29 @@ Em vez de passar uma prop `dataSource` assinada como fizemos no exemplo acima, p
 > 
 > Bibliotecas como Relay/Apollo devem gerenciar inscrições manualmente com as mesmas técnicas que `create-subscription` utilizam por baixo dos panos (como referenciado [aqui](https://gist.github.com/bvaughn/d569177d70b50b58bff69c3c4a5353f3)) de uma forma que é mais otimizado para o uso da biblioteca.
 
-### Updating `state` based on `props` {#updating-state-based-on-props}
+### Atualizando o `state` baseado em `props` {#updating-state-based-on-props}
 
->Note:
+>Nota:
 >
->Both the older `componentWillReceiveProps` and the new `getDerivedStateFromProps` methods add significant complexity to components. This often leads to [bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html#common-bugs-when-using-derived-state). Consider **[simpler alternatives to derived state](/blog/2018/06/07/you-probably-dont-need-derived-state.html)** to make components predictable and maintainable.
+>Tanto o antigo método `componentWillReceiveProps` e o novo `getDerivedStateFromProps` adicionam uma complexidade significativa para componentes. Isso muitas vezes levam a [bugs](/blog/2018/06/07/you-probably-dont-need-derived-state.html#common-bugs-when-using-derived-state). Considere **[alternativas mais simples ao state derivado](/blog/2018/06/07/you-probably-dont-need-derived-state.html)** para tornar os componentes previsíveis e sustentáveis.
 
-Here is an example of a component that uses the legacy `componentWillReceiveProps` lifecycle to update `state` based on new `props` values:
+Aqui está um exemplo de um componente que utiliza o ciclo de vida `componentWillReceiveProps` legado para atualizar o `state` baseado em um novo valor de uma `props`:
 `embed:update-on-async-rendering/updating-state-from-props-before.js`
 
-Although the above code is not problematic in itself, the `componentWillReceiveProps` lifecycle is often mis-used in ways that _do_ present problems. Because of this, the method will be deprecated.
+Embora o código acima não seja problemático em si, o ciclo de vida `componentWillReceiveProps` geralmente é utilizado de forma abusiva fazendo com que _apresentem_ problemas. Devido a isso, o método será depreciado.
 
-As of version 16.3, the recommended way to update `state` in response to `props` changes is with the new `static getDerivedStateFromProps` lifecycle. It is called when a component is created and each time it re-renders due to changes to props or state:
+A partir da versão 16.3, a maneira recomendada de atualizar o `state` em resposta a mudanças de `props` é com o novo ciclo de vida `static getDerivedStateFromProps`. Ele é chamado quando o componente é criado e todas as vezes que o mesmo for renderizado novamente quando houver mudanças de props ou state:
 `embed:update-on-async-rendering/updating-state-from-props-after.js`
 
-You may notice in the example above that `props.currentRow` is mirrored in state (as `state.lastRow`). This enables `getDerivedStateFromProps` to access the previous props value in the same way as is done in `componentWillReceiveProps`.
+Você pode notar no exemplo acima que `props.currentRow` é espelhado no state (como `state.lastRow`). Isso permite `getDerivedStateFromProps` acessar o valor anterior de props da mesma maneira como é feito em `componentWillReceiveProps`.
 
-You may wonder why we don't just pass previous props as a parameter to `getDerivedStateFromProps`. We considered this option when designing the API, but ultimately decided against it for two reasons:
-* A `prevProps` parameter would be null the first time `getDerivedStateFromProps` was called (after instantiation), requiring an if-not-null check to be added any time `prevProps` was accessed.
-* Not passing the previous props to this function is a step toward freeing up memory in future versions of React. (If React does not need to pass previous props to lifecycles, then it does not need to keep the previous `props` object in memory.)
+Você pode se perguntar por que nós não apenas passamos as props anteriores como parâmetro para o `getDerivedStateFromProps`. Nós consideramos essa opção ao projetar a API, mas finalmente decidimos ir contra ela por dois motivos:
+* Um parâmetro `prevProps` seria nulo na primeira vez que `getDerivedStateFromProps` fosse chamado (após ser instanciado), requerendo adicionar uma checagem if-not-null a qualquer momento em que `prevProps` fosse acessado.
+* Não passar as props anteriores para essa função é uma etapa para liberar memória em futuras versões do React. (Se o React não precisar passar props anteriores para ciclios de vida, então ele precisará manter o objeto de `props` em memória.)
 
-> Note
+> Nota
 >
-> If you're writing a shared component, the [`react-lifecycles-compat`](https://github.com/reactjs/react-lifecycles-compat) polyfill enables the new `getDerivedStateFromProps` lifecycle to be used with older versions of React as well. [Learn more about how to use it below.](#open-source-project-maintainers)
+> Se você está escrevendo um componente compartilhado, o polyfill [`react-lifecycles-compat`](https://github.com/reactjs/react-lifecycles-compat) permite que o novo ciclo de vida `getDerivedStateFromProps` seja usado em versões mais antigas do React também. [Saiba mais sobre como usá-lo abaixo.](#open-source-project-maintainers)
 
 ### Invoking external callbacks {#invoking-external-callbacks}
 
