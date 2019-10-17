@@ -110,27 +110,27 @@ Há um equívoco comum que buscando os dados no `componentWillMount` permitirá 
 >
 > Ao oferecer suporte a renderização do servidor, é atualmente necessário fornecer os dados sincronicamente – `componentWillMount` foi freqüentemente usado para essa finalidade, mas o construtor pode ser usado como uma substituição. As próximas APIs de suspense farão com que os dados assíncronos sejam obtidos de forma limpa para renderização de cliente e servidor.
 
-### Adding event listeners (or subscriptions) {#adding-event-listeners-or-subscriptions}
+### Adicionando *listeners* de eventos (ou inscrições) {#adding-event-listeners-or-subscriptions}
 
-Here is an example of a component that subscribes to an external event dispatcher when mounting:
+Aqui está um exemplo de um componente que assina um *dispatcher* externo de eventos ao montar-se:
 `embed:update-on-async-rendering/adding-event-listeners-before.js`
 
-Unfortunately, this can cause memory leaks for server rendering (where `componentWillUnmount` will never be called) and async rendering (where rendering might be interrupted before it completes, causing `componentWillUnmount` not to be called).
+Infelizmente, isto pode causar vazamentos de memória para renderização do servidor (onde `componentWillUnmount` nunca será chamado) e em renderização assíncrona (onde a renderização pode ser interrompida antes de ser concluída, fazendo com que `componentWillUnmount` não seja chamado).
 
-People often assume that `componentWillMount` and `componentWillUnmount` are always paired, but that is not guaranteed. Only once `componentDidMount` has been called does React guarantee that `componentWillUnmount` will later be called for clean up.
+As pessoas geralmente assumem que `componentWillMount` e `componentWillUnmount` estão sempre emparelhados mas isto não é garantido. Somente uma vez que `componentDidMount` for chamado, o React garante que o `componentWillUnmount` será chamado para a limpeza.
 
-For this reason, the recommended way to add listeners/subscriptions is to use the `componentDidMount` lifecycle:
+Por esse motivo, a maneira recomendada para adicionar ouvintes/inscrições é usar o ciclo de vida `componentDidMount`:
 `embed:update-on-async-rendering/adding-event-listeners-after.js`
 
-Sometimes it is important to update subscriptions in response to property changes. If you're using a library like Redux or MobX, the library's container component should handle this for you. For application authors, we've created a small library, [`create-subscription`](https://github.com/facebook/react/tree/master/packages/create-subscription), to help with this. We'll publish it along with React 16.3.
+Às vezes, é importante atualizar as inscrições às alterações de propriedades. Se você estiver utilizando uma biblioteca como o Redux ou Mobx, o componente de contêiner da da biblioteca deve lidar com isso para você. Para autores de aplicações, criamos uma pequena biblioteca, [`create-subscription`](https://github.com/facebook/react/tree/master/packages/create-subscription), para ajudar com isto. Vamos publicá-la junto com o React 16.3.
 
-Rather than passing a subscribable `dataSource` prop as we did in the example above, we could use `create-subscription` to pass in the subscribed value:
+Em vez de passar uma prop `dataSource` assinada como fizemos no exemplo acima, poderíamos usar o `create-subscription` para passar o valor subscrito:
 
 `embed:update-on-async-rendering/adding-event-listeners-create-subscription.js`
 
-> Note
+> Nota
 > 
-> Libraries like Relay/Apollo should manage subscriptions manually with the same techniques as `create-subscription` uses under the hood (as referenced [here](https://gist.github.com/bvaughn/d569177d70b50b58bff69c3c4a5353f3)) in a way that is most optimized for their library usage.
+> Bibliotecas como Relay/Apollo devem gerenciar inscrições manualmente com as mesmas técnicas que `create-subscription` utilizam por baixo dos panos (como referenciado [aqui](https://gist.github.com/bvaughn/d569177d70b50b58bff69c3c4a5353f3)) de uma forma que é mais otimizado para o uso da biblioteca.
 
 ### Updating `state` based on `props` {#updating-state-based-on-props}
 
