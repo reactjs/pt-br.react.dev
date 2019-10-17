@@ -57,7 +57,7 @@ Você pode utilizar um diferente padrão, mas tenha em mente de que queremos exe
 
 ### `act()` {#act}
 
-Quando está se escrevendo testes de UI, tarefas como renderização, eventos de usuario ou busca de testes podem ser considerados como "unidades" de interação com a interface do usuário. React provê um auxiliar chamado `act()` que garante que todas as atualizações relacionadas a esses "usuários" estejam sendo processadas e aplicadas ao DOM antes que você faça alguma declaração de testes.
+Quando está se escrevendo testes de UI, tarefas como renderização, eventos de usuário ou busca de testes podem ser considerados como "unidades" de interação com a interface do usuário. React provê um auxiliar chamado `act()` que garante que todas as atualizações relacionadas a esses "usuários" estejam sendo processadas e aplicadas ao DOM antes que você faça alguma declaração de testes.
 
 ```js
 act(() => {
