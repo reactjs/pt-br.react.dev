@@ -15,3 +15,5 @@ permalink: community/articles.html
 - [Visual Guide to State in React](https://daveceddia.com/visual-guide-to-state-in-react/) - O Guia visual de Dave Ceddia para o estado ("state") do React.
 - [The Hands-On Guide to Learning React Hooks](https://www.telerik.com/kendo-react-ui/react-hooks-guide/) - Guia passo a passo de Eric Bishard para aprender React Hooks.
 - [How to Use the React Profiler Component to Measure Render Performance](https://medium.com/@adamhenson/how-to-use-the-react-profiler-component-to-measure-performance-improvements-from-hooks-d43b7092d7a8) - O artigo de Adam Henson exemplificando um caso de uso para `<React.Profiler />`.
+- [Thinking in React Hooks](https://wattenberger.com/blog/react-hooks) - Amelia Wattenberger fornece visualizações e destacando a mudança de mentalidade necessária para mudar de classe para componentes funcionais + hooks.
+- [React/Redux Links](https://github.com/markerikson/react-redux-links) - Curadoria de tutorias e links de recursos de Mark Erikson coletados sobre React, Redux, ES6, e muito mais. Muito útil para todos os tipos de desenvolvedores por causa de seu conteúdo categorizado.
