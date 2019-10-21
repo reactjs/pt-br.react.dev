@@ -46,11 +46,7 @@ Você pode [adicionar React a uma página HTML em um minuto](/docs/add-react-to-
 
 ### Crie uma nova Aplicação React {#create-a-new-react-app}
 
-<<<<<<< HEAD
-Ao iniciar um projeto React, [uma simples página HTML com tags script](/docs/add-react-to-a-website.html) pode ser a melhor opção. É necessário apenas um minuto para configurar!
-=======
-When starting a React project, a [simple HTML page with script tags](/docs/add-react-to-a-website.html) might still be the best option. It only takes a minute to set up!
->>>>>>> d2ade76cce133af47ab198188fa2de03fa51834b
+Ao iniciar um projeto React, uma [simples página HTML com tags script](/docs/add-react-to-a-website.html) pode ser a melhor opção. É necessário apenas um minuto para configurar!
 
 A medida que sua aplicação cresce, você pode começar a considerar uma configuração mais integrada. Há [inúmeras ferramentas JavaScript](/docs/create-a-new-react-app.html) que nós recomendamos para aplicações grandes. Cada uma delas exige pouca ou até nenhuma configuração e permite a você aproveitar ao máximo o rico ecossistema do React.
 
@@ -119,11 +115,7 @@ O [blog do React](/blog/) é a fonte oficial para as atualizações feitas pelo 
 
 Você também pode seguir o [@reactjs](https://twitter.com/reactjs) no Twitter, mas você não perderá nenhuma informação essencial se apenas ler o blog.
 
-<<<<<<< HEAD
-Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão [no arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react/releases).
-=======
-Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md` file in the React repository](https://github.com/facebook/react/blob/master/CHANGELOG.md), as well as on the [Releases](https://github.com/facebook/react/releases) page.
->>>>>>> d2ade76cce133af47ab198188fa2de03fa51834b
+Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão no [arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react/releases).
 
 ## Documentação das Versões {#versioned-documentation}
 
