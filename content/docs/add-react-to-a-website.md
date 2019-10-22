@@ -69,13 +69,13 @@ As duas primeiras tags adicionam o React. A terceira irá adicionar o código de
 
 Crie um arquivo chamado `like_button.js` próximo a sua página HTML.
 
-Abra **[este código inicial](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** e copie o conteúdo no arquivo que você criou.
+Abra **[este código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)** e copie o conteúdo no arquivo que você criou.
 
 >Dica
 >
 >Esse código define um componente React chamado `LikeButton`. Não se preocupe se você ainda não entendeu -- mais tarde vamos cobrir os blocos de construção do React em nosso [tutorial](/tutorial/tutorial.html) e em nosso [guia dos conceitos principais](/docs/hello-world.html). Por enquanto, vamos apenas fazer funcionar!
 
-Depois **[do código inicial](https://cdn.rawgit.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, adicione essas duas linhas no final do arquivo `like_button.js`:
+Depois **[do código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, adicione essas duas linhas no final do arquivo `like_button.js`:
 
 ```js{3,4}
 // ... o código inicial que você copiou ...
@@ -159,7 +159,7 @@ A maneira mais rápida de experimentar o JSX em seu projeto é adicionando essa 
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 ```
 
-Agora você pode usar o JSX in qualquer tag `<script>` somente adicionando o atributo `type="text/babel"` a ele. Aqui está [um exemplo de arquivo HTML com JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) em que você pode efetuar o download e testar.
+Agora você pode usar o JSX em qualquer tag `<script>` somente adicionando o atributo `type="text/babel"` a ele. Aqui está [um exemplo de arquivo HTML com JSX](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html) em que você pode efetuar o download e testar.
 
 Essa abordagem é boa para aprender e criar demostrações simples. Portanto, o site fica lento e **não fica adequado para produção**. Quando você estiver pronto para seguir em frente, remova essa nova tag `<script>` e os atributos `type="text/babel"` que você adicionou. Em vez disso, na seção a seguir você ira configurar um pré-processador JSX para converter todas suas tags `<script>` automaticamente.
 
@@ -195,7 +195,7 @@ npx babel --watch src --out-dir . --presets react-app/prod
 
 Não espere o comando finalizar -- esse comando inicia um watcher automatizado para o JSX.
 
-Se você criar um arquivo chamado `src/like_button.js` com esse **[este código JSX inicial](https://cdn.rawgit.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, o watcher criará um `like_button.js` pré-processado com o código JavaScript adequado para o navegador. Quando você edita o arquivo com JSX, a transpilação será executada automaticamente.
+Se você criar um arquivo chamado `src/like_button.js` com esse **[este código JSX inicial](https://gist.github.com/gaearon/c8e112dc74ac44aac4f673f2c39d19d1/raw/09b951c86c1bf1116af741fa4664511f2f179f0a/like_button.js)**, o watcher criará um `like_button.js` pré-processado com o código JavaScript adequado para o navegador. Quando você edita o arquivo com JSX, a transpilação será executada automaticamente.
 
 Como um bônus, isso também permite que você use recursos modernos do JavaScript, como classes, sem se preocupar com a incompatibilidade de navegadores antigos. A ferramenta que acabamos de usar é chamada de Babel e você pode aprender mais sobre ele [em sua documentação](https://babeljs.io/docs/en/babel-cli/).
 

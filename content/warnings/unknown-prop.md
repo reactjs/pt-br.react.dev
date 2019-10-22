@@ -27,10 +27,10 @@ Exemplo:
 ```js
 function MyDiv(props) {
   if (props.layout === 'horizontal') {
-    // RUIM! Porque você tem certeza que "layout" não é uma prop que <div> entenda.
+    // RUIM! Porquê você tem certeza que "layout" não é uma prop que <div> entenda.
     return <div {...props} style={getHorizontalStyle()} />
   } else {
-    // RUIM! Porque você tem certeza que "layout" não é uma prop que <div> entenda.
+    // RUIM! Porquê você tem certeza que "layout" não é uma prop que <div> entenda.
     return <div {...props} style={getVerticalStyle()} />
   }
 }

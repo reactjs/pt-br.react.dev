@@ -46,7 +46,7 @@ Você pode [adicionar React a uma página HTML em um minuto](/docs/add-react-to-
 
 ### Crie uma nova Aplicação React {#create-a-new-react-app}
 
-Ao iniciar um projeto React, [uma simples página HTML com tags script](/docs/add-react-to-a-website.html) pode ser a melhor opção. É necessário apenas um minuto para configurar!
+Ao iniciar um projeto React, uma [simples página HTML com tags script](/docs/add-react-to-a-website.html) pode ser a melhor opção. É necessário apenas um minuto para configurar!
 
 A medida que sua aplicação cresce, você pode começar a considerar uma configuração mais integrada. Há [inúmeras ferramentas JavaScript](/docs/create-a-new-react-app.html) que nós recomendamos para aplicações grandes. Cada uma delas exige pouca ou até nenhuma configuração e permite a você aproveitar ao máximo o rico ecossistema do React.
 
@@ -115,11 +115,11 @@ O [blog do React](/blog/) é a fonte oficial para as atualizações feitas pelo 
 
 Você também pode seguir o [@reactjs](https://twitter.com/reactjs) no Twitter, mas você não perderá nenhuma informação essencial se apenas ler o blog.
 
-Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão [no arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react/releases).
+Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão no [arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react/releases).
 
 ## Documentação das Versões {#versioned-documentation}
 
-Esta documentação sempre refletirá a última versão estável do React. Desde o React 16, você pode encontrar a documentação das versões antigas [em uma página separada](/versions). Note que as documentações das versões antigas foram criadas no momento de seu lançamento e por isso podem não não ficam sendo continuamente atualizadas.
+Esta documentação sempre refletirá a última versão estável do React. Desde o React 16, você pode encontrar a documentação das versões antigas em uma [página separada](/versions). Note que as documentações das versões antigas foram criadas no momento de seu lançamento e por isso podem não estarem sendo continuamente atualizadas.
 
 ## Esquecemos Algo? {#something-missing}
 

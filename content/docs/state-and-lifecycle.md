@@ -59,7 +59,7 @@ setInterval(tick, 1000);
 
 No entanto, falta um requisito crucial: o fato de que o `Clock` configura um temporizador e atualiza a UI a cada segundo deve ser um detalhe de implementação do `Clock`.
 
-Idealmente, queremos escrever isto uma vez e ter o `Clock` se atualizado:
+Idealmente, queremos escrever isto uma vez e ter o `Clock` se atualizando:
 
 ```js{2}
 ReactDOM.render(
@@ -109,7 +109,7 @@ O método `render` será chamado toda vez que uma atualização acontecer, mas e
 
 Vamos mover a `date` da props para o state em três passos:
 
-1) Substitua `this.props.date` por `this.state.date` no médoto `render()`:
+1) Substitua `this.props.date` por `this.state.date` no método `render()`:
 
 ```js{6}
 class Clock extends React.Component {
@@ -144,7 +144,7 @@ class Clock extends React.Component {
 }
 ```
 
-Note como nos passamos `props` para o construtor:
+Note como nós passamos `props` para o construtor:
 
 ```js{2}
   constructor(props) {
@@ -164,7 +164,7 @@ ReactDOM.render(
 );
 ```
 
-Mais tarde, adiconaremos o código do temporizador de volta ao próprio componente.
+Mais tarde, adicionaremos o código do temporizador de volta ao próprio componente.
 
 O Resultado se parece com:
 
@@ -193,7 +193,7 @@ ReactDOM.render(
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
 
-Em seguinda, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
+Em seguida, faremos a configuração do próprio temporizador e atualizaremos a cada segundo.
 
 ## Adicionando Métodos de Ciclo de Vida a Classe {#adding-lifecycle-methods-to-a-class}
 
@@ -244,7 +244,7 @@ O método `componentDidMount()` é executado depois que a saída do componente �
   }
 ```
 
-Note como nós salvamos o ID do temporizador em `this`.
+Note como nós salvamos o ID do temporizador em `this` (`this.timerID`).
 
 Enquanto `this.props` é configurado pelo próprio React e `this.state` tem um significado especial, você está livre para adicionar campos adicionais à classe manualmente se precisar armazenar algo que não participe do fluxo de dados (como um ID do temporizador)
 

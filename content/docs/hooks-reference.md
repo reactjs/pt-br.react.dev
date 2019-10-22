@@ -60,9 +60,9 @@ function Counter({initialCount}) {
     <>
       Count: {count}
       <button onClick={() => setCount(initialCount)}>Reset</button>
-      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
-   </>
+      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
+    </>
   );
 }
 ```
@@ -112,7 +112,7 @@ Mutações, assinaturas, temporizadores, logs e outros `side effects` não são 
 
 Em vez disso, use `useEffect`. A função passada para `useEffect` será executada depois que a renderização estiver disponível na tela. Pense em efeitos como um rota de fuga do mundo puramente funcional do React para o mundo imperativo.
 
-Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por disparar [somente quando certos valores receberam atualização](#conditionally-firing-an-effect).
+Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por dispara-los [somente quando determinados valores receberam atualização](#conditionally-firing-an-effect).
 
 #### Limpando um Efeito {#cleaning-up-an-effect}
 
@@ -166,7 +166,7 @@ Agora a assinatura só será recriada quando `props.source` alterar.
 >
 >Se você quer executar um efeito e limpá-lo apenas uma vez (na montagem e desmontagem), você pode passar um array vazio (`[]`) como segundo argumento. Isso conta ao React que o seu efeito não depende de *nenhum* valor das props ou state, então ele nunca precisa re-executar. Isso não é tratado como um caso especial -- ele segue diretamente a maneira como o array de entrada sempre funcionam.
 >
->Se você passar um array vazio (`[]`), a props e o state passados dentro do efeito sempre terão seus valores iniciais.  Enquanto passando `[]` como segundo parametro aproxima-se do modelo mental familiar de `componentDidMount` e `componentWillUnmount`, geralmente hás [melhores](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [soluções](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) para evitar efeitos repetidos com muita freqüência. Além disso, não esqueça de que o React adia a execução do `useEffect` até o navegador ser pintado, então fazer trabalho extra é menos problemático.
+>Se você passar um array vazio (`[]`), a props e o state passados dentro do efeito sempre terão seus valores iniciais. Enquanto passando `[]` como segundo parâmetro aproxima-se do modelo mental familiar de `componentDidMount` e `componentWillUnmount`, geralmente hás [melhores](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [soluções](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) para evitar efeitos repetidos com muita freqüência. Além disso, não esqueça de que o React adia a execução do `useEffect` até o navegador ser pintado, então fazer trabalho extra é menos problemático.
 >
 >
 >Recomendamos usar as regras do [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte do nosso pacote [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ele avisa quando as dependências são especificadas incorretamente e sugere uma correção.
@@ -195,6 +195,50 @@ Um componente que chama `useContext` será sempre renderizado novamente quando o
 >
 >`useContext(MyContext)` só permite que você *leia* o contexto e assine suas alterações. Você ainda precisa de um `<MyContext.Provider>` acima na árvore para *fornecer* o valor para este contexto.
 
+**Juntar as peças com Context.Provider**
+```js{31-36}
+const themes = {
+  light: {
+    foreground: "#000000",
+    background: "#eeeeee"
+  },
+  dark: {
+    foreground: "#ffffff",
+    background: "#222222"
+  }
+};
+
+const ThemeContext = React.createContext(themes.light);
+
+function App() {
+  return (
+    <ThemeContext.Provider value={themes.dark}>
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
+}
+
+function Toolbar(props) {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+
+  return (
+    <button style={{ background: theme.background, color: theme.foreground }}>
+      I am styled by theme context!
+    </button>
+  );
+}
+```
+
+Este exemplo é modificado para hooks a partir de um exemplo anterior no [Guia Avançado de Context](/docs/context.html), onde você pode encontrar mais informações sobre quando e como usar o Context.
+
 ## Hooks Adicionais {#additional-hooks}
 
 Os próximos Hooks são variações dos princípios básicos da seção anterior ou apenas necessários para um caso de uso específico. Não se estresse sobre aprendê-las antes dos princípios básicos.
@@ -206,6 +250,8 @@ const [state, dispatch] = useReducer(reducer, initialArg, init);
 ```
 
 Uma alternativa para [`useState`](#usestate). Aceita um `reducer` do tipo `(state, action) => newState` e retorna o estado atual, junto com um método `dispatch`. (Se você está familiarizado com o Redux, você já sabe como isso funciona.)
+
+`useReducer` é geralmente preferível em relação ao `useState` quando se tem uma lógica de estado complexa que envolve múltiplos sub-valores, ou quando o próximo estado depende do estado anterior. `useReducer` também possibilita a otimização da performance de componentes que disparam atualizações profundas porque [é possível passar o `dispatch` para baixo, ao invés de `callbacks`](https://pt-br.reactjs.org/docs/hooks-faq.html#how-to-avoid-passing-callbacks-down).
 
 Aqui está o exemplo do contador na seção [`useState`](#usestate), reescrito para usar um `reducer`:
 
@@ -223,13 +269,13 @@ function reducer(state, action) {
   }
 }
 
-function Counter({initialState}) {
+function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
       Count: {state.count}
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
   );
 }
@@ -237,11 +283,11 @@ function Counter({initialState}) {
 
 >Nota
 >
->React garante que a identidade da função `setState` é estável e não será alterada nos re-renderizadores. É por isso que é seguro omitir da lista de dependências `useEffect` ou` useCallback`.
+>React garante que a identidade da função `dispatch` é estável e não será alterada nos re-renderizadores. É por isso que é seguro omitir da lista de dependências `useEffect` ou` useCallback`.
 
 #### Determinando o Estado Inicial {#specifying-the-initial-state}
 
-Há duas diferentes maneiras para inicializar `useReducer` `state`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é a de passar um estado inicial como segundo argumento:
+Há duas maneiras diferentes de inicializar o estado `useReducer`. Pode você escolher qualquer uma dependendo do seu caso de uso. A maneira mais simples é passar o estado inicial como um segundo argumento:
 
 ```js{3}
   const [state, dispatch] = useReducer(
@@ -288,8 +334,8 @@ function Counter({initialCount}) {
 
         Reset
       </button>
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+       patch({type: 'increment'})}>+</button>
     </>
   );
 }
@@ -300,7 +346,7 @@ function Counter({initialCount}) {
 Se você retornar o mesmo valor do Hook Reducer que o valor do `state` atual, React irá pular a ação sem renderizar os filhos ou disparar os efeitos. (React usa o algoritimo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Note que o React ainda pode precisar renderizar aquele componente específico novamente antes de pular para fora da ação. Isso não deve ser um problema porque o React não vai se aprofundar desnecessariamente na árvore. Se você está fazendo cálculos de alto custo enquanto renderiza, você pode optimizá-los usando o `useMemo`.
 
 ### `useCallback` {#usecallback}
 
@@ -313,7 +359,7 @@ const memoizedCallback = useCallback(
 );
 ```
 
-Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization) memoizado.
+Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization).
 
 Recebe como argumentos, um callback e um array. `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo ` shouldComponentUpdate `).
 
@@ -353,7 +399,7 @@ Se nenhum array for fornecida, um novo valor será calculado em cada renderizaç
 const refContainer = useRef(initialValue);
 ```
 
-`useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá no durante todo o ciclo de vida do componente.
+`useRef` retorna um objeto `ref` mutável, no qual a propriedade `.current` é inicializada para o argumento passado (`initialValue`). O objeto retornado persistirá durante todo o ciclo de vida do componente.
 
 Um caso comum de uso é o acesso imperativamente a um componente filho:
 
@@ -381,7 +427,7 @@ No entanto, `useRef ()` é útil para mais do que o atributo `ref`. É [útil pa
 
 Isso funciona porque `useRef ()` cria um objeto JavaScript simples. A única diferença entre `useRef ()` e a criação de um objeto `{current: ...}` é que `useRef` lhe dará o mesmo objeto ref em cada render.
 
-Tenha em mente que o `useRef` *não* avisa quando o conteúdo é alterado. Mover a propriedade `.current` não causa uma nova renderização. Se você quiser executar algum código quando o React anexar ou desanexar um ref a um nó DOM, convém usar um [callback ref](/docs/hooks-faq.html#how-can-i-measure-a-dom-node) instead.
+Tenha em mente que o `useRef` *não* avisa quando o conteúdo é alterado. Mover a propriedade `.current` não causa uma nova renderização. Se você quiser executar algum código quando o React anexar ou desanexar um ref a um nó DOM, convém usar um [callback ref](/docs/hooks-faq.html#how-can-i-measure-a-dom-node).
 
 ### `useImperativeHandle` {#useimperativehandle}
 
