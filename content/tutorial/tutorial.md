@@ -72,7 +72,7 @@ Isto é completamente opcional e não é necessário para este tutorial!
 Essa opção de configuração requer mais trabalho mas permite que você complete o tutorial utilizando um editor de sua preferência. Aqui estão os passos a serem seguidos:
 
 1. Certifique-se de ter uma versão recente do [Node.js](https://nodejs.org/pt-br/) instalada.
-2. Siga as [instruções de instalação do creat-react-app](/docs/create-a-new-react-app.html#create-react-app) para criar um novo projeto.
+2. Siga as [instruções de instalação do create-react-app](/docs/create-a-new-react-app.html#create-react-app) para criar um novo projeto.
 
 ```bash
 npx create-react-app my-app
