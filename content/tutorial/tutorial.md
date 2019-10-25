@@ -72,7 +72,7 @@ Isto é completamente opcional e não é necessário para este tutorial!
 Essa opção de configuração requer mais trabalho mas permite que você complete o tutorial utilizando um editor de sua preferência. Aqui estão os passos a serem seguidos:
 
 1. Certifique-se de ter uma versão recente do [Node.js](https://nodejs.org/pt-br/) instalada.
-2. Siga as [instruções de instalação do creat-react-app](/docs/create-a-new-react-app.html#create-react-app) para criar um novo projeto.
+2. Siga as [instruções de instalação do create-react-app](/docs/create-a-new-react-app.html#create-react-app) para criar um novo projeto.
 
 ```bash
 npx create-react-app my-app
@@ -118,7 +118,7 @@ Recomendamos seguir [estas instruções](https://babeljs.io/docs/editors/) para 
 
 ### Me Ajudem. Estou com Dificuldades! {#help-im-stuck}
 
-Se você não conseguir proseguir no tutorial por algum motivo, confira os [recursos de suporte da comunidade](/community/support.html). Em particular, o [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) é uma ótima maneira de obter ajuda rapidamente. Se você não receber uma resposta ou se permanecer preso, registre um problema e nós ajudaremos você.
+Se você não conseguir proseguir no tutorial por algum motivo, confira os [recursos de suporte da comunidade](/community/support.html). Em particular, o [Reactiflux Chat](https://discord.gg/reactiflux) é uma ótima maneira de obter ajuda rapidamente. Se você não receber uma resposta ou se permanecer preso, registre um problema e nós ajudaremos você.
 
 ## Visão geral {#overview}
 
@@ -420,7 +420,7 @@ O método `renderSquare` do Tabuleiro atualmente está definido como:
 
 No começo, nós [passamos o seu valor (value) como prop](#passing-data-through-props) para o Tabuleiro mostrar números de 0 a 8 em cada Quadrado. Em outro passo anterior, nós trocamos os números pela letra "X" [determinado no próprio estado do Quadrado](#making-an-interactive-componente). Isso porque atualmente o Quadrado ignora o valor (`value`) recebido do Tabuleiro.
 
-Iremos agora utilizar novamente o mesmo mecanismo de propriedades. Vamos modificar o Tabuleiro para instruir cada Quadrado invidiualmente qual é o valor correto (`'X'`, `'O'` ou `null`). Nós já temos definidos o array de `quadrados` no construtor do Tabuleiro e iremos modificar o método `renderSquare` para definir o valor a partir do estado:
+Iremos agora utilizar novamente o mesmo mecanismo de propriedades. Vamos modificar o Tabuleiro para instruir cada Quadrado individualmente qual é o valor correto (`'X'`, `'O'` ou `null`). Nós já temos definidos o array de `quadrados` no construtor do Tabuleiro e iremos modificar o método `renderSquare` para definir o valor a partir do estado:
 
 ```javascript{2}
   renderSquare(i) {

@@ -109,7 +109,9 @@ Você pode continuar a usar exatamente as mesmas APIs que sempre usou; elas vão
 
 React Redux desde a v7.1.0 [suporta Hooks API](https://react-redux.js.org/api/hooks) e expóe hooks como `useDispatch` ou `useSelector`.
 
-Libraries like React Router might support hooks in the future.
+React Router [suporta hooks](https://reacttraining.com/react-router/web/api/Hooks) desde a v5.1.
+
+Outras bibliotecas também podem suportar hooks no futuro.
 
 ### Hooks funcionam com tipagem estática? {#do-hooks-work-with-static-typing}
 
@@ -371,7 +373,7 @@ Note como isso funcionaria para props, state ou qualquer outro valor calculado.
 function Counter() {
   const [count, setCount] = useState(0);
 
-  const calculation = count * 100;
+  const calculation = count + 100;
   const prevCalculation = usePrevious(calculation);
   // ...
 ```
@@ -654,7 +656,7 @@ function ProductPage({ productId }) {
   return <ProductDetails fetchProduct={fetchProduct} />;
 }
 
-function ProductDetails({ fetchProduct })
+function ProductDetails({ fetchProduct }) {
   useEffect(() => {
     fetchProduct();
   }, [fetchProduct]); // ✅ Todas as dependências do useEffect são especificadas
