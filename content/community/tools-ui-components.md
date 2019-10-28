@@ -34,6 +34,7 @@ permalink: community/ui-components.html
 * **[react-data-menu](https://github.com/dkozar/react-data-menu):** Menu acionado por dados inteligente renderizado em uma sobreposição. Alinhamento baseado em sugestões com renderizadores e fábricas personalizados. Nunca cortado por outros componentes ou bordas da tela.
 * **[react-date-picker](https://github.com/Hacker0x01/react-datepicker):** Um componente de datepicker simples e reutilizável para o React.
 * **[react-dates](https://github.com/OpusCapita/react-dates):** Date-inputs + date-picker
+<<<<<<< HEAD
 * **[react-dnd](https://github.com/gaearon/react-dnd)** Flexível mixin HTML5 drag-and-drop para React com controle total de DOM
 * **[react-document-title](https://github.com/gaearon/react-document-title)** Declarativo, aninhado, stateful, isomórfico document.title para React
 * **[react-dropzone](https://github.com/felixrieseberg/React-Dropzone):** React Dropzone para uploads de arquivos
@@ -71,6 +72,46 @@ permalink: community/ui-components.html
 * **[valuelink](https://github.com/Volicon/valuelink):** Ligação de dados bidirecional repleta de recursos e validação de formulários com links React estendidos.
 * **[video-react](https://github.com/video-react/video-react)**: Um player de vídeo da Web criado para o mundo HTML5 usando a biblioteca React.
 * **[Winterfell](https://github.com/andrewhathaway/Winterfell):** Gerar formulários complexos, validados e prorrogáveis ​​baseados em JSON no React.
+=======
+* **[react-dnd](https://github.com/gaearon/react-dnd)** Flexible HTML5 drag-and-drop mixin for React with full DOM control
+* **[react-document-title](https://github.com/gaearon/react-document-title)** Declarative, nested, stateful, isomorphic document.title for React
+* **[react-dropzone](https://github.com/felixrieseberg/React-Dropzone):** React Dropzone for File-Uploads
+* **[react-forms](https://prometheusresearch.github.io/react-forms/):** Form rendering and validation for React
+* **[react-highlight](https://github.com/akiran/react-highlight):** React component for syntax highlighting
+* **[react-image](https://github.com/mbrevda/react-image):** Like `<img />` and Enhanced Image Component for React.
+* **[react-input-autosize](https://github.com/JedWatson/react-input-autosize):** Like `<input />` but resizes automatically to fit all its content.
+* **[react-intense](https://github.com/brycedorn/react-intense):** A component for viewing large images up close
+* **[react-joyride](https://github.com/gilbarbara/react-joyride):** Create walkthroughs and guided tours for your ReactJS apps.
+* **[react-ladda](https://github.com/jsdir/react-ladda):** React wrapper for Ladda buttons.
+* **[react-lorem-component](https://github.com/martinandert/react-lorem-component):** Lorem Ipsum placeholder component.
+* **[react-notification](https://github.com/pburtchaell/react-notification):** Snackbar style notifications
+* **[react-select](https://github.com/JedWatson/react-select):** Native React Select / Multiselect input field, similar to Selectize / Chosen / Select2
+* **[react-selectize](https://furqanzafar.github.io/react-selectize/):** A stateless & flexible Select component, designed as a drop in replacement for React.DOM.Select, inspired by Selectize
+* **[react-sigma](https://www.npmjs.com/package/react-sigma)**: Lightweight but powerful library for drawing network graphs
+* **[react-slick](https://github.com/akiran/react-slick):** Carousel component built with React
+* **[react-sparklines](https://borisyankov.github.io/react-sparklines/):** Beautiful and expressive sparklines component
+* **[react-spreadsheet](https://github.com/felixrieseberg/React-Spreadsheet-Component):** React Spreadsheets / Editable tables with Excel-Style keyboard input and navigation
+* **[react-toggle](https://github.com/gfazioli/react-toggle):** A React UI component to display a toggle button control
+* **[react-tappable](https://github.com/JedWatson/react-tappable)** A Tappable React Component that provides native-feeling onTap events for mobile React apps
+* **[react-textarea-autosize](https://github.com/andreypopp/react-textarea-autosize):** Like `<textarea />` but resizes automatically to fit all its content.
+* **[react-toastify](https://github.com/fkhadra/react-toastify):** React notification made easy
+* **[React-TimeAgo](https://www.npmjs.org/package/react-timeago)** A minimal live updating Time Ago component that smartly converts any time to a 'ago' or 'from now' format and keeps it updated.
+* **[react-translate-component](https://github.com/martinandert/react-translate-component):** React component for i18n.
+* **[react-treeview](https://github.com/chenglou/react-treeview):** Easy, light, flexible tree view.
+* **[react-uwp](https://www.react-uwp.com)** A set of React Components that Implement Microsoft's UWP Design & Fluent Design..
+* **[react-validate-framework](https://github.com/MinJieLiu/react-validate-framework)**: A lightweight and extensible React validation component.
+* **[reactstrap](https://reactstrap.github.io/):** Simple Bootstrap 4 components built with [tether](http://tether.io/)
+* **[Reakit](https://reakit.io/):** Toolkit for building accessible rich web apps with React.
+* **[recharts](https://github.com/recharts/recharts)**: A composable charting library built on React components.
+* **[Selectivity](https://arendjr.github.io/selectivity/):** Modular and light-weight selection library.
+* **[Semantic-ui](https://react.semantic-ui.com/)**: The official Semantic-UI-React integration, Advanced components and declarative UI.
+* **[storybook-addon-material-ui](https://github.com/sm-react/storybook-addon-material-ui)** A storybook addon for material-ui.
+* **[tcomb-form](https://github.com/gcanti/tcomb-form):** Automatically generate form markup, automatic labels and inline validation from a domain model.
+* **[valuelink](https://github.com/Volicon/valuelink):** Full-featured two-way data binding and forms validation with extended React links.
+* **[video-react](https://github.com/video-react/video-react)**: A web video player built for the HTML5 world using React library.
+* **[Winterfell](https://github.com/andrewhathaway/Winterfell):** Generate complex, validated and extendable JSON-based forms in React
+* **[wix-style-react](https://github.com/wix/wix-style-react):** Common React UI components for all Wix verticals developing in React
+>>>>>>> 081bb31226919062938ef924472ba1b4170facfc
 
 ## Fee Based Components {#fee-based-components}
 

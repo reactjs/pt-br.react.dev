@@ -17,6 +17,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactsummit2019.splashthat.com) - [Twitter](https://twitter.com/react_summit)
 
+<<<<<<< HEAD
 ### React Conf 2019 {#react-conf-2019}
 24 e 25 de outubro de 2019 em Henderson, Nevada USA
 
@@ -32,6 +33,8 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Slack](https://react.now.sh/)
 
+=======
+>>>>>>> 081bb31226919062938ef924472ba1b4170facfc
 ### React Day Berlin 2019 {#react-day-berlin-2019}
 6 de dezembro de 2019 em Berlin, Germany
 
@@ -47,8 +50,18 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
 
+<<<<<<< HEAD
 ### Render-Atlanta 2020 {#render-atlanta-2020}
 4 a 6 de maio de 2020. Atlanta, GA, EUA.
+=======
+### App.js Conf 2020 {#appjsonf2020}
+April 23 - 24, 2020 in Kraków, Poland
+
+[Website](http://appjs.co/react) - [Twitter](https://twitter.com/appjsconf)
+
+### render(ATL) 2020 {#render-atlanta-2020}
+May 4-6, 2020. Atlanta, GA, USA.
+>>>>>>> 081bb31226919062938ef924472ba1b4170facfc
 
 [Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) 
 
@@ -67,8 +80,13 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/) 
 
+<<<<<<< HEAD
 ### React Week NY 2020 {#react-week-NY-2020}
 17 de julho, 2020. Nova Iorque, USA.
+=======
+### React Week NY 2020 {#react-week-ny-2020}
+July 17, 2020. New York City, USA.
+>>>>>>> 081bb31226919062938ef924472ba1b4170facfc
 
 [Website](https://reactweek.nyc/) - [Twitter](https://twitter.com/reactweek) - [Facebook](https://www.facebook.com/reactweek) 
 
@@ -450,3 +468,22 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 26 a 28 de setembro de 2019 em Alicante, Espanha
 
 [Website](http://reactalicante.es/) - [Twitter](https://twitter.com/reactalicante) - [Facebook](https://www.facebook.com/ReactAlicante)
+<<<<<<< HEAD
+=======
+
+### React Conf 2019 {#react-conf-2019}
+October 24-25, 2019 in Henderson, Nevada USA
+
+[Website](https://conf.reactjs.org/) - [Twitter](https://twitter.com/reactjs)
+
+### React Advanced 2019 {#react-advanced-2019}
+October 25, 2019 in London, UK
+
+[Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
+
+### React Conf Brasil 2019 {#react-conf-2019}
+October 19, 2019 in São Paulo, BR
+
+[Website](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Slack](https://react.now.sh/)
+
+>>>>>>> 081bb31226919062938ef924472ba1b4170facfc
