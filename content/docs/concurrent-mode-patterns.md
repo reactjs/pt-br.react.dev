@@ -29,7 +29,7 @@ Por exemplo, se mudarmos de uma página para outra e nenhum código ou dados par
   - [Padrão: Recuado → Esqueleto → Completo](#default-receded-skeleton-complete)
   - [Preferido: Pendente → Esqueleto → Completo](#preferred-pending-skeleton-complete)
   - [Encapsule Recursos Lentos em `<Suspense>`](#wrap-lazy-features-in-suspense)
-  - [Suspense Reveal “Train”](#suspense-reveal-train)
+  - ["Trem" Revela Suspense](#suspense-reveal-train)
   - [Atrasando um Indicador Pendente](#delaying-a-pending-indicator)
   - [Recapitulação](#recap)
 - [Outros Padrões](#other-patterns)
@@ -38,7 +38,7 @@ Por exemplo, se mudarmos de uma página para outra e nenhum código ou dados par
   - [SuspenseList](#suspenselist)
 - [Próximos Passos](#next-steps)
 
-## Transitions {#transitions}
+## Transições {#transitions}
 
 Let's revisit [this demo](https://codesandbox.io/s/infallible-feather-xjtbu) from the previous page about [Suspense for Data Fetching](/docs/concurrent-mode-suspense.html).
 
@@ -82,7 +82,7 @@ We will use them right below.
 
 Note we passed a configuration object to `useTransition`. Its `timeoutMs` property specifies **how long we're willing to wait for the transition to finish**. By passing `{timeoutMs: 3000}`, we say "If the next profile takes more than 3 seconds to load, show the big spinner -- but before that timeout it's okay to keep showing the previous screen".
 
-### Wrapping setState in a Transition {#wrapping-setstate-in-a-transition}
+### Encapsulando setState em uma Transição {#wrapping-setstate-in-a-transition}
 
 Our "Next" button click handler sets the state that switches the current profile in the state:
 
@@ -114,7 +114,7 @@ Press "Next" a few times. Notice it already feels very different. **Instead of i
 
 If we make our API responses take 5 seconds, [we can confirm](https://codesandbox.io/s/relaxed-greider-suewh) that now React "gives up" and transitions anyway to the next screen after 3 seconds. This is because we passed `{timeoutMs: 3000}` to `useTransition()`. For example, if we passed `{timeoutMs: 60000}` instead, it would wait a whole minute.
 
-### Adding a Pending Indicator {#adding-a-pending-indicator}
+### Adicionando um Indicador de Pendente {#adding-a-pending-indicator}
 
 There's still something that feels broken about [our last example](https://codesandbox.io/s/musing-driscoll-6nkie). Sure, it's nice not to see a "bad" loading state. **But having no indication of progress at all feels even worse!** When we click "Next", nothing happens and it feels like the app is broken.
 
@@ -150,7 +150,7 @@ return (
 
 Now, this feels a lot better! When we click Next, it gets disabled because clicking it multiple times doesn't make sense. And the new "Loading..." tells the user that the app didn't freeze.
 
-### Reviewing the Changes {#reviewing-the-changes}
+### Revisando as Mudanças {#reviewing-the-changes}
 
 Let's take another look at all the changes we've made since the [original example](https://codesandbox.io/s/infallible-feather-xjtbu):
 
@@ -191,7 +191,7 @@ It took us only seven lines of code to add this transition:
 
 As a result, clicking "Next" doesn't perform an immediate state transition to an "undesirable" loading state, but instead stays on the previous screen and communicates progress there.
 
-### Where Does the Update Happen? {#where-does-the-update-happen}
+### Onde a Atualização Acontece? {#where-does-the-update-happen}
 
 This wasn't very difficult to implement. However, if you start thinking about how this could possibly work, it might become a little mindbending. If we set the state, how come we don't see the result right away? *Where* is the next `<ProfilePage>` rendering?
 
@@ -207,7 +207,7 @@ Of course, two versions of the tree rendering *at the same time* is an illusion,
 
 An API like `useTransition` lets you focus on the desired user experience, and not think about the mechanics of how it's implemented. Still, it can be a helpful metaphor to imagine that updates wrapped in `startTransition` happen "on a branch" or "in a different world".
 
-### Transitions Are Everywhere {#transitions-are-everywhere}
+### Transições Estão em Toda Parte {#transitions-are-everywhere}
 
 As we learned from the [Suspense walkthrough](/docs/concurrent-mode-suspense.html), any component can "suspend" any time if some data it needs is not ready yet. We can strategically place `<Suspense>` boundaries in different parts of the tree to handle this, but it won't always be enough.
 
@@ -282,7 +282,7 @@ function ProfilePage() {
 
 This feels a lot better! Clicking "Refresh" doesn't pull us away from the page we're browsing anymore. We see something is loading "inline", and when the data is ready, it's displayed.
 
-### Baking Transitions Into the Design System {#baking-transitions-into-the-design-system}
+### Inserindo Transições no Sistema de Design {#baking-transitions-into-the-design-system}
 
 We can now see that the need for `useTransition` is *very* common. Pretty much any button click or interaction that can lead to a component suspending needs to be wrapped in `useTransition` to avoid accidentally hiding something the user is interacting with.
 
@@ -350,7 +350,7 @@ When a button gets clicked, it starts a transition and calls `props.onClick()` i
 
 We can see now how Concurrent Mode helps us achieve a good user experience without sacrificing isolation and modularity of components. React coordinates the transition.
 
-## The Three Steps {#the-three-steps}
+## Os Três Passos {#the-three-steps}
 
 By now we have discussed all of the different visual states that an update may go through. In this section, we will give them names and talk about the progression between them.
 
@@ -364,7 +364,7 @@ But before our screen can be Complete, we might need to load some data or code. 
 
 Finally, there are two primary ways that lead us to the Skeleton state. We will illustrate the difference between them with a concrete example.
 
-### Default: Receded → Skeleton → Complete {#default-receded-skeleton-complete}
+### Padrão: Recuado → Esqueleto → Completo {#default-receded-skeleton-complete}
 
 Open [this example](https://codesandbox.io/s/prod-grass-g1lh5) and click "Open Profile". You will see several visual states one by one:
 
@@ -451,7 +451,7 @@ Eventually, they load too, and we get to the **Complete** state.
 
 This scenario (Receded → Skeleton → Complete) is the default one. However, the Receded state is not very pleasant because it "hides" existing information. This is why React lets us opt into a different sequence (**Pending** → Skeleton → Complete) with `useTransition`.
 
-### Preferred: Pending → Skeleton → Complete {#preferred-pending-skeleton-complete}
+### Preferido: Pendente → Esqueleto → Completo {#preferred-pending-skeleton-complete}
 
 When we `useTransition`, React will let us "stay" on the previous screen -- and show a progress indicator there. We call that a **Pending** state. It feels much better than the Receded state because none of our existing content disappears, and the page stays interactive.
 
@@ -462,7 +462,7 @@ You can compare these two examples to feel the difference:
 
 The only difference between these two examples is that the first uses regular `<button>`s, but the second one uses our custom `<Button>` component with `useTransition`.
 
-### Wrap Lazy Features in `<Suspense>` {#wrap-lazy-features-in-suspense}
+### Encapsule Recursos Lentos em `<Suspense>` {#wrap-lazy-features-in-suspense}
 
 Open [this example](https://codesandbox.io/s/nameless-butterfly-fkw5q). When you press a button, you'll see the Pending state for a second before moving on. This transition feels nice and fluid.
 
@@ -526,13 +526,13 @@ This reveals an important insight. React always prefers to go to the Skeleton st
 
 **If some feature isn't a vital part of the next screen, wrap it in `<Suspense>` and let it load lazily.** This ensures we can show the rest of the content as soon as possible. Conversely, if a screen is *not worth showing* without some component, such as `<ProfileDetails>` in our example, do *not* wrap it in `<Suspense>`. Then the transitions will "wait" for it to be ready.
 
-### Suspense Reveal "Train" {#suspense-reveal-train}
+### "Trem" Revela Suspense {#suspense-reveal-train}
 
 When we're already on the next screen, sometimes the data needed to "unlock" different `<Suspense>` boundaries arrives in quick succession. For example, two different responses might arrive after 1000ms and 1050ms, respectively. If you've already waited for a second, waiting another 50ms is not going to be perceptible. This is why React reveals `<Suspense>` boundaries on a schedule, like a "train" that arrives periodically. This trades a small delay for reducing the layout thrashing and the number of visual changes presented to the user.
 
 You can see a demo of this [here](https://codesandbox.io/s/admiring-mendeleev-y54mk). The "posts" and "fun facts" responses come within 100ms of each other. But React coalesces them and "reveals" their Suspense boundaries together.
 
-### Delaying a Pending Indicator {#delaying-a-pending-indicator}
+### Atrasando um Indicador Pendente {#delaying-a-pending-indicator}
 
 Our `Button` component will immediately show the Pending state indicator on click:
 
@@ -593,7 +593,7 @@ return (
 
 With this change, even though we're in the Pending state, we don't display any indication to the user until 500ms has passed. This may not seem like much of an improvement when the API responses are slow. But compare how it feels [before](https://codesandbox.io/s/thirsty-liskov-1ygph) and [after](https://codesandbox.io/s/hardcore-http-s18xr) when the API call is fast. Even though the rest of the code hasn't changed, suppressing a "too fast" loading state improves the perceived performance by not calling attention to the delay.
 
-### Recap {#recap}
+### Recapitulação {#recap}
 
 The most important things we learned so far are:
 
@@ -603,11 +603,11 @@ The most important things we learned so far are:
 * If we don't want some component to delay the transition, we can wrap it in its own `<Suspense>` boundary.
 * Instead of doing `useTransition` in every other component, we can build it into our design system.
 
-## Other Patterns {#other-patterns}
+## Outros Padrões {#other-patterns}
 
 Transitions are probably the most common Concurrent Mode pattern you'll encounter, but there are a few more patterns you might find useful.
 
-### Splitting High and Low Priority State {#splitting-high-and-low-priority-state}
+### Dividindo Estado de Alta e Baixa Prioridade {#splitting-high-and-low-priority-state}
 
 When you design React components, it is usually best to find the "minimal representation" of state. For example, instead of keeping `firstName`, `lastName`, and `fullName` in state, it's usually better keep only `firstName` and `lastName`, and then calculate `fullName` during rendering. This lets us avoid mistakes where we update one state but forget the other state.
 
@@ -716,7 +716,7 @@ function handleChange(e) {
 
 With this change, it works as expected. We can type into the input immediately, and the translation later "catches up" to what we have typed.
 
-### Deferring a Value {#deferring-a-value}
+### Adiando um Valor {#deferring-a-value}
 
 By default, React always renders a consistent UI. Consider code like this:
 
@@ -921,7 +921,7 @@ You can control how many loading states are visible at once with the `tail` prop
 
 Keep in mind that `<SuspenseList>` is composable, like anything in React. For example, you can create a grid by putting several `<SuspenseList>` rows inside a `<SuspenseList>` table.
 
-## Next Steps {#next-steps}
+## Próximos Passos {#next-steps}
 
 Concurrent Mode offers a powerful UI programming model and a set of new composable primitives to help you orchestrate delightful user experiences.
 
