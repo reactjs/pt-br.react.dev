@@ -40,29 +40,29 @@ Por exemplo, se mudarmos de uma página para outra e nenhum código ou dados par
 
 ## Transições {#transitions}
 
-Let's revisit [this demo](https://codesandbox.io/s/infallible-feather-xjtbu) from the previous page about [Suspense for Data Fetching](/docs/concurrent-mode-suspense.html).
+Vamos revisitar [esta demo](https://codesandbox.io/s/infallible-feather-xjtbu) da página anterior sobre [Suspense para Busca de Dados](/docs/concurrent-mode-suspense.html).
 
-When we click the "Next" button to switch the active profile, the existing page data immediately disappears, and we see the loading indicator for the whole page again. We can call this an "undesirable" loading state. **It would be nice if we could "skip" it and wait for some content to load before transitioning to the new screen.**
+Quando clicamos no botão "Next" para mudar o perfil ativo, os dados da página existente desaparecem imediatamente e vemos o indicador de carregamento de toda a página novamente. Podemos chamar isso de estado de carregamento "indesejável". **Seria bom se pudéssemos "ignorá-lo" e aguardar o carregamento de algum conteúdo antes de fazer a transição para a nova tela.**
 
-React offers a new built-in `useTransition()` Hook to help with this.
+O React oferece um novo Hook interno `useTransition()` para ajudar com isso.
 
-We can use it in three steps.
+Podemos usá-lo em três passos.
 
-First, we'll make sure that we're actually using Concurrent Mode. We'll talk more about [adopting Concurrent Mode](/docs/concurrent-mode-adoption.html) later, but for now it's sufficient to know that we need to use `ReactDOM.createRoot()` rather than `ReactDOM.render()` for this feature to work:
+Primeiro, vamos garantir que estamos realmente usando o Modo Concorrente. Falaremos sobre [adotar o Modo Concorrente](/docs/concurrent-mode-adoption.html) mais tarde, mas por enquanto é o bastante saber que precisamos usar `ReactDOM.createRoot()` em vez de `ReactDOM.render()` para que este recurso funcione:
 
 ```js
 const rootElement = document.getElementById("root");
-// Opt into Concurrent Mode
+// Ativar Modo Concorrente
 ReactDOM.createRoot(rootElement).render(<App />);
 ```
 
-Next, we'll add an import for the `useTransition` Hook from React:
+Em seguida, adicionaremos a importação do Hook `useTransition` do React:
 
 ```js
 import React, { useState, useTransition, Suspense } from "react";
 ```
 
-Finally, we'll use it inside the `App` component:
+Finalmente, vamos usá-lo dentro do componente `App`:
 
 ```js{3-5}
 function App() {
@@ -73,14 +73,14 @@ function App() {
   // ...
 ```
 
-**By itself, this code doesn't do anything yet.** We will need to use this Hook's return values to set up our state transition. There are two values returned from `useTransition`:
+**Por si só, esse código ainda não faz nada.** Precisamos usar os valores de retorno deste Hook para configurar nossa transição de estado. Existem dois valores retornados por `useTransition`:
 
-* `startTransition` is a function. We'll use it to tell React *which* state update we want to defer.
-* `isPending` is a boolean. It's React telling us whether that transition is ongoing at the moment.
+* `startTransition` é uma função. Vamos usá-la para informar ao React *qual* atualização de estado queremos adiar.
+* `isPending` é um booleano. É o React nos dizendo se essa transição está em andamento no momento.
 
-We will use them right below.
+Vamos usá-los logo abaixo.
 
-Note we passed a configuration object to `useTransition`. Its `timeoutMs` property specifies **how long we're willing to wait for the transition to finish**. By passing `{timeoutMs: 3000}`, we say "If the next profile takes more than 3 seconds to load, show the big spinner -- but before that timeout it's okay to keep showing the previous screen".
+Note que passamos um objeto de configuração para `useTransition`. Sua propriedade `timeoutMs` especifica **por quanto tempo estamos dispostos a esperar a conclusão da transição**. Ao passar `{timeoutMs: 3000}`, dizemos "Se o próximo perfil levar mais de 3 segundos para carregar, mostre o spinner grande -- mas antes desse tempo limite, não há problema em continuar exibindo a tela anterior".
 
 ### Encapsulando setState em uma Transição {#wrapping-setstate-in-a-transition}
 
