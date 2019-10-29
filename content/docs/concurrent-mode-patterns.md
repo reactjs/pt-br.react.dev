@@ -1,40 +1,42 @@
 ---
 id: concurrent-mode-patterns
-title: Concurrent UI Patterns (Experimental)
+title: Padrões de UI Concorrente (Experimental)
 permalink: docs/concurrent-mode-patterns.html
 prev: concurrent-mode-suspense.html
 next: concurrent-mode-adoption.html
 ---
 
->Caution:
+>Cuidado:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>Esta página descreve os recursos **experimentais que ainda [não estão disponíveis](/docs/concurrent-mode-adoption.html) em uma versão estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
 >
->This documentation is aimed at early adopters and people who are curious. If you're new to React, don't worry about these features -- you don't need to learn them right now.
+>Esta documentação é destinada a adotante precoces e pessoas curiosas. Se você é novo no Rect, não se preocupe com esses recursos -- não precisa aprendê-los agora.
 
-Usually, when we update the state, we expect to see changes on the screen immediately. This makes sense because we want to keep our app responsive to user input. However, there are cases where we might prefer to **defer an update from appearing on the screen**.
+Normalmente, quando atualizamos o estado, esperamos ver alterações na tela imediatamente. Isso faz sentido, porque queremos manter nossa aplicação responsiva à entrada do usuário. No entanto, há casos em que podemos preferir **adiar que uma atualização apareça na tela**.
 
 For example, if we switch from one page to another, and none of the code or data for the next screen has loaded yet, it might be frustrating to immediately see a blank page with a loading indicator. We might prefer to stay longer on the previous screen. Implementing this pattern has historically been difficult in React. Concurrent Mode offers a new set of tools to do that.
 
-- [Transitions](#transitions)
-  - [Wrapping setState in a Transition](#wrapping-setstate-in-a-transition)
-  - [Adding a Pending Indicator](#adding-a-pending-indicator)
-  - [Reviewing the Changes](#reviewing-the-changes)
-  - [Where Does the Update Happen?](#where-does-the-update-happen)
-  - [Transitions Are Everywhere](#transitions-are-everywhere)
-  - [Baking Transitions Into the Design System](#baking-transitions-into-the-design-system)
-- [The Three Steps](#the-three-steps)
-  - [Default: Receded → Skeleton → Complete](#default-receded-skeleton-complete)
-  - [Preferred: Pending → Skeleton → Complete](#preferred-pending-skeleton-complete)
-  - [Wrap Lazy Features in `<Suspense>`](#wrap-lazy-features-in-suspense)
+Por exemplo, se mudarmos de uma página para outra e nenhum código ou dados para a próxima tela tiver sido carregado, pode ser frustrante ver imediatamente uma página em branco com um indicador de carregamento. Podemos preferir ficar mais tempo na tela anterior. Implementar esse padrão tem sido historicamente difícil no React. O Modo Concorrente oferece um novo conjunto de ferramentas para fazer isso.
+
+- [Transições](#transitions)
+  - [Encapsulando setState em uma Transição](#wrapping-setstate-in-a-transition)
+  - [Adicionando um Indicador de Pendente](#adding-a-pending-indicator)
+  - [Revisando as Mudanças](#reviewing-the-changes)
+  - [Onde a Atualização Acontece?](#where-does-the-update-happen)
+  - [Transições Estão em Toda Parte](#transitions-are-everywhere)
+  - [Inserindo Transições no Sistema de Design](#baking-transitions-into-the-design-system)
+- [Os Três Passos](#the-three-steps)
+  - [Padrão: Recuado → Esqueleto → Completo](#default-receded-skeleton-complete)
+  - [Preferido: Pendente → Esqueleto → Completo](#preferred-pending-skeleton-complete)
+  - [Encapsule Recursos Lentos em `<Suspense>`](#wrap-lazy-features-in-suspense)
   - [Suspense Reveal “Train”](#suspense-reveal-train)
-  - [Delaying a Pending Indicator](#delaying-a-pending-indicator)
-  - [Recap](#recap)
-- [Other Patterns](#other-patterns)
-  - [Splitting High and Low Priority State](#splitting-high-and-low-priority-state)
-  - [Deferring a Value](#deferring-a-value)
+  - [Atrasando um Indicador Pendente](#delaying-a-pending-indicator)
+  - [Recapitulação](#recap)
+- [Outros Padrões](#other-patterns)
+  - [Dividindo Estado de Alta e Baixa Prioridade](#splitting-high-and-low-priority-state)
+  - [Adiando um Valor](#deferring-a-value)
   - [SuspenseList](#suspenselist)
-- [Next Steps](#next-steps)
+- [Próximos Passos](#next-steps)
 
 ## Transitions {#transitions}
 
@@ -528,7 +530,7 @@ This reveals an important insight. React always prefers to go to the Skeleton st
 
 When we're already on the next screen, sometimes the data needed to "unlock" different `<Suspense>` boundaries arrives in quick succession. For example, two different responses might arrive after 1000ms and 1050ms, respectively. If you've already waited for a second, waiting another 50ms is not going to be perceptible. This is why React reveals `<Suspense>` boundaries on a schedule, like a "train" that arrives periodically. This trades a small delay for reducing the layout thrashing and the number of visual changes presented to the user.
 
-You can see a demo of this [here](https://codesandbox.io/s/admiring-mendeleev-y54mk). The "posts" and "fun facts" responses come within 100ms of each other. But React coalesces them and "reveals" their Suspense boundaries together. 
+You can see a demo of this [here](https://codesandbox.io/s/admiring-mendeleev-y54mk). The "posts" and "fun facts" responses come within 100ms of each other. But React coalesces them and "reveals" their Suspense boundaries together.
 
 ### Delaying a Pending Indicator {#delaying-a-pending-indicator}
 
@@ -699,7 +701,7 @@ So the correct fix is to put `setQuery` (which doesn't suspend) *outside* the tr
 ```js{4,5}
 function handleChange(e) {
   const value = e.target.value;
-  
+
   // Outside the transition (urgent)
   setQuery(value);
 
