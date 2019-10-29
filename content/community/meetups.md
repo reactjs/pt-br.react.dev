@@ -50,6 +50,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [React.JS Girls London](https://www.meetup.com/ReactJS-Girls-London/)
 
 ## França {#france}
+* [Nantes](https://www.meetup.com/React-Nantes/)
 * [Lille](https://www.meetup.com/ReactBeerLille/)
 * [Paris](https://www.meetup.com/ReactJS-Paris/)
 
