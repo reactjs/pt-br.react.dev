@@ -1,30 +1,30 @@
 ---
 id: concurrent-mode-suspense
-title: Suspense for Data Fetching (Experimental)
+title: Suspense para Busca de Dados (Experimental)
 permalink: docs/concurrent-mode-suspense.html
 prev: concurrent-mode-intro.html
 next: concurrent-mode-patterns.html
 ---
 
->Caution:
+>Cuidado:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>Esta página descreve **recursos experimentais que [ainda não estão disponíveis](/docs/concurrent-mode-adoption.html) em uma versão estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
 >
->This documentation is aimed at early adopters and people who are curious. If you're new to React, don't worry about these features -- you don't need to learn them right now.
+>Esta documentação é destinada a adotantes precoces e pessoas curiosas. Se você é novo no React, não se preocupe com esses recursos -- você não precisa aprendê-los agora.
 
 
-React 16.6 added a `<Suspense>` component that lets you "wait" for some code to load and declaratively specify a loading state (like a spinner) while we're waiting:
+O React 16.6 adicionou um componente `<Suspense>` isso permite que você "esperar" para que algum código seja carregado e especifique declarativamente um estado de carregamento (como um botão giratório) enquanto esperamos:
 
 ```jsx
-const ProfilePage = React.lazy(() => import('./ProfilePage')); // Lazy-loaded
+const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carregado de forma preguiçosa
 
-// Show a spinner while the profile is loading
+// Mostrar um botão giratório enquanto o perfil está carregando
 <Suspense fallback={<Spinner />}>
   <ProfilePage />
 </Suspense>
 ```
 
-Suspense for Data Fetching is a new feature that lets you also use `<Suspense>` to **declaratively "wait" for anything else, including data.** This page focuses on the data fetching use case, but it can also wait for images, scripts, or other asynchronous work.
+Suspense para Busca de Dados é um novo recurso que permite usar `<Suspense>` também para **declarativamente "esperar" por qualquer outra coisa, incluindo dados.** Esta página se concentra no caso de uso de busca de dados, mas também pode aguardar imagens, scripts ou outro recurso assíncrono.
 
 - [What Is Suspense, Exactly?](#what-is-suspense-exactly)
   - [What Suspense Is Not](#what-suspense-is-not)
