@@ -49,12 +49,8 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Manchester](https://www.meetup.com/Manchester-React-User-Group/)
 * [React.JS Girls London](https://www.meetup.com/ReactJS-Girls-London/)
 
-<<<<<<< HEAD
 ## França {#france}
-=======
-## France {#france}
 * [Nantes](https://www.meetup.com/React-Nantes/)
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
 * [Lille](https://www.meetup.com/ReactBeerLille/)
 * [Paris](https://www.meetup.com/ReactJS-Paris/)
 

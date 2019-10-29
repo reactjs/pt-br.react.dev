@@ -4,11 +4,7 @@ author: [bvaughn]
 ---
 Nós estamos animados em anunciar uma nova versão do React Developer Tools, disponível hoje para Chrome, Firefox e (Chromium) Edge!
 
-<<<<<<< HEAD
-## O que mudou?
-=======
-## What's changed? {#whats-changed}
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+## O que mudou? {#whats-changed}
 
 Muito mudou na versão 4!
 Resumidamente, esta nova versão deve oferecer ganhos significantes de performance e uma experiência de navegação melhorada.
@@ -18,11 +14,7 @@ Ela também oferece suporte completo para React Hooks, incluindo a possibilidade
 
 [Visite o tutorial interativo](https://react-devtools-tutorial.now.sh/) para testar a nova versão ou [veja o changelog](https://github.com/facebook/react/blob/master/packages/react-devtools/CHANGELOG.md#400-august-15-2019) para vídeos de demonstração e mais detalhes.
 
-<<<<<<< HEAD
-## Quais versões do React são suportadas?
-=======
-## Which versions of React are supported? {#which-versions-of-react-are-supported}
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+## Quais versões do React são suportadas? {#which-versions-of-react-are-supported}
 
 **`react-dom`**
 
@@ -34,11 +26,7 @@ Ela também oferece suporte completo para React Hooks, incluindo a possibilidade
 * `0`-`0.61`: Não suportada
 * `0.62`: Será suportada (quando a versão 0.62 for lançada)
 
-<<<<<<< HEAD
-## Como eu consigo o novo DevTools?
-=======
-## How do I get the new DevTools? {#how-do-i-get-the-new-devtools}
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+## Como eu consigo o novo DevTools? {#how-do-i-get-the-new-devtools}
 
 O React DevTools está disponível como uma extensão para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) e [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/).
 Se você já instalou a extensão, ela deve atualizar automaticamente nas próximas horas.
@@ -49,22 +37,14 @@ Se você usa a versão independente (por exemplo, no React Native ou Safari), vo
 npm install -g react-devtools@^4
 ```
 
-<<<<<<< HEAD
-## Para onde foram todos os elementos do DOM?
-=======
-## Where did all of the DOM elements go? {#where-did-all-of-the-dom-elements-go}
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+## Para onde foram todos os elementos do DOM? {#where-did-all-of-the-dom-elements-go}
 
 O novo DevTools provê uma maneira de filtrar os componentes da árvore para facilitar a navegação de hierarquias profundamente aninhadas.
 Host nodes (por exemplo, HTML `<div>`, React Native `<View>`) são *escondidos por padrão*, mas este filtro pode ser desabilitado:
 
 ![Filtros de component do DevTools](../images/blog/devtools-component-filters.gif)
 
-<<<<<<< HEAD
-## Como eu volto para a versão antiga?
-=======
-## How do I get the old version back? {#how-do-i-get-the-old-version-back}
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+## Como eu volto para a versão antiga? {#how-do-i-get-the-old-version-back}
 
 Se você está trabalhando com React Native na versão 60 (ou anterior), você pode instalar a versão anterior do DevTools a partir do NPM:
 
@@ -90,11 +70,7 @@ yarn build:extension
 # Siga as instruções da tela para finalizar a instalação
 ```
 
-<<<<<<< HEAD
-## Muito obrigado!
-=======
-## Thank you! {#thank-you}
->>>>>>> 081bb31226919062938ef924472ba1b4170facfc
+## Muito obrigado! {#thank-you}
 
 Nós gostaríamos de agradecer quem testou a versão antecipada do DevTools versão 4.
 Seus feedbacks ajudaram a melhorar significativamente a versão inicial.
