@@ -82,7 +82,7 @@ Note que passamos um objeto de configuração para `useTransition`. Sua propried
 
 ### Encapsulando setState em uma Transição {#wrapping-setstate-in-a-transition}
 
-Nosso manipulador de cliques no botão "Avançar" define o estado que alterna o perfil atual no estado:
+Nosso manipulador de cliques no botão "Next" define o estado que alterna o perfil atual no estado:
 
 ```js{4}
 <button
@@ -114,15 +114,15 @@ Se fizermos as respostas da API demorarem 5 segundos, [podemos confirmar](https:
 
 ### Adicionando um Indicador de Pendente {#adding-a-pending-indicator}
 
-There's still something that feels broken about [our last example](https://codesandbox.io/s/musing-driscoll-6nkie). Sure, it's nice not to see a "bad" loading state. **But having no indication of progress at all feels even worse!** When we click "Next", nothing happens and it feels like the app is broken.
+Ainda tem algo que parece quebrado em relação ao [nosso último exemplo](https://codesandbox.io/s/musing-driscoll-6nkie). Claro, é bom não ver um estado de carregamento "ruim". **Mas não ter nenhuma indicação de progresso é ainda pior!** Quando clicamos em "Next", nada acontece e parece que o aplicativo está quebrado.
 
-Our `useTransition()` call returns two values: `startTransition` and `isPending`.
+Nossa chamada do `useTransition()` retorna dois valores: `startTransition` e` isPending`.
 
 ```js
   const [startTransition, isPending] = useTransition({ timeoutMs: 3000 });
 ```
 
-We've already used `startTransition` to wrap the state update. Now we're going to use `isPending` too. React gives this boolean to us so we can tell whether **we're currently waiting for this transition to finish**. We'll use it to indicate that something is happening:
+Já usamos `startTransition` para encapsular a atualização de estado. Agora vamos usar também o `isPending`. O React fornece esse booleano para que possamos saber se **estamos atualmente aguardando a conclusão da transição**. Vamos usá-lo para indicar que algo está acontecendo:
 
 ```js{4,14}
 return (
@@ -144,9 +144,9 @@ return (
 );
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
 
-Now, this feels a lot better! When we click Next, it gets disabled because clicking it multiple times doesn't make sense. And the new "Loading..." tells the user that the app didn't freeze.
+Agora, parece ter ficado muito melhor! Quando clicamos em "Next", ele fica desativado porque não faz sentido clicar várias vezes nele. E o novo "Loading..." informa ao usuário que o aplicativo não congelou.
 
 ### Revisando as Mudanças {#reviewing-the-changes}
 
