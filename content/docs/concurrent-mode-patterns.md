@@ -84,7 +84,7 @@ Note que passamos um objeto de configuração para `useTransition`. Sua propried
 
 ### Encapsulando setState em uma Transição {#wrapping-setstate-in-a-transition}
 
-Our "Next" button click handler sets the state that switches the current profile in the state:
+Nosso manipulador de cliques no botão "Avançar" define o estado que alterna o perfil atual no estado:
 
 ```js{4}
 <button
@@ -95,7 +95,7 @@ Our "Next" button click handler sets the state that switches the current profile
 >
 ```
 
- We'll wrap that state update into `startTransition`. That's how we tell React **we don't mind React delaying that state update** if it leads to an undesirable loading state:
+Vamos encapsular essa atualização de estado em `startTransition`. É assim que dizemos ao React **que não nos importamos em o React atrasar essa atualização de estado** se ela levar a um estado de carregamento indesejável:
 
 ```js{3,6}
 <button
@@ -108,11 +108,11 @@ Our "Next" button click handler sets the state that switches the current profile
 >
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/musing-driscoll-6nkie)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/musing-driscoll-6nkie)**
 
-Press "Next" a few times. Notice it already feels very different. **Instead of immediately seeing an empty screen on click, we now keep seeing the previous page for a while.** When the data has loaded, React transitions us to the new screen.
+Pressione "Next" algumas vezes. Observe que já parece bem diferente. **Em vez de ver imediatamente uma tela vazia ao clicar, agora continuamos vendo a página anterior por um tempo.** Quando os dados são carregados, o React nos transfere para a nova tela.
 
-If we make our API responses take 5 seconds, [we can confirm](https://codesandbox.io/s/relaxed-greider-suewh) that now React "gives up" and transitions anyway to the next screen after 3 seconds. This is because we passed `{timeoutMs: 3000}` to `useTransition()`. For example, if we passed `{timeoutMs: 60000}` instead, it would wait a whole minute.
+Se fizermos as respostas da API demorarem 5 segundos, [podemos confirmar](https://codesandbox.io/s/relaxed-greider-suewh) que agora o React "desiste" e faz a transição para a próxima tela depois de 3 segundos. Isso ocorre porque passamos `{timeoutMs: 3000}` para `useTransition()`. Por exemplo, se passarmos `{timeoutMs: 60000}` em vez disso, irá esperar um minuto.
 
 ### Adicionando um Indicador de Pendente {#adding-a-pending-indicator}
 
