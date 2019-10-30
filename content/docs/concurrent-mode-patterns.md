@@ -150,7 +150,7 @@ Agora, parece ter ficado muito melhor! Quando clicamos em "Next", ele fica desat
 
 ### Revisando as Mudanças {#reviewing-the-changes}
 
-Let's take another look at all the changes we've made since the [original example](https://codesandbox.io/s/infallible-feather-xjtbu):
+Vamos dar uma olhada em todas as alterações que fizemos desde o [exemplo original](https://codesandbox.io/s/infallible-feather-xjtbu):
 
 ```js{3-5,9,11,14,19}
 function App() {
@@ -178,16 +178,16 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/jovial-lalande-26yep)**
 
-It took us only seven lines of code to add this transition:
+Precisamos apenas de sete linhas de código para adicionar essa transição:
 
-* We've imported the `useTransition` Hook and used it the component that updates the state.
-* We've passed `{timeoutMs: 3000}` to stay on the previous screen for at most 3 seconds.
-* We've wrapped our state update into `startTransition` to tell React it's okay to delay it.
-* We're using `isPending` to communicate the state transition progress to the user and to disable the button.
+* Importamos o Hook `useTransition` e usamos no componente que atualiza o estado.
+* Passamos o `{timeoutMs: 3000}` para permanecer na tela anterior por no máximo 3 segundos.
+* Encapsulamos nossa atualização de estado no `startTransition` para dizer ao React que não há problema em adiá-lo.
+* Estamos usando o `isPending` para comunicar o progresso da transição de estado ao usuário e desativar o botão.
 
-As a result, clicking "Next" doesn't perform an immediate state transition to an "undesirable" loading state, but instead stays on the previous screen and communicates progress there.
+Como resultado, clicar em "Next" não realiza uma transição imediata de estado para um estado de carregamento "indesejável", mas ao invés disso permanece na tela anterior e comunica o progresso lá.
 
 ### Onde a Atualização Acontece? {#where-does-the-update-happen}
 
@@ -237,7 +237,7 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/boring-shadow-100tf)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/boring-shadow-100tf)**
 
 In this example, we start data fetching at the load *and* every time you press "Refresh". We put the result of calling `fetchUserAndPosts()` into state so that components below can start reading the new data from the request we just kicked off.
 
@@ -276,7 +276,7 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/sleepy-field-mohzb)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/sleepy-field-mohzb)**
 
 This feels a lot better! Clicking "Refresh" doesn't pull us away from the page we're browsing anymore. We see something is loading "inline", and when the data is ready, it's displayed.
 
@@ -316,7 +316,7 @@ function Button({ children, onClick }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
 Note that the button doesn't care *what* state we're updating. It's wrapping *any* state updates that happen during its `onClick` handler into a transition. Now that our `<Button>` takes care of setting up the transition, the `<ProfilePage>` component doesn't need to set up its own:
 
@@ -342,7 +342,7 @@ function ProfilePage() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
 When a button gets clicked, it starts a transition and calls `props.onClick()` inside of it -- which triggers `handleRefreshClick` in the `<ProfilePage>` component. We start fetching the fresh data, but it doesn't trigger a fallback because we're inside a transition, and the 10 second timeout specified in the `useTransition` call hasn't passed yet. While a transition is pending, the button displays an inline loading indicator.
 
@@ -494,7 +494,7 @@ function ProfileTrivia({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
 
 If you press "Open Profile" now, you can tell something is wrong. It takes whole seven seconds to make the transition now! This is because our trivia API is too slow. Let's say we can't make the API faster. How can we improve the user experience with this constraint?
 
@@ -518,7 +518,7 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/condescending-shape-s6694)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/condescending-shape-s6694)**
 
 This reveals an important insight. React always prefers to go to the Skeleton state as soon as possible. Even if we use transitions with long timeouts everywhere, React will not stay in the Pending state for longer than necessary to avoid the Receded state.
 
@@ -553,7 +553,7 @@ function Button({ children, onClick }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/floral-thunder-iy826)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/floral-thunder-iy826)**
 
 This signals to the user that some work is happening. However, if the transition is relatively short (less than 500ms), it might be too distracting and make the transition itself feel *slower*.
 
@@ -587,7 +587,7 @@ return (
 );
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/gallant-spence-l6wbk)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/gallant-spence-l6wbk)**
 
 With this change, even though we're in the Pending state, we don't display any indication to the user until 500ms has passed. This may not seem like much of an improvement when the API responses are slow. But compare how it feels [before](https://codesandbox.io/s/thirsty-liskov-1ygph) and [after](https://codesandbox.io/s/hardcore-http-s18xr) when the API call is fast. Even though the rest of the code hasn't changed, suppressing a "too fast" loading state improves the perceived performance by not calling attention to the delay.
 
@@ -647,7 +647,7 @@ function Translation({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/brave-villani-ypxvf)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/brave-villani-ypxvf)**
 
 Notice how when you type into the input, the `<Translation>` component suspends, and we see the `<p>Loading...</p>` fallback until we get fresh results. This is not ideal. It would be better if we could see the *previous* translation for a bit while we're fetching the next one.
 
@@ -684,7 +684,7 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/zen-keldysh-rifos)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/zen-keldysh-rifos)**
 
 Try typing into the input now. Something's wrong! The input is updating very slowly.
 
@@ -710,7 +710,7 @@ function handleChange(e) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/lively-smoke-fdf93)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/lively-smoke-fdf93)**
 
 With this change, it works as expected. We can type into the input immediately, and the translation later "catches up" to what we have typed.
 
@@ -775,7 +775,7 @@ function ProfileTimeline({ isStale, resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/vigorous-keller-3ed2b)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/vigorous-keller-3ed2b)**
 
 The tradeoff we're making here is that `<ProfileTimeline>` will be inconsistent with other components and potentially show an older item. Click "Next" a few times, and you'll notice it. But thanks to that, we were able to cut down the transition time from 1000ms to 300ms.
 
@@ -806,7 +806,7 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/pensive-shirley-wkp46)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/pensive-shirley-wkp46)**
 
 In this example, **every item in `<MySlowList>` has an artificial slowdown -- each of them blocks the thread for a few milliseconds**. We'd never do this in a real app, but this helps us simulate what can happen in a deep component tree with no single obvious place to optimize.
 
@@ -836,7 +836,7 @@ function App() {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
 
 Now typing has a lot less stutter -- although we pay for this by showing the results with a lag.
 
@@ -866,7 +866,7 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/proud-tree-exg5t)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/proud-tree-exg5t)**
 
 The API call duration in this example is randomized. If you keep refreshing it, you will notice that sometimes the posts arrive first, and sometimes the "fun facts" arrive first.
 
@@ -881,7 +881,7 @@ One way we could fix it is by putting them both in a single boundary:
 </Suspense>
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/currying-violet-5jsiy)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/currying-violet-5jsiy)**
 
 The problem with this is that now we *always* wait for both of them to be fetched. However, if it's the *posts* that came back first, there's no reason to delay showing them. When fun facts load later, they won't shift the layout because they're already below the posts.
 
@@ -911,7 +911,7 @@ function ProfilePage({ resource }) {
 }
 ```
 
-**[Try it on CodeSandbox](https://codesandbox.io/s/black-wind-byilt)**
+**[Experimente no CodeSandbox](https://codesandbox.io/s/black-wind-byilt)**
 
 The `revealOrder="forwards"` option means that the closest `<Suspense>` nodes inside this list **will only "reveal" their content in the order they appear in the tree -- even if the data for them arrives in a different order**. `<SuspenseList>` has other interesting modes: try changing `"forwards"` to `"backwards"` or `"together"` and see what happens.
 
