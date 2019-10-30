@@ -18,21 +18,21 @@ Esta página fornece uma visão geral teórica do Modo Concorrente. **Para uma i
 * [Adotando o Modo Concorrente](/docs/concurrent-mode-adoption.html) explains how you can try Concurrent Mode in your project.
 * [Referência da API do Modo Concorrente](/docs/concurrent-mode-reference.html) documents the new APIs available in experimental builds.
 
-## What Is Concurrent Mode? {#what-is-concurrent-mode}
+## O Que é o Modo Concorrente? {#what-is-concurrent-mode}
 
-Concurrent Mode is a set of new features that help React apps stay responsive and gracefully adjust to the user's device capabilities and network speed.
+O Modo Concorrente é um conjunto de novos recursos que ajudam os aplicativos React a permanecerem responsivos e a se ajustarem normalmente aos recursos do dispositivo do usuário e à velocidade da rede.
 
-These features are still experimental and are subject to change. They are not yet a part of a stable React release, but you can try them in an experimental build.
+Esses recursos ainda são experimentais e estão sujeitos a alterações. Eles ainda não fazem parte de uma versão estável do React, mas você pode experimentá-los em uma versão experimental.
 
-## Blocking vs Interruptible Rendering {#blocking-vs-interruptible-rendering}
+## Bloqueio vs Renderização Interrompida {#blocking-vs-interruptible-rendering}
 
-**To explain Concurrent Mode, we'll use version control as a metaphor.** If you work on a team, you probably use a version control system like Git and work on branches. When a branch is ready, you can merge your work into master so that other people can pull it.
+**Para explicar o Modo Concorrente, usaremos o controle de versão como uma metáfora.** Se você trabalha em equipe, provavelmente usa um sistema de controle de versão como o Git e trabalha em branchs. Quando uma branch estiver pronta, você poderá dar merge do seu trabalho na master(branch principal), para que outras pessoas possam puxa-las(pull).
 
-Before version control existed, the development workflow was very different. There was no concept of branches. If you wanted to edit some files, you had to tell everyone not to touch those files until you've finished your work. You couldn't even start working on them concurrently with that person — you were literally *blocked* by them.
+Antes da existência do controle de versão, o fluxo de trabalho de desenvolvimento era muito diferente. Não havia conceito de branchs. Se você quiser editar alguns arquivos, precisará dizer a todos para não tocarem nesses arquivos até que você termine seu trabalho. Você não podia nem começar a trabalhar neles simultaneamente com essa pessoa - você estava literalmente *bloqueado* por ela.
 
-This illustrates how UI libraries, including React, typically work today. Once they start rendering an update, including creating new DOM nodes and running the code inside components, they can't interrupt this work. We'll call this approach "blocking rendering".
+Isso ilustra como as bibliotecas de UI, incluindo React, normalmente funcionam hoje. Depois que eles começam a renderizar uma atualização, incluindo a criação de novos nós do DOM e a execução do código nos componentes, eles não podem interromper esse trabalho. Vamos chamar essa abordagem de "bloqueio de renderização".
 
-In Concurrent Mode, rendering is not blocking. It is interruptible. This improves the user experience. It also unlocks new features that weren't possible before. Before we look at concrete examples in the [next](/docs/concurrent-mode-suspense.html) [chapters](/docs/concurrent-mode-patterns.html), we'll do a high-level overview of new features.
+Em Modo Concorrente, a renderização não está bloqueando. É interruptível. Isso melhora a experiência do usuário. Também desbloqueia novos recursos que antes não eram possíveis. Antes de examinarmos exemplos concretos nos [próximos](/docs/concurrent-mode-suspense.html) [capítulos](/docs/concurrent-mode-patterns.html), faremos uma visão geral de alto nível dos novos recursos.
 
 ### Interruptible Rendering {#interruptible-rendering}
 
