@@ -191,19 +191,19 @@ Como resultado, clicar em "Next" não realiza uma transição imediata de estado
 
 ### Onde a Atualização Acontece? {#where-does-the-update-happen}
 
-This wasn't very difficult to implement. However, if you start thinking about how this could possibly work, it might become a little mindbending. If we set the state, how come we don't see the result right away? *Where* is the next `<ProfilePage>` rendering?
+Isso não foi muito difícil de implementar. No entanto, se você começar a pensar em como isso poderia funcionar, pode se tornar um pouco perturbador. Se definirmos o estado, como é que não vemos o resultado imediatamente? *Onde* é a próxima renderização de `<ProfilePage>`?
 
-Clearly, both "versions" of `<ProfilePage>` exist at the same time. We know the old one exists because we see it on the screen and even display a progress indicator on it. And we know the new version also exists *somewhere*, because it's the one that we're waiting for!
+Claramente, ambas as "versões" do `<PerfilPage>` existem ao mesmo tempo. Sabemos que o antigo existe porque o vemos na tela e até exibimos um indicador de progresso. E sabemos que a nova versão também existe *em algum lugar*, porque é a que estamos aguardando!
 
-**But how can two versions of the same component exist at the same time?**
+**Mas como duas versões do mesmo componente podem existir ao mesmo tempo?**
 
-This gets at the root of what Concurrent Mode is. We've [previously said](/docs/concurrent-mode-intro.html#intentional-loading-sequences) it's a bit like React working on state update on a "branch". Another way we can conceptualize is that wrapping a state update in `startTransition` begins rendering it *"in a different universe"*, much like in science fiction movies. We don't "see" that universe directly -- but we can get a signal from it that tells us something is happening (`isPending`). When the update is ready, our "universes" merge back together, and we see the result on the screen!
+Com isso chegamos na raiz do que é o Modo Concorrente. Nós [dissemos anteriormente](/docs/concurrent-mode-intro.html#intentional-loading-sequences) que é um pouco como o React trabalhando na atualização de estado em um "ramo". Outra maneira que podemos conceituar é que o encapsulamento de uma atualização de estado em `startTransition` começa a renderizá-lo *"em um universo diferente"*, como nos filmes de ficção científica. Nós não "vemos" esse universo diretamente -- mas podemos obter um sinal dele que nos diz que algo está acontecendo (`isPending`). Quando a atualização está pronta, nossos "universos" se fundem novamente e vemos o resultado na tela!
 
-Play a bit more with the [demo](https://codesandbox.io/s/jovial-lalande-26yep), and try to imagine it happening.
+Brinque um pouco mais com a [demo](https://codesandbox.io/s/jovial-lalande-26yep) e tente imaginar isso acontecendo.
 
-Of course, two versions of the tree rendering *at the same time* is an illusion, just like the idea that all programs run on your computer at the same time is an illusion. An operating system switches between different applications very fast. Similarly, React can switch between the version of the tree you see on the screen and the version that it's "preparing" to show next.
+Obviamente, duas versões da renderização em árvore *ao mesmo tempo* são uma ilusão, assim como a ideia de que todos os programas executam no computador ao mesmo tempo é uma ilusão. Um sistema operacional alterna entre diferentes aplicativos muito rapidamente. Da mesma forma, o React pode alternar entre a versão da árvore que você vê na tela e a versão que está "preparando" para mostrar a seguir.
 
-An API like `useTransition` lets you focus on the desired user experience, and not think about the mechanics of how it's implemented. Still, it can be a helpful metaphor to imagine that updates wrapped in `startTransition` happen "on a branch" or "in a different world".
+Uma API como `useTransition` permite que você se concentre na experiência do usuário desejada, e não pense na mecânica de como ela é implementada. Ainda assim, pode ser uma metáfora útil imaginar que as atualizações encapsuladas em `startTransition` ocorram "em uma ramificação" ou "em um universo diferente".
 
 ### Transições Estão em Toda Parte {#transitions-are-everywhere}
 
