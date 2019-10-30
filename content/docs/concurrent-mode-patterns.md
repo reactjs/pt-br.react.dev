@@ -207,11 +207,11 @@ Uma API como `useTransition` permite que você se concentre na experiência do u
 
 ### Transições Estão em Toda Parte {#transitions-are-everywhere}
 
-As we learned from the [Suspense walkthrough](/docs/concurrent-mode-suspense.html), any component can "suspend" any time if some data it needs is not ready yet. We can strategically place `<Suspense>` boundaries in different parts of the tree to handle this, but it won't always be enough.
+Como aprendemos com [Suspense Passo a Passo](/docs/concurrent-mode-suspense.html), qualquer componente pode "suspender" a qualquer momento se alguns dados necessários ainda não estiverem prontos. Podemos colocar estrategicamente os limites do `<Suspense>` em diferentes partes da árvore para lidar com isso, mas nem sempre será o suficiente.
 
-Let's get back to our [first Suspense demo](https://codesandbox.io/s/frosty-hermann-bztrp) where there was just one profile. Currently, it fetches the data only once. We'll add a "Refresh" button to check for server updates.
+Vamos voltar à nossa [primeira demo do Suspense](https://codesandbox.io/s/frosty-hermann-bztrp), onde havia apenas um perfil. Atualmente, ele busca os dados apenas uma vez. Vamos adicionar um botão "Refresh" para verificar se há atualizações do servidor.
 
-Our first attempt might look like this:
+Nossa primeira tentativa pode ser assim:
 
 ```js{6-8,13-15}
 const initialResource = fetchUserAndPosts();
@@ -239,16 +239,16 @@ function ProfilePage() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/boring-shadow-100tf)**
 
-In this example, we start data fetching at the load *and* every time you press "Refresh". We put the result of calling `fetchUserAndPosts()` into state so that components below can start reading the new data from the request we just kicked off.
+Neste exemplo, começamos a busca de dados no carregamento *e* toda vez que você pressionar "Refresh". Colocamos o resultado da chamada de `fetchUserAndPosts()` no estado para que os componentes abaixo possam começar a ler os novos dados da solicitação que acabamos de iniciar.
 
-We can see in [this example](https://codesandbox.io/s/boring-shadow-100tf) that pressing "Refresh" works. The `<ProfileDetails>` and `<ProfileTimeline>` components receive a new `resource` prop that represents the fresh data, they "suspend" because we don't have a response yet, and we see the fallbacks. When the response loads, we can see the updated posts (our fake API adds them every 3 seconds).
+Podemos ver [neste exemplo](https://codesandbox.io/s/boring-shadow-100tf) que pressionar "Refresh" funciona. Os componentes `<ProfileDetails>` e `<ProfileTimeline>` recebem uma nova prop `resource` que representa os dados atualizados, eles "suspendem" porque ainda não temos uma resposta e vemos os fallbacks. Quando a resposta é carregada, podemos ver as postagens atualizadas (nossa API falsa as adiciona a cada 3 segundos).
 
-However, the experience feels really jarring. We were browsing a page, but it got replaced by a loading state right as we were interacting with it. It's disorienting. **Just like before, to avoid showing an undesirable loading state, we can wrap the state update in a transition:**
+No entanto, a experiência parece ruim. Estávamos navegando em uma página, mas ela foi substituída por um estado de carregamento quando estávamos interagindo com ela. É desorientador. **Assim como antes, para evitar mostrar um estado de carregamento indesejável, podemos encapsular a atualização do estado em uma transição:**
 
 ```js{2-5,9-11,21}
 function ProfilePage() {
   const [startTransition, isPending] = useTransition({
-    // Wait 10 seconds before fallback
+    // Aguarde 10 segundos antes do fallback
     timeoutMs: 10000
   });
   const [resource, setResource] = useState(initialResource);
@@ -278,7 +278,7 @@ function ProfilePage() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/sleepy-field-mohzb)**
 
-This feels a lot better! Clicking "Refresh" doesn't pull us away from the page we're browsing anymore. We see something is loading "inline", and when the data is ready, it's displayed.
+Isso parece muito melhor! Clicar em "Refresh" não nos afasta mais da página em que estamos navegando. Vemos que algo está carregando "inline" e, quando os dados estão prontos, são exibidos.
 
 ### Inserindo Transições no Sistema de Design {#baking-transitions-into-the-design-system}
 
