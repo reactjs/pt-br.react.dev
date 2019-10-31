@@ -350,17 +350,21 @@ Podemos ver agora como o Modo Concorrente nos ajuda a obter uma boa experiência
 
 ## Os Três Passos {#the-three-steps}
 
-By now we have discussed all of the different visual states that an update may go through. In this section, we will give them names and talk about the progression between them.
+Até agora, discutimos todos os diferentes estados visuais pelos quais uma atualização pode passar. Nesta seção, daremos nomes a eles e falaremos sobre a progressão entre eles.
 
 <br>
 
-<img src="../images/docs/cm-steps-simple.png" alt="Three steps" />
+<img src="../images/docs/cm-steps-simple.png" alt="Três Passos" />
 
-At the very end, we have the **Complete** state. That's where we want to eventually get to. It represents the moment when the next screen is fully rendered and isn't loading more data.
+No final, temos o estado **Complete**. É onde queremos chegar. Representa o momento em que a próxima tela é totalmente renderizada e não está carregando mais dados.
 
 But before our screen can be Complete, we might need to load some data or code. When we're on the next screen, but some parts of it are still loading, we call that a **Skeleton** state.
 
+Porém, antes que nossa tela possa ser Complete, talvez seja necessário carregar alguns dados ou código. Quando estamos na próxima tela, mas algumas partes ainda estão carregando, chamamos isso de um estado **Skeleton**.
+
 Finally, there are two primary ways that lead us to the Skeleton state. We will illustrate the difference between them with a concrete example.
+
+Finalmente, existem duas maneiras principais que nos levam ao estado do Skeleton. Vamos ilustrar a diferença entre eles com um exemplo concreto.
 
 ### Padrão: Recuado → Esqueleto → Completo {#default-receded-skeleton-complete}
 
