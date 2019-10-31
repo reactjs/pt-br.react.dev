@@ -24,7 +24,7 @@ Por exemplo, se mudarmos de uma página para outra e nenhum código ou dados par
   - [Transições Estão em Toda Parte](#transitions-are-everywhere)
   - [Inserindo Transições no Sistema de Design](#baking-transitions-into-the-design-system)
 - [Os Três Passos](#the-three-steps)
-  - [Padrão: Recuado → Esqueleto → Completo](#default-receded-skeleton-complete)
+  - [Padrão: Retrocedido → Esqueleto → Completo](#default-receded-skeleton-complete)
   - [Preferido: Pendente → Esqueleto → Completo](#preferred-pending-skeleton-complete)
   - [Encapsule Recursos Lentos em `<Suspense>`](#wrap-lazy-features-in-suspense)
   - ["Trem" Revela Suspense](#suspense-reveal-train)
@@ -356,40 +356,36 @@ Até agora, discutimos todos os diferentes estados visuais pelos quais uma atual
 
 <img src="../images/docs/cm-steps-simple.png" alt="Três Passos" />
 
-No final, temos o estado **Complete**. É onde queremos chegar. Representa o momento em que a próxima tela é totalmente renderizada e não está carregando mais dados.
+No final, temos o estado **Completo**. É onde queremos chegar. Representa o momento em que a próxima tela é totalmente renderizada e não está carregando mais dados.
 
-But before our screen can be Complete, we might need to load some data or code. When we're on the next screen, but some parts of it are still loading, we call that a **Skeleton** state.
+Porém, antes que nossa tela possa ser Completo, talvez seja necessário carregar alguns dados ou código. Quando estamos na próxima tela, mas algumas partes ainda estão carregando, chamamos isso de um estado **Esqueleto**.
 
-Porém, antes que nossa tela possa ser Complete, talvez seja necessário carregar alguns dados ou código. Quando estamos na próxima tela, mas algumas partes ainda estão carregando, chamamos isso de um estado **Skeleton**.
+Finalmente, existem duas maneiras principais que nos levam ao estado do Esqueleto. Vamos ilustrar a diferença entre eles com um exemplo concreto.
 
-Finally, there are two primary ways that lead us to the Skeleton state. We will illustrate the difference between them with a concrete example.
+### Padrão: Retrocedido → Esqueleto → Completo {#default-receded-skeleton-complete}
 
-Finalmente, existem duas maneiras principais que nos levam ao estado do Skeleton. Vamos ilustrar a diferença entre eles com um exemplo concreto.
+Abra [este exemplo](https://codesandbox.io/s/prod-grass-g1lh5) e clique em "Open Profile". Você verá vários estados visuais, um por um:
 
-### Padrão: Recuado → Esqueleto → Completo {#default-receded-skeleton-complete}
+* **Retrocedido**: Por um segundo, você verá o fallback `<h1>Loading the app...</h1>`.
+* **Esqueleto:** Você verá o componente `<ProfilePage>` com `<h2>Loading posts...</h2>` dentro.
+* **Completo:** Você verá o componente `<ProfilePage>` sem fallbacks dentro. Tudo foi trazido.
 
-Open [this example](https://codesandbox.io/s/prod-grass-g1lh5) and click "Open Profile". You will see several visual states one by one:
+Como separamos os estados Retrocedido e Esqueleto? A diferença entre eles é que o estado **Retrocedido** parece "dar um passo atrás" para o usuário, enquanto o estado **Esqueleto** parece "dar um passo adiante" em nosso progresso para mostrar mais conteúdo.
 
-* **Receded**: For a second, you will see the `<h1>Loading the app...</h1>` fallback.
-* **Skeleton:** You will see the `<ProfilePage>` component with `<h2>Loading posts...</h2>` inside.
-* **Complete:** You will see the `<ProfilePage>` component with no fallbacks inside. Everything was fetched.
-
-How do we separate the Receded and the Skeleton states? The difference between them is that the **Receded** state feels like "taking a step back" to the user, while the **Skeleton** state feels like "taking a step forward" in our progress to show more content.
-
-In this example, we started our journey on the `<HomePage>`:
+Neste exemplo, iniciamos nossa jornada no `<HomePage>`:
 
 ```js
 <Suspense fallback={...}>
-  {/* previous screen */}
+  {/* tela anterior */}
   <HomePage />
 </Suspense>
 ```
 
-After the click, React started rendering the next screen:
+Após o clique, React começou a renderizar a próxima tela:
 
 ```js
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* próxima tela */}
   <ProfilePage>
     <ProfileDetails />
     <Suspense fallback={...}>
@@ -399,30 +395,30 @@ After the click, React started rendering the next screen:
 </Suspense>
 ```
 
-Both `<ProfileDetails>` and `<ProfileTimeline>` need data to render, so they suspend:
+Tanto `<ProfileDetails>` e `<ProfileTimeline>` precisam de dados para renderizar, então eles suspendem:
 
 ```js{4,6}
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* próxima tela */}
   <ProfilePage>
-    <ProfileDetails /> {/* suspends! */}
+    <ProfileDetails /> {/* suspende! */}
     <Suspense fallback={<h2>Loading posts...</h2>}>
-      <ProfileTimeline /> {/* suspends! */}
+      <ProfileTimeline /> {/* suspende! */}
     </Suspense>
   </ProfilePage>
 </Suspense>
 ```
 
-When a component suspends, React needs to show the closest fallback. But the closest fallback to `<ProfileDetails>` is at the top level:
+Quando um componente é suspenso, o React precisa mostrar o fallback mais próximo. Mas o fallback mais próximo de `<ProfileDetails>` está no nível mais alto:
 
 ```js{2,3,7}
 <Suspense fallback={
-  // We see this fallback now because of <ProfileDetails>
+  // Vemos esse fallback agora por causa do <ProfileDetails>
   <h1>Loading the app...</h1>
 }>
-  {/* next screen */}
+  {/* próxima tela */}
   <ProfilePage>
-    <ProfileDetails /> {/* suspends! */}
+    <ProfileDetails /> {/* suspende! */}
     <Suspense fallback={...}>
       <ProfileTimeline />
     </Suspense>
@@ -430,28 +426,28 @@ When a component suspends, React needs to show the closest fallback. But the clo
 </Suspense>
 ```
 
-This is why when we click the button, it feels like we've "taken a step back". The `<Suspense>` boundary which was previously showing useful content (`<HomePage />`) had to "recede" to showing the fallback (`<h1>Loading the app...</h1>`). We call that a **Receded** state.
+É por isso que, quando clicamos no botão, parece que "demos um passo para trás". O limite `<Suspense>`, que anteriormente mostrava conteúdo útil (`<HomePage />`), precisava "retroceder" para mostrar o fallback (`<h1>Loading the app...</h1>`). Chamamos isso de estado **Retrocedido**.
 
-As we load more data, React will retry rendering, and `<ProfileDetails>` can render successfully. Finally, we're in the **Skeleton** state. We see the new page with missing parts:
+À medida que carregamos mais dados, o React tentará renderizar novamente, e `<ProfileDetails>` poderá renderizar com sucesso. Finalmente, estamos no estado **Esqueleto**. Vemos a nova página com peças faltando:
 
 ```js{6,7,9}
 <Suspense fallback={...}>
-  {/* next screen */}
+  {/* próxima tela */}
   <ProfilePage>
     <ProfileDetails />
     <Suspense fallback={
-      // We see this fallback now because of <ProfileTimeline>
+      // Vemos esse fallback agora por causa do <ProfileTimeline>
       <h2>Loading posts...</h2>
     }>
-      <ProfileTimeline /> {/* suspends! */}
+      <ProfileTimeline /> {/* suspende! */}
     </Suspense>
   </ProfilePage>
 </Suspense>
 ```
 
-Eventually, they load too, and we get to the **Complete** state.
+Eventualmente, eles também carregam, e chegamos ao estado **Completo**.
 
-This scenario (Receded → Skeleton → Complete) is the default one. However, the Receded state is not very pleasant because it "hides" existing information. This is why React lets us opt into a different sequence (**Pending** → Skeleton → Complete) with `useTransition`.
+Esse cenário (Retrocedido → Esqueleto → Completo) é o padrão. No entanto, o estado Retrocedido não é muito agradável porque "esconde" as informações existentes. É por isso que o React nos permite optar por uma sequência diferente (**Pendente** → Esqueleto → Completo) com `useTransition`.
 
 ### Preferido: Pendente → Esqueleto → Completo {#preferred-pending-skeleton-complete}
 
