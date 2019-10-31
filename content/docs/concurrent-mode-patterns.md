@@ -282,9 +282,9 @@ Isso parece muito melhor! Clicar em "Refresh" não nos afasta mais da página em
 
 ### Inserindo Transições no Sistema de Design {#baking-transitions-into-the-design-system}
 
-We can now see that the need for `useTransition` is *very* common. Pretty much any button click or interaction that can lead to a component suspending needs to be wrapped in `useTransition` to avoid accidentally hiding something the user is interacting with.
+Podemos ver agora que a necessidade de usar `useTransition` é *muito* comum. Praticamente qualquer clique ou interação de botão que possa levar à suspensão de um componente precisa ser encapsulado em `useTransition` para evitar ocultar acidentalmente algo com o qual o usuário está interagindo.
 
-This can lead to a lot of repetitive code across components. This is why **we generally recommend to bake `useTransition` into the *design system* components of your app**. For example, we can extract the transition logic into our own `<Button>` component:
+Isso pode nos levar ter muito código repetitivo entre os componentes. É por isso que **geralmente recomendamos incorporar `useTransition` nos componentes do *sistema de design* da sua aplicação**. Por exemplo, podemos extrair a lógica de transição em nosso próprio componente `<Button>`:
 
 ```js{7-9,20,24}
 function Button({ children, onClick }) {
@@ -318,7 +318,7 @@ function Button({ children, onClick }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
-Note that the button doesn't care *what* state we're updating. It's wrapping *any* state updates that happen during its `onClick` handler into a transition. Now that our `<Button>` takes care of setting up the transition, the `<ProfilePage>` component doesn't need to set up its own:
+Observe que o botão não se importa com *qual* estado estamos atualizando. Ele está encapsulando em uma transição *quaisquer* atualizações de estado que acontecem durante seu manipulador `onClick`. Agora que nosso `<Button>` cuida de configurar a transição, o componente `<ProfilePage>` não precisa configurar o seu próprio:
 
 ```js{4-6,11-13}
 function ProfilePage() {
@@ -344,9 +344,9 @@ function ProfilePage() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
-When a button gets clicked, it starts a transition and calls `props.onClick()` inside of it -- which triggers `handleRefreshClick` in the `<ProfilePage>` component. We start fetching the fresh data, but it doesn't trigger a fallback because we're inside a transition, and the 10 second timeout specified in the `useTransition` call hasn't passed yet. While a transition is pending, the button displays an inline loading indicator.
+Quando um botão é clicado, ele inicia uma transição e chama `props.onClick()` dentro dele -- o que aciona `handleRefreshClick` no componente`<ProfilePage>`. Começamos a buscar os dados atualizados, mas isso não aciona um fallback porque estamos dentro de uma transição, e o tempo limite de 10 segundos especificado na chamada `useTransition` ainda não passou. Enquanto uma transição está pendente, o botão exibe um indicador de carregamento embutido.
 
-We can see now how Concurrent Mode helps us achieve a good user experience without sacrificing isolation and modularity of components. React coordinates the transition.
+Podemos ver agora como o Modo Concorrente nos ajuda a obter uma boa experiência de usuário sem sacrificar o isolamento e a modularidade dos componentes. React coordena a transição.
 
 ## Os Três Passos {#the-three-steps}
 
