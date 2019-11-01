@@ -451,14 +451,14 @@ Esse cenário (Retrocedido → Esqueleto → Completo) é o padrão. No entanto,
 
 ### Preferido: Pendente → Esqueleto → Completo {#preferred-pending-skeleton-complete}
 
-When we `useTransition`, React will let us "stay" on the previous screen -- and show a progress indicator there. We call that a **Pending** state. It feels much better than the Receded state because none of our existing content disappears, and the page stays interactive.
+Quando nós usamos `useTransition`, o React nos deixa "permanecer" na tela anterior -- e mostra um indicador de progresso lá. Chamamos isso de estado **Pendente**. Parece muito melhor que o estado Retrocedido, porque nenhum conteúdo existente desaparece e a página permanece interativa.
 
-You can compare these two examples to feel the difference:
+Você pode comparar esses dois exemplos para sentir a diferença:
 
-* Default: [Receded → Skeleton → Complete](https://codesandbox.io/s/prod-grass-g1lh5)
-* **Preferred: [Pending → Skeleton → Complete](https://codesandbox.io/s/focused-snow-xbkvl)**
+* Padrão: [Retrocedido → Esqueleto → Completo](https://codesandbox.io/s/prod-grass-g1lh5)
+* **Preferido: [Pendente → Esqueleto → Completo](https://codesandbox.io/s/focused-snow-xbkvl)**
 
-The only difference between these two examples is that the first uses regular `<button>`s, but the second one uses our custom `<Button>` component with `useTransition`.
+A única diferença entre esses dois exemplos é que o primeiro usa um `<button>` normal, mas o segundo usa nosso componente personalizado `<Button>` com `useTransition`.
 
 ### Encapsule Recursos Lentos em `<Suspense>` {#wrap-lazy-features-in-suspense}
 
