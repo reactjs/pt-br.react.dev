@@ -1,13 +1,13 @@
 ---
-title: "New Versioning Scheme"
+title: "Novo Esquema de Versão"
 author: [sebmarkbage]
 ---
 
-Today we're announcing that we're switching to major revisions for React. The current version is 0.14.7. The next release will be: **15.0.0**
+Hoje anunciamos que estamos mudando para as principais revisões do React. A versão atual é 0.14.7. A próxima release será: **15.0.0**
 
-This change shouldn't materially affect most of you. Moving to major semver versions simply helps indicate our commitment to stability and gives us the flexibility to add new backwards-compatible features in minor releases. This means we can have fewer major releases and you won't have to wait as long to take advantage of improvements to React. Plus, if you're a component author, this versioning scheme gives you the flexibility to support two major versions of React at the same time so you don't need to leave anyone behind.
+Esta mudança não deve afetar materialmente a maioria de vocês. A mudança para as principais versões semver simplesmente ajuda a indicar o nosso compromisso para com a estabilidade e nos dá a flexibilidade para adicionar novos recursos em releases menores que sejam compatíveis com as versões anteriores. Isso significa que nós podemos ter menos releases principais e você não precisará esperar tanto tempo para desfrutar das melhorias do React. Além disso, se você é um autor de componente, este esquema de versão te dá a flexibilidade para suportar duas versões principais do React ao mesmo tempo, para que você não precise deixar nada para trás.
 
-The core of the React API has been stable for years. Our business as well as many of yours all depend heavily on the use of React as a core piece of our infrastructure. We're committed to the stability as well as the progress of React going forward.
+O core da API do React se mantém estável há anos. Nossos negócios, assim como muitos de vocês, dependem fortemente do uso do React como parte essencial da nossa infraestrutura. Também estamos comprometidos com a estabilidade e o progresso do React daqui em diante.
 
 ## Bring Everyone Along {#bring-everyone-along}
 
