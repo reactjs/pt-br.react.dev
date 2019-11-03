@@ -9,13 +9,13 @@ Esta mudança não deve afetar materialmente a maioria de vocês. A mudança par
 
 O core da API do React se mantém estável há anos. Nossos negócios, assim como muitos de vocês, dependem fortemente do uso do React como parte essencial da nossa infraestrutura. Também estamos comprometidos com a estabilidade e o progresso do React daqui em diante.
 
-## Bring Everyone Along {#bring-everyone-along}
+## Juntar Todo Mundo {#bring-everyone-along}
 
-React isn't just a library but an ecosystem. We know that your applications and ours are not just isolated islands of code. It is a network of your own application code, your own open source components and third party libraries that all depend on React.
+React não é apenas uma biblioteca mas um ecossistema. Sabemos que os seus e os nossos aplicativos não são apenas ilhas isoladas de código. É uma rede com seu próprio códido de aplicativo, seus próprios componentes de código aberto e bibliotecas de terceiros que dependem do React.
 
 <img src="../images/blog/versioning-1.png" width="403">
 
-Therefore it is important that we don't just upgrade our own codebases but that we bring our whole community with us. We take the upgrade path very seriously - for everyone.
+Portanto, é importante que não só atualizemos nossos próprios códigos de base como também tragamos toda nossa comunidade conosco. Nós levamos o caminho da atualização muito a sério - para todos.
 
 <img src="../images/blog/versioning-poll.png" width="596">
 
