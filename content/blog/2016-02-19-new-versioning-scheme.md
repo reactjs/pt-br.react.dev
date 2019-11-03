@@ -19,17 +19,17 @@ Portanto, é importante que não só atualizemos nossos próprios códigos de ba
 
 <img src="../images/blog/versioning-poll.png" width="596">
 
-## Introducing Minor Releases {#introducing-minor-releases}
+## Introduzindo Releases Menores {#introducing-minor-releases}
 
-Ideally everyone could just depend on the latest version of React all the time.
+Idealmente, todos poderiam depender da versão mais recente do React o tempo todo.
 
 <img src="../images/blog/versioning-2.png" width="463">
 
-We know that in practice that is not possible. In the future, we expect more new additive APIs rather than breakage of existing ones. By moving to major revisions in the semver scheme, we can release new versions without breaking existing ones.
+Sabemos que na prática isso não é possível. No futuro, nós esperamos mais novas APIs aditivas em vez da quebra das que já existem. Ao passar para as revisões principais no esquema semver, nós podemos lançar novas versões sem quebrar as existentes. 
 
 <img src="../images/blog/versioning-3.png" width="503">
 
-That means that if one component needs a new API, there is no need for any of the other components to do any further work. They remain compatible.
+Isso significa que, se um componente precisa de uma API nova, não é necessário que nenhum dos outros componentes faça qualquer trabalho adicional. Eles permanecem compatíveis.
 
 ## What Happened to 1.0.0? {#what-happened-to-100}
 
