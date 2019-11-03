@@ -35,13 +35,13 @@ Isso significa que, se um componente precisa de uma API nova, não é necessári
 
 Parte do crescimento e da popularidade do React é que ele é estável e tem um bom desempenho em produção. As pessoas perguntaram há muito tempo qual seria a aparência do React v1.0. Tecnicamente, algumas mudanças são importantes para se evitar estagnação, mas ainda conseguimos estabilidade, tornando fácil a atualização. Se os números da versão principal indicarem estabilidade e gerar confiança que possa ser usada em produção, então chegamos lá há muito tempo. Há também muito preconceito sobre o que é a v1.0. Ainda estamos seguindo o SemVer. Nós estamos apenas comunicando estabilidade movendo o 0 do começo ao fim.
 
-## Breaking Changes {#breaking-changes}
+## Liberando Mudanças {#breaking-changes}
 
-Minor revision releases will include deprecation warnings and tips for how to upgrade an API or pattern that will be removed or changed in the future.
+Releases de revisão menores conterão avisos de depreciação e dicas de como atualizar uma API ou padrões que serão removidos ou mudados no futuro.
 
-We will continue to release [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) for common patterns to make automatic upgrades of your codebase easier.
+Continuaremos a lançar [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) para padrões comuns, afim de tornar fácil as atualizações automáticas da sua base de código.
 
-Once we've reached the end of life for a particular major version, we'll release a new major version where all deprecated APIs have been removed.
+Uma vez que alcancemos o fim da vida útil de uma versão principal específica, lançaremos uma nova versão principal onde todas as APIs depreciadas terão sido removidas.
 
 ## Avoiding The Major Cliff {#avoiding-the-major-cliff}
 
