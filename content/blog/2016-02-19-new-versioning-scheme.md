@@ -31,9 +31,9 @@ Sabemos que na prática isso não é possível. No futuro, nós esperamos mais n
 
 Isso significa que, se um componente precisa de uma API nova, não é necessário que nenhum dos outros componentes faça qualquer trabalho adicional. Eles permanecem compatíveis.
 
-## What Happened to 1.0.0? {#what-happened-to-100}
+## O que Aconteceu com o 1.0.0? {#what-happened-to-100}
 
-Part of React's growth and popularity is that it is stable and performant in production. People have long asked what React v1.0 will look. Technically some breaking changes are important to avoid stagnating, but we still achieve stability by making it easy to upgrade. If major version numbers indicate API stability and engender trust that it can be used in production, then we got there a long time ago. There are too many preconceived notions of what v1.0 is. We're still following semver. We're just communicating stability by moving the 0 from the beginning to the end.
+Parte do crescimento e da popularidade do React é que ele é estável e tem um bom desempenho em produção. As pessoas perguntaram há muito tempo qual seria a aparência do React v1.0. Tecnicamente, algumas mudanças são importantes para se evitar estagnação, mas ainda conseguimos estabilidade, tornando fácil a atualização. Se os números da versão principal indicarem estabilidade e gerar confiança que possa ser usada em produção, então chegamos lá há muito tempo. Há também muito preconceito sobre o que é a v1.0. Ainda estamos seguindo o SemVer. Nós estamos apenas comunicando estabilidade movendo o 0 do começo ao fim.
 
 ## Breaking Changes {#breaking-changes}
 
