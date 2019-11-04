@@ -43,18 +43,18 @@ Continuaremos a lançar [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) 
 
 Uma vez que alcancemos o fim da vida útil de uma versão principal específica, lançaremos uma nova versão principal onde todas as APIs depreciadas terão sido removidas.
 
-## Avoiding The Major Cliff {#avoiding-the-major-cliff}
+## Evitando o Maior Obstáculo {#avoiding-the-major-cliff}
 
-If you try to upgrade your component to 16.0.0 you might find that your application no longer works if you still have other dependencies. E.g. if Ryan's and Jed's components are only compatible with 15.x.x.
+Se você tentar atualizar seu componente para 16.0.0 você poderá achar que sua aplicação não funcionará mais se você ainda tiver outras depedências. E.g. se os componentes de Ryan e Jed forem compatíveis apenas com 15.x.x.
 
 <img src="../images/blog/versioning-4.png" width="498">
 
-Worst case, you revert back to 15.1.0 for your application. Since you'll want to use your component, you might also revert that one.
+No pior dos casos, você retorna a sua aplicação para 15.1.0. Desde que você queira usar seu componente, você também poderá revertê-lo.
 
 <img src="../images/blog/versioning-5.png" width="493">
 
-Of course, Ryan and Jed think the same way. If we're not careful, we can hit a cliff where nobody upgrades. This has happened to many software project ecosystems in the past.
+Claro, Ryan e Jed pensam da mesma maneira. Se não formos cuidadosos, podemos atingir um obstáculo onde ninguém atualiza. Isso já aconteceu com muitos ecossistemas de projetos de software no passado.
 
-Therefore, we're committed to making it easy for most components and libraries built on top of React to be compatible with two major versions at the same time. We will do this by introducing new APIs before completely removing the old ones, thereby avoiding those cliffs.
+Portanto, estamos comprometidos em tornar isso fácil para a maioria dos componentes e bibliotecas construídas em cima do React para que possam ser compatíveis com duas versões principais ao mesmo tempo. Iremos fazer isso introduzindo novas APIs antes da remover completamente as antigas, assim evitando esses obstáculos.
 
 <img src="../images/blog/versioning-6.png" width="493">
