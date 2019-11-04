@@ -38,7 +38,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](http://appjs.co/react) - [Twitter](https://twitter.com/appjsconf)
 
 ### React Day Bangalore 2020 {#react-day-bangalore-2020}
-April 25, 2020 in Bangalore, India
+25 de abril de 2020 em Bangalore, Índia
 
 [Website](https://reactday.in) - [Twitter](https://twitter.com/ReactDayIn)
 
