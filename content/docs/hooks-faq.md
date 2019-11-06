@@ -107,7 +107,7 @@ Frequentemente, render props e HOC renderizam somente um filho. Nós achamos que
 
 Você pode continuar a usar exatamente as mesmas APIs que sempre usou; elas vão continuar funcionando.
 
-React Redux desde a v7.1.0 [suporta Hooks API](https://react-redux.js.org/api/hooks) e expóe hooks como `useDispatch` ou `useSelector`.
+React Redux desde a v7.1.0 [suporta Hooks API](https://react-redux.js.org/api/hooks) e expõe hooks como `useDispatch` ou `useSelector`.
 
 React Router [suporta hooks](https://reacttraining.com/react-router/web/api/Hooks) desde a v5.1.
 
