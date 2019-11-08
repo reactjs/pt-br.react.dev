@@ -11,7 +11,7 @@ O core da API do React se mantém estável há anos. Nossos negócios, assim com
 
 ## Juntar Todo Mundo {#bring-everyone-along}
 
-React não é apenas uma biblioteca mas um ecossistema. Sabemos que os seus e os nossos aplicativos não são apenas ilhas isoladas de código. É uma rede com seu próprio códido de aplicativo, seus próprios componentes de código aberto e bibliotecas de terceiros que dependem do React.
+React não é apenas uma biblioteca, mas um ecossistema. Sabemos que os seus e os nossos aplicativos não são apenas ilhas isoladas de código. É uma rede com seu próprio código de aplicativo, seus próprios componentes de código aberto e bibliotecas de terceiros que dependem do React.
 
 <img src="../images/blog/versioning-1.png" width="403">
 
