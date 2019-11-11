@@ -30,7 +30,7 @@ ReactDOM.render(<Component data={mydata} />, container);
 ReactDOM.render(<Component data={mydata} />, container);
 ```
 
-Neste caso, a resposta é "2". React chama `componentWillReceiveProps` duas vezes (uma vez para cada um dos dois updates). Nas duas vezes, o valor "driks" é impresso (isto é, as props não mudaram).
+Neste caso, a resposta é "2". React chama `componentWillReceiveProps` duas vezes (uma vez para cada um dos dois updates). Nas duas vezes, o valor "drinks" é impresso (isto é, as props não mudaram).
 
 Para entender o porquê, precisamos pensar no que *poderia* ter acontecido. Os dados *poderiam* ter mudado entre a renderização inicial e as duas atualizações subsequentes, se o código tivesse realizado uma mutação como essa:
 
