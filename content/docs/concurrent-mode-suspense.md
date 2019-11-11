@@ -222,7 +222,7 @@ Se a busca de detalhes do usuário demorar três segundos, *começaremos* a busc
 
 Waterfalls são comuns no código que busca dados na renderização. É possível resolver, mas à medida que o produto cresce, muitas pessoas preferem usar uma solução que proteja esse problema.
 
-### Abordagem 2: Busca-Depois-da-Renderização (sem usar Suspense) {#approach-2-fetch-then-render-not-using-suspense}
+### Abordagem 2: Busca-Então-Renderiza (sem usar Suspense) {#approach-2-fetch-then-render-not-using-suspense}
 
 As bibliotecas podem impedir cascatas, oferecendo uma maneira mais centralizada de buscar dados. Por exemplo, o Relay resolve esse problema movendo as informações sobre os dados que um componente precisa para analisar estaticamente *fragments*, que mais tarde são compostos em uma única consulta.
 
