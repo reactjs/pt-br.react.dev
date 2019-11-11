@@ -658,7 +658,7 @@ function ProfilePage() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/adoring-goodall-8wbn7)**
 
-Ele pegaria erros de renderização *e* erros da busca de dados do Suspense. Podemos ter o error boundaries que quisermos, mas é melhor [ser intencional](https://aweary.dev/fault-tolerance-react/) sobre o posicionamento deles.
+Ele pegaria erros de renderização *e* erros da busca de dados do Suspense. Podemos ter quantos error boundaries quisermos, mas é melhor [ser intencional](https://aweary.dev/fault-tolerance-react/) sobre o posicionamento deles.
 
 ## Próximos Passos {#next-steps}
 
