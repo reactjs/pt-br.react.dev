@@ -304,7 +304,7 @@ Na abordagem anterior, buscamos dados antes de chamarmos `setState`:
 2. Terminamos a busca
 3. Começamos a renderização
 
-Com o Suspense, ainda começamos a buscar primeiro, mas as duas últimas etapas acontecem praticamente juntas:
+Com o Suspense, ainda começamos a buscar primeiro, mas nós invertemos de posição os dois últimos passos:
 
 1. Começamos a buscar
 2. **Começamos a renderização**
