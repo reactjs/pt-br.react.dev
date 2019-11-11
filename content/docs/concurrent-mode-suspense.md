@@ -447,7 +447,7 @@ function ProfileTimeline({ id }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/nervous-glade-b5sel)**
 
-Observe como também mudamos as dependências do efeito de `[]` para `[id]` — porque queremos que o efeito seja executado novamente quando o `id` mudar. Caso contrário, não buscaremos novamente novos dados.
+Observe como também mudamos as dependências do efeito de `[]` para `[id]` — porque queremos que o efeito seja executado novamente quando o `id` mudar. Caso contrário, não buscaremos novamente os dados.
 
 Se tentarmos esse código, pode parecer que ele funcione primeiro. No entanto, se aleatorizarmos o tempo de atraso em nossa implementação "fake API" e pressionarmos o botão "Next" com rapidez suficiente, veremos nos logs do console que algo está saindo muito errado. **Às vezes, as requisições dos perfis anteriores podem "voltar" depois que já mudamos o perfil para outro ID -- e, nesse caso, elas podem sobrescrever o novo state com uma resposta obsoleta para um ID diferente.**
 
