@@ -220,7 +220,7 @@ Se você executar esse código e olhar os logs no console, notará que a sequên
 
 Se a busca de detalhes do usuário demorar três segundos, *começaremos* a buscar as postagens após três segundos! Isso é um "waterfall": uma *sequência* não intencional que deveria ter sido paralelizada.
 
-Waterfalls são comuns no código que busca dados na renderização. É possível resolver, mas à medida que o produto cresce, muitas pessoas preferem usar uma solução que proteja esse problema.
+Waterfalls são comuns no código que busca dados na renderização. É possível resolver, mas à medida que o produto cresce, muitas pessoas preferem usar uma solução que proteja contra esse problema.
 
 ### Abordagem 2: Busca-Então-Renderiza (sem usar Suspense) {#approach-2-fetch-then-render-not-using-suspense}
 
