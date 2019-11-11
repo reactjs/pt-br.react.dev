@@ -607,9 +607,9 @@ As transições são, provavelmente, o padrão mais comum do Modo Concorrente qu
 
 ### Dividindo Estado de Alta e Baixa Prioridade {#splitting-high-and-low-priority-state}
 
-When you design React components, it is usually best to find the "minimal representation" of state. For example, instead of keeping `firstName`, `lastName`, and `fullName` in state, it's usually better keep only `firstName` and `lastName`, and then calculate `fullName` during rendering. This lets us avoid mistakes where we update one state but forget the other state.
+Ao projetar componentes do React, geralmente é melhor encontrar a "representação mínima" do state. Por exemplo, em vez de manter `firstName`,` lastName` e `fullName` no state, geralmente é melhor manter apenas` firstName` e `lastName`, e depois calcular` fullName` durante a renderização. Isso nos permite evitar erros quando atualizamos um estado, mas esquecemos do outro.
 
-However, in Concurrent Mode there are cases where you might *want* to "duplicate" some data in different state variables. Consider this tiny translation app:
+No entanto, no Modo Concorrente, há casos em que você pode *querer* "duplicar" alguns dados em diferentes variáveis de estado. Considere este pequeno aplicativo de tradução:
 
 ```js
 const initialQuery = "Hello, world";
@@ -649,9 +649,9 @@ function Translation({ resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/brave-villani-ypxvf)**
 
-Notice how when you type into the input, the `<Translation>` component suspends, and we see the `<p>Loading...</p>` fallback until we get fresh results. This is not ideal. It would be better if we could see the *previous* translation for a bit while we're fetching the next one.
+Observe como, quando você digita a entrada, o componente `<Translation>` é suspenso, e vemos o fallback `<p>Loading...</p>` até obtermos novos resultados. Isto não é o ideal. Seria melhor se pudéssemos ver a tradução *anterior* por um tempo enquanto buscamos a próxima.
 
-In fact, if we open the console, we'll see a warning:
+De fato, se abrirmos o console, veremos um aviso:
 
 ```
 Warning: App triggered a user-blocking update that suspended.
@@ -661,7 +661,7 @@ The fix is to split the update into multiple parts: a user-blocking update to pr
 Refer to the documentation for useTransition to learn how to implement this pattern.
 ```
 
-As we mentioned earlier, if some state update causes a component to suspend, that state update should be wrapped in a transition. Let's add `useTransition` to our component:
+Como mencionamos anteriormente, se algum update de estado provoca um componente suspender, essa atualização de estado deve ser encapsulada em uma transição. Vamos adicionar `useTransition` ao nosso componente:
 
 ```js{4-6,10,13}
 function App() {
@@ -686,15 +686,15 @@ function App() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/zen-keldysh-rifos)**
 
-Try typing into the input now. Something's wrong! The input is updating very slowly.
+Tente digitar na entrada agora. Algo está errado! A entrada está sendo atualizada muito lentamente.
 
-We've fixed the first problem (suspending outside of a transition). But now because of the transition, our state doesn't update immediately, and it can't "drive" a controlled input!
+Corrigimos o primeiro problema (suspender fora de uma transição). Mas agora, devido à transição, nosso estado não é atualizado imediatamente e não pode "conduzir" uma entrada controlada!
 
-The answer to this problem **is to split the state in two parts:** a "high priority" part that updates immediately, and a "low priority" part that may wait for a transition.
+A resposta para esse problema **é dividir o estado em duas partes:** uma parte de "alta prioridade" que é atualizada imediatamente e uma parte de "baixa prioridade" que pode esperar uma transição.
 
-In our example, we already have two state variables. The input text is in `query`, and we read the translation from `resource`. We want changes to the `query` state to happen immediately, but changes to the `resource` (i.e. fetching a new translation) should trigger a transition.
+No nosso exemplo, já temos duas variáveis de estado. O texto de entrada está em `query` e lemos a tradução de `resource`. Queremos que as alterações no estado `query` ocorram imediatamente, mas as alterações no `resource` (ou seja, buscando uma nova tradução) devem disparar uma transição.
 
-So the correct fix is to put `setQuery` (which doesn't suspend) *outside* the transition, but `setResource` (which will suspend) *inside* of it.
+Portanto, a solução correta é colocar `setQuery` (que não é suspenso) *fora* da transição, mas ` setResource` (que será suspenso) *dentro* dela.
 
 ```js{4,5}
 function handleChange(e) {
@@ -712,7 +712,7 @@ function handleChange(e) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/lively-smoke-fdf93)**
 
-With this change, it works as expected. We can type into the input immediately, and the translation later "catches up" to what we have typed.
+Com essa alteração, funciona como esperado. Podemos digitar na entrada imediatamente, e a tradução mais tarde "alcança" o que digitamos.
 
 ### Adiando um Valor {#deferring-a-value}
 
