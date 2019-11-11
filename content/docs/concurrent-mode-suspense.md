@@ -139,7 +139,7 @@ Poderíamos introduzir o Suspense sem mencionar as abordagens populares de busca
 Em vez disso, veremos o Suspense como um próximo passo lógico em uma sequência de abordagens:
 
 * **Busca-na-renderização (por exemplo, `fetch` em `useEffect`):** Comece a renderizar componentes. Cada um desses componentes pode acionar a busca de dados em seus efeitos e métodos de ciclo de vida. Essa abordagem geralmente leva a "waterfalls".
-* **Busca-depois-da-renderização (por exemplo, Relay sem Suspense):** Comece a buscar todos os dados para a próxima tela o mais cedo possível. Quando os dados estiverem prontos, renderize a nova tela. Não podemos fazer nada até que os dados cheguem.
+* **Busca-Então-Renderiza (por exemplo, Relay sem Suspense):** Comece a buscar todos os dados para a próxima tela o mais cedo possível. Quando os dados estiverem prontos, renderize a nova tela. Não podemos fazer nada até que os dados cheguem.
 * **Renderização-conforme-você-busca (por exemplo, Relay com Suspense):** Comece a buscar todos os dados necessários para a próxima tela o mais cedo possível e comece a renderizar a nova tela *imediatamente — antes de recebermos uma resposta da rede*. À medida que os dados entram, o React tenta renderizar novamente os componentes que ainda precisam dos dados até que estejam prontos.
 
 >Nota
