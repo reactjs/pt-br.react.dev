@@ -16,4 +16,10 @@ Há muitos recursos maravilhosos reunidos pela comunidade React.
 
 - [Awesome React Components](https://github.com/brillout/awesome-react-components) - Uma lista de componentes do React com curadoria.
 
+<<<<<<< HEAD
 - [Awesome React Talks](https://github.com/tiaanduplessis/awesome-react-talks) - Uma lista de palestras sobre React com curadoria. 
+=======
+- [Awesome React Talks](https://github.com/tiaanduplessis/awesome-react-talks) - A curated list of React talks.
+
+- [Hero35 React Hub](https://hero35.com/stack/react) - A website with _all_ React conferences and talks, categorized & curated.
+>>>>>>> bbea52211971834d041e76871df8981066c42a3b
