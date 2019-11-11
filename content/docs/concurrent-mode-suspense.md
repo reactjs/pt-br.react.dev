@@ -34,7 +34,7 @@ Suspense para Busca de Dados é um novo recurso que permite usar `<Suspense>` ta
   - [Para Autores de Biblioteca](#for-library-authors)
 - [Abordagens Tradicionais vs Suspense](#traditional-approaches-vs-suspense)
   - [Abordagem 1: Busca-na-Renderização (sem usar Suspense)](#approach-1-fetch-on-render-not-using-suspense)
-  - [Abordagem 2: Busca-Depois-da-Renderização (sem usar Suspense)](#approach-2-fetch-then-render-not-using-suspense)
+  - [Abordagem 2: Busca-Então-Renderiza (sem usar Suspense)](#approach-2-fetch-then-render-not-using-suspense)
   - [Abordagem 3: Renderização-Conforme-Você-Busca (usando Suspense)](#approach-3-render-as-you-fetch-using-suspense)
   - [Ainda Estamos Descobrindo Isso](#were-still-figuring-this-out)
 - [Suspense e Race Conditions](#suspense-and-race-conditions)
