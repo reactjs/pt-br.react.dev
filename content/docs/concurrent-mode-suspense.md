@@ -16,7 +16,7 @@ next: concurrent-mode-patterns.html
 O React 16.6 adicionou um componente `<Suspense>` que permite você "esperar" para que algum código seja carregado e especifique declarativamente um estado de carregamento (como um spinner) enquanto esperamos:
 
 ```jsx
-const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carregado de forma preguiçosa
+const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carregado quando necessário
 
 // Mostrar um spinner enquanto o perfil está carregando
 <Suspense fallback={<Spinner />}>
@@ -37,11 +37,11 @@ Suspense para Busca de Dados é um novo recurso que permite usar `<Suspense>` ta
   - [Abordagem 2: Busca-Então-Renderiza (sem usar Suspense)](#approach-2-fetch-then-render-not-using-suspense)
   - [Abordagem 3: Renderização-Conforme-Você-Busca (usando Suspense)](#approach-3-render-as-you-fetch-using-suspense)
   - [Ainda Estamos Descobrindo Isso](#were-still-figuring-this-out)
-- [Suspense e Race Conditions](#suspense-and-race-conditions)
-  - [Race Conditions com useEffect](#race-conditions-with-useeffect)
-  - [Race Conditions com componentDidUpdate](#race-conditions-with-componentdidupdate)
+- [Suspense e Condições de Concorrência](#suspense-and-race-conditions)
+  - [Condições de Concorrência com useEffect](#race-conditions-with-useeffect)
+  - [Condições de Concorrência com componentDidUpdate](#race-conditions-with-componentdidupdate)
   - [O Problema](#the-problem)
-  - [Resolvendo Race Conditions com Suspense](#solving-race-conditions-with-suspense)
+  - [Resolvendo Condições de Concorrência com Suspense](#solving-race-conditions-with-suspense)
 - [Tratando Erros](#handling-errors)
 - [Próximos Passos](#next-steps)
 
@@ -108,7 +108,7 @@ Então, qual é o sentido do Suspense? Existem algumas maneiras de responder a i
 
 * **Permite orquestrar states de carregamento projetados intencionalmente.** Ele não diz _como_ os dados são buscados, mas permite controlar de perto a sequência de carregamento visual do seu aplicativo.
 
-* **Ajuda a evitar race conditions.** Mesmo com a `espera`, o código assíncrono geralmente está sujeito a erros. O Suspense parece mais com a leitura de dados de forma *síncrona* — como se já estivesse carregado.
+* **Ajuda a evitar condições de concorrência.** Mesmo com o `await`, o código assíncrono geralmente está sujeito a erros. O Suspense parece mais com a leitura de dados de forma *síncrona* — como se já estivesse carregado.
 
 ## Usando Suspense na Prática {#using-suspense-in-practice}
 
@@ -138,7 +138,7 @@ Poderíamos introduzir o Suspense sem mencionar as abordagens populares de busca
 
 Em vez disso, veremos o Suspense como um próximo passo lógico em uma sequência de abordagens:
 
-* **Busca-na-renderização (por exemplo, `fetch` em `useEffect`):** Comece a renderizar componentes. Cada um desses componentes pode acionar a busca de dados em seus efeitos e métodos de ciclo de vida. Essa abordagem geralmente leva a "waterfalls".
+* **Busca-na-renderização (por exemplo, `fetch` em `useEffect`):** Comece a renderizar componentes. Cada um desses componentes pode acionar a busca de dados em seus efeitos e métodos de ciclo de vida. Essa abordagem geralmente leva a "cascatas".
 * **Busca-Então-Renderiza (por exemplo, Relay sem Suspense):** Comece a buscar todos os dados para a próxima tela o mais cedo possível. Quando os dados estiverem prontos, renderize a nova tela. Não podemos fazer nada até que os dados cheguem.
 * **Renderização-conforme-você-busca (por exemplo, Relay com Suspense):** Comece a buscar todos os dados necessários para a próxima tela o mais cedo possível e comece a renderizar a nova tela *imediatamente — antes de recebermos uma resposta da rede*. À medida que os dados entram, o React tenta renderizar novamente os componentes que ainda precisam dos dados até que estejam prontos.
 
@@ -164,7 +164,7 @@ componentDidMount() {
 }
 ```
 
-Chamamos essa abordagem de "busca-na-renderização" porque ela não começa a buscar até que o componente seja renderizado na tela. Isso leva a um problema conhecido como "waterfall".
+Chamamos essa abordagem de "busca-na-renderização" porque ela não começa a buscar até que o componente seja renderizado na tela. Isso leva a um problema conhecido como "cascata".
 
 Considere estes components `<ProfilePage>` e `<ProfileTimeline>`:
 
@@ -218,9 +218,9 @@ Se você executar esse código e olhar os logs no console, notará que a sequên
 5. Nós esperamos...
 6. Terminamos a busca das postagens
 
-Se a busca de detalhes do usuário demorar três segundos, *começaremos* a buscar as postagens após três segundos! Isso é um "waterfall": uma *sequência* não intencional que deveria ter sido paralelizada.
+Se a busca de detalhes do usuário demorar três segundos, *começaremos* a buscar as postagens após três segundos! Isso é uma "cascata": uma *sequência* não intencional que deveria ter sido paralelizada.
 
-Waterfalls são comuns no código que busca dados na renderização. É possível resolver, mas à medida que o produto cresce, muitas pessoas preferem usar uma solução que proteja contra esse problema.
+Cascatas são comuns no código que busca dados na renderização. É possível resolver, mas à medida que o produto cresce, muitas pessoas preferem usar uma solução que proteja contra esse problema.
 
 ### Abordagem 2: Busca-Então-Renderiza (sem usar Suspense) {#approach-2-fetch-then-render-not-using-suspense}
 
@@ -292,7 +292,7 @@ A sequência de eventos agora fica assim:
 4. Terminamos a busca dos detalhes do usuário
 5. Terminamos a busca das postagens
 
-Resolvemos o "waterfall" de rede anterior, mas acidentalmente introduzimos uma diferente. Esperamos que *todos* os dados retornem com `Promise.all()` dentro de `fetchProfileData`, portanto, agora não podemos renderizar os detalhes do perfil até que as postagens também sejam buscadas. Temos que esperar pelos dois.
+Resolvemos a "cascata" de rede anterior, mas acidentalmente introduzimos uma diferente. Esperamos que *todos* os dados retornem com `Promise.all()` dentro de `fetchProfileData`, portanto, agora não podemos renderizar os detalhes do perfil até que as postagens também sejam buscadas. Temos que esperar pelos dois.
 
 Obviamente, isso é possível de ser corrigido neste exemplo em particular. Podemos remover a chamada `Promise.all()` e aguardar as duas Promises separadamente. No entanto, essa abordagem fica progressivamente mais difícil à medida que a complexidade da nossa árvore de dados e componentes aumenta. É difícil escrever componentes confiáveis quando partes arbitrárias da árvore de dados podem estar ausentes ou obsoletas. Portanto, buscar todos os dados para a nova tela e *depois* renderizar é frequentemente uma opção mais prática.
 
@@ -350,7 +350,7 @@ function ProfileTimeline() {
 
 Aqui está o que acontece quando renderizamos `<ProfilePage>` na tela:
 
-1. Já iniciamos as requisições em `fetchProfileData()`. Isso nos deu um "recurso" especial em vez de uma Promise. Em um exemplo realista, ele seria fornecido pela integração do Suspense com a nossa biblioteca de dados, como o Relay.
+1. Já iniciamos as requisições em `fetchProfileData()`. Isso nos deu um "resource" especial em vez de uma Promise. Em um exemplo realista, ele seria fornecido pela integração do Suspense com a nossa biblioteca de dados, como o Relay.
 2. O React tenta renderizar `<ProfilePage>`. Retorna `<ProfileDetails>` e `<ProfileTimeline>` como filhos.
 3. O React tenta renderizar `<ProfileDetails>`. Ele chama `resource.user.read()`. Como nenhum dos dados foi buscado ainda, esse componente "suspende". O React ignora ele e tenta renderizar outros componentes na árvore.
 4. O React tenta renderizar `<ProfileTimeline>`. Ele chama `resource.posts.read()`. Novamente, ainda não há dados, portanto esse componente também "suspende". O React também ignora ele e tenta renderizar outros componentes na árvore.
@@ -358,17 +358,17 @@ Aqui está o que acontece quando renderizamos `<ProfilePage>` na tela:
 
 Este objeto `resource` representa os dados que ainda não existem, mas que podem eventualmente ser carregados. Quando chamamos `read()`, obtemos os dados ou o componente "suspende".
 
-**À medida que mais dados fluem (streams), o React tenta novamente a renderização e cada vez pode progredir "mais fundo".** Quando o `resource.user` é buscado, o componente `<ProfileDetails>` será renderizado com êxito e não precisaremos mais do fallback `<h1>Loading profile...</h1>`. Eventualmente, obteremos todos os dados e não haverá fallbacks na tela.
+**À medida que mais dados fluem, o React tenta novamente a renderização e cada vez pode progredir "mais fundo".** Quando o `resource.user` é buscado, o componente `<ProfileDetails>` será renderizado com êxito e não precisaremos mais do fallback `<h1>Loading profile...</h1>`. Eventualmente, obteremos todos os dados e não haverá fallbacks na tela.
 
-Isso tem uma implicação interessante. Mesmo se usarmos um cliente GraphQL que coleta todos os requisitos de dados em uma única requisição, *o streaming da resposta nos permite mostrar mais conteúdo mais rapidamente*. Como renderizamos-*à-medida-que-buscamos* (ao contrário de *depois* de buscar), se `user` aparecer na resposta antes dos `posts`, poderemos "desbloquear" o boundary externo do `<Suspense>` antes que a resposta termine. Podemos ter esquecido isso antes, mas mesmo a solução busca-depois-da-renderização continha um waterfall: entre buscar e renderizar. O Suspense não sofre inerentemente desse waterfall, e bibliotecas como o Relay tiram proveito disso.
+Isso tem uma implicação interessante. Mesmo se usarmos um cliente GraphQL que coleta todos os requisitos de dados em uma única requisição, *o streaming da resposta nos permite mostrar mais conteúdo mais rapidamente*. Como renderizamos-*à-medida-que-buscamos* (ao contrário de *depois* de buscar), se `user` aparecer na resposta antes dos `posts`, poderemos "desbloquear" o boundary externo do `<Suspense>` antes que a resposta termine. Podemos ter esquecido isso antes, mas mesmo a solução busca-então-renderiza continha uma cascata: entre buscar e renderizar. O Suspense não sofre inerentemente dessa cascata, e bibliotecas como o Relay tiram proveito disso.
 
 Observe como eliminamos as verificações `if (...)` "carregando" de nossos componentes. Isso não apenas remove código repetitivo, mas também simplifica fazermos alterações rápidas no design. Por exemplo, se quisermos que os detalhes e as postagens do perfil sempre "apareçam" juntos, poderemos excluir o boundary do `<Suspense>` entre eles. Ou poderíamos torná-los independentes um do outro, atribuindo a cada um *seu próprio* boundary `<Suspense>`. O Suspense nos permite alterar a granularidade de nossos states de carregamento e orquestrar seu sequenciamento sem alterações invasivas em nosso código.
 
 ### Ainda Estamos Descobrindo Isso {#were-still-figuring-this-out}
 
-O próprio Suspense como mecanismo é flexível e não possui muitas restrições. O código do produto precisa ser mais restrito para garantir que não haja waterfalls, mas existem diferentes maneiras de fornecer essas garantias. Algumas perguntas que estamos explorando atualmente incluem:
+O próprio Suspense como mecanismo é flexível e não possui muitas restrições. O código do produto precisa ser mais restrito para garantir que não haja cascatas, mas existem diferentes maneiras de fornecer essas garantias. Algumas perguntas que estamos explorando atualmente incluem:
 
-* Buscar cedo pode ser complicado de expressar. Como tornamos mais fácil evitar waterfalls?
+* Buscar cedo pode ser complicado de expressar. Como tornamos mais fácil evitar cascatas?
 * Quando buscamos dados para uma página, a API pode incentivar a inclusão de dados para transições instantâneas *dela*?
 * Qual é o tempo de vida de uma resposta? O cache deve ser global ou local? Quem gerencia o cache?
 * Os proxies podem ajudar a expressar APIs carregadas lentamente sem inserir chamadas `read()` por todo o lado?
@@ -376,9 +376,9 @@ O próprio Suspense como mecanismo é flexível e não possui muitas restriçõe
 
 O Relay tem suas próprias respostas para algumas dessas perguntas. Certamente, existe mais do que uma maneira única de fazê-lo, e estamos empolgados em ver que novas idéias a comunidade React apresentará.
 
-## Suspense e Race Conditions {#suspense-and-race-conditions}
+## Suspense e Condições de Concorrência {#suspense-and-race-conditions}
 
-Os race conditions são erros que ocorrem devido a suposições incorretas sobre a ordem em que nosso código pode ser executado. A busca de dados no Hook `useEffect` ou nos métodos de ciclo de vida de classe como `componentDidUpdate` geralmente os leva a eles. O Suspense também pode ajudar aqui — vamos ver como.
+As condições de concorrência são erros que ocorrem devido a suposições incorretas sobre a ordem em que nosso código pode ser executado. A busca de dados no Hook `useEffect` ou nos métodos de ciclo de vida de classe como `componentDidUpdate` geralmente os leva a eles. O Suspense também pode ajudar aqui — vamos ver como.
 
 Para demonstrar o problema, adicionaremos um componente `<App>` de nível superior que renderiza nosso `<ProfilePage>` com um botão que permite **alternar entre perfis diferentes**:
 
@@ -402,7 +402,7 @@ function App() {
 
 Vamos comparar como diferentes estratégias de busca de dados lidam com esse requisito.
 
-### Race Conditions com `useEffect` {#race-conditions-with-useeffect}
+### Condições de Concorrência com `useEffect` {#race-conditions-with-useeffect}
 
 Primeiro, tentaremos uma versão do nosso exemplo original de "busca no efeito". Vamos modificá-lo para passar um parâmetro `id` das props de `<ProfilePage>` para `fetchUser(id)` e `fetchPosts(id)`:
 
@@ -453,7 +453,7 @@ Se tentarmos esse código, a princípio pode parecer que ele funcione. No entant
 
 É possível corrigir esse problema (você pode usar a função de limpeza de efeito para ignorar ou cancelar requisições obsoletas), mas é pouco intuitivo e difícil de depurar.
 
-### Race Conditions com `componentDidUpdate` {#race-conditions-with-componentdidupdate}
+### Condições de Concorrência com `componentDidUpdate` {#race-conditions-with-componentdidupdate}
 
 Pode-se pensar que este é um problema específico para `useEffect` ou Hooks. Talvez se portarmos esse código para classes ou usarmos uma sintaxe conveniente como `async` / `await`, isso resolverá o problema?
 
@@ -527,13 +527,13 @@ class ProfileTimeline extends React.Component {
 
 Este código é enganosamente fácil de ler.
 
-Infelizmente, nem o uso de uma classe nem a sintaxe `async` / `await` nos ajudaram a resolver esse problema. Esta versão sofre exatamente as mesmas race conditions, pelas mesmas razões.
+Infelizmente, nem o uso de uma classe nem a sintaxe `async` / `await` nos ajudaram a resolver esse problema. Esta versão sofre exatamente as mesmas condições de concorrência, pelas mesmas razões.
 
 ### O Problema {#the-problem}
 
 Os componentes do React possuem seu próprio "ciclo de vida". Eles podem receber props ou atualizar o state a qualquer momento. No entanto, cada requisição assíncrona *também* possui seu próprio "ciclo de vida". Começa quando iniciamos e termina quando obtemos uma resposta. A dificuldade que estamos enfrentando é "sincronizar" vários processos no tempo que se afetam. Isso é difícil de pensar.
 
-### Resolvendo Race Conditions com Suspense {#solving-race-conditions-with-suspense}
+### Resolvendo Condições de Concorrência com Suspense {#solving-race-conditions-with-suspense}
 
 Vamos reescrever este exemplo novamente, mas usando apenas Suspense:
 
@@ -585,7 +585,7 @@ function ProfileTimeline({ resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/infallible-feather-xjtbu)**
 
-No exemplo anterior utilizando Suspense, tínhamos apenas um `recurso`, portanto mantivemos em uma variável de nível superior. Agora que temos vários recursos, o movemos para o state do componente `<App>`:
+No exemplo anterior utilizando Suspense, tínhamos apenas um `resource`, portanto mantivemos em uma variável de nível superior. Agora que temos vários recursos, o movemos para o state do componente `<App>`:
 
 ```js{4}
 const initialResource = fetchProfileData(0);
@@ -610,7 +610,7 @@ Quando clicamos em "Next", o componente `<App>` inicia uma requisição para o p
 
 Mais uma vez, observe que **não estamos aguardando a resposta para definir o state. É o contrário: definimos o state (e começamos a renderizar) imediatamente após iniciar uma requisição**. Assim que tivermos mais dados, o React "preenche" o conteúdo dentro dos componentes `<Suspense>`.
 
-Esse código é muito legível, mas, ao contrário dos exemplos anteriores, a versão Suspense não sofre race conditions. Você pode estar se perguntando o porquê. A resposta é que, na versão Suspense, não precisamos pensar tanto em *tempo* em nosso código. Nosso código original com race conditions precisava definir o state *no momento certo depois* ou, caso contrário, estaria errado. Mas com o Suspense, definimos o state *imediatamente* -- por isso é mais difícil estragar tudo.
+Esse código é muito legível, mas, ao contrário dos exemplos anteriores, a versão Suspense não sofre condições de concorrência. Você pode estar se perguntando o porquê. A resposta é que, na versão Suspense, não precisamos pensar tanto em *tempo* em nosso código. Nosso código original com condições de concorrência precisava definir o state *no momento certo depois* ou, caso contrário, estaria errado. Mas com o Suspense, definimos o state *imediatamente* -- por isso é mais difícil estragar tudo.
 
 ## Tratando Erros {#handling-errors}
 
