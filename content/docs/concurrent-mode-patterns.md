@@ -716,7 +716,7 @@ Com essa alteração, funciona como esperado. Podemos digitar na entrada imediat
 
 ### Adiando um Valor {#deferring-a-value}
 
-By default, React always renders a consistent UI. Consider code like this:
+Por padrão, o React sempre renderiza uma UI consistente. Considere um código como este:
 
 ```js
 <>
@@ -725,11 +725,11 @@ By default, React always renders a consistent UI. Consider code like this:
 </>
 ```
 
-React guarantees that whenever we look at these components on the screen, they will reflect data from the same `user`. If a different `user` is passed down because of a state update, you would see them changing together. You can't ever record a screen and find a frame where they would show values from different `user`s. (If you ever run into a case like this, file a bug!)
+O React garante que, sempre que olharmos para esses componentes na tela, eles refletirão dados do mesmo `user`. Se um `user` diferente for passado por causa de uma atualização de estado, você os verá mudando juntos. Você nunca pode gravar uma tela e encontrar um quadro em que eles mostrem valores diferentes de `user`s. (Se você já encontrou um caso como esse, registre um bug!)
 
-This makes sense in the vast majority of situations. Inconsistent UI is confusing and can mislead users. (For example, it would be terrible if a messenger's Send button and the conversation picker pane "disagreed" about which thread is currently selected.)
+Isso faz sentido na grande maioria das situações. UI inconsistente é confusa e pode enganar os usuários. (Por exemplo, seria terrível se o botão Send de um mensageiro e o painel seletor de conversas "discordassem" sobre qual segmento está selecionado no momento.)
 
-However, sometimes it might be helpful to intentionally introduce an inconsistency. We could do it manually by "splitting" the state like above, but React also offers a built-in Hook for this:
+No entanto, às vezes pode ser útil introduzir intencionalmente uma inconsistência. Poderíamos fazer isso manualmente "dividindo" o estado como acima, mas o React também oferece um Hook interno para isso:
 
 ```js
 import { useDeferredValue } from 'react';
@@ -739,11 +739,11 @@ const deferredValue = useDeferredValue(value, {
 });
 ```
 
-To demonstrate this feature, we'll use [the profile switcher example](https://codesandbox.io/s/musing-ramanujan-bgw2o). Click the "Next" button and notice how it takes 1 second to do a transition.
+Para demonstrar esse recurso, usaremos [o exemplo de alternador de perfis](https://codesandbox.io/s/musing-ramanujan-bgw2o). Clique no botão "Next" e observe como leva 1 segundo para fazer uma transição.
 
-Let's say that fetching the user details is very fast and only takes 300 milliseconds. Currently, we're waiting a whole second because we need both user details and posts to display a consistent profile page. But what if we want to show the details faster?
+Digamos que a busca pelos detalhes do usuário seja muito rápida e leve apenas 300 milissegundos. Atualmente, estamos aguardando um segundo inteiro, porque precisamos de detalhes do usuário e postagens para exibir uma página de perfil consistente. Mas e se quisermos mostrar os detalhes mais rapidamente?
 
-If we're willing to sacrifice consistency, we could **pass potentially stale data to the components that delay our transition**. That's what `useDeferredValue()` lets us do:
+Se estivermos dispostos a sacrificar a consistência, poderíamos **transmitir dados potencialmente obsoletos para os componentes que atrasam nossa transição**. É isso que `useDeferredValue()` nos permite fazer:
 
 ```js{2-4,10,11,21}
 function ProfilePage({ resource }) {
@@ -777,13 +777,13 @@ function ProfileTimeline({ isStale, resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/vigorous-keller-3ed2b)**
 
-The tradeoff we're making here is that `<ProfileTimeline>` will be inconsistent with other components and potentially show an older item. Click "Next" a few times, and you'll notice it. But thanks to that, we were able to cut down the transition time from 1000ms to 300ms.
+A troca que estamos fazendo aqui é que `<ProfileTimeline>` será inconsistente com outros componentes e potencialmente mostrará um item mais antigo. Clique em "Next" algumas vezes e você perceberá. Mas, graças a isso, conseguimos reduzir o tempo de transição de 1000ms para 300ms.
 
-Whether or not it's an appropriate tradeoff depends on the situation. But it's a handy tool, especially when the content doesn't change very visible between items, and the user might not even realize they were looking at a stale version for a second.
+Se é ou não uma troca apropriada, depende da situação. Mas é uma ferramenta útil, especialmente quando o conteúdo não muda visivelmente entre os itens, e o usuário pode nem perceber que estava olhando uma versão antiga por um segundo.
 
-It's worth noting that `useDeferredValue` is not *only* useful for data fetching. It also helps when an expensive component tree causes an interaction (e.g. typing in an input) to be sluggish. Just like we can "defer" a value that takes too long to fetch (and show its old value despite others components updating), we can do this with trees that take too long to render.
+Vale a pena notar que `useDeferredValue` não é *apenas* útil para a busca de dados. Também ajuda quando uma árvore de componentes cara faz com que uma interação (por exemplo, digitando uma entrada) seja lenta. Assim como podemos "adiar" um valor que leva muito tempo para buscar (e mostrar seu valor antigo apesar da atualização de outros componentes), podemos fazer isso com árvores que demoram muito para serem renderizadas.
 
-For example, consider a filterable list like this:
+Por exemplo, considere uma lista filtrável como esta:
 
 ```js
 function App() {
@@ -808,9 +808,9 @@ function App() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/pensive-shirley-wkp46)**
 
-In this example, **every item in `<MySlowList>` has an artificial slowdown -- each of them blocks the thread for a few milliseconds**. We'd never do this in a real app, but this helps us simulate what can happen in a deep component tree with no single obvious place to optimize.
+Neste exemplo, **todo item em `<MySlowList>` tem uma desaceleração artificial -- cada um deles bloqueia a thread por alguns milissegundos**. Nunca faríamos isso em um aplicativo real, mas isso nos ajuda a simular o que pode acontecer em uma árvore profunda de componentes sem um lugar óbvio para otimizar.
 
-We can see how typing in the input causes stutter. Now let's add `useDeferredValue`:
+Podemos ver como digitar na entrada causa engasgos. Agora vamos adicionar `useDeferredValue`:
 
 ```js{3-5,18}
 function App() {
@@ -838,11 +838,11 @@ function App() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/infallible-dewdney-9fkv9)**
 
-Now typing has a lot less stutter -- although we pay for this by showing the results with a lag.
+Agora, a digitação tem muito menos engasgos -- embora paguemos por isso por mostrar os resultados com um atraso.
 
-How is this different from debouncing? Our example has a fixed artificial delay (3ms for every one of 80 items), so there is always a delay, no matter how fast our computer is. However, the `useDeferredValue` value only "lags behind" if the rendering takes a while. There is no minimal lag imposed by React. With a more realistic workload, you can expect the lag to adjust to the user’s device. On fast machines, the lag would be smaller or non-existent, and on slow machines, it would be more noticeable. In both cases, the app would remain responsive. That’s the advantage of this mechanism over debouncing or throttling, which always impose a minimal delay and can't avoid blocking the thread while rendering.
+Como isso é diferente de _debouncing_? Nosso exemplo tem um atraso artificial fixo (3ms para cada um dos 80 itens); portanto, sempre há um atraso, independentemente da velocidade do nosso computador. No entanto, o valor `useDeferredValue` apenas "fica para trás" se a renderização demorar um pouco. Não há atraso mínimo imposto pelo React. Com uma carga de trabalho mais realista, você pode esperar que o atraso se ajuste ao dispositivo do usuário. Em máquinas rápidas, o atraso seria menor ou inexistente e, em máquinas lentas, seria mais perceptível. Em ambos os casos, o aplicativo permaneceria responsivo. Essa é a vantagem desse mecanismo em relação à _debouncing_ ou _throttling_, que sempre impõe um atraso mínimo e não podem evitar o bloqueio da thread durante a renderização.
 
-Even though there is an improvement in responsiveness, this example isn't as compelling yet because Concurrent Mode is missing some crucial optimizations for this use case. Still, it is interesting to see that features like `useDeferredValue` (or `useTransition`) are useful regardless of whether we're waiting for network or for computational work to finish.
+Embora haja uma melhoria na responsividade, este exemplo ainda não é tão atraente porque o Modo Concorrente não possui algumas otimizações cruciais para este caso de uso. Ainda assim, é interessante ver que recursos como `useDeferredValue` (ou` useTransition`) são úteis, independentemente de estarmos esperando a rede ou o trabalho computacional terminar.
 
 ### SuspenseList {#suspenselist}
 
