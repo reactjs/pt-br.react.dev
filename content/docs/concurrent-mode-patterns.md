@@ -532,7 +532,7 @@ Você pode ver uma demonstração disso [aqui](https://codesandbox.io/s/admiring
 
 ### Atrasando um Indicador Pendente {#delaying-a-pending-indicator}
 
-Our `Button` component will immediately show the Pending state indicator on click:
+Nosso componente `Button` exibirá imediatamente o indicador de estado Pendente ao clicar:
 
 ```js{2,13}
 function Button({ children, onClick }) {
@@ -555,9 +555,9 @@ function Button({ children, onClick }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/floral-thunder-iy826)**
 
-This signals to the user that some work is happening. However, if the transition is relatively short (less than 500ms), it might be too distracting and make the transition itself feel *slower*.
+Isso sinaliza ao usuário que algum trabalho está acontecendo. No entanto, se a transição for relativamente curta (menos de 500 ms), pode nos distrair e fazer com que a transição pareça *mais lenta*.
 
-One possible solution to this is to *delay the spinner itself* from displaying:
+Uma solução possível para isso é *atrasar o próprio spinner* de ser exibido:
 
 ```css
 .DelayedSpinner {
@@ -589,7 +589,7 @@ return (
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/gallant-spence-l6wbk)**
 
-With this change, even though we're in the Pending state, we don't display any indication to the user until 500ms has passed. This may not seem like much of an improvement when the API responses are slow. But compare how it feels [before](https://codesandbox.io/s/thirsty-liskov-1ygph) and [after](https://codesandbox.io/s/hardcore-http-s18xr) when the API call is fast. Even though the rest of the code hasn't changed, suppressing a "too fast" loading state improves the perceived performance by not calling attention to the delay.
+Com essa alteração, mesmo estando no estado Pendente, não exibimos nenhuma indicação para o usuário até passar 500ms. Isso pode não parecer uma grande melhoria quando as respostas da API são lentas. Mas compare como é a sensação [antes](https://codesandbox.io/s/thirsty-liskov-1ygph) e [depois](https://codesandbox.io/s/hardcore-http-s18xr) quando a chamada da API é rápida. Mesmo que o restante do código não tenha sido alterado, suprimir um estado de carregamento "muito rápido" melhora a percepção de performance por não chamar a atenção para o atraso.
 
 ### Recapitulação {#recap}
 
