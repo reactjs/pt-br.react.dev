@@ -120,7 +120,7 @@ No Facebook, até agora, usamos apenas a integração do Relay com o Suspense em
 
 Se você não usa o Relay hoje, pode ser necessário aguardar antes de experimentar o Suspense no seu aplicativo. Até agora, é a única implementação que testamos em produção e confiamos.
 
-Nos próximos meses, muitas bibliotecas aparecerão com diferentes versões das APIs do Suspense. **Se você prefere aprender quando as coisas estão mais estáveis, pode preferir ignorar esse trabalho por enquanto e voltar quando o ecossistema do Suspense estiver mais maduro.**
+Nos próximos meses, muitas bibliotecas aparecerão com diferentes usos das APIs do Suspense. **Se você prefere aprender quando as coisas estão mais estáveis, pode preferir ignorar esse trabalho por enquanto e voltar quando o ecossistema do Suspense estiver mais maduro.**
 
 Você também pode escrever sua própria integração para uma biblioteca de busca de dados, se desejar.
 
