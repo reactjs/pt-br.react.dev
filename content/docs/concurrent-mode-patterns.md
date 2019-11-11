@@ -462,9 +462,9 @@ A única diferença entre esses dois exemplos é que o primeiro usa um `<button>
 
 ### Encapsule Recursos Lentos em `<Suspense>` {#wrap-lazy-features-in-suspense}
 
-Open [this example](https://codesandbox.io/s/nameless-butterfly-fkw5q). When you press a button, you'll see the Pending state for a second before moving on. This transition feels nice and fluid.
+Abra [este exemplo](https://codesandbox.io/s/nameless-butterfly-fkw5q). Ao pressionar um botão, você verá o estado Pendente por um segundo antes de prosseguir. Essa transição parece agradável e fluida.
 
-We will now add a brand new feature to the profile page -- a list of fun facts about a person:
+Agora, vamos adicionar um novo recurso à página de perfil -- uma lista de curiosidades sobre uma pessoa:
 
 ```js{8,13-25}
 function ProfilePage({ resource }) {
@@ -496,11 +496,11 @@ function ProfileTrivia({ resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
 
-If you press "Open Profile" now, you can tell something is wrong. It takes whole seven seconds to make the transition now! This is because our trivia API is too slow. Let's say we can't make the API faster. How can we improve the user experience with this constraint?
+Se você pressionar "Open Profile" agora, poderá notar que algo está errado. Agora leva sete segundos para fazer a transição! Isso ocorre porque nossa API de trivia é muito lenta. Digamos que não possamos tornar a API mais rápida. Como podemos melhorar a experiência do usuário com essa restrição?
 
-If we don't want to stay in the Pending state for too long, our first instinct might be to set `timeoutMs` in `useTransition` to something smaller, like `3000`. You can try this [here](https://codesandbox.io/s/practical-kowalevski-kpjg4). This lets us escape the prolonged Pending state, but we still don't have anything useful to show!
+Se não queremos permanecer no estado Pendente por muito tempo, nosso primeiro instinto pode ser definir `timeoutMs` em` useTransition` para um valor menor, como `3000`. Você pode tentar isso [aqui](https://codesandbox.io/s/practical-kowalevski-kpjg4). Isso nos permite escapar do estado Pendente prolongado, mas ainda não temos nada de útil para mostrar!
 
-There is a simpler way to solve this. **Instead of making the transition shorter, we can "disconnect" the slow component from the transition** by wrapping it into `<Suspense>`:
+Existe uma maneira mais simples de resolver isso. **Em vez de tornar a transição mais curta, podemos "desconectar" o componente lento da transição** encapsulando-o em `<Suspense>`:
 
 ```js{8,10}
 function ProfilePage({ resource }) {
@@ -520,9 +520,9 @@ function ProfilePage({ resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/condescending-shape-s6694)**
 
-This reveals an important insight. React always prefers to go to the Skeleton state as soon as possible. Even if we use transitions with long timeouts everywhere, React will not stay in the Pending state for longer than necessary to avoid the Receded state.
+Isso nos dá uma revelação importante. O React sempre prefere ir para o estado Esqueleto o mais rápido possível. Mesmo se usarmos transições com longos tempo limite em todos os lugares, o React não permanecerá no estado Pendente por mais tempo do que o necessário para evitar o estado Retrocedido.
 
-**If some feature isn't a vital part of the next screen, wrap it in `<Suspense>` and let it load lazily.** This ensures we can show the rest of the content as soon as possible. Conversely, if a screen is *not worth showing* without some component, such as `<ProfileDetails>` in our example, do *not* wrap it in `<Suspense>`. Then the transitions will "wait" for it to be ready.
+**Se algum recurso não for uma parte vital da próxima tela, envolva-o em `<Suspense>` e deixe-o carregar lentamente.** Isso garante que possamos mostrar o restante do conteúdo o mais rápido possível. Por outro lado, se uma tela *não vale a pena ser mostrada* sem algum componente, como `<ProfileDetails>` em nosso exemplo, *não* o encapsule em `<Suspense>`. Então, as transições "esperarão" para que estejam prontas.
 
 ### "Trem" Revela Suspense {#suspense-reveal-train}
 
