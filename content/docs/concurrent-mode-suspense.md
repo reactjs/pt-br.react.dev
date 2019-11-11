@@ -98,7 +98,7 @@ O Suspense é significativamente diferente das abordagens existentes para esses 
 
  * **Não é um cliente pronto para uso.** Você não pode "substituir" `fetch` ou Relay com Suspense. Mas você pode usar uma biblioteca integrada com o Suspense (por exemplo, [as novas APIs do Relay](https://relay.dev/docs/en/experimental/api-reference)).
 
- * **Ele não une a busca de dados à camada de visualização.** Ele ajuda a orquestrar a exibição dos states de carregamento na sua UI, mas não vincula sua lógica de rede aos componentes do React.
+ * **Ele não acopla a busca de dados à camada de visualização.** Ele ajuda a orquestrar a exibição dos states de carregamento na sua UI, mas não vincula sua lógica de rede aos componentes do React.
 
 ### O Que O Suspense Permite Que Você Faça {#what-suspense-lets-you-do}
 
