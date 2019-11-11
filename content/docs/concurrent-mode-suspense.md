@@ -13,7 +13,7 @@ next: concurrent-mode-patterns.html
 >Esta documentação é destinada a adotantes precoces e pessoas curiosas. Se você é novo no React, não se preocupe com esses recursos -- você não precisa aprendê-los agora.
 
 
-O React 16.6 adicionou um componente `<Suspense>` isso permite que você "esperar" para que algum código seja carregado e especifique declarativamente um state de carregamento (como um spinner) enquanto esperamos:
+O React 16.6 adicionou um componente `<Suspense>` que permite você "esperar" para que algum código seja carregado e especifique declarativamente um estado de carregamento (como um spinner) enquanto esperamos:
 
 ```jsx
 const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carregado de forma preguiçosa
