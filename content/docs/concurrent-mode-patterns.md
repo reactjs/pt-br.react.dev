@@ -593,17 +593,17 @@ Com essa alteração, mesmo estando no estado Pendente, não exibimos nenhuma in
 
 ### Recapitulação {#recap}
 
-The most important things we learned so far are:
+As coisas mais importantes que aprendemos até agora são:
 
-* By default, our loading sequence is Receded → Skeleton → Complete.
-* The Receded state doesn't feel very nice because it hides existing content.
-* With `useTransition`, we can opt into showing a Pending state first instead. This will keep us on the previous screen while the next screen is being prepared.
-* If we don't want some component to delay the transition, we can wrap it in its own `<Suspense>` boundary.
-* Instead of doing `useTransition` in every other component, we can build it into our design system.
+* Por padrão, nossa sequência de carregamento é Retrocedido → Esqueleto → Completo.
+* O estado Retrocedido não parece muito bom porque oculta o conteúdo existente.
+* Com `useTransition`, podemos optar por mostrar primeiro um estado Pendente. Isso nos manterá na tela anterior enquanto a próxima tela estiver sendo preparada.
+* Se não queremos que algum componente atrase a transição, podemos envolvê-lo em seu próprio limite `<Suspense>`'.
+* Em vez de fazer `useTransition` em todos os outros componentes, podemos adicioná-lo em nosso sistema de design.
 
 ## Outros Padrões {#other-patterns}
 
-Transitions are probably the most common Concurrent Mode pattern you'll encounter, but there are a few more patterns you might find useful.
+As transições são, provavelmente, o padrão mais comum do Modo Concorrente que você vai encontrar, mas existem alguns outros padrões que você pode achar útil.
 
 ### Dividindo Estado de Alta e Baixa Prioridade {#splitting-high-and-low-priority-state}
 
