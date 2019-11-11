@@ -144,7 +144,7 @@ Em vez disso, veremos o Suspense como um próximo passo lógico em uma sequênci
 
 >Nota
 >
->Isso é um pouco simplificado e, na prática, as soluções tendem a usar uma mistura de diferentes abordagens. Ainda assim, vamos analisá-los isoladamente para contrastar melhor suas compensações.
+>Isso é um pouco simplificado e, na prática, as soluções tendem a usar uma mistura de diferentes abordagens. Ainda assim, vamos analisá-los isoladamente para contrastar melhor seus prós e contras.
 
 Para comparar essas abordagens, implementaremos uma página de perfil com cada uma delas.
 
