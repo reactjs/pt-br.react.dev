@@ -526,9 +526,9 @@ Isso nos dá uma revelação importante. O React sempre prefere ir para o estado
 
 ### "Trem" Revela Suspense {#suspense-reveal-train}
 
-When we're already on the next screen, sometimes the data needed to "unlock" different `<Suspense>` boundaries arrives in quick succession. For example, two different responses might arrive after 1000ms and 1050ms, respectively. If you've already waited for a second, waiting another 50ms is not going to be perceptible. This is why React reveals `<Suspense>` boundaries on a schedule, like a "train" that arrives periodically. This trades a small delay for reducing the layout thrashing and the number of visual changes presented to the user.
+Quando já estamos na próxima tela, algumas vezes os dados necessários para "desbloquear" diferentes limites `<Suspense>` chegam em rápida sucessão. Por exemplo, duas respostas diferentes podem chegar após 1000ms e 1050ms, respectivamente. Se você já esperou um segundo, esperar outros 50ms não será perceptível. É por isso que o React revela os limites `<Suspense>` em uma escala, como um "trem" que chega periodicamente. Isso negocia um pequeno atraso para reduzir a quebra do layout e o número de alterações visuais apresentadas ao usuário.
 
-You can see a demo of this [here](https://codesandbox.io/s/admiring-mendeleev-y54mk). The "posts" and "fun facts" responses come within 100ms of each other. But React coalesces them and "reveals" their Suspense boundaries together.
+Você pode ver uma demonstração disso [aqui](https://codesandbox.io/s/admiring-mendeleev-y54mk). As respostas "posts" e "fun facts" chegam com 100ms uma da outra. Mas o React os une e "revela" seus limites de Suspense juntos.
 
 ### Atrasando um Indicador Pendente {#delaying-a-pending-indicator}
 
