@@ -371,7 +371,7 @@ O próprio Suspense como mecanismo é flexível e não possui muitas restriçõe
 * Buscar cedo pode ser complicado de expressar. Como tornamos mais fácil evitar waterfalls?
 * Quando buscamos dados para uma página, a API pode incentivar a inclusão de dados para transições instantâneas *dela*?
 * Qual é o tempo de vida de uma resposta? O cache deve ser global ou local? Quem gerencia o cache?
-* Os proxies podem ajudar a expressar APIs carregadas preguiçosamente sem inserir chamadas `read()` em qualquer lugar?
+* Os proxies podem ajudar a expressar APIs carregadas lentamente sem inserir chamadas `read()` por todo o lado?
 * Como seria a composição de consultas GraphQL equivalentes para dados arbitrários com Suspense?
 
 O Relay tem suas próprias respostas para algumas dessas perguntas. Certamente, existe mais do que uma maneira única de fazê-lo, e estamos empolgados em ver que novas idéias a comunidade React apresentará.
