@@ -404,7 +404,7 @@ Vamos comparar como diferentes estratégias de busca de dados lidam com esse req
 
 ### Race Conditions com `useEffect` {#race-conditions-with-useeffect}
 
-Primeiro, tentaremos uma versão do nosso exemplo original de "busca em efeito" example. Vamos modificá-lo para passar um parâmetro `id` das props de `<ProfilePage>` para `fetchUser(id)` e `fetchPosts(id)`:
+Primeiro, tentaremos uma versão do nosso exemplo original de "busca no efeito". Vamos modificá-lo para passar um parâmetro `id` das props de `<ProfilePage>` para `fetchUser(id)` e `fetchPosts(id)`:
 
 ```js{1,5,6,14,19,23,24}
 function ProfilePage({ id }) {
