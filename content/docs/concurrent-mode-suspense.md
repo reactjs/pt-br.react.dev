@@ -531,7 +531,7 @@ Infelizmente, nem o uso de uma classe nem a sintaxe `async` / `await` nos ajudar
 
 ### O Problema {#the-problem}
 
-Os componentes do React possuem seu próprio "ciclo de vida". Eles podem receber props atualizar o state a qualquer momento. No entanto, cada requisição assíncrona *também* possui seu próprio "ciclo de vida". Começa quando iniciamos e termina quando obtemos uma resposta. A dificuldade que estamos enfrentando é "sincronizar" vários processos no tempo que se afetam. Isso é difícil de pensar.
+Os componentes do React possuem seu próprio "ciclo de vida". Eles podem receber props ou atualizar o state a qualquer momento. No entanto, cada requisição assíncrona *também* possui seu próprio "ciclo de vida". Começa quando iniciamos e termina quando obtemos uma resposta. A dificuldade que estamos enfrentando é "sincronizar" vários processos no tempo que se afetam. Isso é difícil de pensar.
 
 ### Resolvendo Race Conditions com Suspense {#solving-race-conditions-with-suspense}
 
