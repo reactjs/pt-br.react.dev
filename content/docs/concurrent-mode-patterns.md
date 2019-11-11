@@ -846,9 +846,9 @@ Embora haja uma melhoria na responsividade, este exemplo ainda não é tão atra
 
 ### SuspenseList {#suspenselist}
 
-`<SuspenseList>` is the last pattern that's related to orchestrating loading states.
+`<SuspenseList>` é o último padrão relacionado à orquestração de estados de carregamento.
 
-Consider this example:
+Considere este exemplo:
 
 ```js{5-10}
 function ProfilePage({ resource }) {
@@ -868,11 +868,11 @@ function ProfilePage({ resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/proud-tree-exg5t)**
 
-The API call duration in this example is randomized. If you keep refreshing it, you will notice that sometimes the posts arrive first, and sometimes the "fun facts" arrive first.
+A duração da chamada da API neste exemplo é aleatória. Se você continuar atualizando, notará que algumas vezes as postagens chegam primeiro e outras vezes os "fun facts" chegam primeiro.
 
-This presents a problem. If the response for fun facts arrives first, we'll see the fun facts below the `<h2>Loading posts...</h2>` fallback for posts. We might start reading them, but then the *posts* response will come back, and shift all the facts down. This is jarring.
+Isso apresenta um problema. Se a resposta para _fun facts_ chegar primeiro, veremos as _fun facts_ abaixo do fallback para postagens `<h2>Loading posts...</h2>`. Podemos começar a lê-los, mas a resposta *posts* voltará e mudará todos os fatos abaixo. Isso é chocante.
 
-One way we could fix it is by putting them both in a single boundary:
+Uma maneira de corrigir isso é colocando os dois dentro de um único limite:
 
 ```js
 <Suspense fallback={<h2>Loading posts and fun facts...</h2>}>
@@ -883,17 +883,17 @@ One way we could fix it is by putting them both in a single boundary:
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/currying-violet-5jsiy)**
 
-The problem with this is that now we *always* wait for both of them to be fetched. However, if it's the *posts* that came back first, there's no reason to delay showing them. When fun facts load later, they won't shift the layout because they're already below the posts.
+O problema é que agora *sempre* esperamos que ambos sejam buscados. No entanto, se foram os *posts* que voltaram primeiro, não há razão para adiar a exibição deles. Quando _fun facts_ carregar mais tarde, eles não vão mudar o layout, porque eles já estão abaixo dos posts.
 
-Other approaches to this, such as composing Promises in a special way, are increasingly difficult to pull off when the loading states are located in different components down the tree.
+Outras abordagens para isso, como compor Promises de uma forma especial, são cada vez mais difíceis de serem executadas quando os estados de carregamento estão localizados em diferentes componentes na árvore.
 
-To solve this, we will import `SuspenseList`:
+Para resolver isso, importaremos `SuspenseList`:
 
 ```js
 import { SuspenseList } from 'react';
 ```
 
-`<SuspenseList>` coordinates the "reveal order" of the closest `<Suspense>` nodes below it:
+`<SuspenseList>` coordena a "ordem de revelação" dos nós `<Suspense>` mais próximos abaixo dele:
 
 ```js{3,11}
 function ProfilePage({ resource }) {
@@ -913,14 +913,14 @@ function ProfilePage({ resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/black-wind-byilt)**
 
-The `revealOrder="forwards"` option means that the closest `<Suspense>` nodes inside this list **will only "reveal" their content in the order they appear in the tree -- even if the data for them arrives in a different order**. `<SuspenseList>` has other interesting modes: try changing `"forwards"` to `"backwards"` or `"together"` and see what happens.
+A opção `revealOrder="forward"` significa que os nós `<Suspense>` mais próximos desta lista **apenas "revelam" seu conteúdo na ordem em que aparecem na árvore -- mesmo que os dados para eles cheguem em um ordem diferente**. `<SuspenseList>` possui outros modos interessantes: tente alterar `"forwards"` para `"backwards"` ou `"together"` e veja o que acontece.
 
-You can control how many loading states are visible at once with the `tail` prop. If we specify `tail="collapsed"`, we'll see *at most one* fallback at the time. You can play with it [here](https://codesandbox.io/s/adoring-almeida-1zzjh).
+Você pode controlar quantos estados de carregamento são visíveis ao mesmo tempo com a prop `tail`. Se especificarmos `tail="collapsed"`, veremos *no máximo um* fallback por vez. Você pode brincar com ele [aqui](https://codesandbox.io/s/adoring-almeida-1zzjh).
 
-Keep in mind that `<SuspenseList>` is composable, like anything in React. For example, you can create a grid by putting several `<SuspenseList>` rows inside a `<SuspenseList>` table.
+Lembre-se de que `<SuspenseList>` é composível, como qualquer coisa no React. Por exemplo, você pode criar um _grid_ por colocar várias linhas `<SuspenseList>` dentro de uma tabela `<SuspenseList>`.
 
 ## Próximos Passos {#next-steps}
 
-Concurrent Mode offers a powerful UI programming model and a set of new composable primitives to help you orchestrate delightful user experiences.
+O Modo Concorrente oferece um poderoso modelo de programação de UI e um conjunto de novos primitivos composíveis para ajudar você a orquestrar experiências agradáveis ao usuário.
 
-It's a result of several years of research and development, but it's not finished. In the section on [adopting Concurrent Mode](/docs/concurrent-mode-adoption.html), we'll describe how you can try it and what you can expect.
+É o resultado de vários anos de pesquisa e desenvolvimento, mas não está concluído. Na seção [adotando o Modo Concorrente](/docs/concurrent-mode-adoption.html), vamos descrever como você pode experimentá-lo e o que pode esperar.
