@@ -664,7 +664,7 @@ Ele pegaria erros de renderização *e* erros da busca de dados do Suspense. Pod
 
 Agora, abordamos o básico do Suspense para Busca de Dados! Importante, agora entendemos melhor *por que* o Suspense funciona dessa maneira e como ele se encaixa no espaço de busca de dados.
 
-O Suspense responde a algumas perguntas, mas também coloca novas questões por conta própria:
+O Suspense responde a algumas perguntas, mas também trás suas próprias novas questões:
 
 * Se algum componente "suspende", o aplicativo congela? Como evitar isso?
 * E se quisermos mostrar um spinner em um local diferente do que "acima" do componente em uma árvore?
