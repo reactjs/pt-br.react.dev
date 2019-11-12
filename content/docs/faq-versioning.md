@@ -18,7 +18,9 @@ Atualizações que quebram compatibilidade podem também conter novas funcionali
 
 Versões minor são o tipo mais comum de versão.
 
-### Atualizações que quebram compatibilidade {#breaking-changes} 
+> Esta política de controle de versão não se aplica às compilações de pré-lançamento nos canais Next ou Experimental. [Saiba mais sobre pré-lançamentos.](/docs/release-channels.html)
+
+### Atualizações que quebram compatibilidade {#breaking-changes}
 
 Atualizações que quebram compatibilidade são inconvenientes para todos, sendo assim, tentamos diminuir o número de major releases – por exemplo, React 15 foi lançado em Abril de 2016 e React 16 foi lançado em Setembro de 2017; React 17 não é esperado até 2019.
 
