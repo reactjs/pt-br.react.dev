@@ -22,7 +22,7 @@ Esta página fornece uma visão geral teórica do Modo Concorrente. **Para uma i
 
 O Modo Concorrente é um conjunto de novos recursos que ajudam os aplicativos React a permanecerem responsivos e a se ajustarem normalmente aos recursos do dispositivo do usuário e à velocidade da rede.
 
-Esses recursos ainda são experimentais e estão sujeitos a alterações. Eles ainda não fazem parte de uma versão estável do React, mas você pode experimentá-los em uma versão experimental.
+Esses recursos ainda são experimentais e estão sujeitos a alterações. Eles ainda não fazem parte de um release estável do React, mas você pode experimentá-los em uma versão experimental.
 
 ## Bloqueio vs Renderização Interrompida {#blocking-vs-interruptible-rendering}
 
