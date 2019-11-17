@@ -7,7 +7,7 @@ next: concurrent-mode-suspense.html
 
 >Cuidado:
 >
->Esta página descreve os recursos **experimentais que ainda [não estão disponíveis](/docs/concurrent-mode-adoption.html) em um release estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
+>Esta página descreve os **recursos experimentais que ainda [não estão disponíveis](/docs/concurrent-mode-adoption.html) em um release estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
 >
 >Esta documentação é destinada a adotante precoces e pessoas curiosas. Se você é novo no React, não se preocupe com esses recursos -- não precisa aprendê-los agora.
 
