@@ -1,6 +1,6 @@
 ---
 id: concurrent-mode-intro
-title: Introducing Concurrent Mode (Experimental)
+title: Introdução ao Modo Concorrente (Experimental)
 permalink: docs/concurrent-mode-intro.html
 next: concurrent-mode-suspense.html
 ---
@@ -14,87 +14,87 @@ next: concurrent-mode-suspense.html
 
 <div class="scary">
 
->Caution:
+>Cuidado:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>Esta página descreve os **recursos experimentais que ainda [não estão disponíveis](/docs/concurrent-mode-adoption.html) em um release estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
 >
->This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now.
+>Esta documentação é destinada a adotante precoces e pessoas curiosas. **Se você é novo no React, não se preocupe com esses recursos** -- não precisa aprendê-los agora.
 
 </div>
 
-This page provides a theoretical overview of Concurrent Mode. **For a more practical introduction, you might want to check out the next sections:**
+Esta página fornece uma visão geral teórica do Modo Concorrente. **Para uma introdução mais prática, consulte as próximas seções:**
 
-* [Suspense for Data Fetching](/docs/concurrent-mode-suspense.html) describes a new mechanism for fetching data in React components.
-* [Concurrent UI Patterns](/docs/concurrent-mode-patterns.html) shows some UI patterns made possible by Concurrent Mode and Suspense.
-* [Adopting Concurrent Mode](/docs/concurrent-mode-adoption.html) explains how you can try Concurrent Mode in your project.
-* [Concurrent Mode API Reference](/docs/concurrent-mode-reference.html) documents the new APIs available in experimental builds.
+* [Suspense Para Busca de Dados](/docs/concurrent-mode-suspense.html) descreve um novo mecanismo para buscar dados nos componentes do React.
+* [Padrões de UI Concorrente](/docs/concurrent-mode-patterns.html) mostra alguns padrões de UI possibilitados pelo Modo Concorrente e pelo Suspense.
+* [Adotando o Modo Concorrente](/docs/concurrent-mode-adoption.html) explica como você pode experimentar o Modo Concorrente em seu projeto.
+* [Referência da API do Modo Concorrente](/docs/concurrent-mode-reference.html) documenta as novas APIs disponíveis em builds experimentais.
 
-## What Is Concurrent Mode? {#what-is-concurrent-mode}
+## O Que é o Modo Concorrente? {#what-is-concurrent-mode}
 
-Concurrent Mode is a set of new features that help React apps stay responsive and gracefully adjust to the user's device capabilities and network speed.
+O Modo Concorrente é um conjunto de novos recursos que ajudam os aplicativos React a permanecerem responsivos e a se ajustarem normalmente aos recursos do dispositivo do usuário e à velocidade da rede.
 
-These features are still experimental and are subject to change. They are not yet a part of a stable React release, but you can try them in an experimental build.
+Esses recursos ainda são experimentais e estão sujeitos a alterações. Eles ainda não fazem parte de um release estável do React, mas você pode experimentá-los em uma versão experimental.
 
-## Blocking vs Interruptible Rendering {#blocking-vs-interruptible-rendering}
+## Bloqueio vs Renderização Interrompida {#blocking-vs-interruptible-rendering}
 
-**To explain Concurrent Mode, we'll use version control as a metaphor.** If you work on a team, you probably use a version control system like Git and work on branches. When a branch is ready, you can merge your work into master so that other people can pull it.
+**Para explicar o Modo Concorrente, usaremos o controle de versão como uma metáfora.** Se você trabalha em equipe, provavelmente usa um sistema de controle de versão como o Git e trabalha em _branches_. Quando uma _branch_ estiver pronta, você poderá dar merge do seu trabalho na master(_branch_ principal), para que outras pessoas possam puxa-las (_pull request_).
 
-Before version control existed, the development workflow was very different. There was no concept of branches. If you wanted to edit some files, you had to tell everyone not to touch those files until you've finished your work. You couldn't even start working on them concurrently with that person — you were literally *blocked* by them.
+Antes da existência do controle de versão, o fluxo de trabalho de desenvolvimento era muito diferente. Não havia conceito de _branches_. Se você quiser editar alguns arquivos, precisará dizer a todos para não tocarem nesses arquivos até que você termine seu trabalho. Você não podia nem começar a trabalhar neles simultaneamente com essa pessoa - você estava literalmente *bloqueado* por ela.
 
-This illustrates how UI libraries, including React, typically work today. Once they start rendering an update, including creating new DOM nodes and running the code inside components, they can't interrupt this work. We'll call this approach "blocking rendering".
+Isso ilustra como as bibliotecas de UI, incluindo React, normalmente funcionam hoje. Depois que eles começam a renderizar uma atualização, incluindo a criação de novos nós do DOM e a execução do código nos componentes, eles não podem interromper esse trabalho. Vamos chamar essa abordagem de "bloqueio de renderização".
 
-In Concurrent Mode, rendering is not blocking. It is interruptible. This improves the user experience. It also unlocks new features that weren't possible before. Before we look at concrete examples in the [next](/docs/concurrent-mode-suspense.html) [chapters](/docs/concurrent-mode-patterns.html), we'll do a high-level overview of new features.
+Em Modo Concorrente, a renderização e não bloqueante. É interruptível. Isso melhora a experiência do usuário. Também desbloqueia novos recursos que antes não eram possíveis. Antes de examinarmos exemplos concretos nos [próximos](/docs/concurrent-mode-suspense.html) [capítulos](/docs/concurrent-mode-patterns.html), faremos uma visão geral de alto nível dos novos recursos.
 
-### Interruptible Rendering {#interruptible-rendering}
+### Renderização interrompida {#interruptible-rendering}
 
-Consider a filterable product list. Have you ever typed into a list filter and felt that it stutters on every key press? Some of the work to update the product list might be unavoidable, such as creating new DOM nodes or the browser performing layout. However, *when* and *how* we perform that work plays a big role.
+Considere uma lista de produtos filtrável. Você já digitou um filtro de lista e sentiu que ele gagueja a cada pressionamento de tecla? Alguns dos trabalhos para atualizar a lista de produtos podem ser inevitáveis, como criar novos nós no DOM ou o navegador executando o layout. No entanto, *quando* e *como* realizamos esse trabalho desempenha um grande papel.
 
-A common way to work around the stutter is to "debounce" the input. When debouncing, we only update the list *after* the user stops typing. However, it can be frustrating that the UI doesn't update while we're typing. As an alternative, we could "throttle" the input, and update the list with a certain maximum frequency. But then on lower-powered devices we'd still end up with stutter. Both debouncing and throttling create a suboptimal user experience.
+Uma maneira comum de contornar a gagueira é "rejeitar" a entrada. Ao rebater, atualizamos apenas a lista *após* o usuário parar de digitar. No entanto, pode ser frustrante que a interface do usuário não seja atualizada enquanto estamos digitando. Como alternativa, poderíamos "acelerar" a entrada e atualizar a lista com uma certa frequência máxima. Mas então, em dispositivos de baixa potência, ainda acabaríamos com travadas. A depuração e a otimização criam uma experiência de usuário abaixo do ideal.
 
-The reason for the stutter is simple: once rendering begins, it can't be interrupted. So the browser can't update the text input right after the key press. No matter how good a UI library (such as React) might look on a benchmark, if it uses blocking rendering, a certain amount of work in your components will always cause stutter. And, often, there is no easy fix.
+A razão para os travamentos são simples: uma vez iniciada a renderização, ela não pode ser interrompida. Portanto, o navegador não pode atualizar a entrada de texto logo após pressionar a tecla. Independentemente da aparência de uma biblioteca de interface do usuário (como React), se ela usa a renderização de bloqueante, uma certa quantidade de trabalho em seus componentes sempre causarão travamentos. E, muitas vezes, não há solução fácil.
 
-**Concurrent Mode fixes this fundamental limitation by making rendering interruptible.** This means when the user presses another key, React doesn't need to block the browser from updating the text input. Instead, it can let the browser paint an update to the input, and then continue rendering the updated list *in memory*. When the rendering is finished, React updates the DOM, and changes are reflected on the screen.
+**O Modo Concorrente corrige essa limitação fundamental, tornando a renderização interrompível.** Isso significa que quando o usuário pressiona outra tecla, o React não precisa impedir o navegador de atualizar a entrada de texto. Em vez disso, ele pode deixar o navegador pintar uma atualização na entrada e continuar renderizando a lista atualizada *na memória*. Quando a renderização é concluída, o React atualiza o DOM e as alterações são refletidas na tela.
 
-Conceptually, you can think of this as React preparing every update "on a branch". Just like you can abandon work in branches or switch between them, React in Concurrent Mode can interrupt an ongoing update to do something more important, and then come back to what it was doing earlier. This technique might also remind you of [double buffering](https://wiki.osdev.org/Double_Buffering) in video games.
+Conceitualmente, você pode pensar nisso como React preparando todas as atualizações "em uma _branch_". Assim como você pode abandonar o trabalho em _branches_ ou alternar entre elas, o React no modo concorrente pode interromper uma atualização contínua para fazer algo mais importante e depois voltar ao que estava fazendo anteriormente. Essa técnica também pode lembrá-lo do [buffer duplo](https://wiki.osdev.org/Double_Buffering) nos videogames.
 
-Concurrent Mode techniques reduce the need for debouncing and throttling in UI. Because rendering is interruptible, React doesn't need to artificially *delay* work to avoid stutter. It can start rendering right away, but interrupt this work when needed to keep the app responsive.
+As técnicas do modo concorrente reduzem a necessidade de renúncia e limitação na interface do usuário. Como a renderização é interrompível, o React não precisa *atrasar* artificialmente o trabalho para evitar interrupções. Ele pode começar a renderizar imediatamente, mas interrompa esse trabalho quando necessário para manter o aplicativo responsivo.
 
-### Intentional Loading Sequences {#intentional-loading-sequences}
+### Sequências de Carregamento Intencionais {#intentional-loading-sequences}
 
-We've said before that Concurrent Mode is like React working "on a branch". Branches are useful not only for short-term fixes, but also for long-running features. Sometimes you might work on a feature, but it could take weeks before it's in a "good enough state" to merge into master. This side of our version control metaphor applies to rendering too.
+Dissemos antes que o Modo Concorrente é como React trabalhando "em uma _branch_". _Branches_ são úteis não apenas para correções de curto prazo, mas também para recursos de longa duração. Às vezes, você pode trabalhar em um recurso, mas pode levar semanas até que ele esteja em um "estado suficientemente bom" para fazer o _merge_ a master. Esse lado da nossa metáfora de controle de versão também se aplica à renderização.
 
-Imagine we're navigating between two screens in an app. Sometimes, we might not have enough code and data loaded to show a "good enough" loading state to the user on the new screen. Transitioning to an empty screen or a large spinner can be a jarring experience. However, it's also common that the necessary code and data doesn't take too long to fetch. **Wouldn't it be nicer if React could stay on the old screen for a little longer, and "skip" the "bad loading state" before showing the new screen?**
+Imagine que estamos navegando entre duas telas em um aplicativo. Às vezes, talvez não tenhamos código e dados suficientes carregados para mostrar um estado de carregamento "suficientemente bom" para o usuário na nova tela. A transição para uma tela vazia ou um grande *spinner* em toda a tela pode ser uma experiência chocante. No entanto, também é comum que o código e os dados necessários não demorem muito para serem buscados. **Não seria melhor se o React pudesse permanecer na tela antiga por mais algum tempo e "pular" o "estado de carregamento incorreto" antes de mostrar a nova tela?**
 
-While this is possible today, it can be difficult to orchestrate. In Concurrent Mode, this feature is built-in. React starts preparing the new screen in memory first — or, as our metaphor goes, "on a different branch". So React can wait before updating the DOM so that more content can load. In Concurrent Mode, we can tell React to keep showing the old screen, fully interactive, with an inline loading indicator. And when the new screen is ready, React can take us to it.
+Embora isso seja possível hoje, pode ser difícil orquestrar. No Modo Concorrente, esse recurso é interno. O React começa a preparar a nova tela em memória primeiro - ou, como nossa metáfora diz, "em uma _branch_ diferente". Portanto, o React pode esperar antes de atualizar o DOM para que mais conteúdo possa ser carregado. No Modo Concorrente, podemos dizer ao React para continuar mostrando a tela antiga, totalmente interativa, com um indicador de carregamento embutido. E quando a nova tela estiver pronta, o React pode nos levar a ela.
 
-### Concurrency {#concurrency}
+### Concorrência {#concurrency}
 
-Let's recap the two examples above and see how Concurrent Mode unifies them. **In Concurrent Mode, React can work on several state updates *concurrently*** — just like branches let different team members work independently:
+Vamos recapitular os dois exemplos acima e ver como o Modo Concorrente os unifica. **No Modo Concorrente, o React pode trabalhar em várias atualizações de estado *concorrente*** - assim como as _branches_, diferentes membros da equipe trabalham independentemente:
 
-* For CPU-bound updates (such as creating DOM nodes and running component code), concurrency means that a more urgent update can "interrupt" rendering that has already started.
-* For IO-bound updates (such as fetching code or data from the network), concurrency means that React can start rendering in memory even before all the data arrives, and skip showing jarring empty loading states.
+* Para atualizações associadas à CPU (como criar nós DOM e executar código de componente), a concorrência significa que uma atualização mais urgente pode "interromper" a renderização que já foi iniciada.
+* Para atualizações associadas à IO (como a busca de código ou dados da rede), a concorrência significa que o React pode iniciar a renderização na memória antes mesmo da chegada de todos os dados, e pule a exibição de estados de carregamento vazios discordantes.
 
-Importantly, the way you *use* React is the same. Concepts like components, props, and state fundamentally work the same way. When you want to update the screen, you set the state.
+Importante, a maneira como você *usa* o React é a mesma. Conceitos como componentes, _props_, e _state_ funcionam fundamentalmente da mesma maneira. Quando você deseja atualizar a tela, você define o estado.
 
-React uses a heuristic to decide how "urgent" an update is, and lets you adjust it with a few lines of code so that you can achieve the desired user experience for every interaction.
+O React usa uma heurística para decidir o quão "urgente" é uma atualização e permite que você possa obter a experiência do usuário desejada para cada interação.
 
-## Putting Research into Production {#putting-research-into-production}
+## Colocando Pesquisa em Produção {#putting-research-into-production}
 
-There is a common theme around Concurrent Mode features. **Its mission is to help integrate the findings from the Human-Computer Interaction research into real UIs.**
+Há um tema comum nos recursos do Modo Concorrente. **Sua missão é ajudar a integrar as descobertas da pesquisa sobre Interação Homem-Computador em interfaces de usuários reais.**
 
-For example, research shows that displaying too many intermediate loading states when transitioning between screens makes a transition feel *slower*. This is why Concurrent Mode shows new loading states on a fixed "schedule" to avoid jarring and too frequent updates.
+Por exemplo, pesquisas mostram que exibir muitos estados de carregamento intermediários ao fazer a transição entre telas faz com que uma transição pareça mais *lenta*. É por isso que o Modo Concorrente mostra novos estados de carregamento em um "agendamento" fixo para evitar atualizações dissonantes e muito frequentes.
 
-Similarly, we know from research that interactions like hover and text input need to be handled within a very short period of time, while clicks and page transitions can wait a little longer without feeling laggy. The different "priorities" that Concurrent Mode uses internally roughly correspond to the interaction categories in the human perception research.
+Da mesma forma, sabemos da pesquisa que interações como passar o mouse e inserir texto precisam ser tratadas dentro de um período muito curto de tempo, enquanto cliques e transições de página podem esperar um pouco mais sem ficarem parados. As diferentes "prioridades" que o Modo Concorrente usa internamente correspondem aproximadamente às categorias de interação na pesquisa de percepção humana.
 
-Teams with a strong focus on user experience sometimes solve similar problems with one-off solutions. However, those solutions rarely survive for a long time, as they're hard to maintain. With Concurrent Mode, our goal is to bake the UI research findings into the abstraction itself, and provide idiomatic ways to use them. As a UI library, React is well-positioned to do that.
+Às vezes, equipes com forte foco na experiência do usuário resolvem problemas semelhantes com soluções pontuais. No entanto, essas soluções raramente sobrevivem por um longo tempo, pois são difíceis de manter. Com o Modo Concorrente, nosso objetivo é incorporar as descobertas da pesquisa de interface do usuário na própria abstração e fornecer maneiras idiomáticas de usá-las. Como uma biblioteca de interface do usuário, o React está bem posicionado para fazer isso.
 
-## Next Steps {#next-steps}
+## Próximos Passos {#next-steps}
 
-Now you know what Concurrent Mode is all about!
+Agora você sabe o que é o Modo Concorrente!
 
-On the next pages, you'll learn more details about specific topics:
+Nas próximas páginas, você aprenderá mais detalhes sobre tópicos específicos:
 
-* [Suspense for Data Fetching](/docs/concurrent-mode-suspense.html) describes a new mechanism for fetching data in React components.
-* [Concurrent UI Patterns](/docs/concurrent-mode-patterns.html) shows some UI patterns made possible by Concurrent Mode and Suspense.
-* [Adopting Concurrent Mode](/docs/concurrent-mode-adoption.html) explains how you can try Concurrent Mode in your project.
-* [Concurrent Mode API Reference](/docs/concurrent-mode-reference.html) documents the new APIs available in experimental builds.
+* [Suspense Para Busca de Dados](/docs/concurrent-mode-suspense.html) descreve um novo mecanismo para buscar dados nos componentes do React.
+* [Padrões de UI Concorrente](/docs/concurrent-mode-patterns.html) mostra alguns padrões de UI possibilitados pelo Modo Concorrente e pelo Suspense.
+* [Adotando o Modo Concorrente](/docs/concurrent-mode-adoption.html) explica como você pode experimentar o Modo Concorrente em seu projeto.
+* [Referência da API do Modo Concorrente](/docs/concurrent-mode-reference.html) documenta as novas APIs disponíveis em builds experimentais.
