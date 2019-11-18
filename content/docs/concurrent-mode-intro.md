@@ -5,11 +5,22 @@ permalink: docs/concurrent-mode-intro.html
 next: concurrent-mode-suspense.html
 ---
 
+<style>
+.scary > blockquote {
+  background-color: rgba(237, 51, 21, 0.2);
+  border-left-color: #ed3315;
+}
+</style>
+
+<div class="scary">
+
 >Cuidado:
 >
 >Esta página descreve os **recursos experimentais que ainda [não estão disponíveis](/docs/concurrent-mode-adoption.html) em um release estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
 >
->Esta documentação é destinada a adotante precoces e pessoas curiosas. Se você é novo no React, não se preocupe com esses recursos -- não precisa aprendê-los agora.
+>Esta documentação é destinada a adotante precoces e pessoas curiosas. **Se você é novo no React, não se preocupe com esses recursos** -- não precisa aprendê-los agora.
+
+</div>
 
 Esta página fornece uma visão geral teórica do Modo Concorrente. **Para uma introdução mais prática, consulte as próximas seções:**
 
