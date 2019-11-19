@@ -6,11 +6,22 @@ prev: concurrent-mode-suspense.html
 next: concurrent-mode-adoption.html
 ---
 
+<style>
+.scary > blockquote {
+  background-color: rgba(237, 51, 21, 0.2);
+  border-left-color: #ed3315;
+}
+</style>
+
+<div class="scary">
+
 >Cuidado:
 >
 >Esta página descreve **recursos experimentais que [ainda não estão disponíveis](/docs/concurrent-mode-adoption.html) em uma versão estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
 >
->Esta documentação é destinada a adotantes precoces e pessoas curiosas. Se você é novo no React, não se preocupe com esses recursos -- você não precisa aprendê-los agora.
+>Esta documentação é destinada a adotantes precoces e pessoas curiosas. **Se você é novo no React, não se preocupe com esses recursos** -- você não precisa aprendê-los agora. Por exemplo, se você estiver procurando por um tutorial de busca de dados que funcione hoje, leia [este artigo] (https://www.robinwieruch.de/react-hooks-fetch-data/).
+
+</div>
 
 Normalmente, quando atualizamos o estado, esperamos ver alterações na tela imediatamente. Isso faz sentido, porque queremos manter nossa aplicação responsiva à entrada do usuário. No entanto, há casos em que podemos preferir **adiar que uma atualização apareça na tela**.
 
