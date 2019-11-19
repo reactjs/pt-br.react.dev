@@ -6,12 +6,22 @@ prev: concurrent-mode-intro.html
 next: concurrent-mode-patterns.html
 ---
 
+<style>
+.scary > blockquote {
+  background-color: rgba(237, 51, 21, 0.2);
+  border-left-color: #ed3315;
+}
+</style>
+
+<div class="scary">
+
 >Cuidado:
 >
 >Esta página descreve **recursos experimentais que [ainda não estão disponíveis](/docs/concurrent-mode-adoption.html) em uma versão estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
 >
->Esta documentação é destinada a adotantes precoces e pessoas curiosas. Se você é novo no React, não se preocupe com esses recursos -- você não precisa aprendê-los agora.
+>Esta documentação é destinada a adotantes precoces e pessoas curiosas. **Se você é novo no React, não se preocupe com esses recursos** -- você não precisa aprendê-los agora. Por exemplo, se você estiver procurando por um tutorial de busca de dados que funcione hoje, leia [este artigo](https://www.robinwieruch.de/react-hooks-fetch-data/).
 
+</div>
 
 O React 16.6 adicionou um componente `<Suspense>` que permite você "esperar" para que algum código seja carregado e especifique declarativamente um estado de carregamento (como um spinner) enquanto esperamos:
 
@@ -36,6 +46,7 @@ Suspense para Busca de Dados é um novo recurso que permite usar `<Suspense>` ta
   - [Abordagem 1: Busca-na-Renderização (sem usar Suspense)](#approach-1-fetch-on-render-not-using-suspense)
   - [Abordagem 2: Busca-Então-Renderiza (sem usar Suspense)](#approach-2-fetch-then-render-not-using-suspense)
   - [Abordagem 3: Renderização-Conforme-Você-Busca (usando Suspense)](#approach-3-render-as-you-fetch-using-suspense)
+- [Comece a Buscar Cedo](#start-fetching-early)
   - [Ainda Estamos Descobrindo Isso](#were-still-figuring-this-out)
 - [Suspense e Condições de Concorrência](#suspense-and-race-conditions)
   - [Condições de Concorrência com useEffect](#race-conditions-with-useeffect)
@@ -86,7 +97,7 @@ function ProfileTimeline() {
 
 Esta demo é um teaser. Não se preocupe se ainda não faz sentido. Falaremos mais sobre como isso funciona abaixo. Lembre-se de que o Suspense é mais um *mecanismo*, e APIs específicas como `fetchProfileData()` ou `resource.posts.read()` no exemplo acima não são muito importantes. Se você estiver curioso, poderá encontrar as definições deles no [sandbox de demonstração](https://codesandbox.io/s/frosty-hermann-bztrp).
 
-Suspense não é uma biblioteca de busca de dados. É um **mecanismo para as bibliotecas de busca de dados** comunicar para o React que *os dados que um componente está lendo ainda não estão prontos*. O React pode esperar que esteja pronto e atualizar a UI. No Facebook, usamos o Relay e sua [nova integração com Suspense](https://relay.dev/docs/en/experimental/a-guided-tour-of-relay#loading-states-with-suspense). Esperamos que outras bibliotecas como Apollo possam fornecer integrações semelhantes.
+Suspense não é uma biblioteca de busca de dados. É um **mecanismo para as bibliotecas de busca de dados** para comunicar o React que *os dados que um componente está lendo ainda não estão prontos*. O React pode esperar que esteja pronto e atualizar a UI. No Facebook, usamos o Relay e sua [nova integração com Suspense](https://relay.dev/docs/en/experimental/step-by-step). Esperamos que outras bibliotecas como Apollo possam fornecer integrações semelhantes.
 
 A longo prazo, pretendemos que o Suspense se torne a principal maneira de ler dados assíncronos dos componentes -- não importa de onde esses dados sejam provenientes.
 
@@ -112,7 +123,7 @@ Então, qual é o sentido do Suspense? Existem algumas maneiras de responder a i
 
 ## Usando Suspense na Prática {#using-suspense-in-practice}
 
-No Facebook, até agora, usamos apenas a integração do Relay com o Suspense em produção. **Se você está procurando um guia prático para começar hoje, [confira o Guia do Relay](https://relay.dev/docs/en/experimental/a-guided-tour-of-relay)!** Ele demonstra padrões que já funcionaram bem para nós em produção.
+No Facebook, até agora, usamos apenas a integração do Relay com o Suspense em produção. **Se você está procurando um guia prático para começar hoje, [confira o Guia do Relay](https://relay.dev/docs/en/experimental/step-by-step)!** Ele demonstra padrões que já funcionaram bem para nós em produção.
 
 **As demos de código desta página usam uma implementação de API "fake" no lugar do Relay.** Isso os torna mais fáceis de entender se você não estiver familiarizado com o GraphQL, mas eles não mostrarão o "caminho certo" para criar um aplicativo com o Suspense. Esta página é mais conceitual e tem como objetivo ajudá-lo a entender *por que* o Suspense funciona de uma certa maneira e quais problemas ele resolve.
 
@@ -128,9 +139,9 @@ Você também pode escrever sua própria integração para uma biblioteca de bus
 
 Esperamos ver muitas experiências na comunidade com outras bibliotecas. Há uma coisa importante a ser observada para os autores de bibliotecas de busca de dados.
 
-Embora seja tecnicamente possível, o Suspense **não** se destina atualmente como uma maneira de começar a buscar dados quando um componente é renderizado. Em vez disso, permite que os componentes expressem que estão "aguardando" os dados que *já estão sendo buscados*. A menos que você tenha uma idéia para uma solução que ajude a evitar cascatas, sugerimos que você prefira APIs que favorecem ou reforçam a busca antes da renderização. A documentação atual da [API do Relay Suspense](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) ainda não se aprofundou no pré-carregamento, mas planejamos publicar mais sobre essas técnicas em um futuro próximo.
+Embora seja tecnicamente possível, o Suspense **não** se destina atualmente como uma maneira de começar a buscar dados quando um componente é renderizado. Em vez disso, permite que os componentes expressem que estão "aguardando" os dados que *já estão sendo buscados*. **[Criando Excelentes Experiências de Usuário com o Modo de Concorrência e Suspense](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html)descreve por que isso é importante e como implementar esse padrão na prática.**
 
-Nossas mensagens sobre isso não foram muito consistentes no passado. O Suspense para Busca de Dados ainda é experimental, portanto, você pode esperar que nossas recomendações mudem com o tempo, à medida que aprendemos mais sobre o uso em produção e entendemos melhor o espaço do problema.
+A menos que você tenha uma solução que ajude a evitar cascatas, sugerimos que você prefira APIs que favorecem ou reforçam a busca antes da renderização. Para um exemplo concreto, você pode ver como [API de Relay Suspense](https://relay.dev/docs/en/experimental/api-reference#usepreloadedquery) impõe o pré-carregamento. Nossas mensagens sobre isso não foram muito consistentes no passado. O Suspense para Busca de Dados ainda é experimental, portanto, você pode esperar que nossas recomendações mudem com o tempo, à medida que aprendemos mais sobre o uso em produção e entendemos melhor o espaço do problema.
 
 ## Abordagens Tradicionais vs Suspense {#traditional-approaches-vs-suspense}
 
@@ -363,6 +374,56 @@ Este objeto `resource` representa os dados que ainda não existem, mas que podem
 Isso tem uma implicação interessante. Mesmo se usarmos um cliente GraphQL que coleta todos os requisitos de dados em uma única requisição, *o streaming da resposta nos permite mostrar mais conteúdo mais rapidamente*. Como renderizamos-*à-medida-que-buscamos* (ao contrário de *depois* de buscar), se `user` aparecer na resposta antes dos `posts`, poderemos "desbloquear" o boundary externo do `<Suspense>` antes que a resposta termine. Podemos ter esquecido isso antes, mas mesmo a solução busca-então-renderiza continha uma cascata: entre buscar e renderizar. O Suspense não sofre inerentemente dessa cascata, e bibliotecas como o Relay tiram proveito disso.
 
 Observe como eliminamos as verificações `if (...)` "carregando" de nossos componentes. Isso não apenas remove código repetitivo, mas também simplifica fazermos alterações rápidas no design. Por exemplo, se quisermos que os detalhes e as postagens do perfil sempre "apareçam" juntos, poderemos excluir o boundary do `<Suspense>` entre eles. Ou poderíamos torná-los independentes um do outro, atribuindo a cada um *seu próprio* boundary `<Suspense>`. O Suspense nos permite alterar a granularidade de nossos states de carregamento e orquestrar seu sequenciamento sem alterações invasivas em nosso código.
+
+## Comece a Buscar Cedo {#start-fetching-early}
+
+Se você estiver trabalhando em uma biblioteca de busca de dados, há um aspecto crucial do Render-as-You-Fetch que você não deseja perder. **Iniciamos a busca _antes_ da renderização.** Veja este exemplo de código mais de perto:
+
+```js
+// Comece a buscar cedo!
+const resource = fetchProfileData();
+
+// ...
+
+function ProfileDetails() {
+  // Tente ler as informações do usuário
+  const user = resource.user.read();
+  return <h1>{user.name}</h1>;
+}
+```
+
+**[Experimente no CodeSandbox](https://codesandbox.io/s/frosty-hermann-bztrp)**
+
+Note que a chamada `read()` neste exemplo não *inicia* a busca. Ele apenas tenta ler os dados **que já estão sendo buscados**. Essa diferença é crucial para criar aplicativos rápidos com o Suspense. Não queremos atrasar o carregamento de dados até que um componente comece a renderizar. Como autor da biblioteca de busca de dados, você pode impor isso, tornando impossível obter um objeto `resource` sem também iniciar uma busca. Todas as demonstrações nesta página usando nossa "API falsa" impõem isso.
+
+Você pode objetar que a busca "no nível superior", como neste exemplo, é impraticável. O que faremos se navegarmos para a página de outro perfil? Podemos querer buscar com base em adereços. A resposta é **queremos começar a buscar os manipuladores de eventos**. Aqui está um exemplo simplificado de navegação entre as páginas do usuário:
+
+```js{1,2,10,11}
+// Primeira busca: o mais rápido possível
+const initialResource = fetchProfileData(0);
+
+function App() {
+  const [resource, setResource] = useState(initialResource);
+  return (
+    <>
+      <button onClick={() => {
+        const nextUserId = getNextId(resource.userId);
+        // Próxima busca: quando o usuário clicar
+        setResource(fetchProfileData(nextUserId));
+      }}>
+        Next
+      </button>
+      <ProfilePage resource={resource} />
+    </>
+  );
+}
+```
+
+**[Experimente no CodeSandbox](https://codesandbox.io/s/infallible-feather-xjtbu)**
+
+Com essa abordagem, podemos **buscar código e dados em paralelo**. Quando navegamos entre as páginas, não precisamos esperar o código de uma página carregar para começar a carregar seus dados. Podemos começar a buscar código e dados ao mesmo tempo (durante o clique no link), proporcionando uma experiência de usuário muito melhor.
+
+Isso coloca uma questão de como sabemos *o que* buscar antes de renderizar a próxima tela. Existem várias maneiras de resolver isso (por exemplo, integrando a busca de dados mais próxima à sua solução de roteamento). Se você trabalha em uma biblioteca de busca de dados, [Criando Excelentes Experiências de Usuário com o Modo de Concorrência e Suspense](/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html) apresenta um mergulho profundo sobre como fazer isso e por que é importante.
 
 ### Ainda Estamos Descobrindo Isso {#were-still-figuring-this-out}
 
