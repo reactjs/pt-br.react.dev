@@ -3,15 +3,14 @@ title: "(A => B) !=> (B => A)"
 author: [jimfb]
 ---
 
-The documentation for `componentWillReceiveProps` states that `componentWillReceiveProps` will be invoked when the props change as the result of a rerender. Some people assume this means "if `componentWillReceiveProps` is called, then the props must have changed", but that conclusion is logically incorrect.
+A documentação para `componentWillReceiveProps` diz que `componentWillReceiveProps` será invocado quando as props mudam como resultado de uma re-renderização. Algumas pessoas assumem que isso significa "se `componentWillReceiveProps` é chamado, então as props devem ter mudado", mas essa conclusão é logicamente incorreta.
 
-The guiding principle is one of my favorites from formal logic/mathematics:
- > A implies B does not imply B implies A
+O princípio orientador é um dos meus favoritos da lógica/matemática formal:
+ > A implica B não implica B implica A
 
-Example: "If I eat moldy food, then I will get sick" does not imply "if I am sick, then I must have eaten moldy food". There are many other reasons I could be feeling sick. For instance, maybe the flu is circulating around the office. Similarly, there are many reasons that `componentWillReceiveProps` might get called, even if the props didn’t change.
+Exemplo: "Se eu comer comida mofada, eu ficarei doente" não implica "se estou doente, então eu devo ter comido comida mofada". Existem muitas outras razões pelas quais eu poderia estar me sentindo doente. Por exemplo, a gripe tem circulado no escritório. Da mesma forma, existem várias razões para que `componentWillReceiveProps` seja chamado, mesmo que as props não tenham mudado.
 
-If you don’t believe me, call `ReactDOM.render()` three times with the exact same props, and try to predict the number of times `componentWillReceiveProps` will get called:
-
+Se você não acredita em mim, chame `ReactDOM.render()` três vezes com exatamente as mesmas props, e tente prever o número de vezes que `componentWillReceiveProps` será chamado:
 
 ```js
 class Component extends React.Component {
@@ -31,10 +30,9 @@ ReactDOM.render(<Component data={mydata} />, container);
 ReactDOM.render(<Component data={mydata} />, container);
 ```
 
+Neste caso, a resposta é "2". React chama `componentWillReceiveProps` duas vezes (uma vez para cada um dos dois updates). Nas duas vezes, o valor "drinks" é impresso (isto é, as props não mudaram).
 
-In this case, the answer is "2". React calls `componentWillReceiveProps` twice (once for each of the two updates). Both times, the value of "drinks" is printed (ie. the props didn’t change).
-
-To understand why, we need to think about what *could* have happened. The data *could* have changed between the initial render and the two subsequent updates, if the code had performed a mutation like this:
+Para entender o porquê, precisamos pensar no que *poderia* ter acontecido. Os dados *poderiam* ter mudado entre a renderização inicial e as duas atualizações subsequentes, se o código tivesse realizado uma mutação como essa:
 
 ```js
 var mydata = {bar: 'drinks'};
@@ -45,16 +43,14 @@ mydata.bar = 'noise'
 ReactDOM.render(<Component data={mydata} />, container);
 ```
 
-React has no way of knowing that the data didn’t change. Therefore, React needs to call `componentWillReceiveProps`, because the component needs to be notified of the new props (even if the new props happen to be the same as the old props).
+React não tem como saber que os dados não foram alterados. Portanto, React precisa chamar `componentWillReceiveProps`, porque o componente precisa ser notificado sobre as novas props (mesmo se as novas props forem iguais as props antigas).
 
-You might think that React could just use smarter checks for equality, but there are some issues with this idea:
+Você pode pensar que o React poderia apenas usar verificações mais inteligentes para igualidade, mas há alguns problemas com essa ideia:
 
- * The old `mydata` and the new `mydata` are actually the same physical object (only the object’s internal value changed). Since the references are triple-equals-equal, doing an equality check doesn’t tell us if the value has changed. The only possible solution would be to have created a deep copy of the data, and then later do a deep comparison - but this can be prohibitively expensive for large data structures (especially ones with cycles).
- * The `mydata` object might contain references to functions which have captured variables within closures. There is no way for React to peek into these closures, and thus no way for React to copy them and/or verify equality.
- * The `mydata` object might contain references to objects which are re-instantiated during the parent's render (ie. not triple-equals-equal) but are conceptually equal (ie. same keys and same values). A deep-compare (expensive) could detect this, except that functions present a problem again because there is no reliable way to compare two functions to see if they are semantically equivalent.
+ * O antigo `mydata` e o novo `mydata` são na verdade o mesmo objeto físico (apenas o valor interno do objeto mudou). Como as referências são triplamente iguais, fazer uma verificação de igualdade não nos diz se o valor mudou. A única solução possível seria ter criado uma cópia profunda dos dados e, posteriormente, fazer uma comparação profunda - mas isso pode ser proibitivamente caro para grandes estruturas de dados (especialmente aquelas com ciclos).
+ * O objeto `mydata` pode conter referências para funções que capturaram variáveis dentro de clausuras. Não há como o React espiar dentro dessas clausuras e, portanto, não há como o React copiá-las e/ou verificar sua igualdade.
+ * O objeto `mydata` pode conter referências a objetos que são re-instanciados durante uma re-renderização do pai (ou seja, não são triplamente igual) mas são conceitualmente iguais (ou seja, mesmas chaves e mesmos valores). Uma comparação profunda (cara) poderia detectar isso, exceto que as funções apresentam um problema novamente porque não há uma forma confiável para comparar duas funções para verificar se elas são semanticamente equivalentes.
 
-Given the language constraints, it is sometimes impossible for us to achieve meaningful equality semantics. In such cases, React will call `componentWillReceiveProps` (even though the props might not have changed) so the component has an opportunity to examine the new props and act accordingly.
+Dadas as restrições da linguagem, às vezes é impossível alcançarmos semânticas de igualdade significativas. Nesses casos, o React irá chamar `componentWillReceiveProps` (mesmo que as props não tenham mudado) para que o componente tenha a oportunidade de examinar as novas props e agir de acordo.
 
-As a result, your implementation of `componentWillReceiveProps` MUST NOT assume that your props have changed. If you want an operation (such as a network request) to occur only when props have changed, your `componentWillReceiveProps` code needs to check to see if the props actually changed.
-
-
+Como resultado, sua implementação do `componentWillReceiveProps` NÂO DEVE assumir que suas props foram alteradas. Se você deseja que uma operação (como uma solicitação de rede) ocorra apenas quando props foram alteradas, o código do `componentWillReceiveProps` precisa verificar se as props foram realmente alteradas.
