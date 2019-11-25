@@ -62,6 +62,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/) 
 
+### React Loop 2020 {#react-loop-2020}
+June 19, 2020. Chicago, Illinois, USA.
+
+[Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
+
 ### React Week NY 2020 {#react-week-ny-2020}
 17 de julho, 2020. Nova Iorque, USA.
 
