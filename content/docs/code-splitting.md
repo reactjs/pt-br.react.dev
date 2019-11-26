@@ -84,12 +84,6 @@ import("./math").then(math => {
 });
 ```
 
-> Nota:
->
-> A sintaxe dinâmica `import()` é uma [proposta](https://github.com/tc39/proposal-dynamic-import)
-> ECMAScript (JavaScript) que ainda não faz parte da linguagem.
-> Espera-se que seja aceita em breve.
-
 Quando o Webpack encontra esta sintaxe, automaticamente ele divide o código de sua aplicação.
 Se você está usando o Create React App, isto já está configurado e você pode
 [começar a usá-lo](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting) imediatamente. Também é suportado por padrão no [Next.js](https://github.com/zeit/next.js/#dynamic-import).

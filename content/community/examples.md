@@ -10,8 +10,8 @@ Existem vários projetos de exemplos criados pela comunidade do React. Sinta-se 
 
 * **[Calculator](https://github.com/ahfarmer/calculator)** Implementação da calculadora para iOS construída em React.
 * **[Emoji Search](https://github.com/ahfarmer/emoji-search)** App Simples em React para procurar emojis.
-* **[Github Battle App](https://tm.dev/react-course-project/)** Batalhe com outro usuário do GitHub e veja os projetos mais populares no GitHub em qualquer linguagem.
-* **[React Powered Hacker News Client](https://github.com/insin/react-hn)** Uma implementação do React e react-router-powered sobre Hacker News usando a sua API do Firebase.
+* **[GitHub Battle App](https://tm.dev/react-course-project/)** Batalhe com outro usuário do GitHub e veja os projetos mais populares no GitHub em qualquer linguagem.
+* **[React Powered Hacker News Client](https://github.com/insin/react-hn)** Uma implementação do React e `react-router`-powered sobre Hacker News usando a sua API do Firebase.
 * **[Pokedex](https://github.com/alik0211/pokedex)** Uma lista de Pokémons com pesquisa em tempo real.
 * **[Shopping Cart](https://github.com/jeffersonRibeiro/react-shopping-cart)** Aplicação simples de carrinho para e-commerce construída usando React.
 * **[Progressive Web Tetris](https://github.com/skidding/flatris)** Além de uma implementação bonita e amigável de Tetris, este projeto é um playgroud para integrar e experimentar tecnologias web.
