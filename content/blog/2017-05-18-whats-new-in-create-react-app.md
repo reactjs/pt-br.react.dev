@@ -77,17 +77,17 @@ In this release, we are adding support for the [dynamic `import()` proposal](htt
 
 ![Creating chunks with dynamic import](../images/blog/cra-dynamic-import.gif)
 
-### Better Console Output {#better-console-output}
+### Melhor Saída do Console {#better-console-output}
 
->*This change was contributed by [@gaearon](https://github.com/gaearon) in [#2120](https://github.com/facebookincubator/create-react-app/pull/2120), [#2125](https://github.com/facebookincubator/create-react-app/pull/2125), and [#2161](https://github.com/facebookincubator/create-react-app/pull/2161).*
+>*Esta mudança foi uma contribuição de [@gaearon](https://github.com/gaearon) em [#2120](https://github.com/facebookincubator/create-react-app/pull/2120), [#2125](https://github.com/facebookincubator/create-react-app/pull/2125) e [#2161](https://github.com/facebookincubator/create-react-app/pull/2161).*
 
-We have improved the console output across the board.
+Melhoramos a saída do console de maneira geral.
 
-For example, when you start the development server, we now display the LAN address in additional to the localhost address so that you can quickly access the app from a mobile device on the same network:
+Por exemplo, quando você inicia o servidor de desenvolvimento, agora exibimos o endereço da LAN em adicional ao endereço do host local, assim você pode facilmente acessar a aplicação a partir de um dispositivo móvel na mesma network:
 
-![Better console output](../images/blog/cra-better-output.png) 
+![Melhor saída do console](../images/blog/cra-better-output.png)
 
-When lint errors are reported, we no longer show the warnings so that you can concentrate on more critical issues. Errors and warnings in the production build output are better formatted, and the build error overlay font size now matches the browser font size more closely.
+Quando erros de lint são reportados, não mostramos mais os avisos para que você poossa se concentrar em problemas mais críticos. Erros e avisos no build de produção estão melhores formatados e o tamanho da fonte do overlay de erro do build agora corresponde com o tamanho de fonte mais próximo no browser.
 
 ### Mas espere... Há Mais! {#but-wait-theres-more}
 
