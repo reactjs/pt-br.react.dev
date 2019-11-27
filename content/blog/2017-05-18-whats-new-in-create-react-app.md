@@ -95,11 +95,11 @@ You can only fit so much in a blog post, but there are other long-requested feat
 
 You can read the full changelog and the migration guide in the [v1.0.0 release notes](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
 
-### Acknowledgements {#acknowledgements}
+### Agradecimentos {#acknowledgements}
 
-This release is a result of months of work from many people in the React community. It is focused on improving both developer and end user experience, as we believe they are complementary and go hand in hand.
+Está versão é o resultado de meses de trabalho de muitas pessoas na comunidade React. Ela tem como objetivo melhorar a experiência do desenvolvedor e do usuário, pois acreditamos que elas são coplementares e amdam de mãos dadas.
 
-We are grateful to [everyone who has offered their contributions](https://github.com/facebookincubator/create-react-app/graphs/contributors), whether in code, documentation, or by helping other people. We would like to specifically thank [Joe Haddad](https://github.com/timer) for his invaluable help maintaining the project.
+Somos gratos a [todos que contribuiram](https://github.com/facebookincubator/create-react-app/graphs/contributors), seja com código, documentação, ou ajudando outras pessoas. Gostaríamos de agradecer especialmente [Joe Haddad](https://github.com/timer) pela sua ajuda inestimável na menutenção do projeto. 
 
-We are excited to bring these improvements to everybody using Create React App, and we are looking forward to more of your feedback and contributions.
+Estamos empolgados em trazer essas melhorias para todos que usam o Create React App, e estamos ansiosos por mais dos seus comentários e contribuições.
 
