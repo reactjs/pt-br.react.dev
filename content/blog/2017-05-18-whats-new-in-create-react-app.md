@@ -89,11 +89,11 @@ For example, when you start the development server, we now display the LAN addre
 
 When lint errors are reported, we no longer show the warnings so that you can concentrate on more critical issues. Errors and warnings in the production build output are better formatted, and the build error overlay font size now matches the browser font size more closely.
 
-### But Wait... There's More! {#but-wait-theres-more}
+### Mas espere... Há Mais! {#but-wait-theres-more}
 
-You can only fit so much in a blog post, but there are other long-requested features in this release, such as [environment-specific and local `.env` files](https://github.com/facebookincubator/create-react-app/pull/1344), [a lint rule against confusingly named globals](https://github.com/facebookincubator/create-react-app/pull/2130), [support for multiple proxies in development](https://github.com/facebookincubator/create-react-app/pull/1790), [a customizable browser launch script](https://github.com/facebookincubator/create-react-app/pull/1590), and many bugfixes.
+Você não pode encaixar tudo em uma postagem de blog, mas há outros recursos solicitados há muito tempo nesta versão, como [arquivos `.env` específicos de ambiente e locais](https://github.com/facebookincubator/create-react-app/pull/1344), [uma regra de lint contra globais com nomes confusos](https://github.com/facebookincubator/create-react-app/pull/2130), [suporte para vários proxies em desenvolvimento](https://github.com/facebookincubator/create-react-app/pull/1790), [um script de inicialização do navegador personalizável](https://github.com/facebookincubator/create-react-app/pull/1590) e muitas correções de bugs.
 
-You can read the full changelog and the migration guide in the [v1.0.0 release notes](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
+Você pode ler o registro de alterações completo e o guia de migração nas [notas da versão v1.0.0](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
 
 ### Agradecimentos {#acknowledgements}
 
