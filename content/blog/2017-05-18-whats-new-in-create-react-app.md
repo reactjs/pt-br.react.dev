@@ -67,15 +67,15 @@ Os destaques incluem um novo [modo de onservação imersivo](https://facebook.gi
 
 Além disso, o Create React App agora suporta a configuração de algumas opções do Jest relacionadas aos relatórios de cobertura.
 
-### Code Splitting with Dynamic import() {#code-splitting-with-dynamic-import}
+### Divisão de código com import() dinâmico {#code-splitting-with-dynamic-import}
 
->*This change was contributed by [@Timer](https://github.com/Timer) in [#1538](https://github.com/facebookincubator/create-react-app/pull/1538) and [@tharakawj](https://github.com/tharakawj) in [#1801](https://github.com/facebookincubator/create-react-app/pull/1801).*
-   
-It is important to keep the initial JavaScript payload of web apps down to the minimum, and [load the rest of the code on demand](https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-2-page-load-performance-33b932d97cf2). Although Create React App supported [code splitting](https://webpack.js.org/guides/code-splitting-async/) using `require.ensure()` since the first release, it used a webpack-specific syntax that did not work in Jest or other environments.
-   
-In this release, we are adding support for the [dynamic `import()` proposal](http://2ality.com/2017/01/import-operator.html#loading-code-on-demand) which aligns with the future web standards. Unlike `require.ensure()`, it doesn't break Jest tests, and should eventually become a part of JavaScript. We encourage you to use `import()` to delay loading the code for non-critical component subtrees until you need to render them.
+>*Esta mudança foi uma contribuição de [@Timer](https://github.com/Timer) em [#1538](https://github.com/facebookincubator/create-react-app/pull/1538) e [@tharakawj](https://github.com/tharakawj) em [#1801](https://github.com/facebookincubator/create-react-app/pull/1801).*
 
-![Creating chunks with dynamic import](../images/blog/cra-dynamic-import.gif)
+É importante manter a carga JavaScript inicial de aplicações web no mínimo e [carregar o restante do código sob demanda](https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-2-page-load-performance-33b932d97cf2). Embora o Create React App seja compatível com [divisão de código](https://webpack.js.org/guides/code-splitting-async/) usando `require.ensure()` desde o primeiro lançamento, ele usou uma sintaxe específica do webpack que não funcionou no Jest ou em outros ambientes.
+   
+Nesta versão, estamos adicionando suporte à proposta [dynamic `import()`](http://2ality.com/2017/01/import-operator.html#loading-code-on-demand), que se alinha com o futuros padrões da web. Ao contrário do `require.ensure()`, ele não quebra os testes do Jest e deve se tornar parte do JavaScript. Recomendamos que você use `import()` para atrasar o carregamento do código para subárvores de componentes não críticos até que você precise renderizá-los.
+   
+![Criando chunks com importação dinâmica](../images/blog/cra-dynamic-import.gif)
 
 ### Melhor Saída do Console {#better-console-output}
 
