@@ -1,6 +1,6 @@
 ---
 id: concurrent-mode-reference
-title: Concurrent Mode API Reference (Experimental)
+title: Referência da API do Modo Concorrente (Experimental)
 permalink: docs/concurrent-mode-reference.html
 prev: concurrent-mode-adoption.html
 ---
@@ -14,19 +14,19 @@ prev: concurrent-mode-adoption.html
 
 <div class="scary">
 
->Caution:
+>Cuidado:
 >
->This page describes **experimental features that are [not yet available](/docs/concurrent-mode-adoption.html) in a stable release**. Don't rely on experimental builds of React in production apps. These features may change significantly and without a warning before they become a part of React.
+>Esta página descreve os **recursos experimentais que ainda [não estão disponíveis](/docs/concurrent-mode-adoption.html) em um release estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
 >
->This documentation is aimed at early adopters and people who are curious. **If you're new to React, don't worry about these features** -- you don't need to learn them right now.
+>Esta documentação é destinada a adotante precoces e pessoas curiosas. **Se você é novo no React, não se preocupe com esses recursos** -- não precisa aprendê-los agora.
 
 </div>
 
-This page is an API reference for the React [Concurrent Mode](/docs/concurrent-mode-intro.html). If you're looking for a guided introduction instead, check out [Concurrent UI Patterns](/docs/concurrent-mode-patterns.html).
+Esta página é uma referência de API para o [Modo Concurrent](/docs/concurrent-mode-intro.html) do React. Se você está procurando uma introdução guiada, confira [Padrões de UI Concorrente](/docs/concurrent-mode-patterns.html).
 
-**Note: This is a Community Preview and not the final stable version. There will likely be future changes to these APIs. Use at your own risk!**
+**Nota: Esta é uma Prévia da Comunidade e não a versão estável final. Provavelmente haverá mudanças futuras nessas APIs. Use por sua conta e risco!**
 
-- [Enabling Concurrent Mode](#concurrent-mode)
+- [Ativando o Modo Concorrente](#concurrent-mode)
     - [`createRoot`](#createroot)
     - [`createBlockingRoot`](#createblockingroot)
 - [Suspense](#suspense)
@@ -35,7 +35,7 @@ This page is an API reference for the React [Concurrent Mode](/docs/concurrent-m
     - [`useTransition`](#usetransition)
     - [`useDeferredValue`](#usedeferredvalue)
 
-## Enabling Concurrent Mode {#concurrent-mode}
+## Ativando o Modo Concorrente {#concurrent-mode}
 
 ### `createRoot` {#createroot}
 
@@ -43,9 +43,9 @@ This page is an API reference for the React [Concurrent Mode](/docs/concurrent-m
 ReactDOM.createRoot(rootNode).render(<App />);
 ```
 
-Replaces `ReactDOM.render(<App />, rootNode)` and enables Concurrent Mode.
+Substitui o `ReactDOM.render(<App />, rootNode)` e ativa o Modo Concorrente.
 
-For more information on Concurrent Mode, check out the [Concurrent Mode documentation.](/docs/concurrent-mode-intro.html)
+Para mais informações sobre o Modo Concorrente, consulte a [documentação do Modo Concorrente.](/docs/concurrent-mode-intro.html)
 
 ### `createBlockingRoot` {#createblockingroot}
 
@@ -53,61 +53,61 @@ For more information on Concurrent Mode, check out the [Concurrent Mode document
 ReactDOM.createBlockingRoot(rootNode).render(<App />)
 ```
 
-Replaces `ReactDOM.render(<App />, rootNode)` and enables [Blocking Mode](/docs/concurrent-mode-adoption.html#migration-step-blocking-mode).
+Substitui o `ReactDOM.render(<App />, rootNode)` e ativa o [Modo Bloqueante](/docs/concurrent-mode-adoption.html#migration-step-blocking-mode).
 
-Opting into Concurrent Mode introduces semantic changes to how React works. This means that you can't use Concurrent Mode in just a few components. Because of this, some apps may not be able to migrate directly to Concurrent Mode. 
+A opção pelo Modo Concorrente introduz alterações semânticas em como o React funciona. Isso significa que você não pode usar o Modo Concorrente em apenas alguns componentes. Por causa disso, alguns apps podem não conseguir migrar diretamente para o Modo Concorrente.
 
-Blocking Mode only contains a small subset of Concurrent Mode features and is intended as an intermediary migration step for apps that are unable to migrate directly.
+Modo Bloqueante contém apenas um pequeno subconjunto de recursos do Modo Concorrente e serve como uma etapa intermediária de migração para apps que não conseguem migrar diretamente.
 
 ## Suspense API {#suspense}
 
 ### `Suspense` {#suspensecomponent}
 
 ```js
-<Suspense fallback={<h1>Loading...</h1>}>
+<Suspense fallback={<h1>Carregando...</h1>}>
   <ProfilePhoto />
   <ProfileDetails />
 </Suspense>
 ```
 
-`Suspense` lets your components "wait" for something before they can render, showing a fallback while waiting.
+`Suspense` permite que seus componentes "esperem" por algo antes que eles possam renderizar, mostrando um fallback enquanto aguardam.
 
-In this example, `ProfileDetails` is waiting for an asynchronous API call to fetch some data. While we wait for `ProfileDetails` and `ProfilePhoto`, we will show the `Loading...` fallback instead. It is important to note that until all children inside `<Suspense>` has loaded, we will continue to show the fallback.
+Neste exemplo, `ProfileDetails` está aguardando uma chamada de API assíncrona para buscar alguns dados. Enquanto aguardamos o `ProfileDetails` e o `ProfilePhoto`, mostraremos o `Carregando...` como fallback. É importante observar que até que todos os filhos dentro de `<Suspense>` sejam carregados, continuaremos a mostrar o fallback.
 
-`Suspense` takes two props:
-* **fallback** takes a loading indicator. The fallback is shown until all of the children of the `Suspense` component have finished rendering.
-* **unstable_avoidThisFallback** takes a boolean. It tells React whether to "skip" revealing this boundary during the initial load. This API will likely be removed in a future release.
+`Suspense` recebe duas props:
+* **fallback** recebe um indicador de carregamento. O fallback é mostrado até que todos os filhos do componente `Suspense` tenham concluído a renderização.
+* **unstable_avoidThisFallback** recebe um boolean. Isso diz ao React se deve "pular" revelando esse limite durante o carregamento inicial. Essa API provavelmente será removida em uma versão futura.
 
 ### `<SuspenseList>` {#suspenselist}
 
 ```js
 <SuspenseList revealOrder="forwards">
-  <Suspense fallback={'Loading...'}>
+  <Suspense fallback={'Carregando...'}>
     <ProfilePicture id={1} />
   </Suspense>
-  <Suspense fallback={'Loading...'}>
+  <Suspense fallback={'Carregando...'}>
     <ProfilePicture id={2} />
   </Suspense>
-  <Suspense fallback={'Loading...'}>
+  <Suspense fallback={'Carregando...'}>
     <ProfilePicture id={3} />
   </Suspense>
   ...
 </SuspenseList>
 ```
 
-`SuspenseList` helps coordinate many components that can suspend by orchestrating the order in which these components are revealed to the user.
+`SuspenseList` ajuda a coordenar muitos componentes que podem ser suspensos, orquestrando a ordem em que esses componentes são revelados ao usuário.
 
-When multiple components need to fetch data, this data may arrive in an unpredictable order. However, if you wrap these items in a `SuspenseList`, React will not show an item in the list until previous items have been displayed (this behavior is adjustable).
+Quando vários componentes precisam buscar dados, esses dados podem chegar em uma ordem imprevisível. No entanto, se você agrupar esses itens em um `SuspenseList`, React não mostrará um item na lista até que os itens anteriores sejam exibidos (esse comportamento é ajustável).
 
-`SuspenseList` takes two props:
-* **revealOrder (forwards, backwards, together)** defines the order in which the `SuspenseList` children should be revealed.
-  * `together` reveals *all* of them when they're ready instead of one by one.
-* **tail (collapsed, hidden)** dictates how unloaded items in a `SuspenseList` is shown. 
-    * By default, `SuspenseList` will show all fallbacks in the list.
-    * `collapsed` shows only the next fallback in the list.
-    * `hidden` doesn't show any unloaded items.
+`SuspenseList` recebe duas props:
+* **revealOrder (forwards, backwards, together)** define a ordem em que os filhos de `SuspenseList` devem ser reveladas.
+  * `together` revela *todos* eles quando estiverem prontos em vez de um por um.
+* **tail (collapsed, hidden)** determina como os itens não-carregados em um `SuspenseList` são mostrados. 
+    * Por padrão, `SuspenseList` mostrará todos os fallbacks na lista.
+    * `collapsed` mostra apenas o próximo fallback na lista.
+    * `hidden` não mostra nenhum item não-carregado.
 
-Note that `SuspenseList` only operates on the closest `Suspense` and `SuspenseList` components below it. It does not search for boundaries deeper than one level. However, it is possible to nest multiple `SuspenseList` components in each other to build grids.
+Observe que `SuspenseList` funciona apenas nos componentes `Suspense` e `SuspenseList` mais próximos abaixo dele. Ele não procura por componentes mais profundos que um nível. No entanto, é possível aninhar múltiplos componentes `SuspenseList` um no outro para construir grades.
 
 ### `useTransition` {#usetransition}
 
@@ -117,13 +117,13 @@ const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 const [startTransition, isPending] = useTransition(SUSPENSE_CONFIG);
 ```
 
-`useTransition` allows components to avoid undesirable loading states by waiting for content to load before **transitioning to the next screen**. It also allows components to defer slower, data fetching updates until subsequent renders so that more crucial updates can be rendered immediately.
+`useTransition` permite que os componentes evitem estados de carregamento indesejáveis, aguardando o carregamento do conteúdo antes da **transição para a próxima tela**. Ele também permite que os componentes adiem atualizações de busca de dados mais lentas até as renderizações subsequentes, para que atualizações mais cruciais possam ser renderizadas imediatamente.
 
-The `useTransition` hook returns two values in an array.
-* `startTransition` is a function that takes a callback. We can use it to tell React which state we want to defer.
-* `isPending` is a boolean. It's React's way of informing us whether we're waiting for the transition to finish.
+O hook `useTransition` retorna dois valores em um array.
+* `startTransition` é uma função que recebe um callback. Podemos usá-lo para dizer ao React qual estado queremos adiar.
+* `isPending` é um boolean. É a maneira do React de nos informar se estamos esperando a transição terminar.
 
-**If some state update causes a component to suspend, that state update should be wrapped in a transition.**
+**Se alguma atualização de estado fizer com que um componente seja suspenso, essa atualização de estado deverá ser agrupada em uma transição.**
 
 ```js
 const SUSPENSE_CONFIG = {timeoutMs: 2000 };
@@ -142,9 +142,9 @@ function App() {
           });
         }}
       >
-        Next
+        Próximo
       </button>
-      {isPending ? " Loading..." : null}
+      {isPending ? " Carregando..." : null}
       <Suspense fallback={<Spinner />}>
         <ProfilePage resource={resource} />
       </Suspense>
@@ -153,21 +153,21 @@ function App() {
 }
 ```
 
-In this code, we've wrapped our data fetching with `startTransition`. This allows us to start fetching the profile data right away, while deferring the render of the next profile page and its associated `Spinner` for 2 seconds (the time shown in `timeoutMs`).
+Nesse código, agrupamos nossa busca de dados com `startTransition`. Isso nos permite começar a buscar os dados do perfil imediatamente, enquanto adia a renderização da próxima página de perfil e seu `Spinner` por 2 segundos (o tempo apresentado em `timeoutMs`).
 
-The `isPending` boolean lets React know that our component is transitioning, so we are able to let the user know this by showing some loading text on the previous profile page.
+O boolean `isPending` informa ao React que nosso componente está em transição, para que possamos informar ao usuário mostrando algum texto de carregando na página de perfil anterior.
 
-**For an in-depth look at transitions, you can read [Concurrent UI Patterns](/docs/concurrent-mode-patterns.html#transitions).**
+**Para uma análise detalhada das transições, você pode ler [Padrões de UI Concorrente](/docs/concurrent-mode-patterns.html#transitions).**
 
-#### useTransition Config {#usetransition-config}
+#### Configuração do useTransition {#usetransition-config}
 
 ```js
 const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 ```
 
-`useTransition` accepts an **optional Suspense Config** with a `timeoutMs`. This timeout (in milliseconds) tells React how long to wait before showing the next state (the new Profile Page in the above example).
+`useTransition` aceita uma **configuração opcional do Suspense** com um `timeoutMs`. Esse timeout (em milissegundos) informa ao React quanto tempo esperar antes de mostrar o próximo estado (a nova página de perfil no exemplo acima).
 
-**Note: We recommend that you share Suspense Config between different modules.**
+**Nota: Recomendamos que você compartilhe a Configuração do Suspense entre diferentes módulos.**
 
 
 ### `useDeferredValue` {#usedeferredvalue}
@@ -176,39 +176,39 @@ const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 const deferredValue = useDeferredValue(value, { timeoutMs: 2000 });
 ```
 
-Returns a deferred version of the value that may "lag behind" it for at most `timeoutMs`.
+Retorna uma versão adiada (defer) do valor que pode "atrasar" por no máximo `timeoutMs`.
 
-This is commonly used to keep the interface responsive when you have something that renders immediately based on user input and something that needs to wait for a data fetch.
+Isso é comumente usado para manter a interface responsiva quando você tem algo que é renderizado imediatamente com base na entrada do usuário e algo que precisa aguardar uma busca de dados.
 
-A good example of this is a text input.
+Um bom exemplo disso é um input de texto.
 
 ```js
 function App() {
-  const [text, setText] = useState("hello");
+  const [text, setText] = useState("Olá");
   const deferredText = useDeferredValue(text, { timeoutMs: 2000 }); 
 
   return (
     <div className="App">
-      {/* Keep passing the current text to the input */}
+      {/* Continua passando o atual texto para o input */}
       <input value={text} onChange={handleChange} />
       ...
-      {/* But the list is allowed to "lag behind" when necessary */}
+      {/* Mas a lista pode "atrasar" quando necessário */}
       <MySlowList text={deferredText} />
     </div>
   );
  }
 ```
 
-This allows us to start showing the new text for the `input` immediately, which allows the webpage to feel responsive. Meanwhile, `MySlowList` "lag behind" for up to 2 seconds according to the `timeoutMs` before updating, allowing it to render with the current text in the background.
+Isso nos permite começar a mostrar o novo texto para o "input" imediatamente, o que permite que a página se sinta responsiva. Enquanto isso, `MySlowList` fica "atrasado" por até 2 segundos, de acordo com o `timeoutMs` antes da atualizar, permitindo que seja renderizado com o texto atual em segundo plano.
 
-**For an in-depth look at deferring values, you can read [Concurrent UI Patterns](/docs/concurrent-mode-patterns.html#deferring-a-value).**
+**Para uma análise detalhada do adiamento de valores, você pode ler [Padrões de UI Concorrente](/docs/concurrent-mode-patterns.html#deferring-a-value).**
 
-#### useDeferredValue Config {#usedeferredvalue-config}
+#### Configuração do useDeferredValue {#usedeferredvalue-config}
 
 ```js
 const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 ```
 
-`useDeferredValue` accepts an **optional Suspense Config** with a `timeoutMs`. This timeout (in milliseconds) tells React how long the deferred value is allowed to lag behind.
+`useDeferredValue` aceita uma **configuração opcional do Suspense** com um `timeoutMs`. Esse tempo limite (em milissegundos) informa ao React quanto tempo o valor adiado pode atrasar.
 
-React will always try to use a shorter lag when network and device allows it.
+O React sempre tentará usar um atraso menor quando a rede e o dispositivo permitirem.
