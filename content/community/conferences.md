@@ -22,6 +22,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Vídeos](https://www.youtube.com/reactdayberlin)
 
+### React Barcamp Cologne 2020 {#react-barcamp-cologne-2020}
+February 1-2, 2020 in Cologne, Germany
+
+[Website](https://react-barcamp.de/) - [Twitter](https://twitter.com/ReactBarcamp) - [Facebook](https://www.facebook.com/reactbarcamp)
+
 ### ReactConf AU 2020 {#reactconfau}
 27 e 28 de fevereiro de 2020 em Sydney, Australia
 
