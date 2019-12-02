@@ -27,7 +27,7 @@ next: concurrent-mode-reference.html
   - [A quem os recursos experimentais se destinam?](#who-is-this-experimental-release-for)
   - [Habilitando o Modo Concorrente](#enabling-concurrent-mode)
 - [O que esperar](#what-to-expect)
-  - [Passo a Passo: Modo Bloqueante](#migration-step-blocking-mode)
+  - [Um passo para a migração: Modo Bloqueante](#migration-step-blocking-mode)
   - [Por que tantos modos?](#why-so-many-modes)
   - [Comparativo de recursos](#feature-comparison)
 
@@ -50,15 +50,15 @@ Você pode testar essas versões nos seus projetos pessoais ou em uma branch, ma
 
 Esta versão é destinada a adotantes precoces, autores de livros e pessoas curiosas.
 
-Nós estamos usando esse código em produção (e funciona para nós), mas ainda possui alguns problemas, recursos faltando e falta de documentação. We'd like to hear more about what breaks in Concurrent Mode so we can better prepare it for an official stable release in the future.
+Nós estamos usando esse código em produção (e funciona para nós), mas ainda possui alguns problemas, recursos faltando e falta de documentação. Nós gostaríamos de saber mais caso algo quebre no Modo Concorrente assim nós podemos ajustar na versão estável que será oficialmente disponibilizada futuramente.
 
 ### Habilitando o Modo Concorrente {#enabling-concurrent-mode}
 
 Normalmente, quando nós adicionamos recursos ao React, você pode começar a usá-lo imediatamente. Fragments, Context e até mesmo Hooks são exemplos desses recursos. Você pode usar em código novo sem fazer nenhuma alteração em código existente.
 
-O Modo Concorrente é diferente. Ele introduz alterações semânticas na forma do React funcionar. Otherwise, the [new features](/docs/concurrent-mode-patterns.html) enabled by it *wouldn't be possible*. Este é o motivo de elas estarem agrupadas em um novo "modo" ao invés de serem liberadas uma a uma isoladamente.
+O Modo Concorrente é diferente. Ele introduz alterações semânticas na forma do React funcionar. Do contrário, os [novos recursos](/docs/concurrent-mode-patterns.html) habilitados por ele *não teriam se tornado possíveis*. Este é o motivo de eles estarem agrupadas em um novo "modo" ao invés de serem liberados um a um isoladamente.
 
-You can't opt into Concurrent Mode on a per-subtree basis. Instead, to opt in, you have to do it in the place where today you call `ReactDOM.render()`.
+Você não pode utilizar o Modo Concorrente apenas em uma sub árvore do seu aplicativo. Para utilizá-lo, você deve incluir no ponto onde atualmente você chama `ReactDOM.render()`.
 
 **Isso irá habilitar o modo concorrente para toda a árvore `<App />`:**
 
@@ -84,11 +84,11 @@ No Modo Concorrente, os métodos do ciclo de vida [anteriormente marcados](https
 
 ## O que esperar {#what-to-expect}
 
-Se você tem uma aplicação existente muito grande, ou se a sua aplicação depende de muitas bibliotecas de terceiros, por favor não espere utilizar o Modo Concorrente imediatamente. **Por exemplo, no Facebook nós estamos usando o Modo Concorrente para o nosso novo website, mas não planejamos habilitá-lo na versão antiga.** Isto porque o nosso website antigo ainda utiliza métodos de ciclo de vida inseguros em código de produção, e alguns padrões que não funcionam bem com o Modo Concorrente.
+Se você tem uma aplicação existente muito grande, ou se a sua aplicação depende de muitas bibliotecas de terceiros, por favor não comece a utilizar o Modo Concorrente imediatamente. **Por exemplo, no Facebook nós estamos usando o Modo Concorrente para o nosso novo website, mas não planejamos habilitá-lo na versão antiga.** Isto porque o nosso website antigo ainda utiliza métodos de ciclo de vida inseguros em código de produção, e alguns padrões que não funcionam bem com o Modo Concorrente.
 
 De acordo com nossa experiência, utlizar os padrões idiomáticos do React no código e não utilizar soluções externas para gerenciamento de estado são a maneira mais fácil de iniciar a utilização do Modo Concorrente. Nós vamos descrever problemas comuns que nós experimentamos e as soluções para cada um deles nas próximas semanas.
 
-### Migration Step: Blocking Mode {#migration-step-blocking-mode}
+### Um passo para a migração: Modo Bloqueante {#migration-step-blocking-mode}
 
 Para códigos antigos, o Modo Concorrente pode ser um passo muito grande. Este é o motivo de nós também termos disponibilizado o novo "Modo Bloqueante" nas versões experimentais do React. Você pode testá-lo substituindo `createRoot` por `createBlockingRoot`. Isso apenas confere uma *pequena parte* dos recursos presentes no Modo Concorrente, mas é mais próximo da forma como o React funciona hoje e pode servir como um passo na migração.
 
@@ -102,7 +102,7 @@ Para recaptular:
 
 Nós acreditamos que é melhor oferecer uma [estratégia de migração gradativa](/docs/faq-versioning.html#commitment-to-stability) do que fazer grandes mudanças — ou então deixar o React estagnado na irrelevância.
 
-Na prática, nós esperamos que a maioria dos aplicativos que hoje estão usando o Modo Legado possam migrar pelo menos para o Modo Bloqueante (se não para o Modo Concorrente). Esta fragmentação pode ser incômoda para bibliotecas que almejam dar suporte para todos os modos em curto prazo. No entanto, gradativamente migrande o ecossistema irá *resolver* problemas que afetam a maioria das bibliotecas no ecossistema do React, bem como  [comportamentos confusos do Suspense quando lê o layout](https://github.com/facebook/react/issues/14536) e [a falta de garantias consistentes de batching](https://github.com/facebook/react/issues/15080). Existe um número grande de problemas que não podem ser resolvidos no Modo Legado sem mudanças na semântica, e que não ocorrem nos modos Bloqueante e Concorrente.
+Na prática, nós esperamos que a maioria dos aplicativos que hoje estão usando o Modo Legado possam migrar pelo menos para o Modo Bloqueante (se não para o Modo Concorrente). Esta fragmentação pode ser incômoda para bibliotecas que almejam dar suporte para todos os modos em curto prazo. No entanto, gradativamente migrande o ecossistema irá *resolver* problemas que afetam a maioria das bibliotecas no ecossistema do React, bem como  [comportamentos confusos do Suspense quando lê o layout](https://github.com/facebook/react/issues/14536) e [a falta de garantias consistentes de gerenciamento em lote](https://github.com/facebook/react/issues/15080). Existe um número grande de problemas que não podem ser resolvidos no Modo Legado sem mudanças na semântica, e que não ocorrem nos modos Bloqueante e Concorrente.
 
 Você pode pensar no Modo Bloqueante como uma versão suavemente degradada do Modo Concorrente. **Como resultado, no longo prazo nós poderemos convergir e parar de pensar em modos diferentes.** Mas não de imediato, Modos são uma importante estratégia de migração. Eles permitem que todos decidam quando a migração vale a pena, e atualizar em seu próprio ritmo.
 
@@ -136,6 +136,6 @@ Você pode pensar no Modo Bloqueante como uma versão suavemente degradada do Mo
 
 </div>
 
-\*: Legacy mode has automatic batching in React-managed events but it's limited to one browser task. Non-React events must opt-in using `unstable_batchedUpdates`. In Blocking Mode and Concurrent Mode, all `setState`s are batched by default.
+\*: O modo Legado possui eventos gerenciados pelo React em lote mas é limitado a uma tarefa do navegador. Eventos que não são do React podem utilizá-lo através do `unstable_batchedUpdates`. No Modo Bloqueante e Concorrente, todos os `setState`s são feitos em lote por padrão.
 
-\*\*: Avisos em desenvolvimento.
+\*\*: Avisa em desenvolvimento.
