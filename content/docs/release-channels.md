@@ -40,7 +40,7 @@ O grau de alteração entre o release mais recente do Next e a versão mais rece
 
 Releases no Next são publicadas com a tag `next` no npm. As versões são geradas a partir de um hash do conteúdo do build, por exemplo `0.0.0-1022ee0ec`.
 
-#### Usando o canal Next para Testes de Integração {#using-the-next-channel-for-integration-testing}
+#### Usando o Canal Next para Testes de Integração {#using-the-next-channel-for-integration-testing}
 
 O canal Next foi projetado para dar suporte aos testes de integração entre React e outros projetos.
 
@@ -76,7 +76,7 @@ Os releases Experimental podem ser significativamente diferentes dos releases Ne
 
 Releases no Experimental são publicados com a tag `experimental` no npm. As versões são geradas a partir de um hash do conteúdo do build, por exemplo `0.0.0-experimental-1022ee0ec`.
 
-#### O que entra em um Release Experimental? {#what-goes-into-an-experimental-release}
+#### O Que Entra em um Release Experimental? {#what-goes-into-an-experimental-release}
 
 Recursos experimentais são aqueles que não estão prontos para serem liberados ao público em geral e podem sofrer alterações drásticas antes de serem finalizados. Alguns experimentos podem nunca ser finalizados - a razão pela qual temos experimentos é testar a viabilidade das alterações propostas.
 
@@ -84,7 +84,7 @@ Por exemplo, se o canal Experimental existisse quando anunciamos Hooks, teríamo
 
 Você pode achar valioso executar testes de integração no Experimental. Isso é com você. No entanto, saiba que o Experimental é ainda menos estável que o Next. **Não garantimos estabilidade entre releases Experimental.**
 
-#### Como posso aprender mais sobre os recursos Experimental? {#how-can-i-learn-more-about-experimental-features}
+#### Como Posso Aprender Mais Sobre os Recursos Experimental? {#how-can-i-learn-more-about-experimental-features}
 
 Recursos Experimental podem ou não ser documentados. Geralmente, os experimentos não são documentados até que estejam perto de lançarem no Next ou no Stable.
 
