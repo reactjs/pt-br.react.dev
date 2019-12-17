@@ -126,7 +126,7 @@ O hook `useTransition` retorna dois valores em um array.
 **Se alguma atualização de estado fizer com que um componente seja suspenso, essa atualização de estado deverá ser agrupada em uma transição.**
 
 ```js
-const SUSPENSE_CONFIG = {timeoutMs: 2000 };
+const SUSPENSE_CONFIG = { timeoutMs: 2000 };
 
 function App() {
   const [resource, setResource] = useState(initialResource);
