@@ -24,7 +24,7 @@ Se você visitar um site com React em modo de desenvolvimento, o ícone terá um
 
 É esperado que você use o modo de desenvolvimento enquanto trabalha em seu app, e o modo de produção quando publicar ele para os usuários.
 
-Você encontrar instruções para construir seu app para produção abaixo.
+Você irá encontrar instruções para construir seu app para produção abaixo.
 
 ### Criando um app React (Create React App) {#create-react-app}
 
@@ -51,7 +51,7 @@ Lembre que somente arquivos React terminados com `.production.min.js` são adequ
 
 ### Brunch {#brunch}
 
-Para uma build de produção do Brunch mais eficiente, instale o [`terser-brunch`](https://github.com/brunch/terser-brunch) plugin:
+Para uma build de produção do Brunch mais eficiente, instale o plugin [`terser-brunch`](https://github.com/brunch/terser-brunch):
 
 ```
 # Se você usa npm
@@ -136,7 +136,7 @@ Lembre que você somente precisa fazer isso para builds de produção. Você nã
 
 >**Observação:**
 >
->Se você está usando Create React App, por favor siga [as instruções abaixo](#create-react-app).<br>
+>Se você está usando Create React App, por favor siga [as instruções acima](#create-react-app).<br>
 >Esta seção é somente relevante se você configura o webpack diretamente.
 
 O Webpack v4+ irá diminuir seu código por padrão no modo de produção.
@@ -176,7 +176,7 @@ Para fazer isso no Chrome:
 
 6. Eventos do React serão agrupados sob a label **User Timing**.
 
-Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
+Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad).
 
 Perceba que **os números são relativos para que os componentes renderizem mais rápido em produção**. Ainda, isto deve ajudar você a perceber quando algo não relacionados da UI são alteradas, a quão profundo e frequente suas alterações de UI acontecem.
 
@@ -226,7 +226,7 @@ Na maioria dos casos, ao invés de escrever `shouldComponentUpdate()` na mão, v
 
 ## shouldComponentUpdate em Ação {#shouldcomponentupdate-in-action}
 
-Aqui é uma sub-árvore de componentes. Para cada uma, `SCU` define o que o `shouldComponentUpdate` retorna, e `vDOMEq` indica se os elementos renderizados pelo React são equivalentes. Finalmente, o círculo de cores indica se o componente tinha de ser reconciliado ou não.
+Abaixo podemos ver uma sub-árvore de componentes. Para cada uma, `SCU` define o que o `shouldComponentUpdate` retorna, e `vDOMEq` indica se os elementos renderizados pelo React são equivalentes. Finalmente, o círculo de cores indica se o componente tinha de ser reconciliado ou não.
 
 <figure><img src="../images/docs/should-component-update.png" style="max-width:100%" /></figure>
 

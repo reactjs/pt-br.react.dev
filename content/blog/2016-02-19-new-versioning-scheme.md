@@ -1,60 +1,60 @@
 ---
-title: "New Versioning Scheme"
+title: "Novo Esquema de Versão"
 author: [sebmarkbage]
 ---
 
-Today we're announcing that we're switching to major revisions for React. The current version is 0.14.7. The next release will be: **15.0.0**
+Hoje anunciamos que estamos mudando para as principais revisões do React. A versão atual é 0.14.7. A próxima release será: **15.0.0**
 
-This change shouldn't materially affect most of you. Moving to major semver versions simply helps indicate our commitment to stability and gives us the flexibility to add new backwards-compatible features in minor releases. This means we can have fewer major releases and you won't have to wait as long to take advantage of improvements to React. Plus, if you're a component author, this versioning scheme gives you the flexibility to support two major versions of React at the same time so you don't need to leave anyone behind.
+Na prática, esta mudança não deve afetar a maioria de vocês. A mudança para as principais versões do SemVer simplesmente ajuda a indicar o nosso compromisso para com a estabilidade e nos dá a flexibilidade para adicionar novos recursos em releases menores que sejam compatíveis com as versões anteriores. Isso significa que nós podemos ter menos releases principais e você não precisará esperar tanto tempo para desfrutar das melhorias do React. Além disso, se você é um autor de componente, este esquema de versão te dá a flexibilidade para suportar duas versões principais do React ao mesmo tempo, para que você não precise deixar nada para trás.
 
-The core of the React API has been stable for years. Our business as well as many of yours all depend heavily on the use of React as a core piece of our infrastructure. We're committed to the stability as well as the progress of React going forward.
+O core da API do React se mantém estável há anos. Nossos negócios, assim como muitos de vocês, dependem fortemente do uso do React como parte essencial da nossa infraestrutura. Também estamos comprometidos com a estabilidade e o progresso do React daqui em diante.
 
-## Bring Everyone Along {#bring-everyone-along}
+## Juntar Todo Mundo {#bring-everyone-along}
 
-React isn't just a library but an ecosystem. We know that your applications and ours are not just isolated islands of code. It is a network of your own application code, your own open source components and third party libraries that all depend on React.
+React não é apenas uma biblioteca, mas um ecossistema. Sabemos que os seus e os nossos aplicativos não são apenas ilhas isoladas de código. É uma rede com seu próprio código de aplicativo, seus próprios componentes de código aberto e bibliotecas de terceiros que dependem do React.
 
 <img src="../images/blog/versioning-1.png" width="403">
 
-Therefore it is important that we don't just upgrade our own codebases but that we bring our whole community with us. We take the upgrade path very seriously - for everyone.
+Portanto, é importante que não só atualizemos nossos próprios códigos base como também incluamos a comunidade inteira conosco. Nós levamos o caminho da atualização muito a sério - para todos.
 
 <img src="../images/blog/versioning-poll.png" width="596">
 
-## Introducing Minor Releases {#introducing-minor-releases}
+## Introduzindo Releases Menores {#introducing-minor-releases}
 
-Ideally everyone could just depend on the latest version of React all the time.
+Idealmente, todos poderiam depender da versão mais recente do React o tempo todo.
 
 <img src="../images/blog/versioning-2.png" width="463">
 
-We know that in practice that is not possible. In the future, we expect more new additive APIs rather than breakage of existing ones. By moving to major revisions in the semver scheme, we can release new versions without breaking existing ones.
+Sabemos que na prática isso não é possível. No futuro, nós esperamos mais novas APIs aditivas em vez da quebra das que já existem. Ao passar para as revisões principais no esquema do SemVer, nós podemos lançar novas versões sem quebrar as existentes. 
 
 <img src="../images/blog/versioning-3.png" width="503">
 
-That means that if one component needs a new API, there is no need for any of the other components to do any further work. They remain compatible.
+Isso significa que, se um componente precisa de uma API nova, não é necessário que nenhum dos outros componentes faça qualquer trabalho adicional. Eles permanecem compatíveis.
 
-## What Happened to 1.0.0? {#what-happened-to-100}
+## O que Aconteceu com o 1.0.0? {#what-happened-to-100}
 
-Part of React's growth and popularity is that it is stable and performant in production. People have long asked what React v1.0 will look. Technically some breaking changes are important to avoid stagnating, but we still achieve stability by making it easy to upgrade. If major version numbers indicate API stability and engender trust that it can be used in production, then we got there a long time ago. There are too many preconceived notions of what v1.0 is. We're still following semver. We're just communicating stability by moving the 0 from the beginning to the end.
+Parte do crescimento e da popularidade do React é que ele é estável e tem um bom desempenho em produção. As pessoas perguntaram há muito tempo qual seria a aparência do React v1.0. Tecnicamente, algumas mudanças são importantes para evitar estagnação, mas ainda conseguimos estabilidade, tornando fácil a atualização. Se os números da versão principal indicarem estabilidade e gerar confiança que possa ser usada em produção, então chegamos lá há muito tempo. Há também muito preconceito sobre o que é a v1.0. Ainda estamos seguindo o SemVer. Nós estamos apenas comunicando estabilidade movendo o 0 do começo ao fim.
 
-## Breaking Changes {#breaking-changes}
+## Quebra de Código {#breaking-changes}
 
-Minor revision releases will include deprecation warnings and tips for how to upgrade an API or pattern that will be removed or changed in the future.
+Releases de revisão menores conterão avisos de depreciação e dicas de como atualizar uma API ou padrões que serão removidos ou mudados no futuro.
 
-We will continue to release [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) for common patterns to make automatic upgrades of your codebase easier.
+Continuaremos a lançar [codemods](https://www.youtube.com/watch?v=d0pOgY8__JM) para padrões comuns, afim de tornar fácil as atualizações automáticas da sua base de código.
 
-Once we've reached the end of life for a particular major version, we'll release a new major version where all deprecated APIs have been removed.
+Uma vez que alcancemos o fim da vida útil de uma versão principal específica, lançaremos uma nova versão principal onde todas as APIs depreciadas terão sido removidas.
 
-## Avoiding The Major Cliff {#avoiding-the-major-cliff}
+## Evitando o Maior Obstáculo {#avoiding-the-major-cliff}
 
-If you try to upgrade your component to 16.0.0 you might find that your application no longer works if you still have other dependencies. E.g. if Ryan's and Jed's components are only compatible with 15.x.x.
+Se você tentar atualizar seu componente para 16.0.0 você poderá achar que sua aplicação não funcionará mais se você ainda tiver outras depedências. E.g. se os componentes de Ryan e Jed forem compatíveis apenas com 15.x.x.
 
 <img src="../images/blog/versioning-4.png" width="498">
 
-Worst case, you revert back to 15.1.0 for your application. Since you'll want to use your component, you might also revert that one.
+No pior dos casos, você retorna a sua aplicação para 15.1.0. Desde que você queira usar seu componente, você também poderá revertê-lo.
 
 <img src="../images/blog/versioning-5.png" width="493">
 
-Of course, Ryan and Jed think the same way. If we're not careful, we can hit a cliff where nobody upgrades. This has happened to many software project ecosystems in the past.
+Claro, Ryan e Jed pensam da mesma maneira. Se não formos cuidadosos, podemos atingir um ponto onde ninguém atualiza. Isso já aconteceu com muitos ecossistemas de projetos de software no passado.
 
-Therefore, we're committed to making it easy for most components and libraries built on top of React to be compatible with two major versions at the same time. We will do this by introducing new APIs before completely removing the old ones, thereby avoiding those cliffs.
+Portanto, estamos comprometidos em tornar isso fácil para a maioria dos componentes e bibliotecas construídas em cima do React para que possam ser compatíveis com duas versões principais ao mesmo tempo. Iremos fazer isso introduzindo novas APIs antes da remover completamente as antigas, assim evitando esses obstáculos.
 
 <img src="../images/blog/versioning-6.png" width="493">

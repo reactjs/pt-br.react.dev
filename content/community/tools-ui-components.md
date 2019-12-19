@@ -71,6 +71,7 @@ permalink: community/ui-components.html
 * **[valuelink](https://github.com/Volicon/valuelink):** Ligação de dados bidirecional repleta de recursos e validação de formulários com links React estendidos.
 * **[video-react](https://github.com/video-react/video-react)**: Um player de vídeo da Web criado para o mundo HTML5 usando a biblioteca React.
 * **[Winterfell](https://github.com/andrewhathaway/Winterfell):** Gerar formulários complexos, validados e prorrogáveis ​​baseados em JSON no React.
+* **[wix-style-react](https://github.com/wix/wix-style-react):** Componentes UI comuns do React para todas as verticais Wix desenvolvido em React
 
 ## Fee Based Components {#fee-based-components}
 

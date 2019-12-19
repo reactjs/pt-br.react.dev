@@ -226,7 +226,7 @@ Verifica se o objeto é um elemento React. Retorna `true` ou `false`.
 React.Children.map(children, function[(thisArg)])
 ```
 
-Invoca uma função em cada elemento filho imediato contido em `children` com `this` definido para `thisArg`. Se `children` for um *array*, a função sará chamada para cada filho no *array*. Se `children` for `null` ou `undefined`, este método retornará `null` ou `undefined` ao invés de um *array*.
+Invoca uma função em cada elemento filho imediato contido em `children` com `this` definido para `thisArg`. Se `children` for um *array*, a função será chamada para cada filho no *array*. Se `children` for `null` ou `undefined`, este método retornará `null` ou `undefined` ao invés de um *array*.
 
 > Nota
 >
