@@ -32,6 +32,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
 
+### Reactathon 2020 {#reactathon-2020}
+March 30 - 31, 2020 in San Francisco, CA
+
+[Website](https://www.reactathon.com) - [Twitter](https://twitter.com/reactathon) - [Facebook](https://www.facebook.com/events/575942819854160/)
+
 ### React Summit Amsterdam 2020 {#react-summit-2020}
 15 a 17 de abril de 2020 em Amsterdã, Holanda
 
@@ -50,7 +55,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### render(ATL) 2020 {#render-atlanta-2020}
 4 a 6 de maio de 2020. Atlanta, GA, EUA.
 
-[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) 
+[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/)
 
 ### ReactEurope 2020 {#reacteurope-2020}
 14 a 15 de maio de 2020 em Paris, França
@@ -65,7 +70,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Next 2020 {#react-next-2020}
 15 de junho de 2020. Telavive, Israel.
 
-[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/) 
+[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/)
 
 ### React Loop 2020 {#react-loop-2020}
 19 de junho de 2020. Chicago, Illinois, USA.
@@ -75,7 +80,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Week NY 2020 {#react-week-ny-2020}
 17 de julho, 2020. Nova Iorque, USA.
 
-[Website](https://reactweek.nyc/) - [Twitter](https://twitter.com/reactweek) - [Facebook](https://www.facebook.com/reactweek) 
+[Website](https://reactweek.nyc/) - [Twitter](https://twitter.com/reactweek) - [Facebook](https://www.facebook.com/reactweek)
 
 ## Conferências passadas {#past-conferences}
 
@@ -417,7 +422,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
 
 ### React Conf Iran 2019 {#react-conf-iran-2019}
+<<<<<<< HEAD
 29 de agosto de 2019 em Tehran, Iran.
+=======
+August 29, 2019. Tehran, Iran.
+>>>>>>> 1dd4e325f070ce198aed69fd9cc5467563679e54
 
 [Website](https://reactconf.ir/) - [Vídeos](https://www.youtube.com/playlist?list=PL-VNqZFI5Nf-Nsj0rD3CWXGPkH-DI_0VY) - [Highlights](https://github.com/ReactConf/react-conf-highlights)
 
