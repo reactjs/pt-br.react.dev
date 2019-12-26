@@ -218,11 +218,7 @@ Seu código-fonte está localizado em [`packages/react-reconciler`](https://gith
 
 ### Sistema de Eventos  {#event-system}
 
-<<<<<<< HEAD
-O React implementa um sistema de eventos sintéticos que é agnóstico dos renderizadores e funciona com React DOM e React Native. Seu código-fonte está localizado em [`packages/react-events`](https://github.com/facebook/react/tree/master/packages/react-events).
-=======
-React implements a synthetic event system which is agnostic of the renderers and works both with React DOM and React Native. Its source code is located in [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events).
->>>>>>> 1dd4e325f070ce198aed69fd9cc5467563679e54
+O React implementa um sistema de eventos sintéticos que é agnóstico dos renderizadores e funciona com React DOM e React Native. Seu código-fonte está localizado em [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events).
 
 Esse é um [vídeo com mais profundidade no código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 minutos).
 
