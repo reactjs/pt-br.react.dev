@@ -33,7 +33,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
 
 ### Reactathon 2020 {#reactathon-2020}
-March 30 - 31, 2020 in San Francisco, CA
+30 e 31 de março de 2020 em São Francisco, CA
 
 [Website](https://www.reactathon.com) - [Twitter](https://twitter.com/reactathon) - [Facebook](https://www.facebook.com/events/575942819854160/)
 
@@ -422,11 +422,7 @@ March 30 - 31, 2020 in San Francisco, CA
 [Website](https://www.reactrally.com/) - [Twitter](https://twitter.com/ReactRally) - [Instagram](https://www.instagram.com/reactrally/)
 
 ### React Conf Iran 2019 {#react-conf-iran-2019}
-<<<<<<< HEAD
 29 de agosto de 2019 em Tehran, Iran.
-=======
-August 29, 2019. Tehran, Iran.
->>>>>>> 1dd4e325f070ce198aed69fd9cc5467563679e54
 
 [Website](https://reactconf.ir/) - [Vídeos](https://www.youtube.com/playlist?list=PL-VNqZFI5Nf-Nsj0rD3CWXGPkH-DI_0VY) - [Highlights](https://github.com/ReactConf/react-conf-highlights)
 
