@@ -1,18 +1,18 @@
 ---
 id: team
-title: Time
+title: Equipe
 layout: community
 sectionid: community
 permalink: community/team.html
 ---
 
-O desenvolvimento do React é liderado por um pequeno e dedicado time que trabalha em período integral no Facebook. Ele também recebe contribuições de pessoas do mundo todo.
+O desenvolvimento do React é liderado por uma pequena e dedicada equipe que trabalha em período integral no Facebook. Ele também recebe contribuições de pessoas do mundo todo.
 
-## Conheça o Time do React {#meet-the-react-team}
+## Conheça a Equipe do React {#meet-the-react-team}
 
-Os membros do time do React trabalham em tempo integral nas APIs dos componentes principais, no mecanismo que possibilita o React DOM e React Native, no React DevTools, e no website da documentação do React.
+Os membros da equipe do React trabalham em tempo integral nas APIs dos componentes principais, no mecanismo que possibilita o React DOM e React Native, no React DevTools, e no website da documentação do React.
 
-O mesmos atuais do time do React estão listados em ordem alfabética abaixo.
+O mesmos atuais da equipe do React estão listados em ordem alfabética abaixo.
 
 ### Andrew Clark {#andrew-clark}
 
@@ -68,7 +68,7 @@ Nicolas é graduado em antropologia. Ele começou no desenvolvimento web criando
 
 [@rachelnabors no GitHub](https://github.com/rachelnabors) &middot; [@rachelnabors no Twitter](https://twitter.com/rachelnabors)
 
-Rachel escreveu um [livro sobre animação de interface de usuário](https://abookapart.com/products/animation-at-work) e trabalhou com MDN e o W3C na API de animações web. Agora ela está ocupada com materiais educativos e engenharia comunitária no time do React. Secretamente, ela é uma premiada cartunista para garotas adolescentes. Encontre ela fazendo chás glamourosos com água morna no microondas.
+Rachel escreveu um [livro sobre animação de interface de usuário](https://abookapart.com/products/animation-at-work) e trabalhou com MDN e o W3C na API de animações web. Agora ela está ocupada com materiais educativos e engenharia comunitária na equipe do React. Secretamente, ela é uma premiada cartunista para garotas adolescentes. Encontre ela fazendo chás glamourosos com água morna no microondas.
 
 ### Sebastian Markbåge {#sebastian-markbage}
 
@@ -84,7 +84,7 @@ Sebastian é graduado em psicologia. Ele é geralmente quieto. Mesmo quando ele 
 
 [@threepointone no GitHub](https://github.com/threepointone) &middot; [@threepointone no Twitter](https://twitter.com/threepointone)
 
-Sunil começou escrevendo JavaScript para IE6 e ainda tem alguns arrependimentos sobre isso. Ele trabalhou em empresas de consultoria, design e produto antes de se juntar ao time do React para ajudar outras pessoas a faer a mesma coisa. Sunil toca uma guitarra azul da Les Paul, ama Londres, e apreciaria uma resposta para seu último ping, por favor e obrigado!
+Sunil começou escrevendo JavaScript para IE6 e ainda tem alguns arrependimentos sobre isso. Ele trabalhou em empresas de consultoria, design e produto antes de se juntar a equipe do React para ajudar outras pessoas a faer a mesma coisa. Sunil toca uma guitarra azul da Les Paul, ama Londres, e apreciaria uma resposta para seu último ping, por favor e obrigado!
 
 ### Yuzhi Zheng {#yuzhi-zheng}
 
@@ -92,7 +92,7 @@ Sunil começou escrevendo JavaScript para IE6 e ainda tem alguns arrependimentos
 
 [@yuzhi no GitHub](https://github.com/yuzhi) &middot; [@yuzhiz no Twitter](https://twitter.com/yuzhiz)
 
-Yuzhi estudou Ciência da Computação na escola. Ela gostou da sensação gratificante de ver o código  come to life sem ter de estar fisicamente em um laboratório. Agora ela gerencia o time do React. Antes da gestão, ela costumava trabalhar no framework de requisição de dados Relay. Em seu tempo livre, Yuzhi adora melhorar sua vida através projetos de jardinagem e melhorias em sua casa.
+Yuzhi estudou Ciência da Computação na escola. Ela gostou da sensação gratificante de ver o código  come to life sem ter de estar fisicamente em um laboratório. Agora ela gerencia a equipe do React. Antes da gestão, ela costumava trabalhar no framework de requisição de dados Relay. Em seu tempo livre, Yuzhi adora melhorar sua vida através projetos de jardinagem e melhorias em sua casa.
 
 ## Reconhecimentos {#acknowledgements}
 
