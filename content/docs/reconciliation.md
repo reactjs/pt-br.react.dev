@@ -151,4 +151,4 @@ Devido ao React ser baseado em heurísticas, se as suposições por trás delas 
 
 1. O algoritmo não irá tentar sincronizar as subárvores de componentes de tipos diferentes. Se você perceber que está tentando alternar entre dois componentes de tipos diferentes com uma saída muito similar, você irá querer que eles tenham o mesmo tipo. Na prática nós não achamos que isso é um problema.
 
-2. Chaves devem ser estáveis, previsíveis e únicas. Chaves estáveis (como as produzidas por `Math.random()`) irão causar a re-criação desnecessária de várias instâncias de componentes e nós DOM, o que pode causar uma degradação na performance e a perca do estado nos componentes filhos.
+2. Chaves devem ser estáveis, previsíveis e únicas. Chaves instáveis (como as produzidas por `Math.random()`) irão causar a re-criação desnecessária de várias instâncias de componentes e nós DOM, o que pode causar uma degradação na performance e a perda do estado nos componentes filhos.

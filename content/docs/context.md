@@ -15,6 +15,7 @@ Em uma aplicação típica do React, os dados são passados de cima para baixo (
   - [Context.Provider](#contextprovider)
   - [Class.contextType](#classcontexttype)
   - [Context.Consumer](#contextconsumer)
+  - [Context.displayName](#contextdisplayname)
 - [Exemplos](#examples)
   - [Contexto Dinâmico](#dynamic-context)
   - [Atualizando o Contexto de um componente aninhado](#updating-context-from-a-nested-component)
@@ -196,6 +197,20 @@ Requer uma [*function as a child*](/docs/render-props.html#using-props-other-tha
 > Nota
 > 
 > Para mais informações sobre o padrão *"function as a child"* veja, [render props](/docs/render-props.html).
+
+### `Context.displayName` {#contextdisplayname}
+
+O objeto Context aceita uma propriedade string `displayName`. React DevTools usa essa string para determinar o que exibir para o contexto.
+
+Por exemplo, o seguinte componente aparecerá como MyDisplayName no DevTools:
+
+```js{2}
+const MyContext = React.createContext(/* some value */);
+MyContext.displayName = 'MyDisplayName';
+
+<MyContext.Provider> // "MyDisplayName.Provider" in DevTools
+<MyContext.Consumer> // "MyDisplayName.Consumer" in DevTools
+```
 
 ## Exemplos {#examples}
 

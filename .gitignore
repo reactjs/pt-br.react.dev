@@ -4,3 +4,4 @@
 node_modules
 public
 yarn-error.log
+.vscode/settings.json

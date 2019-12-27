@@ -72,7 +72,7 @@ Isto é completamente opcional e não é necessário para este tutorial!
 Essa opção de configuração requer mais trabalho mas permite que você complete o tutorial utilizando um editor de sua preferência. Aqui estão os passos a serem seguidos:
 
 1. Certifique-se de ter uma versão recente do [Node.js](https://nodejs.org/pt-br/) instalada.
-2. Siga as [instruções de instalação do creat-react-app](/docs/create-a-new-react-app.html#create-react-app) para criar um novo projeto.
+2. Siga as [instruções de instalação do create-react-app](/docs/create-a-new-react-app.html#create-react-app) para criar um novo projeto.
 
 ```bash
 npx create-react-app my-app
@@ -118,7 +118,7 @@ Recomendamos seguir [estas instruções](https://babeljs.io/docs/editors/) para 
 
 ### Me Ajudem. Estou com Dificuldades! {#help-im-stuck}
 
-Se você não conseguir proseguir no tutorial por algum motivo, confira os [recursos de suporte da comunidade](/community/support.html). Em particular, o [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) é uma ótima maneira de obter ajuda rapidamente. Se você não receber uma resposta ou se permanecer preso, registre um problema e nós ajudaremos você.
+Se você não conseguir proseguir no tutorial por algum motivo, confira os [recursos de suporte da comunidade](/community/support.html). Em particular, o [Reactiflux Chat](https://discord.gg/reactiflux) é uma ótima maneira de obter ajuda rapidamente. Se você não receber uma resposta ou se permanecer preso, registre um problema e nós ajudaremos você.
 
 ## Visão geral {#overview}
 
@@ -197,6 +197,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return <Square value={i} />;
   }
+}
 ```
 
 Altere o método `render` do Square para mostrar esse valor substituindo `{/ * TODO * /}` por `{this.props.value}`:
@@ -335,7 +336,7 @@ A extensão React Devtools para [Chrome](https://chrome.google.com/webstore/deta
 
 O React DevTools permite que você verifique as props e o estado (_state_) de seus componentes React.
 
-Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas de desenvolvedor, e a guia React aparecerá como a última guia à direita.
+Depois de instalar o React DevTools, você pode clicar com o botão direito do mouse em qualquer elemento da página, clicar em "Inspecionar" para abrir as ferramentas de desenvolvedor, e as guias React ("⚛️ Components" e "⚛️ Profiler") aparecerá como a última guia à direita.  Use "⚛️ Components" para inspecionar a árvore de componentes.
 
 **No entanto, observe que há algumas etapas extras para a extensão funcionar com o CodePen:**
 
@@ -420,7 +421,7 @@ O método `renderSquare` do Tabuleiro atualmente está definido como:
 
 No começo, nós [passamos o seu valor (value) como prop](#passing-data-through-props) para o Tabuleiro mostrar números de 0 a 8 em cada Quadrado. Em outro passo anterior, nós trocamos os números pela letra "X" [determinado no próprio estado do Quadrado](#making-an-interactive-componente). Isso porque atualmente o Quadrado ignora o valor (`value`) recebido do Tabuleiro.
 
-Iremos agora utilizar novamente o mesmo mecanismo de propriedades. Vamos modificar o Tabuleiro para instruir cada Quadrado invidiualmente qual é o valor correto (`'X'`, `'O'` ou `null`). Nós já temos definidos o array de `quadrados` no construtor do Tabuleiro e iremos modificar o método `renderSquare` para definir o valor a partir do estado:
+Iremos agora utilizar novamente o mesmo mecanismo de propriedades. Vamos modificar o Tabuleiro para instruir cada Quadrado individualmente qual é o valor correto (`'X'`, `'O'` ou `null`). Nós já temos definidos o array de `quadrados` no construtor do Tabuleiro e iremos modificar o método `renderSquare` para definir o valor a partir do estado:
 
 ```javascript{2}
   renderSquare(i) {
@@ -449,7 +450,7 @@ Para manter a privacidade do state do Tabuleiro, nós vamos passar a função re
 
 >Nota
 >
->Nós quebramos o retorno do elemento em várias linhas para melhorar a legibilidade e adicionamos parentesis para que o Javascript não insira ponto e virgula após o `return` e quebre o código
+>Nós quebramos o retorno do elemento em várias linhas para melhorar a legibilidade e adicionamos parentesis para que o JavaScript não insira ponto e virgula após o `return` e quebre o código
 
 Agora nós iremos passar duas props do Tabuleiro para o Quadrado: `value` e `onClick`. A propriedade `onClick` é uma função que será chamada quando o Quadrado for clicado. Nós manteremos as seguintes mudanças no componente Quadrado:
 
@@ -614,7 +615,7 @@ Nos modificamos `this.props` para `props` nas duas vezes que ela aparece.
 
 >Nota
 >
->Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parenteses em *ambos* os lados).
+>Quando modificamos Square para ser um componente funcional, também modificamos `onClick={() => this.props.onClick()}` para uma versão mais curta: `onClick={props.onClick}` (note a ausência dos parentêses em *ambos* os lados).
 
 ### Trocando Turnos {#taking-turns}
 

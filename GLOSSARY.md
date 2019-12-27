@@ -1,6 +1,6 @@
 # Guia de Estilo Universal
 
-Este documento descreve as regras que devem ser aplicadas para **todos** os idiomas.  
+Este documento descreve as regras que devem ser aplicadas para **todos** os idiomas.
 Quando estiver se referindo ao próprio `React`, use `o React`.
 
 ## IDs dos Títulos
@@ -103,16 +103,24 @@ Sugestões de palavras e termos:
 
 | Palavra/Termo original | Sugestão |
 | ------------------ | ---------- |
+| assertion | asserção |
+| browser | navegador |
 | bubbling | propagar |
 | bug | erro |
-| browser | navegador |
+| class component | componente de classe |
 | class | classe |
+| client | cliente |
+| client-side | lado do cliente |
+| container | contêiner |
 | context | contexto |
 | controlled component | componente controlado |
-| uncontrolled component | componente não controlado |
 | debugging | depuração|
+| DOM node | nó do DOM |
+| event handler | manipulador de eventos (event handler) |
 | function component | componente de função |
-| class component | componente de classe |
+| handler | manipulador |
+| helper function | função auxiliar |
+| high-order components | componente de alta-ordem |
 | key | chave |
 | library | biblioteca |
 | lowercase | minúscula(s) / caixa baixa |
@@ -120,24 +128,16 @@ Sugestões de palavras e termos:
 | React element | Elemento React |
 | React fragment | Fragmento React |
 | render | renderizar (verb), renderizado (noun)
-| uncontrolled component | componente não controlado |
-| uppercase | maiúscula(s) / caixa alta |
-| to wrap | encapsular |
-| to assert | afirmar |
-| assertion | asserção |
 | server | servidor |
 | server-side | lado do servidor |
-| client | cliente |
-| client-side | lado do cliente |
-| high-order components | componente de alta-ordem |
-| stateful logic | lógica com estado |
-| stateful component | componente com estado |
-| container | contêiner |
-| helper function | função auxiliar |
 | siblings | irmãos |
-| DOM node | nó do DOM |
-| handler | manipulador |
-| event handler | manipulador de eventos (event handler) |
+| stateful component | componente com estado |
+| stateful logic | lógica com estado |
+| to assert | afirmar |
+| to wrap | encapsular |
+| uncontrolled component | componente não controlado |
+| uncontrolled component | componente não controlado |
+| uppercase | maiúscula(s) / caixa alta |
 
 ## Conteúdo que não deve ser traduzido
 
@@ -146,28 +146,28 @@ Sugestões de palavras e termos:
 * bind
 * bundle
 * bundler
-* camelCase
 * callback
+* camelCase
 * DOM
+* event listener
 * framework
 * hook
+* log
 * mock
 * portal
 * props
 * ref
-* state
-* string
-* string literal
-* template literal
-* UI
-* log
-* timestamps
 * release
 * script
 * single-page-apps
-* subscription
+* state
+* string
+* string literal
 * subscribe
-* event listener
-* widgets
+* subscription
+* template literal
+* timestamps
+* UI
 * watcher
+* widgets
 * wrapper

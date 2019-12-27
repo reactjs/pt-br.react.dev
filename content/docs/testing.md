@@ -1,40 +1,40 @@
 ---
 id: testing
-title: Testing Overview
+title: Visão Geral sobre Testes
 permalink: docs/testing.html
 redirect_from:
   - "community/testing.html"
 next: testing-recipes.html
 ---
 
-You can test React components similar to testing other JavaScript code.
+Você pode testar componentes React de forma similar a como testa outros códigos JavaScript.
 
-There are a few ways to test React components. Broadly, they divide into two categories:
+Há algumas maneiras de testar componentes React. Em geral, os testes podem ser feitos de duas formas:
 
-* **Rendering component trees** in a simplified test environment and asserting on their output.
-* **Running a complete app** in a realistic browser environment (also known as “end-to-end” tests).
+* **Renderizando árvores de componentes** em um ambiente de testes simplificado e confirmando o seu output.
+* **Executando uma aplicação completa** em um ambiente de navegador real (também conhecido como testes “_end-to-end_”).
 
-This documentation section focuses on testing strategies for the first case. While full end-to-end tests can be very useful to prevent regressions to important workflows, such tests are not concerned with React components in particular, and are out of scope of this section.
+Esta seção da documentação se concentra nas estratégias de teste para o primeiro caso. Embora os testes _end-to-end_ completos possam ser muito úteis para impedir regressões em casos importantes, esses testes não estão relacionados a componentes React em particular e estão fora do escopo desta seção.
 
 ### Tradeoffs {#tradeoffs}
 
 
-When choosing testing tools, it is worth considering a few tradeoffs:
+Ao escolher uma ferramenta de teste, vale a pena considerar alguns tradeoffs:
 
-* **Iteration speed vs Realistic environment:** Some tools offer a very quick feedback loop between making a change and seeing the result, but don't model the browser behavior precisely. Other tools might use a real browser environment, but reduce the iteration speed and are flakier on a continuous integration server.
-* **How much to mock:** With components, the distinction between a "unit" and "integration" test can be blurry. If you're testing a form, should its test also test the buttons inside of it? Or should a button component have its own test suite? Should refactoring a button ever break the form test?
+* **Velocidade de iteração vs Ambiente real:** Algumas ferramentas oferecem um ciclo de feedback muito rápido entre fazer uma alteração e ver o resultado, mas não reflete o comportamento do navegador com precisão. Outras ferramentas podem usar um ambiente de navegador real, mas reduzem a velocidade da iteração e são mais precárias em um servidor de integração contínua.
+* **Quanto _mock_ eu devo usar:** Nos componentes, a diferença entre um teste de "unidade" e um de "integração" pode ser confusa. Se você estiver testando um formulário, o teste também deve testar os botões dentro dele? Ou um componente de botão deve ter seu próprio conjunto de testes? A refatoração de um botão deve falhar o teste do formulário?
 
-Different answers may work for different teams and products.
+Diferentes respostas podem funcionar para diferentes times e produtos.
 
-### Recommended Tools {#tools}
+### Ferramentas recomendadas {#tools}
 
-**[Jest](https://facebook.github.io/jest/)** is a JavaScript test runner that lets you access the DOM via [`jsdom`](/docs/testing-environments.html#mocking-a-rendering-surface). While jsdom is only an approximation of how the browser works, it is often good enough for testing React components. Jest provides a great iteration speed combined with powerful features like mocking [modules](/docs/testing-environments.html#mocking-modules) and [timers](/docs/testing-environments.html#mocking-timers) so you can have more control over how the code executes.
+**[Jest](https://facebook.github.io/jest/)** é um _test runner_ JavaScript que permite a você acessar o DOM através do [`jsdom`](/docs/testing-environments.html#mocking-a-rendering-surface). Mesmo o jsdom sendo apenas uma aproximação de como um navegador funciona, é bom o suficiente para testar componentes React. Jest oferece uma excelente velocidade de iteração combinada com recursos poderosos como _mock_ de [módulos](/docs/testing-environments.html#mocking-modules) e [temporizadores](/docs/testing-environments.html#mocking-timers) para que você tenha mais controle sobre como o código é executado.
 
-**[React Testing Library](https://testing-library.com/react)** is a set of helpers that let you test React components without relying on their implementation details. This approach makes refactoring a breeze and also nudges you towards best practices for accessibility. Although it doesn't provide a way to "shallowly" render a component without its children, a test runner like Jest lets you do this by [mocking](/docs/testing-recipes.html#mocking-modules).
+**[React Testing Library](https://testing-library.com/react)** é um conjunto de utilitários que permitem testar componentes React sem depender dos detalhes de implementação. Essa abordagem facilita a refatoração e também te orienta para as melhores práticas de acessibilidade. Embora não forneça uma maneira de renderizar "superficialmente" um componente sem seus filhos, um _test runner_ como o Jest permite fazer isso através de [mock](/docs/testing-recipes.html#mocking-modules).
 
-### Learn More {#learn-more}
+### Saiba Mais {#learn-more}
 
-This section is divided in two pages:
+Esta seção está dividida em duas páginas:
 
-- [Recipes](/docs/testing-recipes.html): Common patterns when writing tests for React components.
-- [Environments](/docs/testing-environments.html): What to consider when setting up a testing environment for React components.
+- [Receitas](/docs/testing-recipes.html): Padrões conhecidos ao escrever testes para componentes React.
+- [Ambientes](/docs/testing-environments.html): O que considerar ao configurar um ambiente de teste para componentes React .
