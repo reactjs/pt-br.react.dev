@@ -291,9 +291,9 @@ class Searchbox extends React.Component {
   }
 
   handleChange(e) {
-  // o React faz pools no eventos. Então lemos o valor antes do debounce.
+    // o React faz pools no eventos. Então lemos o valor antes do debounce.
     // Alternativamente podemos chamar `event.persist()` e passar todo o evento.
-Para mais informações veja: reactjs.org/docs/events.html#event-pooling
+    // Para mais informações veja: reactjs.org/docs/events.html#event-pooling
     this.emitChangeDebounced(e.target.value);
   }
 
