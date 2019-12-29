@@ -8,6 +8,9 @@ permalink: community/meetups.html
 
 Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mantenha a lista em ordem alfabética)
 
+## Argentina {#argentina}
+* [Rosario](https://www.meetup.com/es/reactrosario)
+
 ## Austrália {#australia}
 * [Brisbane](https://www.meetup.com/reactbris/)
 * [Melbourne](https://www.meetup.com/React-Melbourne/)
@@ -133,6 +136,9 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 
 ## Suécia {#sweden}
 * [Goteborg](https://www.meetup.com/ReactJS-Goteborg/)
+
+## Suíça {#switzerland}
+* [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
 ## Ucrânia {#ukraine}
 * [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)

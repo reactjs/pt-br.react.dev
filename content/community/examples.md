@@ -8,6 +8,7 @@ permalink: community/examples.html
 
 Existem vários projetos de exemplos criados pela comunidade do React. Sinta-se a vontade para adicionar seu próprio projeto. Caso você adicione, comprometa-se em mantê-lo atualizado com as versões recentes do React.
 
+* **[Zeldog](https://yannsainty.github.io/Zeldog/)** Um jogo tipo Zelda com um cachorro brigando com patos e mais para comer pizza !
 * **[Calculator](https://github.com/ahfarmer/calculator)** Implementação da calculadora para iOS construída em React.
 * **[Emoji Search](https://github.com/ahfarmer/emoji-search)** App Simples em React para procurar emojis.
 * **[GitHub Battle App](https://tm.dev/react-course-project/)** Batalhe com outro usuário do GitHub e veja os projetos mais populares no GitHub em qualquer linguagem.
