@@ -12,7 +12,7 @@ O desenvolvimento do React é liderado por uma pequena e dedicada equipe que tra
 
 Os membros da equipe do React trabalham em tempo integral nas APIs dos componentes principais, no mecanismo que possibilita o React DOM e React Native, no React DevTools, e no website da documentação do React.
 
-O mesmos atuais da equipe do React estão listados em ordem alfabética abaixo.
+Os membros atuais da equipe do React estão listados em ordem alfabética abaixo.
 
 ### Andrew Clark {#andrew-clark}
 
@@ -84,7 +84,7 @@ Sebastian é graduado em psicologia. Ele é geralmente quieto. Mesmo quando ele 
 
 [@threepointone no GitHub](https://github.com/threepointone) &middot; [@threepointone no Twitter](https://twitter.com/threepointone)
 
-Sunil começou escrevendo JavaScript para IE6 e ainda tem alguns arrependimentos sobre isso. Ele trabalhou em empresas de consultoria, design e produto antes de se juntar a equipe do React para ajudar outras pessoas a faer a mesma coisa. Sunil toca uma guitarra azul da Les Paul, ama Londres, e apreciaria uma resposta para seu último ping, por favor e obrigado!
+Sunil começou escrevendo JavaScript para IE6 e ainda tem alguns arrependimentos sobre isso. Ele trabalhou em empresas de consultoria, design e produto antes de se juntar a equipe do React para ajudar outras pessoas a fazer a mesma coisa. Sunil toca uma guitarra azul da Les Paul, ama Londres, e apreciaria uma resposta para seu último ping, por favor e obrigado!
 
 ### Yuzhi Zheng {#yuzhi-zheng}
 
@@ -92,7 +92,7 @@ Sunil começou escrevendo JavaScript para IE6 e ainda tem alguns arrependimentos
 
 [@yuzhi no GitHub](https://github.com/yuzhi) &middot; [@yuzhiz no Twitter](https://twitter.com/yuzhiz)
 
-Yuzhi estudou Ciência da Computação na escola. Ela gostou da sensação gratificante de ver o código  come to life sem ter de estar fisicamente em um laboratório. Agora ela gerencia a equipe do React. Antes da gestão, ela costumava trabalhar no framework de requisição de dados Relay. Em seu tempo livre, Yuzhi adora melhorar sua vida através projetos de jardinagem e melhorias em sua casa.
+Yuzhi estudou Ciência da Computação na escola. Ela gostou da sensação gratificante de ver o código ganhar vida sem ter de estar fisicamente em um laboratório. Agora ela gerencia a equipe do React. Antes da gestão, ela costumava trabalhar no framework de requisição de dados Relay. Em seu tempo livre, Yuzhi adora melhorar sua vida através projetos de jardinagem e melhorias em sua casa.
 
 ## Reconhecimentos {#acknowledgements}
 
