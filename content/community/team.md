@@ -103,6 +103,7 @@ React foi originalmente criado por [Jordan Walke](https://github.com/jordwalke).
 * [Alex Krolick](https://github.com/alexkrolick)
 * [Alexey Pyltsyn](https://github.com/lex111)
 * [Brandon Dail](https://github.com/aweary)
+* [Caleb Meredith](https://github.com/calebmer)
 * [Chang Yan](https://github.com/cyan33)
 * [Cheng Lou](https://github.com/chenglou)
 * [Christoph Nakazawa](https://github.com/cpojer)
