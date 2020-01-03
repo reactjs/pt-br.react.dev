@@ -112,7 +112,7 @@ Mutações, assinaturas, temporizadores, logs e outros `side effects` não são 
 
 Em vez disso, use `useEffect`. A função passada para `useEffect` será executada depois que a renderização estiver disponível na tela. Pense em efeitos como um rota de fuga do mundo puramente funcional do React para o mundo imperativo.
 
-Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por dispara-los [somente quando determinados valores receberam atualização](#conditionally-firing-an-effect).
+Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por dispará-los [somente quando determinados valores receberam atualização](#conditionally-firing-an-effect).
 
 #### Limpando um Efeito {#cleaning-up-an-effect}
 
