@@ -106,11 +106,7 @@ function Page(props) {
 
 Este padrão é suficiente para vários casos onde você precisa separar um componente filho de seu pai imediato. Você pode ainda ir mais longe com [render props](/docs/render-props.html) se o filho precisa se comunicar com o pai antes de ser renderizado.
 
-<<<<<<< HEAD
 Contudo, às vezes o mesmo dado precisa ser acessado por vários componentes na árvore e em diferentes níveis de aninhamento. Contexto (context) deixa você "transmitir" este dado e mudanças do mesmo para todos componentes abaixo. Exemplos comuns onde usar contexto pode ser mais simples que as alternativas incluem o gerenciamento de localização atual, tema, ou um dado em cache.
-=======
-However, sometimes the same data needs to be accessible by many components in the tree, and at different nesting levels. Context lets you "broadcast" such data, and changes to it, to all components below. Common examples where using context might be simpler than the alternatives include managing the current locale, theme, or a data cache.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ## API {#api}
 
@@ -134,23 +130,13 @@ Cada objeto Contexto (context) vem com um componente Provider que permite compon
 
 Aceita uma prop `value` que pode ser passada para ser consumida por componentes que são descendentes deste Provider. Um Provider pode ser conectado a vários consumidores. Providers podem ser aninhados para substituir valores mais ao fundo da árvore.
 
-<<<<<<< HEAD
-Todos consumidores que são descendentes de um Provider serão renderizados novamente sempre que a prop `value` do Provider for alterada. A propagação do Provider aos seus descendentes, não está condicionada ao método `shouldComponenteUpdate`, logo, o consumidor é atualizado mesmo quando um componente antepassado omite sua atualização.
+Todos consumidores que são descendentes de um Provider serão renderizados novamente sempre que a prop `value` do Provider for alterada. A propagação do Provider aos seus descendentes (incluido [`.contextType`](#classcontexttype) e [`useContext`](/docs/hooks-reference.html#usecontext)), não está condicionada ao método `shouldComponenteUpdate`, logo, o consumidor é atualizado mesmo quando um componente antepassado ignora uma atualização.
 
-Mudanças são determinadas comparando os valores novos com os anteriores usando o mesmo algoritimo de [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
+Mudanças são determinadas comparando os valores novos com os anteriores usando o mesmo algoritimo de [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).
 
 > Nota
 >
 > A forma como as mudanças são determinadas, podem causar alguns problemas quando se atribui objetos como `value`: veja [Ressalvas](#caveats)
-=======
-All consumers that are descendants of a Provider will re-render whenever the Provider's `value` prop changes. The propagation from Provider to its descendant consumers (including [`.contextType`](#classcontexttype) and [`useContext`](/docs/hooks-reference.html#usecontext)) is not subject to the `shouldComponentUpdate` method, so the consumer is updated even when an ancestor component skips an update.
-
-Changes are determined by comparing the new and old values using the same algorithm as [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).
-
-> Note
->
-> The way changes are determined can cause some issues when passing objects as `value`: see [Caveats](#caveats).
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 ### `Class.contextType` {#classcontexttype}
 
@@ -208,15 +194,9 @@ Um componente React que assina mudanças de contexto. Este permite você assinar
 
 Requer uma [*function as a child*](/docs/render-props.html#using-props-other-than-render). A função recebe o valor atual do contexto e retorna um nó React. O argumento `value` passado para a função será igual ao `value` da prop do Provider do contexto mais próximo acíma na árvore. Se não houver um Provider para este contexto acima, o argumento `value` será igual a `defaultValue` que foi passado ao criar o contexto com `createContext()`.
 
-<<<<<<< HEAD
 > Nota
-> 
-> Para mais informações sobre o padrão *"function as a child"* veja, [render props](/docs/render-props.html).
-=======
-> Note
 >
-> For more information about the 'function as a child' pattern, see [render props](/docs/render-props.html).
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+> Para mais informações sobre o padrão *"function as a child"* veja, [render props](/docs/render-props.html).
 
 ### `Context.displayName` {#contextdisplayname}
 
@@ -262,11 +242,7 @@ Geralmente é necessário atualizar o contexto de um componente que está aninha
 
 ### Consumindo vários Contextos {#consuming-multiple-contexts}
 
-<<<<<<< HEAD
 Para que o contexto possa continuar renderizando rapidamente, o React precisa manter cada consumidor de contexto separado em um nó da árvore.
-=======
-To keep context re-rendering fast, React needs to make each context consumer a separate node in the tree.
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
 
 `embed:context/multiple-contexts.js`
 
@@ -288,13 +264,6 @@ Para contornar isso, mova a prop `value` para o state do nível antecessor.
 
 ## API Legada {#legacy-api}
 
-<<<<<<< HEAD
 > Nota
 >
 > Versões anteriores do React foram disponibilizadas com uma versão experimental do context API. Esta versão antiga da API será suportada em todas versões 16.x lançadas mas, aplicações utilizando esta API, devem migrar para a nova versão. [Leia aqui em API Legada](/docs/legacy-context.html).
-=======
-> Note
->
-> React previously shipped with an experimental context API. The old API will be supported in all 16.x releases, but applications using it should migrate to the new version. The legacy API will be removed in a future major React version. Read the [legacy context docs here](/docs/legacy-context.html).
-
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4

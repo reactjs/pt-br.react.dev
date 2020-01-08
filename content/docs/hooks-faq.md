@@ -465,11 +465,7 @@ Enquanto você não deve precisar muito disso, você pode expor alguns métodos 
 
 ### Como posso medir um nó DOM? {#how-can-i-measure-a-dom-node}
 
-<<<<<<< HEAD
-Para medir a posição ou o tamanho de um nó DOM, você pode usar um [callback ref](/docs/refs-and-the-dom.html#callback-refs). React chamará esse callback sempre que a ref for anexado a um nó diferente. Aqui está uma [pequena demonstração](https://codesandbox.io/s/l7m0v5x4v9):
-=======
-One rudimentary way to measure the position or size of a DOM node is to use a [callback ref](/docs/refs-and-the-dom.html#callback-refs). React will call that callback whenever the ref gets attached to a different node. Here is a [small demo](https://codesandbox.io/s/l7m0v5x4v9):
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+Uma maneira rudimentar de medir a posição ou o tamanho de um nó DOM é usar um [callback ref](/docs/refs-and-the-dom.html#callback-refs). React chamará esse callback sempre que a ref for anexado a um nó diferente. Aqui está uma [pequena demonstração](https://codesandbox.io/s/l7m0v5x4v9):
 
 ```js{4-8,12}
 function MeasureExample() {
@@ -494,13 +490,9 @@ Nós não escolhemos `useRef` neste exemplo porque um objeto ref não nos avisa 
 
 Note que nós passamos `[]` como um array de dependências para `useCallback`. Isso garante que nosso ref callback não seja alterado entre as novas renderizações e, portanto, o React não o chamará desnecessariamente.
 
-<<<<<<< HEAD
-Se você quiser, você pode [extrair essa lógica](https://codesandbox.io/s/m5o42082xy) em um Hook reutilizável:
-=======
-In this example, the callback ref will be called only when the component mounts and unmounts, since the rendered `<h1>` component stays present throughout any rerenders. If you want to be notified any time a component resizes, you may want to use [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) or a third-party Hook built on it.
+Neste exemplo, a ref de callback será chamado somente quando o componente for montado e desmontado, pois o componente renderizado `<h1>` permance presente em todos os repetidores. Se você deseja ser notificado sempre que um componente é redimensionado, você pode usar [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) ou uma Hook de terceiros construído sobre ele.
 
-If you want, you can [extract this logic](https://codesandbox.io/s/m5o42082xy) into a reusable Hook:
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
+Se você quiser, você pode [extrair essa lógica](https://codesandbox.io/s/m5o42082xy) em um Hook reutilizável:
 
 ```js{2}
 function MeasureExample() {
@@ -724,13 +716,8 @@ Como último recurso, se você quer algo como `this` em uma classe, você precis
 
 ```js{2-6,10-11,16}
 function Example(props) {
-<<<<<<< HEAD
   // Mantenha as últimas props em um ref.
-  let latestProps = useRef(props);
-=======
-  // Keep latest props in a ref.
   const latestProps = useRef(props);
->>>>>>> 071f5b0e1622465fb6fe5cf6c1cbd2aaef7c5ef4
   useEffect(() => {
     latestProps.current = props;
   });
