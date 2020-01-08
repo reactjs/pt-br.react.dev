@@ -69,10 +69,11 @@ function Counter({initialCount}) {
 
 Os botões "+" and "-" usam a forma funcional, porque o valor atualizado é baseado no valor anterior. Mas o botão "Reset" usa a forma normal, porque ele sempre define a contagem de volta para o valor inicial.
 
+Se sua função de atualização retornar exatamente o mesmo valor, o renderizador subsequente será ignorado completamente.
+
 > Nota
 > 
 > Ao contrário do método `setState` encontrado em componentes de classe, `useState` não combina automaticamente os objetos atualizados. Você pode replicar esse comportamento por combinar a função que atualiza o objeto e o estado anterior usando a sintaxe `object spread`
->
 >
 > ```js
 > setState(prevState => {
@@ -81,7 +82,6 @@ Os botões "+" and "-" usam a forma funcional, porque o valor atualizado é base
 > });
 > ```
 > Outra opção é o `useReducer`, que é mais adequada para gerenciar objetos de estado que contêm vários sub-valores.
->
 
 #### Estado Inicial Preguiçoso {#lazy-initial-state}
 
@@ -180,6 +180,8 @@ const value = useContext(MyContext);
 ```
 
 Aceita um objeto de contexto (o valor retornado de `React.createContext`) e retorna o valor atual do contexto. O valor de contexto atual é determinado pela prop `value` do` <MyContext.Provider> `mais próximo acima do componente de chamada na árvore.
+
+Quando o `<MyContext.Provider>` mais próximo acima do componente for atualizado, este Hook acionará um novo renderizador com o `value` de contexto mais recente passando para o provedor `MyContext`. Mesmo que um ancestral use [`React.memo`](/docs/react-api.html#reactmemo) ou [`shouldComponentUpdate`](/docs/react-component.html#shouldcomponentupdate), um renderizador ainda ocorrerá começando no próprio componente usando `useContext`.
 
 Não esqueça que o argumento para `useContext` deve ser o *objeto de contexto em si*:
 

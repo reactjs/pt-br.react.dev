@@ -82,6 +82,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactweek.nyc/) - [Twitter](https://twitter.com/reactweek) - [Facebook](https://www.facebook.com/reactweek)
 
+### ComponentsConf 2020 {#components20}
+1 de setembro de 2020 em Melbourne, Austrália
+
+[Website](https://www.componentsconf.com.au/) - [Twitter](https://twitter.com/ComponentsConf) - [Facebook](https://www.facebook.com/ComponentsConf/) - [LinkedIn](https://www.linkedin.com/company/componentsconf/) - [YouTube](https://www.youtube.com/ComponentsConf)
+
 ## Conferências passadas {#past-conferences}
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
