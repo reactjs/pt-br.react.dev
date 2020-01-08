@@ -1,37 +1,37 @@
 ---
-title: "Building Great User Experiences with Concurrent Mode and Suspense"
+title: "Construindo Ótimas Experiências de Usuário com Modo Concorrente e Suspense"
 author: [josephsavona]
 ---
 
-At React Conf 2019 we announced an [experimental release](/docs/concurrent-mode-adoption.html#installation) of React that supports Concurrent Mode and Suspense. In this post we'll introduce best practices for using them that we've identified through the process of building [the new facebook.com](https://twitter.com/facebook/status/1123322299418124289).
+Na React Conf 2019 nós anunciamos uma [versão experimental](/docs/concurrent-mode-adoption.html#installation) do React que acrescenta suporte ao Modo Concorrente e Suspense. Nesse artigo nós vamos introduzir as melhores práticas para seu uso que nós identificamos durante o processo de construção [do novo facebook.com](https://twitter.com/facebook/status/1123322299418124289).
 
-> This post will be most relevant to people working on _data fetching libraries_ for React. 
+> Esse artigo será mais relevante para pessoas que trabalham com as _bibliotecas de obtenção de dados (data fetching)_ para React. 
 >
->It shows how to best integrate them with Concurrent Mode and Suspense. The patterns introduced here are based on [Relay](https://relay.dev/docs/en/experimental/step-by-step) -- our library for building data-driven UIs with GraphQL. However, the ideas in this post **apply to other GraphQL clients as well as libraries using REST** or other approaches.
+> Mostramos como integrar melhor elas com o Modo Concorrente e o Suspense. Os padrão introduzidos aqui são baseados no [Relay](https://relay.dev/docs/en/experimental/step-by-step) -- nossa biblioteca para construir interfaces de usuário orientadas a dados com GraphQL. De qualquer forma, as ideias desse artigo **se aplicam a outros clientes GraphQL também assim como bibliotecas que usam REST** ou outras abordagens.
 
-This post is **aimed at library authors**. If you're primarily an application developer, you might still find some interesting ideas here, but don't feel like you have to read it in its entirety.
+Esse artigo é **dedicado aos autores de bibliotecas**. Se você for principalmente desenvolvedor de aplicações, você ainda pode encontrar ideias interessantes aqui, mas não se sinta obrigado a lê-lo inteiramente.
 
-## Talk Videos {#talk-videos}
+## Vídeos de Talks {#talk-videos}
 
-If you prefer to watch videos, some of the ideas from this blog post have been referenced in several React Conf 2019 presentations:
+Se você preferir assistir vídeos, algumas das ideias desse artigo se referema diversas apresentações da React Conf 2019:
 
-* [Data Fetching with Suspense in Relay](https://www.youtube.com/watch?v=Tl0S7QkxFE4&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=15&t=0s) by [Joe Savona](https://twitter.com/en_JS)
-* [Building the New Facebook with React and Relay](https://www.youtube.com/watch?v=KT3XKDBZW7M&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=4) by [Ashley Watkins](https://twitter.com/catchingash)
-* [React Conf Keynote](https://www.youtube.com/watch?v=uXEEL9mrkAQ&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=2) by [Yuzhi Zheng](https://twitter.com/yuzhiz)
+* [Obtenção de Dados com Suspense no Relay](https://www.youtube.com/watch?v=Tl0S7QkxFE4&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=15&t=0s) por [Joe Savona](https://twitter.com/en_JS)
+* [Contruindo o Novo Facebook com React e Relay](https://www.youtube.com/watch?v=KT3XKDBZW7M&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=4) por [Ashley Watkins](https://twitter.com/catchingash)
+* [React Conf Keynote](https://www.youtube.com/watch?v=uXEEL9mrkAQ&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=2) por [Yuzhi Zheng](https://twitter.com/yuzhiz)
 
-This post presents a deeper dive on implementing a data fetching library with Suspense.
+Esse artigo apresenta um mergulho na implentação de uma biblioteca de obtenção de dados com Suspense.
 
-## Putting User Experience First {#putting-user-experience-first}
+## Colocando a Experiência de Usuário como Prioridade {#putting-user-experience-first}
 
-The React team and community has long placed a deserved emphasis on developer experience: ensuring that React has good error messages, focusing on components as a way to reason locally about app behavior, crafting APIs that are predictable and encourage correct usage by design, etc. But we haven't provided enough guidance on the best ways to achieve a great *user* experience in large apps.
+A equipe do React e a comunidade tem constantemente enfatizado a experiência do desenvolvedor: garantindo que o React tenha boas mensagens de erro, focando em componentes como uma maneira de pensar localmente no comportamento do aplicativo, desenvolvimento APIs que são previsíveis e encorajando o correto uso via design, etc. Mas nós não temos difundido as melhores práticas para garantir uma ótima experiência de *usuário* em grandes aplicações.
 
-For example, the React team has focused on *framework* performance and providing tools for developers to debug and tune application performance (e.g. `React.memo`). But we haven't been as opinionated about the *high-level patterns* that make the difference between fast, fluid apps and slow, janky ones. We always want to ensure that React remains approachable to new users and supports a variety of use-cases -- not every app has to be "blazing" fast. But as a community we can and should aim high. **We should make it as easy as possible to build apps that start fast and stay fast,** even as they grow in complexity, for users on varying devices and networks around the world. 
+Por exemplo, a equipe do React tem focado na performance da *biblioteca* e provendo ferramentas para desenvolvedores debugarem e refinarem a performance da aplicação (ex. `React.memo`). Mas nós não temos opinado sobre *padrões de alto nível* que fazem a diferença entre aplicativos rápidos e fluídos e aplicativos lentos e travados. Nós sempre queremos garantir que o React se mantenha abordável para novos usuários e suportar uma variedade de casos uso -- nem todo aplicativo tem que ser "super" rápidos. Mas como uma comunidade nós podemos e devemos sonhar alto. **Nós devemos fazer ser tão fácil quanto possível construir aplicativos que iniciam rápido e continuam rápidos,** mesmo quando eles crescem em complexidade, para vários usuários em diversos dispositivos e redes ao no mundo todo. 
 
-[Concurrent Mode](/docs/concurrent-mode-intro.html) and [Suspense](/docs/concurrent-mode-suspense.html) are experimental features that can help developers achieve this goal. We first introduced them at [JSConf Iceland in 2018](/blog/2018/03/01/sneak-peek-beyond-react-16.html), intentionally sharing details very early to give the community time to digest the new concepts and to set the stage for subsequent changes. Since then we've completed related work, such as the new Context API and the introduction of Hooks, which are designed in part to help developers naturally write code that is more compatible with Concurrent Mode. But we didn't want to implement these features and release them without validating that they work. So over the past year, the React, Relay, web infrastructure, and product teams at Facebook have all collaborated closely to build a new version of facebook.com that deeply integrates Concurrent Mode and Suspense to create an experience with a more fluid and app-like feel. 
+[Modo Concorrente](/docs/concurrent-mode-intro.html) e [Suspense](/docs/concurrent-mode-suspense.html) são funcionalidades experimentais que podem ajudar os desenvolvedores a alcançarem esse objetivo. Nós inicialmente apresentamos eles na [JSConf Iceland em 2018](/blog/2018/03/01/sneak-peek-beyond-react-16.html), intencionalmente compartilhando detalhes muito antecipadamente para dar a comunidade tempo para digerir os novos conceitos e para se prepararem para as alterações subsequentes. Desde então nós completamos trabalhos correlacionados, como a nova API Conext e a introdução do Hooks, que foram desenhados em parte para ajudar os desenvolvedores a escreverem código que seja naturalmente mais compatível com o Modo Concorrente. Mas nós não queremos implementar essas funcionalidades e liberá-las sem garantir que funcionam. Então ao longo do ano passado, as equipes do React, Relay, infraestrutura web, e produto do Facebook têm todas colaborado intimamente para construir uma nova versão do facebook.com que integre profundamente o Modo Concorrente e o Suspense para criar uma experiência com uma sensação mais fluída e similar a de aplicativo. 
 
-Thanks to this project, we're more confident than ever that Concurrent Mode and Suspense can make it easier to deliver great, *fast* user experiences. But doing so requires rethinking how we approach loading code and data for our apps. Effectively all of the data-fetching on the new facebook.com is powered by [Relay Hooks](https://relay.dev/docs/en/experimental/step-by-step) -- new Hooks-based Relay APIs that integrate with Concurrent Mode and Suspense out of the box.
+Graças a esse projeto, nós estamos mais confiantes do que nunca de que o Modo Concorrente e o Suspense podem tornar mais fácil entregar uma experiência de usuário ótima e rápida. Mas fazer isso requer repensar como nós abordamos o carregamento do código e dos dados em nossas aplicações. Efetivamente toda a obtenção de dados no novo facebook.com é realizada pelo [Relay Hooks](https://relay.dev/docs/en/experimental/step-by-step) -- novas APIs do Relay baseadas em Hooks que integram com o Modo Concorrente e o Suspense sem configurações adicionais.
 
-Relay Hooks -- and GraphQL -- won't be for everyone, and that's ok! Through our work on these APIs we've identified a set of more general patterns for using Suspense. **Even if Relay isn't the right fit for you, we think the key patterns we've introduced with Relay Hooks can be adapted to other frameworks.**
+Relay Hooks -- e GraphQL -- não são para todos, e tudo bem com isso! Através do nosso trabalho nessas APIs nós identificamos um conjunto de padrões em geral para usar Suspense. **Mesmo que o Relay não seja o fit correto para você, nós acreditamos que os padrões chave que nós introduzimos com o Relay Hooks podem ser adaptados para outras bibliotecas**
 
 ## Best Practices for Suspense {#best-practices-for-suspense}
 
