@@ -484,6 +484,6 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://reactsummit2019.splashthat.com) -[Twitter](https://twitter.com/react_summit)
 
 ### React Day Berlin 2019 {#react-day-berlin-2019}
-December 6, 2019 in Berlin, Germany
+6 de dezembro de 2019 em Berlim, Alemanha
 
 [Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/reactdayberlin)
