@@ -144,11 +144,7 @@ class CustomTextInput extends React.Component {
 
 #### Refs e Componentes Funcionais {#refs-and-function-components}
 
-<<<<<<< HEAD
-**Você não deve usar um atributo `ref` em componentes funcionais**, pois eles não possuem instâncias:
-=======
-By default, **you may not use the `ref` attribute on function components** because they don't have instances:
->>>>>>> 99a18287c163e328f87709cb224742ccac3e113a
+Por padrão, **você não deve usar um atributo `ref` em componentes funcionais**, pois eles não possuem instâncias:
 
 ```javascript{1,8,13}
 function MyFunctionComponent() {
