@@ -479,7 +479,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Slack](https://react.now.sh/)
 
 ### React Summit 2019 {#reactsummit2019}
-November 30, 2019 in Lagos, Nigeria
+30 de Novembro de 2019 em Lagos, Nigéria
 
 [Website](https://reactsummit2019.splashthat.com) -[Twitter](https://twitter.com/react_summit)
 
@@ -487,4 +487,3 @@ November 30, 2019 in Lagos, Nigeria
 December 6, 2019 in Berlin, Germany
 
 [Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/reactdayberlin)
-
