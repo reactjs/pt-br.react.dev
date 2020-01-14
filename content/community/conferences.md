@@ -80,7 +80,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ## Conferências passadas {#past-conferences}
 
 ### React India 2020 {#react-india-2020}
-6 de novembro de 2020 in Mumbai, India
+6 de novembro de 2020 em Mumbai, Índia
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
