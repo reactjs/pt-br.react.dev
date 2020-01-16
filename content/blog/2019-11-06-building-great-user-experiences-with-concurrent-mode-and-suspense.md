@@ -59,11 +59,11 @@ Isso pode soar difícil de alcançar -- mas essas restrições são na verdade i
 3. Carregar dados incrementalmente
 4. Tratar código como dado
 
-### Parallel Data and View Trees {#parallel-data-and-view-trees}
+### Dados em Paralelo e Árvores de Visualização {#parallel-data-and-view-trees}
 
-One of the most appealing things about the fetch-on-render pattern is that it colocates *what* data a component needs with *how* to render that data. This colocation is great -- an example of how it makes sense to group code by concerns and not by technologies. All the issues we saw above were due to *when* we fetch data in this approach: upon rendering. We need to be able to fetch data *before* we've rendered the component. The only way to achieve that is by extracting the data dependencies into parallel data and view trees. 
+Uma das coisas mais atraentes no padrão de renderização-conforme-você-busca é que ele combina *quais* dados o componente precisa com *como* renderizar esses dados. Essa combinação é ótima -- um exemplo de como faz sentido agrupar código por responsabilidades e não por tecnologias. Todos os problemas que nós vimos acima foram sobre *quando* nós obtemos os dados nessa abordagem: após a renderização. Nós precisamos precisamos ser capazes de obter dados *antes* de renderizar o componente. The only way to achieve that is by extracting the data dependencies into parallel data and view trees. 
 
-Here's how that works in Relay Hooks. Continuing our example of a social media post with body and comments, here's how we might define it with Relay Hooks:
+Aqui mostramos como isso funciona no Relay Hooks. Continuando nosso exemplo de uma postagem de mídia social com corpo e comentários, aqui está como definimos isso no Relay Hooks:
 
 ```javascript
 // Post.js
@@ -89,17 +89,17 @@ function Post(props) {
 }
 ```
 
-Although the GraphQL is written within the component, Relay has a build step (Relay Compiler) that extracts these data-dependencies into separate files and aggregates the GraphQL for each view into a single query. So we get the benefit of colocating concerns, while at runtime having parallel data and view trees. Other frameworks could achieve a similar effect by allowing developers to define data-fetching logic in a sibling file (maybe `Post.data.js`), or perhaps integrate with a bundler to allow defining data dependencies with UI code and automatically extracting it, similar to Relay Compiler.
+Embora o GraphQL esteja escrito junto ao componente, Relay tem um passo de build (Compilador do Relay) que extrai essas dependências-de-dados em arquivos separados e agrega o GraphQL para cada visualização em uma única consulta. Então nós obtemos os benefícios de combinar responsabilidades, enquanto no tempo de execução temos dados paralelos e árvores de visualização. Outras bibliotecas poderiam alcançar resultados similares ao permitir que os desenvolvedores definam lógica de obtenção de dados em um arquivo irmão (talvez `Post.data.js`), ou então integrar com um bundler para permitir definição de dependência de dados com código de interface de usuário e automaticamente extraí-lo, de maneira semelhante ao Compilador do Relay.
 
-The key is that regardless of the technology we're using to load our data -- GraphQL, REST, etc -- we can separate *what* data to load from how and when to actually load it. But once we do that, how and when *do* we fetch our data?
+O segredo é que independente da tecnologia que estamos usando para carregar nossos dados -- GraphQL, REST, etc -- nós podemos separar *quais* dados carregar de como e quando fazê-lo. Mas uma vez feito isso, como e quando nós *carregamos* nossos dados?
 
-### Fetch in Event Handlers {#fetch-in-event-handlers}
+### Obtenção em Manipuladores de Evento {#fetch-in-event-handlers}
 
-Imagine that we're about to navigate from a list of a user's posts to the page for a specific post. We'll need to download the code for that page -- `Post.js` -- and also fetch its data.
+Imagine que nós estamos para navegar da listagem de postagens de um usuário para a página de uma postagem específica. Nós vamos precisar baixar o código para aquela página -- `Post.js` -- e também obter seus dados.
 
-Waiting until we render the component has problems as we saw above. The key is to start fetching code and data for a new view *in the same event handler that triggers showing that view*. We can either fetch the data within our router -- if our router supports preloading data for routes -- or in the click event on the link that triggered the navigation. It turns out that the React Router folks are already hard at work on building APIs to support preloading data for routes. But other routing frameworks can implement this idea too. 
+Aguardar até que a gente renderize os dados gera os problemas que nós vimos acima. O segredo é começar a obter o código e os dados para a nova visualização *no mesmo manipulador de evento que dispara a visualização*. Nós ainda podemos obter os dados com nosso roteador -- se nosso roteador suporta pré-carregamento de dados para as rotas -- ou no evento de clique no link que disparou a navegação. Vale lembrar que os colegas do React Router já trabalharam arduamente para construir APIs para suportarem pré-carregamento de dados para rotas. Mas outras bibliotecas de roteamento podem implementar essa ideia também.
 
-Conceptually, we want every route definition to include two things: what component to render and what data to preload, as a function of the route/url params. Here's what such a route definition *might* look like. This example is loosely inspired by React Router's route definitions and is *primarily intended to demonstrate the concept, not a specific API*:
+Conceitualmente, nós queremos que a definição de cada rota inclua duas coisas: qual componente renderizar e que dados pré-carregar, como uma função de rota/parâmetros de url. Aqui está o que esta definição de rota *pode* parecer. Este exemplo é um pouco inspirado pelas definições de rota do React Router e *principalmente se dedica a demonstrar o conceito, não uma API específica*:
 
 ```javascript
 // PostRoute.js (GraphQL version)
@@ -130,13 +130,13 @@ const PostRoute = {
 export default PostRoute;
 ```
 
-Given such a definition, a router can:
+Por definição, um roteador pode:
 
-* Match a URL to a route definition.
-* Call the `prepare()` function to start loading that route's data. Note that `prepare()` is synchronous -- *we don't wait for the data to be ready*, since we want to start rendering more important parts of the view (like the post body) as quickly as possible.
-* Pass the preloaded data to the component. If the component is ready -- the `React.lazy` dynamic import has completed -- the component will render and try to access its data. If not, `React.lazy` will suspend until the code is ready.
+* Associar uma URL a uma definição de rota.
+* Chamar a função `prepare()` para iniciar o carregamento dos dados da rota. Note que `prepare()` é síncrona -- *nós não queremos esperar pelos dados*, dado que nós queremos começar a renderizar as partes mais importantes da visualização (como o corpo da postagem) o mais rápido que possível.
+* Passar os dados pré-carregados para o componente. Se o componente estiver pronto -- a importação dinâmica do `React.lazy` terminou -- o componente irá renderizar e tentar acessar os seus dados. Do contrário, o `React.lazy` irá suspender até que o código esteja pronto.
 
-This approach can be generalized to other data-fetching solutions. An app that uses REST might define a route like this:
+Esta abordagem pode ser generalizada para outras soluções de obtenção de dados. Um aplicativo que usa REST poderia definir uma rota dessa forma:
 
 ```javascript
 // PostRoute.js (REST version)
@@ -167,15 +167,15 @@ const PostRoute = {
 export default PostRoute;
 ```
 
-This same approach can be employed not just for routing, but in other places where we show content lazily or based on user interaction. For example, a tab component could eagerly load the first tab's code and data, and then use the same pattern as above to load the code and data for other tabs in the tab-change event handler. A component that displays a modal could preload the code and data for the modal in the click handler that triggers opening the modal, and so on. 
+Esta mesma abordagem pode ser empregada não apenas para roteamento, mas em outros lugares onde nós queiramos mostrar conteúdo de maneira preguiçosa ou baseada na interação do usuário. Por exemplo, um componente de aba poderia carregar completamente os dados e o código para a primeira aba, e então usar o mesmo padrão acima para carregar o código e os dados para as outras abas que estão no manipulador de evento de troca de aba.
 
-Once we've implemented the ability to start loading code and data for a view independently, we have the option to go one step further. Consider a `<Link to={path} />` component that links to a route. If the user hovers over that link, there's a reasonable chance they'll click it. And if they press the mouse down, there's an even better chance that they'll complete the click. If we can load code and data for a view *after* the user clicks, we can also start that work *before* they click, getting a head start on preparing the view.
+Uma vez que implementamos a habilidade de começar a carregar código e dados de uma visualização de maneira independente, nós temos a opção de ir um passo além. Considere um componente `<Link to={path} />` que faz o link para uma rota. Se o usuário passa sobre este link, existe uma chance razoável de que ele irá clicá-lo. E se ele pressionar o mouse, existe uma chance ainda maior de que ele irá completar o click. Se nós podemos carregar o código e os dados para uma visualização *depois* de o usuário clicar, nós também podemos iniciar o trabalho *antes* deles clicarem, começando a preparar a visualização.
 
-Best of all, we can centralize that logic in a few key places -- a router or core UI components -- and get any performance benefits automatically throughout our app. Of course preloading isn't always beneficial. It's something an application would tune based on the user's device or network speed to avoid eating up user's data plans. But the pattern here makes it easier to centralize the implementation of preloading and the decision of whether to enable it or not.
+O melhor de tudo, nós podemos centralizar essa lógica em poucos lugares chave -- um roteador ou em componentes centralizadores de interação com o usuário -- e obter os benefícioes automaticamente em todo nosso app. Claro que pré-carregar nem sempre é benéfico. É algo que um aplicativo pode otimizar baseado no dispositivo do usuário ou velocidade de rede  para evitar consumir os planos de dados do usuário. Mas este padrão torna mais fácil centralizar a implementação do pré-carregamento e a decisão de quando habilitá-lo ou não.
 
-### Load Data Incrementally {#load-data-incrementally}
+### Carregar Dados Incrementalmente {#load-data-incrementally}
 
-The above patterns -- parallel data/view trees and fetching in event handlers -- let us start loading all the data for a view earlier. But we still want to be able to show more important parts of the view without waiting for *all* of our data. At Facebook we've implemented support for this in GraphQL and Relay in the form of some new GraphQL directives (annotations that affect how/when data is delivered, but not what data). These new directives, called `@defer` and `@stream`, allow us to retrieve data incrementally. For example, consider our `<Post>` component from above. We want to show the body without waiting for the comments to be ready. We can achieve this with `@defer` and `<Suspense>`:
+Os padrões acima -- dados em paralelo/árvores de visualização e obtenção em manipuladores de evento -- nos permitem iniciar o carregamento dos dados de uma visualização antecipadamente. Mas nós ainda queremos poder mostrar as partes mais importantes da visualização sem ter que esperar por *todos* os nossos dados. No Facebook nós implementamos o suporte para isso no GraphQL e Relay na forma de algumas novas diretivas de GraphQL (anotações que afetam quando/como os dados são entregues, mas não quais dados). Essas novas diretivas, chamadas `@defer` e `@stream`, nos permitem recuperar dados de maneira incremental. Por exemplo, considere nosso componente `<Post>` acima. Nós queremos mostrar o corpo sem ter que esperar que os comentários estejam prontos. Nós podemos alcançar isso com `@defer` e `<Suspense>`:
 
 ```javascript
 // Post.js
@@ -203,13 +203,13 @@ function Post(props) {
 }
 ```
 
-Here, our GraphQL server will stream back the results, first returning the `author` and `title` fields and then returning the comment data when it's ready. We wrap `<CommentList>` in a `<Suspense>` boundary so that we can render the post body before `<CommentList>` and its data are ready. This same pattern can be applied to other frameworks as well. For example, apps that call a REST API might make parallel requests to fetch the body and comments data for a post to avoid blocking on all the data being ready.
+Aqui, nosso servidor GraphQL devolver os resultados por stream, primeiro retornando os campos `author` e `title` e então retornando os dados de comentário quando estiver pronto. Nós envolvemos a `<CommentList>` em uma `<Suspense>` então nós podemos renderizar o corpo da postagem antes da `<CommentList>` e seus dados estarem prontos. Esse padrão pode ser aplicados a outras biblotecas. Por exemplo, aplicativos que chamam uma API REST podem fazer requisições em paralelo para obter os dados para o corpo e comentários para uma postagem evitando bloquear até que todos os dados estejam prontos.
 
-### Treat Code Like Data {#treat-code-like-data}
+### Tratar Código Como Dados {#treat-code-like-data}
 
-But there's one thing that's still missing. We've shown how to preload *data* for a route -- but what about code? The example above cheated a bit and used `React.lazy`. However, `React.lazy` is, as the name implies, *lazy*. It won't start downloading code until the lazy component is actually rendered -- it's "fetch-on-render" for code!
+Mas ainda tem uma coisa faltando. Nós mostramos como pré-carregar *dados* para uma rota -- mas e o código? O exemplo acima nos enganou um pouco e usou `React.lazy`. De qualquer forma, `React.lazy` é, como o nome indica, *preguiçoso*. Ele não irá começar a baixar o código até que o componente preguiçoso esteja renderizados -- é uma "obtenção-na-renderização" para código!
 
-To solve this, the React team is considering APIs that would allow bundle splitting and eager preloading for code as well. That would allow a user to pass some form of lazy component to a router, and for the router to trigger loading the code alongside its data as early as possible.
+Para resolver isso, a equipe do React está considerando APIs que nos permitiriam dividir o bundle e carregar completamente para código também. Isso permitiria um usuário passar de alguma forma um componente preguiçoso para uma rota, e a rota disparar o carregamento do código e dos seus dados o mais antecipadamente possível.
 
 ## Putting It All Together {#putting-it-all-together}
 
