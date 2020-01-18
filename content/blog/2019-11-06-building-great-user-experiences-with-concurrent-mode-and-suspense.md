@@ -54,7 +54,7 @@ No exemplo acima do `<Post>`, nós idealmente deveríamos mostrar o conteudo mai
 
 Isso pode soar difícil de alcançar -- mas essas restrições são na verdade incrivelmente helpful. Elas descartam uma série de abordagens e nos desenham um rascunho da solução. Isso nós leva os padrões chave que nós implementamos no in Relay Hooks, e que podem ser adaptados para outras biblotecas de obtenção de dados. Veremos cada um de maneira a nos mostrar como podem nos ajudar a alcançar nosso objetivo de experiências de carregamento rápidas e encatadoras:
 
-1. Dados paralelos e árvores de visualização
+1. Dados em paralelo e árvores de visualização
 2. Carregar em manipuladores de evento
 3. Carregar dados incrementalmente
 4. Tratar código como dado
@@ -68,28 +68,28 @@ Aqui mostramos como isso funciona no Relay Hooks. Continuando nosso exemplo de u
 ```javascript
 // Post.js
 function Post(props) {
-  // Given a reference to some post - `props.post` - *what* data
-  // do we need about that post?
+  // Dado uma referência para alguma postagem - `props.post` - *de quais* dados
+  // nós precisamos sobre essa postagem?
   const postData = useFragment(graphql`
     fragment PostData on Post @refetchable(queryName: "PostQuery") {
       author
       title
-      # ...  more fields ...
+      # ...  mais campos ...
     }
   `, props.post);
 
-  // Now that we have the data, how do we render it?
+  // Agora que nós temos os dados, como renderizá-lo?
   return (
     <div>
       <h1>{postData.title}</h1>
       <h2>by {postData.author}</h2>
-      {/* more fields  */}
+      {/* mais campos  */}
     </div>
   );
 }
 ```
 
-Embora o GraphQL esteja escrito junto ao componente, Relay tem um passo de build (Compilador do Relay) que extrai essas dependências-de-dados em arquivos separados e agrega o GraphQL para cada visualização em uma única consulta. Então nós obtemos os benefícios de combinar responsabilidades, enquanto no tempo de execução temos dados paralelos e árvores de visualização. Outras bibliotecas poderiam alcançar resultados similares ao permitir que os desenvolvedores definam lógica de obtenção de dados em um arquivo irmão (talvez `Post.data.js`), ou então integrar com um bundler para permitir definição de dependência de dados com código de interface de usuário e automaticamente extraí-lo, de maneira semelhante ao Compilador do Relay.
+Embora o GraphQL esteja escrito junto ao componente, Relay tem um passo de build (Compilador do Relay) que extrai essas dependências-de-dados em arquivos separados e agrega o GraphQL para cada visualização em uma única consulta. Então nós obtemos os benefícios de combinar responsabilidades, enquanto no tempo de execução temos dados em paralelo e árvores de visualização. Outras bibliotecas poderiam alcançar resultados similares ao permitir que os desenvolvedores definam lógica de obtenção de dados em um arquivo irmão (talvez `Post.data.js`), ou então integrar com um bundler para permitir definição de dependência de dados com código de interface de usuário e automaticamente extraí-lo, de maneira semelhante ao Compilador do Relay.
 
 O segredo é que independente da tecnologia que estamos usando para carregar nossos dados -- GraphQL, REST, etc -- nós podemos separar *quais* dados carregar de como e quando fazê-lo. Mas uma vez feito isso, como e quando nós *carregamos* nossos dados?
 
@@ -104,21 +104,21 @@ Conceitualmente, nós queremos que a definição de cada rota inclua duas coisas
 ```javascript
 // PostRoute.js (GraphQL version)
 
-// Relay generated query for loading Post data
+// Consulta do Relay para carregamento dos dados do Post
 import PostQuery from './__generated__/PostQuery.graphql';
 
 const PostRoute = {
-  // a matching expression for which paths to handle
+  // uma expressão que associa qual rota tratar
   path: '/post/:id',
 
-  // what component to render for this route
+  // que componente renderizar para essa rota
   component: React.lazy(() => import('./Post')),
 
-  // data to load for this route, as function of the route
-  // parameters
+  // dados a serem carregados para essa rota, como uma função dos parâmetros
+  // da rota
   prepare: routeParams => {
-    // Relay extracts queries from components, allowing us to reference
-    // the data dependencies -- data tree -- from outside.
+    // Relay extrai consultas de componentes, nos permitindo referenciar
+    // as dependências de dados -- árvore de dados -- de fora.
     const postData = preloadQuery(PostQuery, {
       postId: routeParams.id,
     });
@@ -139,20 +139,20 @@ Por definição, um roteador pode:
 Esta abordagem pode ser generalizada para outras soluções de obtenção de dados. Um aplicativo que usa REST poderia definir uma rota dessa forma:
 
 ```javascript
-// PostRoute.js (REST version)
+// PostRoute.js (versão em REST)
 
-// Manually written logic for loading the data for the component
+// Lógica escrita manualmente para carregamento dos dados para o componente
 import PostData from './Post.data';
 
 const PostRoute = {
-  // a matching expression for which paths to handle
+  // uma expressão que associa qual rota tratar
   path: '/post/:id',
 
-  // what component to render for this route
+  // que componente renderizar para essa rota
   component: React.lazy(() => import('./Post')),
 
-  // data to load for this route, as function of the route
-  // parameters
+  // dados a serem carregados para essa rota, como uma função dos parâmetros
+  // da rota
   prepare: routeParams => {
     const postData = preloadRestEndpoint(
       PostData.endpointUrl, 
@@ -185,7 +185,7 @@ function Post(props) {
       author
       title
 
-      # fetch data for the comments, but don't block on it being ready
+      # obter dados para os comentários, mas sem bloquear até que estejam carregados
       ...CommentList @defer
     }
   `, props.post);
@@ -194,7 +194,7 @@ function Post(props) {
     <div>
       <h1>{postData.title}</h1>
       <h2>by {postData.author}</h2>
-      {/* @defer pairs naturally with <Suspense> to make the UI non-blocking too */}
+      {/* @defer trabalha naturalmente com <Suspense> para criar uma interface de usuário não bloqueada também */}
       <Suspense fallback={<Spinner/>}>
         <CommentList post={postData} />
       </Suspense>
