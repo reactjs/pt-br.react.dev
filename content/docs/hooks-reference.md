@@ -142,7 +142,11 @@ Embora `useEffect` seja adiado até a próxima renderização do navegador, é m
 
 O comportamento padrão para efeitos é disparar o efeito após cada renderização concluída. Desta maneira, o efeito é sempre recriado se uma de suas dependências for alterada.
 
+<<<<<<< HEAD
 No entanto, isto pode ser excessivo em alguns casos, como o exemplo de assinatura da seção anterior. Nós não precisamos criar uma nova assinatura toda vez que atualizar, apenas se a propriedade `source` for alterada.
+=======
+However, this may be overkill in some cases, like the subscription example from the previous section. We don't need to create a new subscription on every update, only if the `source` prop has changed.
+>>>>>>> c8aef5dc0dc340e800fbb7963a94adb97da9803b
 
 Para implementar isso, passe um segundo argumento para `useEffect` que pode ser um array de valores em que o efeito observa. Nosso exemplo atualizado agora se parece com isso:
 

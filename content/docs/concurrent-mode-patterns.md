@@ -790,7 +790,11 @@ function ProfileTimeline({ isStale, resource }) {
 
 A troca que estamos fazendo aqui é que `<ProfileTimeline>` será inconsistente com outros componentes e potencialmente mostrará um item mais antigo. Clique em "Next" algumas vezes e você perceberá. Mas, graças a isso, conseguimos reduzir o tempo de transição de 1000ms para 300ms.
 
+<<<<<<< HEAD
 Se é ou não uma troca apropriada, depende da situação. Mas é uma ferramenta útil, especialmente quando o conteúdo não muda visivelmente entre os itens, e o usuário pode nem perceber que estava olhando uma versão antiga por um segundo.
+=======
+Whether or not it's an appropriate tradeoff depends on the situation. But it's a handy tool, especially when the content doesn't change noticeably between items, and the user might not even realize they were looking at a stale version for a second.
+>>>>>>> c8aef5dc0dc340e800fbb7963a94adb97da9803b
 
 Vale a pena notar que `useDeferredValue` não é *apenas* útil para a busca de dados. Também ajuda quando uma árvore de componentes cara faz com que uma interação (por exemplo, digitando uma entrada) seja lenta. Assim como podemos "adiar" um valor que leva muito tempo para buscar (e mostrar seu valor antigo apesar da atualização de outros componentes), podemos fazer isso com árvores que demoram muito para serem renderizadas.
 
