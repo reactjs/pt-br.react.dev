@@ -128,6 +128,8 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 Se seu *function component* renderiza o mesmo resultado dados os mesmos props, você pode envolver nele uma chamada para `React.memo` para um aumento no desempenho em alguns casos, através da memoização do resultado. Isto significa que o React vai pular a renderização do componente e reutilizar o último resultado renderizado.
 
+`React.memo` afeta apenas as alterações de adereços. Se o seu componetne de função envolvido em `React.memo` tiver um [`useState`](/docs/hooks-state.html) ou [`useContext`](/docs/hooks-reference.html#usecontext) Hook em sua implementação, ele ainda será renderizado quando o estado ou o contexto mudar.
+
 Por padrão, ele irá comparar apenas superficialmente os objetos nos props. Se você quiser controle sob a comparação, você também pode prover uma função customizada de comparação como segundo argumento.
 
 ```javascript

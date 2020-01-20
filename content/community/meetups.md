@@ -8,6 +8,9 @@ permalink: community/meetups.html
 
 Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mantenha a lista em ordem alfabética)
 
+## Argentina {#argentina}
+* [Rosario](https://www.meetup.com/es/reactrosario)
+
 ## Austrália {#australia}
 * [Brisbane](https://www.meetup.com/reactbris/)
 * [Melbourne](https://www.meetup.com/React-Melbourne/)
@@ -134,6 +137,9 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Suécia {#sweden}
 * [Goteborg](https://www.meetup.com/ReactJS-Goteborg/)
 
+## Suíça {#switzerland}
+* [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
+
 ## Ucrânia {#ukraine}
 * [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)
 
@@ -167,6 +173,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Portland, OR - ReactJS](https://www.meetup.com/Portland-ReactJS/)
 * [Provo, UT - ReactJS](https://www.meetup.com/ReactJS-Utah/)
 * [Sacramento, CA - ReactJS](https://www.meetup.com/Sacramento-ReactJS-Meetup/)
+* [San Diego, CA - San Diego JS](https://www.meetup.com/sandiegojs/)
 * [San Francisco - Real World React](https://www.meetup.com/Real-World-React)
 * [San Francisco - ReactJS](https://www.meetup.com/ReactJS-San-Francisco/)
 * [San Francisco, CA - React Native](https://www.meetup.com/React-Native-San-Francisco/)

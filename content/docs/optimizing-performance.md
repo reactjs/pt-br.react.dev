@@ -176,7 +176,7 @@ Para fazer isso no Chrome:
 
 6. Eventos do React serão agrupados sob a label **User Timing**.
 
-Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad).
+Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
 
 Perceba que **os números são relativos para que os componentes renderizem mais rápido em produção**. Ainda, isto deve ajudar você a perceber quando algo não relacionados da UI são alteradas, a quão profundo e frequente suas alterações de UI acontecem.
 
