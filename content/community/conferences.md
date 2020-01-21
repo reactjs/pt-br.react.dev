@@ -23,7 +23,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
 
 ### ReactConf Japan 2020 {#reactconfjp-2020}
-March 21, 2020 in Tokyo, Japan
+21 de março de 2020 em Tóquio, Japão
 
 [Website](https://reactconf.jp/) - [Twitter](https://twitter.com/reactjapanconf)
 
@@ -78,7 +78,7 @@ March 21, 2020 in Tokyo, Japan
 [Website](https://reactweek.nyc/) - [Twitter](https://twitter.com/reactweek) - [Facebook](https://www.facebook.com/reactweek)
 
 ### React La Conferencia 2020 {#react-la-conferencia-2020}
-July 18, 2020. Medellín, Colombia.
+18 de julho de 2020. Medelín, Colômbia.
 
 [Website](https://reactlaconf.co/) - [Twitter](https://twitter.com/reactlaconf)
 
