@@ -22,6 +22,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
 
+### ReactConf Japan 2020 {#reactconfjp-2020}
+21 de março de 2020 em Tóquio, Japão
+
+[Website](https://reactconf.jp/) - [Twitter](https://twitter.com/reactjapanconf)
+
 ### Reactathon 2020 {#reactathon-2020}
 30 e 31 de março de 2020 em São Francisco, CA
 
@@ -40,7 +45,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Day Bangalore 2020 {#react-day-bangalore-2020}
 25 de abril de 2020 em Bangalore, Índia
 
-[Website](https://reactday.in) - [Twitter](https://twitter.com/ReactDayIn)
+[Website](https://reactday.in) - [Twitter](https://twitter.com/ReactDayIn) - [LinkedIn](https://www.linkedin.com/company/react-day/)
 
 ### render(ATL) 2020 {#render-atlanta-2020}
 4 a 6 de maio de 2020. Atlanta, GA, EUA.
@@ -71,6 +76,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 17 de julho, 2020. Nova Iorque, USA.
 
 [Website](https://reactweek.nyc/) - [Twitter](https://twitter.com/reactweek) - [Facebook](https://www.facebook.com/reactweek)
+
+### React La Conferencia 2020 {#react-la-conferencia-2020}
+18 de julho de 2020. Medelín, Colômbia.
+
+[Website](https://reactlaconf.co/) - [Twitter](https://twitter.com/reactlaconf)
 
 ### ComponentsConf 2020 {#components20}
 1 de setembro de 2020 em Melbourne, Austrália

@@ -87,9 +87,9 @@ A fase de _commit_ é geralmente muito rápida, mas a renderização pode ser de
 
 Os ciclos de vida da fase da renderização incluem os seguintes métodos do componente classe:
 * `constructor`
-* `componentWillMount`
-* `componentWillReceiveProps`
-* `componentWillUpdate`
+* `componentWillMount` (ou `UNSAFE_componentWillMount`)
+* `componentWillReceiveProps` (ou `UNSAFE_componentWillReceiveProps`)
+* `componentWillUpdate` (ou `UNSAFE_componentWillUpdate`)
 * `getDerivedStateFromProps`
 * `shouldComponentUpdate`
 * `render`
