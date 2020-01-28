@@ -103,16 +103,10 @@ Para aceitar seu ***pull request***, precisamos que você envie um CLA. Você s�
 
 ### Pré-requisitos de Contribuição {#contribution-prerequisites}
 
-<<<<<<< HEAD
 * Possuir o [Node](https://nodejs.org) instalado na versão v8.0.0+ e [Yarn](https://yarnpkg.com/en/) na versão v1.2.0+.
+* Possuir o [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) instalado.
 * Você deve ter o `gcc` instalado ou está confortável em instalar um compilador, se necessário. Algumas de nossas dependências podem exigir uma etapa de compilação. No OS X, as Ferramentas de Linha de Comando do Xcode cobrirão isso. No Ubuntu, `apt-get install build-essential` instalará os pacotes requeridos. Comandos semelhantes devem funcionar em outras distribuições Linux. O Windows irá requerer alguns passos adicionais, veja as instruções de instalação do [node-gyp](https://github.com/nodejs/node-gyp#installation) para detalhes.
 * Você deve ser familiarizado com o Git.
-=======
-* You have [Node](https://nodejs.org) installed at v8.0.0+ and [Yarn](https://yarnpkg.com/en/) at v1.2.0+.
-* You have [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
-* You have `gcc` installed or are comfortable installing a compiler if needed. Some of our dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
-* You are familiar with Git.
->>>>>>> 335d64336234bcb7ba527ff94919a07da27f8549
 
 ### Fluxo de Trabalho de Desenvolvimento {#development-workflow}
 
@@ -158,24 +152,7 @@ Então, nosso linter irá capturar a maioria dos problemas que possam existir em
 
 No entanto, ainda existem alguns estilos que o linter não consegue captar. Se você não tem certeza sobre alguma coisa, veja o [Guia de Estilos do Airbnb](https://github.com/airbnb/javascript) para te direcionar no caminho certo.
 
-<<<<<<< HEAD
-### Vídeo Introdutório {#introductory-video}
-
-Você pode estar interessado em assistir [este pequeno vídeo](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 minutos), que apresenta uma introdução sobre como contribuir para o React.
-
-#### Destaques no vídeo: {#video-highlights}
-- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Construindo e testando o React localmente
-- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Criando e enviando ***pull requests***
-- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizando código
-- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm registry
-- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Adicionando novos recursos do React
-
-Para obter uma visão geral realista do que é o sentimento de contribuir para o React pela primeira vez, confira [essa palestra interessante no ReactNYC](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
-
 ### Pedido de Comentários (Request for Comments - RFC) {#request-for-comments-rfc}
-=======
-### Request for Comments (RFC) {#request-for-comments-rfc}
->>>>>>> 335d64336234bcb7ba527ff94919a07da27f8549
 
 Muitas alterações, incluindo correções de bugs e melhorias na documentação, podem ser implementadas e revisadas por meio do fluxo de trabalho normal de ***pull requests*** do GitHub.
 
