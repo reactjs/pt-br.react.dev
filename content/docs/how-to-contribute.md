@@ -104,6 +104,7 @@ Para aceitar seu ***pull request***, precisamos que você envie um CLA. Você s�
 ### Pré-requisitos de Contribuição {#contribution-prerequisites}
 
 * Possuir o [Node](https://nodejs.org) instalado na versão v8.0.0+ e [Yarn](https://yarnpkg.com/en/) na versão v1.2.0+.
+* Possuir o [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) instalado.
 * Você deve ter o `gcc` instalado ou está confortável em instalar um compilador, se necessário. Algumas de nossas dependências podem exigir uma etapa de compilação. No OS X, as Ferramentas de Linha de Comando do Xcode cobrirão isso. No Ubuntu, `apt-get install build-essential` instalará os pacotes requeridos. Comandos semelhantes devem funcionar em outras distribuições Linux. O Windows irá requerer alguns passos adicionais, veja as instruções de instalação do [node-gyp](https://github.com/nodejs/node-gyp#installation) para detalhes.
 * Você deve ser familiarizado com o Git.
 
@@ -150,19 +151,6 @@ Usamos um formatador de código automático chamado [Prettier](https://prettier.
 Então, nosso linter irá capturar a maioria dos problemas que possam existir em seu código. Você pode verificar o status do seu estilo de código simplesmente executando `yarn linc`.
 
 No entanto, ainda existem alguns estilos que o linter não consegue captar. Se você não tem certeza sobre alguma coisa, veja o [Guia de Estilos do Airbnb](https://github.com/airbnb/javascript) para te direcionar no caminho certo.
-
-### Vídeo Introdutório {#introductory-video}
-
-Você pode estar interessado em assistir [este pequeno vídeo](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 minutos), que apresenta uma introdução sobre como contribuir para o React.
-
-#### Destaques no vídeo: {#video-highlights}
-- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Construindo e testando o React localmente
-- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Criando e enviando ***pull requests***
-- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizando código
-- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm registry
-- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Adicionando novos recursos do React
-
-Para obter uma visão geral realista do que é o sentimento de contribuir para o React pela primeira vez, confira [essa palestra interessante no ReactNYC](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
 
 ### Pedido de Comentários (Request for Comments - RFC) {#request-for-comments-rfc}
 

@@ -152,6 +152,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Charlotte, NC - ReactJS](https://www.meetup.com/ReactJS-Charlotte/)
 * [Charlotte, NC - React Native](https://www.meetup.com/cltreactnative/)
 * [Chicago, IL - ReactJS](https://www.meetup.com/React-Chicago/)
+* [Cleveland, OH - ReactJS](https://www.meetup.com/Cleveland-React/)
 * [Columbus, OH - ReactJS](https://www.meetup.com/ReactJS-Columbus-meetup/)
 * [Dallas, TX - ReactJS](https://www.meetup.com/ReactDallas/)
 * [Detroit, MI - Detroit React User Group](https://www.meetup.com/Detroit-React-User-Group/)
