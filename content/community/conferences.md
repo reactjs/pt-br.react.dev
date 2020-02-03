@@ -87,14 +87,17 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://www.componentsconf.com.au/) - [Twitter](https://twitter.com/ComponentsConf) - [Facebook](https://www.facebook.com/ComponentsConf/) - [LinkedIn](https://www.linkedin.com/company/componentsconf/) - [YouTube](https://www.youtube.com/ComponentsConf)
 
-## Conferências passadas {#past-conferences}
+### React Native EU 2020 {#react-native-eu-2020}
+5 e 6 de setembro de 2020 em Breslávia, Polônia
+
+[Website](https://www.react-native.eu/) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu/) - [YouTube](https://www.youtube.com/watch?v=m0GfmlGFh3E&list=PLZ3MwD-soTTHy9_88QPLF8DEJkvoB5Tl-) - [Instagram](https://www.instagram.com/reactnative_eu/)
 
 ### React India 2020 {#react-india-2020}
 6 de novembro de 2020 em Mumbai, Índia
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
-## Past Conferences {#past-conferences}
+## Conferências passadas {#past-conferences}
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
