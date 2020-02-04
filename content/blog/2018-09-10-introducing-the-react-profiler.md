@@ -18,7 +18,7 @@ Este blog post cobre os seguintes tópicos:
 * [Guia de soluções de problemas](#troubleshooting)
   * [Nenhum dado de profile foi salvo para a raiz selecionada](#no-profiling-data-has-been-recorded-for-the-selected-root)
   * [Nenhum dado de tempo a ser exibido para o commit selecionado](#no-timing-data-to-display-for-the-selected-commit)
-* [Video aprofundado](#deep-dive-video)
+* [Vídeo aprofundado](#deep-dive-video)
 
 ## Analisando uma aplicação {#profiling-an-application}
 
@@ -29,7 +29,7 @@ DevTools irá exibir uma aba chamada "Profiler" para aplicações que suportem a
 > Nota:
 >
 > `react-dom` 16.5+ suporta análise no modo DEV.
-> Um bundle de produção para análise está disponível como `react-dom/profiling`.
+> Um pacote de produção para análise está disponível como `react-dom/profiling`.
 > Leia mais sobre como usar este bundle em [fb.me/react-profiling](https://fb.me/react-profiling) 
 
 O painel de "Profiler" estará vazio inicialmente. Clique no botão de gravar para iniciar a análise:
@@ -51,7 +51,7 @@ Iremos [olhar cada uma destas formas abaixo](#reading-performance-data).
 Conceitualmente, React funciona em duas fases:
 
 * A fase de **render** determina quais mudanças precisam ser feitas no DOM, por exemplo. Durante esta fase, React executa `render` e então compara o resultado com o render anterior.
-* A fase de **commit** aplica todas as mudanças. (No caso do React DOM, é quando o React insere, atualiza e remove nós do DOM.) O React também executa os métodos do ciclo de vida como `componentDidMount` e `compoenentDidUpdate` durante esta fase.
+* A fase de **commit** aplica todas as mudanças. (No caso do React DOM, é quando o React insere, atualiza e remove nós do DOM.) O React também executa os métodos do ciclo de vida como `componentDidMount` e `componentDidUpdate` durante esta fase.
 
 O profiler do DevTools agrupa a informação de desempenho por commit.
 Commits são exibidos em um gráfico de barra próximo ao topo do profiler:
@@ -67,7 +67,7 @@ A cor e a altura de cada barra corresponde ao tempo que aquele commit demorou pa
 ### Filtrando commits {#filtering-commits}
 
 O quanto mais você executar o profile, mais vezes a sua aplicação irá renderizar.
-Em alguns casos você vai acabar com _muitos commits_ para analisar facilmente.
+Em alguns casos você vai acabar com _commits demais_ para analisar facilmente.
 O profiler oferece um mecanismo de filtro para ajudar nestes casos.
 Use-o para especificar um limit e o profiler irá esconder todos os commits que foram mais _rápidos_ que aquele valor.
 
@@ -78,8 +78,7 @@ Use-o para especificar um limit e o profiler irá esconder todos os commits que 
 A visualização de gráfico de chama (flame chart) representa o estado da sua aplicação para um commit particular.
 Cada barra no gráfico representa um componente React (por exemplo `App`, `Nav`).
 O tamanho e cor da barra representa quanto tempo o componente e seus filhos demoraram para renderizar.
-(A largura da barra representa quanto tempo foi gasto _quando o componente foi renderizado pela última vez_  e a cor representa quanto tempo foi gasto _como parte do commit atual_.)
-(The width of a bar represents how much time was spent _when the component last rendered_ and the color represents how much time was spent _as part of the current commit_.)
+(A largura da barra representa quanto tempo foi gasto _quando o componente foi renderizado pela última vez_ e a cor representa quanto tempo foi gasto _como parte do commit atual_.)
 
 ![Examplo de gráfico de chama](../images/blog/introducing-the-react-profiler/flame-chart.png)
 
@@ -89,7 +88,7 @@ O tamanho e cor da barra representa quanto tempo o componente e seus filhos demo
 > Se o componente não re-renderizou como parte do último commit, o tempo representa uma renderização anterior.
 > O quanto maior for um componente, mais demorado é para ele renderizar.
 > 
-> A cor da barra indica quanto tempo o componente (e seus filhos) demorarou para renderizar no commit selecionado.
+> A cor da barra indica quanto tempo o componente (e seus filhos) demoraram para renderizar no commit selecionado.
 > Componentes amarelos levaram mais tempo, componentes azuis levaram menos tempo e componentes cinza não renderizaram durante este commit.
 
 Por exemplo, o commit acima levou um total de 18.4ms para renderizar.
@@ -98,7 +97,7 @@ A maior parte deste tempo foi devido a seus filhos, `Nav` (8.4ms) e `Route` (7.9
 O resto do tempo se dividiu entre seus filhos remanescentes ou gasto no método de render do próprio componente.
 
 Você pode aumentar ou diminuir o zoom no gráfico de chama clicando nos componentes:
-![Click num componente para dar aumentar ou diminuir o zoom](../images/blog/introducing-the-react-profiler/zoom-in-and-out.gif)
+![Clique em um componente para aumentar ou diminuir o zoom](../images/blog/introducing-the-react-profiler/zoom-in-and-out.gif)
 
 Clicar num componente irá selecioná-lo e mostrar, no painel lateral direito, informações que incluem suas `props` e `estado` no momento deste commit.
 Você pode analisar e aprender mais sobre como o componente realmente renderizou durante o commit:
@@ -110,7 +109,7 @@ Em alguns casos, selecionar um componente e alternar entre commits pode dar uma 
 ![Visualizando quais valores mudaram entre commits](../images/blog/introducing-the-react-profiler/see-which-props-changed.gif)
 
 A imagem acima mostra que `state.scrollOffset` mudou entre os commits.
-Foi isto que provavelmente causou o componente `List` renderizar novamente.
+Foi isto que provavelmente causou que o componente `List` renderizasse novamente.
 
 ### Gráfico de classificação {#ranked-chart}
 
@@ -140,7 +139,7 @@ O gráfico acima mostra que o componente `List` renderizou 11 vezes.
 Ele também mostra que cada vez que ele renderizou, foi o componente mais "caro" no commit (significando que foi o mais demorado).
 
 Para visualizar este gráfico, você deve clicar duas vezes num componente _ou_ selecionar um componente e clicar no ícone com um gráfico de barras azul no painel de detalhe a direita.
-Voc6e pode retornar ao gráfico anterior clicando no botão "x" no painel de detalhe a direita.
+Você pode retornar ao gráfico anterior clicando no botão "x" no painel de detalhe a direita.
 Você também pode clicar duas vezes numa barra específica para visualizar mais informações sobre aquele commit.
 
 ![Como visualizar todas as renderizações de um componente específico](../images/blog/introducing-the-react-profiler/see-all-commits-for-a-fiber.gif)
@@ -191,7 +190,7 @@ Neste caso, a seguinte mensagem irá aparecer:
 
 ## Vídeo aprofundado {#deep-dive-video}
 
-O seguinte vídeo demonstra como o React profiler pode ser usado para detectar e melhorar gargálos de performance numa aplicação React real.
+O vídeo a seguir demonstra como o React profiler pode ser usado para detectar e melhorar gargálos de performance numa aplicação React real.
 
 <br>
 
