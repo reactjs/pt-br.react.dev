@@ -55,7 +55,7 @@ Se você é o autor de um projeto de terceiros como um framework, biblioteca, fe
   npm update react@next react-dom@next
   ```
 
-  Or yarn:
+  Ou yarn:
 
   ```
   yarn upgrade react@next react-dom@next
@@ -68,9 +68,9 @@ Um projeto que usa esse fluxo de trabalho é Next.js. (Sem trocadilhos! Sério!)
 
 ### Canal Experimental {#experimental-channel}
 
-Como o Next, o canal Experimental é um canal de prerelease que acompanham a branch master do repositório React. Ao contrário do Next, os releases Experimental incluem recursos e APIs adicionais que não estão prontas para release maior.
+Como o Next, o canal Experimental é um canal de prerelease que acompanha a branch master do repositório React. Ao contrário do Next, os releases Experimental incluem recursos e APIs adicionais que não estão prontas para release maior.
 
-Geralmente, uma atualização para Next é acompanhado por uma atualização correspondente para Experimental. Eles são baseados na mesma revisão de origem, mas são criados usando um conjunto diferente de flags de recursos.
+Geralmente, uma atualização para Next é acompanhada por uma atualização correspondente para Experimental. Eles são baseados na mesma revisão de origem, mas são criados usando um conjunto diferente de flags de recursos.
 
 Os releases Experimental podem ser significativamente diferentes dos releases Next e Latest. **Não use releases Experimental em aplicações voltadas para o usuário final.** Você deve esperar breaking changes frequentes entre releases no canal Experimental.
 
@@ -84,9 +84,9 @@ Por exemplo, se o canal Experimental existisse quando anunciamos Hooks, teríamo
 
 Você pode achar valioso executar testes de integração no Experimental. Isso é com você. No entanto, saiba que o Experimental é ainda menos estável que o Next. **Não garantimos estabilidade entre releases Experimental.**
 
-#### Como Posso Aprender Mais Sobre os Recursos Experimental? {#how-can-i-learn-more-about-experimental-features}
+#### Como Posso Aprender Mais Sobre os Recursos Experimentais? {#how-can-i-learn-more-about-experimental-features}
 
-Recursos Experimental podem ou não ser documentados. Geralmente, os experimentos não são documentados até que estejam perto de lançarem no Next ou no Stable.
+Recursos Experimentais podem ou não ser documentados. Geralmente, os experimentos não são documentados até que estejam perto de serem lançados no Next ou no Stable.
 
 Se um recurso não estiver documentado, ele poderá ser acompanhado por um [RFC](https://github.com/reactjs/rfcs).
 
