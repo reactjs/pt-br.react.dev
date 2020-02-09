@@ -20,7 +20,7 @@ Nós gostaríamos de tornar ainda mais fácil para os desenvolvedores testarem p
 Cada um dos canais de release do React foram projetados para um caso de uso distinto:
 
 - [**Latest**](#latest-channel) é para estável, releases semver do React. É o que você recebe ao instalar o React a partir do npm. Este é o canal que você já está usando hoje. **Use isso para todos as aplicações React voltadas para o usuário final.**
-- [**Next**](#next-channel) acompanha a branch master do repositório de código fonte do React. Pense nisso como release candidates para o próximo minor semver release. Use isso para teste de integração entre React e projetos de terceiros.
+- [**Next**](#next-channel) acompanha a branch master do repositório de código fonte do React. Pense nisso como candidatos a release para o próximo minor semver release. Use isso para teste de integração entre React e projetos de terceiros.
 - [**Experimental**](#experimental-channel) inclui APIs experimentais e recursos que não estão disponíveis nas releases estáveis. Eles também acompanham a branch master, mas com flags de recursos adicionais ativadas. Use isso para experimentar os próximos recursos antes de serem lançados.
 
 Todos os releases são publicados no npm, mas apenas os Latest usam [versionamento semântico](/docs/faq-versioning.html). Os prereleases (aqueles nos canais Next e Experimental) têm versões geradas a partir de um hash de seu conteúdo, por exemplo `0.0.0-1022ee0ec` para Next e `0.0.0-experimental-1022ee0ec` para Experimental.
