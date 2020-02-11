@@ -148,6 +148,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)
 
 ## Estados Unidos {#us}
+* [Ann Arbor, MI - ReactJS](https://www.meetup.com/AnnArbor-jsx/)
 * [Atlanta, GA - ReactJS](https://www.meetup.com/React-ATL/)
 * [Austin, TX - ReactJS](https://www.meetup.com/ReactJS-Austin-Meetup/)
 * [Boston, MA - ReactJS](https://www.meetup.com/ReactJS-Boston/)

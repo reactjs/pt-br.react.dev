@@ -21,7 +21,7 @@ Todo trabalho no React acontece diretamente no [GitHub](https://github.com/faceb
 
 ### Versionamento Semântico {#semantic-versioning}
 
-O React segue o [versionamento semântico](http://semver.org/). Lançamos versões de ***patch*** para correções críticas, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência. Saiba mais sobre nosso compromisso com a estabilidade e a migração incremental em [nossa política de versão](https://reactjs.org/docs/faq-versioning.html).
+O React segue o [versionamento semântico](http://semver.org/). Lançamos versões de ***patch*** para correções críticas, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência. Saiba mais sobre nosso compromisso com a estabilidade e a migração incremental em [nossa política de versão](/docs/faq-versioning.html).
 
 Toda mudança significativa é documentada na [***changelog***](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
@@ -56,7 +56,7 @@ O Facebook tem um [programa de recompensas](https://www.facebook.com/whitehat/) 
 ### Como entrar em contato {#how-to-get-in-touch}
 
 * IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
-* [Fóruns de discussão](https://reactjs.org/community/support.html#popular-discussion-forums)
+* [Fóruns de discussão](/community/support.html#popular-discussion-forums)
 
 Há também uma comunidade ativa de usuários do React na plataforma no [Discord](http://www.reactiflux.com/) caso você precise de ajuda.
 

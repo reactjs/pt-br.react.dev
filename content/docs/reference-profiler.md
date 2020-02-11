@@ -7,11 +7,11 @@ permalink: docs/profiler.html
 ---
 
 O componente `Profiler` mede a frequência de renderização de uma aplicação React e o "custo" dessa renderização.
-Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations)
+Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](/docs/hooks-faq.html#how-to-memoize-calculations)
 
 > Nota:
 >
-> O uso do `Profiler` adiciona uma sobrecarga de processamento, sendo portanto **desabilitada no [_build_ de produção](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)**.
+> O uso do `Profiler` adiciona uma sobrecarga de processamento, sendo portanto **desabilitada no [_build_ de produção](/docs/optimizing-performance.html#use-the-production-build)**.
 > 
 > Ao optar pelo uso do `Profiler` em produção, o React provisiona um _build_ especial de produção com o `Profiler` habilitado.
 > Leia mais sobre como utilizar esse _build_ em [fb.me/react-profiling](https://fb.me/react-profiling)

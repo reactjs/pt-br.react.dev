@@ -82,6 +82,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactlaconf.co/) - [Twitter](https://twitter.com/reactlaconf)
 
+### Chain React 2020 {#chain-react-2020}
+29 de 30 julho de 2020. Portland, Oregon, USA.
+
+[Website](https://infinite.red/ChainReactConf) - [Twitter](https://twitter.com/ChainReactConf)
+
 ### ComponentsConf 2020 {#components20}
 1 de setembro de 2020 em Melbourne, Austrália
 
