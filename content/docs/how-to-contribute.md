@@ -21,11 +21,7 @@ Todo trabalho no React acontece diretamente no [GitHub](https://github.com/faceb
 
 ### Versionamento Semântico {#semantic-versioning}
 
-<<<<<<< HEAD
-O React segue o [versionamento semântico](http://semver.org/). Lançamos versões de ***patch*** para correções críticas, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência. Saiba mais sobre nosso compromisso com a estabilidade e a migração incremental em [nossa política de versão](https://reactjs.org/docs/faq-versioning.html).
-=======
-React follows [semantic versioning](https://semver.org/). We release patch versions for critical bugfixes, minor versions for new features or non-essential changes, and major versions for any breaking changes. When we make breaking changes, we also introduce deprecation warnings in a minor version so that our users learn about the upcoming changes and migrate their code in advance. Learn more about our commitment to stability and incremental migration in [our versioning policy](/docs/faq-versioning.html).
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+O React segue o [versionamento semântico](http://semver.org/). Lançamos versões de ***patch*** para correções críticas, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência. Saiba mais sobre nosso compromisso com a estabilidade e a migração incremental em [nossa política de versão](/docs/faq-versioning.html).
 
 Toda mudança significativa é documentada na [***changelog***](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
@@ -60,11 +56,7 @@ O Facebook tem um [programa de recompensas](https://www.facebook.com/whitehat/) 
 ### Como entrar em contato {#how-to-get-in-touch}
 
 * IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
-<<<<<<< HEAD
-* [Fóruns de discussão](https://reactjs.org/community/support.html#popular-discussion-forums)
-=======
-* [Discussion forums](/community/support.html#popular-discussion-forums)
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+* [Fóruns de discussão](/community/support.html#popular-discussion-forums)
 
 Há também uma comunidade ativa de usuários do React na plataforma no [Discord](http://www.reactiflux.com/) caso você precise de ajuda.
 
