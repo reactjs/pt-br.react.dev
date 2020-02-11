@@ -6,27 +6,15 @@ category: Reference
 permalink: docs/profiler.html
 ---
 
-<<<<<<< HEAD
 O componente `Profiler` mede a frequência de renderização de uma aplicação React e o "custo" dessa renderização.
-Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations)
-=======
-The `Profiler` measures how often a React application renders and what the "cost" of rendering is.
-Its purpose is to help identify parts of an application that are slow and may benefit from [optimizations such as memoization](/docs/hooks-faq.html#how-to-memoize-calculations).
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](/docs/hooks-faq.html#how-to-memoize-calculations)
 
 > Nota:
 >
-<<<<<<< HEAD
-> O uso do `Profiler` adiciona uma sobrecarga de processamento, sendo portanto **desabilitada no [_build_ de produção](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)**.
+> O uso do `Profiler` adiciona uma sobrecarga de processamento, sendo portanto **desabilitada no [_build_ de produção](/docs/optimizing-performance.html#use-the-production-build)**.
 > 
 > Ao optar pelo uso do `Profiler` em produção, o React provisiona um _build_ especial de produção com o `Profiler` habilitado.
 > Leia mais sobre como utilizar esse _build_ em [fb.me/react-profiling](https://fb.me/react-profiling)
-=======
-> Profiling adds some additional overhead, so **it is disabled in [the production build](/docs/optimizing-performance.html#use-the-production-build)**.
->
-> To opt into production profiling, React provides a special production build with profiling enabled.
-> Read more about how to use this build at [fb.me/react-profiling](https://fb.me/react-profiling)
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 ## Utilização {#usage}
 
