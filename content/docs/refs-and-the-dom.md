@@ -165,11 +165,7 @@ class Parent extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-Se você quer permitir que pessoas passem a `ref` para seu componente de função, você pode usar [`forwardRef`](https://reactjs.org/docs/forwarding-refs.html) (possivelmente em conjunto com [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle)) ou você pode converter o componente para classe.
-=======
-If you want to allow people to take a `ref` to your function component, you can use [`forwardRef`](/docs/forwarding-refs.html) (possibly in conjunction with [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle)), or you can convert the component to a class.
->>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
+Se você quer permitir que pessoas passem a `ref` para seu componente de função, você pode usar [`forwardRef`](/docs/forwarding-refs.html) (possivelmente em conjunto com [`useImperativeHandle`](/docs/hooks-reference.html#useimperativehandle)) ou você pode converter o componente para classe.
 
 Você pode, entretanto, **usar um atributo `ref` dentro de um componente funcional** contanto que você referencie um elemento DOM ou um componente de classe:
 
