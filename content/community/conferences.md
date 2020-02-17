@@ -47,6 +47,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactday.in) - [Twitter](https://twitter.com/ReactDayIn) - [LinkedIn](https://www.linkedin.com/company/react-day/)
 
+### Byteconf React 2020 {#byteconf-react-2020}
+1 de maio de 2020. Streamed online no YouTube.
+
+[Website](https://www.bytesized.xyz) - [Twitter](https://twitter.com/bytesizedcode) - [YouTube](https://www.youtube.com/channel/UC046lFvJZhiwSRWsoH8SFjg)
+
 ### render(ATL) 2020 {#render-atlanta-2020}
 4 a 6 de maio de 2020. Atlanta, GA, EUA.
 
