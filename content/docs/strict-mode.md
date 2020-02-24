@@ -32,7 +32,11 @@ Quando o modo estrito está ativado, o React compila uma lista de todos os compo
 
 ![](../images/blog/strict-mode-unsafe-lifecycles-warning.png)
 
+<<<<<<< HEAD
 Resolver os problemas identificados pelo modo estrito _agora_, facilitará a utilização da renderização assíncrona em versões futuras do React.
+=======
+Addressing the issues identified by strict mode _now_ will make it easier for you to take advantage of concurrent rendering in future releases of React.
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 ### Aviso em relação ao uso da antiga string ref API {#warning-about-legacy-string-ref-api-usage}
 
@@ -83,7 +87,11 @@ Conceptualmente, o React funciona em duas fases:
 * A **fase de renderização** determina quais mudanças precisam ser feitas para, por exemplo, o DOM. Durante essa fase, o React chama `render` e compara o resultado com a renderização anterior.
 * A **fase de _commit_** é quando o React aplica qualquer mudança. (No caso do React DOM, isso é quando o React insere, atualiza ou remove nós do DOM.) O React também chama métodos de ciclo de vida como `componentDidMount` e `componentDidUpdate` durante essa fase.
 
+<<<<<<< HEAD
 A fase de _commit_ é geralmente muito rápida, mas a renderização pode ser devagar. Por essa razão, o futuro `modo assíncrono` (que ainda não é habilitado por padrão) quebra a renderização em pedaços, pauzando e resumindo o trabalho para evitar bloquear o navegador. Isso significa que o React pode invocar ciclos de vida da fase de renderização mais de uma vez antes de _commitar_, ou pode ainda invocá-los sem nem _commitar_ (dado um eventual erro ou uma interrupção de maior prioridade).
+=======
+The commit phase is usually very fast, but rendering can be slow. For this reason, the upcoming concurrent mode (which is not enabled by default yet) breaks the rendering work into pieces, pausing and resuming the work to avoid blocking the browser. This means that React may invoke render phase lifecycles more than once before committing, or it may invoke them without committing at all (because of an error or a higher priority interruption).
+>>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
 
 Os ciclos de vida da fase da renderização incluem os seguintes métodos do componente classe:
 * `constructor`
