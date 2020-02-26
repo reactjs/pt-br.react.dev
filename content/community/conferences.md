@@ -25,7 +25,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### ReactConf Japan 2020 {#reactconfjp-2020}
 21 de março de 2020 em Tóquio, Japão
 
-[Website](https://reactconf.jp/) - [Twitter](https://twitter.com/reactjapanconf)
+[Website](https://reactconf.jp/) - [Twitter](https://twitter.com/reactjp)
 
 ### Reactathon 2020 {#reactathon-2020}
 30 e 31 de março de 2020 em São Francisco, CA
