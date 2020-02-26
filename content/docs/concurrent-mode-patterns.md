@@ -507,11 +507,7 @@ function ProfileTrivia({ resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
 
-<<<<<<< HEAD
-Se você pressionar "Open Profile" agora, poderá notar que algo está errado. Agora leva sete segundos para fazer a transição! Isso ocorre porque nossa API de trivia é muito lenta. Digamos que não possamos tornar a API mais rápida. Como podemos melhorar a experiência do usuário com essa restrição?
-=======
-If you press "Open Profile" now, you can tell something is wrong. It takes a whole seven seconds to make the transition now! This is because our trivia API is too slow. Let's say we can't make the API faster. How can we improve the user experience with this constraint?
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
+Se você pressionar "Open Profile" agora, poderá notar que algo está errado. Demora sete segundos para fazer a transição agora! Isso ocorre porque nossa API de trivia é muito lenta. Digamos que não possamos tornar a API mais rápida. Como podemos melhorar a experiência do usuário com essa restrição?
 
 Se não queremos permanecer no estado Pendente por muito tempo, nosso primeiro instinto pode ser definir `timeoutMs` em` useTransition` para um valor menor, como `3000`. Você pode tentar isso [aqui](https://codesandbox.io/s/practical-kowalevski-kpjg4). Isso nos permite escapar do estado Pendente prolongado, mas ainda não temos nada de útil para mostrar!
 
