@@ -32,11 +32,7 @@ Quando o modo estrito está ativado, o React compila uma lista de todos os compo
 
 ![](../images/blog/strict-mode-unsafe-lifecycles-warning.png)
 
-<<<<<<< HEAD
-Resolver os problemas identificados pelo modo estrito _agora_, facilitará a utilização da renderização assíncrona em versões futuras do React.
-=======
-Addressing the issues identified by strict mode _now_ will make it easier for you to take advantage of concurrent rendering in future releases of React.
->>>>>>> 821e20726266bc8113353d0c2b6d885f82e584a8
+Resolver os problemas identificados pelo modo estrito _agora_, facilitará a utilização da renderização concorrente em versões futuras do React.
 
 ### Aviso em relação ao uso da antiga string ref API {#warning-about-legacy-string-ref-api-usage}
 
