@@ -381,7 +381,7 @@ Estas são caixas de ferramentas preenchidas com atributos HTML que são totalme
 Cada tipo de widget tem um padrão de design específico e espera-se que funcione de certa forma por usuários e agentes do usuário:
 
 - [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Examples](https://heydonworks.com/practical_aria_examples/)
+- [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
 ## Outros pontos a serem consideração {#other-points-for-consideration}
