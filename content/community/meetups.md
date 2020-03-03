@@ -144,14 +144,10 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Suíça {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
-<<<<<<< HEAD
-## Ucrânia {#ukraine}
-=======
-## Turkey {#turkey}
+## Turquia {#turkey}
 * [Istanbul](https://www.meetup.com/ReactJS-Istanbul/)
 
-## Ukraine {#ukraine}
->>>>>>> 2ab1ca5007a37ca509863a212293f1c6b26d0afc
+## Ucrânia {#ukraine}
 * [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)
 
 ## Estados Unidos {#us}
