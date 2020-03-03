@@ -21,7 +21,7 @@ Todo trabalho no React acontece diretamente no [GitHub](https://github.com/faceb
 
 ### Versionamento Semântico {#semantic-versioning}
 
-O React segue o [versionamento semântico](http://semver.org/). Lançamos versões de ***patch*** para correções críticas, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência. Saiba mais sobre nosso compromisso com a estabilidade e a migração incremental em [nossa política de versão](https://reactjs.org/docs/faq-versioning.html).
+O React segue o [versionamento semântico](http://semver.org/). Lançamos versões de ***patch*** para correções críticas, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência. Saiba mais sobre nosso compromisso com a estabilidade e a migração incremental em [nossa política de versão](/docs/faq-versioning.html).
 
 Toda mudança significativa é documentada na [***changelog***](https://github.com/facebook/react/blob/master/CHANGELOG.md).
 
@@ -56,7 +56,7 @@ O Facebook tem um [programa de recompensas](https://www.facebook.com/whitehat/) 
 ### Como entrar em contato {#how-to-get-in-touch}
 
 * IRC: [#reactjs on freenode](https://webchat.freenode.net/?channels=reactjs)
-* [Fóruns de discussão](https://reactjs.org/community/support.html#popular-discussion-forums)
+* [Fóruns de discussão](/community/support.html#popular-discussion-forums)
 
 Há também uma comunidade ativa de usuários do React na plataforma no [Discord](http://www.reactiflux.com/) caso você precise de ajuda.
 
@@ -104,6 +104,7 @@ Para aceitar seu ***pull request***, precisamos que você envie um CLA. Você s�
 ### Pré-requisitos de Contribuição {#contribution-prerequisites}
 
 * Possuir o [Node](https://nodejs.org) instalado na versão v8.0.0+ e [Yarn](https://yarnpkg.com/en/) na versão v1.2.0+.
+* Possuir o [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) instalado.
 * Você deve ter o `gcc` instalado ou está confortável em instalar um compilador, se necessário. Algumas de nossas dependências podem exigir uma etapa de compilação. No OS X, as Ferramentas de Linha de Comando do Xcode cobrirão isso. No Ubuntu, `apt-get install build-essential` instalará os pacotes requeridos. Comandos semelhantes devem funcionar em outras distribuições Linux. O Windows irá requerer alguns passos adicionais, veja as instruções de instalação do [node-gyp](https://github.com/nodejs/node-gyp#installation) para detalhes.
 * Você deve ser familiarizado com o Git.
 
@@ -150,19 +151,6 @@ Usamos um formatador de código automático chamado [Prettier](https://prettier.
 Então, nosso linter irá capturar a maioria dos problemas que possam existir em seu código. Você pode verificar o status do seu estilo de código simplesmente executando `yarn linc`.
 
 No entanto, ainda existem alguns estilos que o linter não consegue captar. Se você não tem certeza sobre alguma coisa, veja o [Guia de Estilos do Airbnb](https://github.com/airbnb/javascript) para te direcionar no caminho certo.
-
-### Vídeo Introdutório {#introductory-video}
-
-Você pode estar interessado em assistir [este pequeno vídeo](https://www.youtube.com/watch?v=wUpPsEcGsg8) (26 minutos), que apresenta uma introdução sobre como contribuir para o React.
-
-#### Destaques no vídeo: {#video-highlights}
-- [4:12](https://youtu.be/wUpPsEcGsg8?t=4m12s) - Construindo e testando o React localmente
-- [6:07](https://youtu.be/wUpPsEcGsg8?t=6m7s) - Criando e enviando ***pull requests***
-- [8:25](https://youtu.be/wUpPsEcGsg8?t=8m25s) - Organizando código
-- [14:43](https://youtu.be/wUpPsEcGsg8?t=14m43s) - React npm registry
-- [19:15](https://youtu.be/wUpPsEcGsg8?t=19m15s) - Adicionando novos recursos do React
-
-Para obter uma visão geral realista do que é o sentimento de contribuir para o React pela primeira vez, confira [essa palestra interessante no ReactNYC](https://www.youtube.com/watch?v=GWCcZ6fnpn4).
 
 ### Pedido de Comentários (Request for Comments - RFC) {#request-for-comments-rfc}
 

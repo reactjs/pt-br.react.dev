@@ -70,6 +70,6 @@ Você pode observar isso inspecionando o [último exemplo](codepen://rendering-e
 
 ![Ferramenta de inspecionar elemento do DOM mostrando atualizações granulares](../images/docs/granular-dom-updates.gif)
 
-Embora nós criemos um elemento descrevendo toda a estrutura da interface a cada segundo, somente o nó de texto cujo conteúdo muda é atualizado pelo React DOM.
+Embora nós criemos um elemento descrevendo toda a estrutura da interface a cada segundo, apenas o nó de texto cujo conteúdo foi alterado é atualizado pelo React DOM.
 
 Em nossa experiência, pensar em como a interface deve estar em um determinado momento, ao invés de pensar como modificá-la com o tempo, evita uma série de erros.
