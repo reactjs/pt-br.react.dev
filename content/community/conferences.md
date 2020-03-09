@@ -12,6 +12,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
+<<<<<<< HEAD
 ### React Barcamp Cologne 2020 {#react-barcamp-cologne-2020}
 1 e 2 de fevereiro de 2020 em Colônia, Alemanha
 
@@ -22,6 +23,8 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
 
+=======
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 ### ReactConf Japan 2020 {#reactconfjp-2020}
 21 de março de 2020 em Tóquio, Japão
 
@@ -510,3 +513,16 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 6 de dezembro de 2019 em Berlim, Alemanha
 
 [Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/reactdayberlin)
+<<<<<<< HEAD
+=======
+
+### React Barcamp Cologne 2020 {#react-barcamp-cologne-2020}
+February 1-2, 2020 in Cologne, Germany
+
+[Website](https://react-barcamp.de/) - [Twitter](https://twitter.com/ReactBarcamp) - [Facebook](https://www.facebook.com/reactbarcamp)
+
+### ReactConf AU 2020 {#reactconfau}
+February 27 & 28, 2020 in Sydney, Australia
+
+[Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504

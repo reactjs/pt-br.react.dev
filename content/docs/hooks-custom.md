@@ -74,7 +74,7 @@ Quando queremos compartilhar lógica entre duas funções JavaScript, extraímos
 **Um Hook customizado é uma função JavaScript cujo nome começa com "`use`" e que pode utilizar outros Hooks.** Por exemplo, `useFriendStatus` abaixo é nosso primeiro Hook customizado:
 
 ```js{3}
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function useFriendStatus(friendID) {
   const [isOnline, setIsOnline] = useState(null);

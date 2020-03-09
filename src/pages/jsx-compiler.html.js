@@ -29,8 +29,13 @@ const JsxCompiler = ({location}: Props) => (
               </strong>
             </p>
             <p>
+<<<<<<< HEAD
               Nós recomendamos usar outra ferramenta como o{' '}
               <a href="https://babeljs.io/repl/">Babel REPL</a>.
+=======
+              We recommend using another tool such as{' '}
+              <a href="https://babeljs.io/repl">the Babel REPL</a>.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
             </p>
           </div>
         </div>

@@ -69,7 +69,11 @@ function Counter({initialCount}) {
 
 Os botões "+" and "-" usam a forma funcional, porque o valor atualizado é baseado no valor anterior. Mas o botão "Reset" usa a forma normal, porque ele sempre define a contagem de volta para o valor inicial.
 
+<<<<<<< HEAD
 Se sua função de atualização retornar exatamente o mesmo valor, o renderizador subsequente será ignorado completamente.
+=======
+If your update function returns the exact same value as the current state, the subsequent rerender will be skipped completely.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 > Nota
 > 
@@ -437,7 +441,11 @@ Tenha em mente que o `useRef` *não* avisa quando o conteúdo é alterado. Mover
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
+<<<<<<< HEAD
 `useImperativeHandle` personaliza o valor da instância que está exposta aos componentes pai ao usar `ref`. Como sempre, na maioria dos casos, seria bom evitar um código imperativo usando refs. O `useImperativeHandle` deve ser usado com `forwardRef`:
+=======
+`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. As always, imperative code using refs should be avoided in most cases. `useImperativeHandle` should be used with [`forwardRef`](/docs/react-api.html#reactforwardref):
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ```js
 function FancyInput(props, ref) {

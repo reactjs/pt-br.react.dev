@@ -110,7 +110,11 @@ _Timestamp_ de quando o React começou a renderizar a atualização corrente.
 _Timestamp_ de quando o React enviou a atualização corrente.
 Esse valor é compartilhado entre todos os componentes `Profiler` em um envio, permitindo o agrupamento deles se desejável.
 * **`interactions: Set`** -
+<<<<<<< HEAD
 _Set_ de ["interações"](https://fb.me/react-interaction-tracing) que estavam sendo rastreadas quando a atualização foi agendada (por exemplo, quando um `render` ou `setState` foi invocado).
+=======
+Set of ["interactions"](https://fb.me/react-interaction-tracing) that were being traced when the update was scheduled (e.g. when `render` or `setState` were called).
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 > Nota
 >

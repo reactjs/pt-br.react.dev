@@ -199,7 +199,11 @@ function App() {
  }
 ```
 
+<<<<<<< HEAD
 Isso nos permite começar a mostrar o novo texto para o "input" imediatamente, o que permite que a página se sinta responsiva. Enquanto isso, `MySlowList` fica "atrasado" por até 2 segundos, de acordo com o `timeoutMs` antes da atualizar, permitindo que seja renderizado com o texto atual em segundo plano.
+=======
+This allows us to start showing the new text for the `input` immediately, which allows the webpage to feel responsive. Meanwhile, `MySlowList` "lags behind" for up to 2 seconds according to the `timeoutMs` before updating, allowing it to render with the current text in the background.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 **Para uma análise detalhada do adiamento de valores, você pode ler [Padrões de UI Concorrente](/docs/concurrent-mode-patterns.html#deferring-a-value).**
 

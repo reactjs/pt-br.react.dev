@@ -42,8 +42,7 @@ Você também pode fechar a tag imediatamente se não tiver elementos filhos. En
 ```js
 React.createElement(
   'div',
-  {className: 'sidebar'},
-  null
+  {className: 'sidebar'}
 )
 ```
 

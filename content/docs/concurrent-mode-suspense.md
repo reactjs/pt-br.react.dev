@@ -113,13 +113,21 @@ O Suspense é significativamente diferente das abordagens existentes para esses 
 
 ### O Que O Suspense Permite Que Você Faça {#what-suspense-lets-you-do}
 
+<<<<<<< HEAD
 Então, qual é o sentido do Suspense? Existem algumas maneiras de responder a isso:
+=======
+So what's the point of Suspense? There are a few ways we can answer this:
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 * **Permite que as bibliotecas de busca de dados se integrem profundamente ao React.** Se uma biblioteca de busca de dados implementa o suporte ao Suspense, usá-lo nos componentes do React parece muito natural.
 
 * **Permite orquestrar states de carregamento projetados intencionalmente.** Ele não diz _como_ os dados são buscados, mas permite controlar de perto a sequência de carregamento visual do seu aplicativo.
 
+<<<<<<< HEAD
 * **Ajuda a evitar condições de concorrência.** Mesmo com o `await`, o código assíncrono geralmente está sujeito a erros. O Suspense parece mais com a leitura de dados de forma *síncrona* — como se já estivesse carregado.
+=======
+* **It helps you avoid race conditions.** Even with `await`, asynchronous code is often error-prone. Suspense feels more like reading data *synchronously* — as if it were already loaded.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ## Usando Suspense na Prática {#using-suspense-in-practice}
 
@@ -231,7 +239,11 @@ Se você executar esse código e olhar os logs no console, notará que a sequên
 
 Se a busca de detalhes do usuário demorar três segundos, *começaremos* a buscar as postagens após três segundos! Isso é uma "cascata": uma *sequência* não intencional que deveria ter sido paralelizada.
 
+<<<<<<< HEAD
 Cascatas são comuns no código que busca dados na renderização. É possível resolver, mas à medida que o produto cresce, muitas pessoas preferem usar uma solução que proteja contra esse problema.
+=======
+Waterfalls are common in code that fetches data on render. They're possible to solve, but as the product grows, many people prefer to use a solution that guards against this problem.
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ### Abordagem 2: Busca-Então-Renderiza (sem usar Suspense) {#approach-2-fetch-then-render-not-using-suspense}
 
@@ -250,7 +262,11 @@ function fetchProfileData() {
 }
 ```
 
+<<<<<<< HEAD
 Neste exemplo, `<ProfilePage>` espera as duas requisições, mas inicia-os em paralelo:
+=======
+In this example, `<ProfilePage>` waits for both requests but starts them in parallel:
+>>>>>>> fb382ccb13e30e0d186b88ec357bb51e91de6504
 
 ```js{1,2,8-13}
 // Comece a buscar o mais cedo possível
