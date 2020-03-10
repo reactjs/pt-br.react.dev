@@ -98,7 +98,7 @@ const [state, setState] = useState(() => {
 
 Se você atualizar o estado do Hook com o mesmo valor do estado atual, React irá pular a atualização sem renderizar os filhos ou disparar os efeitos. (React usa o algoritmo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Note que o React pode ainda precisar renderizar esse componente específico novamente antes de sair. Isso não deveria ser uma preocupação porque o React não irá ser "mais profundo" do que o necessário na árvore. Se você está fazendo um processamento mais demorado enquanto renderizada, você pode otimizar isso usando `useMemo`.
 
 ### `useEffect` {#useeffect}
 
@@ -128,7 +128,7 @@ useEffect(() => {
 });
 ```
 
-A função de limpeza é executada antes que o componente seja removido da UI para evitar vazamento de memória. Entretanto, se um componente renderiza várias vezes (como eles normalmente fazem), o ** efeito anterior é limpo antes de executar o próximo efeito**. No nosso exemplo, isto significa que uma nova assinatura é criada em cada atualização. Para evitar disparar um efeito em cada atualização, consulte a próxima seção.
+A função de limpeza é executada antes que o componente seja removido da UI para evitar vazamento de memória. Entretanto, se um componente renderiza várias vezes (como eles normalmente fazem), o **efeito anterior é limpo antes de executar o próximo efeito**. No nosso exemplo, isto significa que uma nova assinatura é criada em cada atualização. Para evitar disparar um efeito em cada atualização, consulte a próxima seção.
 
 #### Tempo dos Efeitos {#timing-of-effects}
 
