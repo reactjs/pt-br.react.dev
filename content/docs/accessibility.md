@@ -242,7 +242,7 @@ Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://githu
 
 ## Movimentos do mouse e ponteiro (cursor) {#mouse-and-pointer-events}
 
-Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou ponteiro também possam ser acessadas usando apenas o teclado. Se dependender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderão usar seu aplicativo.
+Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou ponteiro também possam ser acessadas usando apenas o teclado. Se depender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderão usar seu aplicativo.
 
 Para ilustrar isso, abaixo pode-se ver um exemplo clássico de quebra da acessibilidade causada por cliques. Esse é o padrão de clique externo, em que um usuário pode desativar um popover aberto clicando fora do elemento.
 
