@@ -227,11 +227,7 @@ Se você não passar nenhum valor para a prop, seu valor padrão será `true`. E
 <MyTextBox autocomplete={true} />
 ```
 
-<<<<<<< HEAD
-No geral, nós não recomendamos seu uso porque pode ser confundido com [abreviação de objeto do ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que é a abreviação de `{foo: foo}` em vez de `{foo: true}`. Esse comportamente só está ai para estar de acordo com o comportamento do HTML.
-=======
-In general, we don't recommend *not* passing a value for a prop, because it can be confused with the [ES6 object shorthand](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` which is short for `{foo: foo}` rather than `{foo: true}`. This behavior is just there so that it matches the behavior of HTML.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+No geral, nós não recomendamos *não* a passagem de um valor para uma prop, porque pode ser confundido com [abreviação de objeto do ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que é a abreviação de `{foo: foo}` em vez de `{foo: true}`. Esse comportamente só está ai para estar de acordo com o comportamento do HTML.
 
 ### Atributos com Spread {#spread-attributes}
 

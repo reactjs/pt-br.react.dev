@@ -54,11 +54,7 @@ Nós estamos usando esse código em produção (e funciona para nós), mas ainda
 
 ### Habilitando o Modo Concorrente {#enabling-concurrent-mode}
 
-<<<<<<< HEAD
-Normalmente, quando nós adicionamos recursos ao React, você pode começar a usá-lo imediatamente. Fragments, Context e até mesmo Hooks são exemplos desses recursos. Você pode usar em código novo sem fazer nenhuma alteração em código existente.
-=======
-Normally, when we add features to React, you can start using them immediately. Fragments, Context, and even Hooks are examples of such features. You can use them in new code without making any changes to the existing code.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Normalmente, quando nós adicionamos recursos ao React, você pode começar a usá-lo imediatamente. Fragments, Context e até mesmo Hooks são exemplos desses recursos. Você pode usá-los no novo código sem fazer alterações no código existente.
 
 O Modo Concorrente é diferente. Ele introduz alterações semânticas na forma do React funcionar. Do contrário, os [novos recursos](/docs/concurrent-mode-patterns.html) habilitados por ele *não teriam se tornado possíveis*. Este é o motivo de eles estarem agrupadas em um novo "modo" ao invés de serem liberados um a um isoladamente.
 

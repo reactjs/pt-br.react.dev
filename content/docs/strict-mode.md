@@ -99,18 +99,11 @@ Já que os métodos acima podem ser chamados mais de uma vez, é importante que 
 
 O modo estrito não pode detectar automaticamente efeitos colaterais para você, mas pode ajudá-lo a achá-los ao torná-los um pouco mais determinísticos. Isso é feito ao invocar duas vezes seguidas os seguintes métodos:
 
-<<<<<<< HEAD
 * O `constructor` de componentes classe
 * O método `render`
 * Funções atualizadoras do `setState` (o primeiro argumento)
 * O estático (`static`) ciclo de vida `getDerivedStateFromProps`
-=======
-* Class component `constructor` method
-* The `render` method
-* `setState` updater functions (the first argument)
-* The static `getDerivedStateFromProps` lifecycle
-* The `shouldComponentUpdate` method
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+* O método `shouldComponentUpdate`
 
 > Nota:
 >

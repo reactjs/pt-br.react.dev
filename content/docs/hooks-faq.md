@@ -71,11 +71,7 @@ Começando com 16.8.0, React inclui uma implementação estável dos Hooks para:
 
 Note que **para habilitar Hooks, todos os pacotes precisam estar na versão 16.8.0 ou maior**. Hooks não vão funcionar se você esquecer de atualizar, por exemplo, o React DOM.
 
-<<<<<<< HEAD
-React Native 0.59 e superiores suportam Hooks.
-=======
-[React Native 0.59](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) and above support Hooks.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+[React Native 0.59](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059) e superiores suportam Hooks.
 
 ### Preciso reescrever todos os meus componentes usando classe? {#do-i-need-to-rewrite-all-my-class-components}
 
@@ -95,19 +91,11 @@ Hooks tem sua curva de aprendizado. Se tiver algo faltando nessa documentação,
 
 Quando você estiver pronto, encorajamos você a começar usando Hooks em novos componentes que você escrever. Tenha certeza que todos no seu time estão de acordo em usá-los e estão familiarizados com a documentação. Nós não recomendamos reescrever suas classes existentes para Hooks a menos que você tenha planejado reescrevê-las previamente (por exemplo, para arrumar bugs).
 
-<<<<<<< HEAD
 Você não pode usar Hooks *dentro* de um componente classe, mas você definitivamente pode misturar classes e funções com Hooks em uma única árvore. Se um componente é uma classe ou uma função que usa Hooks é um detalhe de implementação daquele componente. A longo prazo, nós esperamos que Hooks sejam a principal maneira que as pessoas escrevam componentes React.
-=======
-You can't use Hooks *inside* a class component, but you can definitely mix classes and function components with Hooks in a single tree. Whether a component is a class or a function that uses Hooks is an implementation detail of that component. In the longer term, we expect Hooks to be the primary way people write React components.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ### Hooks cobrem todos os casos de uso para classes? {#do-hooks-cover-all-use-cases-for-classes}
 
-<<<<<<< HEAD
-Nosso objetivo é que Hooks cubra todos os casos de uso o mais rápido possível. Ainda não há Hook equivalente para os ciclos de vida `getSnapshotBeforeUpdate` e `componentDidCatch`, que são mais incomuns, mas planejamos adiciona-los em breve.
-=======
-Our goal is for Hooks to cover all use cases for classes as soon as possible. There are no Hook equivalents to the uncommon `getSnapshotBeforeUpdate`, `getDerivedStateFromError` and `componentDidCatch` lifecycles yet, but we plan to add them soon.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Nosso objetivo é que Hooks cubra todos os casos de uso o mais rápido possível. Ainda não há Hook equivalente para os ciclos de vida `getSnapshotBeforeUpdate`, `getDerivedStateFromError` e `componentDidCatch`, que são mais incomuns, mas planejamos adiciona-los em breve.
 
 É o início dos Hooks e algumas bibliotecas de terceiros podem não ser compatíveis com Hooks neste momento.
 
@@ -230,11 +218,7 @@ Existem mais algumas heurísticas e talvez elas mudem ao longo do tempo conforme
 
 * `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`: O [Hook `useEffect`](/docs/hooks-reference.html#useeffect) pode expressar todas as combinações desses, (incluindo casos [menos](#can-i-skip-an-effect-on-updates) [comuns](#can-i-run-an-effect-only-on-updates)).
 
-<<<<<<< HEAD
-* `componentDidCatch` e `getDerivedStateFromError`: Não há Hooks equivalentes para esses métodos ainda, mas eles serão adicionados em breve.
-=======
-* `getSnapshotBeforeUpdate`, `componentDidCatch` and `getDerivedStateFromError`: There are no Hook equivalents for these methods yet, but they will be added soon.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+* `getSnapshotBeforeUpdate`, `componentDidCatch` e `getDerivedStateFromError`: Não há Hooks equivalentes para esses métodos ainda, mas eles serão adicionados em breve.
 
 ### Como posso fazer a busca de dados com Hooks? {#how-can-i-do-data-fetching-with-hooks}
 
@@ -305,11 +289,7 @@ Agora vamos dizer que queremos escrever uma lógica que muda `left` e `top` quan
 
 Isto é porque quando atualizamos uma variável de estado, nós *substituimos* seu valor. É diferente de `this.setState` em uma classe, que *mescla* os campos atualizados no objeto.
 
-<<<<<<< HEAD
-Se você sente falta da mesclagem automática, você pode escrever um Hook customizado, `useLegacyState`, que mescla o update no objeto. No entanto, **nós recomendamos dividir o estado em múltiplas variáveis de estado baseado nos valores que tendem a mudar juntos.**
-=======
-If you miss automatic merging, you could write a custom `useLegacyState` Hook that merges object state updates. However, **we recommend to split state into multiple state variables based on which values tend to change together.**
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Se você sente falta da mesclagem automática, você poderia escrever um Hook customizado, `useLegacyState`, que mescla o update no objeto. No entanto, **nós recomendamos dividir o estado em múltiplas variáveis de estado baseado nos valores que tendem a mudar juntos.**
 
 Por exemplo, poderíamos dividir nosso componente em `position` e `size` e sempre substituir `position` sem a necessidade de mesclar:
 
@@ -599,11 +579,7 @@ Dependendo do seu caso de uso, existem mais algumas opções descritas abaixo.
 
 Vamos ver porque isso é importante.
 
-<<<<<<< HEAD
-Se você especificar uma [lista de dependências](/docs/hooks-reference.html#conditionally-firing-an-effect) como o último argumento para `useEffect`, `useMemo`, `useCallback`, ou `useImperativeHandle`, ele deve incluir todos os valores usados dentro que participam do fluxo de dados React. Isso inclui props, state e qualquer coisa derivada deles.
-=======
-If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values that are used inside the callback and participate in the React data flow. That includes props, state, and anything derived from them.
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+Se você especificar uma [lista de dependências](/docs/hooks-reference.html#conditionally-firing-an-effect) como o último argumento para `useEffect`, `useMemo`, `useCallback`, ou `useImperativeHandle`, ele deve incluir todos os valores usados dentro do callback e participar do fluxo de dados React. Isso inclui props, state e qualquer coisa derivada deles.
 
 É **somente** seguro omitir uma função da lista de dependências se nada nela (ou as funções chamadas por ela) referenciar props, state ou valores derivados deles. Este exemplo tem um erro:
 
@@ -612,11 +588,7 @@ function ProductPage({ productId }) {
   const [product, setProduct] = useState(null);
 
   async function fetchProduct() {
-<<<<<<< HEAD
-    const response = await fetch('http://myapi/product' + productId); // Usando productId prop
-=======
-    const response = await fetch('http://myapi/product/' + productId); // Uses productId prop
->>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
+    const response = await fetch('http://myapi/product/' + productId); // // Usando productId prop
     const json = await response.json();
     setProduct(json);
   }
