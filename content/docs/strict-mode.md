@@ -103,6 +103,7 @@ O modo estrito não pode detectar automaticamente efeitos colaterais para você,
 * O método `render`
 * Funções atualizadoras do `setState` (o primeiro argumento)
 * O estático (`static`) ciclo de vida `getDerivedStateFromProps`
+* O método `shouldComponentUpdate`
 
 > Nota:
 >

@@ -107,7 +107,7 @@ Hooks representam nossa visão para o futuro do React. Eles resolvem tanto os pr
 
 ### React 16.x (~2º Quadrimestre de 2019): O Primeiro com Modo Concorrente {#react-16x-q2-2019-the-one-with-concurrent-mode}
 
-*Modo Concorrente* permite aplicações React a serem mais responsivas por renderizar árvores de componentes sem bloquear a thread principal. Isso é permitido pelo usuário e permite ao React a interromper uma renderização de longa duração (por exemplo, renderizar uma nova história num feed) para manipular um evento de alta prioridade (por exemplo, entrada de texto ou hover). Modo Concorrente também melhora a experiência do usuário com Suspense por pular carregamento de states desnecessários em conexões rápidas.
+*Modo Concorrente* permite aplicações React a serem mais responsivas por renderizar árvores de componentes sem bloquear a thread principal. Isso é permitido pelo usuário e permite ao React a interromper uma renderização de longa duração (por exemplo, renderizando uma história de feed de notícias) para manipular um evento de alta prioridade (por exemplo, entrada de texto ou hover). Modo Concorrente também melhora a experiência do usuário com Suspense por pular carregamento de states desnecessários em conexões rápidas.
 
 >Observação
 >
