@@ -55,7 +55,11 @@ Criar o [script de sincronização](https://github.com/reactjs/reactjs.org-trans
 
 O problema foi encontrar um lugar para o bot rodar. Eu sou uma desenvolvedora frontend por uma razão - Heroku e seus amigos são estranhos para mim e infinitamente frustrantes. Na verdade, até esta terça-feira passada, eu estava executando o script manualmente na minha máquina local!
 
+<<<<<<< HEAD
 O maior desafio foi o espaço. Cada fork do repositório tem cerca de 100MB - o que leva alguns minutos para clonar na minha máquina local. Temos *32* forks, e os níveis gratuitos da maioria das plataformas de deployment que eu verifiquei limitam você a 512 MB de armazenamento.
+=======
+The biggest challenge was space. Each fork of the repo is around 100MB -- which takes minutes to clone on my local machine. We have *32* forks, and the free tiers of most deployment platforms I checked limited you to 512MB of storage. 
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Após vários cálculos no papel, encontrei uma solução: excluir cada repo depois de terminar o script e limitar a simultaneidade dos scripts de sincronização que são executados de uma vez para estarem dentro dos requisitos de armazenamento. Felizmente, os dynos no Heroku têm uma conexão à Internet muito mais rápida e são capazes de clonar até mesmo o repositório do React rapidamente.
 

@@ -51,7 +51,11 @@ Releases no Next são publicadas com a tag `next` no npm. As versões são gerad
 
 O canal Next foi projetado para dar suporte aos testes de integração entre React e outros projetos.
 
+<<<<<<< HEAD
 Todas as alterações no React passam por extensos testes internos antes de serem lançadas para o público. No entanto, há uma infinidade de ambientes e configurações usados em todo o ecossistema React, e não é possível testar cada um deles.
+=======
+All changes to React go through extensive internal testing before they are released to the public. However, there are myriad environments and configurations used throughout the React ecosystem, and it's not possible for us to test against every single one.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Se você é o autor de um projeto de terceiros como um framework, biblioteca, ferramenta de desenvolvedor, ou qualquer tipo de infraestrutura semelhante, você pode nos ajudar a manter o React estável para seus usuários e para toda a comunidade React executando periodicamente sua suíte de testes nas alterações mais recentes. Se você estiver interessado, siga estas etapas:
 

@@ -12,6 +12,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
+<<<<<<< HEAD
 ### React Barcamp Cologne 2020 {#react-barcamp-cologne-2020}
 1 e 2 de fevereiro de 2020 em Colônia, Alemanha
 
@@ -27,6 +28,8 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactconf.jp/) - [Twitter](https://twitter.com/reactjp)
 
+=======
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 ### Reactathon 2020 {#reactathon-2020}
 30 e 31 de março de 2020 em São Francisco, CA
 
@@ -52,11 +55,14 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://www.bytesized.xyz) - [Twitter](https://twitter.com/bytesizedcode) - [YouTube](https://www.youtube.com/channel/UC046lFvJZhiwSRWsoH8SFjg)
 
+<<<<<<< HEAD
 ### render(ATL) 2020 {#render-atlanta-2020}
 4 a 6 de maio de 2020. Atlanta, GA, EUA.
 
 [Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/)
 
+=======
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 ### ReactEurope 2020 {#reacteurope-2020}
 14 a 15 de maio de 2020 em Paris, França
 
@@ -91,6 +97,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 29 de 30 julho de 2020. Portland, Oregon, USA.
 
 [Website](https://infinite.red/ChainReactConf) - [Twitter](https://twitter.com/ChainReactConf)
+
+### render(ATL) 2020 {#render-atlanta-2020} 
+August 24-26, 2020. Atlanta, GA, USA.
+
+[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
 
 ### ComponentsConf 2020 {#components20}
 1 de setembro de 2020 em Melbourne, Austrália
@@ -510,3 +521,16 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 6 de dezembro de 2019 em Berlim, Alemanha
 
 [Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/reactdayberlin)
+<<<<<<< HEAD
+=======
+
+### React Barcamp Cologne 2020 {#react-barcamp-cologne-2020}
+February 1-2, 2020 in Cologne, Germany
+
+[Website](https://react-barcamp.de/) - [Twitter](https://twitter.com/ReactBarcamp) - [Facebook](https://www.facebook.com/reactbarcamp)
+
+### ReactConf AU 2020 {#reactconfau}
+February 27 & 28, 2020 in Sydney, Australia
+
+[Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1

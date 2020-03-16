@@ -125,7 +125,11 @@ No entanto, fornecemos algumas configurações globais no nível de construção
 
 ### Além do DOM {#beyond-the-dom}
 
+<<<<<<< HEAD
 A grande vantagem do React é a maneira que ele nos permite desenvolver componentes com menos bugs e que possam ser integrados juntos. DOM é o destino original de renderização para o React, mas o [React Native](https://facebook.github.io/react-native/) é tão importante quanto, tanto para o Facebook quanto para a comunidade.
+=======
+We see the value of React in the way it allows us to write components that have fewer bugs and compose together well. DOM is the original rendering target for React but [React Native](https://reactnative.dev/) is just as important both to Facebook and the community.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Ser "renderer-agnostic" é uma importante restrição de design do React. Isso adiciona alguma sobrecarga nas representações internas. Por outro lado, quaisquer melhorias no núcleo são traduzidas em todas as plataformas.
 

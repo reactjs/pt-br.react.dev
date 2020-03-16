@@ -36,7 +36,11 @@ React foi pensado desde o início para ser adotado gradualmente e **você pode u
 
 ### Editores Online {#online-playgrounds}
 
+<<<<<<< HEAD
 Se você está interessado em testar um pouco o React, pode usar um editor de código online. Tente um Olá Mundo no [CodePen](codepen://hello-world) ou [CodeSandbox](https://codesandbox.io/s/new).
+=======
+If you're interested in playing around with React, you can use an online code playground. Try a Hello World template on [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template), or [Stackblitz](https://stackblitz.com/fork/react).
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Se prefere usar o seu próprio editor de texto, pode também [baixar este arquivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editá-lo e a partir do seu sistema de arquivos abrir em seu navegador web. Este arquivo faz uma lenta transformação de código em tempo de execução, portanto nós recomendamos usar somente para demonstrações simples.
 
@@ -83,7 +87,11 @@ Recomendamos que você leia [esta visão geral do JavaScript](https://developer.
 
 ### Tutorial Prático {#practical-tutorial}
 
+<<<<<<< HEAD
 Se você prefere **aprender fazendo**, confira nosso [tutorial prático](/tutorial/tutorial.html). Neste tutorial, criamos um jogo-da-velha em React. Você pode pensar em evitar desenvolver porque não está construindo jogos – mas dê uma chance. As técnicas que você aprenderá no tutorial são fundamentais para criar *qualquer* aplicação React e ao dominá-las dará a você uma compreensão muito mais profunda.
+=======
+If you prefer to **learn by doing,** check out our [practical tutorial](/tutorial/tutorial.html). In this tutorial, we build a tic-tac-toe game in React. You might be tempted to skip it because you're not into building games -- but give it a chance. The techniques you'll learn in the tutorial are fundamental to building *any* React apps, and mastering it will give you a much deeper understanding.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ### Guia Passo-a-passo {#step-by-step-guide}
 

@@ -503,7 +503,7 @@ Existem apenas dois deles: `setState()` e `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater[, callback])
+setState(updater, [callback])
 ```
 
 `setState()` enfileira mudanças ao *state* do componente e diz ao React que este componente e seus componentes filho precisam ser re-renderizados com a atualização do *state*. Este é o principal método que você utiliza para atualizar a UI em resposta a *event handlers* e à resposta de servidores.

@@ -17,6 +17,7 @@ Não recomendamos necessariamente nenhuma dessas convenções nos aplicativos Re
 
 ### Dependências Externas {#external-dependencies}
 
+<<<<<<< HEAD
 O React quase não tem dependências externas. Geralmente, um `require()` aponta para um arquivo no própria código-base do React. No entanto, existem algumas exceções relativamente raras.
 
 O repositório [fbjs](https://github.com/facebook/fbjs) existe porque o React compartilha alguns pequenos utilitários com bibliotecas como [Relay](https://github.com/facebook/relay), e nós os mantemos em sincronia. Não dependemos de módulos pequenos equivalentes no ecossistema do Node porque queremos que os engenheiros do Facebook possam fazer alterações neles sempre que necessário.  Nenhum dos utilitários dentro dos fbjs são considerados APIs públicas, e são destinados apenas para uso por projetos do Facebook, como o React.
@@ -24,6 +25,9 @@ O repositório [fbjs](https://github.com/facebook/fbjs) existe porque o React co
 ### Pastas de nível superior {#top-level-folders}
 
 Depois de clonar o [repositório do React](https://github.com/facebook/react), você verá algumas pastas no nível superior:
+=======
+### Top-Level Folders {#top-level-folders}
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 * [`packages`](https://github.com/facebook/react/tree/master/packages) contém metadados (como `package.json`) e o código fonte (subdiretório `src`) para todos os pacotes no repositório React. **Se a sua alteração está relacionada ao código, o subdiretório `src` de cada pacote é onde você passará a maior parte do seu tempo.**
 
@@ -172,7 +176,11 @@ O código do React core está localizado em [`packages/react`](https://github.co
 
 ### Renderizadores {#renderers}
 
+<<<<<<< HEAD
 O React foi originalmente criado para o DOM, mas depois foi adaptado para também suportar plataformas nativas com o [React Native](https://facebook.github.io/react-native/). Isso introduziu o conceito de "renderizadores" para as partes internas do React.
+=======
+React was originally created for the DOM but it was later adapted to also support native platforms with [React Native](https://reactnative.dev/). This introduced the concept of "renderers" to React internals.
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 **Os renderizadores gerenciam como uma árvore no React se transforma nas chamadas de subjacentes da plataforma.**
 
