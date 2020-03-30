@@ -97,23 +97,13 @@ Os ciclos de vida da fase da renderização incluem os seguintes métodos do com
 
 Já que os métodos acima podem ser chamados mais de uma vez, é importante que eles não contenham efeitos colaterais. Ignorar essa regra pode levar a uma variedade de problemas, incluindo vazamento de memória e estado inválido da aplicação. Infelizmente, pode ser difícil detectar esses problemas, já que eles podem ser [não determinísticos](https://en.wikipedia.org/wiki/Deterministic_algorithm).
 
-<<<<<<< HEAD
-O modo estrito não pode detectar automaticamente efeitos colaterais para você, mas pode ajudá-lo a achá-los ao torná-los um pouco mais determinísticos. Isso é feito ao invocar duas vezes seguidas os seguintes métodos:
+O modo estrito não pode detectar automaticamente efeitos colaterais para você, mas pode ajudá-lo a achá-los ao torná-los um pouco mais determinísticos. Isso é feito ao invocar duas vezes seguidas as seguintes funções:
 
-* O `constructor` de componentes classe
-* O método `render`
-* Funções atualizadoras do `setState` (o primeiro argumento)
-* O estático (`static`) ciclo de vida `getDerivedStateFromProps`
-* O método `shouldComponentUpdate`
-=======
-Strict mode can't automatically detect side effects for you, but it can help you spot them by making them a little more deterministic. This is done by intentionally double-invoking the following functions:
-
-* Class component `constructor`, `render`, and `shouldComponent` methods
-* Class component static `getDerivedStateFromProps` method
-* Function component bodies
-* State updater functions (the first argument to `setState`)
-* Functions passed to `useState`, `useMemo`, or `useReducer`
->>>>>>> 9e5a358cb24a665fc48615ae224f26a4f2191b32
+* Os métodos `constructor`, `render` e `shouldComponent` de componentes classe
+* O método estático `getDerivedStateFromProps` de componentes classe
+* Corpo de componentes de função
+* Funções do atualizador de estado (o primeiro argumento para `setState`)
+* Funções passadas para `useState`, `useMemo` ou `useReducer`
 
 > Nota:
 >
