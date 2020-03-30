@@ -18,15 +18,22 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://www.reactathon.com) - [Twitter](https://twitter.com/reactathon) - [Facebook](https://www.facebook.com/events/575942819854160/)
 
 ### React Summit Amsterdam 2020 {#react-summit-2020}
+<<<<<<< HEAD
 15 a 17 de abril de 2020 em Amsterdã, Holanda
+=======
+September 11, 2020 in Amsterdam, The Netherlands
+>>>>>>> 9e5a358cb24a665fc48615ae224f26a4f2191b32
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
 
+<<<<<<< HEAD
 ### App.js Conf 2020 {#appjsonf2020}
 23 a 24 de abril de 2020 em Cracóvia, Polônia
 
 [Website](http://appjs.co/react) - [Twitter](https://twitter.com/appjsconf)
 
+=======
+>>>>>>> 9e5a358cb24a665fc48615ae224f26a4f2191b32
 ### React Day Bangalore 2020 {#react-day-bangalore-2020}
 25 de abril de 2020 em Bangalore, Índia
 
