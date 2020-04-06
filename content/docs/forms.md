@@ -68,6 +68,7 @@ class NameForm extends React.Component {
 
 Como o atributo `value` é definido no nosso `<input type="text">`, o valor exibido sempre será o mesmo de `this.state.value`, fazendo com que o estado do React seja a fonte da verdade. Como o `handleChange` é executado a cada tecla pressionada para atualizar o estado do React, o valor exibido será atualizado conforme o usuário digita.
 
+<<<<<<< HEAD
 Com um componente controlado, cada mutação de estado terá uma função de manipulação (handler function) associada. Isso faz com que seja simples modificar ou validar a entrada do usuário. Por exemplo, se quiséssemos impor que os nomes sejam escritos com todas as letras maiúsculas, poderíamos escrever `handleChange` como:
 
 ```javascript{2}
@@ -75,6 +76,9 @@ handleChange(event) {
   this.setState({value: event.target.value.toUpperCase()});
 }
 ```
+=======
+With a controlled component, the input's value is always driven by the React state. While this means you have to type a bit more code, you can now pass the value to other UI elements too, or reset it from other event handlers.
+>>>>>>> fa5e6e7a988b4cb465601e4c3beece321edeb812
 
 ## Tag textarea {#the-textarea-tag}
 
