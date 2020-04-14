@@ -17,17 +17,10 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://www.reactathon.com) - [Twitter](https://twitter.com/reactathon) - [Facebook](https://www.facebook.com/events/575942819854160/)
 
-<<<<<<< HEAD
-### React Summit Amsterdam 2020 {#react-summit-2020}
-11 de setembro de 2020 em Amsterdã, Holanda
-
-[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
-=======
 ### React Summit - Remote Edition 2020 {#react-summit-remote-2020}
-3pm CEST time, April 17, 2020 - remote event
+3pm CEST time, 17 de abril de 2020 - evento remoto
 
-[Website](https://remote.reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
->>>>>>> b3c7f041586b71b31f556403426fcd7cab342535
+[Website](https://remote.reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
 
 ### React Day Bangalore 2020 {#react-day-bangalore-2020}
 25 de abril de 2020 em Bangalore, Índia
@@ -90,30 +83,26 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://www.react-native.eu/) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu/) - [YouTube](https://www.youtube.com/watch?v=m0GfmlGFh3E&list=PLZ3MwD-soTTHy9_88QPLF8DEJkvoB5Tl-) - [Instagram](https://www.instagram.com/reactnative_eu/)
 
 ### React Summit Amsterdam 2020 {#react-summit-2020}
-September 8-11, 2020 in Amsterdam, The Netherlands
+8 a 11 de setembro de 2020 em Amsterdã, Holanda
 
-[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
+[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
 
 ### React Advanced 2020 {#react-advanced-2020}
-October 21-23, 2020 in London, UK
+21 a 23 de outubro de 2020 em Londres, Inglaterra
 
-[Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
+[Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Vídeos](https://youtube.com/c/ReactConferences)
 
 ### React India 2020 {#react-india-2020}
 6 de novembro de 2020 em Mumbai, Índia
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
-<<<<<<< HEAD
-## Conferências passadas {#past-conferences}
-=======
 ### React Day Berlin 2020 {#react-day-berlin-2020}
-November 25-27, 2020 in Berlin, Germany
+25 a 27 de novembro de 2020 em Berlim, Alemanha
 
-[Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/reactdayberlin)
+[Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Vídeos](https://www.youtube.com/reactdayberlin)
 
-## Past Conferences {#past-conferences}
->>>>>>> b3c7f041586b71b31f556403426fcd7cab342535
+## Conferências passadas {#past-conferences}
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
