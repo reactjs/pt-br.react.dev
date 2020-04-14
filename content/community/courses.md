@@ -8,7 +8,7 @@ permalink: community/courses.html
 
 ## Cursos Gratuitos {#free-courses}
 
-- [Glitch: React Starter Kit](https://glitch.com/culture/react-starter-kit/) - Um curso em vídeo gratuito de 5 partes com exemplos de código interativos que ajudarão você a aprender React.
+- [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit/) - Um curso em vídeo gratuito de 5 partes com exemplos de código interativos que ajudarão você a aprender React.
 
 - [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - Curso introdutório do Codecademy para React.
 
