@@ -14,11 +14,7 @@ Há algumas maneiras de testar componentes React. Em geral, os testes podem ser 
 * **Renderizando árvores de componentes** em um ambiente de testes simplificado e confirmando o seu output.
 * **Executando uma aplicação completa** em um ambiente de navegador real (também conhecido como testes “_end-to-end_”).
 
-<<<<<<< HEAD
 Esta seção da documentação se concentra nas estratégias de teste para o primeiro caso. Embora os testes _end-to-end_ completos possam ser muito úteis para impedir regressões em casos importantes, esses testes não estão relacionados a componentes React em particular e estão fora do escopo desta seção.
-=======
-This documentation section focuses on testing strategies for the first case. While full end-to-end tests can be very useful to prevent regressions to important workflows, such tests are not concerned with React components in particular, and are out of the scope of this section.
->>>>>>> b3c7f041586b71b31f556403426fcd7cab342535
 
 ### Tradeoffs {#tradeoffs}
 
