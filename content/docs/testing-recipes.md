@@ -29,9 +29,9 @@ Nessa página, nós iremos primeiramente usar componentes funcionais. Entretanto
 
 ### Detalhamento da configuração {#setup--teardown}
 
-Para cada teste, nós geralmente queremos renderizar nossa árvore React para um elemento do DOM que está atrelado a um `documento`. Isso é importante para que ele recebe eventos do DOM. Quando o teste finaliza, nós queremos realizar uma "limpeza" e desmontar a árvore do `documento`.
+Para cada teste, nós geralmente queremos renderizar nossa árvore React para um elemento do DOM que está atrelado a um `documento`. Isso é importante para que ele receba eventos do DOM. Quando o teste finaliza, nós queremos realizar uma "limpeza" e desmontar a árvore do `documento`.
 
-Um jeito comum de se realizar isso é usar a combinação dos blocos `beforeEach` e `afterEach` para que eles sempre sejam executado e isolem o bloco de teste.
+Um jeito comum de se realizar isso é usar a combinação dos blocos `beforeEach` e `afterEach` para que eles sempre sejam executados e isolem o bloco de teste.
 
 ```jsx
 import { unmountComponentAtNode } from "react-dom";
@@ -51,13 +51,13 @@ afterEach(() => {
 });
 ```
 
-Você pode utilizar um diferente padrão, mas tenha em mente de que queremos executar uma limpeza _mesmo que o teste falhe_. Caso contrário, os testes podem impactar outros, alterando o comportamento. Isso faz com que eles sejam difíceis de serem depurados.
+Você pode utilizar um padrão diferente, mas tenha em mente que queremos executar uma limpeza _mesmo que o teste falhe_. Caso contrário, os testes podem impactar outros, alterando o comportamento. Isso faz com que eles sejam difíceis de serem depurados.
 
 ---
 
 ### `act()` {#act}
 
-Quando está se escrevendo testes de UI, tarefas como renderização, eventos de usuário ou busca de testes podem ser considerados como "unidades" de interação com a interface do usuário. React provê um auxiliar chamado `act()` que garante que todas as atualizações relacionadas a esses "usuários" estejam sendo processadas e aplicadas ao DOM antes que você faça alguma declaração de testes.
+Quando estiver escrevendo testes de UI, tarefas como renderização, eventos de usuário ou busca de testes podem ser considerados como "unidades" de interação com a interface do usuário. React provê um auxiliar chamado `act()` que garante que todas as atualizações relacionadas a esses "usuários" estejam sendo processadas e aplicadas ao DOM antes que você faça alguma declaração de testes.
 
 ```js
 act(() => {
@@ -66,7 +66,7 @@ act(() => {
 // fazer declarações de testes
 ```
 
-Isso ajuda seus testes serem executados próximos do que os usuários experimentariam quando estiverem usando sua aplicação. o restos dos exemplos utilizam a função `act()` para ter essas garantias.
+Isso ajuda seus testes a serem executados próximo do que os usuários experimentariam quando estiverem usando sua aplicação. O restante dos exemplos utilizam a função `act()` para ter essas garantias.
 
 Você pode achar que utilizar o `act()` diretamente um pouco verboso demais. Para evitar um pouco do _boilerplate_, você pode usar uma biblioteca como a [React Testing Library](https://testing-library.com/react), cujo as funções auxiliares são encapsuladas com o `act()`.
 
@@ -141,7 +141,7 @@ it("renders with or without a name", () => {
 
 ### Busca de Dados {#data-fetching}
 
-Ao invés de realizar chamadas reais para uma API, você pode transformar a requisição em _mock_ com dados fictícios. Transformando o dado em _mock_ com dados "falsos" previne testes incompletos por causa de um _backend_ indisponível, além de torná-los mais rápido. Nota: Você ainda pode querer executar um subconjunto de testes usando um _framework_ ["_end-to-end_"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) que valida se a aplicação inteira está funcionando em conjunto.
+Ao invés de realizar chamadas reais para uma API, você pode transformar a requisição em _mock_ com dados fictícios. Transformando o dado em _mock_ com dados "falsos" previne testes incompletos por causa de um _backend_ indisponível, além de torná-los mais rápidos. Nota: Você ainda pode querer executar um subconjunto de testes usando um _framework_ ["_end-to-end_"](/docs/testing-environments.html#end-to-end-tests-aka-e2e-tests) que valida se a aplicação inteira está funcionando em conjunto.
 
 ```jsx
 // user.js
@@ -230,7 +230,7 @@ it("renders user data", async () => {
 
 ### Transformando módulos em _mock_ {#mocking-modules}
 
-Alguns módulos podem não funcionar corretamente dentro de um ambiente de testes ou podem não ser essenciais para o teste em si. Transformando eles em _mock_ com dados fictícios pode facilitar a escrita dos testes para seu próprio código.
+Alguns módulos podem não funcionar corretamente dentro de um ambiente de testes ou podem não ser essenciais para o teste em sí. Transformando eles em _mock_ com dados fictícios pode facilitar a escrita dos testes para seu próprio código.
 
 Considere um componente `Contact` que possui um componente terceiro `GoogleMap` embutido:
 
@@ -271,7 +271,7 @@ function Contact(props) {
 }
 ```
 
-Se nós não queremos carregar esse componente nos nossos testes, nós podemos transformar a dependência em _mock_ em um componente fictício e executar o teste:
+Se nós não queremos carregar esse componente nos nossos testes, nós podemos transformar a dependência em _mock_ de um componente fictício e executar o teste:
 
 ```jsx{10-18}
 // contact.test.js
@@ -362,7 +362,7 @@ export default function Toggle(props) {
 }
 ```
 
-We could write tests for it:
+Poderíamos escrever testes para isso:
 
 ```jsx{13-14,35,43}
 // toggle.test.js
@@ -416,7 +416,7 @@ it("changes value when clicked", () => {
 });
 ```
 
-Os diferentes eventos do DOM e suas propriedades estão descritas em [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Note que você precisa passara `{ bubbles: true }` em cada evento que for criado para que ele chegue ao React Listener pois o React delega os eventos ao documento automaticamente.
+Os diferentes eventos do DOM e suas propriedades estão descritas em [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Note que você precisa passar `{ bubbles: true }` em cada evento que for criado para que ele chegue ao React Listener pois o React delega os eventos ao documento automaticamente.
 
 > Nota:
 >
@@ -600,13 +600,13 @@ it("should render a greeting", () => {
 });
 ```
 
-Tipicamente é melhor fazer afirmações mais específicas do que utilizar snapshots. Esse tipo de testes inclui detalhes de implementação e portanto podem facilmente quebrar. Seletivamente [transformar alguns componentes filhos em mock](#mocking-modules) pode reduzir o tamanho do snapshot e mantê-los legíveis para o review de código.
+Tipicamente é melhor fazer afirmações mais específicas do que utilizar snapshots. Esse tipo de teste inclui detalhes de implementação e portanto podem facilmente quebrar. Seletivamente [transformar alguns componentes filhos em mock](#mocking-modules) pode reduzir o tamanho do snapshot e mantê-los legíveis para o review de código.
 
 ---
 
 ### Renderizações múltiplas {#multiple-renderers}
 
-Em casos raros, você pode estar executando um test em um componente que utiliza múltiplos renderizadores. Por exemplo, você pode estar executando testes de _snapshot_ em um componente com `react-test-renderer`, que internamente usa `ReactDOM.render` dentro de um componente filho para renderizar algum conteúdo. Nesse cenário, você pode encapsular as atualizações com o respectivo `act()` dos seus renderizadores.
+Em casos raros, você pode estar executando um teste em um componente que utiliza múltiplos renderizadores. Por exemplo, você pode estar executando testes de _snapshot_ em um componente com `react-test-renderer`, que internamente usa `ReactDOM.render` dentro de um componente filho para renderizar algum conteúdo. Nesse cenário, você pode encapsular as atualizações com o respectivo `act()` dos seus renderizadores.
 
 ```jsx
 import { act as domAct } from "react-dom/test-utils";
