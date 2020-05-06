@@ -97,7 +97,7 @@ Ao usar o [Babel](https://babeljs.io/), você precisa se certificar que o Babel 
 
 > Nota:
 >
-> `React.lazy` e Suspense não estão disponíveis para renderização no lado servidor. Se você deseja fazer divisão de código em uma aplicação renderizada no servidor, nós recomendamos o pacote [Loadable Components](https://github.com/gregberge/loadable-components). Ele possui um ótimo [guia para divisão de pacotes com renderização no servidor](https://loadable-components.com/loadable-components/docs/server-side-rendering/).
+> `React.lazy` e Suspense não estão disponíveis para renderização no lado servidor. Se você deseja fazer divisão de código em uma aplicação renderizada no servidor, nós recomendamos o pacote [Loadable Components](https://github.com/gregberge/loadable-components). Ele possui um ótimo [guia para divisão de pacotes com renderização no servidor](https://loadable-components.com/docs/server-side-rendering/).
 
 A função do `React.lazy` é permitir a você renderizar uma importação dinâmica como se fosse um componente comum.
 
