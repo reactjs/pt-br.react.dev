@@ -476,7 +476,7 @@ useDebugValue(value)
 
 `useDebugValue` pode ser usado para exibir um `label` em um *custom hook* em React DevTools.
 
-Por exemplo, considere o custom hook `useFriendStatus` descrito em ["Criando seu próprios Hooks"](/docs/hooks-custom.html):
+Por exemplo, considere o custom hook `useFriendStatus` descrito em ["Criando seus próprios Hooks"](/docs/hooks-custom.html):
 
 ```js{6-8}
 function useFriendStatus(friendID) {

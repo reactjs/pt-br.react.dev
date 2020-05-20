@@ -33,7 +33,7 @@ function Exemplo() {
 }
 ```
 
-Esse trecho de código é baseado no [exemplo de contador da pagina anterior](/docs/hooks-state.html), mas nós adicionamos uma nova funcionalidade a ele: nós definimos o titulo do documento para ser uma mensagem customizada que inclua o número de cliques.
+Esse trecho de código é baseado no [exemplo de contador da página anterior](/docs/hooks-state.html), mas nós adicionamos uma nova funcionalidade a ele: nós definimos o titulo do documento para ser uma mensagem customizada que inclua o número de cliques.
 
 Buscar dados, configurar uma subscription, e mudar o DOM manualmente dentro do componentes React são todos exemplos de efeitos colaterais. Esteja você acostumado ou não a chamar essas operações de "efeitos colaterais" (ou somente "efeitos"), você provavelmente já usou eles em seus componentes antes.
 
@@ -91,7 +91,7 @@ Agora vamos ver como podemos fazer a mesma coisa com o Hook `useEffect`.
 
 ### Exemplo Usando Hooks {#example-using-hooks}
 
-Nós já vimos esse exemplo no topo da pagina, mas vamos dar uma olhada mais de perto:
+Nós já vimos esse exemplo no topo da página, mas vamos dar uma olhada mais de perto:
 
 ```js{1,6-8}
 import React, { useState, useEffect } from 'react';
@@ -261,7 +261,7 @@ O Effect Hook unifica ambos casos com uma única API.
 
 -------------
 
-**Se você acha que tem um bom entendimento de como o Effect Hook funciona, ou se você se sente sobrecarregado, você já pode pular para a [próxima pagina sobre as Regras dos Hooks](/docs/hooks-rules.html).**
+**Se você acha que tem um bom entendimento de como o Effect Hook funciona, ou se você se sente sobrecarregado, você já pode pular para a [próxima página sobre as Regras dos Hooks](/docs/hooks-rules.html).**
 
 -------------
 
@@ -486,4 +486,4 @@ Parabéns! Essa foi uma página longa, mas com sorte ao fim a maioria das suas p
 
 Nós também estamos começando a ver como Hooks resolvem problemas levantados na [Motivação](/docs/hooks-intro.html#motivation). Nós vimos como a limpeza dos efeitos evitam duplicação de código no `componentDidUpdate` e `componentWillUnmount`, mantém códigos relacionados juntos, e ajuda a evitar bugs. Nós também vimos como separar efeitos pelo seu propósito, que é uma coisa que não conseguíamos fazer com classes.
 
-Nesse ponto você pode estar se perguntando como Hooks funcionam. Como o React sabe qual chamada do `useState` corresponde a qual variável de state entre as re-renderizações? Como o React "compara" os efeitos anteriores e os próximos toda atualização? **Na próxima pagina nos iremos aprender sobre as [Regras dos Hooks](/docs/hooks-rules.html) -- elas são essenciais para fazer os Hooks funcionarem.**
+Nesse ponto você pode estar se perguntando como Hooks funcionam. Como o React sabe qual chamada do `useState` corresponde a qual variável de state entre as re-renderizações? Como o React "compara" os efeitos anteriores e os próximos toda atualização? **Na próxima página nos iremos aprender sobre as [Regras dos Hooks](/docs/hooks-rules.html) -- elas são essenciais para fazer os Hooks funcionarem.**
