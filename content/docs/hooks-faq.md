@@ -195,7 +195,7 @@ Para mais informações, confira [Testing Recipes](/docs/testing-recipes.html).
 
 ### O que exatamente as [regras de lint](https://www.npmjs.com/package/eslint-plugin-react-hooks) impõem? {#what-exactly-do-the-lint-rules-enforce}
 
-Nós fornecems um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) que impõem [regras de Hooks](/docs/hooks-rules.html) para evitar bugs. Elas assumem que qualquer função começando com "`use`" e uma letra maiúscula em segunda é um Hook. Nós reconhecemos que esta heurística não é perfeita e que talvez aconteçam alguns falso positivos mas sem uma convenção simplesmente não há como fazer Hooks funcionarem bem -- e nomes mais longos iriam desencorajam pessoas tanto de adotar Hooks ou de seguir a convenção.
+Nós fornecems um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) que impõem [regras de Hooks](/docs/hooks-rules.html) para evitar bugs. Elas assumem que qualquer função começando com "`use`" e uma letra maiúscula em segunda é um Hook. Nós reconhecemos que esta heurística não é perfeita e que talvez aconteçam alguns falso positivos mas sem uma convenção simplesmente não há como fazer Hooks funcionarem bem -- e nomes mais longos iriam desencorajar pessoas tanto de adotar Hooks ou de seguir a convenção.
 
 Em particular, a regra impõe que:
 
