@@ -1226,11 +1226,7 @@ Parabéns! Você criou um jogo que:
 * Armazena um histórico do jogo à medida que ele avança,
 * Permite aos jogadores revisarem o histórico do jogo e verem versões anteriores do tabuleiro.
 
-<<<<<<< HEAD
 Belo trabalho! Esperamos que agora você esteja sentindo como se tivesse uma boa noção de como React funciona.
-=======
-Nice work! We hope you now feel like you have a decent grasp of how React works.
->>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
 
 Dê uma olhada on resultado final aqui: **[Resultado Final](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
