@@ -18,13 +18,7 @@ permalink: community/courses.html
 
 - [React Armory: Learn React by Itself](https://reactarmory.com/guides/learn-react-by-itself) - Com o React Armory, Você pode aprender apenas o React, sem coisas da moda.
 
-<<<<<<< HEAD
-- [The Road to Learn React](https://www.robinwieruch.de/the-road-to-learn-react/) - Construa uma aplicação real com React simples sem ferramentas complicadas.
-
 - [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - Curso gratuito para novatos no React e para aqueles que procuram uma melhor compreensão sobre os fundamentos do React.
-=======
-- [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - Free course for React newbies and those looking to get a better understanding of React fundamentals.
->>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
 
 - [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Gravações de três dias de um bootcamp online gratuito de React.
 
@@ -54,11 +48,6 @@ permalink: community/courses.html
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construa apps interativos e profissionais com o React.
 
+- [Road to React](https://www.roadtoreact.com/) - Sua jornada para dominar React em JavaScript.
+
 - [ReactJS Ninja](https://www.udemy.com/curso-reactjs-ninja/) - Considerado pela comunidade de desenvolvedores, o melhor curso em Português/BR de React.
-
-<<<<<<< HEAD
-=======
-- [Mastering React](https://codewithmosh.com/p/mastering-react/) - Build professional interactive apps with React.
-
-- [Road to React](https://www.roadtoreact.com/) - Your journey to master React in JavaScript.
->>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
