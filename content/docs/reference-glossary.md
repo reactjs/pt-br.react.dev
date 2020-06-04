@@ -86,7 +86,7 @@ Componentes podem ser quebrados em peças distintas de funcionalidade e usados e
 Lembre que `props` são somente leitura. Eles não devem ser modificados desta forma:
 
 ```js
-// Wrong!
+// Errado!
 props.numero = 42;
 ```
 
