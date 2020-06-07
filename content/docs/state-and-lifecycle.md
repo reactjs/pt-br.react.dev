@@ -418,12 +418,6 @@ Nem componentes pai ou filho podem saber se um determinado componente é statefu
 Um componente pode escolher passar seu state como props para seus componentes filhos:
 
 ```js
-<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-```
-
-Isso também funciona para componentes definidos pelo usuário:
-
-```js
 <FormattedDate date={this.state.date} />
 ```
 
