@@ -36,7 +36,7 @@ React foi pensado desde o início para ser adotado gradualmente e **você pode u
 
 ### Editores Online {#online-playgrounds}
 
-Se você está interessado em testar um pouco o React, pode usar um editor de código online. Tente um Olá Mundo no [CodePen](codepen://hello-world) ou [CodeSandbox](https://codesandbox.io/s/new).
+Se você está interessado em testar um pouco o React, pode usar um editor de código online. Tente um Olá Mundo no [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), [Glitch](https://glitch.com/edit/#!/remix/starter-react-template), ou [Stackblitz](https://stackblitz.com/fork/react).
 
 Se prefere usar o seu próprio editor de texto, pode também [baixar este arquivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editá-lo e a partir do seu sistema de arquivos abrir em seu navegador web. Este arquivo faz uma lenta transformação de código em tempo de execução, portanto nós recomendamos usar somente para demonstrações simples.
 
@@ -46,9 +46,9 @@ Você pode [adicionar React a uma página HTML em um minuto](/docs/add-react-to-
 
 ### Crie uma nova Aplicação React {#create-a-new-react-app}
 
-Ao iniciar um projeto React, [uma simples página HTML com tags script](/docs/add-react-to-a-website.html) pode ser a melhor opção. É necessário apenas um minuto para configurar!
+Ao iniciar um projeto React, uma [simples página HTML com tags script](/docs/add-react-to-a-website.html) pode ser a melhor opção. É necessário apenas um minuto para configurar!
 
-A medida que sua aplicação cresce, você pode começar a considerar uma configuração mais integrada. Há [inúmeras ferramentas JavaScript](/docs/create-a-new-react-app.html) que nós recomendamos para aplicações grandes. Cada uma delas exige pouca ou até nenhuma configuração e permite a você aproveitar ao máximo o rico ecossistema do React.
+A medida que sua aplicação cresce, você pode começar a considerar uma configuração mais integrada. Há inúmeras ferramentas JavaScript que nós recomendamos para aplicações grandes. Cada uma delas exige pouca ou até nenhuma configuração e permite a você aproveitar ao máximo o rico ecossistema do React. [Aprenda como.](/docs/create-a-new-react-app.html)
 
 ## Aprenda React {#learn-react}
 
@@ -75,7 +75,7 @@ Se você vem da área de design, [estes recursos](http://reactfordesigners.com/)
 
 A documentação do React assume que você tem alguma familiaridade com a programação na linguagem JavaScript. Você não precisa ser um especialista, porém é mais difícil aprender o React e o JavaScript ao mesmo tempo.
 
-Recomendamos que você leia [esta visão geral do JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para verificar seu nível de conhecimento. Ela levará entre 30 minutos e uma hora. Assim você se sentirá mais confiante para aprender Ract.
+Recomendamos que você leia [esta visão geral do JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para verificar seu nível de conhecimento. Ela levará entre 30 minutos e uma hora. Assim você se sentirá mais confiante para aprender React.
 
 >Dica
 >
@@ -83,7 +83,7 @@ Recomendamos que você leia [esta visão geral do JavaScript](https://developer.
 
 ### Tutorial Prático {#practical-tutorial}
 
-Se você prefere **aprender fazendo**, confira nosso [tutorial prático](/tutorial/tutorial.html). Neste tutorial, criamos um jogo-da-velha em React. Você pode pensar em evitar desenvolver porque não está construindo jogos – mas dê uma chance. As técnicas que você aprenderá no tutorial são fundamentais para criar *qualquer* aplicação React e ao dominá-las dará a você uma compreensão muito mais profunda.
+Se você prefere **aprender fazendo**, confira nosso [tutorial prático](/tutorial/tutorial.html). Neste tutorial, criamos um jogo-da-velha em React. Você pode pensar em evitar desenvolver porque não gosta de construir jogos – mas dê uma chance. As técnicas que você aprenderá no tutorial são fundamentais para criar *qualquer* aplicação React e ao dominá-las dará a você uma compreensão muito mais profunda.
 
 ### Guia Passo-a-passo {#step-by-step-guide}
 
@@ -99,7 +99,7 @@ Muitos usuários do React dão créditos à leitura [Pensando em React](/docs/th
 
 ### Conceitos Avançados {#advanced-concepts}
 
-Uma vez que você esteja confortável com os [conceitos principais](#main-concepts) e brincou um pouco com o React, talvez você possa se interessar em tópicos mais avançados. Esta seção apresentará poderosos, porém menos utilizados, recursos do React, como [context](/docs/context.html) e [refs](/docs/refs-and-the-dom.html).
+Uma vez que você esteja confortável com os [conceitos principais](/docs/hello-world.html) e brincou um pouco com o React, talvez você possa se interessar em tópicos mais avançados. Esta seção apresentará poderosos, porém menos utilizados, recursos do React, como [context](/docs/context.html) e [refs](/docs/refs-and-the-dom.html).
 
 ### Referência da API {#api-reference}
 
@@ -115,11 +115,11 @@ O [blog do React](/blog/) é a fonte oficial para as atualizações feitas pelo 
 
 Você também pode seguir o [@reactjs](https://twitter.com/reactjs) no Twitter, mas você não perderá nenhuma informação essencial se apenas ler o blog.
 
-Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão [no arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react).
+Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão no [arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react/releases).
 
 ## Documentação das Versões {#versioned-documentation}
 
-Esta documentação sempre refletirá a última versão estável do React. Desde o React 16, você pode encontrar a documentação das versões antigas [em uma página separada](/versions). Note que as documentações das versões antigas foram criadas no momento de seu lançamento e por isso podem não não ficam sendo continuamente atualizadas.
+Esta documentação sempre refletirá a última versão estável do React. Desde o React 16, você pode encontrar a documentação das versões antigas em uma [página separada](/versions). Note que as documentações das versões antigas foram criadas no momento de seu lançamento e por isso podem não estarem sendo continuamente atualizadas.
 
 ## Esquecemos Algo? {#something-missing}
 

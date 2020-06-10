@@ -8,15 +8,15 @@ prev: hooks-effect.html
 
 _Hooks_ são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 
-Hooks são funções Javascript, mas você precisa seguir duas regras ao utilizá-los. Nós providenciamos um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) para aplicar essas regras automaticamente:
+Hooks são funções JavaScript, mas você precisa seguir duas regras ao utilizá-los. Nós providenciamos um [plugin ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks) para aplicar essas regras automaticamente:
 
 ### Use Hooks Apenas no Nível Superior {#only-call-hooks-at-the-top-level}
 
-**Não use Hooks dentro de loops, regras condicionais ou funções aninhadas (funçoes dentro de funções).** Em vez disso, sempre use Hooks no nível superior de sua função React. Seguindo essas regras, você garante que os Hooks serão chamados na mesma ordem a cada vez que o componente renderizar. É isso que permite que o React preserve corretamente o estado dos Hooks quando são usados várias chamadas a `useState` e `useEffect` na mesma função. (Se você ficou curioso, iremos explicar isso melhor [abaixo](#explanation).)
+**Não use Hooks dentro de loops, regras condicionais ou funções aninhadas (funções dentro de funções).** Em vez disso, sempre use Hooks no nível superior de sua função React. Seguindo essas regras, você garante que os Hooks serão chamados na mesma ordem a cada vez que o componente renderizar. É isso que permite que o React preserve corretamente o estado dos Hooks quando são usados várias chamadas a `useState` e `useEffect` na mesma função. (Se você ficou curioso, iremos explicar isso melhor [abaixo](#explanation).)
 
 ### Use Hooks Apenas Dentro de Funções do React {#only-call-hooks-from-react-functions}
 
-**Não use Hooks dentro de funções Javascript comuns.** Em vez disso, você pode:
+**Não use Hooks dentro de funções JavaScript comuns.** Em vez disso, você pode:
 
 * ✅  Chamar Hooks em componentes React.
 * ✅  Chamar Hooks dentro de Hooks Customizados (Nós iremos aprender sobre eles [na próxima página.](/docs/hooks-custom.html)).
@@ -27,8 +27,10 @@ Seguindo essas regras, você garante que toda lógica de estado (`state`) no com
 
 Nós liberamos um plugin ESLint chamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que aplica essas duas regras. Se você desejar pode adicionar este plugin ao seu projeto, dessa forma:
 
+Esse plugin está incluindo por padrão no [Create React App](/docs/create-a-new-react-app.html#create-react-app).
+
 ```bash
-npm install eslint-plugin-react-hooks
+npm install eslint-plugin-react-hooks --save-dev
 ```
 
 ```js
@@ -47,9 +49,7 @@ npm install eslint-plugin-react-hooks
 }
 ```
 
-No futuro, temos a intenção de incluir esse plugin por padrão dentro do Create React App e ferramentas similares.
-
-**Você pode pular para próxima página, onde explica melhor como escrever [seus próprios Hooks](/docs/hooks-custom.html) agora.**. Nessa página continuaremos explicando o motivo por trás dessas regras.
+**Você pode pular para próxima página agora, onde explica melhor como escrever [seus próprios Hooks](/docs/hooks-custom.html).** Nessa página continuaremos explicando o motivo por trás dessas regras.
 
 ## Explicação {#explanation}
 
@@ -132,7 +132,7 @@ useEffect(function persistForm() {
 });
 ```
 
-**Note que você não precisa se preocupar com esse problema, se você usar a [regra fornecida no plugin do ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks)**. Mas agora você também sabe o *porquê* os Hooks funcionam dessa maneira, e quais os problemas que essas regras previnem.
+**Note que você não precisa se preocupar com esse problema, se você usar a [regra fornecida no plugin do ESLint](https://www.npmjs.com/package/eslint-plugin-react-hooks)**. Mas agora você também sabe o *porquê* dos Hooks funcionarem dessa maneira, e quais os problemas que essas regras previnem.
 
 ## Próximos Passos {#next-steps}
 

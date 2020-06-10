@@ -67,7 +67,7 @@ Depois de manipular o nó do DOM, o React itera recursivamente sobre os filhos.
 
 ### Componentes de Elementos do Mesmo Tipo {#component-elements-of-the-same-type}
 
-Quando um componente atualiza, a instância continua a mesma, então o estado é mantido entre as renderizações. O React atualiza as props das instâncias dos componente subjacentes para sincronizar com o novo elemento e então chama `componentWillReceiveProps()` e `componentWillUpdate()` na instância subjacente.
+Quando um componente atualiza, a instância continua a mesma, então o estado é mantido entre as renderizações. O React atualiza as props das instâncias dos componentes subjacentes para sincronizar com o novo elemento e então chama `componentWillReceiveProps()` e `componentWillUpdate()` na instância subjacente.
 
 Depois, o método `render()` é chamado e o Algoritmo de Diferenciação itera recursivamente no resultado anterior e no novo resultado.
 
@@ -139,7 +139,7 @@ Como um último recurso, você pode passar o índice (_index_) do item de um arr
 
 Reordenar pode também causar um problema com o estado do componente quando os índices (_indexes_) são utilizados como chaves  (_keys_). A instância do componente é atualizada e reutilizada baseada na sua chave. Se a chave é um índice (_index_), mover o item modifica a chave. Como resultado disso, o estado do componente para coisas como _inputs_ não controlados podem ficar bagunçados e atualizar de uma forma inesperada.
 
-[Aqui](codepen://reconciliation/index-used-as-key) é um exemplo, no CodePen, de um problema que pode ser causado por usar índices como chaves, e [aqui](codepen://reconciliation/no-index-used-as-key) é uma versão atualizada do mesmo exemplo mostrando como a não utilização dos índices como chaves resolve os problemas relacionados a reordenação, ordenação e adição no início da lista.
+Aqui é [um exemplo, de um problema que pode ser causado por usar índices como chaves](codepen://reconciliation/index-used-as-key) no CodePen, e aqui é [uma versão atualizada do mesmo exemplo mostrando como a não utilização dos índices como chaves resolve os problemas relacionados a reordenação, ordenação e adição no início da lista](codepen://reconciliation/no-index-used-as-key).
 
 ## Compensações (_Tradeoffs_) {#tradeoffs}
 
@@ -151,4 +151,4 @@ Devido ao React ser baseado em heurísticas, se as suposições por trás delas 
 
 1. O algoritmo não irá tentar sincronizar as subárvores de componentes de tipos diferentes. Se você perceber que está tentando alternar entre dois componentes de tipos diferentes com uma saída muito similar, você irá querer que eles tenham o mesmo tipo. Na prática nós não achamos que isso é um problema.
 
-2. Chaves devem ser estáveis, previsíveis e únicas. Chaves estáveis (como as produzidas por `Math.random()`) irão causar a re-criação desnecessária de várias instâncias de componentes e nós DOM, o que pode causar uma degradação na performance e a perca do estado nos componentes filhos.
+2. Chaves devem ser estáveis, previsíveis e únicas. Chaves instáveis (como as produzidas por `Math.random()`) irão causar a re-criação desnecessária de várias instâncias de componentes e nós DOM, o que pode causar uma degradação na performance e a perda do estado nos componentes filhos.

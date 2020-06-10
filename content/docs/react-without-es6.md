@@ -4,7 +4,7 @@ title: React sem ES6
 permalink: docs/react-without-es6.html
 ---
 
-Normalmente você definiria um componente React como uma simples classe Javascript:
+Normalmente você definiria um componente React como uma simples classe JavaScript:
 
 ```javascript
 class Greeting extends React.Component {

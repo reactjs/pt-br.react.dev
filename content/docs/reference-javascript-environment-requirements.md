@@ -11,8 +11,8 @@ O React 16 depende de uma coleção de tipos [Map](https://developer.mozilla.org
 Um ambiente com polyfill incluido para o React 16, usando core-js para prestar suporte a navegadores antigos, pode parecer assim:
 
 ```js
-import 'core-js/es6/map';
-import 'core-js/es6/set';
+import 'core-js/es/map';
+import 'core-js/es/set';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

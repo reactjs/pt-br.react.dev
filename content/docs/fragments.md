@@ -18,7 +18,7 @@ render() {
 }
 ```
 
-Há também uma nova [sintaxe curta](#short-syntax) para declará-las. Porém, ainda não é suportada por todas as ferramentas populares.
+Há também uma nova [sintaxe curta](#short-syntax) para declará-las.
 
 ## Motivação {#motivation}
 
@@ -112,8 +112,6 @@ class Columns extends React.Component {
 ```
 
 Você pode usar `<></>` da mesma forma que você usaria qualquer outro elemento, exceto que ele não suporta chaves ou atributos.
-
-Observe que **[muitas ferramentas ainda não possuem suporte](/blog/2017/11/28/react-v16.2.0-fragment-support.html#support-for-fragment-syntax)** então é melhor escrever `<React.Fragment>` até que as ferramentas passem ter suporte.
 
 ### Fragmentos com chaves {#keyed-fragments}
 

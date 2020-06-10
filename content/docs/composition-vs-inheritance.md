@@ -43,7 +43,8 @@ function WelcomeDialog() {
 }
 ```
 
-**[Experimente no CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
+[**Experimente no CodePen**](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)
+
 Qualquer conteúdo dentro da tag JSX do componente `<FancyBorder>` vai ser passado ao componente `FancyBorder` como prop `children`. Desde que `FancyBorder` renderize a `{props.children}` dentro de uma `<div>`, os elementos serão renderizados no resultado final.
 
 Mesmo que seja incomum, as vezes pode ser que você precise de diversos "buracos" no componente. Em alguns casos você pode criar sua própria convenção e não utilizar a prop `children`:
@@ -81,7 +82,7 @@ Os elementos React como `<Contacts/>` e `<Chat/>` são apenas objetos, e você p
 
 ## Especialização {#specialization}
 
-Algumas vezes acabamos pensando em componentes como "casos especiais" de outros componentes, por exemplo, podemos dizer que o component `WelcomeDialog` é um caso especial de `Dialog`. 
+Algumas vezes acabamos pensando em componentes como "casos especiais" de outros componentes, por exemplo, podemos dizer que o componente `WelcomeDialog` é um caso especial de `Dialog`. 
 
 No React, isto também pode ser obtido através do uso de composição, um componente específico renderiza um componente mais "genérico" e o configura com as suas respectivas props:
  

@@ -24,7 +24,7 @@ Se você visitar um site com React em modo de desenvolvimento, o ícone terá um
 
 É esperado que você use o modo de desenvolvimento enquanto trabalha em seu app, e o modo de produção quando publicar ele para os usuários.
 
-Você encontrar instruções para construir seu app para produção abaixo.
+Você irá encontrar instruções para construir seu app para produção abaixo.
 
 ### Criando um app React (Create React App) {#create-react-app}
 
@@ -51,14 +51,14 @@ Lembre que somente arquivos React terminados com `.production.min.js` são adequ
 
 ### Brunch {#brunch}
 
-Para uma build de produção do Brunch mais eficiente, instale o [`uglify-js-brunch`](https://github.com/brunch/uglify-js-brunch) plugin:
+Para uma build de produção do Brunch mais eficiente, instale o plugin [`terser-brunch`](https://github.com/brunch/terser-brunch):
 
 ```
 # Se você usa npm
-npm install --save-dev uglify-js-brunch
+npm install --save-dev terser-brunch
 
 # Se você usa Yarn
-yarn add --dev uglify-js-brunch
+yarn add --dev terser-brunch
 ```
 
 Então, para criar uma build de produção, adicione o argumento `-p` no comando `build`:
@@ -75,17 +75,17 @@ Para uma build de produção do Browserify mais eficiente, instale alguns plugin
 
 ```
 # Se você usa npm
-npm install --save-dev envify uglify-js uglifyify 
+npm install --save-dev envify terser uglifyify 
 
 # Se você usa Yarn
-yarn add --dev envify uglify-js uglifyify 
+yarn add --dev envify terser uglifyify
 ```
 
 Para criar uma build de produção, tenha certeza que você adicionou esses transforms **(a ordem faz diferença):**
 
 * O [`envify`](https://github.com/hughsk/envify) assegura que o ambiente que a build está configurado é o correto. Torne ele global (`-g`).
 * O [`uglifyify`](https://github.com/hughsk/uglifyify) remove os imports de desenvolvimento. Torna ele global também (`-g`).
-* Finalmente, o bundle gerado é enviado para o [`uglify-js`](https://github.com/mishoo/UglifyJS2) para enxutar ([entenda o porquê](https://github.com/hughsk/uglifyify#motivationusage)).
+* Finalmente, o bundle gerado é enviado para o [`terser`](https://github.com/terser-js/terser) para enxutar ([entenda o porquê](https://github.com/hughsk/uglifyify#motivationusage)).
 
 Por exemplo:
 
@@ -93,13 +93,8 @@ Por exemplo:
 browserify ./index.js \
   -g [ envify --NODE_ENV production ] \
   -g uglifyify \
-  | uglifyjs --compress --mangle > ./bundle.js
+  | terser --compress --mangle > ./bundle.js
 ```
-
->**Observação:**
->
->O nome do pacote é `uglify-js`, mas o binário gerado é chamado `uglifyjs`.<br>
->Isto não é um erro de digitação.
 
 Lembre que você somente precisar fazer isso para builds de produção. Você não deve aplicar esses plugins em desenvolvimento porque eles vão esconder avisos úteis do React, e farão as builds mais lentas.
 
@@ -107,19 +102,19 @@ Lembre que você somente precisar fazer isso para builds de produção. Você n�
 
 Para uma build de produção do Rollup mais eficiente, instale alguns plugins:
 
-```
+```bash
 # Se você usa npm
-npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
+npm install --save-dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-terser
 
 # Se você usa Yarn
-yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-uglify 
+yarn add --dev rollup-plugin-commonjs rollup-plugin-replace rollup-plugin-terser
 ```
 
 Para criar uma build de produção, tenha certeza que você adicionou esses plugins, **(a ordem faz diferença)**
 
 * O [`replace`](https://github.com/rollup/rollup-plugin-replace) assegura que o ambiente em que a build está configurado é o correto.
 * O [`commonjs`](https://github.com/rollup/rollup-plugin-commonjs) fornece suporte para CommonJS no Rollup.
-* O [`uglify`](https://github.com/TrySound/rollup-plugin-uglify) comprime e enxuta o bundle final.
+* O [`terser`](https://github.com/TrySound/rollup-plugin-terser) comprime e enxuta o bundle final.
 
 ```js
 plugins: [
@@ -128,34 +123,38 @@ plugins: [
     'process.env.NODE_ENV': JSON.stringify('production')
   }),
   require('rollup-plugin-commonjs')(),
-  require('rollup-plugin-uglify')(),
+  require('rollup-plugin-terser')(),
   // ...
 ]
 ```
 
 Para um exemplo completo de setup [veja esse gist](https://gist.github.com/Rich-Harris/cb14f4bc0670c47d00d191565be36bf0).
 
-Lembre que você somente precisa fazer isso para builds de produção. Você não deve aplicar o `uglify` ou o `replace` com o valor de `'production'`em desenvolvimento porque eles vão esconder avisos úteis do React, e farão as builds mais lentas.
+Lembre que você somente precisa fazer isso para builds de produção. Você não deve aplicar o `terser` ou o `replace` com o valor de `'production'`em desenvolvimento porque eles vão esconder avisos úteis do React, e farão as builds mais lentas.
 
 ### webpack {#webpack}
 
 >**Observação:**
 >
->Se você está usando Create React App, por favor siga [as instruções abaixo](#create-react-app).<br>
+>Se você está usando Create React App, por favor siga [as instruções acima](#create-react-app).<br>
 >Esta seção é somente relevante se você configura o webpack diretamente.
 
-Para uma build de produção mais eficiente do webpack, tenha certeza que você incluiu esses plugins em sua configuração de produção:
+O Webpack v4+ irá diminuir seu código por padrão no modo de produção.
 
 ```js
-new webpack.DefinePlugin({
-  'process.env.NODE_ENV': JSON.stringify('production')
-}),
-new webpack.optimize.UglifyJsPlugin()
+const TerserPlugin = require('terser-webpack-plugin');
+
+module.exports = {
+  mode: 'production',
+  optimization: {
+    minimizer: [new TerserPlugin({ /* opções adicionais aqui */ })],
+  },
+};
 ```
 
-Você pode aprender mais sobre isso na [documentação do webpack](https://webpack.js.org/guides/production-build/).
+Você pode aprender mais sobre isso na [documentação do webpack](https://webpack.js.org/guides/production/).
 
-Lembre que você somente precisa fazer isso para builds de produção. Você não deve aplicar `UglifyJsPlugin` ou `DefinePlugin` com o valor de `'production'` em desenvolvimento porque eles vão esconder avisos úteis do React, e farão as builds mais lentas.
+Lembre que você somente precisa fazer isso para builds de produção. Você não deve aplicar `TerserPlugin` em desenvolvimento porque ele vai esconder avisos úteis do React, e farão as builds mais lentas.
 
 ## Analisando componentes com o Chrome Performance Tab {#profiling-components-with-the-chrome-performance-tab}
 
@@ -177,7 +176,7 @@ Para fazer isso no Chrome:
 
 6. Eventos do React serão agrupados sob a label **User Timing**.
 
-Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://calibreapp.com/blog/2017-11-28-debugging-react/).
+Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
 
 Perceba que **os números são relativos para que os componentes renderizem mais rápido em produção**. Ainda, isto deve ajudar você a perceber quando algo não relacionados da UI são alteradas, a quão profundo e frequente suas alterações de UI acontecem.
 
@@ -213,24 +212,6 @@ O React cria e mantém sua representação interna da UI renderizada. Ele inclui
 
 Quando uma propriedade ou estado de um componente é alterado, o React decide se uma atualização do DOM atual é necessária comparando o novo elemento retornado com o antigo. Quando eles não forem iguais, o React irá alterar o DOM.
 
-Você pode agora visualizar essas re-renderizações do virtual DOM como o React DevTools:
-
-- [Extensão para Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-- [Extensão para Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
-- [Pacote separado](https://www.npmjs.com/package/react-devtools)
-
-No console de desenvolvedor selecione a opção **Highlight Updates** na aba de **React**:
-
-<center><img src="../images/blog/devtools-highlight-updates.png" style="max-width:100%; margin-top:10px;" alt="Como habilitar os destaques de alteração (highlight updates)" /></center>
-
-Interaja com sua página e você deve ver as bordas coloridas aparecendo ao redor de qualquer componente que foi re-renderizado. Isto faz com que você perceba re-renders que não são necessários. Você pode aprender mais sobre essa funcionalidade do React DevTools nesse [post](https://blog.logrocket.com/make-react-fast-again-part-3-highlighting-component-updates-6119e45e6833) do [Ben Edelstein](https://blog.logrocket.com/@edelstein).
-
-Considere esse exemplo:
-
-<center><img src="../images/blog/highlight-updates-example.gif" style="max-width:100%; margin-top:20px;" alt="Exemplo dos destaques de alterações do React DevTools" /></center>
-
-Perceba que quando nós estamos acessando o segundo _todo_, o primeiro todo também pisca na tela a cada tecla digitada. Isto significa que ele está sendo re-renderizando pelo React junto com o input. Isso algumas vez é chamado render desperdiçado (wasted render). Nós sabemos que ele é desnecessário porque o conteúdo do primeiro todo não tem nenhuma mudança, mas o React não sabe sobre isso.
-
 Embora o React somente altere os nós de DOM alterados, o re-rendering ainda leva algum tempo. Em muitos casos isso não é um problema, mas se a lentidão é perceptível, você pode aumentar velocidade dele sobrescrevendo a função de lifecycle `shouldComponentUpdate`, na qual é chamada antes do processo de re-rendering começar. A implementação padrão dessa função retorna `true`, deixando o React performar a alteração:
 
 ```javascript
@@ -245,7 +226,7 @@ Na maioria dos casos, ao invés de escrever `shouldComponentUpdate()` na mão, v
 
 ## shouldComponentUpdate em Ação {#shouldcomponentupdate-in-action}
 
-Aqui é uma sub-árvore de componentes. Para cada uma, `SCU` define o que o `shouldComponentUpdate` retorna, e `vDOMEq` indica se os elementos renderizados pelo React são equivalentes. Finalmente, o círculo de cores indica se o componente tinha de ser reconciliado ou não.
+Abaixo podemos ver uma sub-árvore de componentes. Para cada uma, `SCU` define o que o `shouldComponentUpdate` retorna, e `vDOMEq` indica se os elementos renderizados pelo React são equivalentes. Finalmente, o círculo de cores indica se o componente tinha de ser reconciliado ou não.
 
 <figure><img src="../images/docs/should-component-update.png" style="max-width:100%" /></figure>
 
@@ -402,37 +383,4 @@ function updateColorMap(colormap) {
 
 Se você está usando Create React App, ambos `Object.assign` e a sintaxe de espalhador de objeto estão disponíveis por padrão.
 
-## Usando Estruturas De Dados Mutáveis {#using-immutable-data-structures}
-
-[Immutable.js](https://github.com/facebook/immutable-js) é uma outra maneira de resolver esse problema. Ele fornece imutabilidade, persistente coleções que trabalham via compartilhamento estrutural:
-
-* *Imutabilidade*: uma vez criado, uma coleção não pode ser mais alterada.
-* *Persistência*: novas coleções podem ser criadas de coleções antigas e uma mutação como um conjunto. A coleção original ainda é válida depois que a nova coleção é criada.
-* *Compartilhamento estrutural*: novas coleções são criadas usando o máximo possível de mesma estrutura original, reduzindo cópia para o mínimo para melhorar a performance.
-
-Imutabilidade faz rastrear mudanças de forma barata. Uma mudança irá sempre resultar em um novo objeto onde nós somente precisaremos checar se a referência para o objeto mudou. Por exemplo, nesse exemplo de código JavaScript:
-
-
-```javascript
-const x = { foo: 'bar' };
-const y = x;
-y.foo = 'baz';
-x === y; // true
-```
-
-Embora `y` foi editado, desde que sua referência para o objeto `x`, essa comparação retorna `true`. Você pode escrever um código similar com immutable.js:
-
-```javascript
-const SomeRecord = Immutable.Record({ foo: null });
-const x = new SomeRecord({ foo: 'bar' });
-const y = x.set('foo', 'baz');
-const z = x.set('foo', 'bar');
-x === y; // false
-x === z; // true
-```
-
-Nesse caso, já que uma nova referência é retornada quando mutamos `x`, nós podemos usar a referência para checar a equalidade `(x === y)` para verificar que o novo valor armazenado em `y` é diferente que o valor original em `x`.
-
-Duas outras bibliotecas que pode ajudar o uso de dados imutáveis são [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) e [immutability-helper](https://github.com/kolodny/immutability-helper).
-
-Estruturas de dados imutáveis fornecem para você uma maneira barata para rastrear mudanças em objetos, no qual é tudo que nós precisamos para implementar `shouldComponentUpdate`. Isso pode oferecer a você um bom impulsionamento de performance.
+Quando você lida com objetos profundamente aninhados, atualizá-los de maneira imutável pode parecer complicado. Se você enfrentar esse problema, consulte [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). Essas bibliotecas permitem escrever código altamente legível sem perder os benefícios da imutabilidade.

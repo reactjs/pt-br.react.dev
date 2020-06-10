@@ -2,6 +2,8 @@
   items:
     - id: support
       title: Suporte
+    - id: team
+      title: Equipe
     - id: courses
       title: Cursos
     - id: examples
@@ -9,7 +11,7 @@
     - id: meetups
       title: Meetups
     - id: conferences
-      title: Conferencias
+      title: Conferências
     - id: articles
       title: Artigos
     - id: podcasts
@@ -18,25 +20,3 @@
       title: Vídeos
     - id: external-resources
       title: Recursos Externos
-- title: Ferramentas
-  items:
-    - id: debugging-tools
-      title: Depuração
-    - id: component-workbenches
-      title: Workbenches de Componentes
-    - id: jsx-integrations
-      title: Integrações JSX
-    - id: starter-kits
-      title: Starter Kits
-    - id: routing
-      title: Roteamento
-    - id: model-management
-      title: Gestão de Modelos
-    - id: data-fetching
-      title: Busca de dados
-    - id: testing
-      title: Testando
-    - id: ui-components
-      title: UI Componentes
-    - id: misc
-      title: Diversas

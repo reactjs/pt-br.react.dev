@@ -15,7 +15,7 @@ React suporta totalmente a construção de sites acessíveis, muitas vezes usand
 
 ### WCAG  {#wcag} 
 
-The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) provides guidelines for creating accessible web sites.
+O [Web Content Accessibility Guidelines](https://www.w3.org/WAI/intro/wcag) fornece diretrizes para a criação de sites acessíveis.
 
 As seguintes checklists das WCAG fornecem uma visão geral:
 
@@ -113,7 +113,7 @@ Para mais informações, veja a [doumentação para Fragments](/docs/fragments.h
 
 ### Rótulos {#labeling}
 
-Todos os elements de um formulário HTML, como `<input>` and `<textarea>`, precisam ser routalados. Precisamos fornecer rótulos descritivos pois são expostos aos leitores de tela.
+Todos os elements de um formulário HTML, como `<input>` e `<textarea>`, precisam ser rotulados. Precisamos fornecer rótulos descritivos pois são expostos aos leitores de tela.
 
 Os seguintes artigos nos mostram como fazer isso:
 
@@ -128,22 +128,22 @@ Embora essas práticas HTML padrão possam ser usadas diretamente em React, obse
 <input id="nomeDaEntrada" type="text" name="nome"/>
 ```
 
-### Notificando o usuário de erros {#notifying-the-user-of-errors}
+### Notificando erros ao usuário {#notifying-the-user-of-errors}
 
-Situações de erro precisam ser entendidas por todos os usuários. O artigos a seguir nos mostram como expor os erros aos leitores de tela:
+Situações de erro precisam ser entendidas por todos os usuários. Os artigos a seguir nos mostram como expor os erros aos leitores de tela:
 
 - [The W3C demonstrates user notifications](https://www.w3.org/WAI/tutorials/forms/notifications/)
 - [WebAIM looks at form validation](https://webaim.org/techniques/formvalidation/)
 
 ## Controle de Foco {#focus-control}
 
-Certifique-se de que seu aplicativo da web possa seja totalmente navegável apenas com o teclado:
+Certifique-se de que seu aplicativo da web seja totalmente navegável apenas com o teclado:
 
 - [WebAIM talks about keyboard accessibility](https://webaim.org/techniques/keyboard/)
 
 ### Foco no teclado e foco de contorno  {#keyboard-focus-and-focus-outline}
 
-Foco no teclado se refere ao elemento no DOM que foi selecionado e aceita ações do teclado. Nos podemos ver o contorno do foco nesta imagem: 
+Foco no teclado se refere ao elemento no DOM que foi selecionado e aceita ações do teclado. Podemos ver o contorno do foco na imagem a seguir: 
 
 <img src="../images/docs/keyboard-focus.png" alt="Contorno de foco azul envolta do link selecionado" />
 
@@ -153,7 +153,7 @@ Somente use CSS que elimine este contorno, por exemplo, definindo `outline: 0`, 
 
 São mecanismos para permitir que os usuários ignorem as seções de navegação anteriores em seu aplicativo, pois isso ajuda e acelera a navegação pelo teclado.
 
-`Skiplinks` ou `Links para Pular Navegacão` são links de navegação ocultos que só se tornam visíveis quando os usuários interagem com a página usando o teclado. Eles são muito fáceis de implementar com alguns estilos e âncoras de páginas:
+Skiplinks ou Links para Pular Navegacão são links de navegação ocultos que só se tornam visíveis quando os usuários interagem com a página usando o teclado. Eles são muito fáceis de implementar com alguns estilos e âncoras de páginas:
 
 - [WebAIM - Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 
@@ -165,8 +165,7 @@ Leia mais sobre o uso desses elementos para melhorar a acessibilidade aqui:
 
 ### Programaticamente gerenciando o foco {#programmatically-managing-focus}
 
-Aplicações em React modificam continuamente o HTML DOM durante o tempo de execução, às vezes levando à perda de foco do teclado ou a um elemento inesperado. Para consertar isso,
-precisamos programar o foco do teclado na direção certa, de maneira programática. Por exemplo, redefinindo o foco do teclado para um botão que abriu uma janela modal depois que essa janela restrita é fechada.
+Aplicações em React modificam continuamente o HTML DOM durante o tempo de execução, às vezes levando à perda de foco do teclado ou a um elemento inesperado. Para consertar isso, precisamos programar o foco do teclado na direção certa, de maneira programática. Por exemplo, redefinindo o foco do teclado para um botão que abriu uma janela modal depois que essa janela restrita é fechada.
 
 Você pode encotrar mais informações de como fazer isto no MDN [navegação por teclado de JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
@@ -199,7 +198,7 @@ Então podemos nos concentrar em outro lugar em nosso componente quando necessá
  ```javascript
  focus() {
    // Focalize explicitamente a entrada de texto usando a API DOM 
-   // Nota: estamos acessando "atual" DOM para obter o elemento
+   // Nota: estamos acessando o DOM "atual" para obter o elemento
    this.textInput.current.focus();
  }
  ```
@@ -233,10 +232,7 @@ this.inputElement.current.focus();
 
 Ao usar um HOC (Componente de alta ordem) para estender componentes é recomendado [encaminhar a ref](/docs/forwarding-refs.html) para o componente de menor order usando a função  de React `forwardRef`. Se um terceiro HOC não passar a referência, o padrão acima ainda pode ser usado como fallback.
 
-
-
 Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Este é um exemplo relativamente raro de uma janela modal totalmente acessível. Não só define o foco inicial o botão cancelar (impedindo o usuário do teclado de ativar acidentalmente a ação de sucesso) e interceptar o foco do teclado dentro do modal, ele também redefine o foco de volta para o elemento que inicialmente acionou o modal.
-
 
 >Nota:
 >
@@ -244,11 +240,11 @@ Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://githu
 >Use-o para reparar o comportamento do foco do teclado quando ele é alterado, e não para tentar antecipar como os usuários desejam usar os aplicativos.
 
 
-## Movimentos do mouse e apontadores {#mouse-and-pointer-events}
+## Movimentos do mouse e ponteiro (cursor) {#mouse-and-pointer-events}
 
-Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou apontador também possam ser acessadas usando apenas o teclado. Se dependender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderam usar seu aplicativo.
+Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou ponteiro também possam ser acessadas usando apenas o teclado. Se depender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderão usar seu aplicativo.
 
-Para ilustrar isso, vamos ver um exemplo clássico de quebra da acessibilidade causada por cliques. Esse é o padrão de clique externo, em que um usuário pode desativar um popover aberto clicando fora do elemento.
+Para ilustrar isso, abaixo pode-se ver um exemplo clássico de quebra da acessibilidade causada por cliques. Esse é o padrão de clique externo, em que um usuário pode desativar um popover aberto clicando fora do elemento.
 
 <img src="../images/docs/outerclick-with-mouse.gif" alt=" Um botão de que abre uma lista pop-over implementada com o clique e operado com um mouse mostrando que a ação de fechamento funciona." />
 
@@ -256,10 +252,10 @@ Isso geralmente é implementado ao anexar um `click` ao objeto de janela que fec
 
 ```javascript{12-14,26-30}
 class ClickForaExemplo extends React.Component {
-constructor(props) {
+  constructor(props) {
     super(props);
 
-    this.state = { estaAberto: false };
+    this.state = { isOpen: false };
     this.toggleContainer = React.createRef();
 
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -275,35 +271,35 @@ constructor(props) {
   }
 
   onClickHandler() {
-    this.setState(estadoAtual => ({
-      estaAberto: !estadoAtual.estaAberto
+    this.setState(currentState => ({
+      isOpen: !currentState.isOpen
     }));
   }
 
   onClickOutsideHandler(event) {
-    if (this.state.estaAberto && !this.toggleContainer.current.contains(event.target)) {
-      this.setState({ estaAberto: false });
+    if (this.state.isOpen && !this.toggleContainer.current.contains(event.target)) {
+      this.setState({ isOpen: false });
     }
   }
 
   render() {
     return (
       <div ref={this.toggleContainer}>
-        <button onClick={this.onClickHandler}>Select an option:</button>
-        {this.state.estaAberto ? (
+        <button onClick={this.onClickHandler}>Select an option</button>
+        {this.state.isOpen && (
           <ul>
             <li>Option 1</li>
             <li>Option 2</li>
             <li>Option 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
 }
 ```
 
-Isso pode funcionar bem para usuários com dispositivos com apontadores, como um mouse. Mas, operá-lo apenas com o teclado quebra a funcionalidade ao passar para o próximo elemento, já que o objeto `window` nunca recebe um evento `click`. Isso pode levar a uma funcionalidade escondida que impede os usuários de usar seu aplicativo.
+Isso pode funcionar bem para usuários com dispositivos com ponteiro, como um mouse. Mas, operá-lo apenas com o teclado quebra a funcionalidade ao passar para o próximo elemento, já que o objeto `window` nunca recebe um evento `click`. Isso pode levar a uma funcionalidade escondida que impede os usuários de usar seu aplicativo.
 
 <img src="../images/docs/outerclick-with-keyboard.gif" alt="A toggle button opening a popover list implemented with the click outside pattern and operated with the keyboard showing the popover not being closed on blur and it obscuring other screen elements." />
 
@@ -346,7 +342,7 @@ class ExamploDeBlur extends React.Component {
   }
 
   render() {
-    // React nos ajuda React cancelando o blur e
+    // O React nos ajuda cancelando o blur e
     // focando nos eventos do elemento pai.
     return (
       <div onBlur={this.onBlurHandler}
@@ -356,20 +352,20 @@ class ExamploDeBlur extends React.Component {
                 aria-expanded={this.state.isOpen}>
           Select an option
         </button>
-        {this.state.isOpen ? (
+        {this.state.isOpen && (
           <ul>
             <li>Option 1</li>
             <li>Option 2</li>
             <li>Option 3</li>
           </ul>
-        ) : null}
+        )}
       </div>
     );
   }
 }
 ```
 
-Esse código expõe a funcionalidade para usuários de dispositivo de ponteiro e teclado. Observe também os `aria-*` `props` adicionados para suportar usuários de leitores de tela. Por motivos de simplicidade a interação com as setas nas opções de popover não foram implementados.
+Esse código expõe a funcionalidade para usuários de dispositivo de mouse e teclado. Observe também os `aria-*` `props` adicionados para suportar usuários de leitores de tela. Por motivos de simplicidade a interação com as setas nas opções de popover não foram implementados.
 
 <img src="../images/docs/blur-popover-close.gif" alt="Uma lista popover que fecha corretamente para usuários de mouse e teclado." />
 
@@ -377,8 +373,7 @@ Este é um exemplo de muitos casos em que, depender apenas dos eventos de pontei
 
 ## Widgets mais complexos {#more-complex-widgets}
 
-Para uma experiência do usuário  que seja mais complexa não significa que será menos acessível. Considerando que a acessibilidade é mais facilmente alcançada programando o mais próximo possível do HTML,
-até mesmo o widget mais complexo pode ser programado de forma acessível.
+Uma experiência do usuário mais complexa não significa ser menos acessível. Considerando que a acessibilidade é mais facilmente alcançada programando o mais próximo possível do HTML, até mesmo o widget mais complexo pode ser programado de forma acessível.
 
 Aqui, exigimos conhecimento de [ARIA Roles](https://www.w3.org/TR/wai-aria/#role), bem como [ARIA States and Properties](https://www.w3.org/TR/wai-aria/#states_and_properties).
 Estas são caixas de ferramentas preenchidas com atributos HTML que são totalmente suportados no JSX e nos permitem construir componentes em React totalmente funcionais e totalmente acessíveis.
@@ -386,10 +381,10 @@ Estas são caixas de ferramentas preenchidas com atributos HTML que são totalme
 Cada tipo de widget tem um padrão de design específico e espera-se que funcione de certa forma por usuários e agentes do usuário:
 
 - [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Examples](https://heydonworks.com/practical_aria_examples/)
+- [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
-## Outros pontos para consideração {#other-points-for-consideration}
+## Outros pontos a serem consideração {#other-points-for-consideration}
 
 ### Definindo o idioma {#setting-the-language}
 
@@ -430,10 +425,10 @@ Há várias ferramentas que podemos usar para ajudar na criação de aplicativos
 
 Há várias ferramentas que podemos usar para ajudar na criação de aplicativos da Web acessíveis.
 
-1. Disconecte o seu mouse.
+1. Desconectando o seu mouse.
 2. Usando `Tab` e `Shift+Tab` navegue pelo site.
 3. Usando `Enter` para clicar elementos.
-3. Se necessário, usando o teclado e as setas interaja com alguns elementos, como menus e dropdowns.
+3. Se necessário, usando o teclado e as setas, interaja com alguns elementos, como menus e dropdowns.
 
 ### Assistência ao desenvolvimento {#development-assistance}
 
@@ -443,8 +438,7 @@ Podemos verificar alguns recursos de acessibilidade diretamente em nosso código
 
 O [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) plugin para ESLint fornece feedback sobre o linting da AST em relação a problemas de acessibilidade no seu JSX. Muitos dos IDE permitem integrar essas descobertas diretamente na análise de código e nas janelas de código-fonte.
 
-[Create React App](https://github.com/facebookincubator/create-react-app) tem este plugin com um subconjunto de regras ativadas. Se você quiser ativar ainda mais regras de acessibilidade,
-você pode criar um arquivo `.eslintrc` na raiz do seu projeto com este conteúdo:
+[Create React App](https://github.com/facebookincubator/create-react-app) tem este plugin com um subconjunto de regras ativadas. Se você quiser ativar ainda mais regras de acessibilidade, você pode criar um arquivo `.eslintrc` na raiz do seu projeto com este conteúdo:
 
   ```json
   {
@@ -461,9 +455,9 @@ Existem várias ferramentas que podem executar auditorias de acessibilidade em p
 
 Deque Systems oferece [aXe-core](https://github.com/dequelabs/axe-core) para testes de acessibilidade automatizados e de ponta a ponta de seus aplicativos. Este módulo inclui integrações para o Selenium.
 
-[O mecanismo de acessibilidade](https://www.deque.com/products/axe/) or aXe, é uma extensão de navegador de inspetor de acessibilidade construída com `aXe-core`.
+[O mecanismo de acessibilidade aXe](https://www.deque.com/products/axe/) é uma extensão de navegador de inspetor de acessibilidade construída com `aXe-core`.
 
-Você também pode usar o [react-axe](https://github.com/dylanb/react-axe) módulo para logar essas descobertas de acessibilidade diretamente no console durante o desenvolvimento e avaliação.
+Você também pode usar o [react-axe](https://github.com/dylanb/react-axe), um módulo para logar essas descobertas de acessibilidade diretamente no console durante o desenvolvimento e avaliação.
 
 #### WebAIM WAVE {#webaim-wave}
 
@@ -476,7 +470,7 @@ O [Web Accessibility Evaluation Tool](https://wave.webaim.org/extension/) é out
 Em alguns navegadores, podemos visualizar facilmente as informações de acessibilidade de cada elemento na árvore de acessibilidade:
 
 - [Using the Accessibility Inspector in Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
-- [Activate the Accessibility Inspector in Chrome](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
+- [Using the Accessibility Inspector in Chrome](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference#pane)
 - [Using the Accessibility Inspector in OS X Safari](https://developer.apple.com/library/content/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)
 
 ### Leitores de tela {#screen-readers}
@@ -508,7 +502,7 @@ Consulte os seguintes guias sobre como ativar e usar o VoiceOver:
 
 #### JAWS no Internet Explorer {#jaws-in-internet-explorer}
 
-[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) or JAWS, is a prolifically used screen reader on Windows.
+[Job Access With Speech](https://www.freedomscientific.com/Products/software/JAWS/) ou JAWS, é um leitor de tela muito popular, utilizado no sistema Windows.
 
 Consulte os seguintes guias sobre como ativar e usar o JAWS:
 

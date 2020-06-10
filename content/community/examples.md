@@ -6,18 +6,21 @@ sectionid: community
 permalink: community/examples.html
 ---
 
-Existem vários projetos de exemplos criados pela comunidade do React. Sinta-se a vontade para adicionar seu próprio projeto. Caso você adicione, comprometa-se em mantê-lo atualizado com as versões recentes do React.
+Existem vários projetos de exemplos criados pela comunidade do React. Estamos mantendo esta página focada naquelas que usam o React sem bibliotecas de gerenciamento de estado de terceiros.
 
+Se você adicionar um projeto, comprometa-se a mantê-lo atualizado com as versões mais recentes do React.
+
+## Pequenos Exemplos
 
 * **[Calculator](https://github.com/ahfarmer/calculator)** Implementação da calculadora para iOS construída em React.
-* **[Emoji Search](https://github.com/ahfarmer/emoji-search)** App Simples em React para procurar emojis.
-* **[Github Battle App](https://tm.dev/react-course-project/)** Batalhe com outro usuário do GitHub e veja os projetos mais populares no GitHub em qualquer linguagem.
-* **[React Powered Hacker News Client](https://github.com/insin/react-hn)** Uma implementação do React e react-router-powered sobre Hacker News usando a sua API do Firebase.
-* **[Pokedex](https://github.com/alik0211/pokedex)** Uma lista de Pokémons com pesquisa em tempo real.
-* **[Shopping Cart](https://github.com/jeffersonRibeiro/react-shopping-cart)** Aplicação simples de carrinho para e-commerce construída usando React.
-* **[Progressive Web Tetris](https://github.com/skidding/flatris)** Além de uma implementação bonita e amigável de Tetris, este projeto é um playgroud para integrar e experimentar tecnologias web.
-* **[Product Comparison Page](https://github.com/Rhymond/product-compare-react)** Página Simples de comparação de Produtos construída em React.
-* **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Clone do Hacker News reescrito com javascript universal, usando React e GraphQL.
-* **[Bitcoin Price Index](https://github.com/mrkjlchvz/bitcoin-price-index)** Dados simples dos índices de preços do Bitcoin consumindo a API do CoinDesk.
-* **[Builder Book](https://github.com/builderbook/builderbook)** Aplicação web de código aberto para hospedar e escrever documentações ou vender livros. Criada com React, Material-UI, Next, Express, Mongoose e MongoDB. 
-* **[GFonts Space](https://github.com/pankajladhar/GFontsSpace)** Um espaço que permite o usuário testar ou brincar com as fontes do Google. Criado com React, Redux e React-Router.
+* **[Emoji Search](https://github.com/ahfarmer/emoji-search)** App em React para procurar emojis.
+* **[Snap Shot](https://github.com/Yog9/SnapShot)** Uma galeria de fotos com pesquisa.
+* **[BMI Calculator](https://github.com/GermaVinsmoke/bmi-calculator)** Um aplicativo React Hooks para calcular BMI.
+* **[Image Compressor](https://github.com/RaulB-masai/react-image-compressor)** Um compressor de imagem offline construído com React e compressão de imagem do navegador.
+* **[Counter App](https://github.com/arnab-datta/counter-app)** Um pequeno exemplo de carrinho de compras.
+* **[Tutorial Solutions](https://github.com/harman052/react-tutorial-solutions)** Soluções para os desafios mencionados no final do tutorial do React
+
+## Apps Completos
+
+* **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Clone do Hacker News reescrito com JavaScript universal, usando React e GraphQL.
+* **[Builder Book](https://github.com/builderbook/builderbook)** Aplicação web de código aberto para hospedar e escrever documentações ou vender livros. Criada com React, Material-UI, Next, Express, Mongoose e MongoDB.

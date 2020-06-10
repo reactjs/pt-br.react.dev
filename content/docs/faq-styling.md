@@ -42,10 +42,10 @@ Classes CSS geralmente possuem melhor performance que estilos inline.
 
 ### O que é CSS-in-JS? {#what-is-css-in-js}
 
-"CSS-in-JS" se refere a um padrão onde o CSS é definido utilizando Javascript no lugar de arquivos externos. Leia a comparação das bibliotecas de CSS-in-JS [aqui](https://github.com/MicheleBertoli/css-in-js).
+"CSS-in-JS" se refere a um padrão onde o CSS é definido utilizando JavaScript no lugar de arquivos externos. Leia a comparação das bibliotecas de CSS-in-JS [aqui](https://github.com/MicheleBertoli/css-in-js).
 
 _Note que esta funcionalidade não faz parte do React, mas é fornecida por bibliotecas de terceiros._ React não possui uma opinião sobre como os estilos são definidos; se estiver em dúvida, um bom ponto de partida é definir seus estilos em um arquivo `.css` separado e referenciá-los usando [`className`](/docs/dom-elements.html#classname).
 
 ### Posso fazer animações em React? {#can-i-do-animations-in-react} 
 
-O React pode ser usado para animações. Veja [React Transition Group](https://reactcommunity.org/react-transition-group/) e [React Motion](https://github.com/chenglou/react-motion), por exemplo.
+O React pode ser usado para animações. Veja [React Transition Group](https://reactcommunity.org/react-transition-group/) e [React Motion](https://github.com/chenglou/react-motion) ou [React Spring](https://github.com/react-spring/react-spring), por exemplo.

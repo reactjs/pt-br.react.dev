@@ -8,7 +8,7 @@ prev: hooks-overview.html
 
 _Hooks_ são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 
-A [página anterior](/docs/hooks-intro.html) introduziu Hooks com o seguinte exemplo:
+A [página de introdução](/docs/hooks-intro.html) usou este exemplo para familiarizar com Hooks:
 
 ```js{4-5}
 import React, { useState } from 'react';
@@ -272,7 +272,7 @@ Damos mais recomendações em separação de variáveis de state independentes [
 
 ## Próximos Passos {#next-steps}
 
-Nesta página aprendemos sobre um dos Hooks fornecido pelo React, chamado `useState`. Também, em algumas vezes, vamos nos referir como o "State do Hook". Ele nos permite adicionar um state local a um componenete de função -- o que fizemos pela primeira vez!
+Nesta página aprendemos sobre um dos Hooks fornecido pelo React, chamado `useState`. Também, em algumas vezes, vamos nos referir como o "State do Hook". Ele nos permite adicionar um state local a um componente de função -- o que fizemos pela primeira vez!
 
 Também aprendemos um pouco mais sobre o que são Hooks. Hooks são funções que permitem que você utilize recursos do React em componentes de função. Seus nomes sempre começam com `use`, e existem mais Hooks que não vimos ainda.
 

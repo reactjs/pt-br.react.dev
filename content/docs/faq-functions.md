@@ -83,7 +83,7 @@ class Foo extends Component {
 
 >**Nota:**
 >
->Ao usar uma arrow function no render, uma nova função é criada cada vez que o componente é renderizado, o que pode afetar a performance (veja abaixo).
+>Ao usar uma arrow function no render, uma nova função é criada cada vez que o componente é renderizado, que pode quebrar otimizações com base em comparação de identidade `on strict`.
 
 ### Devemos usar arrow functions em métodos de render? {#is-it-ok-to-use-arrow-functions-in-render-methods}
 
@@ -91,7 +91,7 @@ De um modo geral, sim, é certo. E muitas das vezes é a maneira mais fácil de 
 
 Se você tiver problemas de performance, de qualquer jeito, otimize!
 
-### Porque binding é necessário afinal? {#why-is-binding-necessary-at-all}
+### Porquê binding é necessário afinal? {#why-is-binding-necessary-at-all}
 
 Em JavaScript, estes dois code snippets **não** são equivalentes:
 
@@ -106,11 +106,11 @@ method();
 
 Métodos de binding ajudam a garantir que o segundo snippet funcione da mesma maneira que o primeiro.
 
-Com React, tipicamente você precisa dar bind apenas nos métodos que você *passa* para outros componentes. Por exemplo, `<button onClick={this.handleClick}>` passa `this.handleCLick` logo voce deve dar bind nele. Entretanto, é desnecessário usar bind no método `render` ou nos métodos do ciclo de vida: nós não passamos ele à outros componentes.
+Com React, tipicamente você precisa dar bind apenas nos métodos que você *passa* para outros componentes. Por exemplo, `<button onClick={this.handleClick}>` passa `this.handleCLick` logo você deve dar bind nele. Entretanto, é desnecessário usar bind no método `render` ou nos métodos do ciclo de vida: nós não passamos ele à outros componentes.
   
-[Este post por Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica o que binding é e como funcionam as funções do Javascript, em detalhes.
+[Este post por Yehuda Katz](https://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/) explica o que binding é e como funcionam as funções do JavaScript, em detalhes.
 
-### Porque minha função é chamada toda vez que o componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
+### Porquê minha função é chamada toda vez que o componente renderiza? {#why-is-my-function-being-called-every-time-the-component-renders}
 
 Certifique-se que você não está _chamando a função_ quando for passar para o componente:
 
@@ -121,7 +121,7 @@ render() {
 }
 ```
 
-Em vez disso, *passe a própria função* (sem parenteses):
+Em vez disso, *passe a própria função* (sem parentêses):
 
 ```jsx
 render() {
@@ -144,7 +144,7 @@ Isto é equivalente que chamar o `.bind`:
 <button onClick={this.handleClick.bind(this, id)} />
 ```
 
-#### Exemplo: Passando parametros usando arrow functions {#exemplo-passando-parametros-usando-arrow-functions}
+#### Exemplo: Passando parâmetros usando arrow functions {#exemplo-passando-parâmetros-usando-arrow-functions}
 
 ```jsx
 const A = 65 // cógido de caractere ASCII
@@ -164,7 +164,7 @@ class Alphabet extends React.Component {
   render() {
     return (
       <div>
-        Just clicked: {this.state.justClicked}
+        Você clicou: {this.state.justClicked}
         <ul>
           {this.state.letters.map(letter =>
             <li key={letter} onClick={() => this.handleClick(letter)}>
@@ -180,7 +180,7 @@ class Alphabet extends React.Component {
 
 #### Exemplo: Passando parâmetros usando data-attributes {#example-passing-params-using-data-attributes}
 
-Em vez disso, você pode usar APIs do DOM para armazenar dados necessários pra manipuladores de evento. Considere este approach caso você precise otimizar um grande número de elementos ou possua uma render tree que depende de verificações de igualdade do React.PureComponent.
+Em vez disso, você pode usar APIs do DOM para armazenar dados necessários para manipuladores de evento. Considere este approach caso você precise otimizar um grande número de elementos ou possua uma render tree que depende de verificações de igualdade do React.PureComponent.
 
 ```jsx
 const A = 65 // código de caractere ASCII
@@ -204,7 +204,7 @@ class Alphabet extends React.Component {
   render() {
     return (
       <div>
-        Just clicked: {this.state.justClicked}
+        Você clicou: {this.state.justClicked}
         <ul>
           {this.state.letters.map(letter =>
             <li key={letter} data-letter={letter} onClick={this.handleClick}>
@@ -291,9 +291,9 @@ class Searchbox extends React.Component {
   }
 
   handleChange(e) {
-  // o React faz pools no eventos. Então lemos o valor antes do debounce.
+    // o React faz pools no eventos. Então lemos o valor antes do debounce.
     // Alternativamente podemos chamar `event.persist()` e passar todo o evento.
-Para mais informações veja: reactjs.org/docs/events.html#event-pooling
+    // Para mais informações veja: reactjs.org/docs/events.html#event-pooling
     this.emitChangeDebounced(e.target.value);
   }
 

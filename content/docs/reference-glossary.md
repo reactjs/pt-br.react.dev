@@ -35,7 +35,7 @@ CDN significa Content Delivery Network. As CDNs fornecem conteúdo estático e e
 
 ## JSX {#jsx}
 
-JSX é uma extensão de sintaxe para JavaScript. É semelhante a uma linguagem de template, mas com todo o poder do JavaScript. JSX é compilado para chamadas `React.createElement ()` que retornam objetos JavaScript simples chamados "elementos React". Para ter uma introdução básica ao JSX [consulte os documentos aqui] (/ docs / introduction-jsx.html) e encontre um tutorial mais aprofundado sobre JSX [aqui] (/ docs / jsx-in-depth.html).
+JSX é uma extensão de sintaxe para JavaScript. É semelhante a uma linguagem de template, mas com todo o poder do JavaScript. JSX é compilado para chamadas `React.createElement ()` que retornam objetos JavaScript simples chamados "elementos React". Para ter uma introdução básica ao JSX [consulte os documentos aqui](/docs/introduction-jsx.html) e encontre um tutorial mais aprofundado sobre JSX [aqui](/docs/jsx-in-depth.html).
 
 React DOM usa a convenção de nomenclatura de propriedades camelCase em vez dos nomes de atributos HTML. Por exemplo, `tabindex` torna-se `tabIndex` em JSX. O atributo `class` também é escrito como `className`, já que `class` é uma palavra reservada em JavaScript:
 
@@ -45,7 +45,7 @@ ReactDOM.render(
   <h1 className="hello">Meu nome é {nome}!</h1>,
   document.getElementById('root')
 );
-```  
+```
 
 ## [Elementos](/docs/rendering-elements.html) {#elements}
 
@@ -59,7 +59,7 @@ Tipicamente, elementos não são usados diretamente, mas são retornados dos com
 
 ## [Componentes](/docs/components-and-props.html) {#components}
 
-Componentes React são pequenas peças reusáveis de código que retornam um elemento React para ser renderizado na página. A versão mais simples de um componente React é uma simples função Javascript que retorna um elemento React:
+Componentes React são pequenas peças reusáveis de código que retornam um elemento React para ser renderizado na página. A versão mais simples de um componente React é uma simples função JavaScript que retorna um elemento React:
 
 ```js
 function BemVindo(props) {
@@ -77,7 +77,7 @@ class BemVindo extends React.Component {
 }
 ```
 
-Componentes podem ser quebrados em peças distintas de funcionalidade e usados em outros componentes. Componentes podem retornar outros componentes, arrays, strings e números. Uma regra de ouro é que se parte da sua UI é usada várias vezes (Botão, Painel, Avatar), ou é complexa suficiente (App, FeedStory, Comment), é uma boa candidata para ser um componente reutilisável. Nomes de componentes devem também sempre começar com letra maiúscula (`<Wrapper/>` **ao invés de** `<wrapper/>`). Veja [esta documentação](/docs/components-and-props.html#rendering-a-component) para mais informações sobre renderização de componentes. 
+Componentes podem ser quebrados em peças distintas de funcionalidade e usados em outros componentes. Componentes podem retornar outros componentes, arrays, strings e números. Uma regra de ouro é que se parte da sua UI é usada várias vezes (Botão, Painel, Avatar), ou é complexa suficiente (App, FeedStory, Comment), é uma boa candidata para ser um componente reutilisável. Nomes de componentes devem também sempre começar com letra maiúscula (`<Wrapper/>` **ao invés de** `<wrapper/>`). Veja [esta documentação](/docs/components-and-props.html#rendering-a-component) para mais informações sobre renderização de componentes.
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
@@ -86,7 +86,7 @@ Componentes podem ser quebrados em peças distintas de funcionalidade e usados e
 Lembre que `props` são somente leitura. Eles não devem ser modificados desta forma:
 
 ```js
-// Wrong!
+// Errado!
 props.numero = 42;
 ```
 
@@ -122,7 +122,7 @@ class BemVindo extends React.Component {
 
 Um componente precisa de `state` quando algum dado associado com este é alterado com o tempo. Por exemplo, um `Checkbox` componente pode precisar da propriedade `isChecked` no seu estado (_state_), e um componente `NewsFeed` pode querer observar a propriedade `fetchedPosts` do seu estado.
 
-A diferença mais importante entre `state` e `props` é que `props` é passada de um componente pai, mas o `state` é gerenciado pelo próprio componente. Um componente não pode alterar suas `props`, mas pode alterar seu `state`. Para isso, deve chamar `this.setState()`. Somente componentes definidos como classes podem ter state.
+A diferença mais importante entre `state` e `props` é que `props` é passada de um componente pai, mas o `state` é gerenciado pelo próprio componente. Um componente não pode alterar suas `props`, mas pode alterar seu `state`.
 
 Para cada parte específica de dados alterados, deve haver apenas um componente que o "possua" em seu estado. Não tente sincronizar estados de dois componentes diferentes. Em vez disso, [passe-o] (/ docs / lifting-state-up.html) para o seu ancestral compartilhado mais próximo e passe-o para baixo como props para ambos.
 

@@ -201,7 +201,7 @@ Agora, quando o `TemperatureInput` quiser atualizar sua temperatura, ele executa
 
 >Observação:
 >
->O nome das props `temperature` ou `onTemperatureChange` não possui nenhum significado especial. Elas poderiam ter quaisquer outros nomes, tais como `value` e `onChange`, o que é uma convensão comum.
+>O nome das props `temperature` ou `onTemperatureChange` não possui nenhum significado especial. Elas poderiam ter quaisquer outros nomes, tais como `value` e `onChange`, o que é uma convenção comum.
 
 A prop `onTemperatureChange` será fornecida juntamente com a prop `temperature` pelo componente pai `Calculator`. Esse irá cuidar das alterações ao modificar seu próprio state local, fazendo com que ambos os inputs sejam renderizados com novos valores. Vamos conferir a nova implementação do componente `Calculator` em breve.
 
@@ -324,7 +324,7 @@ Elevar o state envolve escrever mais código de estrutura do que as abordagens d
 
 Se alguma coisa pode ser derivada tanto das props como do state, ela provavelmente não deveria estar no state. Por exemplo, ao invés de armazenar ambos `celsiusValue` e `fahrenheitValue`, armazenamos somente o valor da última `temperature` editada e o valor de `scale`. O valor do outro input pode sempre ser calculado com base nessas informações no método `render()`. Isso permite limpar ou arredondar o valor no outro input sem perder precisão no valor informado pelo usuário.
 
-Quando você vê algo de errado na interface do usuário, você pode utilizar o [React Developer Tools](https://github.com/facebook/react-devtools) para inspecionar as props e subir a árvore de elementos até encontrar o componente responsável por atualizar o state. Isso permite que você encontre a fonte dos erros:
+Quando você vê algo de errado na interface do usuário, você pode utilizar o [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) para inspecionar as props e subir a árvore de elementos até encontrar o componente responsável por atualizar o state. Isso permite que você encontre a fonte dos erros:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
 

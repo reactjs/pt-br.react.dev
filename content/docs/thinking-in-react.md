@@ -35,13 +35,13 @@ Nossa API JSON retorna dados como esses:
 
 A primeira coisa que você vai querer fazer é dar nomes e desenhar retângulos em volta de cada componente (e subcomponente) do mock. Se você estiver trabalhando com designers, eles podem já ter feito isso, então vá falar com eles! Os nomes das camadas no Photoshop podem acabar sendo os nomes dos seus componentes React!
 
-Mas como você sabe o que deveria ser seu próprio componente? Simplesmente use as mesmas técnicas que você usaria para decidir se você deveria criar uma nova função ou objeto. Uma dessas técnicas é o [princípio da responsabilidade única](https://en.wikipedia.org/wiki/Single_responsibility_principle), ou seja, um componente deve idealmente fazer apenas uma coisa. Se ele acabar crescendo, deverá ser decomposto em subcomponentes menores.
+Mas como você sabe o que deveria ser seu próprio componente? Use as mesmas técnicas que você usaria para decidir se você deveria criar uma nova função ou objeto. Uma dessas técnicas é o [princípio da responsabilidade única](https://en.wikipedia.org/wiki/Single_responsibility_principle), ou seja, um componente deve idealmente fazer apenas uma coisa. Se ele acabar crescendo, deverá ser decomposto em subcomponentes menores.
 
-Visto que você estará frequentemente exibindo um modelo de dados em JSON ao usuário, você perceberá que caso o seu modelo esteja corretamente construído, sua UI (e portanto a sua estrutura de componente) será mapeada satisfatoriamente. Isso acontece pois UI e modelo de dados tendem a aderir à mesma *arquitetura de informação*, o que significa que o trabalho de separar a UI em componentes é muitas vezes trivial. Apenas separe em componentes o que representa exatamente um pedaço do seu modelo de dados.
+Visto que você estará frequentemente exibindo um modelo de dados em JSON ao usuário, você perceberá que caso o seu modelo esteja corretamente construído, sua UI (e portanto a sua estrutura de componente) será mapeada satisfatoriamente. Isso acontece pois UI e modelo de dados tendem a aderir à mesma *arquitetura de informação*. Separe sua UI em componentes, onde cada componente corresponde a uma parte do seu modelo de dados.
 
 ![Diagrama de componentes](../images/blog/thinking-in-react-components.png)
 
-Você verá que nós temos cinco componentes nessa simples aplicação. Em itálico estão os dados que cada componente representa.
+Você verá que nós temos cinco componentes nessa aplicação. Em itálico estão os dados que cada componente representa.
 
   1. **`FilterableProductTable` (laranja):** contém a totalidade do exemplo
   2. **`SearchBar` (azul):** recebe todo *input do usuário*
@@ -49,9 +49,9 @@ Você verá que nós temos cinco componentes nessa simples aplicação. Em itál
   4. **`ProductCategoryRow` (turquesa):** exibe um cabeçalho para cada *categoria*
   5. **`ProductRow` (vermelho):** exibe uma linha para cada *produto*
 
-Se você olhar para `ProductTable`, verá que o cabeçalho da tabela (contendo as etiquetas "Name" and "Price") não é um componente separado. Isso é uma questão de preferência, e pode-se fazer um argumento contrário. Para esse exemplo, nós o deixamos como parte de `ProductTable` pois o cabeçalho faz parte da renderização da *coleção de dados*, que é responsabilidade de `ProductTable`. Entretanto, se a sua complexidade aumentar (i.e. se nós adicionássemos a capacidade de ordenação), certamente faria sentido a criação do componente `ProductTableHeader`.
+Se você olhar para `ProductTable`, verá que o cabeçalho da tabela (contendo as etiquetas "Name" and "Price") não é um componente separado. Isso é uma questão de preferência, e pode-se fazer um argumento contrário. Para esse exemplo, nós o deixamos como parte de `ProductTable` pois o cabeçalho faz parte da renderização da *coleção de dados*, que é responsabilidade de `ProductTable`. Entretanto, se a sua complexidade aumentar (e.g. se nós adicionássemos a capacidade de ordenação), certamente faria sentido a criação do componente `ProductTableHeader`.
 
-Agora que nós já identificamos os componentes do nosso mock, vamos organizá-los em uma hierarquia. Isso é fácil. Componentes que aparecem dentro de outros no mock devem aparecer como filhos na hierarquia:
+Agora que nós já identificamos os componentes do nosso mock, vamos organizá-los em uma hierarquia. Componentes que aparecem dentro de outros no mock devem aparecer como filhos na hierarquia:
 
   * `FilterableProductTable`
     * `SearchBar`
@@ -70,19 +70,19 @@ Para construir uma versão estática que renderiza seu modelo de dados, você qu
 
 Você pode seguir uma abordagem cima-para-baixo ou baixo-para-cima. Isso significa que você pode começar criando os componentes no topo da hierarquia (i.e. começar com `FilterableProductTable`) ou os da base (`ProductRow`). Em exemplos simples, cima-para-baixo é normalmente mais fácil, enquanto que para projetos maiores o melhor é usar uma estratégia baixo-para-cima e escrever testes à medida que você for avançando.
 
-No final dessa etapa, você terá uma biblioteca de componentes reutilizáveis que renderizam seu modelo de dados. Seus componentes terão apenas o método `render()` uma vez que é apenas uma versão estática do seu app. O componente no topo da hierarquia (`FilterableProductTable`) receberá o modelo de dados como uma prop. Se você fizer alguma alteração no seu modelo de dados e chamar `ReactDOM.render()` novamente, a UI será atualizada. É fácil entender como sua UI é atualizada e onde realizar as alterações uma vez que não há nada de mais complicado acontecendo. O **fluxo de dados unidirecional** (_one-way data flow_) do React (também chamado de **ligação unidirecional** _ou one-way binding_) mantém tudo rápido e modular.
+No final dessa etapa, você terá uma biblioteca de componentes reutilizáveis que renderizam seu modelo de dados. Seus componentes terão apenas o método `render()` uma vez que é apenas uma versão estática do seu app. O componente no topo da hierarquia (`FilterableProductTable`) receberá o modelo de dados como uma prop. Se você fizer alguma alteração no seu modelo de dados e chamar `ReactDOM.render()` novamente, a UI será atualizada. É fácil entender como sua UI é atualizada e onde realizar as alterações. O **fluxo de dados unidirecional** (_one-way data flow_) do React (também chamado de **ligação unidirecional** _ou one-way binding_) mantém tudo rápido e modular.
 
 Recorra à [documentação do React](/docs/) caso você precise de ajuda para executar esse passo.
 
 ### Um Breve Interlúdio: Props vs State {#a-brief-interlude-props-vs-state}
 
-Existem dois tipos de "modelo" de dados em React: props e state. É de suma importância entender a distinção entre os dois; dê uma olhada na [documentação oficial do React](/docs/interactivity-and-dynamic-uis.html) caso você ainda não esteja certo da diferença.
+Existem dois tipos de "modelo" de dados em React: props e state. É de suma importância entender a distinção entre os dois; dê uma olhada na [documentação oficial do React](/docs/interactivity-and-dynamic-uis.html) caso você ainda não esteja certo da diferença. Também veja [FAQ: Qual a diferença entre state e props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
 ## Passo 3: Identifique a Representação Mínima (mas completa) do State da UI{#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
-Para tornar sua UI interativa, você precisa poder desencadear mudanças no seu modelo de dados. React torna isso fácil com **state**.
+Para tornar sua UI interativa, você precisa poder desencadear mudanças no seu modelo de dados. React consegue isso com **state**.
 
-Para construir seu app corretamente, você primeiro deve pensar no conjunto mínimo de estados mutáveis que ele precisa. A chave aqui é [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (_Não repita a si mesmo_). Descubra a representação mínima do state que a sua aplicação precisa e compute todo o resto sob demanda. Por exemplo, se você está criando uma lista de afazeres, simplesmente mantenha um array com cada item a ser feito; não tenha uma variável de state separada para a contagem. Ao contrário, quando você quiser renderizar a quantidade de afazeres, simplesmente calcule o comprimento do array.
+Para construir seu app corretamente, você primeiro deve pensar no conjunto mínimo de estados mutáveis que ele precisa. A chave aqui é [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (_Não repita a si mesmo_). Descubra a representação mínima do state que a sua aplicação precisa e compute todo o resto sob demanda. Por exemplo, se você está criando uma lista de afazeres, mantenha um array com cada item a ser feito; não tenha uma variável de state separada para a contagem. Ao contrário, quando você quiser renderizar a quantidade de afazeres, simplesmente calcule o comprimento do array.
 
 Pense em todos os pedaços de dados do nosso exemplo. Nós temos:
 
@@ -91,7 +91,7 @@ Pense em todos os pedaços de dados do nosso exemplo. Nós temos:
   * O valor do checkbox
   * A lista filtrada de produtos
 
-Vamos analisar um a um e descobrir quais fazem parte do state. Simplesmente faça três perguntas para cada pedaço de dado:
+Vamos analisar um a um e descobrir quais fazem parte do state. Faça três perguntas para cada pedaço de dado:
 
   1. Ele é recebido pelo pai via props? Se sim, provavelmente não é state.
   2. Ele se mantém inalterado ao longo do tempo? Se sim, provavelmente não é state.
@@ -117,7 +117,7 @@ Para cada pedaço do estado da sua aplicação:
   * Identifique todo componente que renderiza alguma coisa baseado no state.
   * Ache um componente-pai comum (um único componente acima dos outros na hierarquia que necessita do state).
   * O componente-pai comum ou algum outro acima na hierarquia deve possuir o state.
-  * Caso você não consiga achar algum componente em que a posse do state faça sentido, crie um componente com o único propósito de manter o state e o adicione em algum lugar da hierarquia acima do componente-pai.
+  * Caso você não consiga achar algum componente em que a posse do state faça sentido, crie um novo componente com o único propósito de manter o state e o adicione em algum lugar da hierarquia acima do componente-pai.
 
 Vamos testar essa estratégia no nosso exemplo:
 
@@ -135,14 +135,12 @@ Você começará a ver como a aplicação vai se comportar: assinale o valor de 
 
 Até aqui nós construímos um app que comporta-se como uma função das props e state que fluem através da hierarquia. Agora é hora de suportar o fluxo no outro sentido: os elementos de formulário na base da hierarquia precisam atualizar o state em `FilterableProductTable`.
 
-React torna explícito esse tipo de fluxo de modo a facilitar o entendimento de como o seu programa funciona, mas isso requer um pouco mais de digitação que o a ligação bi-direcional de dados (two-way data binding) tradicional.
+React torna este fluxo de dados explícito para ajudá-lo a entender como o seu programa funciona, mas isso requer um pouco mais de digitação que o a ligação bi-direcional de dados (two-way data binding) tradicional.
 
 Se você tentar escrever ou marcar o checkbox na versão atual do nosso exemplo, perceberá que o React ignorará o seu input. Isso é intencional, uma vez que nós estabelecemos que a prop `value` do input deve ser sempre igual ao `state` passado por `FilterableProductTable`.
 
 Vamos pensar um pouco sobre o que nós queremos que aconteça. Queremos ter certeza que sempre que o usuário modificar o formulário o state é atualizado para refletir o input. Uma vez que componentes devem atualizar apenas o seu próprio state, `FilterableProductTable` passará para `SearchBar` callbacks que deverão ser acionados sempre que o state precisar ser alterado. Nós podemos usar o evento `onChange` dos inputs para sermos notificados sobre isso. Os callbacks passados por `FilterableProductTable` irão chamar `setState()` e o app será atualizado.
 
-Embora pareça complexo, é realmente uma questão de poucas linhas de código. E torna realmente explícito o fluxo de dados através do seu app.
-
 ## E É Isso {#and-thats-it}
 
-Com sorte, esse artigo lhe dará uma ideia de como pensar ao se construir aplicações com React. Embora possa ter um pouco mais de digitação do que você esteja acostumado, lembre-se que códigos são lidos muito mais que escritos, e é extremamente fácil de ler um código explícito e modular. À medida que você começar a criar grandes bibliotecas de componentes, você apreciará essa clareza e modularidade, e com o reuso de código, suas linhas de código começarão a diminuir. :)
+Com sorte, esse artigo lhe dará uma ideia de como pensar ao se construir aplicações com React. Embora possa ter um pouco mais de digitação do que você esteja acostumado, lembre-se que códigos são lidos muito mais que escritos, e é menos difícil de ler um código explícito e modular. À medida que você começar a criar grandes bibliotecas de componentes, você apreciará essa clareza e modularidade, e com o reuso de código, suas linhas de código começarão a diminuir. :)

@@ -15,12 +15,6 @@ Se você quer [contribuir para o React](/docs/how-to-contribute.html), esperamos
 
 Não recomendamos necessariamente nenhuma dessas convenções nos aplicativos React. Muitas delas existem por razões históricas e podem mudar com o tempo.
 
-### Dependências Externas {#external-dependencies}
-
-O React quase não tem dependências externas. Geralmente, um `require()` aponta para um arquivo no própria código-base do React. No entanto, existem algumas exceções relativamente raras.
-
-O repositório [fbjs](https://github.com/facebook/fbjs) existe porque o React compartilha alguns pequenos utilitários com bibliotecas como [Relay](https://github.com/facebook/relay), e nós os mantemos em sincronia. Não dependemos de módulos pequenos equivalentes no ecossistema do Node porque queremos que os engenheiros do Facebook possam fazer alterações neles sempre que necessário.  Nenhum dos utilitários dentro dos fbjs são considerados APIs públicas, e são destinados apenas para uso por projetos do Facebook, como o React.
-
 ### Pastas de nível superior {#top-level-folders}
 
 Depois de clonar o [repositório do React](https://github.com/facebook/react), você verá algumas pastas no nível superior:
@@ -172,7 +166,7 @@ O código do React core está localizado em [`packages/react`](https://github.co
 
 ### Renderizadores {#renderers}
 
-O React foi originalmente criado para o DOM, mas depois foi adaptado para também suportar plataformas nativas com o [React Native](https://facebook.github.io/react-native/). Isso introduziu o conceito de "renderizadores" para as partes internas do React.
+O React foi originalmente criado para o DOM, mas depois foi adaptado para também suportar plataformas nativas com o [React Native](https://reactnative.dev/). Isso introduziu o conceito de "renderizadores" para as partes internas do React.
 
 **Os renderizadores gerenciam como uma árvore no React se transforma nas chamadas de subjacentes da plataforma.**
 
@@ -212,13 +206,13 @@ Seus principais objetivos são:
 * Capacidade de retornar vários elementos do método `render()`.
 * Melhor suporte para limites de erro.
 
-Você pode ler mais sobre a arquitetura do React Fiber [aqui](https://github.com/acdlite/react-fiber-architecture) e [aqui](https://medium.com/react-in-depth/inside-fiber-in-depth-overview-of-the-new-reconciliation-algorithm-in-react-e1c04700ef6e). Embora tenha sido fornecido com o React 16, os recursos assíncronos ainda não estão habilitados por padrão.
+Você pode ler mais sobre a arquitetura do React Fiber [aqui](https://github.com/acdlite/react-fiber-architecture) e [aqui](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react). Embora tenha sido fornecido com o React 16, os recursos assíncronos ainda não estão habilitados por padrão.
 
 Seu código-fonte está localizado em [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
 
 ### Sistema de Eventos  {#event-system}
 
-O React implementa um sistema de eventos sintéticos que é agnóstico dos renderizadores e funciona com React DOM e React Native.Seu código-fonte está localizado em [`packages/events`](https://github.com/facebook/react/tree/master/packages/events).
+O React implementa um sistema de eventos sintéticos que é agnóstico dos renderizadores e funciona com React DOM e React Native. Seu código-fonte está localizado em [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events).
 
 Esse é um [vídeo com mais profundidade no código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 minutos).
 

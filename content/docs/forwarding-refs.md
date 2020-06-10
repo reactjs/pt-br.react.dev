@@ -10,7 +10,7 @@ Encaminhamento de Ref é uma técnica para passar automaticamente uma [ref](/doc
 
 Considere um componente `FancyButton` que renderiza o elemento nativo `button` do DOM: `embed:forwarding-refs/fancy-button-simple.js`
 
-Componentes React escondem seus detalhes de implementação, inclusive suas saídas renderizadas. Outros componentes usando o `FancyButton` **geralmente não precisarão** href="/docs/refs-and-the-dom.html">obter uma ref</a> para o elemento interno `button` do DOM. Isso é bom pois previne os componentes de se basearem demasiadamente na estrutura do DOM de cada um.
+Componentes React escondem seus detalhes de implementação, inclusive suas saídas renderizadas. Outros componentes usando o `FancyButton` **geralmente não precisarão** [obter uma ref](/docs/refs-and-the-dom.html) para o elemento interno `button` do DOM. Isso é bom pois previne os componentes de se basearem demasiadamente na estrutura do DOM de cada um.
 
 Embora essa encapsulação seja desejável para componentes com nível de aplicação como `FeedStory` ou `Comment`, ela pode ser incoveniente para componentes "folhas" altamente reutilizáveis como `FancyButton` ou `MyTextInput`. Esses componentes tendem a serem usados em toda a aplicação de uma maneira similar como os elementos `button` e `input` do DOM, e acessar seus nós do DOM pode ser inevitável para o gerenciamento de foco, seleção ou animações.
 

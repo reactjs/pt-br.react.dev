@@ -42,8 +42,7 @@ Você também pode fechar a tag imediatamente se não tiver elementos filhos. En
 ```js
 React.createElement(
   'div',
-  {className: 'sidebar'},
-  null
+  {className: 'sidebar'}
 )
 ```
 
@@ -228,7 +227,7 @@ Se você não passar nenhum valor para a prop, seu valor padrão será `true`. E
 <MyTextBox autocomplete={true} />
 ```
 
-No geral, nós não recomendamos seu uso porque pode ser confundido com [abreviação de objeto do ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que é a abreviação de `{foo: foo}` em vez de `{foo: true}`. Esse comportamente só está ai para estar de acordo com o comportamento do HTML.
+No geral, nós não recomendamos *não* a passagem de um valor para uma prop, porque pode ser confundido com [abreviação de objeto do ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#New_notations_in_ECMAScript_2015) `{foo}` que é a abreviação de `{foo: foo}` em vez de `{foo: true}`. Esse comportamente só está ai para estar de acordo com o comportamento do HTML.
 
 ### Atributos com Spread {#spread-attributes}
 
@@ -345,7 +344,7 @@ render() {
 }
 ```
 
-### Expressões Javascript como Elementos Filhos {#javascript-expressions-as-children}
+### Expressões JavaScript como Elementos Filhos {#javascript-expressions-as-children}
 
 Você pode passar expressões JavaScript como elementos filhos, envolvendo elas com `{}`. Por exemplo, essas expressões são equivalentes:
 
@@ -423,7 +422,7 @@ Elementos filhos passados a um componente customizado podem ser qualquer coisa, 
 <div>{true}</div>
 ```
 
-Isso pode ser útil para renderizar condicionalmente elementos React. Esse JSX só renderiza um `<Header />` se `showHeader` for `true`:
+Isso pode ser útil para renderizar condicionalmente elementos React. Esse JSX renderiza o componente `<Header />` apenas se `showHeader` for `true`:
 
 ```js{2}
 <div>

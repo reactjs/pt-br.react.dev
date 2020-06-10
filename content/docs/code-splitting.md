@@ -7,7 +7,8 @@ permalink: docs/code-splitting.html
 ## Empacotamento (Bundling) {#bundling}
 
 A maioria das aplicações React serão "empacotadas" usando ferramentas como
-[Webpack](https://webpack.js.org/) ou [Browserify](http://browserify.org/).
+[Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) ou 
+[Browserify](http://browserify.org/).
 Empacotamento (Bundling) é o processo onde vários arquivos importados são unidos
 em um único arquivo: um "pacote" (bundle). Este pacote pode ser incluído em uma página web
 para carregar uma aplicação toda de uma vez.
@@ -57,9 +58,9 @@ se você estiver usando grandes bibliotecas de terceiros. Você precisa ficar de
 incluindo no seu pacote, pois assim você evitará que o mesmo fique tão grande que faça sua aplicação levar
 um tempo maior para carregar.
 
-Para não terminar ficando com um pacote grande, é bom se antecipar ao problema e começar
-a dividir seu pacote. [Divisão de Código (Code-Splitting)](https://webpack.js.org/guides/code-splitting/) é
-um recurso suportado por empacotadores como Webpack e Browserify (através de [coeficiente de empacotamento (factor-bundle)](https://github.com/browserify/factor-bundle)) no qual pode-se criar múltiplos pacotes que podem ser carregados dinamicamente em tempo de execução.
+Para evitar acabar com um pacote grande, é bom se antecipar ao problema e começar
+a "dividir" seu pacote. A divisão de código é um recurso
+suportado por empacotadores como [Webpack](https://webpack.js.org/guides/code-splitting/), [Rollup](https://rollupjs.org/guide/en/#code-splitting) e Browserify (através de [coeficiente de empacotamento (factor-bundle)](https://github.com/browserify/factor-bundle)) no qual pode-se criar múltiplos pacotes que podem ser carregados dinamicamente em tempo de execução.
 
 Dividir o código de sua aplicação pode te ajudar a carregar somente o necessário ao usuário, o que pode melhorar dramaticamente o desempenho de sua aplicação. Embora você não tenha reduzido a quantidade total de código de sua aplicação, você evitou carregar código que o usuário talvez nunca precise e reduziu o código inicial necessário durante o carregamento.
 
@@ -83,15 +84,9 @@ import("./math").then(math => {
 });
 ```
 
-> Nota:
->
-> A sintaxe dinâmica `import()` é uma [proposta](https://github.com/tc39/proposal-dynamic-import)
-> ECMAScript (JavaScript) que ainda não faz parte da linguagem.
-> Espera-se que seja aceita em breve.
-
 Quando o Webpack encontra esta sintaxe, automaticamente ele divide o código de sua aplicação.
 Se você está usando o Create React App, isto já está configurado e você pode
-[começar a usá-lo](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting) imediatamente. Também é suportado por padrão no [Next.js](https://github.com/zeit/next.js/#dynamic-import).
+[começar a usá-lo](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#code-splitting) imediatamente. Também é suportado por padrão no [Next.js](https://nextjs.org/docs/advanced-features/dynamic-import).
 
 Se você está configurando o Webpack manualmente, provavelmente vai querer ler o
 [guia de divisão de código](https://webpack.js.org/guides/code-splitting/) do Webpack. Sua configuração do Webpack deverá ser parecida [com isto](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
@@ -102,7 +97,7 @@ Ao usar o [Babel](https://babeljs.io/), você precisa se certificar que o Babel 
 
 > Nota:
 >
-> `React.lazy` e Suspense não estão disponíveis para renderização no lado servidor. Se você deseja fazer divisão de código em uma aplicação renderizada no servidor, nós recomendamos o pacote [Loadable Components](https://github.com/smooth-code/loadable-components). Ele possui um ótimo [guia para divisão de pacotes com renderização no servidor](https://github.com/smooth-code/loadable-components/blob/master/packages/server/README.md).
+> `React.lazy` e Suspense não estão disponíveis para renderização no lado servidor. Se você deseja fazer divisão de código em uma aplicação renderizada no servidor, nós recomendamos o pacote [Loadable Components](https://github.com/gregberge/loadable-components). Ele possui um ótimo [guia para divisão de pacotes com renderização no servidor](https://loadable-components.com/docs/server-side-rendering/).
 
 A função do `React.lazy` é permitir a você renderizar uma importação dinâmica como se fosse um componente comum.
 
@@ -110,39 +105,23 @@ A função do `React.lazy` é permitir a você renderizar uma importação dinâ
 
 ```js
 import OtherComponent from './OtherComponent';
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
 **Depois:**
 
 ```js
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
-
-function MyComponent() {
-  return (
-    <div>
-      <OtherComponent />
-    </div>
-  );
-}
 ```
 
-Isto automaticamente carregará o pacote contendo o `OtherComponent` quando este componente for renderizado.
+Isto automaticamente carregará o pacote contendo o `OtherComponent` quando este componente é renderizado pela primeira vez.
 
 `React.lazy` recebe uma função que deve retornar um `import()`. Este último retorna uma `Promise` que é resolvida para um módulo com um `export default` que contém um componente React.
 
-### Suspense {#suspense}
-
-Se o módulo que contém o `OtherComponent` não foi carregado durante a renderização do `MyComponent`, nós devemos mostrar algum conteúdo temporário enquanto esperamos pelo carregamento – algo como um indicador de carregamento. Isto é feito usando o componente `Suspense`.
+O componente lazy pode ser renderizado dentro de um componente `Suspense`, o que no permite mostrar algum conteúdo de fallback (como um indicador de carregamento) enquanto aguardamos o carregamento do componente lazy.
 
 ```js
+import React, { Suspense } from 'react';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 function MyComponent() {
@@ -159,6 +138,8 @@ function MyComponent() {
 A prop `fallback` aceita qualquer elemento React que você deseja renderizar enquanto se espera o componente ser carregado. Você pode colocar o componente `Suspense` em qualquer lugar acima do componente dinâmico. Você pode até mesmo ter vários componentes dinâmicos envolvidos em um único componente `Suspense`.
 
 ```js
+import React, { Suspense } from 'react';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
@@ -181,7 +162,9 @@ function MyComponent() {
 Se algum outro módulo não for carregado (por exemplo, devido a uma falha na conexão), será disparado um erro. Você pode manusear estes erros para mostrar uma ótima experiência de usuário e gerenciar a recuperação através de [Error Boundaries](/docs/error-boundaries.html). Uma vez que tenha criado seu Error Boundary, você pode usá-lo em qualquer lugar acima de seus componentes dinâmicos para exibir uma mensagem de erro quando houver uma falha de conexão.
 
 ```js
+import React, { Suspense } from 'react';
 import MyErrorBoundary from './MyErrorBoundary';
+
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
 const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 
@@ -213,8 +196,8 @@ Aqui está um exemplo de como configurar a divisão de código baseada em rotas 
 bibliotecas como o [React Router](https://reacttraining.com/react-router/) com `React.lazy`.
 
 ```js
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));
@@ -233,7 +216,7 @@ const App = () => (
 
 ## Exportações Nomeadas {#named-exports}
 
-`React.lazy` atualmente suporta apenas `export default`. Se o módulo que você deseja importar usa exportações nomeadas, você pode criar um módulo intermediário que usa `export default`. Isso garante que o `treeshaking` continue funcionando e que você não importe componentes não utilizados.
+`React.lazy` atualmente suporta apenas `export default`. Se o módulo que você deseja importar usa exportações nomeadas, você pode criar um módulo intermediário que usa `export default`. Isso garante que o `tree shaking` continue funcionando e que você não importe componentes não utilizados.
 
 ```js
 // ManyComponents.js

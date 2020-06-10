@@ -15,7 +15,7 @@ ReactDOM.render(
 );
 ```
 
-Isso mostra um header dizendo "Hello, world!" na página.
+Isso mostra um header dizendo “Hello, world!” na página.
 
 [](codepen://hello-world)
 
@@ -24,7 +24,7 @@ Clique no link acima para abrir um editor online. Sinta-se livre para fazer algu
 
 ## Como Ler Esse Guia {#how-to-read-this-guide}
 
-Nesse guia, vamos examinar as fundações de aplicações React: elementos e componentes. Depois que você tiver o domínio, poderá criar aplicações complexas a partir de partes pequenas e reutilizáveis.
+Nesse guia, vamos examinar os fundamentos das aplicações React: elementos e componentes. Depois que você tiver o domínio, poderá criar aplicações complexas a partir de partes pequenas e reutilizáveis.
 
 >Dica
 >
@@ -32,15 +32,15 @@ Nesse guia, vamos examinar as fundações de aplicações React: elementos e com
 
 Esse é o primeiro capítulo de um guia passo-a-passo sobre os principais conceitos do React. Uma lista de todos os capítulos pode ser encontrada na barra de navegação lateral. Se você estiver lendo em um dispositivo móvel, pode acessar a navegação pressionando o botão no canto inferior direito da sua tela.
 
-Todo capítulo nesse guia se desenvolve em cima do conhecimento introduzido em capítulos anteriores. **Você pode aprender muito do React lendo os capítulos do guia de "Conceitos principais" na ordem em que eles aparecem na barra lateral.** Por exemplo, [Introduzindo JSX”](/docs/introducing-jsx.html) é o próximo capítulo após esse.
+Todo capítulo deste guia se desenvolve em cima do conhecimento introduzido em capítulos anteriores. **Você pode aprender muito do React lendo os capítulos do guia de "Conceitos principais" na ordem em que eles aparecem na barra lateral.** Por exemplo, [“Introduzindo JSX”](/docs/introducing-jsx.html) é o próximo capítulo após esse.
 
 ## Suposições de nível de conhecimento {#knowledge-level-assumptions}
 
-React é uma biblioteca JavaScript, então assumiremos que você possui um entendimento básico da linguagem. **Se não se sentir confiante, nós recomendamos: [seguir um tutorial de javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para checar o seu nível de conhecimento e garantir que você poderá acompanhar esse guia sem se perder. Isso pode levar entre 30 minutos e uma hora, mas você não sentirá como se estivesse aprendendo React e JavaScript ao mesmo tempo.
+React é uma biblioteca JavaScript, então assumiremos que você possui um entendimento básico da linguagem. **Se não se sentir confiante, nós recomendamos: [seguir um tutorial de javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript) para checar o seu nível de conhecimento** e garantir que você poderá acompanhar esse guia sem se perder. Isso pode levar entre 30 minutos e uma hora, mas você não sentirá como se estivesse aprendendo React e JavaScript ao mesmo tempo.
 
 >Nota
 >
->Esse guia geralmente usa partes da nova sintaxe do JavaScript nos exemplos. Se você não tem trabalhado com Javascript nos últimos anos, [esses três pontos:](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) lhe ajudará em boa parte do caminho.
+>Esse guia geralmente usa partes da nova sintaxe do JavaScript nos exemplos. Se você não tem trabalhado com JavaScript nos últimos anos, [esses três pontos](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) lhe ajudarão em boa parte do caminho.
 
 
 ## Vamos Começar! {#lets-get-started}
