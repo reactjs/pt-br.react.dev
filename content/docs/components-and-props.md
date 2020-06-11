@@ -233,7 +233,7 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extrair componentes pode parecer um trabalho pesado no começo, mas ter uma paleta de componentes reutilizáveis compensa em aplicativos maiores. Uma boa regra é que se uma parte da sua UI for usada várias vezes (`Button`, `Panel`, `Avatar`) ou for complexa o suficiente por si só (`App`, `FeedStory`, `Comment`) é uma boa candidata a se tornar um componente reutilizável.
+Extrair componentes pode parecer um trabalho pesado no começo, mas ter uma paleta de componentes reutilizáveis compensa em aplicativos maiores. Uma boa regra é que se uma parte da sua UI for usada várias vezes (`Button`, `Panel`, `Avatar`) ou for complexa o suficiente por si só (`App`, `FeedStory`, `Comment`) é uma boa candidata a ser extraída para um componente separado.
 
 ## Props são Somente Leitura {#props-are-read-only}
 
