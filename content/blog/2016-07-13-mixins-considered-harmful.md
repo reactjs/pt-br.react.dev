@@ -1,71 +1,72 @@
 ---
-title: "Mixins Considered Harmful"
-author: [gaearon]
+titulo: "Considerando Mixins Nocivos"
+autor: [gaearon]
 ---
 
-“How do I share the code between several components?” is one of the first questions that people ask when they learn React. Our answer has always been to use component composition for code reuse. You can define a component and use it in several other components.
+“Como eu compartilho o código entre diversos componentes?" é uma das primeiras perguntas que as pessoas fazem quando aprendem React. Nossa resposta sempre foi, usar composição de componentes para reutilizaçaão do código. Você pode definir um componente e usá-lo em diversos outros componentes.
 
-It is not always obvious how a certain pattern can be solved with composition. React is influenced by functional programming but it came into the field that was dominated by object-oriented libraries. It was hard for engineers both inside and outside of Facebook to give up on the patterns they were used to.
+Nem sempre é óbvio como um determinado padrão pode ser resolvido com a componetização. O React é influenciado pela programacão funcional, mas entrou em um campo que é dominado por bibliotecas orientadas à objetos. Foi difícil para os engenheiros, dentro e fora do Facebook, de abrir mão dos padrões que estavam acostumados.
 
-To ease the initial adoption and learning, we included certain escape hatches into React. The mixin system was one of those escape hatches, and its goal was to give you a way to reuse code between components when you aren’t sure how to solve the same problem with composition.
+Para facilitar a adoção e o aprendizado inicial, incluimos algumas válvulas de escape no React. O sistema mixin era uma dessas válvulas de escape, e seu objetivo era dar a você uma maneira de reutilizar o código entre os componentes, quando você não tem certeza de como resolver o mesmo problema com a composição.
 
-Three years passed since React was released. The landscape has changed. Multiple view libraries now adopt a component model similar to React. Using composition over inheritance to build declarative user interfaces is no longer a novelty. We are also more confident in the React component model, and we have seen many creative uses of it both internally and in the community.
+Três anos se passaram desde que o React foi lancado. O cenário mudou. Agora, várias bibliotecas de visualizões adotam um modelo de componente semelhante ao React. Usar composição sobre a herança para criar interfaces de usuário declarativas não é mais uma novidade. Também estamos mais confiantes no modelo do componente React, e vimos muitos usos criativos dele tanto internamente quanto na comunidade.
 
-In this post, we will consider the problems commonly caused by mixins. Then we will suggest several alternative patterns for the same use cases. We have found those patterns to scale better with the complexity of the codebase than mixins.
+Neste post, vamos considerar os problemas comumentes causados por mixins. Em seguida, sugeriremos vários padrões alternativos para os mesmos casos de uso. Descobrimos que esses padrões escalam melhor com a complexidade da base de código do que os mixins.
 
-## Why Mixins are Broken {#why-mixins-are-broken}
 
-At Facebook, React usage has grown from a few components to thousands of them. This gives us a window into how people use React. Thanks to declarative rendering and top-down data flow, many teams were able to fix a bunch of bugs while shipping new features as they adopted React.
+## Porque Mixins estão quebrados  {#porque-mixins-estao-quebrados}
 
-However it’s inevitable that some of our code using React gradually became incomprehensible. Occasionally, the React team would see groups of components in different projects that people were afraid to touch. These components were too easy to break accidentally, were confusing to new developers, and eventually became just as confusing to the people who wrote them in the first place. Much of this confusion was caused by mixins. At the time, I wasn’t working at Facebook but I came to the [same conclusions](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750) after writing my fair share of terrible mixins.
+No Facebook, o uso do React cresceu de alguns componentes para milhares deles. Isso nos dá uma janela sobre como as pessoas usam o React. Graças à renderização declarativa e ao fluxo de dados de cima para baixo, muitas equipes conseguiram corrigir vários bugs ao enviar novos recursos à medida que o React era adotado.
 
-This doesn’t mean that mixins themselves are bad. People successfully employ them in different languages and paradigms, including some functional languages. At Facebook, we extensively use traits in Hack which are fairly similar to mixins. Nevertheless, we think that mixins are unnecessary and problematic in React codebases. Here’s why.
+No entando, é inevitável que parte do nosso código usando React se torne gradualmente incompreensível. Ocasionalmente, a equipe do React veria grupos de componentes em diferentes projetos que as pessoas tinham medo de tocar. Esses componentes eram muito fáceis de serem quebrados acidentalmente, eram confusos para novos desenvolvedores e acabaram se tornando tão confusos para as pessoas que os escreveram em primeiro lugar. Muito dessa confusão ocorreu por causa dos mixins. Na época, eu não estava trabalhando no Facebook, mas cheguei [as mesmas conclusões]((https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750)) depois de escrever vários de terríveis mixins.
 
-### Mixins introduce implicit dependencies {#mixins-introduce-implicit-dependencies}
+Isso não significa que os próprios mixins são ruins. As pessoas empregam com sucesso em diferentes linguagens e paradigmas, incluindo algumas linguagens funcionais. No Facebook, usamos extensivamente traços no Hack que são bastante semelhantes aos mixins. No entanto, pensamos que os mixins são desnecessários e problemáticos nas bases de código do React. E aqui está o porquê.
 
-Sometimes a component relies on a certain method defined in the mixin, such as `getClassName()`. Sometimes it’s the other way around, and mixin calls a method like `renderHeader()` on the component. JavaScript is a dynamic language so it’s hard to enforce or document these dependencies.
+### Mixins introduzem dependências implícitas {#mixins-introduzem-dependencias-implicitas}
 
-Mixins break the common and usually safe assumption that you can rename a state key or a method by searching for its occurrences in the component file. You might write a stateful component and then your coworker might add a mixin that reads this state. In a few months, you might want to move that state up to the parent component so it can be shared with a sibling. Will you remember to update the mixin to read a prop instead? What if, by now, other components also use this mixin?
+Às vezes, um componente depende de um determinado método definido no mixin, como `getClassName()`. Às vezes é o contrário, e mixins chama um método como `renderHeader()` no componente. JavaScript é uma linguagem dinâmica, por isso é difícil impor ou documentar tais dependências.
 
-These implicit dependencies make it hard for new team members to contribute to a codebase. A component’s `render()` method might reference some method that isn’t defined on the class. Is it safe to remove? Perhaps it’s defined in one of the mixins. But which one of them? You need to scroll up to the mixin list, open each of those files, and look for this method. Worse, mixins can specify their own mixins, so the search can be deep.
+Os mixins quebram a suposição comum e geralmente segura de que você pode renomear uma chave de estado ou um método pesquisando suas ocorrências no arquivo do componente. Você pode escrever um componente com estado e, em seguida, seu colega de trabalho pode adicionar um mixin que leia esse estado. Em alguns meses, você pode querer mover esse estado para o componente pai para que ele possa ser compartilhado com um irmão. Você vai se lembrar de atualizar o mixin para ler a prop em vez disso? E se, até agora, outros componentes também usarem este mixin?
 
-Often, mixins come to depend on other mixins, and removing one of them breaks the other. In these situations it is very tricky to tell how the data flows in and out of mixins, and what their dependency graph looks like. Unlike components, mixins don’t form a hierarchy: they are flattened and operate in the same namespace.
+Essas dependências implícitas dificultam que novos membros da equipe contribuam para uma base de código. O método `render()` de um componente pode fazer referência a algum método que não está definido na classe. É seguro remover? Talvez esteja definido em um dos mixins. Mas qual deles? Você precisa rolar até a lista de mixins, abrir cada um desses arquivos e procurar por este método. Pior ainda, mixins podem especificar seus próprios mixins, então a pesquisa por se aprofundar.
 
-### Mixins cause name clashes {#mixins-cause-name-clashes}
+Muitas vezes, os mixins passam a depender de outros mixins, e a remoção de um deles quebra o outro. Nessas situações, é muito complicado dizer como os dados entram e saem dos mixins e como é o seu gráfico de dependências. Ao contrário dos componentes, os mixins não formam uma hierarquia: eles são achatados e operam no mesmo namespace.
 
-There is no guarantee that two particular mixins can be used together. For example, if `FluxListenerMixin` defines `handleChange()` and `WindowSizeMixin` defines `handleChange()`, you can’t use them together. You also can’t define a method with this name on your own component.
+### Mixins causam confronto de nomes {#mixins-causam-confronto-de-nomes}
 
-It’s not a big deal if you control the mixin code. When you have a conflict, you can rename that method on one of the mixins. However it’s tricky because some components or other mixins may already be calling this method directly, and you need to find and fix those calls as well.
+Não há garantia de que duas misturas específicas possam ser usadas juntas. Por exemplo, se `FluxListenerMixin` define `handleChange()` e `WindowSizeMixin` define `handleChange()`, voceê não pode usá-los juntos. Você também não pode definir um método com esse nome em seu próprio componente.
 
-If you have a name conflict with a mixin from a third party package, you can’t just rename a method on it. Instead, you have to use awkward method names on your component to avoid clashes.
+Não é um grande problema se você controlar o código do <em>mixin</em>. Quando você tem um conflito, você pode renomear esse método em um dos <em>mixins</em>. No entanto, é complicado porque alguns componentes ou outros <em>mixins</em> já podem estar chamando esse métodos diretamente, e você precisa encontrar e corrigir essas chamadas também.
 
-The situation is no better for mixin authors. Even adding a new method to a mixin is always a potentially breaking change because a method with the same name might already exist on some of the components using it, either directly or through another mixin. Once written, mixins are hard to remove or change. Bad ideas don’t get refactored away because refactoring is too risky.
+Se você tiver um conflito de nome com um <em>mixin</em> de um pacote de terceiros, não será possível renomear um método dele. Em vez disso, você precisa usar nomes estanhos de métodos em seu componente para evitar conflitos.
 
-### Mixins cause snowballing complexity {#mixins-cause-snowballing-complexity}
+A situação não é melhor para os autores dos <em>mixins</em>. Até mesmo a adição de um novo método a um <em>mixin</em> é sempre uma alteração potencial, pois um método com o memso nome já pode existir em alguns dos componentes que o usam, diretamente ou por meio de outro <em>mixin</em>. Uma vez escritos, os <em>mixins</em> são difíceis de remover ou mudar. Idéias ruins não são refatoradas porque a refatoração é muito arriscada.
 
-Even when mixins start out simple, they tend to become complex over time. The example below is based on a real scenario I’ve seen play out in a codebase.
+### Mixins desencadeiam complexidade de bola de neve {#mixins-desencadeiam-complexidade-de-bola-de-neve}
 
-A component needs some state to track mouse hover. To keep this logic reusable, you might extract `handleMouseEnter()`, `handleMouseLeave()` and `isHovering()` into a `HoverMixin`. Next, somebody needs to implement a tooltip. They don’t want to duplicate the logic in `HoverMixin` so they create a `TooltipMixin` that uses `HoverMixin`. `TooltipMixin` reads `isHovering()` provided by `HoverMixin` in its `componentDidUpdate()` and either shows or hides the tooltip.
+Mesmo quando os <em>mixins</em> começam de forma simples, eles tendem a se tornar complexos ao longo do tempo. O exemplo abaixo é baseado em um cenário real que vi em um repositório.
 
-A few months later, somebody wants to make the tooltip direction configurable. In an effort to avoid code duplication, they add support for a new optional method called `getTooltipOptions()` to `TooltipMixin`. By this time, components that show popovers also use `HoverMixin`. However popovers need a different hover delay. To solve this, somebody adds support for an optional `getHoverOptions()` method and implements it in `TooltipMixin`. Those mixins are now tightly coupled.
+Um componente precisa de algum estado para rastrear o foco do mouse. Para manter essa lógica reutilizável, você pode extrair `handleMouserEnter()`, `handleMouseLeave()` e `isHovering()` em um `HoverMixin`. Em seguida, alguém precisa implementar uma dica de ferramenta. Eles não querem duplicar a lógica em `HoverMixin`, de modo que criam um `TooltipMixin` que usa o `HoverMixin`. `TooltipMix` lê `isHovering()` fornecido pelo `HoverMixin` no seu `componentDidUpdate()` e mostra ou oculta a dica da ferramenta.
 
-This is fine while there are no new requirements. However this solution doesn’t scale well. What if you want to support displaying multiple tooltips in a single component? You can’t define the same mixin twice in a component. What if the tooltips need to be displayed automatically in a guided tour instead of on hover? Good luck decoupling `TooltipMixin` from `HoverMixin`. What if you need to support the case where the hover area and the tooltip anchor are located in different components? You can’t easily hoist the state used by mixin up into the parent component. Unlike components, mixins don’t lend themselves naturally to such changes.
+Alguns meses depois, alguém quer tornar a direção da dica de ferramenta configurável. Em um esforço para evitar a duplicação de código, eles adicionam suporte a um novo método opcional chamado `getTooltipOptions ()` em `TooltipMixin`. A essa altura, os componentes que mostram popovers também usam o `HoverMixin`. No entanto, os popovers precisam de um atraso diferente. Para resolver isso, alguém adiciona suporte para um método opcional `getHoverOptions ()` e o implementa no `TooltipMixin`. Esses mixins estão agora fortemente acoplados.
 
-Every new requirement makes the mixins harder to understand. Components using the same mixin become increasingly coupled with time. Any new capability gets added to all of the components using that mixin. There is no way to split a “simpler” part of the mixin without either duplicating the code or introducing more dependencies and indirection between mixins. Gradually, the encapsulation boundaries erode, and since it’s hard to change or remove the existing mixins, they keep getting more abstract until nobody understands how they work.
+Isso é bom enquanto não há novos requisitos. No entanto esta solução não escala muito bem. E se você deseja oferecer suporte à exibição de várias dicas de ferramentas em um único componente? Você não pode definir o mesmo mixin duas vezes em um componente. E se as dicas de ferramentas precisarem ser exibidas automaticamente em um tour guiado ao invés do houver? Boa sorte ao separar o `TooltipMixin` do` HoverMixin`. E se você precisar dar suporte ao caso onde a area do hover e a âncora da dica de ferramenta estejam localizadas em componentes diferentes? Você não pode elevar facilmente o estado usado misturando-se ao componente pai. Ao contrário dos componentes, os mixins não se servem para essas mudanças.
 
-These are the same problems we faced building apps before React. We found that they are solved by declarative rendering, top-down data flow, and encapsulated components. At Facebook, we have been migrating our code to use alternative patterns to mixins, and we are generally happy with the results. You can read about those patterns below.
+Cada novo requisito torna os mixins mais difíceis de entender. Os componentes que usam o mesmo mixin ficam cada vez mais acoplados ao tempo. Qualquer novo recurso é adicionado a todos os componentes usando esse mixin. Não há como dividir uma parte "mais simples" do mixin sem duplicar o código ou introduzir mais dependências e indiretas entre mixins. Gradualmente, os limites do encapsulamento diminuem e, como é difícil alterar ou remover os mixins existentes, eles ficam cada vez mais abstratos até que ninguém entenda como eles funcionam.
 
-## Migrating from Mixins {#migrating-from-mixins}
+Esses são os mesmos problemas que enfrentamos ao criar aplicativos antes do React. Descobrimos que eles são resolvidos por renderização declarativa, fluxo de dados de cima para baixo e componentes encapsulados. No Facebook, estamos migrando nosso código para usar padrões alternativos para mixins, e geralmente estamos felizes com os resultados. Você pode ler sobre esses padrões logo abaixo.
 
-Let’s make it clear that mixins are not technically deprecated. If you use `React.createClass()`, you may keep using them. We only say that they didn’t work well for us, and so we won’t recommend using them in the future.
+## Migrando de Mixins {#migrando-de-mixins}
 
-Every section below corresponds to a mixin usage pattern that we found in the Facebook codebase. For each of them, we describe the problem and a solution that we think works better than mixins. The examples are written in ES5 but once you don’t need mixins, you can switch to ES6 classes if you’d like.
+Vamos deixar claro que mixins não são tecnicamente obsoletos. Se você usar `React.createClass ()`, poderá continuar usando-os. Dizemos apenas que eles não funcionaram bem para nós e, portanto, não recomendamos usá-los no futuro.
 
-We hope that you find this list helpful. Please let us know if we missed important use cases so we can either amend the list or be proven wrong!
+Cada seção abaixo corresponde a um padrão de uso de mixin que encontramos na base de código do Facebook. Para cada um deles, descrevemos o problema e uma solução que achamos que funciona melhor que os mixins. Os exemplos estão escritos no ES5, mas quando você não precisar de mixins, poderá mudar para as aulas do ES6, se desejar.
 
-### Performance Optimizations {#performance-optimizations}
+Esperamos que você ache esta lista útil. Informe-nos se não citamos algum caso de uso importante, para que possamos alterar a lista ou provar que estamos errados!
 
-One of the most commonly used mixins is [`PureRenderMixin`](/docs/pure-render-mixin.html). You might be using it in some components to [prevent unnecessary re-renders](/docs/advanced-performance.html#shouldcomponentupdate-in-action) when the props and state are shallowly equal to the previous props and state:
+### Otimizações de desempenho {#otimizacao-de-desempenho}
+
+Uma das mixins mais usadas é o [`PureRenderMixin`](/docs/pure-render-mixin.html). Você pode usá-lo em alguns componentes para [impedir repetições desnecessárias](/docs/advanced-performance.html#shouldcomponentupdate-in-action) quando os props e o estado são superficialmente iguais aos props e estado anteriores:
 
 ```javascript
 var PureRenderMixin = require('react-addons-pure-render-mixin');
@@ -78,9 +79,9 @@ var Button = React.createClass({
 });
 ```
 
-#### Solution {#solution}
+#### Solução {#solucao}
 
-To express the same without mixins, you can use the [`shallowCompare`](/docs/shallow-compare.html) function directly instead:
+Para expressar o mesmo sem mixins, você pode usar a função [`shallowCompare`](/docs/shallow-compare.html):
 
 ```js
 var shallowCompare = require('react-addons-shallow-compare');
@@ -94,14 +95,13 @@ var Button = React.createClass({
 
 });
 ```
+Se você usar um mix personalizado implementando uma função `shouldComponentUpdate` com algoritmo diferente, sugerimos exportar apenas essa função única de um módulo e chamá-la diretamente de seus componentes.
 
-If you use a custom mixin implementing a `shouldComponentUpdate` function with different algorithm, we suggest exporting just that single function from a module and calling it directly from your components.
+Entendemos que mais digitação pode ser chato. Para o caso mais comuns, planejamos [introduzir uma nova classe base](https://github.com/facebook/react/pull/7195) chamada `React.PureComponent` na próxima versão menor. Ele usa a mesma comparação superficial que o `PureRenderMixin` faz hoje.
 
-We understand that more typing can be annoying. For the most common case, we plan to [introduce a new base class](https://github.com/facebook/react/pull/7195) called `React.PureComponent` in the next minor release. It uses the same shallow comparison as `PureRenderMixin` does today.
+## Assinaturas e efeitos colaterais {#assinaturas-e-efeitos-colaterais}
 
-### Subscriptions and Side Effects {#subscriptions-and-side-effects}
-
-The second most common type of mixins that we encountered are mixins that subscribe a React component to a third-party data source. Whether this data source is a Flux Store, an Rx Observable, or something else, the pattern is very similar: the subscription is created in `componentDidMount`, destroyed in `componentWillUnmount`, and the change handler calls `this.setState()`.
+O segundo tipo mais comum de mixins que encontramos são os mixins que assinam um componente React em uma fonte de dados de terceiros. Se essa fonte de dados é um Flux Store, um Rx Observable ou qualquer outra coisa, o padrão é muito semelhante: a assinatura é criada em `componentDidMount`, destruída em` componentWillUnmount` e o manipulador de alterações chama `this.setState ()` .
 
 ```javascript
 var SubscriptionMixin = {
@@ -130,7 +130,7 @@ var CommentList = React.createClass({
   mixins: [SubscriptionMixin],
 
   render: function() {
-    // Reading comments from state managed by mixin.
+    // Lendo comentários do estado gerenciado por mixin.
     var comments = this.state.comments;
     return (
       <div>
@@ -145,15 +145,15 @@ var CommentList = React.createClass({
 module.exports = CommentList;
 ```
 
-#### Solution {#solution-1}
+#### Solução {#solucao-1}
 
-If there is just one component subscribed to this data source, it is fine to embed the subscription logic right into the component. Avoid premature abstractions.
+Se houver apenas um componente inscrito nessa fonte de dados, não há problema em incorporar a lógica de assinatura diretamente no componente. Evite abstrações prematuras.
 
-If several components used this mixin to subscribe to a data source, a nice way to avoid repetition is to use a pattern called [“higher-order components”](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750). It can sound intimidating so we will take a closer look at how this pattern naturally emerges from the component model.
+Se vários componentes usaram esse mixin para assinar uma fonte de dados, uma boa maneira de evitar a repetição é usar um padrão chamado ["componentes de ordem superior"](https://medium.com/@dan_abramov/mixins-are-dead-long-live-high-order-components-94a0d2f9e750). Pode parecer intimidador, portanto, examinaremos mais de perto como esse padrão emerge naturalmente do modelo de componentes.
 
-#### Higher-Order Components Explained {#higher-order-components-explained}
+#### Explicação dos componentes de ordem superior {# explicacao-dos-componentes-de-ordem-superior}
 
-Let’s forget about React for a second. Consider these two functions that add and multiply numbers, logging the results as they do that:
+Vamos esquecer o React por um segundo. Considere estas duas funções que adicionam e multiplicam números, registrando os resultados conforme são executadas:
 
 ```js
 function addAndLog(x, y) {
