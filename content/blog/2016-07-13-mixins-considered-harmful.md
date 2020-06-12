@@ -169,26 +169,26 @@ function multiplyAndLog(x, y) {
 }
 ```
 
-These two functions are not very useful but they help us demonstrate a pattern that we can later apply to components.
+Essas duas funções não são muito úteis, mas nos ajudam a demonstrar um padrão que podemos aplicar posteriormente aos componentes.
 
-Let’s say that we want to extract the logging logic out of these functions without changing their signatures. How can we do this? An elegant solution is to write a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function), that is, a function that takes a function as an argument and returns a function.
+Digamos que queremos extrair a lógica de log dessas funções sem alterar suas assinaturas. Como podemos fazer isso? Uma solução elegante é escrever uma [função de ordem superior](https://en.wikipedia.org/wiki/Higher-order_function), ou seja, uma função que assume uma função como argumento e retorna uma função.
 
-Again, it sounds more intimidating than it really is:
+Novamente, parece mais intimidador do que realmente é:
+
 
 ```js
 function withLogging(wrappedFunction) {
-  // Return a function with the same API...
+  // Retorna uma função com a mesma API...
   return function(x, y) {
-    // ... that calls the original function
+    // ... que chama a função original
     var result = wrappedFunction(x, y);
-    // ... but also logs its result!
+    // ... mas também registra o resultado
     console.log('result:', result);
     return result;
   };
 }
 ```
-
-The `withLogging` higher-order function lets us write `add` and `multiply` without the logging statements, and later wrap them to get `addAndLog` and `multiplyAndLog` with exactly the same signatures as before:
+A função de ordem superior `withLogging` nos permite escrever `add` e `multiply` sem as instruções de log e depois envolvê-las para obter `addAndLog` e `multiplyAndLog` com exatamente as mesmas assinaturas de antes:
 
 ```js
 function add(x, y) {
@@ -207,10 +207,10 @@ function withLogging(wrappedFunction) {
   };
 }
 
-// Equivalent to writing addAndLog by hand:
+// Equivalente a escrever addLAndLog manualmente:
 var addAndLog = withLogging(add);
 
-// Equivalent to writing multiplyAndLog by hand:
+// Equivalente a escrever multiplyAndLog manualmente:
 var multiplyAndLog = withLogging(multiply);
 ```
 
@@ -219,11 +219,11 @@ Higher-order components are a very similar pattern, but applied to components in
 As a first step, we will split our `CommentList` component in two, a child and a parent. The child will be only concerned with rendering the comments. The parent will set up the subscription and pass the up-to-date data to the child via props.
 
 ```js
-// This is a child component.
-// It only renders the comments it receives as props.
+// Este é um componente filho.
+// Apenas gera os comentários que recebe como props.
 var CommentList = React.createClass({
   render: function() {
-    // Note: now reading from props rather than state.
+    // Nota: agora lendo das props em vez de estado.
     var comments = this.props.comments;
     return (
       <div>
@@ -235,8 +235,8 @@ var CommentList = React.createClass({
   }
 });
 
-// This is a parent component.
-// It subscribes to the data source and renders <CommentList />.
+// Este é um componente pai.
+// Ele assina a fonte de dados e renderiza <CommentList />.
 var CommentListWithSubscription = React.createClass({
   getInitialState: function() {
     return {
@@ -259,7 +259,7 @@ var CommentListWithSubscription = React.createClass({
   },
 
   render: function() {
-    // We pass the current state as props to CommentList.
+    // Passamos o estado atual como props para CommentList.
     return <CommentList comments={this.state.comments} />;
   }
 });
@@ -267,22 +267,22 @@ var CommentListWithSubscription = React.createClass({
 module.exports = CommentListWithSubscription;
 ```
 
-There is just one final step left to do.
+Há apenas um passo final a ser feito.
 
-Remember how we made `withLogging()` take a function and return another function wrapping it? We can apply a similar pattern to React components.
+Lembra como fizemos com `withLogging ()` pegar uma função e retornar outra função envolvendo-a? Podemos aplicar um padrão semelhante aos componentes React.
 
-We will write a new function called `withSubscription(WrappedComponent)`. Its argument could be any React component. We will pass `CommentList` as `WrappedComponent`, but we could also apply `withSubscription()` to any other component in our codebase.
+Escreveremos uma nova função chamada `withSubscription (WrappedComponent)`. Seu argumento pode ser qualquer componente React. Passaremos `CommentList` como `WrappedComponent`, mas também poderíamos aplicar `withSubscription ()` a qualquer outro componente em nossa base de código.
 
-This function would return another component. The returned component would manage the subscription and render `<WrappedComponent />` with the current data.
+Esta função retornaria outro componente. O componente retornado gerenciaria a assinatura e renderizaria `<WrappedComponent />` com os dados atuais.
 
-We call this pattern a “higher-order component”.
+Chamamos esse padrão de "componente de ordem superior".
 
-The composition happens at React rendering level rather than with a direct function call. This is why it doesn’t matter whether the wrapped component is defined with `createClass()`, as an ES6 class or a function. If `WrappedComponent` is a React component, the component created by `withSubscription()` can render it.
+A composição acontece no nível de renderização React, e não com uma chamada direta da função. É por isso que não importa se o componente agrupado está definido com `createClass ()`, como uma classe ou função ES6. Se `WrappedComponent` for um componente React, o componente criado por `withSubscription () `poderá renderizá-lo.
 
 ```js
-// This function takes a component...
+// Esta função pega um componente ...
 function withSubscription(WrappedComponent) {
-  // ...and returns another component...
+  // ...e retorna um outro componente...
   return React.createClass({
     getInitialState: function() {
       return {
@@ -291,7 +291,7 @@ function withSubscription(WrappedComponent) {
     },
 
     componentDidMount: function() {
-      // ... that takes care of the subscription...
+      // ...que cuida da assinatura...
       DataSource.addChangeListener(this.handleChange);
     },
 
@@ -306,14 +306,14 @@ function withSubscription(WrappedComponent) {
     },
 
     render: function() {
-      // ... and renders the wrapped component with the fresh data!
+      // ... e renderiza o componente agrupado com os novos dados! 
       return <WrappedComponent comments={this.state.comments} />;
     }
   });
 }
 ```
 
-Now we can declare `CommentListWithSubscription` by applying `withSubscription` to `CommentList`:
+Agora podemos declarar `CommentListWithSubscription` aplicando `withSubscription` ao `CommentList`:
 
 ```js
 var CommentList = React.createClass({
@@ -329,13 +329,13 @@ var CommentList = React.createClass({
   }
 });
 
-// withSubscription() returns a new component that
-// is subscribed to the data source and renders
-// <CommentList /> with up-to-date data.
+// withSubscription() retorna um novo componente que
+// é inscrito na fonte de dados e renderiza
+// <CommentList /> com os dados atualizados.
 var CommentListWithSubscription = withSubscription(CommentList);
 
-// The rest of the app is interested in the subscribed component
-// so we export it instead of the original unwrapped CommentList.
+// O restante da aplicação está interessada no componente inscrito
+// então exportamos em vez do CommentList original.
 module.exports = CommentListWithSubscription;
 ```
 
