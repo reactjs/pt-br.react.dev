@@ -341,7 +341,7 @@ module.exports = CommentListWithSubscription;
 
 #### Solution, Revisited {#solution-revisited}
 
-Now that we understand higher-order components better, let’s take another look at the complete solution that doesn’t involve mixins. There are a few minor changes that are annotated with inline comments:
+Agora que entendemos melhor os componentes de ordem superior, vamos dar uma olhada na solução completa que não envolve mixins. Existem algumas pequenas alterações anotadas com comentários nas entre linhas:
 
 ```js
 function withSubscription(WrappedComponent) {
@@ -367,14 +367,14 @@ function withSubscription(WrappedComponent) {
     },
 
     render: function() {
-      // Use JSX spread syntax to pass all props and state down automatically.
+      // Use o spread no JSX para passar todas as props e state para baixo automaticamente.
       return <WrappedComponent {...this.props} {...this.state} />;
     }
   });
 }
 
-// Optional change: convert CommentList to a function component
-// because it doesn't use lifecycle methods or state.
+// Alteração opcional: converte CommentList em um componente de função
+// porque não usa métodos ou estados do ciclo de vida.
 function CommentList(props) {
   var comments = props.comments;
   return (
@@ -386,29 +386,29 @@ function CommentList(props) {
   )
 }
 
-// Instead of declaring CommentListWithSubscription,
-// we export the wrapped component right away.
+// Em vez de declarar CommentListWithSubscription,
+// exportamos o componente envolvido
 module.exports = withSubscription(CommentList);
 ```
 
-Higher-order components are a powerful pattern. You can pass additional arguments to them if you want to further customize their behavior. After all, they are not even a feature of React. They are just functions that receive components and return components that wrap them.
+Os componentes de ordem superior são um padrão poderoso. Você pode passar argumentos adicionais para eles, se desejar personalizar ainda mais o comportamento deles. Afinal, eles nem são um recurso do React. São apenas funções que recebem componentes e retornam componentes que os envolvem.
 
-Like any solution, higher-order components have their own pitfalls. For example, if you heavily use [refs](/docs/more-about-refs.html), you might notice that wrapping something into a higher-order component changes the ref to point to the wrapping component. In practice we discourage using refs for component communication so we don’t think it’s a big issue. In the future, we might consider adding [ref forwarding](https://github.com/facebook/react/issues/4213) to React to solve this annoyance.
+Como qualquer solução, os componentes de ordem superior têm suas próprias armadilhas. Por exemplo, se você usar fortemente [refs](/docs/more-about-refs.html), poderá notar que agrupar algo em um componente de ordem superior altera o ref para apontar para o componente de agrupamento. Na prática, desencorajamos o uso de referências para a comunicação de componentes, por isso não achamos que seja um grande problema. No futuro, podemos considerar a adição de [ref forwarding](https://github.com/facebook/react/issues/4213) ao React para resolver esse incômodo.
 
-### Rendering Logic {#rendering-logic}
+### Lógica de renderização {#logica-de-renderizacao}
 
-The next most common use case for mixins that we discovered in our codebase is sharing rendering logic between components.
+O próximo caso de uso mais comum para mixins que descobrimos em nossa base de código é o compartilhamento da lógica de renderização entre os componentes.
 
-Here is a typical example of this pattern:
+Aqui está um exemplo típico desse padrão:
 
 ```js
 var RowMixin = {
-  // Called by components from render()
+  // Chamado por componentes a partir do render()
   renderHeader: function() {
     return (
       <div className='row-header'>
         <h1>
-          {this.getHeaderText() /* Defined by components */}
+          {this.getHeaderText() /* Definido por componentes */}
         </h1>
       </div>
     );
@@ -418,7 +418,7 @@ var RowMixin = {
 var UserRow = React.createClass({
   mixins: [RowMixin],
 
-  // Called by RowMixin.renderHeader()
+  // Chamado por RowMixin.renderHeader()
   getHeaderText: function() {
     return this.props.user.fullName;
   },
@@ -426,23 +426,22 @@ var UserRow = React.createClass({
   render: function() {
     return (
       <div>
-        {this.renderHeader() /* Defined by RowMixin */}
+        {this.renderHeader() /* Definido por RowMixin */}
         <h2>{this.props.user.biography}</h2>
       </div>
     )
   }
 });
 ```
+Vários componentes podem estar compartilhando `RowMixin` para renderizar o cabeçalho, e cada um deles precisaria definir` getHeaderText () `.
 
-Multiple components may be sharing `RowMixin` to render the header, and each of them would need to define `getHeaderText()`.
+#### Solução {# solução-2}
 
-#### Solution {#solution-2}
+Se você ver a lógica de renderização dentro de um mixin, é hora de extrair um componente!
 
-If you see rendering logic inside a mixin, it’s time to extract a component!
+Em vez de `RowMixin`, definiremos um componente `<RowHeader>`. Também substituiremos a convenção de definir um método `getHeaderText ()` pelo mecanismo padrão do fluxo de dados principais no React: passando adereços.
 
-Instead of `RowMixin`, we will define a `<RowHeader>` component. We will also replace the convention of defining a `getHeaderText()` method with the standard mechanism of top-data flow in React: passing props.
-
-Finally, since neither of those components currently need lifecycle methods or state, we can declare them as simple functions:
+Por fim, como atualmente nenhum desses componentes precisa de métodos ou estados do ciclo de vida, podemos declará-los como funções simples:
 
 ```js
 function RowHeader(props) {
@@ -462,18 +461,17 @@ function UserRow(props) {
   );
 }
 ```
+As props mantêm as dependências de componentes explícitas, fáceis de substituir e aplicáveis com ferramentas como [Flow](https://flowtype.org/) e [TypeScript](https://www.typescriptlang.org/).
 
-Props keep component dependencies explicit, easy to replace, and enforceable with tools like [Flow](https://flowtype.org/) and [TypeScript](https://www.typescriptlang.org/).
-
-> **Note:**
+> **Nota:**
 >
-> Defining components as functions is not required. There is also nothing wrong with using lifecycle methods and state—they are first-class React features. We use function components in this example because they are easier to read and we didn’t need those extra features, but classes would work just as fine.
+> Definir componentes como funções não é necessário. Também não há nada de errado em usar métodos e estados do ciclo de vida - eles são os primeiros recursos do React quando usado em formato de classe. Usamos componentes de função neste exemplo porque são mais fáceis de ler e não precisávamos desses recursos extras, mas as classes funcionariam da mesma maneira.
 
-### Context {#context}
+### Contexto {#contexto}
 
-Another group of mixins we discovered were helpers for providing and consuming [React context](/docs/context.html). Context is an experimental unstable feature, has [certain issues](https://github.com/facebook/react/issues/2517), and will likely change its API in the future. We don’t recommend using it unless you’re confident there is no other way of solving your problem.
+Outro grupo de mixins que descobrimos eram helpers por fornecer e consumir [React context](/docs/context.html). O contexto é um recurso instável experimental, possui [certos problemas](https://github.com/facebook/react/issues/2517) e provavelmente mudará sua API no futuro. Não recomendamos o uso, a menos que você tenha certeza de que não há outra maneira de resolver seu problema.
 
-Nevertheless, if you already use context today, you might have been hiding its usage with mixins like this:
+No entanto, se você já usa o contexto hoje, pode estar ocultando seu uso com mixins como este:
 
 ```js
 var RouterMixin = {
@@ -481,8 +479,8 @@ var RouterMixin = {
     router: React.PropTypes.object.isRequired
   },
 
-  // The mixin provides a method so that components
-  // don't have to use the context API directly.
+  // O mixin fornece um método para que os componentes
+  // não precisem utilizar a API de contexto diretamente
   push: function(path) {
     this.context.router.push(path)
   }
@@ -494,7 +492,7 @@ var Link = React.createClass({
   handleClick: function(e) {
     e.stopPropagation();
 
-    // This method is defined in RouterMixin.
+    // Este método é definido em RouterMixin.
     this.push(this.props.to);
   },
 
@@ -510,11 +508,11 @@ var Link = React.createClass({
 module.exports = Link;
 ```
 
-#### Solution {#solution-3}
+#### Solução {# solution-3}
 
-We agree that hiding context usage from consuming components is a good idea until the context API stabilizes. However, we recommend using higher-order components instead of mixins for this.
+Concordamos que ocultar o uso do contexto do consumo de componentes é uma boa idéia até que a API do contexto se estabilize. No entanto, recomendamos o uso de componentes de ordem superior em vez de mixins para isso.
 
-Let the wrapping component grab something from the context, and pass it down with props to the wrapped component:
+Deixe o componente de empacotamento pegar algo do contexto e transmiti-lo com as props para o componente empacotado:
 
 ```js
 function withRouter(WrappedComponent) {
@@ -524,8 +522,8 @@ function withRouter(WrappedComponent) {
     },
 
     render: function() {
-      // The wrapper component reads something from the context
-      // and passes it down as a prop to the wrapped component.
+       // O componente wrapper lê algo do contexto
+       // e o passa para baixo como uma prop ao componente empacotado.
       var router = this.context.router;
       return <WrappedComponent {...this.props} router={router} />;
     }
@@ -536,7 +534,7 @@ var Link = React.createClass({
   handleClick: function(e) {
     e.stopPropagation();
 
-    // The wrapped component uses props instead of context.
+    // O componente empacotado usa props ao invés do context.
     this.props.router.push(this.props.to);
   },
 
@@ -549,15 +547,15 @@ var Link = React.createClass({
   }
 });
 
-// Don't forget to wrap the component!
+// Não se esqueça de empacotar o componente!
 module.exports = withRouter(Link);
 ```
 
-If you’re using a third party library that only provides a mixin, we encourage you to file an issue with them linking to this post so that they can provide a higher-order component instead. In the meantime, you can create a higher-order component around it yourself in exactly the same way.
+Se você estiver usando uma biblioteca de terceiros que fornece apenas um mixin, recomendamos que você arquive um problema vinculado a esta postagem para que eles possam fornecer um componente de ordem superior. Enquanto isso, você pode criar um componente de ordem superior exatamente da mesma maneira.
 
-### Utility Methods {#utility-methods}
+### Métodos de utilidade {#metodos-de-utilidade}
 
-Sometimes, mixins are used solely to share utility functions between components:
+Às vezes, os mixins são usados apenas para compartilhar funções utilitárias entre componentes:
 
 ```js
 var ColorMixin = {
@@ -584,9 +582,9 @@ var Button = React.createClass({
 });
 ```
 
-#### Solution {#solution-4}
+#### Solução {# solution-4}
 
-Put utility functions into regular JavaScript modules and import them. This also makes it easier to test them or use them outside of your components:
+Coloque funções utilitárias em módulos JavaScript regulares e importe-as. Isso também facilita testá-los ou usá-los fora dos seus componentes:
 
 ```js
 var getLuminance = require('../utils/getLuminance');
@@ -603,12 +601,12 @@ var Button = React.createClass({
 });
 ```
 
-### Other Use Cases {#other-use-cases}
+### Outros casos de uso {#outros-casos-de-uso}
 
-Sometimes people use mixins to selectively add logging to lifecycle methods in some components. In the future, we intend to provide an [official DevTools API](https://github.com/facebook/react/issues/5306) that would let you implement something similar without touching the components. However it’s still very much a work in progress. If you heavily depend on logging mixins for debugging, you might want to keep using those mixins for a little longer.
+Às vezes, as pessoas usam mixins para adicionar seletivamente o log aos métodos do ciclo de vida em alguns componentes. No futuro, pretendemos fornecer uma [API oficial do DevTools](https://github.com/facebook/react/issues/5306) que permita implementar algo semelhante sem tocar nos componentes. No entanto, ainda é um trabalho em andamento. Se você depende muito de registrar mixins para depuração, convém continuar usando esses mixins por mais algum tempo.
 
-If you can’t accomplish something with a component, a higher-order component, or a utility module, it could be mean that React should provide this out of the box. [File an issue](https://github.com/facebook/react/issues/new) to tell us about your use case for mixins, and we’ll help you consider alternatives or perhaps implement your feature request.
+Se você não conseguir realizar algo com um componente, um componente de ordem superior ou um módulo utilitário, isso pode significar que o React deve fornecer isso imediatamente. [Arquive um problema](https://github.com/facebook/react/issues/new) para nos informar sobre seu caso de uso para mixins, e ajudaremos você a considerar alternativas ou talvez implementar sua solicitação de recurso.
 
-Mixins are not deprecated in the traditional sense. You can keep using them with `React.createClass()`, as we won’t be changing it further. Eventually, as ES6 classes gain more adoption and their usability problems in React are solved, we might split `React.createClass()` into a separate package because most people wouldn’t need it. Even in that case, your old mixins would keep working.
+Mixins não são descontinuados no sentido tradicional. Você pode continuar usando-os com `React.createClass ()`, pois não mudaremos mais. Eventualmente, à medida que as classes ES6 ganham mais adoção e seus problemas de usabilidade no React são resolvidos, podemos dividir `React.createClass ()` em um pacote separado, porque a maioria das pessoas não precisa disso. Mesmo nesse caso, seus antigos mixins continuariam funcionando.
 
-We believe that the alternatives above are better for the vast majority of cases, and we invite you to try writing React apps without using mixins.
+Acreditamos que as alternativas acima são melhores para a grande maioria dos casos, e convidamos você a escrever aplicativos React sem usar mixins.
