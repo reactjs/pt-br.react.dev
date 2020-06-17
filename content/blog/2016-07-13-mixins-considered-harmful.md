@@ -1,6 +1,6 @@
 ---
-titulo: "Considerando Mixins Nocivos"
-autor: [gaearon]
+title: "Considerando Mixins Nocivos"
+author: [gaearon]
 ---
 
 “Como eu compartilho o código entre diversos componentes?" é uma das primeiras perguntas que as pessoas fazem quando aprendem React. Nossa resposta sempre foi, usar composição de componentes para reutilizaçaão do código. Você pode definir um componente e usá-lo em diversos outros componentes.
