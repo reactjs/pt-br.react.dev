@@ -374,6 +374,10 @@ function updateColorMap(colormap) {
 
 Há uma proposta JavaScript para adicionar [espalhador de propriedades de objeto](https://github.com/sebmarkbage/ecmascript-rest-spread) para fazer ele alterar sem mutar.
 
+<<<<<<< HEAD
+=======
+[Object spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) makes it easier to update objects without mutation as well:
+>>>>>>> e548bd7e65086a8206fee46bd9e24b18b68bf045
 
 ```js
 function updateColorMap(colormap) {
@@ -381,6 +385,12 @@ function updateColorMap(colormap) {
 }
 ```
 
+<<<<<<< HEAD
 Se você está usando Create React App, ambos `Object.assign` e a sintaxe de espalhador de objeto estão disponíveis por padrão.
+=======
+This feature was added to JavaScript in ES2018. 
+
+If you're using Create React App, both `Object.assign` and the object spread syntax are available by default.
+>>>>>>> e548bd7e65086a8206fee46bd9e24b18b68bf045
 
 Quando você lida com objetos profundamente aninhados, atualizá-los de maneira imutável pode parecer complicado. Se você enfrentar esse problema, consulte [Immer](https://github.com/mweststrate/immer) or [immutability-helper](https://github.com/kolodny/immutability-helper). Essas bibliotecas permitem escrever código altamente legível sem perder os benefícios da imutabilidade.
