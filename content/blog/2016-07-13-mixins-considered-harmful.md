@@ -32,7 +32,7 @@ Essas dependências implícitas dificultam que novos membros da equipe contribua
 
 Muitas vezes, os mixins passam a depender de outros mixins, e a remoção de um deles quebra o outro. Nessas situações, é muito complicado dizer como os dados entram e saem dos mixins e como é o seu gráfico de dependências. Ao contrário dos componentes, os mixins não formam uma hierarquia: eles são achatados e operam no mesmo namespace.
 
-### Mixins causam confronto de nomes {#mixins-causam-confronto-de-nomes}
+### Mixins causam confronto de nomes {#mixins-cause-name-clashes}
 
 Não há garantia de que duas misturas específicas possam ser usadas juntas. Por exemplo, se `FluxListenerMixin` define `handleChange()` e `WindowSizeMixin` define `handleChange()`, você não pode usá-los juntos. Você também não pode definir um método com esse nome em seu próprio componente.
 
