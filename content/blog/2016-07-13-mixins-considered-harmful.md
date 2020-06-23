@@ -79,7 +79,7 @@ var Button = React.createClass({
 });
 ```
 
-#### Solução {#solucao}
+#### Solução {#solution}
 
 Para expressar o mesmo sem mixins, você pode usar a função [`shallowCompare`](/docs/shallow-compare.html):
 
