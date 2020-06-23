@@ -56,7 +56,7 @@ Cada novo requisito torna os mixins mais difíceis de entender. Os componentes q
 
 Esses são os mesmos problemas que enfrentamos ao criar aplicativos antes do React. Descobrimos que eles são resolvidos por renderização declarativa, fluxo de dados de cima para baixo e componentes encapsulados. No Facebook, estamos migrando nosso código para usar padrões alternativos para mixins, e geralmente estamos felizes com os resultados. Você pode ler sobre esses padrões logo abaixo.
 
-## Migrando de Mixins {#migrando-de-mixins}
+## Migrando de Mixins {#migrating-from-mixins}
 
 Vamos deixar claro que mixins não são tecnicamente obsoletos. Se você usar `React.createClass ()`, poderá continuar usando-os. Dizemos apenas que eles não funcionaram bem para nós e, portanto, não recomendamos usá-los no futuro.
 
