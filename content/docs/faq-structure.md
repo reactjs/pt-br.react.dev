@@ -12,7 +12,7 @@ O React não opina sobre como você deve estruturar o projeto. Dito isso, existe
 
 #### Agrupar por funcionalidades ou rotas {#grouping-by-features-or-routes}
 
-Uma maneira bem comum para estruturar os projetos é colocar CSS, JS e testes juntos dentro de pastas agrupadas por funcionalidades ou rotas, por exemplo:
+Uma maneira bem comum para estruturar os projetos é colocar CSS, JS e testes juntos dentro de pastas agrupadas por funcionalidades ou rotas.
 
 ```
 common/
