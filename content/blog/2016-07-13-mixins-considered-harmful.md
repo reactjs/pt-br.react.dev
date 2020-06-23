@@ -395,7 +395,7 @@ Os componentes de ordem superior são um padrão poderoso. Você pode passar arg
 
 Como qualquer solução, os componentes de ordem superior têm suas próprias armadilhas. Por exemplo, se você usar fortemente [refs](/docs/more-about-refs.html), poderá notar que agrupar algo em um componente de ordem superior altera o ref para apontar para o componente de agrupamento. Na prática, desencorajamos o uso de referências para a comunicação de componentes, por isso não achamos que seja um grande problema. No futuro, podemos considerar a adição de [ref forwarding](https://github.com/facebook/react/issues/4213) ao React para resolver esse incômodo.
 
-### Lógica de renderização {#logica-de-renderizacao}
+### Lógica de renderização {#rendering-logic}
 
 O próximo caso de uso mais comum para mixins que descobrimos em nossa base de código é o compartilhamento da lógica de renderização entre os componentes.
 
