@@ -582,7 +582,7 @@ var Button = React.createClass({
 });
 ```
 
-#### Solução {# solution-4}
+#### Solução {#solution-4}
 
 Coloque funções utilitárias em módulos JavaScript regulares e importe-as. Isso também facilita testá-los ou usá-los fora dos seus componentes:
 
