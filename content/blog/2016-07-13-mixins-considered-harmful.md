@@ -97,7 +97,7 @@ var Button = React.createClass({
 ```
 Se você usar um mix personalizado implementando uma função `shouldComponentUpdate` com algoritmo diferente, sugerimos exportar apenas essa função única de um módulo e chamá-la diretamente de seus componentes.
 
-Entendemos que mais digitação pode ser chato. Para o caso mais comuns, planejamos [introduzir uma nova classe base](https://github.com/facebook/react/pull/7195) chamada `React.PureComponent` na próxima versão menor. Ele usa a mesma comparação superficial que o `PureRenderMixin` faz hoje.
+Entendemos que mais digitação pode ser chato. Para o caso mais comum, planejamos [introduzir uma nova classe base](https://github.com/facebook/react/pull/7195) chamada `React.PureComponent` na próxima versão menor. Ele usa a mesma comparação superficial que o `PureRenderMixin` faz hoje.
 
 ## Assinaturas e efeitos colaterais {#assinaturas-e-efeitos-colaterais}
 
