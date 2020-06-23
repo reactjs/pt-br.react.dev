@@ -1,5 +1,5 @@
 ---
-title: "Considerando Mixins Nocivos"
+title: "Mixins Considerados Nocivos"
 author: [gaearon]
 ---
 
