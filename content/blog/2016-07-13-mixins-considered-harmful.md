@@ -510,7 +510,7 @@ module.exports = Link;
 
 #### Solução {# solution-3}
 
-Concordamos que ocultar o uso do contexto do consumo de componentes é uma boa idéia até que a API do contexto se estabilize. No entanto, recomendamos o uso de componentes de ordem superior em vez de mixins para isso.
+Concordamos que ocultar o uso do contexto do consumo de componentes é uma boa ideia até que a API do contexto se estabilize. No entanto, recomendamos o uso de componentes de ordem superior em vez de mixins para isso.
 
 Deixe o componente de empacotamento pegar algo do contexto e transmiti-lo com as props para o componente empacotado:
 
