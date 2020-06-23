@@ -3,7 +3,7 @@ title: "Mixins Considerados Nocivos"
 author: [gaearon]
 ---
 
-“Como eu compartilho o código entre diversos componentes?" é uma das primeiras perguntas que as pessoas fazem quando aprendem React. Nossa resposta sempre foi, usar composição de componentes para reutilizaçaão do código. Você pode definir um componente e usá-lo em diversos outros componentes.
+“Como eu compartilho o código entre diversos componentes?" é uma das primeiras perguntas que as pessoas fazem quando aprendem React. Nossa resposta sempre foi usar composição de componentes para reutilização do código. Você pode definir um componente e usá-lo em diversos outros componentes.
 
 Nem sempre é óbvio como um determinado padrão pode ser resolvido com a componetização. O React é influenciado pela programacão funcional, mas entrou em um campo que é dominado por bibliotecas orientadas à objetos. Foi difícil para os engenheiros, dentro e fora do Facebook, de abrir mão dos padrões que estavam acostumados.
 
