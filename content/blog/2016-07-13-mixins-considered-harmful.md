@@ -66,7 +66,7 @@ Esperamos que você ache esta lista útil. Informe-nos se não citamos algum cas
 
 ### Otimizações de desempenho {#performance-optimizations}
 
-Uma das mixins mais usadas é o [`PureRenderMixin`](/docs/pure-render-mixin.html). Você pode usá-lo em alguns componentes para [impedir repetições desnecessárias](/docs/advanced-performance.html#shouldcomponentupdate-in-action) quando os props e o estado são superficialmente iguais aos props e estado anteriores:
+Um dos mixins mais usados é o [`PureRenderMixin`](/docs/pure-render-mixin.html). Você pode usá-lo em alguns componentes para [impedir repetições desnecessárias](/docs/advanced-performance.html#shouldcomponentupdate-in-action) quando os props e o estado são superficialmente iguais aos props e estado anteriores:
 
 ```javascript
 var PureRenderMixin = require('react-addons-pure-render-mixin');
