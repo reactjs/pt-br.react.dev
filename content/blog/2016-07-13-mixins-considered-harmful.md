@@ -34,7 +34,7 @@ Muitas vezes, os mixins passam a depender de outros mixins, e a remoção de um 
 
 ### Mixins causam confronto de nomes {#mixins-causam-confronto-de-nomes}
 
-Não há garantia de que duas misturas específicas possam ser usadas juntas. Por exemplo, se `FluxListenerMixin` define `handleChange()` e `WindowSizeMixin` define `handleChange()`, voceê não pode usá-los juntos. Você também não pode definir um método com esse nome em seu próprio componente.
+Não há garantia de que duas misturas específicas possam ser usadas juntas. Por exemplo, se `FluxListenerMixin` define `handleChange()` e `WindowSizeMixin` define `handleChange()`, você não pode usá-los juntos. Você também não pode definir um método com esse nome em seu próprio componente.
 
 Não é um grande problema se você controlar o código do <em>mixin</em>. Quando você tem um conflito, você pode renomear esse método em um dos <em>mixins</em>. No entanto, é complicado porque alguns componentes ou outros <em>mixins</em> já podem estar chamando esse métodos diretamente, e você precisa encontrar e corrigir essas chamadas também.
 
