@@ -508,7 +508,7 @@ var Link = React.createClass({
 module.exports = Link;
 ```
 
-#### Solução {# solution-3}
+#### Solução {#solution-3}
 
 Concordamos que ocultar o uso do contexto do consumo de componentes é uma boa ideia até que a API do contexto se estabilize. No entanto, recomendamos o uso de componentes de ordem superior em vez de mixins para isso.
 
