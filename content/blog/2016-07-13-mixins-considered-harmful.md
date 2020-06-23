@@ -601,7 +601,7 @@ var Button = React.createClass({
 });
 ```
 
-### Outros casos de uso {#outros-casos-de-uso}
+### Outros casos de uso {#other-use-cases}
 
 Às vezes, as pessoas usam mixins para adicionar seletivamente o log aos métodos do ciclo de vida em alguns componentes. No futuro, pretendemos fornecer uma [API oficial do DevTools](https://github.com/facebook/react/issues/5306) que permita implementar algo semelhante sem tocar nos componentes. No entanto, ainda é um trabalho em andamento. Se você depende muito de registrar mixins para depuração, convém continuar usando esses mixins por mais algum tempo.
 
