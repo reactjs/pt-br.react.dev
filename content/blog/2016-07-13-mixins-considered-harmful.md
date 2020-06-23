@@ -553,7 +553,7 @@ module.exports = withRouter(Link);
 
 Se você estiver usando uma biblioteca de terceiros que fornece apenas um mixin, recomendamos que você arquive um problema vinculado a esta postagem para que eles possam fornecer um componente de ordem superior. Enquanto isso, você pode criar um componente de ordem superior exatamente da mesma maneira.
 
-### Métodos de utilidade {#metodos-de-utilidade}
+### Métodos de utilidade {#utility-methods}
 
 Às vezes, os mixins são usados apenas para compartilhar funções utilitárias entre componentes:
 
