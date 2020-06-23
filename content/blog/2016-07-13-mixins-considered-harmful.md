@@ -467,7 +467,7 @@ As props mantêm as dependências de componentes explícitas, fáceis de substit
 >
 > Definir componentes como funções não é necessário. Também não há nada de errado em usar métodos e estados do ciclo de vida - eles são os primeiros recursos do React quando usado em formato de classe. Usamos componentes de função neste exemplo porque são mais fáceis de ler e não precisávamos desses recursos extras, mas as classes funcionariam da mesma maneira.
 
-### Contexto {#contexto}
+### Contexto {#context}
 
 Outro grupo de mixins que descobrimos eram helpers por fornecer e consumir [React context](/docs/context.html). O contexto é um recurso instável experimental, possui [certos problemas](https://github.com/facebook/react/issues/2517) e provavelmente mudará sua API no futuro. Não recomendamos o uso, a menos que você tenha certeza de que não há outra maneira de resolver seu problema.
 
