@@ -99,7 +99,7 @@ Se você usar um mix personalizado implementando uma função `shouldComponentUp
 
 Entendemos que mais digitação pode ser chato. Para o caso mais comum, planejamos [introduzir uma nova classe base](https://github.com/facebook/react/pull/7195) chamada `React.PureComponent` na próxima versão menor. Ele usa a mesma comparação superficial que o `PureRenderMixin` faz hoje.
 
-## Assinaturas e efeitos colaterais {#assinaturas-e-efeitos-colaterais}
+## Assinaturas e efeitos colaterais {#subscriptions-and-side-effects}
 
 O segundo tipo mais comum de mixins que encontramos são os mixins que assinam um componente React em uma fonte de dados de terceiros. Se essa fonte de dados é um Flux Store, um Rx Observable ou qualquer outra coisa, o padrão é muito semelhante: a assinatura é criada em `componentDidMount`, destruída em` componentWillUnmount` e o manipulador de alterações chama `this.setState ()` .
 
