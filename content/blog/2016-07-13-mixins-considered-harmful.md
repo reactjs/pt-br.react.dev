@@ -22,7 +22,7 @@ No entando, é inevitável que parte do nosso código usando React se torne grad
 
 Isso não significa que os próprios mixins são ruins. As pessoas empregam com sucesso em diferentes linguagens e paradigmas, incluindo algumas linguagens funcionais. No Facebook, usamos extensivamente traços no Hack que são bastante semelhantes aos mixins. No entanto, pensamos que os mixins são desnecessários e problemáticos nas bases de código do React. E aqui está o porquê.
 
-### Mixins introduzem dependências implícitas {#mixins-introduzem-dependencias-implicitas}
+### Mixins introduzem dependências implícitas {#mixins-introduce-implicit-dependencies}
 
 Às vezes, um componente depende de um determinado método definido no mixin, como `getClassName()`. Às vezes é o contrário, e mixins chama um método como `renderHeader()` no componente. JavaScript é uma linguagem dinâmica, por isso é difícil impor ou documentar tais dependências.
 
