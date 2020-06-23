@@ -9,7 +9,7 @@ Nem sempre é óbvio como um determinado padrão pode ser resolvido com a compon
 
 Para facilitar a adoção e o aprendizado inicial, incluimos algumas válvulas de escape no React. O sistema mixin era uma dessas válvulas de escape, e seu objetivo era dar a você uma maneira de reutilizar o código entre os componentes, quando você não tem certeza de como resolver o mesmo problema com a composição.
 
-Três anos se passaram desde que o React foi lancado. O cenário mudou. Agora, várias bibliotecas de visualizões adotam um modelo de componente semelhante ao React. Usar composição sobre a herança para criar interfaces de usuário declarativas não é mais uma novidade. Também estamos mais confiantes no modelo do componente React, e vimos muitos usos criativos dele tanto internamente quanto na comunidade.
+Três anos se passaram desde que o React foi lançado. O cenário mudou. Agora, várias bibliotecas de visualizações adotam um modelo de componente semelhante ao React. Usar composição sobre a herança para criar interfaces de usuário declarativas não é mais uma novidade. Também estamos mais confiantes no modelo do componente React, e vimos muitos usos criativos dele tanto internamente quanto na comunidade.
 
 Neste post, vamos considerar os problemas comumentes causados por mixins. Em seguida, sugeriremos vários padrões alternativos para os mesmos casos de uso. Descobrimos que esses padrões escalam melhor com a complexidade da base de código do que os mixins.
 
