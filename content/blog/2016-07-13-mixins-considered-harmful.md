@@ -145,7 +145,7 @@ var CommentList = React.createClass({
 module.exports = CommentList;
 ```
 
-#### Solução {#solucao-1}
+#### Solução {#solution-1}
 
 Se houver apenas um componente inscrito nessa fonte de dados, não há problema em incorporar a lógica de assinatura diretamente no componente. Evite abstrações prematuras.
 
