@@ -341,7 +341,7 @@ module.exports = CommentListWithSubscription;
 
 #### Solution, Revisited {#solution-revisited}
 
-Agora que entendemos melhor os componentes de ordem superior, vamos dar uma olhada na solução completa que não envolve mixins. Existem algumas pequenas alterações anotadas com comentários nas entre linhas:
+Agora que entendemos melhor os componentes de ordem superior, vamos dar uma olhada na solução completa que não envolve mixins. Existem algumas pequenas alterações anotadas com comentários inseridos nas linhas:
 
 ```js
 function withSubscription(WrappedComponent) {
