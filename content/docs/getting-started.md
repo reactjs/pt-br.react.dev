@@ -18,7 +18,7 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-Esta página é um visão geral da documentação do React e dos recursos relacionados.
+Esta página é uma visão geral da documentação do React e dos recursos relacionados.
 
 **React** é uma biblioteca JavaScript para construção de interfaces de usuário. Saiba tudo sobre React em [nossa página inicial](/) ou [através do tutorial](/tutorial/tutorial.html).
 
