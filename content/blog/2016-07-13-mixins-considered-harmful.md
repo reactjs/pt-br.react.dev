@@ -13,7 +13,7 @@ Três anos se passaram desde que o React foi lançado. O cenário mudou. Agora, 
 
 Neste post, vamos considerar os problemas comumentes causados por mixins. Em seguida, sugeriremos vários padrões alternativos para os mesmos casos de uso. Descobrimos que esses padrões escalam melhor com a complexidade da base de código do que os mixins.
 
-## Por que Mixins estão quebrados?  {#why-mixins-are-broken}
+## Por que Mixins estão quebrados? {#why-mixins-are-broken}
 
 No Facebook, o uso do React cresceu de alguns componentes para milhares deles. Isso nos dá uma janela sobre como as pessoas usam o React. Graças à renderização declarativa e ao fluxo de dados de cima para baixo, muitas equipes conseguiram corrigir vários bugs ao enviar novos recursos à medida que o React era adotado.
 
