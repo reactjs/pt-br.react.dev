@@ -434,7 +434,7 @@ var UserRow = React.createClass({
 ```
 Vários componentes podem estar compartilhando `RowMixin` para renderizar o cabeçalho, e cada um deles precisaria definir `getHeaderText()`.
 
-#### Solução {# solução-2}
+#### Solução {#solution-2}
 
 Se você ver a lógica de renderização dentro de um mixin, é hora de extrair um componente!
 
