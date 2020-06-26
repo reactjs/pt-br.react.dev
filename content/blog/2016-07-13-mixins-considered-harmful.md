@@ -39,7 +39,7 @@ Não é um grande problema se você controlar o código do <em>mixin</em>. Quand
 
 Se você tiver um conflito de nome com um <em>mixin</em> de um pacote de terceiros, não será possível renomear um método dele. Em vez disso, você precisa usar nomes desconhecidos de métodos em seu componente para evitar conflitos.
 
-A situação não é melhor para os autores dos <em>mixins</em>. Até mesmo a adição de um novo método a um <em>mixin</em> é sempre uma alteração potencial, pois um método com o memso nome já pode existir em alguns dos componentes que o usam, diretamente ou por meio de outro <em>mixin</em>. Uma vez escritos, os <em>mixins</em> são difíceis de remover ou mudar. Idéias ruins não são refatoradas porque a refatoração é muito arriscada.
+A situação não é melhor para os autores dos <em>mixins</em>. Até mesmo a adição de um novo método a um <em>mixin</em> é sempre uma alteração potencial, pois um método com o mesmo nome já pode existir em alguns dos componentes que o usam, diretamente ou por meio de outro <em>mixin</em>. Uma vez escritos, os <em>mixins</em> são difíceis de remover ou mudar. Idéias ruins não são refatoradas porque a refatoração é muito arriscada.
 
 ### Mixins desencadeiam complexidade de bola de neve {#mixins-cause-snowballing-complexity}
 
