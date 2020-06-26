@@ -269,7 +269,7 @@ Há apenas um passo final a ser feito.
 
 Lembra como fizemos com `withLogging ()` pegar uma função e retornar outra função envolvendo-a? Podemos aplicar um padrão semelhante aos componentes React.
 
-Escreveremos uma nova função chamada `withSubscription (WrappedComponent)`. Seu argumento pode ser qualquer componente React. Passaremos `CommentList` como `WrappedComponent`, mas também poderíamos aplicar `withSubscription ()` a qualquer outro componente em nossa base de código.
+Escreveremos uma nova função chamada `withSubscription(WrappedComponent)`. Seu argumento pode ser qualquer componente React. Passaremos `CommentList` como `WrappedComponent`, mas também poderíamos aplicar `withSubscription()` a qualquer outro componente em nossa base de código.
 
 Esta função retornaria outro componente. O componente retornado gerenciaria a assinatura e renderizaria `<WrappedComponent />` com os dados atuais.
 
