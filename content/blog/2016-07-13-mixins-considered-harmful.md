@@ -147,7 +147,7 @@ module.exports = CommentList;
 
 Se houver apenas um componente inscrito nessa fonte de dados, não há problema em incorporar a lógica de assinatura diretamente no componente. Evite abstrações prematuras.
 
-Se vários componentes usaram esse mixin para assinar uma fonte de dados, uma boa maneira de evitar a repetição é usar um padrão chamado ["componentes de ordem superior"](https://medium.com/@dan_abramov/mixins-are-dead-long-live-high-order-components-94a0d2f9e750). Pode parecer intimidador, portanto, examinaremos mais de perto como esse padrão emerge naturalmente do modelo de componentes.
+Se vários componentes usaram esse mixin para assinar uma fonte de dados, uma boa maneira de evitar a repetição é usar um padrão chamado ["componentes de ordem superior"](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750). Pode parecer intimidador, portanto, examinaremos mais de perto como esse padrão emerge naturalmente do modelo de componentes.
 
 #### Explicação dos componentes de ordem superior {#higher-order-components-explained}
 
