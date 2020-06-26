@@ -276,7 +276,7 @@ Esta função retornaria outro componente. O componente retornado gerenciaria a 
 
 Chamamos esse padrão de "componente de ordem superior".
 
-A composição acontece no nível de renderização React, e não com uma chamada direta da função. É por isso que não importa se o componente agrupado está definido com `createClass ()`, como uma classe ou função ES6. Se `WrappedComponent` for um componente React, o componente criado por `withSubscription () `poderá renderizá-lo.
+A composição acontece no nível de renderização React, e não com uma chamada direta da função. É por isso que não importa se o componente agrupado está definido com `createClass()`, como uma classe ou função ES6. Se `WrappedComponent` for um componente React, o componente criado por `withSubscription()` poderá renderizá-lo.
 
 ```js
 // Esta função pega um componente ...
