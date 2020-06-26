@@ -57,7 +57,7 @@ Esses são os mesmos problemas que enfrentamos ao criar aplicativos antes do Rea
 
 ## Migrando de Mixins {#migrating-from-mixins}
 
-Vamos deixar claro que mixins não são tecnicamente obsoletos. Se você usar `React.createClass ()`, poderá continuar usando-os. Dizemos apenas que eles não funcionaram bem para nós e, portanto, não recomendamos usá-los no futuro.
+Vamos deixar claro que mixins não são tecnicamente obsoletos. Se você usar `React.createClass()`, poderá continuar usando-os. Dizemos apenas que eles não funcionaram bem para nós e, portanto, não recomendamos usá-los no futuro.
 
 Cada seção abaixo corresponde a um padrão de uso de mixin que encontramos na base de código do Facebook. Para cada um deles, descrevemos o problema e uma solução que achamos que funciona melhor que os mixins. Os exemplos estão escritos no ES5, mas quando você não precisar de mixins, poderá mudar para as aulas do ES6, se desejar.
 
