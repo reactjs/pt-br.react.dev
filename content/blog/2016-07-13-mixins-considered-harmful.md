@@ -99,7 +99,7 @@ Entendemos que mais digitação pode ser chato. Para o caso mais comum, planejam
 
 ### Assinaturas e efeitos colaterais {#subscriptions-and-side-effects}
 
-O segundo tipo mais comum de mixins que encontramos são os mixins que assinam um componente React em uma fonte de dados de terceiros. Se essa fonte de dados é um Flux Store, um Rx Observable ou qualquer outra coisa, o padrão é muito semelhante: a assinatura é criada em `componentDidMount`, destruída em` componentWillUnmount` e o manipulador de alterações chama `this.setState ()` .
+O segundo tipo mais comum de mixins que encontramos são os mixins que assinam um componente React em uma fonte de dados de terceiros. Se essa fonte de dados é um Flux Store, um Rx Observable ou qualquer outra coisa, o padrão é muito semelhante: a assinatura é criada em `componentDidMount`, destruída em `componentWillUnmount` e o manipulador de alterações chama `this.setState()`.
 
 ```javascript
 var SubscriptionMixin = {
