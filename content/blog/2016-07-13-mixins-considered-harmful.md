@@ -438,7 +438,7 @@ Vários componentes podem estar compartilhando `RowMixin` para renderizar o cabe
 
 Se você ver a lógica de renderização dentro de um mixin, é hora de extrair um componente!
 
-Em vez de `RowMixin`, definiremos um componente `<RowHeader>`. Também substituiremos a convenção de definir um método `getHeaderText ()` pelo mecanismo padrão do fluxo de dados principais no React: passando adereços.
+Em vez de `RowMixin`, definiremos um componente `<RowHeader>`. Também substituiremos a convenção de definir um método `getHeaderText()` pelo mecanismo padrão do fluxo de dados principais no React: passando adereços.
 
 Por fim, como atualmente nenhum desses componentes precisa de métodos ou estados do ciclo de vida, podemos declará-los como funções simples:
 
