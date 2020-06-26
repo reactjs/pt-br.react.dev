@@ -64,7 +64,6 @@ Cada seção abaixo corresponde a um padrão de uso de mixin que encontramos na 
 Esperamos que você ache esta lista útil. Informe-nos se não citamos algum caso de uso importante, para que possamos alterar a lista ou provar que estamos errados!
 
 ### Otimizações de desempenho {#performance-optimizations}
-
 Um dos mixins mais usados é o [`PureRenderMixin`](/docs/pure-render-mixin.html). Você pode usá-lo em alguns componentes para [impedir repetições desnecessárias](/docs/advanced-performance.html#shouldcomponentupdate-in-action) quando os props e o estado são superficialmente iguais aos props e estado anteriores:
 
 ```javascript
