@@ -173,7 +173,6 @@ Digamos que queremos extrair a lógica de log dessas funções sem alterar suas 
 
 Novamente, parece mais intimidador do que realmente é:
 
-
 ```js
 function withLogging(wrappedFunction) {
   // Retorna uma função com a mesma API...
