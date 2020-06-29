@@ -242,7 +242,7 @@ Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://githu
 
 ## Movimentos do mouse e ponteiro (cursor) {#mouse-and-pointer-events}
 
-Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou ponteiro também possam ser acessadas usando apenas o teclado. Se dependender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderão usar seu aplicativo.
+Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou ponteiro também possam ser acessadas usando apenas o teclado. Se depender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderão usar seu aplicativo.
 
 Para ilustrar isso, abaixo pode-se ver um exemplo clássico de quebra da acessibilidade causada por cliques. Esse é o padrão de clique externo, em que um usuário pode desativar um popover aberto clicando fora do elemento.
 
@@ -381,7 +381,7 @@ Estas são caixas de ferramentas preenchidas com atributos HTML que são totalme
 Cada tipo de widget tem um padrão de design específico e espera-se que funcione de certa forma por usuários e agentes do usuário:
 
 - [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Examples](https://heydonworks.com/practical_aria_examples/)
+- [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
 ## Outros pontos a serem consideração {#other-points-for-consideration}

@@ -178,8 +178,8 @@ const element = {
 
 Estes objetos são chamados "Elementos React". Você pode imaginá-los como descrições do que você quer ver na tela. O React lê esses objetos e os usa para construir o DOM e deixá-lo atualizado.
 
-Exploraremos a renderização de elementos React no DOM na próxima seção.
+Exploraremos a renderização de elementos React no DOM na [próxima seção](/docs/rendering-elements.html).
 
 >**Dica:**
 >
-> Recomendamos o uso da [definição de linguagem "Babel"](https://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados. Este website usa o esquema de cores [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), no qual é compatível com o Babel.
+> Recomendamos o uso da [definição de linguagem "Babel"](https://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados.

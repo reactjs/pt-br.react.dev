@@ -128,6 +128,8 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 Se seu *function component* renderiza o mesmo resultado dados os mesmos props, você pode envolver nele uma chamada para `React.memo` para um aumento no desempenho em alguns casos, através da memoização do resultado. Isto significa que o React vai pular a renderização do componente e reutilizar o último resultado renderizado.
 
+`React.memo` verifica apenas as alterações de prop. Se o seu componetne de função envolvido em `React.memo` tiver um [`useState`](/docs/hooks-state.html) ou [`useContext`](/docs/hooks-reference.html#usecontext) Hook em sua implementação, ele ainda será renderizado quando o estado ou o contexto mudar.
+
 Por padrão, ele irá comparar apenas superficialmente os objetos nos props. Se você quiser controle sob a comparação, você também pode prover uma função customizada de comparação como segundo argumento.
 
 ```javascript
@@ -226,7 +228,7 @@ Verifica se o objeto é um elemento React. Retorna `true` ou `false`.
 React.Children.map(children, function[(thisArg)])
 ```
 
-Invoca uma função em cada elemento filho imediato contido em `children` com `this` definido para `thisArg`. Se `children` for um *array*, a função sará chamada para cada filho no *array*. Se `children` for `null` ou `undefined`, este método retornará `null` ou `undefined` ao invés de um *array*.
+Invoca uma função em cada elemento filho imediato contido em `children` com `this` definido para `thisArg`. Se `children` for um *array*, a função será chamada para cada filho no *array*. Se `children` for `null` ou `undefined`, este método retornará `null` ou `undefined` ao invés de um *array*.
 
 > Nota
 >
@@ -334,7 +336,7 @@ Note que renderizar componentes `lazy` requer que exista um componente `<React.S
 
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` permite que você especifique o indicador de carregamento em caso de alguns componentes abaixo na árvore ainda não estarem prontos para renderizar. Atualmente, componentes de carregamento *lazy* são a **única** finalidade que o `<React.Suspense>` presta suporte:
+`React.Suspense` permite especificar o indicador de carregamento em caso de alguns componentes abaixo na árvore ainda não estarem prontos para renderizar. Atualmente, componentes de carregamento *lazy* são a **única** finalidade que o `<React.Suspense>` presta suporte:
 
 ```js
 // Este componente é carregado dinamicamente

@@ -8,7 +8,7 @@ permalink: community/courses.html
 
 ## Cursos Gratuitos {#free-courses}
 
-- [Glitch: React Starter Kit](https://glitch.com/culture/react-starter-kit/) - Um curso em vídeo gratuito de 5 partes com exemplos de código interativos que ajudarão você a aprender React.
+- [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit/) - Um curso em vídeo gratuito de 5 partes com exemplos de código interativos que ajudarão você a aprender React.
 
 - [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - Curso introdutório do Codecademy para React.
 
@@ -17,8 +17,6 @@ permalink: community/courses.html
 - [React Crash Course 2018](https://www.youtube.com/watch?v=Ke90Tje7VS0) - Um curso extensivo para iniciantes que aborda os tópicos  mais importantes do React.
 
 - [React Armory: Learn React by Itself](https://reactarmory.com/guides/learn-react-by-itself) - Com o React Armory, Você pode aprender apenas o React, sem coisas da moda.
-
-- [The Road to Learn React](https://www.robinwieruch.de/the-road-to-learn-react/) - Construa uma aplicação real com React simples sem ferramentas complicadas.
 
 - [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - Curso gratuito para novatos no React e para aqueles que procuram uma melhor compreensão sobre os fundamentos do React.
 
@@ -50,5 +48,6 @@ permalink: community/courses.html
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construa apps interativos e profissionais com o React.
 
-- [ReactJS Ninja](https://www.udemy.com/curso-reactjs-ninja/) - Considerado pela comunidade de desenvolvedores, o melhor curso em Português/BR de React.
+- [Road to React](https://www.roadtoreact.com/) - Sua jornada para dominar React em JavaScript.
 
+- [ReactJS Ninja](https://www.udemy.com/curso-reactjs-ninja/) - Considerado pela comunidade de desenvolvedores, o melhor curso em Português/BR de React.

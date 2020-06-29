@@ -29,7 +29,38 @@ const Header = ({location}: {location: Location}) => (
       width: '100%',
       top: 0,
       left: 0,
+      '@media print': {
+        display: 'none',
+      },
     }}>
+    <Container>
+      <div
+        css={{
+          height: 60,
+          fontSize: 20,
+          padding: 20,
+          textAlign: 'center',
+          [media.between('small', 'large')]: {
+            fontSize: 22,
+            height: 60,
+          },
+          [media.lessThan('small')]: {
+            height: 80,
+          },
+          [media.greaterThan('medium')]: {
+            fontSize: 25,
+          },
+        }}>
+        Black Lives Matter.{' '}
+        <a
+          style={{color: colors.brand}}
+          target="_blank"
+          rel="noopener"
+          href="https://support.eji.org/give/153413/#!/donation/checkout">
+          Support&nbsp;the&nbsp;Equal&nbsp;Justice&nbsp;Initiative.
+        </a>
+      </div>
+    </Container>
     <Container>
       <div
         css={{

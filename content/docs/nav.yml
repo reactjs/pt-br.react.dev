@@ -8,6 +8,8 @@
       title: Crie um novo React App
     - id: cdn-links
       title: CDN Links
+    - id: release-channels
+      title: Canais de lançamento
 - title: Principais Conceitos
   isOrdered: true
   items:
@@ -98,51 +100,62 @@
       title: SyntheticEvent
     - id: test-utils
       title: Utilitários de Teste
-    - id: shallow-renderer
-      title: Renderização superficial (Shallow Renderer)
     - id: test-renderer
       title: Test Renderer
     - id: javascript-environment-requirements
       title: Requisitos de Ambiente JavaScript
     - id: glossary
       title: Glossário
-- title: Hooks (Novo)
+- title: Hooks
   isOrdered: true
   items:
-      - id: hooks-intro
-        title: Introdução aos Hooks
-      - id: hooks-overview
-        title: Hooks de forma resumida
-      - id: hooks-state
-        title: Usando State Hook
-      - id: hooks-effect
-        title: Usando Effect Hook (Hook de Efeito)
-      - id: hooks-rules
-        title: Regras dos Hooks
-      - id: hooks-custom
-        title: Criando seus próprios Hooks
-      - id: hooks-reference
-        title: Referência da API dos Hooks
-      - id: hooks-faq
-        title: Hooks FAQ
+    - id: hooks-intro
+      title: Introdução aos Hooks
+    - id: hooks-overview
+      title: Hooks de Forma Resumida
+    - id: hooks-state
+      title: Usando State Hook
+    - id: hooks-effect
+      title: Usando Effect Hook
+    - id: hooks-rules
+      title: Regras dos Hooks
+    - id: hooks-custom
+      title: Criando Seus Próprios Hooks
+    - id: hooks-reference
+      title: Referência da API dos Hooks
+    - id: hooks-faq
+      title: Hooks FAQ
 - title: Testando
   items:
-    - id: testing 
+    - id: testing
       title: Visão Geral de Testes
     - id: testing-recipes
       title: Receitas de Teste
     - id: testing-environments
       title: Ambientes de Teste
+- title: Modo concorrente (Experimental)
+  isOrdered: true
+  items:
+    - id: concurrent-mode-intro
+      title: Introdução ao Modo Concorrente
+    - id: concurrent-mode-suspense
+      title: Suspense Para Busca de Dados
+    - id: concurrent-mode-patterns
+      title: Padrões de UI Concorrente
+    - id: concurrent-mode-adoption
+      title: Adotando o Modo Concorrente
+    - id: concurrent-mode-reference
+      title: Referência da API do Modo Concorrente
 - title: Contribuindo
   items:
-  - id: how-to-contribute
-    title: Como Contribuir
-  - id: codebase-overview
-    title: Visão Geral do Codebase
-  - id: implementation-notes
-    title: Notas de Implementação
-  - id: design-principles
-    title: Princípios de Design
+    - id: how-to-contribute
+      title: Como Contribuir
+    - id: codebase-overview
+      title: Visão Geral do Codebase
+    - id: implementation-notes
+      title: Notas de Implementação
+    - id: design-principles
+      title: Princípios de Design
 - title: FAQ
   items:
     - id: faq-ajax

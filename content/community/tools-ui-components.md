@@ -8,7 +8,9 @@ permalink: community/ui-components.html
 ## Free Components {#free-components}
 * **[Amaze UI React](https://github.com/amazeui/amazeui-react) (em Chinês):** [Amaze UI](https://github.com/allmobilize/amazeui) componentes feitos com React.
 * **[Ant Design of React](https://github.com/ant-design/ant-design)** Uma linguagem de UI design baseada em React.
+* **[Base Web](http://baseweb.design):** Uma base para iniciar, evoluir e unificar produtos da Web.
 * **[Belle](https://github.com/nikgraf/belle/):** Componentes Configuráveis do React ​​com ótimo UX.
+* **[Chakra UI](https://chakra-ui.com/)**: Biblioteca de componentes simples, modular e acessível.
 * **[chartify](https://github.com/kirillstepkin/chartify)**: Componente de gráfico React.js ultra leve e personalizável.
 * **[Elemental UI](http://elemental-ui.com):** Um kit de ferramentas de UI para sites e aplicativos React, personalizável e composto por componentes encapsulados individualmente
 * **[Grommet](https://grommet.io/)** A mais avançada estrutura de UX de código aberto para aplicativos corporativos.
@@ -59,8 +61,9 @@ permalink: community/ui-components.html
 * **[react-treeview](https://github.com/chenglou/react-treeview):** Visualização em árvore fácil, leve e flexível.
 * **[react-uwp](https://www.react-uwp.com)** Um conjunto de componentes React que implementam o design UWP e o design fluente da Microsoft.
 * **[react-validate-framework](https://github.com/MinJieLiu/react-validate-framework)**: Um componente de validação React leve e extensível.
-* **[recharts](https://github.com/recharts/recharts)**: Uma biblioteca de gráficos feitos em componentes React.
 * **[reactstrap](https://reactstrap.github.io/):** Simples componentes do  Bootstrap 4 feitos com [tether](http://tether.io/)
+* **[Reakit](https://reakit.io/):** Kit de ferramentas para criar aplicativos da Web avançados acessíveis com o React.
+* **[recharts](https://github.com/recharts/recharts)**: Uma biblioteca de gráficos feitos em componentes React.
 * **[Selectivity](https://arendjr.github.io/selectivity/):** Biblioteca de seleção modular e leve.
 * **[Semantic-ui](https://react.semantic-ui.com/)**: A integração oficial Semantic-UI-React, componentes avançados e interface de usuário declarativa.
 * **[storybook-addon-material-ui](https://github.com/sm-react/storybook-addon-material-ui)** Um complemento de storybook para material-ui.
@@ -68,6 +71,7 @@ permalink: community/ui-components.html
 * **[valuelink](https://github.com/Volicon/valuelink):** Ligação de dados bidirecional repleta de recursos e validação de formulários com links React estendidos.
 * **[video-react](https://github.com/video-react/video-react)**: Um player de vídeo da Web criado para o mundo HTML5 usando a biblioteca React.
 * **[Winterfell](https://github.com/andrewhathaway/Winterfell):** Gerar formulários complexos, validados e prorrogáveis ​​baseados em JSON no React.
+* **[wix-style-react](https://github.com/wix/wix-style-react):** Componentes UI comuns do React para todas as verticais Wix desenvolvido em React
 
 ## Fee Based Components {#fee-based-components}
 
@@ -78,3 +82,5 @@ permalink: community/ui-components.html
 * **[jQWidgets React components](https://www.jqwidgets.com/react/)**: Mais de 70 componentes prontos para uso.
 * **[KendoReact](https://www.telerik.com/kendo-react-ui/)**: UI para desenvolvedores React.
 * **[Mobiscroll React UI Components](https://mobiscroll.com/react)** Controles móveis de interface do usuário para o desenvolvedor reativo produtivo.
+* **[React UI Toolkit](https://react-ui-tools.com/)**: Mais de 115 componentes de interface do usuário com manutenção profissional, que variam de uma grade robusta a gráficos e muito mais. Experimente GRATUITAMENTE e construa React apps mais rapidamente.
+* **[Flatlogic React Admin Templates](https://flatlogic.com/templates/react)** Mais de 5 modelos de Admin em React pagos e gratuitos com muitos componentes para acelerar o desenvolvimento da web. Sem jQuery.

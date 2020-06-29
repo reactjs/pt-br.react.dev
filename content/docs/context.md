@@ -15,6 +15,7 @@ Em uma aplicação típica do React, os dados são passados de cima para baixo (
   - [Context.Provider](#contextprovider)
   - [Class.contextType](#classcontexttype)
   - [Context.Consumer](#contextconsumer)
+  - [Context.displayName](#contextdisplayname)
 - [Exemplos](#examples)
   - [Contexto Dinâmico](#dynamic-context)
   - [Atualizando o Contexto de um componente aninhado](#updating-context-from-a-nested-component)
@@ -129,9 +130,9 @@ Cada objeto Contexto (context) vem com um componente Provider que permite compon
 
 Aceita uma prop `value` que pode ser passada para ser consumida por componentes que são descendentes deste Provider. Um Provider pode ser conectado a vários consumidores. Providers podem ser aninhados para substituir valores mais ao fundo da árvore.
 
-Todos consumidores que são descendentes de um Provider serão renderizados novamente sempre que a prop `value` do Provider for alterada. A propagação do Provider aos seus descendentes, não está condicionada ao método `shouldComponenteUpdate`, logo, o consumidor é atualizado mesmo quando um componente antepassado omite sua atualização.
+Todos consumidores que são descendentes de um Provider serão renderizados novamente sempre que a prop `value` do Provider for alterada. A propagação do Provider aos seus descendentes (incluido [`.contextType`](#classcontexttype) e [`useContext`](/docs/hooks-reference.html#usecontext)), não está condicionada ao método `shouldComponenteUpdate`, logo, o consumidor é atualizado mesmo quando um componente antepassado ignora uma atualização.
 
-Mudanças são determinadas comparando os valores novos com os anteriores usando o mesmo algoritimo de [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description). 
+Mudanças são determinadas comparando os valores novos com os anteriores usando o mesmo algoritimo de [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).
 
 > Nota
 >
@@ -194,8 +195,22 @@ Um componente React que assina mudanças de contexto. Este permite você assinar
 Requer uma [*function as a child*](/docs/render-props.html#using-props-other-than-render). A função recebe o valor atual do contexto e retorna um nó React. O argumento `value` passado para a função será igual ao `value` da prop do Provider do contexto mais próximo acíma na árvore. Se não houver um Provider para este contexto acima, o argumento `value` será igual a `defaultValue` que foi passado ao criar o contexto com `createContext()`.
 
 > Nota
-> 
+>
 > Para mais informações sobre o padrão *"function as a child"* veja, [render props](/docs/render-props.html).
+
+### `Context.displayName` {#contextdisplayname}
+
+O objeto Context aceita uma propriedade string `displayName`. React DevTools usa essa string para determinar o que exibir para o contexto.
+
+Por exemplo, o seguinte componente aparecerá como MyDisplayName no DevTools:
+
+```js{2}
+const MyContext = React.createContext(/* some value */);
+MyContext.displayName = 'MyDisplayName';
+
+<MyContext.Provider> // "MyDisplayName.Provider" in DevTools
+<MyContext.Consumer> // "MyDisplayName.Consumer" in DevTools
+```
 
 ## Exemplos {#examples}
 

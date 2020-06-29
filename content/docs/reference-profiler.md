@@ -7,16 +7,16 @@ permalink: docs/profiler.html
 ---
 
 O componente `Profiler` mede a frequência de renderização de uma aplicação React e o "custo" dessa renderização.
-Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](https://reactjs.org/docs/hooks-faq.html#how-to-memoize-calculations)
+Seu objetivo  é ajudar a identificar partes de aplicação que são lentas e podem se beneficiar de [otimizações como a memorização](/docs/hooks-faq.html#how-to-memoize-calculations)
 
 > Nota:
 >
-> O uso do `Profiler` adiciona uma sobrecarga de processamento, sendo portanto **desabilitada no [_build_ de produção](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)**.
+> O uso do `Profiler` adiciona uma sobrecarga de processamento, sendo portanto **desabilitada no [_build_ de produção](/docs/optimizing-performance.html#use-the-production-build)**.
 > 
 > Ao optar pelo uso do `Profiler` em produção, o React provisiona um _build_ especial de produção com o `Profiler` habilitado.
 > Leia mais sobre como utilizar esse _build_ em [fb.me/react-profiling](https://fb.me/react-profiling)
 
-## Utilização
+## Utilização {#usage}
 
 O `Profiler` pode ser adicionado em qualquer lugar dentro da árvore de React para mensurar o custo de renderização dessa parte da árvore.
 Ele exige duas _props_: um `id` (formato _string_) e uma função de callback `onRender`, o qual o react executa no momento em que a árvore "envia" uma atualização.
@@ -70,7 +70,7 @@ render(
 >
 > Apesar do `Profiler` ser um componente leve, deve ser usado apenas quando necessário; cada uso traz uma carga adicional de CPU e memória para uma aplicação.
 
-## _Callback_ `onRender` 
+## _Callback_ `onRender` {#onrender-callback}
 
 O `Profiler` requer uma função `onRender` como _prop_.
 O React chama essa função em todo momento que o a árvore dentro dele "envia" uma atualização.
@@ -110,10 +110,10 @@ _Timestamp_ de quando o React começou a renderizar a atualização corrente.
 _Timestamp_ de quando o React enviou a atualização corrente.
 Esse valor é compartilhado entre todos os componentes `Profiler` em um envio, permitindo o agrupamento deles se desejável.
 * **`interactions: Set`** -
-_Set_ de ["interações"](http://fb.me/react-interaction-tracing) que estavam sendo rastreadas quando a atualização foi agendada (por exemplo, quando um `render` ou `setState` foi invocado).
+_Set_ de ["interações"](https://fb.me/react-interaction-tracing) que estavam sendo rastreadas quando a atualização foi agendada (por exemplo, quando um `render` ou `setState` foi invocado).
 
 > Nota
 >
 > Interações podem ser usadas para identificar a causa de uma atualização, apesar da API para rastreá-las ainda ser experimental.
 >
-> Aprenda mais sobre em [fb.me/react-interaction-tracing](http://fb.me/react-interaction-tracing)
+> Aprenda mais sobre em [fb.me/react-interaction-tracing](https://fb.me/react-interaction-tracing)

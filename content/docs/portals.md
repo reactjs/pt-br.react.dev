@@ -97,7 +97,7 @@ class Modal extends React.Component {
   render() {
     return ReactDOM.createPortal(
       this.props.children,
-      this.el,
+      this.el
     );
   }
 }
@@ -151,4 +151,4 @@ ReactDOM.render(<Parent />, appRoot);
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/jGBWpE)
 
-Capturar um evento propagado a partir de um portal em um componente pai permite o desenvolvimento de abstrações mais flexíveis que não dependem diretamente de portals. Por exemplo, se você renderizar um componente `<Modal />`, o componente pai pode captura seus eventos independentemente se são implementados usando portals.
+Capturar um evento propagado a partir de um portal em um componente pai permite o desenvolvimento de abstrações mais flexíveis que não dependem diretamente de portals. Por exemplo, se você renderizar um componente `<Modal />`, o componente pai pode capturar seus eventos independentemente se são implementados usando portals.

@@ -32,7 +32,7 @@ Essa nova função `useState` é o primeiro "Hook" que nós iremos aprender, mas
 >Nota
 >
 >React 16.8.0 é o primeiro release com suporte a Hooks. Ao atualizar, não se esqueça de atualizar todos os pacotes, incluindo React DOM. 
->React Native suporta Hooks desde [a versão 0.59 de React Native](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059).
+>React Native suporta Hooks desde [a versão 0.59 de React Native](https://reactnative.dev/blog/2019/03/12/releasing-react-native-059).
 
 ## Introdução em Vídeo {#video-introduction}
 
