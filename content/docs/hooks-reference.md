@@ -306,7 +306,7 @@ Há duas maneiras diferentes de inicializar o estado `useReducer`. Pode você es
 
 Você pode também criar um estado inicial mais lento. Para fazer isso, você pode passar uma função `init` como terceiro argumento. O estado inicial será setado para `init(initialArg)`.
 
-Isso nós permite extrair a lógica que calcula o estado inicial para fora do `reducer`. Isso é útil também para resetar um estado depois da resposta de uma ação:
+Isso nos permite extrair a lógica que calcula o estado inicial para fora do `reducer`. Isso é útil também para resetar um estado depois da resposta de uma ação:
 
 ```js{1-3,11-12,19,24}
 function init(initialCount) {
