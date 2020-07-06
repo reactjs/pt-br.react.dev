@@ -4,6 +4,8 @@ title: Canais de Release
 permalink: docs/release-channels.html
 layout: docs
 category: installation
+prev: cdn-links.html
+next: hello-world.html
 ---
 
 React conta com uma próspera comunidade de código aberto para registrar relatórios de bugs, abrir pull requests e [enviar RFCs](https://github.com/reactjs/rfcs). Para incentivar feedback, às vezes compartilhamos builds especiais do React que incluem recursos não lançados.
