@@ -603,11 +603,7 @@ var Button = React.createClass({
 
 Às vezes, as pessoas usam mixins para adicionar seletivamente o log aos métodos do ciclo de vida em alguns componentes. No futuro, pretendemos fornecer uma [API oficial do DevTools](https://github.com/facebook/react/issues/5306) que permita implementar algo semelhante sem tocar nos componentes. No entanto, ainda é um trabalho em andamento. Se você depende muito de registrar mixins para depuração, convém continuar usando esses mixins por mais algum tempo.
 
-<<<<<<< HEAD
 Se você não conseguir realizar algo com um componente, um componente de ordem superior ou um módulo utilitário, isso pode significar que o React deve fornecer isso imediatamente. [Arquive um problema](https://github.com/facebook/react/issues/new) para nos informar sobre seu caso de uso para mixins, e ajudaremos você a considerar alternativas ou talvez implementar sua solicitação de recurso.
-=======
-If you can’t accomplish something with a component, a higher-order component, or a utility module, it could mean that React should provide this out of the box. [File an issue](https://github.com/facebook/react/issues/new) to tell us about your use case for mixins, and we’ll help you consider alternatives or perhaps implement your feature request.
->>>>>>> dea363ed7d8ce06b7ecc1ccfe43c888217827a64
 
 Mixins não são descontinuados no sentido tradicional. Você pode continuar usando-os com `React.createClass()`, pois não mudaremos mais. Eventualmente, à medida que as classes ES6 ganham mais adoção e seus problemas de usabilidade no React são resolvidos, podemos dividir `React.createClass()` em um pacote separado, porque a maioria das pessoas não precisa disso. Mesmo nesse caso, seus antigos mixins continuariam funcionando.
 
