@@ -23,13 +23,8 @@ Ela também oferece suporte completo para React Hooks, incluindo a possibilidade
 * `16.x`: Suportada
 
 **`react-native`**
-<<<<<<< HEAD
-* `0`-`0.61`: Não suportada
-* `0.62`: Será suportada (quando a versão 0.62 for lançada)
-=======
-* `0`-`0.61.x`: Not supported
-* `0.62`: Supported
->>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
+* `0`-`0.61.x`: Não suportada
+* `0.62`: Suportada
 
 ## Como eu consigo o novo DevTools? {#how-do-i-get-the-new-devtools}
 
