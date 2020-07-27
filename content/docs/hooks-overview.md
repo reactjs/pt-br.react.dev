@@ -229,7 +229,11 @@ function FriendListItem(props) {
 }
 ```
 
+<<<<<<< HEAD
 O estado (state) destes componentes é completamente independente. Hooks são a forma de reutilizar *lógica de state*, não o state em si. De fato, cada *chamada* para um Hook tem um state completamente isolado -- então você pode até utilizar o mesmo Hook custom duas vezes em um componente.
+=======
+The state of each component is completely independent. Hooks are a way to reuse *stateful logic*, not state itself. In fact, each *call* to a Hook has a completely isolated state -- so you can even use the same custom Hook twice in one component.
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 Hooks customizados são mais uma convenção do que uma funcionalidade. Se o nome de uma função começa com "`use`" e chama outros Hooks, consideramos que é um Hook customizado. A convenção de nome `useSomething` é como nosso plugin de linter é capaz de encontrar bugs no nosso código que utiliza Hooks.
 

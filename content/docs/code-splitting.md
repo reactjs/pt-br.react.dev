@@ -45,7 +45,12 @@ console.log(add(16, 26)); // 42
 >
 > Seu pacote provavelmente será bem diferente que o mostrado acima.
 
+<<<<<<< HEAD
 Se você estiver usando o [Create React App](https://github.com/facebookincubator/create-react-app), [Next.js](https://github.com/zeit/next.js/), [Gatsby](https://www.gatsbyjs.org/) ou alguma outra ferramenta semelhante, você terá uma configuração do Webpack pronta para empacotar a sua aplicação.
+=======
+If you're using [Create React App](https://create-react-app.dev/), [Next.js](https://nextjs.org/), [Gatsby](https://www.gatsbyjs.org/), or a similar tool, you will have a Webpack setup out of the box to bundle your
+app.
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 Se não estiver usando, precisará configurar o empacotamento manualmente. Por exemplo, veja os guias de
 [Instalação](https://webpack.js.org/guides/installation/) e

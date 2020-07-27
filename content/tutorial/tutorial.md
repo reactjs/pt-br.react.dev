@@ -587,7 +587,11 @@ Detectar mudanças em objetos imutáveis é consideravelmente fácil. Se ele for
 
 #### Determinar Quando Re-renderizar no React {#determining-when-to-re-render-in-react}
 
+<<<<<<< HEAD
 O principal benefício da imutabilidade é que ela ajuda a construir _componentes puros_ em React. Dados imutáveis podem facilmente determinar se foram feitas mudanças que ajudarão a decidir quando um componente precisa ser re-renderizado.
+=======
+The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made, which helps to determine when a component requires re-rendering.
+>>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 Você pode aprender mais sobre `shouldComponentUpdate` e como construir *componentes puros* lendo o artigo [Otimizando Performance](/docs/optimizing-performance.html#examples).
 
