@@ -36,41 +36,11 @@ Por exemplo, um teste para [`setInnerHTML.js`](https://github.com/facebook/react
 
 ### Avisos e Invariantes {#warnings-and-invariants}
 
-<<<<<<< HEAD
-O código-base do React usa o módulo `warning` para exibir avisos:
-
-```js
-var warning = require('warning');
-
-warning(
-  2 + 2 === 4,
-  'O Math não está funcionando hoje.'
-);
-```
-
-**O aviso é mostrado quando a condição `warning` é `false`.**
-
-Uma maneira de pensar sobre isso é que a condição deve refletir a situação normal e não a excepcional.
-
-É uma boa ideia evitar spam no console com avisos duplicados:
-
-```js
-var warning = require('warning');
-
-var didWarnAboutMath = false;
-if (!didWarnAboutMath) {
-  warning(
-    2 + 2 === 4,
-  'O Math não está funcionando hoje.'
-  );
-  didWarnAboutMath = true;
-=======
-The React codebase uses `console.error` to display warnings:
+O código-base do React usa `console.error` para exibir avisos:
 
 ```js
 if (__DEV__) {
   console.error('Something is wrong.');
->>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 }
 ```
 
@@ -123,44 +93,7 @@ ReactRef.detachRefs = function(
 Quando possível, o novo código deve usar anotações do Flow.
 Você pode executar o `yarn flow` localmente para verificar seu código com o Flow.
 
-<<<<<<< HEAD
-### Injeção Dinâmica {#dynamic-injection}
-
-React usa injeção dinâmica em alguns módulos. Embora seja sempre explícito, ainda é lamentável porque dificulta a compreensão do código. A principal razão pela qual existe é porque o React originalmente só suportava o DOM como um destino. O React Native começou como um fork do React. Nós tivemos que adicionar a injeção dinâmica para deixar o React Native anular alguns comportamentos.
-
-Você pode ver módulos declarando suas dependências dinâmicas como este:
-
-```js
-// Injetado dinamicamente
-var textComponentClass = null;
-
-// Depende do valor injetado dinamicamente
-function createInstanceForText(text) {
-  return new textComponentClass(text);
-}
-
-var ReactHostComponent = {
-  createInstanceForText,
-
-  // Fornece uma oportunidade para injeção dinâmica
-  injection: {
-    injectTextComponentClass: function(componentClass) {
-      textComponentClass = componentClass;
-    },
-  },
-};
-
-module.exports = ReactHostComponent;
-```
-
-O campo `injection` não é tratado de maneira especial. Mas por convenção, isso significa que este módulo quer ter algumas dependências (presumivelmente específicas da plataforma) injetadas em tempo de execução.
-
-Existem vários pontos de injeção no código-base. No futuro, pretendemos nos livrar do mecanismo de injeção dinâmica e conectar todas as peças estaticamente durante a construção.
-
 ### Pacotes Múltiplos {#multiple-packages}
-=======
-### Multiple Packages {#multiple-packages}
->>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
 
 React é um [monorepo](https://danluu.com/monorepo/). Seu repositório contém vários pacotes separados para que suas alterações possam ser coordenadas em conjunto e os problemas residam em um só lugar.
 
@@ -224,13 +157,7 @@ Seu código-fonte está localizado em [`packages/react-reconciler`](https://gith
 
 ### Sistema de Eventos  {#event-system}
 
-<<<<<<< HEAD
-O React implementa um sistema de eventos sintéticos que é agnóstico dos renderizadores e funciona com React DOM e React Native. Seu código-fonte está localizado em [`packages/legacy-events`](https://github.com/facebook/react/tree/master/packages/legacy-events).
-
-Esse é um [vídeo com mais profundidade no código](https://www.youtube.com/watch?v=dRo_egw7tBc) (66 minutos).
-=======
-React implements a layer over native events to smooth out cross-browser differences. Its source code is located in [`packages/react-dom/src/events`](https://github.com/facebook/react/tree/master/packages/react-dom/src/events).
->>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
+O React implementa uma camada sobre eventos nativos para suavizar as diferenças entre navegadores. Seu código fonte está localizado em [`packages/react-dom/src/events`](https://github.com/facebook/react/tree/master/packages/react-dom/src/events).
 
 ### Qual o proximo passo? {#what-next}
 
