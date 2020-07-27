@@ -88,11 +88,7 @@ Você pode achar valioso executar testes de integração no Experimental. Isso �
 
 #### Como Posso Aprender Mais Sobre os Recursos Experimentais? {#how-can-i-learn-more-about-experimental-features}
 
-<<<<<<< HEAD
-Recursos Experimentais podem ou não ser documentados. Geralmente, os experimentos não são documentados até que estejam perto de serem lançados no Next ou no Stable.
-=======
-Experimental features may or may not be documented. Usually, experiments aren't documented until they are close to shipping in Next or Latest.
->>>>>>> 63332462bb5afa18ac7a716975b679f4c23cc8a1
+Recursos Experimentais podem ou não ser documentados. Geralmente, os experimentos não são documentados até que estejam perto de serem lançados no Next ou no Latest.
 
 Se um recurso não estiver documentado, ele poderá ser acompanhado por um [RFC](https://github.com/reactjs/rfcs).
 
