@@ -43,7 +43,7 @@ Note que todos os atributos HTML `aria-*` são totalmente suportados no JSX. Enq
 
 ## Linguagem HTML {#semantic-html}
 
-Linguagem é a base da acessibilidade em um aplicativo da web. Usando os corretamente elementos HTML para reforçar o significado da informação
+Linguagem é a base da acessibilidade em um aplicativo da web. Usando os elementos HTML corretamente para reforçar o significado da informação
 em nossos sites, muitas vezes a acessibilidade pode vir gratuitamente.
 
 - [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
