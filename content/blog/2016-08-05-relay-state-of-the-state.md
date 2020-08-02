@@ -16,7 +16,7 @@ Um ano após o lançamento, estamos incrivelmente empolgados ao ver uma comunida
 
 Esse tipo de feedback positivo é realmente encorajador (admito reler essa publicação muitas vezes), e uma grande motivação para continuarmos e tornarmos o Relay ainda melhor.
 
-Com a ajuda da comunidade, já percorremos um longo caminho desde a visualização técnica. Aqui estão alguns destaques:
+Com a ajuda da comunidade, já percorremos um longo caminho desde a pré-visualização técnica. Aqui estão alguns destaques:
 
 - Em março, adicionamos suporte à renderização no lado do servidor e à criação de várias instâncias do Relay em uma single page. Esse foi um esforço coordenado ao longo de vários meses pelos membros da comunidade [Denis Nedelyaev](https://github.com/denvned) e [Gerald Monaco](https://github.com/devknoll) (agora no Facebook).
 - Também em março, adicionamos suporte ao React Native. Enquanto usamos internamente o Relay e o React Native juntos, eles não funcionaram juntos em código aberto imediatamente. Devemos um grande obrigado a [Adam Miskiewicz](https://github.com/skevy), [Tom Burns](https://github.com/boourns), [Gaëtan Renaudeau](https://github.com/gre), [David Aurelio](https://github.com/davidaurelio), [Martín Bigio](https://github.com/martinbigio), [Paul O’Shannessy](https://github.com/zpao), [Sophie Alpert](https://github.com/sophiebits), e muitos outros que ajudaram a rastrear e resolver problemas. Finalmente, graças a [Steven Luscher](https://github.com/steveluscher) por coordenar esse esforço e criar o primeiro aplicativo de exemplo Relay/ReactNative.
