@@ -123,7 +123,7 @@ Declarar uma variável e usar uma declaração condicional `if` é uma ótima ma
 
 ### If inline com o Operador Lógico &&  {#inline-if-with-logical--operator}
 
-Você pode [incorporar qualquer expressão em JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) encapsulando em chaves. Isto inclui o operador lógico `&&` de JavaScript. Isto pode ser conveniente para incluir um elemento condicionalmente: 
+Você pode [incorporar expressão em JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) encapsulando em chaves. Isto inclui o operador lógico `&&` de JavaScript. Isto pode ser conveniente para incluir um elemento condicionalmente: 
 
 ```js{6-10}
 function Mailbox(props) {

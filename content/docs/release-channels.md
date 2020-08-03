@@ -4,6 +4,8 @@ title: Canais de Release
 permalink: docs/release-channels.html
 layout: docs
 category: installation
+prev: cdn-links.html
+next: hello-world.html
 ---
 
 React conta com uma próspera comunidade de código aberto para registrar relatórios de bugs, abrir pull requests e [enviar RFCs](https://github.com/reactjs/rfcs). Para incentivar feedback, às vezes compartilhamos builds especiais do React que incluem recursos não lançados.
@@ -86,7 +88,7 @@ Você pode achar valioso executar testes de integração no Experimental. Isso �
 
 #### Como Posso Aprender Mais Sobre os Recursos Experimentais? {#how-can-i-learn-more-about-experimental-features}
 
-Recursos Experimentais podem ou não ser documentados. Geralmente, os experimentos não são documentados até que estejam perto de serem lançados no Next ou no Stable.
+Recursos Experimentais podem ou não ser documentados. Geralmente, os experimentos não são documentados até que estejam perto de serem lançados no Next ou no Latest.
 
 Se um recurso não estiver documentado, ele poderá ser acompanhado por um [RFC](https://github.com/reactjs/rfcs).
 
