@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     // highlight-range{1-3,5}
     // Use um Provider para passar o tema atual para a árvore abaixo.
-    // Qualquer pode acessa-la, não importa quão profundo esteja.
+    // Qualquer componente pode acessa-la, não importa quão profundo esteja.
     // Neste exemplo, nós passamos "dark" como tema atual.
     return (
       <ThemeContext.Provider value="dark">
