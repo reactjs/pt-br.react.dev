@@ -14,11 +14,11 @@ const FeedbackForm = () => {
   const [feedbackGiven, setFeedbackGiven] = useState(false);
 
   if (feedbackGiven) {
-    return 'Thanks for letting us know!';
+    return 'Obrigado por nos informar!';
   } else {
     return (
       <span>
-        Is this page useful?
+        Esta página é útil?
         <button
           css={[sharedStyles.articleLayout.feedbackButton, {marginLeft: '6px'}]}
           aria-label="Yes"
