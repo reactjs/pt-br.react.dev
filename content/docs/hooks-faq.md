@@ -210,7 +210,7 @@ Existem mais algumas heurísticas e talvez elas mudem ao longo do tempo conforme
 
 * `constructor`: Funções não precisam de um constructor. Você pode inicializar o estado com o [`useState`](/docs/hooks-reference.html#usestate). Se calcular o estado for custoso, você pode passar uma função para o `useState`.
 
-* `getDerivedStateFromProps`: Não é necessário, agende um update [enquanto estiver rendizando](#how-do-i-implement-getderivedstatefromprops).
+* `getDerivedStateFromProps`: Não é necessário, agende um update [enquanto estiver renderizando](#how-do-i-implement-getderivedstatefromprops).
 
 * `shouldComponentUpdate`: Veja `React.memo` [abaixo](#how-do-i-implement-shouldcomponentupdate).
 
