@@ -99,27 +99,26 @@ O Rollup atualmente não suporta alguns recursos que são importantes para build
 
 Você pode encontrar nossa configuração de build do Rollup [aqui](https://github.com/facebook/react/blob/8ec146c38ee4f4c84b6ecf59f52de3371224e8bd/scripts/rollup/build.js#L336-L362), com uma [lista de plugins que utilizamos atualmente](https://github.com/facebook/react/blob/8ec146c38ee4f4c84b6ecf59f52de3371224e8bd/scripts/rollup/build.js#L196-L273).
 
-### Migrando para o compilador Google Closure {#migrating-to-google-closure-compiler}
+### Migrando para o compilador do Google Closure {#migrating-to-google-closure-compiler}
 
-Depois de migrar para pacotes planos, nós [começamos](https://github.com/facebook/react/pull/10236) a usar [a versão do JavaScript do compilador Google Closure](https://github.com/google/closure-compiler-js) nesse modo "simples". Em nossa experiência, mesmo com as otimizações avançadas desativadas, ainda fornecia uma vantagem significativa sobre o Uglify, pois foi capaz de eliminar melhor códigos mortos e automaticamente pequenas funções embutidas quando apropriado.
+Depois de migrar para pacotes planos, nós [começamos](https://github.com/facebook/react/pull/10236) a usar [a versão JavaScript do compilador Google Closure](https://github.com/google/closure-compiler-js) nesse modo "simples". Em nossa experiência, mesmo com as otimizações avançadas desativadas, ainda fornecia uma vantagem significativa sobre o Uglify, pois foi capaz de eliminar melhor códigos mortos e automaticamente pequenas funções embutidas quando apropriado.
 
-At first, we could only use Google Closure Compiler for the React bundles we shipped in the open source. At Facebook, we still needed the checked-in bundles to be unminified so we could symbolicate React production crashes with our error reporting tools. We ended up contributing [a flag](https://github.com/google/closure-compiler/pull/2707) that completely disables the renaming compiler pass. This lets us apply other optimizations like function inlining, but keep the code fully readable for the Facebook-specific builds of React. To improve the output readability, we [also format that custom build using Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L249-L250). Interestingly, running Prettier on production bundles while debugging the build process is a great way to find unnecessary code in the bundles!
+No início, nós poderíamos apenas utilizar o compilador do Google Closure para os pacotes React que nós enviamos em código aberto. No Facebook, nós ainda precisávamos que os pacotes de check-in não fossem minificados para que pudéssemos simbolizar quebras do React em produção com nossas ferramentas de relatórios de erros. Nós acabamos contribuindo [uma flag](https://github.com/google/closure-compiler/pull/2707) que desabilita completamente o passo de renomeação do compilador. Isso nos permite aplicar outras otimizações como funções embutidas, mas mantém o código totalmente legível para as compilações Facebook-specific do React. Para melhorar a legibilidade do output, nós [também formatamos esse build customizado usando Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L249-L250). Curiosamente, executar o Prettier nos pacotes de produção enquanto depura o processo de compilação é uma ótima maneira de encontrar código desnecessário nos pacotes!
 
-Currently, all production React bundles [run through Google Closure Compiler in simple mode](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L235-L248), and we may look into enabling advanced optimizations in the future.
+Atualmente, todos os pacotes de produção do React [rodam através do compilador do Google Closure em um modo simples](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L235-L248), e nós podemos considerar a habilitação de otimizações avançadas no futuro.
 
-### Protecting Against Weak Dead Code Elimination {#protecting-against-weak-dead-code-elimination}
+### Proteção Contra a Eliminação de Códigos Mortos Fracos {#protecting-against-weak-dead-code-elimination}
 
-While we use an efficient [dead code elimination](https://en.wikipedia.org/wiki/Dead_code_elimination) solution in React itself, we can't make a lot of assumptions about the tools used by the React consumers.
+Enquanto nós utilizamos uma solução eficiente de [eliminação de códigos mortos](https://en.wikipedia.org/wiki/Dead_code_elimination) no React em si, não podemos fazer muitas suposições sobre as ferramentas utilizadas pelos consumidores do React.
 
-Typically, when you [configure a bundler for production](/docs/optimizing-performance.html#use-the-production-build), you need to tell it to substitute `process.env.NODE_ENV` with the `"production"` string literal. This process is sometimes called "envification". Consider this code:
+Tipicamente, quando você [configura um pacote para produção](/docs/optimizing-performance.html#use-the-production-build) , você precisa informá-lo para substituir `process.env.NODE_ENV` com a string literal de `"production"`. Esse processo às vezes é chamado de "envification". Considere esse código:
 
 ```js
 if (process.env.NODE_ENV !== "production") {
   // development-only code
 }
 ```
-
-After envification, this condition will always be `false`, and can be completely eliminated by most minifiers:
+Depois do processo de envification, essa condição sempre será `false`, e pode ser completamente eliminado pela maioria dos minificadores:
 
 ```js
 if ("production" !== "production") {
@@ -127,11 +126,11 @@ if ("production" !== "production") {
 }
 ```
 
-However, if the bundler is misconfigured, you can accidentally ship development code into production. We can't completely prevent this, but we took a few steps to mitigate the common cases when it happens.
+Entretanto, se o pacote estiver configurado incorretamente, você pode acidentalmente enviar código de desenvolvimento para produção. Nós não podemos prevenir isso completamente, mas nós tomamos algumas medidas para mitigar os casos comuns quando isso acontece.
 
-#### Protecting Against Late Envification {#protecting-against-late-envification}
+#### Protegendo Contra a Envificação Tardia {#protecting-against-late-envification}
 
-As mentioned above, our entry points now look like this:
+Como mencionado acima, nossos pontos de entrada agora se parecem com isso:
 
 ```js
 'use strict';
@@ -143,9 +142,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 ```
 
-However, some bundlers process `require`s before envification. In this case, even if the `else` block never executes, the `cjs/react.development.js` file still gets bundled.
+Entretanto, alguns processos de empacotadores `requerem` antes uma envificação. Nesse caso, mesmo se o bloco `else` nunca executa, o arquivo `cjs/react.development.js` ainda é empacotado.
 
-To prevent this, we also [wrap the whole content](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/rollup/wrappers.js#L65-L69) of the development bundle into another `process.env.NODE_ENV` check inside the `cjs/react.development.js` bundle itself:
+Para prevenir isso, nós também [embrulhamos todo o conteúdo](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/rollup/wrappers.js#L65-L69) do pacote de desenvolvimento em outra verificação `process.env.NODE_ENV` dentro de `cjs/react.development.js` no pacote em si:
 
 ```js
 'use strict';
@@ -157,25 +156,25 @@ if (process.env.NODE_ENV !== "production") {
 }
 ```
 
-This way, even if the application bundle includes both the development and the production versions of the file, the development version will be empty after envification.
+Dessa forma, mesmo que o pacote da aplicação inclua ambas as versões de desenvolvimento e de produção do arquivo, a versão do desenvolvimento estará vazia após a envificação.
 
-The additional [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) wrapper is necessary because some declarations (e.g. functions) can't be placed inside an `if` statement in JavaScript.
+O wrapper adicional [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) é necessário porque algumas declarações (e.g. funções) não podem ser colocadas dentro de uma declaração `if` em JavaScript.
 
-#### Detecting Misconfigured Dead Code Elimination {#detecting-misconfigured-dead-code-elimination}
+#### Detectando Eliminação de Código Morto Desconfigurada {#detecting-misconfigured-dead-code-elimination}
 
-Even though [the situation is changing](https://twitter.com/iamakulov/status/941336777188696066), many popular bundlers don't yet force the users to specify the development or production mode. In this case `process.env.NODE_ENV` is typically provided by a runtime polyfill, but the dead code elimination doesn't work.
+Apesar de [a situação esteja mudando](https://twitter.com/iamakulov/status/941336777188696066), muitos empacotadores populares ainda não forçam os usuários a especificar o modo de desenvolvimento ou modo de produção. Nesse caso `process.env.NODE_ENV` é tipicamente fornecido por um polyfill de tempo de execução, mas a eliminação do código morto não funciona.
 
-We can't completely prevent React users from misconfiguring their bundlers, but we introduced a few additional checks for this in [React DevTools](https://github.com/facebook/react-devtools).
+Não podemos prevenir completamente os usuários do React a configurarem incorretamente seus empacotadores, mas introduzimos algumas verificações adicionais para isso no [React DevTools](https://github.com/facebook/react-devtools). 
 
-If the development bundle executes, [React DOM reports this to React DevTools](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/packages/react-dom/src/client/ReactDOM.js#L1333-L1335):
+Se o pacote de desenvolvimento for executado, [React DOM reporta isso para o React DevTools](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/packages/react-dom/src/client/ReactDOM.js#L1333-L1335):
 
 <br>
 
 <img src="../images/docs/devtools-dev.png" style="max-width:100%" alt="React DevTools on a website with development version of React">
 
-There is also one more bad scenario. Sometimes, `process.env.NODE_ENV` is set to `"production"` at runtime rather than at the build time. This is how it should work in Node.js, but it is bad for the client-side builds because the unnecessary development code is bundled even though it never executes. This is harder to detect but we found a heuristic that works well in most cases and doesn't seem to produce false positives.
+Há também mais um cenário ruim. Algumas vezes, `process.env.NODE_ENV` é setado para `"production"` em tempo de execução em vez de no tempo de build. É assim que deve funcionar no Node.js, mas isso é ruim para os builds do lado do client porque o código de desenvolvimento desnecessário é empacotado apesar de nunca ser executado. Isso é mais difícil de detectar mas encontramos uma heurística que funciona bem na maioria dos casos e não parece produzir falsos positivos.
 
-We can write a function that contains a [development-only branch](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/packages/react-dom/npm/index.js#L11-L20) with an arbitrary string literal. Then, if `process.env.NODE_ENV` is set to `"production"`, we can [call `toString()` on that function](https://github.com/facebook/react-devtools/blob/b370497ba6e873c63479408f11d784095523a630/backend/installGlobalHook.js#L143) and verify that the string literal in the development-only has been stripped out. If it is still there, the dead code elimination didn't work, and we need to warn the developer. Since developers might not notice the React DevTools warnings on a production website, we also [throw an error inside `setTimeout`](https://github.com/facebook/react-devtools/blob/b370497ba6e873c63479408f11d784095523a630/backend/installGlobalHook.js#L153-L160) from React DevTools in the hope that it will be picked up by the error analytics.
+Podemos escrever uma função que contenha uma [branch apenas de desenvolvimento](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/packages/react-dom/npm/index.js#L11-L20) com uma string literal arbitrária. Então, se `process.env.NODE_ENV` é setado para `"production"`, podemos [chamar `toString()` nessa função](https://github.com/facebook/react-devtools/blob/b370497ba6e873c63479408f11d784095523a630/backend/installGlobalHook.js#L143) e verificar que a string literal na branch de apenas desenvolvimento foi retirada. Se ainda estiver lá, a eliminação do código morto não funcionou, e precisamos avisar o desenvolvedor. Desde que os desenvolvedores podem não notar os avisos do React DevTools em um website de produção, nós também [lançamos um erro dentro de `setTimeout`](https://github.com/facebook/react-devtools/blob/b370497ba6e873c63479408f11d784095523a630/backend/installGlobalHook.js#L153-L160) do React DevTools na esperança de que seja captado pela análise de erros.
 
 We recognize this approach is somewhat fragile. The `toString()` method is not reliable and may change its behavior in future browser versions. This is why we put that logic into React DevTools itself rather than into React. This allows us to remove it later if it becomes problematic. We also warn only if we *found* the special string literal rather than if we *didn't* find it. This way, if the `toString()` output becomes opaque, or is overridden, the warning just won't fire.
 
