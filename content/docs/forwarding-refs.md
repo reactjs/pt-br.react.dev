@@ -40,7 +40,7 @@ Aqui está uma explicação passo-a-passo sobre o que acontece no exemplo acima:
 
 **Quando você começar a usar `fowardRef` em uma biblioteca de componentes, você deve tratar isso como uma mudança abrupta e lançar uma nova versão maior.** Isso porque sua biblioteca provavelmente terá um comportamento observável diferente (como para onde as refs são atribuídas, ou quais tipos são exportados) e isso pode ocasionar quebras em aplicações ou em outras bibliotecas que dependem do comportamento antigo.
 
-Aplicar `React.fowardRef` condicionalmente quando ele existe também não é recomendado pelas mesmas razões: isso muda commo sua biblioteca se comporta e potencialmente pode quebrar as aplicações para seus usuários quando eles derem upgrade no próprio React.
+Aplicar `React.fowardRef` condicionalmente quando ele existe também não é recomendado pelas mesmas razões: isso muda como sua biblioteca se comporta e potencialmente pode quebrar as aplicações para seus usuários quando eles derem upgrade no próprio React.
 
 ## Encaminhamento de refs em componentes de ordem superior {#forwarding-refs-in-higher-order-components}
 
