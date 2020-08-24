@@ -42,7 +42,11 @@ Classes CSS geralmente possuem melhor performance que estilos inline.
 
 ### O que é CSS-in-JS? {#what-is-css-in-js}
 
+<<<<<<< HEAD
 "CSS-in-JS" se refere a um padrão onde o CSS é definido utilizando JavaScript no lugar de arquivos externos. Leia a comparação das bibliotecas de CSS-in-JS [aqui](https://github.com/MicheleBertoli/css-in-js).
+=======
+"CSS-in-JS" refers to a pattern where CSS is composed using JavaScript instead of defined in external files.
+>>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 _Note que esta funcionalidade não faz parte do React, mas é fornecida por bibliotecas de terceiros._ React não possui uma opinião sobre como os estilos são definidos; se estiver em dúvida, um bom ponto de partida é definir seus estilos em um arquivo `.css` separado e referenciá-los usando [`className`](/docs/dom-elements.html#classname).
 

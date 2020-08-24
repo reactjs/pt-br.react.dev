@@ -8,7 +8,11 @@ permalink: community/courses.html
 
 ## Cursos Gratuitos {#free-courses}
 
+<<<<<<< HEAD
 - [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit/) - Um curso em vídeo gratuito de 5 partes com exemplos de código interativos que ajudarão você a aprender React.
+=======
+- [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit) - A free, 5-part video course with interactive code examples that will help you learn React.
+>>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
 
 - [Codecademy: React 101](https://www.codecademy.com/learn/react-101) - Curso introdutório do Codecademy para React.
 
@@ -48,6 +52,12 @@ permalink: community/courses.html
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construa apps interativos e profissionais com o React.
 
+<<<<<<< HEAD
 - [Road to React](https://www.roadtoreact.com/) - Sua jornada para dominar React em JavaScript.
 
 - [ReactJS Ninja](https://www.udemy.com/curso-reactjs-ninja/) - Considerado pela comunidade de desenvolvedores, o melhor curso em Português/BR de React.
+=======
+- [React Tutorial](https://react-tutorial.app) - Learn React step by step in an interactive environment with flashcards.
+
+- [Road to React](https://www.roadtoreact.com/) - Your journey to master React in JavaScript.
+>>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
