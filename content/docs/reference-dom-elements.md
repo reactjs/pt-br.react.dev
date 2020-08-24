@@ -56,12 +56,8 @@ O evento `onChange` se comporta como você esperaria que ele se comportasse: sem
 
 ### selected {#selected}
 
-<<<<<<< HEAD
-O atributo `selected` é suportado pelos componentes `<option>`. Você pode usá-lo para definir se um componente está selecionado. Isso é útil para construir componentes controlados (_controlled components_).
-=======
-If you want to mark an `<option>` as selected, reference the value of that option in the `value` of its `<select>` instead.
-Check out ["The select Tag"](/docs/forms.html#the-select-tag) for detailed instructions.
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
+Se você quiser marcar uma `<option>` como selecionada, faça referência ao valor dessa opção no `value` de sua `<select>`.
+Confira ["A tag de seleção"](/docs/forms.html#the-select-tag) para obter instruções detalhadas.
 
 ### style {#style}
 
@@ -126,11 +122,7 @@ Se você definir `suppressHydrationWarning` para `true`, o React não lhe avisar
 
 ### value {#value}
 
-<<<<<<< HEAD
-O atributo `value` é suportado pelos componentes `<input>` e `<textarea>`. Você pode usá-lo para definir o valor do componente. Isso é útil para construção de componentes controlados (_controlled components_). `defaultValue` é o equivalente para componentes não controlados (_uncontrolled components_), que define o valor do componente quando este é montado pela primeira vez.
-=======
-The `value` attribute is supported by `<input>`, `<select>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
->>>>>>> d16f1ee7958b5f80ef790265ba1b8711d4f228d6
+O atributo `value` é suportado pelos componentes `<input>`, `<select>` e `<textarea>`. Você pode usá-lo para definir o valor do componente. Isso é útil para construção de componentes controlados (_controlled components_). `defaultValue` é o equivalente para componentes não controlados (_uncontrolled components_), que define o valor do componente quando este é montado pela primeira vez.
 
 ## Todos os atributos HTML suportados {#all-supported-html-attributes}
 
