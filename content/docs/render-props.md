@@ -2,6 +2,8 @@
 id: render-props
 title: Render Props
 permalink: docs/render-props.html
+prev: higher-order-components.html
+next: integrating-with-other-libraries.html
 ---
 
 O termo _["render prop"](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce)_ se refere a uma técnica de compartilhar código entre componentes React passando uma prop cujo valor é uma função.

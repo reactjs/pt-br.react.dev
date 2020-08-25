@@ -2,6 +2,8 @@
 id: portals
 title: Portals
 permalink: docs/portals.html
+prev: fragments.html
+next: error-boundaries.html
 ---
 
 Portals fornece uma forma elegante de renderizar um elemento filho dentro de um nó DOM que existe fora da hierarquia do componente pai.
