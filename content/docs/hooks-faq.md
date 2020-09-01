@@ -579,11 +579,7 @@ Dependendo do seu caso de uso, existem mais algumas opções descritas abaixo.
 
 Vamos ver porque isso é importante.
 
-<<<<<<< HEAD
-Se você especificar uma [lista de dependências](/docs/hooks-reference.html#conditionally-firing-an-effect) como o último argumento para `useEffect`, `useMemo`, `useCallback`, ou `useImperativeHandle`, ele deve incluir todos os valores usados dentro do callback e participar do fluxo de dados React. Isso inclui props, state e qualquer coisa derivada deles.
-=======
-If you specify a [list of dependencies](/docs/hooks-reference.html#conditionally-firing-an-effect) as the last argument to `useEffect`, `useLayoutEffect`, `useMemo`, `useCallback`, or `useImperativeHandle`, it must include all values that are used inside the callback and participate in the React data flow. That includes props, state, and anything derived from them.
->>>>>>> 25cc703d1f23f1782ff96c5c7882a806f8741ec4
+Se você especificar uma [lista de dependências](/docs/hooks-reference.html#conditionally-firing-an-effect) como o último argumento para `useEffect`, `useLayoutEffect`, `useMemo`, `useCallback`, ou `useImperativeHandle`, ele deve incluir todos os valores usados dentro do callback e participar do fluxo de dados React. Isso inclui props, state e qualquer coisa derivada deles.
 
 É **somente** seguro omitir uma função da lista de dependências se nada nela (ou as funções chamadas por ela) referenciar props, state ou valores derivados deles. Este exemplo tem um erro:
 
