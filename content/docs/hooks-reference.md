@@ -337,7 +337,7 @@ function Counter({initialCount}) {
         Reset
       </button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-       patch({type: 'increment'})}>+</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
   );
 }
