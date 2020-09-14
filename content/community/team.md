@@ -74,7 +74,13 @@ Sebastian é graduado em psicologia. Ele é geralmente quieto. Mesmo quando ele 
 
 ![Seth](../images/team/sethwebster.jpg)
 
+<<<<<<< HEAD
 Seth começou a programar quando criança em Tucson, AZ. Depois da escola, ele foi mordido pelo bug da música e foi músico em turnê por cerca de 10 anos antes de retornar ao *trabalho*, começando com a Intuit. Em seu tempo livre, ele adora [tirar fotos](https://www.sethwebster.com) e voar para resgatar animais no nordeste dos Estados Unidos.
+=======
+[@sethwebster on GitHub](https://github.com/sethwebster) &middot; [@sethwebster on Twitter](https://twitter.com/sethwebster)
+
+Seth started programming as a kid growing up in Tucson, AZ. After school, he was bitten by the music bug and was a touring musician for about 10 years before returning to *work*, starting with Intuit. In his spare time, he loves [taking pictures](https://www.sethwebster.com) and flying for animal rescues in the northeastern United States.
+>>>>>>> 954a16f1d358009505ae881afaefe463dc6388a5
 
 ## Reconhecimentos {#acknowledgements}
 

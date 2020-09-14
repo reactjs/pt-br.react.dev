@@ -277,7 +277,11 @@ Atualmente, se `shouldComponentUpdate()` retornar `false`, então [`UNSAFE_compo
 static getDerivedStateFromProps(props, state)
 ```
 
+<<<<<<< HEAD
 `getDerivedStateFromProps` é invocado imediatamente antes de chamar o método render, ambos na montagem inicial e nas atualizações subsequente. Devem retornar um objeto para atualizar o state, ou null para não atualizar nada.
+=======
+`getDerivedStateFromProps` is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or `null` to update nothing.
+>>>>>>> 954a16f1d358009505ae881afaefe463dc6388a5
 
 Este método existe para [casos de uso raros](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) onde o state depende de mudanças nas props ao longo do tempo. Por exemplo, pode ser útil para implementar um componente `<Transition>` que compara seus filhos anteriores e próximos para decidir quais deles devem ser animados.
 
@@ -589,7 +593,11 @@ Normalmente, você deveria tentar evitar o uso de `forceUpdate()` e somente ler 
 
 ### `defaultProps` {#defaultprops}
 
+<<<<<<< HEAD
 `defaultProps` pode ser definido como uma propriedade do *component class*, para definir as *props* padrão para a classe. Isto é aplicado a *props* cujo valor é `undefined`, mas não para `null`. Por exemplo:
+=======
+`defaultProps` can be defined as a property on the component class itself, to set the default props for the class. This is used for `undefined` props, but not for `null` props. For example:
+>>>>>>> 954a16f1d358009505ae881afaefe463dc6388a5
 
 ```js
 class CustomButton extends React.Component {
@@ -609,7 +617,11 @@ Se `props.color` não for informado, o seu valor será definido como `'blue'`:
   }
 ```
 
+<<<<<<< HEAD
 Se `props.color` for igual a `null`, continuará como `null`:
+=======
+If `props.color` is set to `null`, it will remain `null`:
+>>>>>>> 954a16f1d358009505ae881afaefe463dc6388a5
 
 ```js
   render() {
