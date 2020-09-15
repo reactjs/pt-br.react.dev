@@ -74,6 +74,8 @@ Sebastian é graduado em psicologia. Ele é geralmente quieto. Mesmo quando ele 
 
 ![Seth](../images/team/sethwebster.jpg)
 
+[@sethwebster no GitHub](https://github.com/sethwebster) &middot; [@sethwebster no Twitter](https://twitter.com/sethwebster)
+
 Seth começou a programar quando criança em Tucson, AZ. Depois da escola, ele foi mordido pelo bug da música e foi músico em turnê por cerca de 10 anos antes de retornar ao *trabalho*, começando com a Intuit. Em seu tempo livre, ele adora [tirar fotos](https://www.sethwebster.com) e voar para resgatar animais no nordeste dos Estados Unidos.
 
 ## Reconhecimentos {#acknowledgements}
