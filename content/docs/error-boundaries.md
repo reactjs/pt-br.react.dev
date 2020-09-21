@@ -2,8 +2,6 @@
 id: error-boundaries
 title: Error Boundaries
 permalink: docs/error-boundaries.html
-prev: portals.html
-next: web-components.html
 ---
 
 No passado, erros de JavaScript dentro de componentes costumavam corromper o estado interno do React e fazê-lo [emitir](https://github.com/facebook/react/issues/4026) [erros](https://github.com/facebook/react/issues/6895) [incompreensíveis](https://github.com/facebook/react/issues/8579) nas próximas renderizações. Estes erros eram causados por um erro anterior no código da aplicação, mas o React não fornecia um meio para tratá-los de forma graciosa nos componentes e não conseguia se recuperar deles.
