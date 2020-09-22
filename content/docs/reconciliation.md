@@ -2,8 +2,6 @@
 id: reconciliation
 title: Reconciliação (Reconciliation)
 permalink: docs/reconciliation.html
-prev: react-without-jsx.html
-next: context.html
 ---
 
 O React provê uma API declarativa, assim, você não precisa se preocupar em saber exatamente o que mudou em cada atualização. Isso torna mais fácil a criação de aplicações, apesar de não ser óbvia a forma como isso é implementado no React. Este artigo explica as escolhas que fizemos no algoritmo de _diffing_ para que as atualizações nos componentes sejam previsíveis e rápidas o suficiente para aplicações de alta performance.

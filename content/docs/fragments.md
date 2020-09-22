@@ -2,8 +2,6 @@
 id: fragments
 title: Fragmentos
 permalink: docs/fragments.html
-prev: context.html
-next: portals.html
 ---
 
 Um padrão comum no React é que um componente pode retornar múltiplos elementos. Os Fragmentos permitem agrupar uma lista de filhos sem adicionar nós extras ao DOM.
