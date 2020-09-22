@@ -12,7 +12,7 @@ Este guia de referência documenta o agregador `SyntheticEvent` (evento sintéti
 
 Os manipuladores de evento (_event handlers_) serão passados como instâncias do `SyntheticEvent`, um agregador _cross-browser_ que envolve os eventos nativos do navegador. Ambos tem a mesma interface, incluindo `stopPropagation()` e `preventDefault()`, porém funcionam de forma idêntica em todos os navegadores.
 
-Caso você pense, por algum motivo, que precisa do evento original do navegador, basta utilizar o atributo `nativeEvent` para acessá-lo. Cada objeto do `SyntheticEvent` tem os seguintes atributos:
+Caso você pense, por algum motivo, que precisa do evento original do navegador, basta utilizar o atributo `nativeEvent` para acessá-lo. Os eventos sintéticos são diferentes e não são mapeados diretamente para os eventos nativos do navegador. Por exemplo, em `onMouseLeave` `event.nativeEvent` irá apontar para um evento `mouseout`. O mapeamento específico não faz parte da API pública e pode ser alterado a qualquer momento. Cada objeto do `SyntheticEvent` tem os seguintes atributos:
 
 ```javascript
 boolean bubbles

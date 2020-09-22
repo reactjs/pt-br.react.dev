@@ -35,7 +35,7 @@ function Exemplo() {
 
 Esse trecho de código é baseado no [exemplo de contador da página anterior](/docs/hooks-state.html), mas nós adicionamos uma nova funcionalidade a ele: nós definimos o titulo do documento para ser uma mensagem customizada que inclua o número de cliques.
 
-Buscar dados, configurar uma subscription, e mudar o DOM manualmente dentro do componentes React são todos exemplos de efeitos colaterais. Esteja você acostumado ou não a chamar essas operações de "efeitos colaterais" (ou somente "efeitos"), você provavelmente já usou eles em seus componentes antes.
+Buscar dados, configurar uma subscription, e mudar o DOM manualmente dentro dos componentes React são exemplos de efeitos colaterais. Esteja você acostumado ou não a chamar essas operações de "efeitos colaterais" (ou somente "efeitos"), você provavelmente já usou eles em seus componentes antes.
 
 >Dica
 >

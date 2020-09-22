@@ -1,6 +1,7 @@
 ---
 id: refs-and-the-dom
 title: Refs e o DOM
+permalink: docs/refs-and-the-dom.html
 redirect_from:
   - "docs/working-with-the-browser.html"
   - "docs/more-about-refs.html"
@@ -8,7 +9,6 @@ redirect_from:
   - "docs/more-about-refs-zh-CN.html"
   - "tips/expose-component-functions.html"
   - "tips/children-undefined.html"
-permalink: docs/refs-and-the-dom.html
 ---
 
 Refs fornecem uma forma de acessar os nós do DOM ou elementos React criados no método render.

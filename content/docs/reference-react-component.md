@@ -277,7 +277,7 @@ Atualmente, se `shouldComponentUpdate()` retornar `false`, então [`UNSAFE_compo
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` é invocado imediatamente antes de chamar o método render, ambos na montagem inicial e nas atualizações subsequente. Devem retornar um objeto para atualizar o state, ou null para não atualizar nada.
+`getDerivedStateFromProps` é invocado imediatamente antes de chamar o método render, ambos na montagem inicial e nas atualizações subsequente. Devem retornar um objeto para atualizar o state, ou `null` para não atualizar nada.
 
 Este método existe para [casos de uso raros](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) onde o state depende de mudanças nas props ao longo do tempo. Por exemplo, pode ser útil para implementar um componente `<Transition>` que compara seus filhos anteriores e próximos para decidir quais deles devem ser animados.
 

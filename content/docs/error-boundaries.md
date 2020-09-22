@@ -97,7 +97,7 @@ Você também pode ver os nomes dos arquivos e números das linhas na stack trac
 
 <img src="../images/docs/error-boundaries-stack-trace-line-numbers.png" style="max-width:100%" alt="Erro capturado por componente Error Boundary com os números das linhas">
 
-Se você não usar o Create React App, você pode adicionar [este plugin](https://www.npmjs.com/package/babel-plugin-transform-react-jsx-source) manualmente na sua configuração do Babel. Note que isto é destinado apenas para desenvolvimento e **deve ser desativado em produção**.
+Se você não usar o Create React App, você pode adicionar [este plugin](https://www.npmjs.com/package/@babel/plugin-transform-react-jsx-source) manualmente na sua configuração do Babel. Note que isto é destinado apenas para desenvolvimento e **deve ser desativado em produção**.
 
 > Nota
 >

@@ -71,7 +71,7 @@ import ReactDOM from 'react-dom';
 //
 // Você pode incluir o Modo Concorrente escrevendo:
 
-ReactDOM.createRoot(
+ReactDOM.unstable_createRoot(
   document.getElementById('root')
 ).render(<App />);
 ```

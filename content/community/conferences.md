@@ -12,95 +12,30 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
-### Reactathon 2020 {#reactathon-2020}
-30 e 31 de março de 2020 em São Francisco, CA
-
-[Website](https://www.reactathon.com) - [Twitter](https://twitter.com/reactathon) - [Facebook](https://www.facebook.com/events/575942819854160/)
-
-### React Summit - Remote Edition 2020 {#react-summit-remote-2020}
-3pm CEST time, 17 de abril de 2020 - evento remoto
-
-[Website](https://remote.reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
-
-### React Day Bangalore 2020 {#react-day-bangalore-2020}
-25 de abril de 2020 em Bangalore, Índia
-
-[Website](https://reactday.in) - [Twitter](https://twitter.com/ReactDayIn) - [LinkedIn](https://www.linkedin.com/company/react-day/)
-
-### Byteconf React 2020 {#byteconf-react-2020}
-1 de maio de 2020. Streamed online no YouTube.
-
-[Website](https://www.bytesized.xyz) - [Twitter](https://twitter.com/bytesizedcode) - [YouTube](https://www.youtube.com/channel/UC046lFvJZhiwSRWsoH8SFjg)
-
-### ReactEurope 2020 {#reacteurope-2020}
-14 a 15 de maio de 2020 em Paris, França
-
-[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Vídeos](https://www.youtube.com/c/ReacteuropeOrgConf)
-
-### React Finland 2020 {#react-finland-2020}
-26 a 29 de maio de 2020. Helsinque, Finlândia
-
-[Website](https://react-finland.fi/) - [Twitter](https://twitter.com/ReactFinland)
-
-### React Next 2020 {#react-next-2020}
-15 de junho de 2020. Telavive, Israel.
-
-[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/)
-
-### React Loop 2020 {#react-loop-2020}
-19 de junho de 2020. Chicago, Illinois, USA.
-
-[Website](https://reactloop.com) - [Twitter](https://twitter.com/ReactLoop)
-
-### React Week NY 2020 {#react-week-ny-2020}
-17 de julho, 2020. Nova Iorque, USA.
-
-[Website](https://reactweek.nyc/) - [Twitter](https://twitter.com/reactweek) - [Facebook](https://www.facebook.com/reactweek)
-
-### React La Conferencia 2020 {#react-la-conferencia-2020}
-18 de julho de 2020. Medelín, Colômbia.
-
-[Website](https://reactlaconf.co/) - [Twitter](https://twitter.com/reactlaconf)
-
-### Chain React 2020 {#chain-react-2020}
-29 de 30 julho de 2020. Portland, Oregon, USA.
-
-[Website](https://infinite.red/ChainReactConf) - [Twitter](https://twitter.com/ChainReactConf)
-
-### render(ATL) 2020 {#render-atlanta-2020}
-24 a 26 de agosto de 2020. Atlanta, GA, EUA.
-
-[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
-
-### ComponentsConf 2020 {#components20}
-1 de setembro de 2020 em Melbourne, Austrália
-
-[Website](https://www.componentsconf.com.au/) - [Twitter](https://twitter.com/ComponentsConf) - [Facebook](https://www.facebook.com/ComponentsConf/) - [LinkedIn](https://www.linkedin.com/company/componentsconf/) - [YouTube](https://www.youtube.com/ComponentsConf)
-
 ### React Native EU 2020 {#react-native-eu-2020}
-5 e 6 de setembro de 2020 em Breslávia, Polônia
+3 e 4 de setembro de 2020 - Evento Remoto
 
 [Website](https://www.react-native.eu/) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu/) - [YouTube](https://www.youtube.com/watch?v=m0GfmlGFh3E&list=PLZ3MwD-soTTHy9_88QPLF8DEJkvoB5Tl-) - [Instagram](https://www.instagram.com/reactnative_eu/)
 
-### React Summit Amsterdam 2020 {#react-summit-2020}
-8 a 11 de setembro de 2020 em Amsterdã, Holanda
+### render(ATL) 2020 {#render-atlanta-2020} 
+13 e 15 de setembro de 2020. Atlanta, GA, USA.
 
-[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
+[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
 
-### React Advanced 2020 {#react-advanced-2020}
-21 a 23 de outubro de 2020 em Londres, Inglaterra
+### React Summit 2020 {#react-summit-2020}
+7am PST / 1pm EST / 4pm CEST 15 e 16 de outubro de 2020 - Evento Remoto
 
-[Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Vídeos](https://youtube.com/c/ReactConferences)
-
-### React India 2020 {#react-india-2020}
-6 de novembro de 2020 em Mumbai, Índia
-
-[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
+[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
 
 ### React Day Berlin 2020 {#react-day-berlin-2020}
 25 a 27 de novembro de 2020 em Berlim, Alemanha
 
 [Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Vídeos](https://www.youtube.com/reactdayberlin)
+
+### React Next 2020 {#react-next-2020}
+1 de dezembro de 2020. Tel Aviv, Israel.
+
+[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/)
 
 ## Conferências passadas {#past-conferences}
 
@@ -129,7 +64,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Amsterdam 2016 {#react-amsterdam-2016}
 16 de abril em Amsterdã, Holanda (Países Baixos)
 
-[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
+[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
 
 ### ReactEurope 2016 {#reacteurope-2016}
 2 e 3 de junho em Paris, França
@@ -179,7 +114,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Amsterdam 2017 {#react-amsterdam-2017}
 21 de abril em Amsterdã, Holanda (Países Baixos)
 
-[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
+[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Vídeos](https://youtube.com/c/ReactConferences)
 
 ### ReactEurope 2017 {#reacteurope-2017}
 18 e 19 de maio em Paris, França
@@ -284,7 +219,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Amsterdam 2018 {#react-amsterdam-2018}
 13 de abril em Amsterdã, Holanda (Países Baixos)
 
-[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam)
+[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam)
 
 ### React Finland 2018 {#react-finland-2018}
 24 a 26 de abril em Helsinque, Finlândia
@@ -389,7 +324,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### React Amsterdam 2019 {#react-amsterdam-2019}
 12 de abril de 2019 em Amsterdã, Holanda
 
-[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
+[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
 
 ### React Finland 2019 {#react-finland-2019}
 24 e 26 de abril em Helsinque, Finlândia
@@ -515,3 +450,23 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 27 e 28 de fevereiro de 2020 em Sydney, Austrália
 
 [Website](https://reactconfau.com/) - [Twitter](https://twitter.com/reactconfau) - [Facebook](https://www.facebook.com/reactconfau) - [Instagram](https://www.instagram.com/reactconfau/)
+
+### Reactathon 2020 {#reactathon-2020}
+30 e 31 de março de 2020 em São Francisco, CA
+
+[Website](https://www.reactathon.com) - [Twitter](https://twitter.com/reactathon) - [Facebook](https://www.facebook.com/events/575942819854160/)
+
+### React Summit - Remote Edition 2020 {#react-summit-remote-2020}
+3pm CEST time, 17 de abril de 2020 - evento remoto
+
+[Website](https://remote.reactsummit.com) - [Twitter](https://twitter.com/reactamsterdam) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
+
+### Byteconf React 2020 {#byteconf-react-2020}
+1 de maio de 2020. Streamed online no YouTube.
+
+[Website](https://www.bytesized.xyz) - [Twitter](https://twitter.com/bytesizedcode) - [YouTube](https://www.youtube.com/channel/UC046lFvJZhiwSRWsoH8SFjg)
+
+### ReactEurope 2020 {#reacteurope-2020}
+14 a 15 de maio de 2020 em Paris, França
+
+[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Vídeos](https://www.youtube.com/c/ReacteuropeOrgConf)

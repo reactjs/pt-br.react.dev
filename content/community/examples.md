@@ -10,7 +10,7 @@ Existem vários projetos de exemplos criados pela comunidade do React. Estamos m
 
 Se você adicionar um projeto, comprometa-se a mantê-lo atualizado com as versões mais recentes do React.
 
-## Pequenos Exemplos
+## Pequenos Exemplos {#small-examples}
 
 * **[Calculator](https://github.com/ahfarmer/calculator)** Implementação da calculadora para iOS construída em React.
 * **[Emoji Search](https://github.com/ahfarmer/emoji-search)** App em React para procurar emojis.
@@ -20,7 +20,6 @@ Se você adicionar um projeto, comprometa-se a mantê-lo atualizado com as vers�
 * **[Counter App](https://github.com/arnab-datta/counter-app)** Um pequeno exemplo de carrinho de compras.
 * **[Tutorial Solutions](https://github.com/harman052/react-tutorial-solutions)** Soluções para os desafios mencionados no final do tutorial do React
 
-## Apps Completos
+## Apps Completos {#complete-apps}
 
-* **[Hacker News Clone React/GraphQL](https://github.com/clintonwoo/hackernews-react-graphql)** Clone do Hacker News reescrito com JavaScript universal, usando React e GraphQL.
 * **[Builder Book](https://github.com/builderbook/builderbook)** Aplicação web de código aberto para hospedar e escrever documentações ou vender livros. Criada com React, Material-UI, Next, Express, Mongoose e MongoDB.
