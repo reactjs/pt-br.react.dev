@@ -173,7 +173,6 @@ Digamos que queremos extrair a lógica de log dessas funções sem alterar suas 
 
 Novamente, parece mais intimidador do que realmente é:
 
-
 ```js
 function withLogging(wrappedFunction) {
   // Retorna uma função com a mesma API...
@@ -186,8 +185,6 @@ function withLogging(wrappedFunction) {
   };
 }
 ```
-A função de ordem superior `withLogging` nos permite escrever `add` e `multiply` sem as instruções de log e depois envolvê-las para obter `addAndLog` e `multiplyAndLog` com exatamente as mesmas assinaturas de antes:
-
 A função de ordem superior `withLogging` nos permite escrever `add` e `multiply` sem as instruções de log e depois envolvê-las para obter `addAndLog` e `multiplyAndLog` com exatamente as mesmas assinaturas de antes:
 
 ```js
