@@ -185,6 +185,7 @@ function withLogging(wrappedFunction) {
   };
 }
 ```
+
 A função de ordem superior `withLogging` nos permite escrever `add` e `multiply` sem as instruções de log e depois envolvê-las para obter `addAndLog` e `multiplyAndLog` com exatamente as mesmas assinaturas de antes:
 
 ```js
