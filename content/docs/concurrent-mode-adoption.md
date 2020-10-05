@@ -86,7 +86,7 @@ No Modo Concorrente, os métodos do ciclo de vida [anteriormente marcados](/blog
 
 Se você tem uma aplicação existente muito grande, ou se a sua aplicação depende de muitas bibliotecas de terceiros, por favor não comece a utilizar o Modo Concorrente imediatamente. **Por exemplo, no Facebook nós estamos usando o Modo Concorrente para o nosso novo website, mas não planejamos habilitá-lo na versão antiga.** Isto porque o nosso website antigo ainda utiliza métodos de ciclo de vida inseguros em código de produção, e alguns padrões que não funcionam bem com o Modo Concorrente.
 
-De acordo com nossa experiência, utlizar os padrões idiomáticos do React no código e não utilizar soluções externas para gerenciamento de estado são a maneira mais fácil de iniciar a utilização do Modo Concorrente. Nós vamos descrever problemas comuns que nós experimentamos e as soluções para cada um deles nas próximas semanas.
+De acordo com nossa experiência, utilizar os padrões idiomáticos do React no código e não utilizar soluções externas para gerenciamento de estado são a maneira mais fácil de iniciar a utilização do Modo Concorrente. Nós vamos descrever problemas comuns que nós experimentamos e as soluções para cada um deles nas próximas semanas.
 
 ### Etapa de Migração: Modo Bloqueante {#migration-step-blocking-mode}
 
