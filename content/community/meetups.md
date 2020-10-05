@@ -47,8 +47,14 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## China {#china}
 * [Beijing](https://www.meetup.com/Beijing-ReactJS-Meetup/)
 
+<<<<<<< HEAD
 ## Colômbia {#colombia}
+=======
+## Colombia {#colombia}
+* [Bogotá](https://www.meetup.com/meetup-group-iHIeHykY/)
+>>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 * [Medellin](https://www.meetup.com/React-Medellin/)
+* [Cali](https://www.meetup.com/reactcali/)
 
 ## Dinamarca {#denmark}
 * [Aalborg](https://www.meetup.com/Aalborg-React-React-Native-Meetup/)
@@ -146,8 +152,13 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Suíça {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
+<<<<<<< HEAD
 ## Turquia {#turkey}
 * [Istanbul](https://www.meetup.com/ReactJS-Istanbul/)
+=======
+## Turkey {#turkey}
+* [Istanbul](https://kommunity.com/reactjs-istanbul)
+>>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 ## Ucrânia {#ukraine}
 * [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)
@@ -164,6 +175,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Cleveland, OH - ReactJS](https://www.meetup.com/Cleveland-React/)
 * [Columbus, OH - ReactJS](https://www.meetup.com/ReactJS-Columbus-meetup/)
 * [Dallas, TX - ReactJS](https://www.meetup.com/ReactDallas/)
+* [Dallas, TX - [Remote] React JS](https://www.meetup.com/React-JS-Group/)
 * [Detroit, MI - Detroit React User Group](https://www.meetup.com/Detroit-React-User-Group/)
 * [Irvine, CA - ReactJS](https://www.meetup.com/ReactJS-OC/)
 * [Kansas City, MO - ReactJS](https://www.meetup.com/Kansas-City-React-Meetup/)

@@ -12,6 +12,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
+<<<<<<< HEAD
 ### React Native EU 2020 {#react-native-eu-2020}
 3 e 4 de setembro de 2020 - Evento Remoto
 
@@ -38,6 +39,34 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/)
 
 ## Conferências passadas {#past-conferences}
+=======
+### React Summit 2020 {#react-summit-2020}
+October 15-16, 2020, 7am PST / 10am EST / 4pm CEST - remote event
+
+[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
+
+### React Conf Brasil 2020 {#react-conf-brasil-2020}
+November 21, 2020 - remote event
+
+[Website](https://reactconf.com.br/) - [Twitter](https://twitter.com/reactconfbr) - [Slack](https://react.now.sh/)
+
+### React Next 2020 {#react-next-2020}
+December 1-2, 2020 - remote event
+
+[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/)
+
+### render(ATL) 2021 {#render-atlanta-2021} 
+September 13-15, 2021. Atlanta, GA, USA
+
+[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
+
+### React India 2021 {#react-india-2021}
+November 12-13, 2021 in Mumbai, India
+
+[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)	[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
+
+## Past Conferences {#past-conferences}
+>>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
@@ -469,4 +498,13 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 ### ReactEurope 2020 {#reacteurope-2020}
 14 a 15 de maio de 2020 em Paris, França
 
+<<<<<<< HEAD
 [Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Vídeos](https://www.youtube.com/c/ReacteuropeOrgConf)
+=======
+[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Videos](https://www.youtube.com/c/ReacteuropeOrgConf)
+
+### React Native EU 2020 {#react-native-eu-2020}
+September 3-4, 2020 - remote event
+
+[Website](https://www.react-native.eu/) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu/) - [YouTube](https://www.youtube.com/watch?v=m0GfmlGFh3E&list=PLZ3MwD-soTTHy9_88QPLF8DEJkvoB5Tl-) - [Instagram](https://www.instagram.com/reactnative_eu/)
+>>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
