@@ -18,15 +18,10 @@ Podcasts dedicados a React e episódios individuais de podcast com discussões s
 
 - [React Native Radio](https://devchat.tv/react-native-radio)
 
-<<<<<<< HEAD
-## Episódios {#episodes}
-=======
-- [React Wednesdays](https://www.telerik.com/react-wednesdays) - Weekly live streams with the best and brightest in the React world
+- [React Wednesdays](https://www.telerik.com/react-wednesdays) - Transmissões ao vivo semanais com os melhores e mais brilhantes do mundo React
 
-## Episodes {#episodes}
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
+## Episódios {#episodes}
 
 - [CodeWinds Episódio 4](https://codewinds.com/podcast/004.html) - Pete Hunt fala com Jeff Barczewski sobre React.
-
 
 - [JavaScript Jabber 73](https://devchat.tv/js-jabber/073-jsj-react-with-pete-hunt-and-jordan-walke) - Pete Hunt e Jordan Walke conversam sobre React.
