@@ -153,10 +153,7 @@ Isto funciona porque em JavaScript, `true && expressão` são sempre avaliadas c
 
 Portanto, se a condição é `true`, o elemento logo depois do `&&` irá aparecer no resultado. Se o elemento é `false`, React irá ignora-lo.
 
-<<<<<<< HEAD
-### If-Else inline com Operador Condicional {#inline-if-else-with-conditional-operator}
-=======
-Note that returning a falsy expression will still cause the element after `&&` to be skipped but will return the falsy expression. In the example below, `<div>0</div>` will be returned by the render method.
+Observe que retornar uma expressão falsa ainda fará com que o elemento após `&&` seja pulado, mas retornará a expressão falsa. No exemplo abaixo, `<div>0</div>` será retornado pelo método de renderização.
 
 ```javascript{2,5}
 render() {
@@ -169,8 +166,7 @@ render() {
 }
 ```
 
-### Inline If-Else with Conditional Operator {#inline-if-else-with-conditional-operator}
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
+### If-Else inline com Operador Condicional {#inline-if-else-with-conditional-operator}
 
 Outro método para renderizar elementos inline é utilizar o operador condicional em JavaScript [`condição ? true : false`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional).
 
