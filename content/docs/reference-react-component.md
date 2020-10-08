@@ -42,13 +42,9 @@ O único método que você *deve* definir em uma subclasse de `React.Component` 
 
 ### O Ciclo de Vida de um Componente {#component-life-cycle}
 
-Cada componente possui muitos "métodos do ciclo de vida" que você pode sobrescrever para executar determinado código em momentos particulares do processo. **Você pode usar [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) para consulta.** Na lista abaixo, os métodos do ciclo de vida mais usados estão marcados em **negrito**. O resto deles, existe para o uso em casos relativamente raros.
+Cada componente possui muitos "métodos do ciclo de vida" que você pode sobrescrever para executar determinado código em momentos particulares do processo. **Você pode usar [este diagrama do ciclo de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) para consulta.** Na lista abaixo, os métodos do ciclo de vida mais usados estão marcados em **negrito**. O resto deles, existe para o uso em casos relativamente raros.
 
-<<<<<<< HEAD
 #### Montando (mounting) {#mounting}
-=======
-Each component has several "lifecycle methods" that you can override to run code at particular times in the process. **You can use [this lifecycle diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) as a cheat sheet.** In the list below, commonly used lifecycle methods are marked as **bold**. The rest of them exist for relatively rare use cases.
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 Estes métodos são chamados na seguinte ordem quando uma instância de um componente está sendo criada e inserida no DOM:
 
@@ -117,11 +113,7 @@ Cada componente também fornece outras APIs:
 
 ### Métodos Mais Usados do Ciclo de Vida {#commonly-used-lifecycle-methods}
 
-<<<<<<< HEAD
-Os métodos desta seção cobrem a grande maioria dos casos de uso que você encontrará criando componentes React. **Para uma referência visual, veja : [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
-=======
-The methods in this section cover the vast majority of use cases you'll encounter creating React components. **For a visual reference, check out [this lifecycle diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
+Os métodos desta seção cobrem a grande maioria dos casos de uso que você encontrará criando componentes React. **Para uma referência visual, veja : [este diagrama do ciclo de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
 
 ### `render()` {#render}
 
@@ -255,12 +247,7 @@ componentWillUnmount()
 
 ### Métodos Raramente Usados {#rarely-used-lifecycle-methods}
 
-<<<<<<< HEAD
-Estes métodos dessa seção correspondem a casos de uso incomuns. Eles são úteis de vez em quando, mas na maioria das vezes, seus componentes provavelmente não irão precisar de nenhum deles. **Pode ver a maioria dos métodos abaixo [neste diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se clicar na checkbox "Mostrar ciclos de vida menos comuns" no topo da página.**
-=======
-The methods in this section correspond to uncommon use cases. They're handy once in a while, but most of your components probably don't need any of them. **You can see most of the methods below on [this lifecycle diagram](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) if you click the "Show less common lifecycles" checkbox at the top of it.**
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
-
+Estes métodos dessa seção correspondem a casos de uso incomuns. Eles são úteis de vez em quando, mas na maioria das vezes, seus componentes provavelmente não irão precisar de nenhum deles. **Pode ver a maioria dos métodos abaixo [neste diagrama do ciclo de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se clicar na checkbox "Mostrar ciclos de vida menos comuns" no topo da página.**
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
 
@@ -293,13 +280,8 @@ static getDerivedStateFromProps(props, state)
 
 Este método existe para [casos de uso raros](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) onde o state depende de mudanças nas props ao longo do tempo. Por exemplo, pode ser útil para implementar um componente `<Transition>` que compara seus filhos anteriores e próximos para decidir quais deles devem ser animados.
 
-<<<<<<< HEAD
 Derivando o state leva a código verboso e faz seus componentes difíceis de compreender.
 [Tenha certeza de estar familiarizado com alternativas mais simples:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
-=======
-Deriving state leads to verbose code and makes your components difficult to think about.
-[Make sure you're familiar with simpler alternatives:](/blog/2018/06/07/you-probably-dont-need-derived-state.html)
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 * Se precisar  **executar um side effect** (por exemplo, buscar dados ou uma animação) em resposta a uma alteração em props, use [`componentDidUpdate`](#componentdidupdate) no lugar.
 
@@ -344,15 +326,9 @@ Somente utilize *error boundaries* para recuperação de exceções inesperadas;
 
 Para mais detalhes, veja *[Tratamento de Erros no React 16](/blog/2017/07/26/error-handling-in-react-16.html)*.
 
-<<<<<<< HEAD
 > Nota
 >
 > Os *error boundaries* somente realizam *catch* nos componentes **abaixo** dele na árvore. Um *error boundary* não pode realizar o *catch* de um erro dentro de si próprio.
-=======
-> Note
->
-> Error boundaries only catch errors in the components **below** them in the tree. An error boundary can’t catch an error within itself.
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 ### `static getDerivedStateFromError()` {#static-getderivedstatefromerror}
 ```javascript
@@ -439,17 +415,10 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
 > Nota
 >
 > No evento de um erro, você pode renderizar uma UI de *fallback* com `componentDidCatch()` chamando `setState`, mas isto será depreciado numa *release* futura.
 > Use `static getDerivedStateFromError()` para manipular a renderização de *fallback* como alternativa.
-=======
-> Note
->
-> In the event of an error, you can render a fallback UI with `componentDidCatch()` by calling `setState`, but this will be deprecated in a future release.
-> Use `static getDerivedStateFromError()` to handle fallback rendering instead.
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 * * *
 
