@@ -47,12 +47,8 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## China {#china}
 * [Beijing](https://www.meetup.com/Beijing-ReactJS-Meetup/)
 
-<<<<<<< HEAD
 ## Colômbia {#colombia}
-=======
-## Colombia {#colombia}
 * [Bogotá](https://www.meetup.com/meetup-group-iHIeHykY/)
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 * [Medellin](https://www.meetup.com/React-Medellin/)
 * [Cali](https://www.meetup.com/reactcali/)
 
@@ -152,13 +148,8 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Suíça {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)
 
-<<<<<<< HEAD
 ## Turquia {#turkey}
-* [Istanbul](https://www.meetup.com/ReactJS-Istanbul/)
-=======
-## Turkey {#turkey}
 * [Istanbul](https://kommunity.com/reactjs-istanbul)
->>>>>>> 8f7ffa473905148fd5c7ecfd7fed5dabbd261bf0
 
 ## Ucrânia {#ukraine}
 * [Kyiv](https://www.meetup.com/Kyiv-ReactJS-Meetup)
