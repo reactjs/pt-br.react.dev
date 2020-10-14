@@ -35,7 +35,7 @@ Esta página responde algumas das perguntas mais frequentes sobre [Hooks](/docs/
   * [Como posso fazer a busca de dados com Hooks?](#how-can-i-do-data-fetching-with-hooks)
   * [Existe algo como variáveis de instância?](#is-there-something-like-instance-variables)
   * [Devo usar uma ou muitas variáveis de estado?](#should-i-use-one-or-many-state-variables)
-  * [Possso usar um efeito somente em updates?](#can-i-run-an-effect-only-on-updates)
+  * [Posso usar um efeito somente em updates?](#can-i-run-an-effect-only-on-updates)
   * [Como acessar as props ou o estado anterior?](#how-to-get-the-previous-props-or-state)
   * [Por que estou vendo props obsoletos ou state dentro da minha função?](#why-am-i-seeing-stale-props-or-state-inside-my-function)
   * [Como implementar getDerivedStateFromProps?](#how-do-i-implement-getderivedstatefromprops)
@@ -327,7 +327,7 @@ Note como nós conseguimos mover a chamada `useState` da variável de estado `po
 
 Tanto colocar todo estado em um único `useState` e usar múltiplos `useState` para cada campo pode funcionar. Componentes tendem a ser mais legíveis quando você encontra um balanço entre esses dois extremos e agrupa estados relacionados em algunas variáveis de estado independentes. Se a lógica do estado se torna muito complexa, nós recomendamos [gerenciá-la com um reducer](/docs/hooks-reference.html#usereducer) ou com um Hook customizado.
 
-### Possso usar um efeito somente em updates? {#can-i-run-an-effect-only-on-updates}
+### Posso usar um efeito somente em updates? {#can-i-run-an-effect-only-on-updates}
 
 Esse é um caso de uso raro. Se você precisar, você pode [usar uma ref mutável](#is-there-something-like-instance-variables) para manualmente armazenar um valor boleano correspondente a se você está no primeiro render ou num subsequente, usando então essa flag no seu efeito. (Se você se encontrar fazendo isso regularmente, pode criar um Hook customizado pra isso.)
 
