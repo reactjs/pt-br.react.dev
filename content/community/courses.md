@@ -50,8 +50,14 @@ permalink: community/courses.html
 
 - [React Tutorial](https://react-tutorial.app) - Aprenda React passo a passo em um ambiente interativo com flashcards.
 
+<<<<<<< HEAD
 - [Road to React](https://www.roadtoreact.com/) - Sua jornada para dominar React em JavaScript.
 
 - [ReactJS Ninja](https://www.udemy.com/curso-reactjs-ninja/) - Considerado pela comunidade de desenvolvedores, o melhor curso em Português/BR de React.
 
 - [React Profissional](https://nardiniacademy.com/) - Curso em Português/BR que ensina desde o básico do React até a construção de um projeto profissional com todo seu ecossistema.
+=======
+- [Road to React](https://www.roadtoreact.com/) - Your journey to master React in JavaScript.
+
+- [Epic React](https://epicreact.dev/) - Confidently Ship Well-Architected Production Ready React Apps Like a Pro
+>>>>>>> 4e6cee1f82737aa915afd87de0cd4a8393de3fc8
