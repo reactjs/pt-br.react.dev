@@ -182,8 +182,4 @@ Exploraremos a renderização de elementos React no DOM na [próxima seção](/d
 
 >**Dica:**
 >
-<<<<<<< HEAD
-> Recomendamos o uso da [definição de linguagem "Babel"](https://babeljs.io/docs/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados.
-=======
->We recommend using the ["Babel" language definition](https://babeljs.io/docs/en/next/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
->>>>>>> 4e6cee1f82737aa915afd87de0cd4a8393de3fc8
+> Recomendamos o uso da [definição de linguagem "Babel"](https://babeljs.io/docs/en/next/editors) no seu editor preferido para que ambos os códigos em ES6 e JSX sejam devidamente realçados.
