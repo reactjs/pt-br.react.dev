@@ -55,3 +55,5 @@ permalink: community/courses.html
 - [ReactJS Ninja](https://www.udemy.com/curso-reactjs-ninja/) - Considerado pela comunidade de desenvolvedores, o melhor curso em Português/BR de React.
 
 - [React Profissional](https://nardiniacademy.com/) - Curso em Português/BR que ensina desde o básico do React até a construção de um projeto profissional com todo seu ecossistema.
+
+- [Epic React](https://epicreact.dev/) - Envie com segurança apps React bem arquitetados e prontos para produção como um profissional
