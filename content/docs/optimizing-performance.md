@@ -43,8 +43,8 @@ Lembre que isto é somente necessário antes de publicar para produção. Para d
 Nós oferecemos versões de produção prontas do React e React DOM com arquivos únicos:
 
 ```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
 Lembre que somente arquivos React terminados com `.production.min.js` são adequados para produção.
@@ -74,10 +74,17 @@ Lembre que você somente precisa fazer isso para builds de produção. Você nã
 Para uma build de produção do Browserify mais eficiente, instale alguns plugins:
 
 ```
+<<<<<<< HEAD
 # Se você usa npm
 npm install --save-dev envify terser uglifyify 
 
 # Se você usa Yarn
+=======
+# If you use npm
+npm install --save-dev envify terser uglifyify
+
+# If you use Yarn
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 yarn add --dev envify terser uglifyify
 ```
 
@@ -380,7 +387,11 @@ function updateColorMap(colormap) {
 }
 ```
 
+<<<<<<< HEAD
 Este recurso foi adicionado ao JavaScript no ES2018.
+=======
+This feature was added to JavaScript in ES2018.
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 Se você está usando Create React App, ambos `Object.assign` e a sintaxe de espalhador de objeto estão disponíveis por padrão.
 

@@ -9,18 +9,22 @@ next: release-channels.html
 Tanto React como ReactDOM estão disponíveis através de CDN.
 
 ```html
-<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 ```
 
 As versões acima devem ser utilizadas apenas para desenvolvimento e não são adequadas para o ambiente de produção. Versões reduzidas e otimizadas para produção estão disponíveis em:
 
 ```html
-<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
+<<<<<<< HEAD
 Para carregar uma versão específica do `react` e `react-dom`, substitua `16` com o número da versão que você deseja.
+=======
+To load a specific version of `react` and `react-dom`, replace `17` with the version number.
+>>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 ### Por que o atributo `crossorigin`? {#why-the-crossorigin-attribute}
 
