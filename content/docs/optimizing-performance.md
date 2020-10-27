@@ -74,17 +74,10 @@ Lembre que você somente precisa fazer isso para builds de produção. Você nã
 Para uma build de produção do Browserify mais eficiente, instale alguns plugins:
 
 ```
-<<<<<<< HEAD
 # Se você usa npm
-npm install --save-dev envify terser uglifyify 
-
-# Se você usa Yarn
-=======
-# If you use npm
 npm install --save-dev envify terser uglifyify
 
-# If you use Yarn
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
+# Se você usa Yarn
 yarn add --dev envify terser uglifyify
 ```
 
@@ -387,11 +380,7 @@ function updateColorMap(colormap) {
 }
 ```
 
-<<<<<<< HEAD
 Este recurso foi adicionado ao JavaScript no ES2018.
-=======
-This feature was added to JavaScript in ES2018.
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
 
 Se você está usando Create React App, ambos `Object.assign` e a sintaxe de espalhador de objeto estão disponíveis por padrão.
 
