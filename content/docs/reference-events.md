@@ -146,43 +146,43 @@ Propriedades:
 DOMEventTarget relatedTarget
 ```
 
-#### onFocus
+#### onFocus {#onfocus}
 
-The `onFocus` event is called when the element (or some element inside of it) receives focus. For example, it's called when the user clicks on a text input.
+O evento `onFocus` é chamado quando o elemento (ou algum elemento dentro dele) recebe o foco. Por exemplo, é chamado quando o usuário clica em um input de texto.
 
 ```javascript
 function Example() {
   return (
     <input
       onFocus={(e) => {
-        console.log('Focused on input');
+        console.log('Focos no input');
       }}
-      placeholder="onFocus is triggered when you click this input."
+      placeholder="onFocus é acionado quando você clica nesta entrada."
     />
   )
 }
 ```
 
-#### onBlur
+#### onBlur (#onblur)
 
-The `onBlur` event handler is called when focus has left the element (or left some element inside of it). For example, it's called when the user clicks outside of a focused text input.
+O manipulador de eventos `onBlur` é chamado quando o foco deixa o elemento (ou deixa algum elemento dentro dele). Por exemplo, é chamado quando o usuário clica fora de um input de texto focado.
 
 ```javascript
 function Example() {
   return (
     <input
       onBlur={(e) => {
-        console.log('Triggered because this input lost focus');
+        console.log('Disparado porque esta entrada perdeu o foco');
       }}
-      placeholder="onBlur is triggered when you click this input and then you click outside of it."
+      placeholder="onBlur é acionado quando você clica nesta entrada e clica fora dela."
     />
   )
 }
 ```
 
-#### Detecting Focus Entering and Leaving
+#### Detecção de Foco Entrando e Saindo {#detecting-focus-entering-and-leaving}
 
-You can use the `currentTarget` and `relatedTarget` to differentiate if the focusing or blurring events originated from _outside_ of the parent element. Here is a demo you can copy and paste that shows how to detect focusing a child, focusing the element itself, and focus entering or leaving the whole subtree.
+Você pode usar `currentTarget` e `relatedTarget` para diferenciar se os eventos de foco ou desfoque originaram-se de _fora_ do elemento pai. Aqui está uma demonstração que você pode copiar e colar que mostra como detectar o foco de um elemento filho, focalizando o próprio elemento e o foco entrando ou saindo de toda a subárvore.
 
 ```javascript
 function Example() {
@@ -191,24 +191,24 @@ function Example() {
       tabIndex={1}
       onFocus={(e) => {
         if (e.currentTarget === e.target) {
-          console.log('focused self');
+          console.log('focos dele');
         } else {
-          console.log('focused child', e.target);
+          console.log('focus no elemento filho', e.target);
         }
         if (!e.currentTarget.contains(e.relatedTarget)) {
-          // Not triggered when swapping focus between children
-          console.log('focus entered self');
+          // Não acionado ao trocar o foco entre os elementos filhos
+          console.log('foco entrou no proprio elemento');
         }
       }}
       onBlur={(e) => {
         if (e.currentTarget === e.target) {
-          console.log('unfocused self');
+          console.log('desfoque dele');
         } else {
-          console.log('unfocused child', e.target);
+          console.log('desfoque no elemento filho', e.target);
         }
         if (!e.currentTarget.contains(e.relatedTarget)) {
-          // Not triggered when swapping focus between children
-          console.log('focus left self');
+          // Não acionado ao trocar o foco entre os elementos filhos
+          console.log(focos a esquerda'');
         }
       }}
     >
