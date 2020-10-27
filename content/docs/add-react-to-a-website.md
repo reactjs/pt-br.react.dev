@@ -54,8 +54,8 @@ A seguir, adicione três tags `<script>` em sua página HTML logo antes do fecha
 
   <!-- Adicionar o React. -->
   <!-- Nota: ao fazer o deploy, substitua "development.js" por "production.min.js". -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
   <!-- Adicione nosso componente React. -->
   <script src="like_button.js"></script>
@@ -115,8 +115,8 @@ Antes de realizar o deploy de seu site para produção, lembre-se que o código 
 Se você já minifica os scripts da sua aplicação, **seu site estará pronto para produção** se você garantir que o HTML carregue a versão do React terminando em `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Se você não possui uma etapa de minificação para seus scripts, [aqui está um jeito de configurá-lo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
