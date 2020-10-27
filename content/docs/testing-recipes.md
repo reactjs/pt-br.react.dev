@@ -377,10 +377,6 @@ let container = null;
 beforeEach(() => {
   // configurar o elemento do DOM como o alvo da renderização
   container = document.createElement("div");
-<<<<<<< HEAD
-  // container *deve* ser anexado ao documento para que os eventos ocorram corretamente.
-=======
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
   document.body.appendChild(container);
 });
 
@@ -419,11 +415,7 @@ it("changes value when clicked", () => {
 });
 ```
 
-<<<<<<< HEAD
-Os diferentes eventos do DOM e suas propriedades estão descritas em [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Note que você precisa passar `{ bubbles: true }` em cada evento que for criado para que ele chegue ao React Listener pois o React delega os eventos ao documento automaticamente.
-=======
-Different DOM events and their properties are described in [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Note that you need to pass `{ bubbles: true }` in each event you create for it to reach the React listener because React automatically delegates events to the root.
->>>>>>> 6682068641c16df6547b3fcdb7877e71bb0bebf9
+Os diferentes eventos do DOM e suas propriedades estão descritas em [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent). Note que você precisa passar `{ bubbles: true }` em cada evento que for criado para que ele chegue ao React Listener pois o React delega os eventos ao root automaticamente.
 
 > Nota:
 >
