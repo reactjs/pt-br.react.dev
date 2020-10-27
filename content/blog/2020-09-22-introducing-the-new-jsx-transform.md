@@ -198,71 +198,70 @@ TypeScript suporta a nova transformação JSX em [v4.1 beta](https://devblogs.mi
 
 Flow suporta a nova transformação JSX em [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) para cima.
 
-## Removing Unused React Imports {#removing-unused-react-imports}
+## Removendo Imports React não Utilizadas {#removing-unused-react-imports}
 
-Because the new JSX transform will automatically import the necessary `react/jsx-runtime` functions, React will no longer need to be in scope when you use JSX. This might lead to unused React imports in your code. It doesn't hurt to keep them, but if you'd like to remove them, we recommend running a [“codemod”](https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb) script to remove them automatically:
+Como a nova transformação JSX importará automaticamente as funções `react/jsx-runtime` necessárias, o React não precisará mais estar no escopo quando você usar JSX. Isso pode levar a importação React não utilizadas em seu código. Não faz mal mantê-los, mas se quiser removê-los, recomendamos a execução de um script [“codemod”](https://medium.com/@cpojer/effective-javascript-codemods-5a6686bb46fb) para removê-los automaticamente:
 
 ```bash
 cd your_project
 npx react-codemod update-react-imports
 ```
 
->Note
+>Nota
 >
->If you're getting errors when running the codemod, try specifying a different JavaScript dialect when `npx react-codemod update-react-imports` asks you to choose one. In particular, at this moment the "JavaScript with Flow" setting supports newer syntax than the "JavaScript" setting even if you don't use Flow. [File an issue](https://github.com/reactjs/react-codemod/issues) if you run into problems.
+>Se você estiver recebendo errors ao executar o codemod, tente especificar um dialeto JavaScript diferente quando `npx react-codemod update-react-imports` solicitar que você escolha um. Em particular, neste momento, a configuração "JavaScript com Flow" suporta sintaxe mais recente do que a configuração "JavaScript", mesmo se você não usar o Flow. [Crie uma issue](https://github.com/reactjs/react-codemod/issues) se você tiver problemas.
 >
->Keep in mind that the codemod output will not always match your project's coding style, so you might want to run [Prettier](https://prettier.io/) after the codemod finishes for consistent formatting.
+>Lembre-se de que a saída do codemod nem sempre corresponderá ao estilo de codificação do seu projeto, então você pode querer executar [Prettier](https://prettier.io/) depois que o codemod terminar para uma formatação consistente.
 
+Executar este codemod irá:
 
-Running this codemod will:
+* Remover todas as importações React não utilizadas como resultado da atualização para a nova transformação JSX.
+* Alterar todas as importações React padrão (ou seja, `import React from "react"`) para importações nomeadas desestruturadas (ex. `import { useState } from "react"`), que é o estilo preferido no futuro. Este codemod **não** afetará as importações de namespace existentes (ou seja, `import * as React from "react"`), que também é um estilo válido. As importações padrão continuarão funcionando no React 17, mas, a longo prazo, encorajamos nos afastar delas.
 
-* Remove all unused React imports as a result of upgrading to the new JSX transform.
-* Change all default React imports (i.e. `import React from "react"`) to destructured named imports (ex. `import { useState } from "react"`) which is the preferred style going into the future. This codemod **will not** affect the existing namespace imports (i.e. `import * as React from "react"`) which is also a valid style. The default imports will keep working in React 17, but in the longer term we encourage moving away from them.
-
-For example,
+Por exemplo,
 
 ```js
 import React from 'react';
 
 function App() {
-  return <h1>Hello World</h1>;
+  return <h1>Olá Mundo</h1>;
 }
 ```
 
-will be replaced with
+será substituído por
 
 ```js
 function App() {
-  return <h1>Hello World</h1>;
+  return <h1>Olá Mundo</h1>;
 }
 ```
 
-If you use some other import from React — for example, a Hook — then the codemod will convert it to a named import.
+Se você usar alguma outra importação do React - por exemplo, um Hook - então o codemod irá convertê-lo em uma importação nomeada.
 
-For example,
+Por exemplo,
 
 ```js
 import React from 'react';
 
 function App() {
-  const [text, setText] = React.useState('Hello World');
+  const [text, setText] = React.useState('Olá Mundo');
   return <h1>{text}</h1>;
 }
 ```
 
-will be replaced with
+será substituído por
 
 ```js
 import { useState } from 'react';
 
 function App() {
-  const [text, setText] = useState('Hello World');
+  const [text, setText] = useState('Olá Mundo');
   return <h1>{text}</h1>;
 }
 ```
 
-In addition to cleaning up unused imports, this will also help you prepare for a future major version of React (not React 17) which will support ES Modules and not have a default export.
+Além de limpar as importações não utilizadas, isso também o ajudará a se preparar para uma versão principal futura do React (não do React 17), que oferecerá suporte aos Módulos ES e não terá uma exportação padrão.
 
-## Thanks {#thanks}
+## Obrigado {#thanks}
 
-We'd like to thank Babel, TypeScript, Create React App, Next.js, Gatsby, ESLint, and Flow maintainers for their help implementing and integrating the new JSX transform. We also want to thank the React community for their feedback and discussion on the related [technical RFC](https://github.com/reactjs/rfcs/pull/107).
+Gostaríamso de agradecer aos mantenedores de Babel, TypeScript, Create React App, Next.js, Gatsby, ESLint e Flow por sua ajuda na implementação e intergação da nova transformação JSX. Também queremos agradecer à comunidade React por seus comentários e discussões sobre a [RFC técnica](https://github.com/reactjs/rfcs/pull/107).
