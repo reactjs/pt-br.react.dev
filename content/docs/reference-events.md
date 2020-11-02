@@ -163,7 +163,11 @@ function Example() {
 }
 ```
 
+<<<<<<< HEAD
 #### onBlur (#onblur)
+=======
+#### onBlur {#onblur}
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
 
 O manipulador de eventos `onBlur` é chamado quando o foco deixa o elemento (ou deixa algum elemento dentro dele). Por exemplo, é chamado quando o usuário clica fora de um input de texto focado.
 
@@ -180,7 +184,11 @@ function Example() {
 }
 ```
 
+<<<<<<< HEAD
 #### Detecção de Foco Entrando e Saindo {#detecting-focus-entering-and-leaving}
+=======
+#### Detecting Focus Entering and Leaving {#detecting-focus-entering-and-leaving}
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
 
 Você pode usar `currentTarget` e `relatedTarget` para diferenciar se os eventos de foco ou desfoque originaram-se de _fora_ do elemento pai. Aqui está uma demonstração que você pode copiar e colar que mostra como detectar o foco de um elemento filho, focalizando o próprio elemento e o foco entrando ou saindo de toda a subárvore.
 
@@ -218,7 +226,6 @@ function Example() {
   );
 }
 ```
-
 
 * * *
 

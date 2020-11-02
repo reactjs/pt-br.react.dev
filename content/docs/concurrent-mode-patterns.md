@@ -193,10 +193,17 @@ function App() {
 
 Precisamos apenas de sete linhas de código para adicionar essa transição:
 
+<<<<<<< HEAD
 * Importamos o Hook `useTransition` e usamos no componente que atualiza o estado.
 * Passamos o `{timeoutMs: 3000}` para permanecer na tela anterior por no máximo 3 segundos.
 * Encapsulamos nossa atualização de estado no `startTransition` para dizer ao React que não há problema em adiá-lo.
 * Estamos usando o `isPending` para comunicar o progresso da transição de estado ao usuário e desativar o botão.
+=======
+* We've imported the `useTransition` Hook and used it in the component that updates the state.
+* We've passed `{timeoutMs: 3000}` to stay on the previous screen for at most 3 seconds.
+* We've wrapped our state update into `startTransition` to tell React it's okay to delay it.
+* We're using `isPending` to communicate the state transition progress to the user and to disable the button.
+>>>>>>> 30baecf59de28a8cd3c91a2cd878e3822f864061
 
 Como resultado, clicar em "Next" não realiza uma transição imediata de estado para um estado de carregamento "indesejável", mas ao invés disso permanece na tela anterior e comunica o progresso lá.
 
