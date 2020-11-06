@@ -193,7 +193,7 @@ function App() {
 
 Precisamos apenas de sete linhas de código para adicionar essa transição:
 
-* Importamos o Hook `useTransition` e usamos no componente que atualiza o estado.
+* Importamos o Hook `useTransition` e o usamos no componente que atualiza o estado.
 * Passamos o `{timeoutMs: 3000}` para permanecer na tela anterior por no máximo 3 segundos.
 * Encapsulamos nossa atualização de estado no `startTransition` para dizer ao React que não há problema em adiá-lo.
 * Estamos usando o `isPending` para comunicar o progresso da transição de estado ao usuário e desativar o botão.

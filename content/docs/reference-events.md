@@ -163,7 +163,7 @@ function Example() {
 }
 ```
 
-#### onBlur (#onblur)
+#### onBlur {#onblur}
 
 O manipulador de eventos `onBlur` é chamado quando o foco deixa o elemento (ou deixa algum elemento dentro dele). Por exemplo, é chamado quando o usuário clica fora de um input de texto focado.
 
@@ -218,7 +218,6 @@ function Example() {
   );
 }
 ```
-
 
 * * *
 
