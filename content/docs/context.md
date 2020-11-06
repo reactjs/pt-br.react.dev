@@ -128,7 +128,7 @@ O argumento `defaultValue` (valor padrão) é usado *apenas* quando o componente
 
 Cada objeto Contexto (context) vem com um componente Provider que permite componentes consumidores a assinarem mudanças no contexto.
 
-Aceita uma prop `value` que pode ser passada para ser consumida por componentes que são descendentes deste Provider. Um Provider pode ser conectado a vários consumidores. Providers podem ser aninhados para substituir valores mais ao fundo da árvore.
+O componente Provider aceita uma prop `value` que pode ser passada para ser consumida por componentes que são descendentes deste Provider. Um Provider pode ser conectado a vários consumidores. Providers podem ser aninhados para substituir valores mais ao fundo da árvore.
 
 Todos consumidores que são descendentes de um Provider serão renderizados novamente sempre que a prop `value` do Provider for alterada. A propagação do Provider aos seus descendentes (incluido [`.contextType`](#classcontexttype) e [`useContext`](/docs/hooks-reference.html#usecontext)), não está condicionada ao método `shouldComponenteUpdate`, logo, o consumidor é atualizado mesmo quando um componente antepassado ignora uma atualização.
 

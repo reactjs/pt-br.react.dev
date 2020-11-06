@@ -75,6 +75,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [React Berlin](https://www.meetup.com/React-Open-Source/)
 
 ## Grécia {#greece}
+* [Athens](https://www.meetup.com/React-To-React-Athens-MeetUp/)
 * [Thessaloniki](https://www.meetup.com/Thessaloniki-ReactJS-Meetup/)
 
 ## Hungria {#hungary}
