@@ -99,7 +99,7 @@ Como a nova transformação JSX não exige que o React esteja no escopo, [també
 
 ### Create React App {#create-react-app}
 
-Suporte para Create React App [foi adicionado](https://github.com/facebook/create-react-app/pull/9645) e estará disponível no [próximo lançamento v4.0](https://gist.github.com/iansu/4fab7a9bfa5fa6ebc87a908c62f5340b) que está atualmente em teste beta.
+Create React App [4.0.0](https://github.com/facebook/create-react-app/releases/tag/v4.0.0)+ usa a nova transformação para versões compatíveis do React.
 
 ### Next.js {#nextjs}
 
@@ -143,7 +143,7 @@ npm update @babel/core @babel/preset-react
 yarn upgrade @babel/core @babel/preset-react
 ```
 
-Atualmente, a antiga transformação (`"runtime": "classic"`) é a opção padrão. Para habilitar a nova transformação, você pode passar `{"runtime": "automatic"}` como uma opção para `@babel/plugin-transform-react-jsx` ou `@babel/preset-react`:
+Atualmente, a antiga transformação `{"runtime": "classic"}` é a opção padrão. Para habilitar a nova transformação, você pode passar `{"runtime": "automatic"}` como uma opção para `@babel/plugin-transform-react-jsx` ou `@babel/preset-react`:
 
 ```js
 // Se você estiver usando @babel/preset-react
@@ -196,7 +196,7 @@ TypeScript suporta a nova transformação JSX em [v4.1 beta](https://devblogs.mi
 
 ### Flow {#flow}
 
-Flow suporta a nova transformação JSX em [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) para cima.
+Flow suporta a nova transformação JSX em [v0.126.0](https://github.com/facebook/flow/releases/tag/v0.126.0) para cima, adicionando `react.runtime = automatic` às opções de configuração do Flow.
 
 ## Removendo Imports React não Utilizadas {#removing-unused-react-imports}
 
