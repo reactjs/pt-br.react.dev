@@ -167,7 +167,7 @@ Atualmente, a antiga transformação `{"runtime": "classic"}` é a opção padr�
 }
 ```
 
-A partir do Babel 8, `"automático"` será o tempo de execução padrão para ambos os plug-ins. Para obter mais informações, verifique a documentação do Babel para [@babel/plugin-transform-react-jsx](https://babeljs.io/docs/en/babel-plugin-transform-react-jsx) e [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react).
+A partir do Babel 8, `"automatic"` será o tempo de execução padrão para ambos os plug-ins. Para obter mais informações, verifique a documentação do Babel para [@babel/plugin-transform-react-jsx](https://babeljs.io/docs/en/babel-plugin-transform-react-jsx) e [@babel/preset-react](https://babeljs.io/docs/en/babel-preset-react).
 
 > Nota
 >
