@@ -1,33 +1,33 @@
 ---
 id: legacy-event-pooling
-title: Event Pooling
+title: Pooling de Eventos
 permalink: docs/legacy-event-pooling.html
 ---
 
->Note
+>Nota
 >
->This page is only relevant for React 16 and earlier, and for React Native.
+>Esta página é relevante apenas para React 16 e anteriores, e para React Native.
 >
->React 17 on the web **does not** use event pooling.
+>React 17 na web **não** usa pool de eventos.
 >
->[Read more](/blog/2020/08/10/react-v17-rc.html#no-event-pooling) about this change in React 17.
+>[Mais informações](/blog/2020/08/10/react-v17-rc.html#no-event-pooling) sobre esta mudança no React 17.
 
-The [`SyntheticEvent`](/docs/events.html) objects are pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event event handler has been called. For example, this won't work:
+Os objetos [`SyntheticEvent`](/docs/events.html) são agrupados. Isso será reutilizado e todas as propriedades serão anuladas após a chamada do manipulador de eventos. Por exemplo, isso não funcionará:
 
 ```javascript
 function handleChange(e) {
-  // This won't work because the event object gets reused.
+  // Isso não funcionará porque o objeto de evento é reutilizado.
   setTimeout(() => {
-    console.log(e.target.value); // Too late!
+    console.log(e.target.value); // Muito tarde!
   }, 100);
 }
 ```
 
-If you need to access event object's properties after the event handler has run, you need to call `e.persist()`:
+Se você precisar acessar as propriedades do objeto de evento após a execução do manipulador de eventos, você precisa chamar `e.persist()`:
 
 ```javascript
 function handleChange(e) {
-  // Prevents React from resetting its properties:
+  // Evita que o React redefina suas propriedades:
   e.persist();
 
   setTimeout(() => {
