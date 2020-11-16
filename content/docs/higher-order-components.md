@@ -319,7 +319,7 @@ Componentes de ordem superior vêm com algumas ressalvas que não são imediatam
 
 ### Não usar HOCs dentro do método render {#dont-use-hocs-inside-the-render-method}
 
-O algoritmo de comparação do React (chamado reconciliação) usa a identidade do componente para determinar se ele deve atualizar a sub-árvore existente ou jogá-la fora e montar uma nova. Se o componente que foi retornado do `render` é idêntico (`===`) ao componente do render anterior, o React atualizará a sub-árvore comparando-a recursivamente com uma nova. Se elas não forem iguais, a sub-árvore anterior será completamente desmontada.
+O algoritmo de comparação do React (chamado [Reconciliação](/docs/reconciliation.html)) usa a identidade do componente para determinar se ele deve atualizar a sub-árvore existente ou jogá-la fora e montar uma nova. Se o componente que foi retornado do `render` é idêntico (`===`) ao componente do render anterior, o React atualizará a sub-árvore comparando-a recursivamente com uma nova. Se elas não forem iguais, a sub-árvore anterior será completamente desmontada.
 
 Normalmente, você não precisa se preocupar com isso. Mas isso é importante em HOCs porque não se pode aplicar um HOC em um componente dentro do método render de um componente:
 

@@ -415,6 +415,12 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
+As compilações de produção e desenvolvimento do React diferem ligeiramente na maneira como `componentDidCatch()` lida com erros.
+
+No desenvolvimento, os erros irão borbulhar em `window`, isso significa que qualquer `window.onerror` ou `window.addEventListener('error', callback)` irá interceptar os erros que foram detectados por `componentDidCatch()`.
+
+Na produção, em vez disso, os erros não surgirão, o que significa que qualquer manipulador de erros ancestral receberá apenas erros não explicitamente detectados por `componentDidCatch()`.
+
 > Nota
 >
 > No evento de um erro, você pode renderizar uma UI de *fallback* com `componentDidCatch()` chamando `setState`, mas isto será depreciado numa *release* futura.
