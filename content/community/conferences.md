@@ -12,11 +12,14 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
+<<<<<<< HEAD
 ### React Summit 2020 {#react-summit-2020}
 7am PST / 1pm EST / 4pm CEST 15 e 16 de outubro de 2020 - Evento Remoto
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
 
+=======
+>>>>>>> 957276e1e92bb48e5bb6b1c17fd0e7a559de0748
 ### React Conf Brasil 2020 {#react-conf-brasil-2020}
 21 de novembro de 2020 - Evento Remoto
 
@@ -475,3 +478,8 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 3 e 4 de setembro de 2020 - Evento Remoto
 
 [Website](https://www.react-native.eu/) - [Twitter](https://twitter.com/react_native_eu) - [Facebook](https://www.facebook.com/reactnativeeu/) - [YouTube](https://www.youtube.com/watch?v=m0GfmlGFh3E&list=PLZ3MwD-soTTHy9_88QPLF8DEJkvoB5Tl-) - [Instagram](https://www.instagram.com/reactnative_eu/)
+
+### React Summit 2020 {#react-summit-2020}
+October 15-16, 2020, 7am PST / 10am EST / 4pm CEST - remote event
+
+[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
