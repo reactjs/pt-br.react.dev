@@ -192,7 +192,7 @@ Se você estiver usando [eslint-plugin-react](https://github.com/yannickcr/eslin
 
 ### TypeScript {#typescript}
 
-TypeScript suporta a nova transformação JSX em [v4.1 beta](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories).
+TypeScript suporta a nova transformação JSX em [v4.1](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#jsx-factories).
 
 ### Flow {#flow}
 
