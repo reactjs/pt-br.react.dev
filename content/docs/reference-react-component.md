@@ -419,11 +419,7 @@ As compilações de produção e desenvolvimento do React diferem ligeiramente n
 
 No desenvolvimento, os erros irão borbulhar em `window`, isso significa que qualquer `window.onerror` ou `window.addEventListener('error', callback)` irá interceptar os erros que foram detectados por `componentDidCatch()`.
 
-<<<<<<< HEAD
 Na produção, em vez disso, os erros não surgirão, o que significa que qualquer manipulador de erros ancestral receberá apenas erros não explicitamente detectados por `componentDidCatch()`.
-=======
-On production, instead, the errors will not bubble up, which means any ancestor error handler will only receive errors not explicitly caught by `componentDidCatch()`.
->>>>>>> 8f9ef00db1b36ee3e5a0e6072eb601257a6f8ccb
 
 > Nota
 >
