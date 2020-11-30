@@ -46,6 +46,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)
+* [Toronto, ON](https://www.meetup.com/Toronto-React-Native/events/)
 
 ## China {#china}
 * [Beijing](https://www.meetup.com/Beijing-ReactJS-Meetup/)
@@ -102,7 +103,14 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Israel {#israel}
 * [Tel Aviv](https://www.meetup.com/ReactJS-Israel/)
 
+<<<<<<< HEAD
 ## Malásia {#malaysia}
+=======
+## Italy {#italy}
+* [Milan](https://www.meetup.com/React-JS-Milano/)
+
+## Malaysia {#malaysia}
+>>>>>>> 5e437a10ed4e89cd5eaf990ce4f43e0857592b53
 * [Kuala Lumpur](https://www.kl-react.com/)
 * [Penang](https://www.facebook.com/groups/reactpenang/)
 
