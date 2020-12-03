@@ -93,7 +93,7 @@ function getGreeting(user) {
 Você pode usar aspas para especificar strings literais como atributos:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <div tabIndex={0}></div>;
 ```
 
 Você também pode usar chaves para incorporar uma expressão JavaScript em um atributo:

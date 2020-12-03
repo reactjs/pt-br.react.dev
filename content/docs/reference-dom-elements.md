@@ -131,7 +131,7 @@ A partir do React 16, qualquer atributo padrão [ou personalizado](/blog/2017/09
 O React sempre forneceu uma API centrada no JavaScript para o DOM. Uma vez que os componentes React geralmente recebem tanto props personalizadas quanto props relacionadas ao DOM, o React usa a convenção `camelCase` assim como as APIs do DOM:
 
 ```js
-<div tabIndex="-1" />      // Assim como node.tabIndex DOM API
+<div tabIndex={-1} />      // Assim como node.tabIndex DOM API
 <div className="Button" /> // Assim como node.className DOM API
 <input readOnly={true} />  // Assim como node.readOnly DOM API
 ```
