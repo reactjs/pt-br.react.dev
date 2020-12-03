@@ -195,16 +195,13 @@ class Greeting extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
 A `defaultProps` será usada para garantir que `this.props.name` tenha um valor caso não tenha sido especificado pelo componente pai. A checagem de tipos de `propTypes` acontece após `defaultProps` ser resolvida, logo a checagem também será aplicada à `defaultProps`.
-=======
-The `defaultProps` will be used to ensure that `this.props.name` will have a value if it was not specified by the parent component. The `propTypes` typechecking happens after `defaultProps` are resolved, so typechecking will also apply to the `defaultProps`.
 
-### Function Components
+### Function Componentes
 
-If you are using function components in your regular development, you may want to make some small changes to allow PropTypes to be proper applied.
+Se você estiver usando function componentes em seu desenvolvimento, pode desejar fazer algumas pequenas alterações para permitir que os PropTypes sejam aplicados adequadamente.
 
-Let's say you have a component like this:
+Digamos que você tenha um componente como este:
 
 ```javascript
 export default function HelloWorldComponent({ name }) {
@@ -214,7 +211,7 @@ export default function HelloWorldComponent({ name }) {
 }
 ```
 
-To add PropTypes, you may want to declare the component in a separate function before exporting, like this:
+Para adicionar PropTypes, você pode declarar o componente em uma função separada antes de exportar, da seguinte forma:
 
 ```javascript
 function HelloWorldComponent({ name }) {
@@ -226,7 +223,7 @@ function HelloWorldComponent({ name }) {
 export default HelloWorldComponent
 ```
 
-Then, you can add PropTypes directly to the `HelloWorldComponent`:
+Então, você pode adicionar PropTypes diretamente ao `HelloWorldComponent`:
 
 ```javascript
 import PropTypes from 'prop-types'
@@ -243,4 +240,3 @@ HelloWorldComponent.propTypes = {
 
 export default HelloWorldComponent
 ```
->>>>>>> 5e437a10ed4e89cd5eaf990ce4f43e0857592b53
