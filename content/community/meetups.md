@@ -42,7 +42,12 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Bolívia {#bolivia}
 * [Bolivia](https://www.meetup.com/ReactBolivia/)
 
+<<<<<<< HEAD
 ## Canadá {#canada}
+=======
+## Canada {#canada}
+* [Halifax, NS](https://www.meetup.com/Halifax-ReactJS-Meetup/)
+>>>>>>> 4fc709d0576d0f0f1f8ea8b6bb341a12944b5510
 * [Montreal, QC - React Native](https://www.meetup.com/fr-FR/React-Native-MTL/)
 * [Vancouver, BC](https://www.meetup.com/ReactJS-Vancouver-Meetup/)
 * [Ottawa, ON](https://www.meetup.com/Ottawa-ReactJS-Meetup/)

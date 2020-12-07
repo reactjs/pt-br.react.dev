@@ -22,7 +22,11 @@ Versões minor são o tipo mais comum de versão.
 
 ### Atualizações que quebram compatibilidade {#breaking-changes}
 
+<<<<<<< HEAD
 Atualizações que quebram compatibilidade são inconvenientes para todos, sendo assim, tentamos diminuir o número de major releases – por exemplo, React 15 foi lançado em Abril de 2016 e React 16 foi lançado em Setembro de 2017; React 17 não é esperado até algum dia em 2020.
+=======
+Breaking changes are inconvenient for everyone, so we try to minimize the number of major releases – for example, React 15 was released in April 2016 and React 16 was released in September 2017, and React 17 was released in October 2020.
+>>>>>>> 4fc709d0576d0f0f1f8ea8b6bb341a12944b5510
 
 Todavia, lançamos novas funcionalidades em versões menores. Isso significa que updates menores são mais interessantes e convenientes que versões maiores, apesar de parecer o contrário.
 
