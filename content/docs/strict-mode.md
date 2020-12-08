@@ -116,6 +116,10 @@ Por exemplo, considere o seguinte código:
 
 Ao intencionalmente invocar os métodos de ciclo de vida duas vezes, como o construtor do componente, o modo estrito pode tornar padrões como este mais fácil de localizar.
 
+> Nota:
+>
+> A partir do React 17, o React modifica automaticamente os métodos do console como `console.log()` para silenciar os logs na segunda chamada para funções de ciclo de vida. No entanto, pode causar um comportamento indesejado em certos casos em que [uma solução alternativa pode ser usada](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
+
 ### Detectar o uso da antiga API de contexto (Context API) {#detecting-legacy-context-api}
 
 A antiga API de contexto era propensa a erros, e será removida em uma futura versão principal (_major version_). Ela ainda funciona para todas versões `16.x`, mas mostrará uma mensagem de aviso no modo estrito: 
