@@ -123,11 +123,7 @@ Depois de clonar o React, execute `yarn` para buscar suas dependências. Então,
 * `yarn build` cria uma pasta `build` com todos os pacotes.
 * `yarn build react/index,react-dom/index --type=UMD` cria compilações UMD somente com o React e ReactDOM.
 
-<<<<<<< HEAD
 Recomendamos executar o `yarn test` (ou suas variações acima) para garantir que você não introduza nenhuma regressão enquanto trabalha na sua mudança. No entanto, pode ser útil testar sua versão do React em um projeto real.
-=======
-We recommend running `yarn test` (or its variations above) to make sure you don't introduce any regressions as you work on your change. However, it can be handy to try your build of React in a real project.
->>>>>>> 923629258fce174a89231c88c90805d9e5b0278d
 
 Primeiro, execute `yarn build`. Isto irá produzir pacotes pré-construídos na pasta `build`, bem como irá preparar pacotes npm dentro da pasta `build/packages`.
 
