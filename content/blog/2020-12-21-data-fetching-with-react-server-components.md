@@ -1,24 +1,24 @@
 ---
-title: "Introducing Zero-Bundle-Size React Server Components"
+title: "Apresentando Componentes React de tamanho zero no Servidor"
 author: [gaearon,laurentan,josephsavona,sebmarkbage]
 ---
 
-2020 has been a long year. As it comes to an end we wanted to share a special Holiday Update on our research into zero-bundle-size **React Server Components**.
+2020 foi um longo ano. Como está chegando ao fim, gostaríamos de compartilhar uma atualização especial de feriado em nossa pesquisa sobre **Componentes React de tamanho zero no Servidor**.
 
-To introduce React Server Components, we have prepared a talk and a demo. If you want, you can check them out during the holidays, or later when work picks back up in the new year.
+Para apresentar Componentes React no Servidor, nós preparamos uma conversa e uma demonstração. Se você quiser, você pode confirir durante as férias ou mais tarde, quando o trabalho voltar no ano novo.
 
 <br>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TQQPAU21ZUw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**React Server Components are still in research and development.** We are sharing this work in the spirit of transparency and to get initial feedback from the React community. There will be plenty of time for that, so **don't feel like you have to catch up right now!**
+**Componentes React no Servidor ainda estão em estudo e desenvolvimento.** Nós estamos compartilhando esse trabalho com o espirito de transparência e para obter o feedback inicial da comunidade React. Haverá muito para isso, então **não sinta que você precisa se atualizar agora!**
 
-If you want to check them out, we recommend to go in the following order:
+Se você quiser conferir, recomendamos ir na seguinte ordem:
 
-1. **Watch the talk** to learn about React Server Components and see the demo.
+1. **Assista à palestra** para saber sobre Componentes React no Servidor e veja a demonstração.
 
-2. **[Clone the demo](http://github.com/reactjs/server-components-demo)** to play with React Server Components on your computer.
+2. **[Clone a demonstração disponível no GitHub](http://github.com/reactjs/server-components-demo)** para brincar com Componentes React no Servidor em seu computador.
 
-3. **[Read the RFC (with FAQ at the end)](https://github.com/reactjs/rfcs/pull/188)** for a deeper technical breakdown and to provide feedback.
+3. **[Leia o RFC (com a seção de Perguntas Frequentes no final)](https://github.com/reactjs/rfcs/pull/188)** para uma análise técnica mais detalhada e para nos fornecer feedback.
 
-We are excited to hear from you on the RFC or in replies to the [@reactjs](https://twitter.com/reactjs) Twitter handle. Happy holidays, stay safe, and see you next year!
+Nós estamos animados para ouvir vocês no RFC ou nas respostas do nosso [@reactjs](https://twitter.com/reactjs) Twitter oficial. Boas festas, fique seguro e nos vemos ano que vem!
