@@ -11,7 +11,7 @@ Para apresentar Componentes React no Servidor, nós preparamos uma palestra e um
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TQQPAU21ZUw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-**Componentes React no Servidor ainda estão em estudo e desenvolvimento.** Nós estamos compartilhando esse trabalho com o espirito de transparência e para obter o feedback inicial da comunidade React. Haverá muito para isso, então **não sinta que você precisa se atualizar agora!**
+**Componentes React no Servidor ainda estão em estudo e desenvolvimento.** Nós estamos compartilhando esse trabalho com o espírito de transparência e para obter o feedback inicial da comunidade React. Haverá muito tempo para isso, então **não sinta que você precisa se atualizar agora!**
 
 Se você quiser conferir, recomendamos ir na seguinte ordem:
 
