@@ -5,7 +5,7 @@ author: [gaearon,laurentan,josephsavona,sebmarkbage]
 
 2020 foi um longo ano. Como está chegando ao fim, gostaríamos de compartilhar uma atualização especial de feriado em nossa pesquisa sobre **Componentes React de tamanho zero no Servidor**.
 
-Para apresentar Componentes React no Servidor, nós preparamos uma conversa e uma demonstração. Se você quiser, você pode confirir durante as férias ou mais tarde, quando o trabalho voltar no ano novo.
+Para apresentar Componentes React no Servidor, nós preparamos uma palestra e uma demonstração. Se quiser, você pode conferir durante as férias ou mais tarde, quando o trabalho voltar no ano novo.
 
 <br>
 
