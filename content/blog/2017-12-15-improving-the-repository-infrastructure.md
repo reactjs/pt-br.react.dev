@@ -1,42 +1,42 @@
 ---
-title: "Behind the Scenes: Improving the Repository Infrastructure"
+title: "Nos Bastidores: Melhorando a Infraestrutura do Repositório"
 author: [gaearon, bvaughn]
 ---
 
-As we worked on [React 16](/blog/2017/09/26/react-v16.0.html), we revamped the folder structure and much of the build tooling in the React repository. Among other things, we introduced projects such as [Rollup](https://rollupjs.org/), [Prettier](https://prettier.io/), and [Google Closure Compiler](https://developers.google.com/closure/compiler/) into our workflow. People often ask us questions about how we use those tools. In this post, we would like to share some of the changes that we've made to our build and test infrastructure in 2017, and what motivated them.
+Enquanto trabalhávamos no [React 16](/blog/2017/09/26/react-v16.0.html), reformulamos a estrutura de pastas e muito do ferramental de construção no repositório React. Entre outras coisas, introduzimos projetos como [Rollup](https://rollupjs.org/), [Prettier](https://prettier.io/), e [Google Closure Compiler](https://developers.google.com/closure/compiler/) em nosso fluxo de trabalho. As pessoas frequentemente nos fazem perguntas sobre como usamos essas ferramentas. Neste post, nós gostaríamos de compartilhar algumas das alterações que fizemos em nossa infraestrura de build e teste em 2017 e o que as motivou.
 
-While these changes helped us make React better, they don't affect most React users directly. However, we hope that blogging about them might help other library authors solve similar problems. Our contributors might also find these notes helpful!
+Enquanto essas mudanças nos ajudaram a fazer o React melhor, elas não afetam a maioria do usuários React diretamente. Contudo, esperamos que os posts sobre eles possam ajudar outros autores de bibliotecas a resolver problemas semelhantes. Nossos colaboradores também podem achar essas anotações úteis!
 
-## Formatting Code with Prettier {#formatting-code-with-prettier}
+## Formatando Código com Prettier {#formatting-code-with-prettier}
 
-React was one of the first large repositories to [fully embrace](https://github.com/facebook/react/pull/9101) opinionated automatic code formatting with [Prettier](https://prettier.io/). Our current Prettier setup consists of:
+O React foi um dos primeiros grandes repositórios a [adotar completamente](https://github.com/facebook/react/pull/9101) formatação automática de código opinativo com [Prettier](https://prettier.io/). Nossa configuração atual do Prettier consiste em:
 
-* A local [`yarn prettier`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/package.json#L115) script that [uses the Prettier Node API](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/prettier/index.js#L71-L77) to format files in place. We typically run it before committing changes. It is fast because it only checks the [files changed since diverging from remote master](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/shared/listChangedFiles.js#L29-L33).
-* A script that [runs Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/prettier/index.js#L79-L90) as part of our [continuous integration checks](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/circleci/test_entry_point.sh#L10). It won't attempt to overwrite the files, but instead will fail the build if any file differs from the Prettier output for that file. This ensures that we can't merge a pull request unless it has been fully formatted.
+* Um script local [`yarn prettier`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/package.json#L115) que [usa a API Node do Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/prettier/index.js#L71-L77) para formatar arquivos no lugar. Normalmente, executamos isso antes de confirmar alterações. É rápido porque só verifica o [arquivo alterado desde  que esteja divergente com a branch master remota](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/shared/listChangedFiles.js#L29-L33).
+* O script que [roda o Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/prettier/index.js#L79-L90) como parte dos nossos [checks de integração contínua](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/circleci/test_entry_point.sh#L10). Não tentará sobrescrever os arquivos, mas, em vez disso, falhará a compilação se algum arquivo for diferente da saída Prettier desse arquivo. Isso garante que não possamos mergear um pull request, a menos que ela tenha sido totalmente formatado.
 
-Some team members have also set up the [editor integrations](https://prettier.io/docs/en/editors.html). Our experience with Prettier has been fantastic, and we recommend it to any team that writes JavaScript.
+Alguns membros da equipe também configuraram [integrações com o editor](https://prettier.io/docs/en/editors.html). Nossa experiência com o Prettier tem sido fantástica e recomendamos a qualquer equipe que utilize JavaScript.
 
-## Restructuring the Monorepo {#restructuring-the-monorepo}
+## Reestruturando o Monorepo {#restructuring-the-monorepo}
 
-Ever since React was split into packages, it has been a [monorepo](https://danluu.com/monorepo/): a set of packages under the umbrella of a single repository. This made it easier to coordinate changes and share the tooling, but our folder structure was deeply nested and difficult to understand. It was not clear which files belonged to which package. After releasing React 16, we've decided to completely reorganize the repository structure. Here is how we did it.
+Desde que o React foi dividido em pacotes, tem sido um [monorepo](https://danluu.com/monorepo/): um conjunto de pacotes sob o guarda-chuva de um único repositório. Isso facilitou a coordenação de alterações e o compartilhamento das ferramentas, mas nossa estrutura de pastas estava profundamente aninhada e difícil de entender. Não ficou claro quais arquivos pertenciam a qual pacote. Depois de liberar o React 16, decidimos reorganizar completamente a estrutura do repositório. Aqui está como nós fizemos isso.
 
 ### Migrating to Yarn Workspaces {#migrating-to-yarn-workspaces}
 
-The Yarn package manager [introduced a feature called Workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/) a few months ago. This feature lets you tell Yarn where your monorepo's packages are located in the source tree. Every time you run `yarn`, in addition to installing your dependencies it also sets up the symlinks that point from your project's `node_modules` to the source folders of your packages.
+O gerenciador de pacote Yarn [introduziu um recurso chamado Workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/) há alguns meses atrás. Esse recurso permite que você diga ao Yarn onde os pacotes do seu monorepo estão localizados na árvore de fontes. Toda vez que você roda `yarn`, além de instalar suas dependências, ele também configura os links simbólicos que apontam a partir do `node_modules` do seu projeto, para as pastas de origem dos seus pacotes.
 
-Thanks to Workspaces, absolute imports between our own packages (such as importing `react` from `react-dom`) "just work" with any tools that support the Node resolution mechanism. The only problem we encountered was Jest not running the transforms inside the linked packages, but we [found a fix](https://github.com/facebook/jest/pull/4761), and it was merged into Jest.
+Graças aos Workspaces, importações absolutas entre os nossos próprios pacotes (como importar `react` do `react-dom`) "simplismente funcionam" com todas as ferramentas que suportam o mecanismo de resolução do Node. O único problema que encontramos foi no Jest não executando as transformações dentro dos pacotes vinculados, mas nós [encontramos uma correção](https://github.com/facebook/jest/pull/4761), e foi mergeado dentro do Jest.
 
-To enable Yarn Workspaces, we added `"workspaces": ["packages/*"]` to our [`package.json`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/package.json#L4-L6), and moved all the code into [top-level `packages/*` folders](https://github.com/facebook/react/tree/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages), each with its own `package.json` file.
+Para habilitar o Yarn Workspaces, nós adicionamos `"workspaces": ["packages/*"]` para nosso [`package.json`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/package.json#L4-L6), e movemos todo código dentro do [top-level `packages/*` folders](https://github.com/facebook/react/tree/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages), cada um com o seu próprio arquivo `package.json`.
 
-Each package is structured in a similar way. For every public API entry point such as `react-dom` or `react-dom/server`, there is a [file](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/index.js) in the package root folder that re-exports the implementation from the [`/src/`](https://github.com/facebook/react/tree/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/src) subfolder. The decision to point entry points to the source rather than to the built versions was intentional. Typically, we re-run a subset of tests after every change during development. Having to build the project to run a test would have been prohibitively slow. When we publish packages to npm, we replace these entry points with files in the [`/npm/`](https://github.com/facebook/react/tree/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/npm) folder that point to the build artifacts.
+Cada pacote é estruturado de forma semelhante. Para cada ponto de entrada da API pública, como `react-dom` ou `react-dom/server`, existe um [arquivo](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/index.js) na pasta raiz do pacote que reexporta a implementação do [`/src/`](https://github.com/facebook/react/tree/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/src) subpasta. A decisão de apontar pontos de entrada para a fonte e não para as versões construídas foi intencional. Tipicamente, nós executamos novamente um subconjunto de testes após cada alteração durante o desenvolvimento. Ter que construir o projeto para executar um teste teria sido proibitivamente lento. Quando publicamos pacotes para o npm, substituímos esses pontos de entrada por arquivos na pasta [`/npm/`](https://github.com/facebook/react/tree/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/npm) que apontam para os artefatos da build.
 
-Not all packages have to be published on npm. For example, we keep some utilities that are tiny enough and can be safely duplicated in a [pseudo-package called `shared`](https://github.com/facebook/react/tree/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/shared). Our bundler is configured to [only treat `dependencies` declared from `package.json` as externals](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L326-L329) so it happily bundles the `shared` code into `react` and `react-dom` without leaving any references to `shared/` in the build artifacts. So you can use Yarn Workspaces even if you don't plan to publish actual npm packages!
+Nem todos os pacotes precisam ser publicados no npm. Por exemplo, mantemos alguns utilitários que são pequenos o suficiente e podem ser duplicados com segurança em um [pseudo-pacote chamado `shared`](https://github.com/facebook/react/tree/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/shared). Nosso bundler está configurado para [apenas tratar `dependências` declaradas no `package.json` como externas](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L326-L329) por isso, felizmente empacota o código do `shared` dentro do `react` e `react-dom` sem deixar nenhuma referências a `shared/` nos artefatos de build. Então você pode usar Yarn Workspaces mesmo que você não planeje publicar pacotes npm!
 
-### Removing the Custom Module System {#removing-the-custom-module-system}
+### Removendo o sistema de módulo personalizado {#removing-the-custom-module-system}
 
-In the past, we used a non-standard module system called "Haste" that lets you import any file from any other file by its unique `@providesModule` directive no matter where it is in the tree. It neatly avoids the problem of deep relative imports with paths like `../../../../` and is great for the product code. However, this makes it hard to understand the dependencies between packages. We also had to resort to hacks to make it work with different tools.
+No passado, usamos um sistema de módulo não padronizado chamado "Haste" que permite importar qualquer arquivo de qualquer outro arquivo por sua única `@providesModule` diretiva, não importa onde esteja na árvore. Ele evita o problema de importações relativas profundas com caminhos como `../../../../` e é ótimo para o código do produto. Entretanto, isso dificulta entender as dependências entre pacotes. Nós também tivemos que recorrer a hacks para fazê-lo funcionar com diferentes ferramentas.
 
-We decided to [remove Haste](https://github.com/facebook/react/pull/11303) and use the Node resolution with relative imports instead. To avoid the problem of deep relative paths, we have [flattened our repository structure](https://github.com/facebook/react/pull/11304) so that it goes at most one level deep inside each package:
+Nós decidimos [remover o Haste](https://github.com/facebook/react/pull/11303) e usar ao invés, a resolução Node com importações relativas. Para evitar o problema dos caminhos relativos profundos, nós temos [achatado nossa estrutura de respositório](https://github.com/facebook/react/pull/11304) de modo que vá no máximo um nível no fundo de cada pacote:
 
 ```
 |-react
@@ -51,27 +51,27 @@ We decided to [remove Haste](https://github.com/facebook/react/pull/11303) and u
 |  |  |-shared
 ```
 
-This way, the relative paths can only contain one `./` or `../` followed by the filename. If one package needs to import something from another package, it can do so with an absolute import from a top-level entry point.
+Neste caminho, os caminhos relativos só podem ter um `./` ou `../` seguido pelo nome do arquivo. Se um pacote precisa importar algo de outro pacote, pode fazê-lo com uma importação absoluta no nível superior do ponto de entrada.
 
-In practice, we still have [some cross-package "internal" imports](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/src/client/ReactDOMFiberComponent.js#L10-L11) that violate this principle, but they're explicit, and we plan to gradually get rid of them.
+Na prática, nós ainda temos [algumas importações "internas" cross-package](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-dom/src/client/ReactDOMFiberComponent.js#L10-L11) que violam este princípio, mas são explícitas e planejamos gradualmente nos livrar delas.
 
-## Compiling Flat Bundles {#compiling-flat-bundles}
+## Compilando Pacotes Simples {#compiling-flat-bundles}
 
-Historically, React was distributed in two different formats: as a single-file build that you can add as a `<script>` tag in the browser, and as a collection of CommonJS modules that you can bundle with a tool like webpack or Browserify. 
+Historicamente, o React era distribuído em dois diferentes formatos: como uma compilação de arquivo único que você pode adicionar com uma tag `<script>` no navegador, e como uma coleção de CommonJS módulos que você pode empacotar como uma ferramenta como webpack ou Browserify. 
 
-Before React 16, each React source file had a corresponding CommonJS module that was published as part of the npm packages. Importing `react` or `react-dom` led bundlers to the package [entry point](https://unpkg.com/react@15/index.js) from which they would build a dependency tree with the CommonJS modules in the [internal `lib` folder](https://unpkg.com/react@15/lib/).
+Antes do React 16, cada arquivo fonte React tinha um módulo CommonJS correspondente que foi publicado como parte de um pacote npm. Importando `react` ou `react-dom` empacotadores conduzidos para o [ponto de entrada](https://unpkg.com/react@15/index.js) do pacote a partir do qual eles iriam construir uma árvore de dependência com os módulos CommonJS na [pasta interna `lib`](https://unpkg.com/react@15/lib/).
 
-However, this approach had multiple disadvantages:
+Entretanto, esta abordagem teve várias desvantagens:
 
-* **It was inconsistent.** Different tools produce bundles of different sizes for identical code importing React, with the difference going as far as 30 kB (before gzip).
-* **It was inefficient for bundler users.** The code produced by most bundlers today contains a lot of "glue code" at the module boundaries. It keeps the modules isolated from each other, but increases the parse time, the bundle size, and the build time.
-* **It was inefficient for Node users.** When running in Node, performing `process.env.NODE_ENV` checks before development-only code incurs the overhead of actually looking up environment variables. This slowed down React server rendering. We couldn't cache it in a variable either because it prevented dead code elimination with Uglify.
-* **It broke encapsulation.** React internals were exposed both in the open source (as `react-dom/lib/*` imports) and internally at Facebook. It was convenient at first as a way to share utilities between projects, but with time it became a maintenance burden because renaming or changing argument types of internal functions would break unrelated projects.
-* **It prevented experimentation.** There was no way for the React team to experiment with any advanced compilation techniques. For example, in theory, we might want to apply [Google Closure Compiler Advanced](https://developers.google.com/closure/compiler/docs/api-tutorial3) optimizations or [Prepack](https://prepack.io/) to some of our code, but they are designed to work on complete bundles rather than small individual modules that we used to ship to npm.
+* **Era inconsistente.** Diferentes ferramentas produzem pacotes de tamanhos diferentes para código idêntico importando o React, com a diferença indo até 30 kB (antes do gzip).
+* **Era ineficiente para usuários de empacotadores.** O código produzido pela maioria dos empacotadores hoje, possuem muitos "código de cola" nos limites do módulo. Mantém os módulos isolados uns dos outros, mas aumenta o tempo de parse, o tamanho do bundle, e o tempo de build.
+* **Era ineficiente para usuários de Node.** Ao rodar em Node, com `process.env.NODE_ENV` verifica se antes apenas em tempo de desenvolvimento, o código incorre na sobrecarga de realmente procurar variáveis ​​de ambiente. Isto desacelerou a renderização do React no servidor. Não foi possível armazenar em cache em uma variável porque impediu a eliminação do código morto com Uglify.
+* **Quebrou o encapsulamento.** React internals foram expostos tanto no open source (como `react-dom/lib/*` imports) e internamente no Facebook. Foi conveniente a princípio como uma maneira de compartilhar utilitários entre projetos, mas com o tempo tornou-se um fardo de manutenção porque renomear ou alterar os tipos de argumento de funções internas iria quebrar projetos não relacionados.
+* **Isso impediu a experimentação.** Não havia como o time do React experimentar com qualquer técnica avançada de compilação. Por exemplo, na teoria, poderíamos poder aplicar o [Google Closure Compiler Advanced](https://developers.google.com/closure/compiler/docs/api-tutorial3) otimizações ou [Prepack](https://prepack.io/) para alguns dos nossos códigos, mas eles são projetados para trabalhar em pacotes completos ao invés de pequenos módulos individuais que usamos para enviar para o npm.
 
-Due to these and other issues, we've changed the strategy in React 16. We still ship CommonJS modules for Node.js and bundlers, but instead of publishing many individual files in the npm package, we publish just two CommonJS bundles per entry point.
+Devido a estas e outras questões, nós mudamos nossa estratégia no React 16. Nós ainda enviamos módulos CommonJS para Node.js e empacotadores, mas em vez de publicar muitos arquivos individuais no pacote npm, nós publicamos apenas dois bundles CommonJS por ponto de entrada.
 
-For example, when you import `react` with React 16, the bundler [finds the entry point](https://unpkg.com/react@16/index.js) that just re-exports one of the two files:
+Por exemplo, quando você importa o `react` com React 16, o empacotador [encontra o ponto de entrada](https://unpkg.com/react@16/index.js) que apenas reexporta um dos dois arquivos:
 
 ```js
 'use strict';
@@ -83,43 +83,42 @@ if (process.env.NODE_ENV === 'production') {
 }
 ```
 
-In every package provided by React, the [`cjs` folder](https://unpkg.com/react@16/cjs/) (short for "CommonJS") contains a development and a production pre-built bundle for each entry point. 
+Em todos os pacotes fornecidos pelo React, a [pasta `cjs`](https://unpkg.com/react@16/cjs/) (abreviatura de "CommonJS") contém um pacote pré-construído de desenvolvimento e um de produção para cada ponto de entrada. 
 
-For example, [`react.development.js`](https://unpkg.com/react@16/cjs/react.development.js) is the version intended for development. It is readable and includes comments. On the other hand, [`react.production.min.js`](https://unpkg.com/react@16/cjs/react.production.min.js) was minified and optimized before it was published to npm.
+Por exemplo, [`react.development.js`](https://unpkg.com/react@16/cjs/react.development.js) é a versão destinada ao desenvolvimento. É legível e inclui comentários. Por outro lado, [`react.production.min.js`](https://unpkg.com/react@16/cjs/react.production.min.js) foi reduzido e otimizado antes de ser publicado no npm.
 
-Note how this is essentially the same strategy that we've been using for the single-file browser builds (which now reside in the [`umd` directory](https://unpkg.com/react@16/umd/), short for [Universal Module Definition](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/)). Now we just apply the same strategy to the CommonJS builds as well.
+Observe como essa é essencialmente a mesma estratégia que usamos para as compilações de navegador de arquivo único (que agora residem no [diretório `umd`](https://unpkg.com/react@16/umd/), abreviatura para [Universal Module Definition](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/)). Agora apenas aplicamos a mesma estratégia ao CommonJS builds também.
 
-### Migrating to Rollup {#migrating-to-rollup}
+### Migrando para o Rollup {#migrating-to-rollup}
 
-Just compiling CommonJS modules into single-file bundles doesn't solve all of the above problems. The really significant wins came from [migrating our build system](https://github.com/facebook/react/pull/9327) from Browserify to [Rollup](https://rollupjs.org/).
+Apenas compilando módulos CommonJS em pacotes de arquivos únivos não resolve todos os problemas acima. As vitórias realmente significativas vieram de [migrando nosso sistema de build](https://github.com/facebook/react/pull/9327) do Browserify para [Rollup](https://rollupjs.org/).
 
-[Rollup was designed with libraries rather than apps in mind](https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c), and it is a perfect fit for React's use case. It solves one problem well: how to combine multiple modules into a flat file with minimal junk code in between. To achieve this, instead of turning modules into functions like many other bundlers, it puts all the code in the same scope, and renames variables so that they don't conflict. This produces code that is easier for the JavaScript engine to parse, for a human to read, and for a minifier to optimize.
+[O Rollup foi projetado com bibliotecas em vez de aplicativos em mente](https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c), e isso é um ajuste perfeito para o caso de uso do React. Isso resolve bem um problema: como combinar múltiplos módulos em um arquivo simples com o mínimo de código lixo no meio. Para alcançar isso, em vez de transformar módulos em funções assim como muitos outros empacotadores, coloca-se todo o código no mesmo escopo, e renomeia-se as variáveis para que não entrem em conflito. Isso produz código que é mais fácil para a engine do Javascript analisar, para um ser humano ler, e para um minificador otimizar.
 
-Rollup currently doesn't support some features that are important to application builders, such as code splitting. However, it does not aim to replace tools like webpack that do a great job at this. Rollup is a perfect fit for *libraries* like React that can be pre-built and then integrated into apps.
+O Rollup atualmente não suporta alguns recursos que são importantes para builders de aplicações, como code splitting. No entanto, não visa substituir ferramentas como o webpack que faz um ótimo trabalho nisso.
 
-You can find our Rollup build configuration [here](https://github.com/facebook/react/blob/8ec146c38ee4f4c84b6ecf59f52de3371224e8bd/scripts/rollup/build.js#L336-L362), with a [list of plugins we currently use](https://github.com/facebook/react/blob/8ec146c38ee4f4c84b6ecf59f52de3371224e8bd/scripts/rollup/build.js#L196-L273).
+Você pode encontrar nossa configuração de build do Rollup [aqui](https://github.com/facebook/react/blob/8ec146c38ee4f4c84b6ecf59f52de3371224e8bd/scripts/rollup/build.js#L336-L362), com uma [lista de plugins que utilizamos atualmente](https://github.com/facebook/react/blob/8ec146c38ee4f4c84b6ecf59f52de3371224e8bd/scripts/rollup/build.js#L196-L273).
 
-### Migrating to Google Closure Compiler {#migrating-to-google-closure-compiler}
+### Migrando para o compilador do Google Closure {#migrating-to-google-closure-compiler}
 
-After migrating to flat bundles, we [started](https://github.com/facebook/react/pull/10236) using [the JavaScript version of the Google Closure Compiler](https://github.com/google/closure-compiler-js) in its "simple" mode. In our experience, even with the advanced optimizations disabled, it still provided a significant advantage over Uglify, as it was able to better eliminate dead code and automatically inline small functions when appropriate.
+Depois de migrar para pacotes planos, nós [começamos](https://github.com/facebook/react/pull/10236) a usar [a versão JavaScript do compilador Google Closure](https://github.com/google/closure-compiler-js) nesse modo "simples". Em nossa experiência, mesmo com as otimizações avançadas desativadas, ainda fornecia uma vantagem significativa sobre o Uglify, pois foi capaz de eliminar melhor códigos mortos e automaticamente pequenas funções embutidas quando apropriado.
 
-At first, we could only use Google Closure Compiler for the React bundles we shipped in the open source. At Facebook, we still needed the checked-in bundles to be unminified so we could symbolicate React production crashes with our error reporting tools. We ended up contributing [a flag](https://github.com/google/closure-compiler/pull/2707) that completely disables the renaming compiler pass. This lets us apply other optimizations like function inlining, but keep the code fully readable for the Facebook-specific builds of React. To improve the output readability, we [also format that custom build using Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L249-L250). Interestingly, running Prettier on production bundles while debugging the build process is a great way to find unnecessary code in the bundles!
+No início, nós poderíamos apenas utilizar o compilador do Google Closure para os pacotes React que nós enviamos em código aberto. No Facebook, nós ainda precisávamos que os pacotes de check-in não fossem minificados para que pudéssemos simbolizar quebras do React em produção com nossas ferramentas de relatórios de erros. Nós acabamos contribuindo [uma flag](https://github.com/google/closure-compiler/pull/2707) que desabilita completamente o passo de renomeação do compilador. Isso nos permite aplicar outras otimizações como funções embutidas, mas mantém o código totalmente legível para as compilações Facebook-specific do React. Para melhorar a legibilidade do output, nós [também formatamos esse build customizado usando Prettier](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L249-L250). Curiosamente, executar o Prettier nos pacotes de produção enquanto depura o processo de compilação é uma ótima maneira de encontrar código desnecessário nos pacotes!
 
-Currently, all production React bundles [run through Google Closure Compiler in simple mode](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L235-L248), and we may look into enabling advanced optimizations in the future.
+Atualmente, todos os pacotes de produção do React [rodam através do compilador do Google Closure em um modo simples](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L235-L248), e nós podemos considerar a habilitação de otimizações avançadas no futuro.
 
-### Protecting Against Weak Dead Code Elimination {#protecting-against-weak-dead-code-elimination}
+### Proteção Contra a Eliminação de Códigos Mortos Fracos {#protecting-against-weak-dead-code-elimination}
 
-While we use an efficient [dead code elimination](https://en.wikipedia.org/wiki/Dead_code_elimination) solution in React itself, we can't make a lot of assumptions about the tools used by the React consumers.
+Enquanto nós utilizamos uma solução eficiente de [eliminação de códigos mortos](https://en.wikipedia.org/wiki/Dead_code_elimination) no React em si, não podemos fazer muitas suposições sobre as ferramentas utilizadas pelos consumidores do React.
 
-Typically, when you [configure a bundler for production](/docs/optimizing-performance.html#use-the-production-build), you need to tell it to substitute `process.env.NODE_ENV` with the `"production"` string literal. This process is sometimes called "envification". Consider this code:
+Tipicamente, quando você [configura um pacote para produção](/docs/optimizing-performance.html#use-the-production-build) , você precisa informá-lo para substituir `process.env.NODE_ENV` com a string literal de `"production"`. Esse processo às vezes é chamado de "envification". Considere esse código:
 
 ```js
 if (process.env.NODE_ENV !== "production") {
   // development-only code
 }
 ```
-
-After envification, this condition will always be `false`, and can be completely eliminated by most minifiers:
+Depois do processo de envification, essa condição sempre será `false`, e pode ser completamente eliminado pela maioria dos minificadores:
 
 ```js
 if ("production" !== "production") {
@@ -127,11 +126,11 @@ if ("production" !== "production") {
 }
 ```
 
-However, if the bundler is misconfigured, you can accidentally ship development code into production. We can't completely prevent this, but we took a few steps to mitigate the common cases when it happens.
+Entretanto, se o pacote estiver configurado incorretamente, você pode acidentalmente enviar código de desenvolvimento para produção. Nós não podemos prevenir isso completamente, mas nós tomamos algumas medidas para mitigar os casos comuns quando isso acontece.
 
-#### Protecting Against Late Envification {#protecting-against-late-envification}
+#### Protegendo Contra a Envificação Tardia {#protecting-against-late-envification}
 
-As mentioned above, our entry points now look like this:
+Como mencionado acima, nossos pontos de entrada agora se parecem com isso:
 
 ```js
 'use strict';
@@ -143,9 +142,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 ```
 
-However, some bundlers process `require`s before envification. In this case, even if the `else` block never executes, the `cjs/react.development.js` file still gets bundled.
+Entretanto, alguns processos de empacotadores `requerem` antes uma envificação. Nesse caso, mesmo se o bloco `else` nunca executa, o arquivo `cjs/react.development.js` ainda é empacotado.
 
-To prevent this, we also [wrap the whole content](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/rollup/wrappers.js#L65-L69) of the development bundle into another `process.env.NODE_ENV` check inside the `cjs/react.development.js` bundle itself:
+Para prevenir isso, nós também [embrulhamos todo o conteúdo](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/rollup/wrappers.js#L65-L69) do pacote de desenvolvimento em outra verificação `process.env.NODE_ENV` dentro de `cjs/react.development.js` no pacote em si:
 
 ```js
 'use strict';
@@ -157,43 +156,43 @@ if (process.env.NODE_ENV !== "production") {
 }
 ```
 
-This way, even if the application bundle includes both the development and the production versions of the file, the development version will be empty after envification.
+Dessa forma, mesmo que o pacote da aplicação inclua ambas as versões de desenvolvimento e de produção do arquivo, a versão do desenvolvimento estará vazia após a envificação.
 
-The additional [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) wrapper is necessary because some declarations (e.g. functions) can't be placed inside an `if` statement in JavaScript.
+O wrapper adicional [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) é necessário porque algumas declarações (e.g. funções) não podem ser colocadas dentro de uma declaração `if` em JavaScript.
 
-#### Detecting Misconfigured Dead Code Elimination {#detecting-misconfigured-dead-code-elimination}
+#### Detectando Eliminação de Código Morto Desconfigurada {#detecting-misconfigured-dead-code-elimination}
 
-Even though [the situation is changing](https://twitter.com/iamakulov/status/941336777188696066), many popular bundlers don't yet force the users to specify the development or production mode. In this case `process.env.NODE_ENV` is typically provided by a runtime polyfill, but the dead code elimination doesn't work.
+Apesar de [a situação esteja mudando](https://twitter.com/iamakulov/status/941336777188696066), muitos empacotadores populares ainda não forçam os usuários a especificar o modo de desenvolvimento ou modo de produção. Nesse caso `process.env.NODE_ENV` é tipicamente fornecido por um polyfill de tempo de execução, mas a eliminação do código morto não funciona.
 
-We can't completely prevent React users from misconfiguring their bundlers, but we introduced a few additional checks for this in [React DevTools](https://github.com/facebook/react-devtools).
+Não podemos prevenir completamente os usuários do React a configurarem incorretamente seus empacotadores, mas introduzimos algumas verificações adicionais para isso no [React DevTools](https://github.com/facebook/react-devtools). 
 
-If the development bundle executes, [React DOM reports this to React DevTools](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/packages/react-dom/src/client/ReactDOM.js#L1333-L1335):
+Se o pacote de desenvolvimento for executado, [React DOM reporta isso para o React DevTools](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/packages/react-dom/src/client/ReactDOM.js#L1333-L1335):
 
 <br>
 
 <img src="../images/docs/devtools-dev.png" style="max-width:100%" alt="React DevTools on a website with development version of React">
 
-There is also one more bad scenario. Sometimes, `process.env.NODE_ENV` is set to `"production"` at runtime rather than at the build time. This is how it should work in Node.js, but it is bad for the client-side builds because the unnecessary development code is bundled even though it never executes. This is harder to detect but we found a heuristic that works well in most cases and doesn't seem to produce false positives.
+Há também mais um cenário ruim. Algumas vezes, `process.env.NODE_ENV` é setado para `"production"` em tempo de execução em vez de no tempo de build. É assim que deve funcionar no Node.js, mas isso é ruim para os builds do lado do client porque o código de desenvolvimento desnecessário é empacotado apesar de nunca ser executado. Isso é mais difícil de detectar mas encontramos uma heurística que funciona bem na maioria dos casos e não parece produzir falsos positivos.
 
-We can write a function that contains a [development-only branch](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/packages/react-dom/npm/index.js#L11-L20) with an arbitrary string literal. Then, if `process.env.NODE_ENV` is set to `"production"`, we can [call `toString()` on that function](https://github.com/facebook/react-devtools/blob/b370497ba6e873c63479408f11d784095523a630/backend/installGlobalHook.js#L143) and verify that the string literal in the development-only has been stripped out. If it is still there, the dead code elimination didn't work, and we need to warn the developer. Since developers might not notice the React DevTools warnings on a production website, we also [throw an error inside `setTimeout`](https://github.com/facebook/react-devtools/blob/b370497ba6e873c63479408f11d784095523a630/backend/installGlobalHook.js#L153-L160) from React DevTools in the hope that it will be picked up by the error analytics.
+Podemos escrever uma função que contenha uma [branch apenas de desenvolvimento](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/packages/react-dom/npm/index.js#L11-L20) com uma string literal arbitrária. Então, se `process.env.NODE_ENV` é setado para `"production"`, podemos [chamar `toString()` nessa função](https://github.com/facebook/react-devtools/blob/b370497ba6e873c63479408f11d784095523a630/backend/installGlobalHook.js#L143) e verificar que a string literal na branch de apenas desenvolvimento foi retirada. Se ainda estiver lá, a eliminação do código morto não funcionou, e precisamos avisar o desenvolvedor. Desde que os desenvolvedores podem não notar os avisos do React DevTools em um website de produção, nós também [lançamos um erro dentro de `setTimeout`](https://github.com/facebook/react-devtools/blob/b370497ba6e873c63479408f11d784095523a630/backend/installGlobalHook.js#L153-L160) do React DevTools na esperança de que seja captado pela análise de erros.
 
-We recognize this approach is somewhat fragile. The `toString()` method is not reliable and may change its behavior in future browser versions. This is why we put that logic into React DevTools itself rather than into React. This allows us to remove it later if it becomes problematic. We also warn only if we *found* the special string literal rather than if we *didn't* find it. This way, if the `toString()` output becomes opaque, or is overridden, the warning just won't fire.
+Reconhecemos que essa abordagem é um tanto frágil. O método `toString()` não é confiável e pode mudar seu comportamento em futuras versões do navegador. É por isso que colocamos essa lógica no próprio React DevTools em vez de no React. Isso nos permite removê-lo posteriormente, caso se torne problemático. Também avisamos apenas se *encontramos* a string literal especial, e não se *não* a encontramos. Desta forma, se a saída `toString()` se tornar opaca, ou for substituída, o aviso simplesmente não disparará.
 
-## Catching Mistakes Early {#catching-mistakes-early}
+## Perceber erros antecipadamente {#catching-mistakes-early}
 
-We want to catch bugs as early as possible. However, even with our extensive test coverage, occasionally we make a blunder. We made several changes to our build and test infrastructure this year to make it harder to mess up.
+Queremos detectar bugs o mais cedo possível. No entanto, mesmo com nossa ampla cobertura de teste, ocasionalmente cometemos um erro crasso. Fizemos várias alterações em nossa infraestrutura de construção e teste este ano para torná-la mais difícil de bagunçar.
 
-### Migrating to ES Modules {#migrating-to-es-modules}
+### Migrando para os ES Modules {#migrating-to-es-modules}
 
-With the CommonJS `require()` and `module.exports`, it is easy to import a function that doesn't really exist, and not realize that until you call it. However, tools like Rollup that natively support [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) and [`export`](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) syntax fail the build if you mistype a named import. After releasing React 16, [we have converted the entire React source code](https://github.com/facebook/react/pull/11389) to the ES Modules syntax.
+Com CommonJS `require()` e `module.exports`, é fácil importar uma função que realmente não existe e não perceber isso até que você a chame. No entanto, ferramentas como Rollup, que oferecem suporte nativo à sintaxe de [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) e  [`export`](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) falham o build se você digitar incorretamente uma importação nomeada. Após lançar o React 16, [nós convertemos todo o código-fonte do React](https://github.com/facebook/react/pull/11389) para a sintaxe do ES Modules.
 
-Not only did this provide some extra protection, but it also helped improve the build size. Many React modules only export utility functions, but CommonJS forced us to wrap them into an object. By turning those utility functions into named exports and eliminating the objects that contained them, we let Rollup place them into the top-level scope, and thus let the minifier mangle their names in the production builds.
+Isso não apenas forneceu alguma proteção extra, mas também ajudou a melhorar o tamanho da construção. Muitos módulos React exportam apenas funções utilitárias, mas o CommonJS nos forçou a agrupá-los em um objeto. Transformando essas funções utilitárias em exportações nomeadas e eliminando os objetos que as continham, permitimos que o Rollup as coloque no escopo de nível superior e, assim, deixamos o minificador alterar seus nomes nas compilações de produção.
 
-For now, have decided to only convert the source code to ES Modules, but not the tests. We use powerful utilities like `jest.resetModules()` and want to retain tighter control over when the modules get initialized in tests. In order to consume ES Modules from our tests, we enabled the [Babel CommonJS transform](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/jest/preprocessor.js#L28-L29), but only for the test environment.
+Por enquanto, decidimos converter apenas o código-fonte para ES Modules, mas não os testes. Usamos utilitários poderosos como `jest.resetModules()` e queremos manter um controle mais rígido sobre quando os módulos são inicializados nos testes. Para consumir os ES Modules de nossos testes, habilitamos o [Babel CommonJS transform](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/jest/preprocessor.js#L28-L29), mas apenas para o ambiente de teste.
 
-### Running Tests in Production Mode {#running-tests-in-production-mode}
+### Executando testes no modo de produção {#running-tests-in-production-mode}
 
-Historically, we've been running all tests in a development environment. This let us assert on the warning messages produced by React, and seemed to make general sense. However, even though we try to keep the differences between the development and production code paths minimal, occasionally we would make a mistake in production-only code branches that weren't covered by tests, and cause an issue at Facebook.
+Historicamente, executamos todos os testes em um ambiente de desenvolvimento. Isso nos permitiu confirmar sobre as mensagens de advertência produzidas pelo React e parecia fazer sentido geral. No entanto, embora tentemos manter as diferenças entre os caminhos do código de desenvolvimento e produção, ocasionalmente cometeríamos um erro em branches de código somente de produção que não foram cobertos pelos testes e causaríamos um problema no Facebook.
 
 To solve this problem, we have added a new [`yarn test-prod`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/package.json#L110) command that runs on CI for every pull request, and [executes all React test cases in the production mode](https://github.com/facebook/react/pull/11616). We wrapped any assertions about warning messages into development-only conditional blocks in all tests so that they can still check the rest of the expected behavior in both environments. Since we have a custom Babel transform that replaces production error messages with the [error codes](/blog/2016/07/11/introducing-reacts-error-code-system.html), we also added a [reverse transformation](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/jest/setupTests.js#L91-L126) as part of the production test run.
 
