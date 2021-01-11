@@ -34,7 +34,7 @@ Nós o chamamos de nó raiz do DOM porque tudo dentro dele será gerenciado pelo
 
 Aplicações construídas apenas com React geralmente tem apenas um único nó raiz no DOM. Se deseja integrar o React a uma aplicação existente, você pode ter quantos nós raiz precisar.
 
-Para renderizar um elemento React em um nó raiz, passe ambos para `ReactDOM.render()`:
+Para renderizar um elemento React em um nó raiz, passe ambos para [`ReactDOM.render()`](/docs/react-dom.html#render)`:
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -46,7 +46,7 @@ Assim, é exibido "Hello, world" na página.
 
 Elementos React são [imutáveis](https://pt.wikipedia.org/wiki/Objeto_imutável). Uma vez criados, você não pode alterar seus elementos filhos ou atributos.
 
-Com o que aprendemos até agora, a única forma de atualizar a interface é criar um novo elemento e passá-lo para `ReactDOM.render()`.
+Com o que aprendemos até agora, a única forma de atualizar a interface é criar um novo elemento e passá-lo para [`ReactDOM.render()`](/docs/react-dom.html#render).
 
 Veja o seguinte exemplo de um relógio:
 
@@ -54,11 +54,11 @@ Veja o seguinte exemplo de um relógio:
 
 [](codepen://rendering-elements/update-rendered-element)
 
-Chama-se o `ReactDOM.render()` a cada segundo a partir de um callback do [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
+Chama-se o [`ReactDOM.render()`](/docs/react-dom.html#render) a cada segundo a partir de um callback do [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
 >**Nota:**
 >
->Na prática, a maioria dos aplicativos React usam o `ReactDOM.render()` apenas uma única vez. Nas seções seguintes, aprenderemos como esse código pode ser encapsulado em [componentes com estado](/docs/state-and-lifecycle.html).
+>Na prática, a maioria dos aplicativos React usam o [`ReactDOM.render()`](/docs/react-dom.html#render) apenas uma única vez. Nas seções seguintes, aprenderemos como esse código pode ser encapsulado em [componentes com estado](/docs/state-and-lifecycle.html).
 >
 >Recomendamos que você não pule os tópicos porque eles se complementam.
 
@@ -70,6 +70,6 @@ Você pode observar isso inspecionando o [último exemplo](codepen://rendering-e
 
 ![Ferramenta de inspecionar elemento do DOM mostrando atualizações granulares](../images/docs/granular-dom-updates.gif)
 
-Embora nós criemos um elemento descrevendo toda a estrutura da interface a cada segundo, somente o nó de texto cujo conteúdo muda é atualizado pelo React DOM.
+Embora nós criemos um elemento descrevendo toda a estrutura da interface a cada segundo, apenas o nó de texto cujo conteúdo foi alterado é atualizado pelo React DOM.
 
-Em nossa experiência, pensar em como a interface deve estar em um determinado momento, ao invés de pensar como modificá-la com o tempo, evita uma série de erros.
+Em nossa experiência, pensar em como a interface do usuário deve ficar a qualquer momento, em vez de como alterá-la ao longo do tempo, elimina toda uma série de bugs.

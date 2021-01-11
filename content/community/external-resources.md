@@ -18,4 +18,6 @@ Há muitos recursos maravilhosos reunidos pela comunidade React.
 
 - [Awesome React Talks](https://github.com/tiaanduplessis/awesome-react-talks) - Uma lista de palestras sobre React com curadoria. 
 
-- [Hero35 React Hub](https://hero35.com/stack/react) - Um site com _todas_ React conferências e palestras, categorizadas e com curadoria.
+- [Awesome React Videos](https://www.awesomereact.com) - Um site destacando os melhores vídeos do React.
+
+- [Hero35 React Hub](https://hero35.com/topic/react) - Um site com _todas_ React conferências e palestras, categorizadas e com curadoria.

@@ -8,7 +8,7 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
-Manipular eventos em elementos React é muito semelhante a manipular eventos em elementos do DOM. Existem algumas diferenças sintáticas:
+Manipular eventos em elementos React é muito semelhante a manipular eventos em elementos do DOM. Existem algumas diferenças de sintaxe:
 
 * Eventos em React são nomeados usando camelCase ao invés de letras minúsculas.
 * Com o JSX você passa uma função como manipulador de eventos ao invés de um texto.
@@ -54,9 +54,9 @@ function ActionLink() {
 }
 ```
 
-Aqui, "`e`" é um synthetic event. O React define esses eventos sintéticos de acordo com a [especificação W3C](https://www.w3.org/TR/DOM-Level-3-Events/). Então, não precisamos nos preocupar com a compatibilidade entre navegadores. Veja a página [`SyntheticEvent`](/docs/events.html) para saber mais.
+Aqui, "`e`" é um synthetic event. O React define esses eventos sintéticos de acordo com a [especificação W3C](https://www.w3.org/TR/DOM-Level-3-Events/). Então, não precisamos nos preocupar com a compatibilidade entre navegadores. Os eventos React não funcionam exatamente da mesma forma que os eventos nativos. Veja a página [`SyntheticEvent`](/docs/events.html) para saber mais.
 
-Ao usar o React você geralmente não precisa chamar `addEventListener` para adicionar ouvintes a um elemento no DOM depois que ele é criado. Ao invés disso você pode apenas definir um ouvinte quando o elemento é inicialmente renderizado.
+Ao usar o React, geralmente você não precisa chamar `addEventListener` para adicionar ouvintes a um elemento no DOM depois que ele é criado. Ao invés disso você pode apenas definir um ouvinte quando o elemento é inicialmente renderizado.
 
 Quando você define um componente usando uma [classe do ES6](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), um padrão comum é que um manipulador de eventos seja um método na classe. Por exemplo, este componente `Toggle` renderiza um botão que permite ao usuário alternar entre os estados "ON" e "OFF":
 
@@ -130,7 +130,7 @@ class LoggingButton extends React.Component {
   render() {
     // Essa sintaxe garante que o `this` seja vinculado ao handleClick.
     return (
-      <button onClick={(e) => this.handleClick(e)}>
+      <button onClick={() => this.handleClick()}>
         Click me
       </button>
     );
@@ -142,7 +142,7 @@ O problema com esta sintaxe é que um callback diferente é criado toda vez que 
 
 ## Passando Argumentos para Manipuladores de Eventos {#passing-arguments-to-event-handlers}
 
-Dentro de uma estrutura de repetição é comum querer passar um parâmetro extra para um manipulador de evento. Por exemplo, se `id` é o ID de identificação da linha, qualquer um dos dois a seguir funcionará:
+Dentro de uma estrutura de repetição, é comum querer passar um parâmetro extra para um manipulador de evento. Por exemplo, se `id` é o ID de identificação da linha, qualquer um dos dois a seguir funcionará:
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Deletar linha</button>

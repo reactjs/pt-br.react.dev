@@ -44,7 +44,7 @@ class Welcome extends React.Component {
 
 Os dois componentes acima são equivalentes do ponto de vista do React.
 
-Classes tem alguns recursos adicionais que nós discutiremos nas [próximas seções](/docs/state-and-lifecycle.html). Até lá, nós usaremos componentes de função por serem mais sucintos.
+Function e Class componentes têm alguns recursos adicionais que discutiremos nas [próximas seções](/docs/state-and-lifecycle.html).
 
 ## Renderizando um Componente {#rendering-a-component}
 
@@ -60,7 +60,7 @@ No entanto, elementos também podem representar componentes definidos pelo usuá
 const element = <Welcome name="Sara" />;
 ```
 
-Quando o React vê um elemento representando um componente definido pelo usuário, ele passa atributos JSX para esse componente como um único objeto. Nós chamamos esse objeto de "props". 
+Quando o React vê um elemento representando um componente definido pelo usuário, ele passa atributos JSX e componentes filhos para esse componente como um único objeto. Nós chamamos esse objeto de "props". 
 
 Por exemplo, esse código renderiza "Hello, Sara" na página:
 
@@ -233,7 +233,7 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extrair componentes pode parecer um trabalho pesado no começo, mas ter uma paleta de componentes reutilizáveis compensa em aplicativos maiores. Uma boa regra é que se uma parte da sua UI for usada várias vezes (`Button`, `Panel`, `Avatar`) ou for complexa o suficiente por si só (`App`, `FeedStory`, `Comment`) é uma boa candidata a se tornar um componente reutilizável.
+Extrair componentes pode parecer um trabalho pesado no começo, mas ter uma paleta de componentes reutilizáveis compensa em aplicativos maiores. Uma boa regra é que se uma parte da sua UI for usada várias vezes (`Button`, `Panel`, `Avatar`) ou for complexa o suficiente por si só (`App`, `FeedStory`, `Comment`) é uma boa candidata a ser extraída para um componente separado.
 
 ## Props são Somente Leitura {#props-are-read-only}
 

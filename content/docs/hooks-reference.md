@@ -69,10 +69,11 @@ function Counter({initialCount}) {
 
 Os botões "+" and "-" usam a forma funcional, porque o valor atualizado é baseado no valor anterior. Mas o botão "Reset" usa a forma normal, porque ele sempre define a contagem de volta para o valor inicial.
 
+Se sua função de atualização retornar exatamente o mesmo valor que o estado atual, o renderizador subsequente será ignorado completamente.
+
 > Nota
 > 
 > Ao contrário do método `setState` encontrado em componentes de classe, `useState` não combina automaticamente os objetos atualizados. Você pode replicar esse comportamento por combinar a função que atualiza o objeto e o estado anterior usando a sintaxe `object spread`
->
 >
 > ```js
 > setState(prevState => {
@@ -81,7 +82,6 @@ Os botões "+" and "-" usam a forma funcional, porque o valor atualizado é base
 > });
 > ```
 > Outra opção é o `useReducer`, que é mais adequada para gerenciar objetos de estado que contêm vários sub-valores.
->
 
 #### Estado Inicial Preguiçoso {#lazy-initial-state}
 
@@ -98,7 +98,7 @@ const [state, setState] = useState(() => {
 
 Se você atualizar o estado do Hook com o mesmo valor do estado atual, React irá pular a atualização sem renderizar os filhos ou disparar os efeitos. (React usa o algoritmo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
-Note that React may still need to render that specific component again before bailing out. That shouldn't be a concern because React won't unnecessarily go "deeper" into the tree. If you're doing expensive calculations while rendering, you can optimize them with `useMemo`.
+Note que o React pode ainda precisar renderizar esse componente específico novamente antes de sair. Isso não deveria ser uma preocupação porque o React não irá ser "mais profundo" do que o necessário na árvore. Se você está fazendo um processamento mais demorado enquanto renderizada, você pode otimizar isso usando `useMemo`.
 
 ### `useEffect` {#useeffect}
 
@@ -112,7 +112,7 @@ Mutações, assinaturas, temporizadores, logs e outros `side effects` não são 
 
 Em vez disso, use `useEffect`. A função passada para `useEffect` será executada depois que a renderização estiver disponível na tela. Pense em efeitos como um rota de fuga do mundo puramente funcional do React para o mundo imperativo.
 
-Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por dispara-los [somente quando determinados valores receberam atualização](#conditionally-firing-an-effect).
+Por padrão, os efeitos são executados após cada renderização concluída, mas você pode optar por dispará-los [somente quando determinados valores receberam atualização](#conditionally-firing-an-effect).
 
 #### Limpando um Efeito {#cleaning-up-an-effect}
 
@@ -128,7 +128,7 @@ useEffect(() => {
 });
 ```
 
-A função de limpeza é executada antes que o componente seja removido da UI para evitar vazamento de memória. Entretanto, se um componente renderiza várias vezes (como eles normalmente fazem), o ** efeito anterior é limpo antes de executar o próximo efeito**. No nosso exemplo, isto significa que uma nova assinatura é criada em cada atualização. Para evitar disparar um efeito em cada atualização, consulte a próxima seção.
+A função de limpeza é executada antes que o componente seja removido da UI para evitar vazamento de memória. Entretanto, se um componente renderiza várias vezes (como eles normalmente fazem), o **efeito anterior é limpo antes de executar o próximo efeito**. No nosso exemplo, isto significa que uma nova assinatura é criada em cada atualização. Para evitar disparar um efeito em cada atualização, consulte a próxima seção.
 
 #### Tempo dos Efeitos {#timing-of-effects}
 
@@ -142,7 +142,7 @@ Embora `useEffect` seja adiado até a próxima renderização do navegador, é m
 
 O comportamento padrão para efeitos é disparar o efeito após cada renderização concluída. Desta maneira, o efeito é sempre recriado se uma de suas dependências for alterada.
 
-No entanto, isto pode ser excessivo em alguns casos, como o exemplo de assinatura da seção anterior. Nós não precisamos criar uma nova assinatura toda vez que atualizar, apenas se a propriedade `source` for alterada.
+No entanto, isto pode ser excessivo em alguns casos, como o exemplo de assinatura da seção anterior. Nós não precisamos criar uma nova assinatura toda vez que atualizar, apenas se a props `source` for alterada.
 
 Para implementar isso, passe um segundo argumento para `useEffect` que pode ser um array de valores em que o efeito observa. Nosso exemplo atualizado agora se parece com isso:
 
@@ -180,6 +180,8 @@ const value = useContext(MyContext);
 ```
 
 Aceita um objeto de contexto (o valor retornado de `React.createContext`) e retorna o valor atual do contexto. O valor de contexto atual é determinado pela prop `value` do` <MyContext.Provider> `mais próximo acima do componente de chamada na árvore.
+
+Quando o `<MyContext.Provider>` mais próximo acima do componente for atualizado, este Hook acionará um novo renderizador com o `value` de contexto mais recente passando para o provedor `MyContext`. Mesmo que um ancestral use [`React.memo`](/docs/react-api.html#reactmemo) ou [`shouldComponentUpdate`](/docs/react-component.html#shouldcomponentupdate), um renderizador ainda ocorrerá começando no próprio componente usando `useContext`.
 
 Não esqueça que o argumento para `useContext` deve ser o *objeto de contexto em si*:
 
@@ -304,7 +306,7 @@ Há duas maneiras diferentes de inicializar o estado `useReducer`. Pode você es
 
 Você pode também criar um estado inicial mais lento. Para fazer isso, você pode passar uma função `init` como terceiro argumento. O estado inicial será setado para `init(initialArg)`.
 
-Isso nós permite extrair a lógica que calcula o estado inicial para fora do `reducer`. Isso é útil também para resetar um estado depois da resposta de uma ação:
+Isso nos permite extrair a lógica que calcula o estado inicial para fora do `reducer`. Isso é útil também para resetar um estado depois da resposta de uma ação:
 
 ```js{1-3,11-12,19,24}
 function init(initialCount) {
@@ -335,7 +337,7 @@ function Counter({initialCount}) {
         Reset
       </button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-       patch({type: 'increment'})}>+</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
   );
 }
@@ -435,7 +437,7 @@ Tenha em mente que o `useRef` *não* avisa quando o conteúdo é alterado. Mover
 useImperativeHandle(ref, createHandle, [deps])
 ```
 
-`useImperativeHandle` personaliza o valor da instância que está exposta aos componentes pai ao usar `ref`. Como sempre, na maioria dos casos, seria bom evitar um código imperativo usando refs. O `useImperativeHandle` deve ser usado com `forwardRef`:
+`useImperativeHandle` personaliza o valor da instância que está exposta aos componentes pai ao usar `ref`. Como sempre, na maioria dos casos, seria bom evitar um código imperativo usando refs. O `useImperativeHandle` deve ser usado com [`forwardRef`](/docs/react-api.html#reactforwardref):
 
 ```js
 function FancyInput(props, ref) {
@@ -474,7 +476,7 @@ useDebugValue(value)
 
 `useDebugValue` pode ser usado para exibir um `label` em um *custom hook* em React DevTools.
 
-Por exemplo, considere o custom hook `useFriendStatus` descrito em ["Criando seu próprios Hooks"](/docs/hooks-custom.html):
+Por exemplo, considere o custom hook `useFriendStatus` descrito em ["Criando seus próprios Hooks"](/docs/hooks-custom.html):
 
 ```js{6-8}
 function useFriendStatus(friendID) {

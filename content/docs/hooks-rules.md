@@ -27,6 +27,8 @@ Seguindo essas regras, você garante que toda lógica de estado (`state`) no com
 
 Nós liberamos um plugin ESLint chamado [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) que aplica essas duas regras. Se você desejar pode adicionar este plugin ao seu projeto, dessa forma:
 
+Esse plugin está incluindo por padrão no [Create React App](/docs/create-a-new-react-app.html#create-react-app).
+
 ```bash
 npm install eslint-plugin-react-hooks --save-dev
 ```
@@ -46,8 +48,6 @@ npm install eslint-plugin-react-hooks --save-dev
   }
 }
 ```
-
-No futuro, temos a intenção de incluir esse plugin por padrão dentro do Create React App e ferramentas similares.
 
 **Você pode pular para próxima página agora, onde explica melhor como escrever [seus próprios Hooks](/docs/hooks-custom.html).** Nessa página continuaremos explicando o motivo por trás dessas regras.
 
@@ -91,9 +91,9 @@ useEffect(updateTitle)     // 4. Adiciona um efeito para atualizar o título
 // -------------
 // Segunda renderização
 // -------------
-useState('Mary')           // 1. Ler a variável de estado (state) name (argumento ignorado)
+useState('Mary')           // 1. Lê a variável de estado (state) name (argumento ignorado)
 useEffect(persistForm)     // 2. Substitui o efeito para persistir no formulário
-useState('Poppins')        // 3.Ler a variável de estado (state) surname (argumento ignorado)
+useState('Poppins')        // 3. Lê a variável de estado (state) surname (argumento ignorado)
 useEffect(updateTitle)     // 4. Substitui o efeito que atualiza o título
 
 // ...

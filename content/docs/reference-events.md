@@ -12,7 +12,7 @@ Este guia de referência documenta o agregador `SyntheticEvent` (evento sintéti
 
 Os manipuladores de evento (_event handlers_) serão passados como instâncias do `SyntheticEvent`, um agregador _cross-browser_ que envolve os eventos nativos do navegador. Ambos tem a mesma interface, incluindo `stopPropagation()` e `preventDefault()`, porém funcionam de forma idêntica em todos os navegadores.
 
-Caso você pense, por algum motivo, que precisa do evento original do navegador, basta utilizar o atributo `nativeEvent` para acessá-lo. Cada objeto do `SyntheticEvent` tem os seguintes atributos:
+Caso você pense, por algum motivo, que precisa do evento original do navegador, basta utilizar o atributo `nativeEvent` para acessá-lo. Os eventos sintéticos são diferentes e não são mapeados diretamente para os eventos nativos do navegador. Por exemplo, em `onMouseLeave` `event.nativeEvent` irá apontar para um evento `mouseout`. O mapeamento específico não faz parte da API pública e pode ser alterado a qualquer momento. Cada objeto do `SyntheticEvent` tem os seguintes atributos:
 
 ```javascript
 boolean bubbles
@@ -26,6 +26,7 @@ void preventDefault()
 boolean isDefaultPrevented()
 void stopPropagation()
 boolean isPropagationStopped()
+void persist()
 DOMEventTarget target
 number timeStamp
 string type
@@ -33,36 +34,11 @@ string type
 
 > Nota:
 >
-> A partir da v0.14, retornar `false` de um _event handler_ não irá mais parar a propagação de eventos. Sendo assim, tanto o `e.stopPropagation()` quanto o `e.preventDefault()` deve ser acionado manualmente, quando apropriado.
-
-### Event Pooling (acumulador de eventos) {#event-pooling}
-
-O `SyntheticEvent` é acumulado. Isso significa que o objeto `SyntheticEvent` será reutilizado e todas as suas propriedades serão anuladas após o callback do evento ser acionado.
-É assim por questões de performance.
-Sendo assim, você não pode acessar o evento de forma assíncrona.
-
-```javascript
-function onClick(event) {
-  console.log(event); // => objeto anulado (nullified).
-  console.log(event.type); // => "click"
-  const eventType = event.type; // => "click"
-
-  setTimeout(function() {
-    console.log(event.type); // => null
-    console.log(eventType); // => "click"
-  }, 0);
-
-  // Não funciona. this.state.clickEvent irá conter apenas valores nulos.
-  this.setState({clickEvent: event});
-
-  // Você ainda pode exportar as propriedades do evento.
-  this.setState({eventType: event.type});
-}
-```
+> A partir da v17, `e.persist()` não faz nada porque o `SyntheticEvent` não é mais [agrupado](/docs/legacy-event-pooling.html).
 
 > Nota:
 >
-> Se você deseja acessar as propriedades de um evento de forma assíncrona, você deve chamar o `event.persist()` no evento em questão. Isso irá remover o evento sintético do acumulador e permitir referências ao evento serem retidas pelo código do usuário.
+> A partir da v0.14, retornar `false` de um _event handler_ não irá mais parar a propagação de eventos. Sendo assim, tanto o `e.stopPropagation()` quanto o `e.preventDefault()` deve ser acionado manualmente, quando apropriado.
 
 ## Eventos Suportados {#supported-events}
 
@@ -75,6 +51,7 @@ Os manipuladores de evento (_event handlers_) abaixo são acionados por um event
 - [Eventos do Teclado](#keyboard-events)
 - [Eventos de Foco](#focus-events)
 - [Eventos de Formulário](#form-events)
+- [Eventos Genéricos](#generic-events)
 - [Eventos do Mouse](#mouse-events)
 - [Eventos do Ponteiro (Pointer)](#pointer-events)
 - [Eventos de Seleção](#selection-events)
@@ -165,8 +142,81 @@ Esses eventos de foco funcionam em todos os elementos do React DOM, não apenas 
 
 Propriedades:
 
-```javascript
+```js
 DOMEventTarget relatedTarget
+```
+
+#### onFocus {#onfocus}
+
+O evento `onFocus` é chamado quando o elemento (ou algum elemento dentro dele) recebe o foco. Por exemplo, é chamado quando o usuário clica em um input de texto.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onFocus={(e) => {
+        console.log('Focos no input');
+      }}
+      placeholder="onFocus é acionado quando você clica nesta entrada."
+    />
+  )
+}
+```
+
+#### onBlur {#onblur}
+
+O manipulador de eventos `onBlur` é chamado quando o foco deixa o elemento (ou deixa algum elemento dentro dele). Por exemplo, é chamado quando o usuário clica fora de um input de texto focado.
+
+```javascript
+function Example() {
+  return (
+    <input
+      onBlur={(e) => {
+        console.log('Disparado porque esta entrada perdeu o foco');
+      }}
+      placeholder="onBlur é acionado quando você clica nesta entrada e clica fora dela."
+    />
+  )
+}
+```
+
+#### Detecção de Foco Entrando e Saindo {#detecting-focus-entering-and-leaving}
+
+Você pode usar `currentTarget` e `relatedTarget` para diferenciar se os eventos de foco ou desfoque originaram-se de _fora_ do elemento pai. Aqui está uma demonstração que você pode copiar e colar que mostra como detectar o foco de um elemento filho, focalizando o próprio elemento e o foco entrando ou saindo de toda a subárvore.
+
+```javascript
+function Example() {
+  return (
+    <div
+      tabIndex={1}
+      onFocus={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('focos dele');
+        } else {
+          console.log('focus no elemento filho', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Não acionado ao trocar o foco entre os elementos filhos
+          console.log('foco entrou no proprio elemento');
+        }
+      }}
+      onBlur={(e) => {
+        if (e.currentTarget === e.target) {
+          console.log('desfoque dele');
+        } else {
+          console.log('desfoque no elemento filho', e.target);
+        }
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          // Não acionado ao trocar o foco entre os elementos filhos
+          console.log(focos a esquerda'');
+        }
+      }}
+    >
+      <input id="1" />
+      <input id="2" />
+    </div>
+  );
+}
 ```
 
 * * *
@@ -176,10 +226,20 @@ DOMEventTarget relatedTarget
 Nome dos eventos:
 
 ```
-onChange onInput onInvalid onSubmit
+onChange onInput onInvalid onReset onSubmit 
 ```
 
 Para mais informações sobre o evento onChange, veja [Formulários](/docs/forms.html).
+
+* * *
+
+### Eventos Genéricos {#generic-events}
+
+Nome dos eventos:
+
+```
+onError onLoad
+```
 
 * * *
 
@@ -292,6 +352,10 @@ Nome dos eventos:
 ```
 onScroll
 ```
+
+>Nota
+>
+>Começando com React 17, o evento `onScroll` **não borbulha** no React. Isso corresponde ao comportamento do navegador e evita a confusão quando um elemento rolável aninhado dispara eventos em um pai distante.
 
 Propriedades:
 

@@ -91,7 +91,7 @@ Existe uma piada interna do time que o React deveria ter sido chamado de "Schedu
 
 Proporcionar uma boa experiência para o desenvolvedor é importante para nós.
 
-Por exemplo, mantemos uma ferramenta [React DevTools](https://github.com/facebook/react-devtools) na qual é possível inspecionar a árvore de componentes do React no Chrome e Firefox. Sabemos que esta ferramenta melhorou a produtividade, tanto para os engenheiros do Facebook, quanto para a comunidade.
+Por exemplo, mantemos uma ferramenta [React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools) na qual é possível inspecionar a árvore de componentes do React no Chrome e Firefox. Sabemos que esta ferramenta melhorou a produtividade, tanto para os engenheiros do Facebook, quanto para a comunidade.
 
 Nós também nos esforçamos para providenciar avisos de desenvolvedor úteis. Por exemplo, React o avisa se, no desenvolvimento, você aninhou as tags de certa forma que o navegador não entende ou se haver algum erro de digitação na API. Alertas para o desenvolvedor e as verificações relacionadas são a principal razão da versão de desenvolvimento do React ser mais lenta do que a versão de produção.
 
@@ -125,7 +125,7 @@ No entanto, fornecemos algumas configurações globais no nível de construção
 
 ### Além do DOM {#beyond-the-dom}
 
-A grande vantagem do React é a maneira que ele nos permite desenvolver componentes com menos bugs e que possam ser integrados juntos. DOM é o destino original de renderização para o React, mas o [React Native](https://facebook.github.io/react-native/) é tão importante quanto, tanto para o Facebook quanto para a comunidade.
+A grande vantagem do React é a maneira que ele nos permite desenvolver componentes com menos bugs e que possam ser integrados juntos. DOM é o destino original de renderização para o React, mas o [React Native](https://reactnative.dev/) é tão importante quanto, tanto para o Facebook quanto para a comunidade.
 
 Ser "renderer-agnostic" é uma importante restrição de design do React. Isso adiciona alguma sobrecarga nas representações internas. Por outro lado, quaisquer melhorias no núcleo são traduzidas em todas as plataformas.
 

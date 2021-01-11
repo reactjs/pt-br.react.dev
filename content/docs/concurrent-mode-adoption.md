@@ -54,7 +54,7 @@ Nós estamos usando esse código em produção (e funciona para nós), mas ainda
 
 ### Habilitando o Modo Concorrente {#enabling-concurrent-mode}
 
-Normalmente, quando nós adicionamos recursos ao React, você pode começar a usá-lo imediatamente. Fragments, Context e até mesmo Hooks são exemplos desses recursos. Você pode usar em código novo sem fazer nenhuma alteração em código existente.
+Normalmente, quando nós adicionamos recursos ao React, você pode começar a usá-lo imediatamente. Fragments, Context e até mesmo Hooks são exemplos desses recursos. Você pode usá-los no novo código sem fazer alterações no código existente.
 
 O Modo Concorrente é diferente. Ele introduz alterações semânticas na forma do React funcionar. Do contrário, os [novos recursos](/docs/concurrent-mode-patterns.html) habilitados por ele *não teriam se tornado possíveis*. Este é o motivo de eles estarem agrupadas em um novo "modo" ao invés de serem liberados um a um isoladamente.
 
@@ -71,7 +71,7 @@ import ReactDOM from 'react-dom';
 //
 // Você pode incluir o Modo Concorrente escrevendo:
 
-ReactDOM.createRoot(
+ReactDOM.unstable_createRoot(
   document.getElementById('root')
 ).render(<App />);
 ```
@@ -80,13 +80,13 @@ ReactDOM.createRoot(
 >
 >As APIs do Modo Concorrente como `createRoot`apenas existem em versões experimentais do React.
 
-No Modo Concorrente, os métodos do ciclo de vida [anteriormente marcados](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html) como "inseguros" são *realmente* inseguros, e podem gerar ainda mais problemas do que na versão atual do React. Nós não recomendamos testar o Modo Concorrente até que sua aplicação seja compatível com o [Strict Mode](https://reactjs.org/docs/strict-mode.html).
+No Modo Concorrente, os métodos do ciclo de vida [anteriormente marcados](/blog/2018/03/27/update-on-async-rendering.html) como "inseguros" são *realmente* inseguros, e podem gerar ainda mais problemas do que na versão atual do React. Nós não recomendamos testar o Modo Concorrente até que sua aplicação seja compatível com o [Strict Mode](/docs/strict-mode.html).
 
 ## O Que Esperar {#what-to-expect}
 
 Se você tem uma aplicação existente muito grande, ou se a sua aplicação depende de muitas bibliotecas de terceiros, por favor não comece a utilizar o Modo Concorrente imediatamente. **Por exemplo, no Facebook nós estamos usando o Modo Concorrente para o nosso novo website, mas não planejamos habilitá-lo na versão antiga.** Isto porque o nosso website antigo ainda utiliza métodos de ciclo de vida inseguros em código de produção, e alguns padrões que não funcionam bem com o Modo Concorrente.
 
-De acordo com nossa experiência, utlizar os padrões idiomáticos do React no código e não utilizar soluções externas para gerenciamento de estado são a maneira mais fácil de iniciar a utilização do Modo Concorrente. Nós vamos descrever problemas comuns que nós experimentamos e as soluções para cada um deles nas próximas semanas.
+De acordo com nossa experiência, utilizar os padrões idiomáticos do React no código e não utilizar soluções externas para gerenciamento de estado são a maneira mais fácil de iniciar a utilização do Modo Concorrente. Nós vamos descrever problemas comuns que nós experimentamos e as soluções para cada um deles nas próximas semanas.
 
 ### Etapa de Migração: Modo Bloqueante {#migration-step-blocking-mode}
 

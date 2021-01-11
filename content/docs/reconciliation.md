@@ -139,7 +139,7 @@ Como um último recurso, você pode passar o índice (_index_) do item de um arr
 
 Reordenar pode também causar um problema com o estado do componente quando os índices (_indexes_) são utilizados como chaves  (_keys_). A instância do componente é atualizada e reutilizada baseada na sua chave. Se a chave é um índice (_index_), mover o item modifica a chave. Como resultado disso, o estado do componente para coisas como _inputs_ não controlados podem ficar bagunçados e atualizar de uma forma inesperada.
 
-[Aqui](codepen://reconciliation/index-used-as-key) é um exemplo, no CodePen, de um problema que pode ser causado por usar índices como chaves, e [aqui](codepen://reconciliation/no-index-used-as-key) é uma versão atualizada do mesmo exemplo mostrando como a não utilização dos índices como chaves resolve os problemas relacionados a reordenação, ordenação e adição no início da lista.
+Aqui é [um exemplo, de um problema que pode ser causado por usar índices como chaves](codepen://reconciliation/index-used-as-key) no CodePen, e aqui é [uma versão atualizada do mesmo exemplo mostrando como a não utilização dos índices como chaves resolve os problemas relacionados a reordenação, ordenação e adição no início da lista](codepen://reconciliation/no-index-used-as-key).
 
 ## Compensações (_Tradeoffs_) {#tradeoffs}
 

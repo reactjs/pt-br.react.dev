@@ -1,124 +1,124 @@
 ---
-title: "Building Great User Experiences with Concurrent Mode and Suspense"
+title: "Construindo Ótimas Experiências de Usuário com Modo Concorrente e Suspense"
 author: [josephsavona]
 ---
 
-At React Conf 2019 we announced an [experimental release](/docs/concurrent-mode-adoption.html#installation) of React that supports Concurrent Mode and Suspense. In this post we'll introduce best practices for using them that we've identified through the process of building [the new facebook.com](https://twitter.com/facebook/status/1123322299418124289).
+Na React Conf 2019 nós anunciamos uma [versão experimental](/docs/concurrent-mode-adoption.html#installation) do React que acrescenta suporte ao Modo Concorrente e Suspense. Nesse artigo nós vamos introduzir as melhores práticas para seu uso que nós identificamos durante o processo de construção [do novo facebook.com](https://twitter.com/facebook/status/1123322299418124289).
 
-> This post will be most relevant to people working on _data fetching libraries_ for React. 
+> Esse artigo será mais relevante para pessoas que trabalham com as *bibliotecas de obtenção de dados (data fetching)* para React. 
 >
->It shows how to best integrate them with Concurrent Mode and Suspense. The patterns introduced here are based on [Relay](https://relay.dev/docs/en/experimental/step-by-step) -- our library for building data-driven UIs with GraphQL. However, the ideas in this post **apply to other GraphQL clients as well as libraries using REST** or other approaches.
+> Mostramos como integrar melhor elas com o Modo Concorrente e o Suspense. Os padrões introduzidos aqui são baseados no [Relay](https://relay.dev/docs/en/experimental/step-by-step) -- nossa biblioteca para construir interfaces de usuário orientadas a dados com GraphQL. De qualquer forma, as ideias desse artigo **se aplicam a outros clientes GraphQL também assim como bibliotecas que usam REST** ou outras abordagens.
 
-This post is **aimed at library authors**. If you're primarily an application developer, you might still find some interesting ideas here, but don't feel like you have to read it in its entirety.
+Esse artigo é **dedicado aos autores de bibliotecas**. Se você for principalmente desenvolvedor de aplicações, você ainda pode encontrar ideias interessantes aqui, mas não se sinta obrigado a lê-lo inteiramente.
 
-## Talk Videos {#talk-videos}
+## Vídeos de Talks {#talk-videos}
 
-If you prefer to watch videos, some of the ideas from this blog post have been referenced in several React Conf 2019 presentations:
+Se você preferir assistir vídeos, algumas das ideias desse artigo foram abordadas em diversas apresentações da React Conf 2019:
 
-* [Data Fetching with Suspense in Relay](https://www.youtube.com/watch?v=Tl0S7QkxFE4&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=15&t=0s) by [Joe Savona](https://twitter.com/en_JS)
-* [Building the New Facebook with React and Relay](https://www.youtube.com/watch?v=KT3XKDBZW7M&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=4) by [Ashley Watkins](https://twitter.com/catchingash)
-* [React Conf Keynote](https://www.youtube.com/watch?v=uXEEL9mrkAQ&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=2) by [Yuzhi Zheng](https://twitter.com/yuzhiz)
+* [Obtenção de Dados com Suspense no Relay](https://www.youtube.com/watch?v=Tl0S7QkxFE4&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=15&t=0s) por [Joe Savona](https://twitter.com/en_JS)
+* [Contruindo o Novo Facebook com React e Relay](https://www.youtube.com/watch?v=KT3XKDBZW7M&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=4) por [Ashley Watkins](https://twitter.com/catchingash)
+* [React Conf Keynote](https://www.youtube.com/watch?v=uXEEL9mrkAQ&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=2) por [Yuzhi Zheng](https://twitter.com/yuzhiz)
 
-This post presents a deeper dive on implementing a data fetching library with Suspense.
+Esse artigo apresenta um mergulho na implentação de uma biblioteca de obtenção de dados com Suspense.
 
-## Putting User Experience First {#putting-user-experience-first}
+## Colocando a Experiência de Usuário como Prioridade {#putting-user-experience-first}
 
-The React team and community has long placed a deserved emphasis on developer experience: ensuring that React has good error messages, focusing on components as a way to reason locally about app behavior, crafting APIs that are predictable and encourage correct usage by design, etc. But we haven't provided enough guidance on the best ways to achieve a great *user* experience in large apps.
+A equipe do React e a comunidade tem constantemente enfatizado a experiência do desenvolvedor: garantindo que o React tenha boas mensagens de erro, focando em componentes como uma maneira de pensar localmente no comportamento do app, desenvolvendo APIs que são previsíveis e encorajando o correto uso via design, etc. Mas nós não temos difundido o suficiente as melhores práticas para garantir uma ótima experiência de *usuário* em grandes aplicações.
 
-For example, the React team has focused on *framework* performance and providing tools for developers to debug and tune application performance (e.g. `React.memo`). But we haven't been as opinionated about the *high-level patterns* that make the difference between fast, fluid apps and slow, janky ones. We always want to ensure that React remains approachable to new users and supports a variety of use-cases -- not every app has to be "blazing" fast. But as a community we can and should aim high. **We should make it as easy as possible to build apps that start fast and stay fast,** even as they grow in complexity, for users on varying devices and networks around the world. 
+Por exemplo, a equipe do React tem focado na performance da *biblioteca* e provido ferramentas para desenvolvedores debugarem e refinarem a performance da aplicação (ex. `React.memo`). Mas nós não temos opinado sobre *padrões de alto nível* que fazem a diferença entre aplicativos rápidos e fluídos e aplicativos lentos e travados. Nós sempre queremos garantir que o React se mantenha acessível a novos usuários e suporte vários de casos uso -- nem todo app tem que ser "super" rápido. Mas como uma comunidade nós podemos e devemos sonhar alto. **Nós devemos fazer ser tão fácil quanto possível construir aplicativos que iniciam rápido e continuam rápidos,** mesmo quando eles crescem em complexidade, para usuários utilizando uma variedade de dispositivos e redes no mundo todo. 
 
-[Concurrent Mode](/docs/concurrent-mode-intro.html) and [Suspense](/docs/concurrent-mode-suspense.html) are experimental features that can help developers achieve this goal. We first introduced them at [JSConf Iceland in 2018](/blog/2018/03/01/sneak-peek-beyond-react-16.html), intentionally sharing details very early to give the community time to digest the new concepts and to set the stage for subsequent changes. Since then we've completed related work, such as the new Context API and the introduction of Hooks, which are designed in part to help developers naturally write code that is more compatible with Concurrent Mode. But we didn't want to implement these features and release them without validating that they work. So over the past year, the React, Relay, web infrastructure, and product teams at Facebook have all collaborated closely to build a new version of facebook.com that deeply integrates Concurrent Mode and Suspense to create an experience with a more fluid and app-like feel. 
+[Modo Concorrente](/docs/concurrent-mode-intro.html) e [Suspense](/docs/concurrent-mode-suspense.html) são funcionalidades experimentais que podem ajudar os desenvolvedores a alcançarem esse objetivo. Nós inicialmente apresentamos eles na [JSConf Iceland em 2018](/blog/2018/03/01/sneak-peek-beyond-react-16.html), intencionalmente compartilhando detalhes muito antecipadamente para dar a comunidade tempo para digerir os novos conceitos e para se prepararem para as alterações seguintes. Desde então nós completamos trabalhos correlacionados, como a nova API de Contexto e a introdução do Hooks, que foram desenhados em parte para ajudar os desenvolvedores a escreverem código que seja naturalmente mais compatível com o Modo Concorrente. Mas nós não queremos implementar essas funcionalidades e liberá-las sem garantir que funcionam. Então ao longo do ano passado, as equipes do React, Relay, infraestrutura web, e produto do Facebook têm todas colaborado fortemente para construir uma nova versão do facebook.com que integre profundamente o Modo Concorrente e o Suspense para criar uma experiência com uma sensação mais fluída e similar a de um app. 
 
-Thanks to this project, we're more confident than ever that Concurrent Mode and Suspense can make it easier to deliver great, *fast* user experiences. But doing so requires rethinking how we approach loading code and data for our apps. Effectively all of the data-fetching on the new facebook.com is powered by [Relay Hooks](https://relay.dev/docs/en/experimental/step-by-step) -- new Hooks-based Relay APIs that integrate with Concurrent Mode and Suspense out of the box.
+Graças a esse projeto, nós estamos mais confiantes do que nunca de que o Modo Concorrente e o Suspense podem tornar mais fácil entregar uma experiência de usuário ótima e *rápida*. Mas fazer isso requer repensar como nós abordamos o carregamento do código e dos dados em nossos apps. Efetivamente toda a obtenção de dados no novo facebook.com é realizada pelo [Relay Hooks](https://relay.dev/docs/en/experimental/step-by-step) -- novas APIs do Relay baseadas em Hooks que integram com o Modo Concorrente e o Suspense sem configurações adicionais.
 
-Relay Hooks -- and GraphQL -- won't be for everyone, and that's ok! Through our work on these APIs we've identified a set of more general patterns for using Suspense. **Even if Relay isn't the right fit for you, we think the key patterns we've introduced with Relay Hooks can be adapted to other frameworks.**
+Relay Hooks -- e GraphQL -- não são para todos, e tudo bem com isso! Através do nosso trabalho nessas APIs nós identificamos um conjunto de padrões em geral para utilizar com Suspense. **Mesmo que o Relay não se encaixe para você, nós acreditamos que os padrões chave que nós introduzimos com o Relay Hooks podem ser adaptados para outras bibliotecas**
 
-## Best Practices for Suspense {#best-practices-for-suspense}
+## Melhores Práticas com Suspense {#best-practices-for-suspense}
 
-It's tempting to focus only on the total startup time for an app -- but it turns out that users' perception of performance is determined by more than the absolute loading time. For example, when comparing two apps with the same absolute startup time, our research shows that users will generally perceive the one with fewer intermediate loading states and fewer layout changes as having loaded faster. Suspense is a powerful tool for carefully orchestrating an elegant loading sequence with a few, well-defined states that progressively reveal content. But improving perceived performance only goes so far -- our apps still shouldn't take forever to fetch all of their code, data, images, and other assets.
+É tentador focar apenas no tempo total de inicialização de um app -- mas ocorre que a percepção de performance pelo usuário é determinada por mais do que o tempo absoluto de carregamento. Por exemplo, quando comparados dois aplicativos com o mesmo tempo absoluto de inicialização, nossos estudos mostram que os usuários geralmente irão perceber aquele que tiver menos estados de carregamento intermediários e menos alterações de layout como o que carrega mais rápido. Suspense é uma ferramenta poderosa por orquestrar cuidadosamente uma elegante sequência de carregamento com poucos, e bem definidos, estados que revelam progressivamente o conteúdo. Mas melhorar a performance percebida vai além disso -- nossos apps não deveriam demorar uma eternidade para obter todo o código, dados, imagens, e outros artefatos.
 
-The traditional approach to loading data in React apps involves what we refer to as ["fetch-on-render"](/docs/concurrent-mode-suspense.html#approach-1-fetch-on-render-not-using-suspense). First we render a component with a spinner, then fetch data on mount (`componentDidMount` or `useEffect`), and finally update to render the resulting data. It's certainly *possible* to use this pattern with Suspense: instead of initially rendering a placeholder itself, a component can "suspend" -- indicate to React that it isn't ready yet. This will tell React to find the nearest ancestor `<Suspense fallback={<Placeholder/>}>`, and render its fallback instead. If you watched earlier Suspense demos this example may feel familiar -- it's how we originally imagined using Suspense for data-fetching. 
+A abordagem tradicional para carregar dados nos apps React envolvem o que nos referimos como ["renderização-conforme-você-busca"](/docs/concurrent-mode-suspense.html#approach-1-fetch-on-render-not-using-suspense). Primeiro nós renderizamos um componente com um spinner, então carregamos dados na montagem (`componentDidMount` ou `useEffect`), e finalmente atualizamos para renderizar os dados resultantes. É certamente *possível* usar esse padrão com Suspense: ao invés de inicialmente renderizar um placeholder por si mesmo, um componente pode "suspender" -- indicar ao React que ele não está pronto ainda. Isso irá dizer ao React para buscar o ancestral mais próximo `<Suspense fallback={<Placeholder/>}>`, e renderizar o seu fallback no lugar. Se você viu os demos do Suspense anteriormente este exemplo pode parecer familiar -- é como nós originalmente imaginamos usar o Suspense para obtenção de dados.
 
-It turns out that this approach has some limitations. Consider a page that shows a social media post by a user, along with comments on that post. That might be structured as a `<Post>` component that renders both the post body and a `<CommentList>` to show the comments. Using the fetch-on-render approach described above to implement this could cause sequential round trips (sometimes referred to as a "waterfall"). First the data for the `<Post>` component would be fetched and then the data for `<CommentList>` would be fetched, increasing the time it takes to show the full page.
+Ocorre que esta abordagem tem algumas limitações. Considere uma página que mostra uma postagem de mídia social feita por um usuário, com comentários nessa postagem. Ela pode ser estruturada como um componente `<Post>` que renderiza tanto o corpo da postagem como a `<CommentList>` para mostrar os comentários. Usando a abordagem de renderização-conforme-você-busca descrita acima para implementar isso pode causar idas e voltas sequenciais (muitas vezes conhecido como uma "cachoeira"). Primeiro os dados para o componente `<Post>` seriam obtidos e então os dados para a `<CommentList>`, aumentando o tempo que para mostrar a página completamente.
 
-There's also another often-overlooked downside to this approach. If `<Post>` eagerly requires (or imports) the `<CommentList>` component, our app will have to wait to show the post *body* while the code for the *comments* is downloading. We could lazily load `<CommentList>`, but then that would delay fetching comments data and increase the time to show the full page. How do we resolve this problem without compromising on the user experience?
+Há também outra desvantagem muitas vezes esquecida nessa abordagem. Se o `<Post>` requisita (ou importa) o componente `<CommentList>` de maneira completa, nosso app terá de esperar para mostrar o *corpo* da postagem enquanto o código para os *comentários* é baixado. Nós poderíamos carregar a `<CommentList>` de maneira preguiçosa, mas dessa forma nós iríamos atrasar a obtenção dos dados dos comentários e aumentar o tempo para exibir a página inteira. Como nós resolvemos esse problema sem comprometer a experiência do usuário?
 
-## Render As You Fetch {#render-as-you-fetch}
+## Renderização Conforme Você Busca {#render-as-you-fetch}
 
-The fetch-on-render approach is widely used by React apps today and can certainly be used to create great apps. But can we do even better? Let's step back and consider our goal.
+A abordagem de renderização-conforme-você-busca é amplamente utilizada pelos apps React atualmente e pode certamente ser usada para criar ótimos apps. Mas nós conseguiríamos fazer ainda melhor? Vamos voltar um passo atrás e considerar nosso objetivo.
 
-In the above `<Post>` example, we'd ideally show the more important content -- the post body -- as early as possible, *without* negatively impacting the time to show the full page (including comments). Let's consider the key constraints on any solution and look at how we can achieve them:
+No exemplo acima do `<Post>`, nós idealmente deveríamos mostrar o conteudo mais importante -- o corpo da postagem -- o mais rápido possível, *sem* impactar negativamente o tempo para mostrar a página completamente (incluindo comentários). Vamos considerar as restrições em qualquer solução e observar como nós podemos atendê-las:
 
-* Showing the more important content (the post body) as early as possible means that we need to load the code and data for the view incrementally. We *don't want to block showing the post body* on the code for `<CommentList>` being downloaded, for example.
-* At the same time we don't want to increase the time to show the full page including comments. So we need to *start loading the code and data for the comments* as soon as possible, ideally *in parallel* with loading the post body.
+* Mostrar o conteúdo mais importante (o corpo da postagem) o mais rápido possíve significa que nós precisamos carregar o código e os dados para a visualização de forma incremental. Nós *não queremos bloquear a visualização do corpo da postagem* enquanto o código da `<CommentList>` é baixado, por exemplo.
+* Ao mesmo tempo nós não queremos aumentar o tempo para exibição da página completa incluindo comentários. Então nós precisamos *começar a carregar o código e os dados para os comentários* o mais rápido possível, idealmente *em paralelo* ao carregamento do corpo da postagem.
 
-This might sound difficult to achieve -- but these constraints are actually incredibly helpful. They rule out a large number of approaches and spell out a solution for us. This brings us to the key patterns we've implemented in Relay Hooks, and that can be adapted to other data-fetching libraries. We'll look at each one in turn and then see how they add up to achieve our goal of fast, delightful loading experiences:
+Isso pode soar difícil de alcançar -- mas essas restrições são na verdade incrivelmente facilitadoras. Elas descartam uma série de abordagens e nos desenham um rascunho da solução. Isso nós leva aos padrões chave que nós implementamos no Relay Hooks, e que podem ser adaptados para outras biblotecas de obtenção de dados. Veremos cada desses padrões de maneira a entender como podem nos ajudar a alcançar nosso objetivo de experiências de carregamento rápidas e encatadoras:
 
-1. Parallel data and view trees
-2. Fetch in event handlers
-3. Load data incrementally
-4. Treat code like data
+1. Dados em paralelo e árvores de visualização
+2. Obtenção de dados em manipuladores de evento
+3. Carregar dados incrementalmente
+4. Tratar código como dado
 
-### Parallel Data and View Trees {#parallel-data-and-view-trees}
+### Dados em Paralelo e Árvores de Visualização {#parallel-data-and-view-trees}
 
-One of the most appealing things about the fetch-on-render pattern is that it colocates *what* data a component needs with *how* to render that data. This colocation is great -- an example of how it makes sense to group code by concerns and not by technologies. All the issues we saw above were due to *when* we fetch data in this approach: upon rendering. We need to be able to fetch data *before* we've rendered the component. The only way to achieve that is by extracting the data dependencies into parallel data and view trees. 
+Uma das coisas mais atraentes no padrão de renderização-conforme-você-busca é que ele combina *quais* dados o componente precisa com *como* renderizar esses dados. Essa combinação é ótima -- um exemplo de como faz sentido agrupar código por responsabilidades e não por tecnologias. Todos os problemas que nós vimos acima foram sobre *quando* nós obtemos os dados nessa abordagem: após a renderização. Nós precisamos precisamos ser capazes de obter dados *antes* de renderizar o componente. A única forma de alcançar isso é extraindo as dependências de dados em dados em paralelo e árvores de visualização.
 
-Here's how that works in Relay Hooks. Continuing our example of a social media post with body and comments, here's how we might define it with Relay Hooks:
+Aqui mostramos como isso funciona no Relay Hooks. Continuando nosso exemplo de uma postagem de mídia social com corpo e comentários, aqui está como definimos isso no Relay Hooks:
 
 ```javascript
 // Post.js
 function Post(props) {
-  // Given a reference to some post - `props.post` - *what* data
-  // do we need about that post?
+  // Dado uma referência para alguma postagem - `props.post` - *de quais* dados
+  // nós precisamos sobre essa postagem?
   const postData = useFragment(graphql`
     fragment PostData on Post @refetchable(queryName: "PostQuery") {
       author
       title
-      # ...  more fields ...
+      # ...  mais campos ...
     }
   `, props.post);
 
-  // Now that we have the data, how do we render it?
+  // Agora que nós temos os dados, como renderizá-lo?
   return (
     <div>
       <h1>{postData.title}</h1>
       <h2>by {postData.author}</h2>
-      {/* more fields  */}
+      {/* mais campos  */}
     </div>
   );
 }
 ```
 
-Although the GraphQL is written within the component, Relay has a build step (Relay Compiler) that extracts these data-dependencies into separate files and aggregates the GraphQL for each view into a single query. So we get the benefit of colocating concerns, while at runtime having parallel data and view trees. Other frameworks could achieve a similar effect by allowing developers to define data-fetching logic in a sibling file (maybe `Post.data.js`), or perhaps integrate with a bundler to allow defining data dependencies with UI code and automatically extracting it, similar to Relay Compiler.
+Embora o GraphQL esteja escrito junto ao componente, Relay tem um passo de build (Compilador do Relay) que extrai essas dependências-de-dados em arquivos separados e agrega o GraphQL para cada visualização em uma única consulta. Então nós obtemos os benefícios de combinar responsabilidades, enquanto no tempo de execução temos dados em paralelo e árvores de visualização. Outras bibliotecas poderiam alcançar resultados similares ao permitir que os desenvolvedores definam lógica de obtenção de dados em um arquivo irmão (talvez `Post.data.js`), ou então integrar com um bundler para permitir definição de dependência de dados com código de interface de usuário e automaticamente extraí-lo, de maneira semelhante ao Compilador do Relay.
 
-The key is that regardless of the technology we're using to load our data -- GraphQL, REST, etc -- we can separate *what* data to load from how and when to actually load it. But once we do that, how and when *do* we fetch our data?
+O segredo é que independente da tecnologia que estamos usando para carregar nossos dados -- GraphQL, REST, etc -- nós podemos separar *quais* dados carregar de como e quando fazê-lo. Mas uma vez feito isso, *como e quando* nós carregamos nossos dados?
 
-### Fetch in Event Handlers {#fetch-in-event-handlers}
+### Obtenção de Dados em Manipuladores de Evento {#fetch-in-event-handlers}
 
-Imagine that we're about to navigate from a list of a user's posts to the page for a specific post. We'll need to download the code for that page -- `Post.js` -- and also fetch its data.
+Imagine que nós estamos para navegar da listagem de postagens de um usuário para a página de uma postagem específica. Nós vamos precisar baixar o código para aquela página -- `Post.js` -- e também obter seus dados.
 
-Waiting until we render the component has problems as we saw above. The key is to start fetching code and data for a new view *in the same event handler that triggers showing that view*. We can either fetch the data within our router -- if our router supports preloading data for routes -- or in the click event on the link that triggered the navigation. It turns out that the React Router folks are already hard at work on building APIs to support preloading data for routes. But other routing frameworks can implement this idea too. 
+Aguardar até que a gente renderize os dados gera os problemas que nós vimos acima. O segredo é começar a obter o código e os dados para a nova visualização *no mesmo manipulador de evento que dispara a visualização*. Nós ainda podemos obter os dados com nosso roteador -- se nosso roteador suporta pré-carregamento de dados para as rotas -- ou no evento de clique no link que disparou a navegação. Vale lembrar que os colegas do React Router já trabalharam arduamente para construir APIs para suportarem pré-carregamento de dados para rotas. Mas outras bibliotecas de roteamento podem implementar essa ideia também.
 
-Conceptually, we want every route definition to include two things: what component to render and what data to preload, as a function of the route/url params. Here's what such a route definition *might* look like. This example is loosely inspired by React Router's route definitions and is *primarily intended to demonstrate the concept, not a specific API*:
+Conceitualmente, nós queremos que a definição de cada rota inclua duas coisas: qual componente renderizar e que dados pré-carregar, como uma função de rota/parâmetros de url. Aqui está o que esta definição de rota *pode* parecer. Este exemplo é um pouco inspirado pelas definições de rota do React Router e *principalmente se dedica a demonstrar o conceito, não uma API específica*:
 
 ```javascript
 // PostRoute.js (GraphQL version)
 
-// Relay generated query for loading Post data
+// Consulta do Relay para carregamento dos dados do Post
 import PostQuery from './__generated__/PostQuery.graphql';
 
 const PostRoute = {
-  // a matching expression for which paths to handle
+  // uma expressão que associa qual rota tratar
   path: '/post/:id',
 
-  // what component to render for this route
+  // que componente renderizar para essa rota
   component: React.lazy(() => import('./Post')),
 
-  // data to load for this route, as function of the route
-  // parameters
+  // dados a serem carregados para essa rota, como uma função dos parâmetros
+  // da rota
   prepare: routeParams => {
-    // Relay extracts queries from components, allowing us to reference
-    // the data dependencies -- data tree -- from outside.
+    // Relay extrai consultas de componentes, nos permitindo referenciar
+    // as dependências de dados -- árvore de dados -- de fora.
     const postData = preloadQuery(PostQuery, {
       postId: routeParams.id,
     });
@@ -130,29 +130,29 @@ const PostRoute = {
 export default PostRoute;
 ```
 
-Given such a definition, a router can:
+Por definição, um roteador pode:
 
-* Match a URL to a route definition.
-* Call the `prepare()` function to start loading that route's data. Note that `prepare()` is synchronous -- *we don't wait for the data to be ready*, since we want to start rendering more important parts of the view (like the post body) as quickly as possible.
-* Pass the preloaded data to the component. If the component is ready -- the `React.lazy` dynamic import has completed -- the component will render and try to access its data. If not, `React.lazy` will suspend until the code is ready.
+* Associar uma URL a uma definição de rota.
+* Chamar a função `prepare()` para iniciar o carregamento dos dados da rota. Note que `prepare()` é síncrona -- *nós não queremos esperar pelos dados*, dado que nós queremos começar a renderizar as partes mais importantes da visualização (como o corpo da postagem) o mais rápido que possível.
+* Passar os dados pré-carregados para o componente. Se o componente estiver pronto -- a importação dinâmica do `React.lazy` terminou -- o componente irá renderizar e tentar acessar os seus dados. Do contrário, o `React.lazy` irá suspender até que o código esteja pronto.
 
-This approach can be generalized to other data-fetching solutions. An app that uses REST might define a route like this:
+Esta abordagem pode ser generalizada para outras soluções de obtenção de dados. Um app que usa REST poderia definir uma rota dessa forma:
 
 ```javascript
-// PostRoute.js (REST version)
+// PostRoute.js (versão em REST)
 
-// Manually written logic for loading the data for the component
+// Lógica escrita manualmente para carregamento dos dados para o componente
 import PostData from './Post.data';
 
 const PostRoute = {
-  // a matching expression for which paths to handle
+  // uma expressão que associa qual rota tratar
   path: '/post/:id',
 
-  // what component to render for this route
+  // que componente renderizar para essa rota
   component: React.lazy(() => import('./Post')),
 
-  // data to load for this route, as function of the route
-  // parameters
+  // dados a serem carregados para essa rota, como uma função dos parâmetros
+  // da rota
   prepare: routeParams => {
     const postData = preloadRestEndpoint(
       PostData.endpointUrl, 
@@ -167,15 +167,15 @@ const PostRoute = {
 export default PostRoute;
 ```
 
-This same approach can be employed not just for routing, but in other places where we show content lazily or based on user interaction. For example, a tab component could eagerly load the first tab's code and data, and then use the same pattern as above to load the code and data for other tabs in the tab-change event handler. A component that displays a modal could preload the code and data for the modal in the click handler that triggers opening the modal, and so on. 
+Esta mesma abordagem pode ser empregada não apenas para roteamento, mas em outros lugares onde nós queiramos mostrar conteúdo de maneira preguiçosa ou baseada na interação do usuário. Por exemplo, um componente de aba poderia carregar completamente os dados e o código para a primeira aba, e então usar o mesmo padrão acima para carregar o código e os dados para as outras abas que estão no manipulador de evento de troca de aba. Um componente que mostra um modal poderia pré-carregar o código e os dados para o modal no manipulador de clique que dispara a abertura do modal, e assim por diante.
 
-Once we've implemented the ability to start loading code and data for a view independently, we have the option to go one step further. Consider a `<Link to={path} />` component that links to a route. If the user hovers over that link, there's a reasonable chance they'll click it. And if they press the mouse down, there's an even better chance that they'll complete the click. If we can load code and data for a view *after* the user clicks, we can also start that work *before* they click, getting a head start on preparing the view.
+Uma vez que implementamos a habilidade de começar a carregar código e dados de uma visualização de maneira independente, nós temos a opção de ir um passo além. Considere um componente `<Link to={path} />` que faz o link para uma rota. Se o usuário passa sobre este link, existe uma chance razoável de que ele irá clicá-lo. E se ele pressionar o mouse, existe uma chance ainda maior de que ele irá completar o clique. Se nós podemos carregar o código e os dados para uma visualização *depois* de o usuário clicar, nós também podemos iniciar o trabalho *antes* deles clicarem, começando a preparar a visualização.
 
-Best of all, we can centralize that logic in a few key places -- a router or core UI components -- and get any performance benefits automatically throughout our app. Of course preloading isn't always beneficial. It's something an application would tune based on the user's device or network speed to avoid eating up user's data plans. But the pattern here makes it easier to centralize the implementation of preloading and the decision of whether to enable it or not.
+O melhor de tudo, nós podemos centralizar essa lógica em poucos lugares chave -- um roteador ou em componentes centralizadores de interação com o usuário -- e obter quaisquer benefícios de performance automaticamente em todo nosso app. Claro que pré-carregar nem sempre é benéfico. É algo que um aplicativo pode otimizar baseado no dispositivo do usuário ou velocidade de rede para evitar consumir os planos de dados do usuário. Mas este padrão torna mais fácil centralizar a implementação do pré-carregamento e a decisão de quando habilitá-lo ou não.
 
-### Load Data Incrementally {#load-data-incrementally}
+### Carregar Dados Incrementalmente {#load-data-incrementally}
 
-The above patterns -- parallel data/view trees and fetching in event handlers -- let us start loading all the data for a view earlier. But we still want to be able to show more important parts of the view without waiting for *all* of our data. At Facebook we've implemented support for this in GraphQL and Relay in the form of some new GraphQL directives (annotations that affect how/when data is delivered, but not what data). These new directives, called `@defer` and `@stream`, allow us to retrieve data incrementally. For example, consider our `<Post>` component from above. We want to show the body without waiting for the comments to be ready. We can achieve this with `@defer` and `<Suspense>`:
+Os padrões acima -- dados em paralelo/árvores de visualização e obtenção em manipuladores de evento -- nos permitem iniciar o carregamento dos dados de uma visualização antecipadamente. Mas nós ainda queremos poder mostrar as partes mais importantes da visualização sem ter que esperar por *todos* os nossos dados. No Facebook nós implementamos o suporte para isso no GraphQL e Relay na forma de algumas novas diretivas de GraphQL (anotações que afetam quando/como os dados são entregues, mas não quais dados). Essas novas diretivas, chamadas `@defer` e `@stream`, nos permitem recuperar dados de maneira incremental. Por exemplo, considere nosso componente `<Post>` acima. Nós queremos mostrar o corpo sem ter que esperar que os comentários estejam prontos. Nós podemos alcançar isso com `@defer` e `<Suspense>`:
 
 ```javascript
 // Post.js
@@ -185,7 +185,7 @@ function Post(props) {
       author
       title
 
-      # fetch data for the comments, but don't block on it being ready
+      # obter dados para os comentários, mas sem bloquear até que estejam carregados
       ...CommentList @defer
     }
   `, props.post);
@@ -194,7 +194,7 @@ function Post(props) {
     <div>
       <h1>{postData.title}</h1>
       <h2>by {postData.author}</h2>
-      {/* @defer pairs naturally with <Suspense> to make the UI non-blocking too */}
+      {/* @defer trabalha naturalmente com <Suspense> para criar uma interface de usuário não bloqueada também */}
       <Suspense fallback={<Spinner/>}>
         <CommentList post={postData} />
       </Suspense>
@@ -203,27 +203,27 @@ function Post(props) {
 }
 ```
 
-Here, our GraphQL server will stream back the results, first returning the `author` and `title` fields and then returning the comment data when it's ready. We wrap `<CommentList>` in a `<Suspense>` boundary so that we can render the post body before `<CommentList>` and its data are ready. This same pattern can be applied to other frameworks as well. For example, apps that call a REST API might make parallel requests to fetch the body and comments data for a post to avoid blocking on all the data being ready.
+Aqui, nosso servidor GraphQL devolve os resultados por stream, primeiro retornando os campos `author` e `title` e então retornando os dados de comentário quando estiver pronto. Nós envolvemos a `<CommentList>` em uma tag `<Suspense>` então nós podemos renderizar o corpo da postagem antes da `<CommentList>` e seus dados estarem prontos. Esse padrão pode ser aplicado a outras biblotecas. Por exemplo, apps que chamam uma API REST podem fazer requisições em paralelo para obter os dados para o corpo e comentários para uma postagem evitando bloquear até que todos os dados estejam prontos.
 
-### Treat Code Like Data {#treat-code-like-data}
+### Tratar Código Como Dados {#treat-code-like-data}
 
-But there's one thing that's still missing. We've shown how to preload *data* for a route -- but what about code? The example above cheated a bit and used `React.lazy`. However, `React.lazy` is, as the name implies, *lazy*. It won't start downloading code until the lazy component is actually rendered -- it's "fetch-on-render" for code!
+Mas ainda tem uma coisa faltando. Nós mostramos como pré-carregar *dados* para uma rota -- mas e o código? O exemplo acima nos enganou um pouco e usou `React.lazy`. De qualquer forma, `React.lazy` é, como o nome indica, *preguiçoso*. Ele não irá começar a baixar o código até que o componente preguiçoso esteja renderizado -- é uma "obtenção-de-dados-na-renderização" para código!
 
-To solve this, the React team is considering APIs that would allow bundle splitting and eager preloading for code as well. That would allow a user to pass some form of lazy component to a router, and for the router to trigger loading the code alongside its data as early as possible.
+Para resolver isso, a equipe do React está considerando APIs que nos permitiriam dividir o bundle e pré-carregar completamente o código também. Isso permitiria um usuário passar de alguma forma um componente preguiçoso para uma rota, e a rota disparar o carregamento do código e dos seus dados o mais antecipadamente possível.
 
-## Putting It All Together {#putting-it-all-together}
+## Resumindo {#putting-it-all-together}
 
-To recap, achieving a great loading experience means that we need to **start loading code and data as early as possible, but without waiting for all of it to be ready**. Parallel data and view trees allow us to load the data for a view in parallel with loading the view (code) itself. Fetching in an event handler means we can start loading data as early as possible, and even optimistically preload a view when we have enough confidence that a user will navigate to it. Loading data incrementally allows us to load important data earlier without delaying the fetching of less important data. And treating code as data -- and preloading it with similar APIs -- allows us to load it earlier too.
+Para recaptular, atingir uma ótima experiência de usuário significa que nós precisamos **começar a carregar código e dados o mais antecipadamente possível, mas sem esperar que tudo seja completado**. Dados em paralelo e árvores de visualização nos permitem carregar os dados para uma visualização em paralelo com o carregamento da própria visualização (código). Obtenção de dados em um manipulador de eventos significa que nós podemos começar a carregar os dados o mais antecipadamente possível, e otimamente até mesmo pré-carregar uma visualização quando nós tivermos confiança suficiente de que o usuário irá navegar para ela. Carregar dados de maneira incremental nos permite carregar os dados mais importantes antecipadamente sem atrasar a obtenção de dados de menos importância. E tratar código como dados -- e pré-carregar esse código com APIs similares -- nos permite carregá-lo de maneira antecipada também.
 
-## Using These Patterns {#using-these-patterns}
+## Utilizando Esses Padrões {#using-these-patterns}
 
-These patterns aren't just ideas -- we've implemented them in Relay Hooks and are using them in production throughout the new facebook.com (which is currently in beta testing). If you're interested in using or learning more about these patterns, here are some resources:
+Esses padrões não são apenas ideias -- nós os implementamos no React Hooks e estamos usando eles em produção ao longo do novo facebook.com (o que está atualmente em teste beta). Se você estiver interessado em utilizá-lo ou aprender mais sobre esses padrões, aqui estão algumas referências:
 
-* The [React Concurrent docs](/docs/concurrent-mode-intro.html) explore how to use Concurrent Mode and Suspense and go into more detail about many of these patterns. It's a great resource to learn more about the APIs and use-cases they support.
-* The [experimental release of Relay Hooks](https://relay.dev/docs/en/experimental/step-by-step) implements the patterns described here. 
-* We've implemented two similar example apps that demonstrate these concepts:
-  * The [Relay Hooks example app](https://github.com/relayjs/relay-examples/tree/master/issue-tracker) uses GitHub's public GraphQL API to implement a simple issue tracker app. It includes nested route support with code and data preloading. The code is fully commented -- we encourage cloning the repo, running the app locally, and exploring how it works.
-  * We also have a [non-GraphQL version of the app](https://github.com/gaearon/suspense-experimental-github-demo) that demonstrates how these concepts can be applied to other data-fetching libraries.
+* A [documentação do Modo Concorrente do React](/docs/concurrent-mode-intro.html) aborda como utilizar o Modo Concorrente e o Suspense e detalha melhor vários desses padrões. É uma ótima referência para aprender mais sobre as APIs e casos de uso que elas suportam.
+* A [versão experimental do Relay Hooks](https://relay.dev/docs/en/experimental/step-by-step) implementa os padrões descritos aqui. 
+* Nós implementamos dois aplicativos de exemplo que demonstram esses conceitos:
+  * O [aplicativo exemplo do Relay Hooks](https://github.com/relayjs/relay-examples/tree/master/issue-tracker) utiliza a API GraphQL pública do GitHub para implementar um aplicativo simples de rastreamento de issues. Ele inclui suporte a rotas aninhadas com pré-carregamento de dados e código. O código está totalmente comentado -- nós encorajamos clonar o repositório, executar o aplicativo localmente, e explorar como ele funciona.
+  * Nós também temos uma [versão de aplicativo não-GraphQL](https://github.com/gaearon/suspense-experimental-github-demo) que demonstra como esses conceitos podem ser aplicados para outras bibliotecas de obtenção de dados.
 
-While the APIs around Concurrent Mode and Suspense are [still experimental](/docs/concurrent-mode-adoption.html#who-is-this-experimental-release-for), we're confident that the ideas in this post are proven by practice. However, we understand that Relay and GraphQL aren't the right fit for everyone. That's ok! **We're actively exploring how to generalize these patterns to approaches such as REST,** and are exploring ideas for a more generic (ie non-GraphQL) API for composing a tree of data dependencies. In the meantime, we're excited to see what new libraries will emerge that implement the patterns described in this post to make it easier to build great, *fast* user experiences.
+Mesmo que as APIs do Modo Concorrente e Suspense [ainda sejam experimentais](/docs/concurrent-mode-adoption.html#who-is-this-experimental-release-for), nós estamos confiantes que as ideias desse artigo são comprovadas na prática. De qualquer forma, nós entendemos que o Relay e GraphQL não são aplicáveis a todos. E tudo bem! **Nós estamos explorando como generalizar esses padrões para abordagens como REST,** e também explorando ideias para uma API mais genérica (isto é, não-GraphQL) para composição de árvores de dependência de dados. Enquanto isso, estamos animados por ver que novas bibliotecas irão surgir implementando os padrões descritos nesse artigo para criar de maneira mais fácil, experiências de usuário *rápidas*.
 

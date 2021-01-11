@@ -39,7 +39,7 @@ A equipe React recomenda principalmente as seguintes soluções:
 
 [Create React App](https://github.com/facebookincubator/create-react-app) é um ambiente confortável para **aprender React**, e é a melhor maneira de começar um **[single-page](/docs/glossary.html#single-page-application) application** em React. 
 
-Além de configurar seu ambiente de desenvolvimento para utilizar as funcionalidades mais recentes do JavaScript, ele fornece uma experiência de desenvolvimento agradável, e otimiza o seu app para produção. Será necessário ter Node >= 8.10 e npm >= 5.6 na sua máquina. Para criar um novo projeto, rode:
+Além de configurar seu ambiente de desenvolvimento para utilizar as funcionalidades mais recentes do JavaScript, ele fornece uma experiência de desenvolvimento agradável, e otimiza o seu app para produção. Será necessário ter [Node >= 8.10 e npm >= 5.6](https://nodejs.org/pt-br/) na sua máquina. Para criar um novo projeto, rode:
 
 ```bash
 npx create-react-app my-app
@@ -72,6 +72,8 @@ Aprenda Gatsby através de [seu guia oficial](https://www.gatsbyjs.org/docs/) e 
 As seguintes toolchains oferecem mais flexibilidade e escolha. Nós as recomendamos para usuários mais experientes:
 
 - **[Neutrino](https://neutrinojs.org/)** combina o poder do [webpack](https://webpack.js.org/) com a simplicidade de presets, e inclui um preset para [React apps](https://neutrinojs.org/packages/react/) e [React components](https://neutrinojs.org/packages/react-components/).
+
+- **[Nx](https://nx.dev/react)** é um kit de ferramentas para o desenvolvimento de monorepo de stack completa, com suporte interno para o React, Next.js, [Express](https://expressjs.com/), e mais.
 
 - **[Parcel](https://parceljs.org/)** é um bundler de aplicativos web rápido e sem configuração que [funciona com React](https://parceljs.org/recipes.html#react). 
 

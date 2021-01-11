@@ -193,7 +193,7 @@ function App() {
 
 Precisamos apenas de sete linhas de código para adicionar essa transição:
 
-* Importamos o Hook `useTransition` e usamos no componente que atualiza o estado.
+* Importamos o Hook `useTransition` e o usamos no componente que atualiza o estado.
 * Passamos o `{timeoutMs: 3000}` para permanecer na tela anterior por no máximo 3 segundos.
 * Encapsulamos nossa atualização de estado no `startTransition` para dizer ao React que não há problema em adiá-lo.
 * Estamos usando o `isPending` para comunicar o progresso da transição de estado ao usuário e desativar o botão.
@@ -507,7 +507,7 @@ function ProfileTrivia({ resource }) {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/focused-mountain-uhkzg)**
 
-Se você pressionar "Open Profile" agora, poderá notar que algo está errado. Agora leva sete segundos para fazer a transição! Isso ocorre porque nossa API de trivia é muito lenta. Digamos que não possamos tornar a API mais rápida. Como podemos melhorar a experiência do usuário com essa restrição?
+Se você pressionar "Open Profile" agora, poderá notar que algo está errado. Demora sete segundos para fazer a transição agora! Isso ocorre porque nossa API de trivia é muito lenta. Digamos que não possamos tornar a API mais rápida. Como podemos melhorar a experiência do usuário com essa restrição?
 
 Se não queremos permanecer no estado Pendente por muito tempo, nosso primeiro instinto pode ser definir `timeoutMs` em` useTransition` para um valor menor, como `3000`. Você pode tentar isso [aqui](https://codesandbox.io/s/practical-kowalevski-kpjg4). Isso nos permite escapar do estado Pendente prolongado, mas ainda não temos nada de útil para mostrar!
 

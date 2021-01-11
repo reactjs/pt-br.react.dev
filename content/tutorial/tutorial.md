@@ -170,7 +170,7 @@ O JSX vem com todo o poder do JavaScript. Você pode colocar *quaisquer* express
 
 O componente `ShoppingList` acima apenas renderiza componentes internos do DOM como `<div />` e ` <li />`. Mas você também pode compor e renderizar componentes React personalizados. Por exemplo, agora podemos nos referir a toda a lista de compras escrevendo `<ShoppingList />`. Cada componente React é encapsulado e pode operar de forma independente; Isso permite que você construa interfaces complexas a partir de componentes simples.
 
-## Inspecionando o Código Inicial {#inspecting-the-starter-code}
+### Inspecionando o Código Inicial {#inspecting-the-starter-code}
 
 Se você for trabalhar no tutorial **em seu navegador,** abra esse código em uma nova guia: **[Código Inicial](https://codepen.io/gaearon/pen/oWWQNa?editors=0010 )** Se você vai trabalhar no tutorial **localmente,** abra `src/index.js` em sua pasta de projeto (você já criou este arquivo durante a [configuração](#setup-option-2-local-development-environment)).
 
@@ -587,7 +587,7 @@ Detectar mudanças em objetos imutáveis é consideravelmente fácil. Se ele for
 
 #### Determinar Quando Re-renderizar no React {#determining-when-to-re-render-in-react}
 
-O principal benefício da imutabilidade é que ela ajuda a construir _componentes puros_ em React. Dados imutáveis podem facilmente determinar se foram feitas mudanças que ajudarão a decidir quando um componente precisa ser re-renderizado.
+O principal benefício da imutabilidade é que ela ajuda a construir _componentes puros_ em React. Dados imutáveis podem facilmente determinar se foram feitas mudanças, que ajudarão a decidir quando um componente precisa ser re-renderizado.
 
 Você pode aprender mais sobre `shouldComponentUpdate` e como construir *componentes puros* lendo o artigo [Otimizando Performance](/docs/optimizing-performance.html#examples).
 

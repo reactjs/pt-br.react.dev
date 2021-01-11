@@ -29,7 +29,7 @@ Uma grande parte dos testes de UI podem ser escritos com a seguinte configuraç�
 
 Se você está criando uma biblioteca que testa em sua maioria comportamentos específicos de um navegador, e necessita de um comportamento nativo de um navegador como _layout_ ou _inputs_ de verdade, você pode usar um _framework_ como [mocha](https://mochajs.org/).
 
-Em um ambiente onde você _não pode_ simular um DOM (por exemplo, testes de componentes do React Native no Node.js), você poderia usar [funções auxiliares de simulação de eventos](https://reactjs.org/docs/test-utils.html#simulate) para simular interações com elementos. Como uma outra alternativa, você pode usar a função auxiliar`fireEvent` da [`@testing-library/react-native`](https://testing-library.com/docs/native-testing-library).
+Em um ambiente onde você _não pode_ simular um DOM (por exemplo, testes de componentes do React Native no Node.js), você poderia usar [funções auxiliares de simulação de eventos](/docs/test-utils.html#simulate) para simular interações com elementos. Como uma outra alternativa, você pode usar a função auxiliar`fireEvent` da [`@testing-library/react-native`](https://testing-library.com/docs/react-native-testing-library/intro).
 
 Frameworks como [Cypress](https://www.cypress.io/), [puppeteer](https://github.com/GoogleChrome/puppeteer) e [webdriver](https://www.seleniumhq.org/projects/webdriver/) são úteis para executar [testes end-to-end](#end-to-end-tests-aka-e2e-tests).
 

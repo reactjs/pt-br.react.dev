@@ -177,9 +177,9 @@ Resista à tentação de modificar o prototype de um componente (ou alterá-lo d
 
 ```js
 function logProps(InputComponent) {
-  InputComponent.prototype.componentWillReceiveProps = function(nextProps) {
+  InputComponent.prototype.componentDidUpdate = function(prevProps) {
     console.log('Current props: ', this.props);
-    console.log('Next props: ', nextProps);
+    console.log('Previous props: ', prevProps);
   };
   // O fato de estarmos retornando a entrada original é uma dica de que ela sofreu mutação.
   return InputComponent;
@@ -189,7 +189,7 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-Existem alguns problemas nisso. Primeiro, o componente de entrada não pode ser reutilizado separadamente do componente melhorado. Mais crucialmente, se você aplicar outro HOC para `EnhancedComponent` que *também* altera `componentWillReceiveProps`, a funcionalidade do primeiro HOC será sobrescrita! Esse HOC também não funcionará com componentes funcionais, os quais não possuem métodos de ciclo de vida.
+Existem alguns problemas nisso. Primeiro, o componente de entrada não pode ser reutilizado separadamente do componente melhorado. Mais crucialmente, se você aplicar outro HOC para `EnhancedComponent` que *também* altera `componentDidUpdate`, a funcionalidade do primeiro HOC será sobrescrita! Esse HOC também não funcionará com componentes funcionais, os quais não possuem métodos de ciclo de vida.
 
 Realizar mutações em HOCs podem causar "vazamentos" - o consumidor deve saber como eles são implementados para evitar conflitos com outros HOCs.
 
@@ -198,9 +198,9 @@ Em vez de mutações, HOCs devem utilizar composição, encapsulando o component
 ```js
 function logProps(WrappedComponent) {
   return class extends React.Component {
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(prevProps) {
       console.log('Current props: ', this.props);
-      console.log('Next props: ', nextProps);
+      console.log('Previous props: ', prevProps);
     }
     render() {
       // Encapsula o componente de entrada em um container, sem alterá-lo. Excelente!
@@ -319,7 +319,7 @@ Componentes de ordem superior vêm com algumas ressalvas que não são imediatam
 
 ### Não usar HOCs dentro do método render {#dont-use-hocs-inside-the-render-method}
 
-O algoritmo de comparação do React (chamado reconciliação) usa a identidade do componente para determinar se ele deve atualizar a sub-árvore existente ou jogá-la fora e montar uma nova. Se o componente que foi retornado do `render` é idêntico (`===`) ao componente do render anterior, o React atualizará a sub-árvore comparando-a recursivamente com uma nova. Se elas não forem iguais, a sub-árvore anterior será completamente desmontada.
+O algoritmo de comparação do React (chamado [Reconciliação](/docs/reconciliation.html)) usa a identidade do componente para determinar se ele deve atualizar a sub-árvore existente ou jogá-la fora e montar uma nova. Se o componente que foi retornado do `render` é idêntico (`===`) ao componente do render anterior, o React atualizará a sub-árvore comparando-a recursivamente com uma nova. Se elas não forem iguais, a sub-árvore anterior será completamente desmontada.
 
 Normalmente, você não precisa se preocupar com isso. Mas isso é importante em HOCs porque não se pode aplicar um HOC em um componente dentro do método render de um componente:
 

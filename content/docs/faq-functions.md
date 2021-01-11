@@ -152,7 +152,6 @@ const A = 65 // cógido de caractere ASCII
 class Alphabet extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
     this.state = {
       justClicked: null,
       letters: Array.from({length: 26}, (_, i) => String.fromCharCode(A + i))
@@ -291,9 +290,6 @@ class Searchbox extends React.Component {
   }
 
   handleChange(e) {
-    // o React faz pools no eventos. Então lemos o valor antes do debounce.
-    // Alternativamente podemos chamar `event.persist()` e passar todo o evento.
-    // Para mais informações veja: reactjs.org/docs/events.html#event-pooling
     this.emitChangeDebounced(e.target.value);
   }
 

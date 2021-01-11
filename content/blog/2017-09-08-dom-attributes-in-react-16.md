@@ -29,7 +29,7 @@ No React 16, estamos fazendo uma mudança. Agora, qualquer atributo desconhecido
 O React sempre forneceu uma API central do JavaScript para o DOM. Visto que os componentes do React constantemente usam props customizadas e relacionadas ao DOM, faz sentido para o React usar a convenção `camelCase` como nas APis do DOM. 
 
 ```js
-<div tabIndex="-1" />
+<div tabIndex={-1} />
 ```
 
 Isso não mudou. Porém, a maneira como aplicamos isso no passado, nos forçou manter uma lista de permissões de todos os atributos do DOM válidos para o React no bundle.
@@ -120,7 +120,7 @@ Abaixo está uma lista detalhada delas.
 * **Atributos React conhecidos com um nome canônico diferente:** 
 
     ```js
-    <div tabindex="-1" />
+    <div tabindex={-1} />
     <div class="hi" />
     ```
 

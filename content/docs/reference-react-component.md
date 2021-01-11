@@ -42,7 +42,7 @@ O único método que você *deve* definir em uma subclasse de `React.Component` 
 
 ### O Ciclo de Vida de um Componente {#component-life-cycle}
 
-Cada componente possui muitos "métodos do ciclo de vida" que você pode sobrescrever para executar determinado código em momentos particulares do processo. **Você pode usar [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) para consulta.** Na lista abaixo, os métodos do ciclo de vida mais usados estão marcados em **negrito**. O resto deles, existe para o uso em casos relativamente raros.
+Cada componente possui muitos "métodos do ciclo de vida" que você pode sobrescrever para executar determinado código em momentos particulares do processo. **Você pode usar [este diagrama do ciclo de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) para consulta.** Na lista abaixo, os métodos do ciclo de vida mais usados estão marcados em **negrito**. O resto deles, existe para o uso em casos relativamente raros.
 
 #### Montando (mounting) {#mounting}
 
@@ -113,7 +113,7 @@ Cada componente também fornece outras APIs:
 
 ### Métodos Mais Usados do Ciclo de Vida {#commonly-used-lifecycle-methods}
 
-Os métodos desta seção cobrem a grande maioria dos casos de uso que você encontrará criando componentes React. **Para uma referência visual, veja : [este diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
+Os métodos desta seção cobrem a grande maioria dos casos de uso que você encontrará criando componentes React. **Para uma referência visual, veja : [este diagrama do ciclo de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/).**
 
 ### `render()` {#render}
 
@@ -247,8 +247,7 @@ componentWillUnmount()
 
 ### Métodos Raramente Usados {#rarely-used-lifecycle-methods}
 
-Estes métodos dessa seção correspondem a casos de uso incomuns. Eles são úteis de vez em quando, mas na maioria das vezes, seus componentes provavelmente não irão precisar de nenhum deles. **Pode ver a maioria dos métodos abaixo [neste diagrama do ciclo de vida](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se clicar na checkbox "Mostrar ciclos de vida menos comuns" no topo da página.**
-
+Estes métodos dessa seção correspondem a casos de uso incomuns. Eles são úteis de vez em quando, mas na maioria das vezes, seus componentes provavelmente não irão precisar de nenhum deles. **Pode ver a maioria dos métodos abaixo [neste diagrama do ciclo de vida](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) se clicar na checkbox "Mostrar ciclos de vida menos comuns" no topo da página.**
 
 ### `shouldComponentUpdate()` {#shouldcomponentupdate}
 
@@ -277,7 +276,7 @@ Atualmente, se `shouldComponentUpdate()` retornar `false`, então [`UNSAFE_compo
 static getDerivedStateFromProps(props, state)
 ```
 
-`getDerivedStateFromProps` é invocado imediatamente antes de chamar o método render, ambos na montagem inicial e nas atualizações subsequente. Devem retornar um objeto para atualizar o state, ou null para não atualizar nada.
+`getDerivedStateFromProps` é invocado imediatamente antes de chamar o método render, ambos na montagem inicial e nas atualizações subsequente. Devem retornar um objeto para atualizar o state, ou `null` para não atualizar nada.
 
 Este método existe para [casos de uso raros](/blog/2018/06/07/you-probably-dont-need-derived-state.html#when-to-use-derived-state) onde o state depende de mudanças nas props ao longo do tempo. Por exemplo, pode ser útil para implementar um componente `<Transition>` que compara seus filhos anteriores e próximos para decidir quais deles devem ser animados.
 
@@ -416,6 +415,12 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
+As compilações de produção e desenvolvimento do React diferem ligeiramente na maneira como `componentDidCatch()` lida com erros.
+
+No desenvolvimento, os erros irão borbulhar em `window`, isso significa que qualquer `window.onerror` ou `window.addEventListener('error', callback)` irá interceptar os erros que foram detectados por `componentDidCatch()`.
+
+Na produção, em vez disso, os erros não surgirão, o que significa que qualquer manipulador de erros ancestral receberá apenas erros não explicitamente detectados por `componentDidCatch()`.
+
 > Nota
 >
 > No evento de um erro, você pode renderizar uma UI de *fallback* com `componentDidCatch()` chamando `setState`, mas isto será depreciado numa *release* futura.
@@ -503,7 +508,7 @@ Existem apenas dois deles: `setState()` e `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater[, callback])
+setState(updater, [callback])
 ```
 
 `setState()` enfileira mudanças ao *state* do componente e diz ao React que este componente e seus componentes filho precisam ser re-renderizados com a atualização do *state*. Este é o principal método que você utiliza para atualizar a UI em resposta a *event handlers* e à resposta de servidores.

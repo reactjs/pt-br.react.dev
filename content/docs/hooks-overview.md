@@ -38,7 +38,7 @@ function Example() {
 }
 ```
 
-Aqui, `useState` é um *Hook* (nós vamos falar sobre o que isso significa em instantes). Nós o chamamos dentro de um componente funcional para adicionar alguns states locais a ele. React irá presevar este state entre re-renderizações. `useState` retorna um par: o valor do state *atual* e uma função que permite atualizá-lo. Você pode chamar essa função a partir de um manipulador de evento ou de qualquer outro lugar. É parecido com `this.setState` em uma classe, exceto que não mescla o antigo state com o novo. (Nós iremos mostrar um exemplo comparando `useState` com `this.state` em [Utilizando o State Hook](/docs/hooks-state.html).)
+Aqui, `useState` é um *Hook* (nós vamos falar sobre o que isso significa em instantes). Nós o chamamos dentro de um componente funcional para adicionar alguns states locais a ele. React irá preservar este state entre re-renderizações. `useState` retorna um par: o valor do state *atual* e uma função que permite atualizá-lo. Você pode chamar essa função a partir de um manipulador de evento ou de qualquer outro lugar. É parecido com `this.setState` em uma classe, exceto que não mescla o antigo state com o novo. (Nós iremos mostrar um exemplo comparando `useState` com `this.state` em [Utilizando o State Hook](/docs/hooks-state.html).)
 
 O único argumento para `useState` é o state inicial. No exemplo acima, é `0` porque nosso contador começa do zero. Perceba que diferente de `this.state`, o state não precisa ser um objeto -- apesar de que possa ser se você quiser. O argumento de state inicial é utilizado apenas durante a primeira renderização.
 
@@ -229,7 +229,7 @@ function FriendListItem(props) {
 }
 ```
 
-O estado (state) destes componentes é completamente independente. Hooks são a forma de reutilizar *lógica de state*, não o state em si. De fato, cada *chamada* para um Hook tem um state completamente isolado -- então você pode até utilizar o mesmo Hook custom duas vezes em um componente.
+O estado (state) de cada componente é completamente independente. Hooks são a forma de reutilizar *lógica de state*, não o state em si. De fato, cada *chamada* para um Hook tem um state completamente isolado -- então você pode até utilizar o mesmo Hook custom duas vezes em um componente.
 
 Hooks customizados são mais uma convenção do que uma funcionalidade. Se o nome de uma função começa com "`use`" e chama outros Hooks, consideramos que é um Hook customizado. A convenção de nome `useSomething` é como nosso plugin de linter é capaz de encontrar bugs no nosso código que utiliza Hooks.
 

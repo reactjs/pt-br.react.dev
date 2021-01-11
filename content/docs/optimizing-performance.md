@@ -43,8 +43,8 @@ Lembre que isto é somente necessário antes de publicar para produção. Para d
 Nós oferecemos versões de produção prontas do React e React DOM com arquivos únicos:
 
 ```html
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 ```
 
 Lembre que somente arquivos React terminados com `.production.min.js` são adequados para produção.
@@ -75,7 +75,7 @@ Para uma build de produção do Browserify mais eficiente, instale alguns plugin
 
 ```
 # Se você usa npm
-npm install --save-dev envify terser uglifyify 
+npm install --save-dev envify terser uglifyify
 
 # Se você usa Yarn
 yarn add --dev envify terser uglifyify
@@ -176,7 +176,7 @@ Para fazer isso no Chrome:
 
 6. Eventos do React serão agrupados sob a label **User Timing**.
 
-Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad).
+Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
 
 Perceba que **os números são relativos para que os componentes renderizem mais rápido em produção**. Ainda, isto deve ajudar você a perceber quando algo não relacionados da UI são alteradas, a quão profundo e frequente suas alterações de UI acontecem.
 
@@ -372,14 +372,15 @@ function updateColorMap(colormap) {
 
 `updateColorMap` agora retorna um novo objeto, ao invés de mutar o valor o antigo. `Object.assign` é ES6 e requer um polyfill.
 
-Há uma proposta JavaScript para adicionar [espalhador de propriedades de objeto](https://github.com/sebmarkbage/ecmascript-rest-spread) para fazer ele alterar sem mutar.
-
+[Object spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) facilita a atualização de objetos sem mutação:
 
 ```js
 function updateColorMap(colormap) {
   return {...colormap, right: 'blue'};
 }
 ```
+
+Este recurso foi adicionado ao JavaScript no ES2018.
 
 Se você está usando Create React App, ambos `Object.assign` e a sintaxe de espalhador de objeto estão disponíveis por padrão.
 

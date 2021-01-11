@@ -54,8 +54,8 @@ A seguir, adicione três tags `<script>` em sua página HTML logo antes do fecha
 
   <!-- Adicionar o React. -->
   <!-- Nota: ao fazer o deploy, substitua "development.js" por "production.min.js". -->
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
   <!-- Adicione nosso componente React. -->
   <script src="like_button.js"></script>
@@ -115,8 +115,8 @@ Antes de realizar o deploy de seu site para produção, lembre-se que o código 
 Se você já minifica os scripts da sua aplicação, **seu site estará pronto para produção** se você garantir que o HTML carregue a versão do React terminando em `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Se você não possui uma etapa de minificação para seus scripts, [aqui está um jeito de configurá-lo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).
@@ -189,7 +189,7 @@ npx babel --watch src --out-dir . --presets react-app/prod
 
 >Nota
 >
->`npx` não é um erro de digitação -- é um [é uma ferramenta de executar pacotes que vem com npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
+>`npx` não é um erro de digitação -- [é uma ferramenta de executar pacotes que vem com npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 >
 >Se você ver uma mensagem de erro dizendo "You have mistakenly installed the `babel` package", você pode ter perdido [o passo anterior](#add-jsx-to-a-project). Execute o passo anterior na mesma pasta e tente novamente.
 

@@ -43,7 +43,7 @@ Note que todos os atributos HTML `aria-*` são totalmente suportados no JSX. Enq
 
 ## Linguagem HTML {#semantic-html}
 
-Linguagem é a base da acessibilidade em um aplicativo da web. Usando os corretamente elementos HTML para reforçar o significado da informação
+Linguagem é a base da acessibilidade em um aplicativo da web. Usando os elementos HTML corretamente para reforçar o significado da informação
 em nossos sites, muitas vezes a acessibilidade pode vir gratuitamente.
 
 - [MDN HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
@@ -167,7 +167,7 @@ Leia mais sobre o uso desses elementos para melhorar a acessibilidade aqui:
 
 Aplicações em React modificam continuamente o HTML DOM durante o tempo de execução, às vezes levando à perda de foco do teclado ou a um elemento inesperado. Para consertar isso, precisamos programar o foco do teclado na direção certa, de maneira programática. Por exemplo, redefinindo o foco do teclado para um botão que abriu uma janela modal depois que essa janela restrita é fechada.
 
-Você pode encotrar mais informações de como fazer isto no MDN [navegação por teclado de JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
+Você pode encontrar mais informações de como fazer isto no MDN [navegação por teclado de JavaScript widgets](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets).
 
 Para definir o foco no React, podemos usar [Refs para elementos no DOM](/docs/refs-and-the-dom.html).
 
@@ -242,7 +242,7 @@ Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://githu
 
 ## Movimentos do mouse e ponteiro (cursor) {#mouse-and-pointer-events}
 
-Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou ponteiro também possam ser acessadas usando apenas o teclado. Se dependender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderão usar seu aplicativo.
+Certifique-se de que todas as funcionalidades expostas através do movimento de mouse ou ponteiro também possam ser acessadas usando apenas o teclado. Se depender apenas do movimento do mouse, haverá muitos casos em que usuários de teclado não poderão usar seu aplicativo.
 
 Para ilustrar isso, abaixo pode-se ver um exemplo clássico de quebra da acessibilidade causada por cliques. Esse é o padrão de clique externo, em que um usuário pode desativar um popover aberto clicando fora do elemento.
 
@@ -381,7 +381,7 @@ Estas são caixas de ferramentas preenchidas com atributos HTML que são totalme
 Cada tipo de widget tem um padrão de design específico e espera-se que funcione de certa forma por usuários e agentes do usuário:
 
 - [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
-- [Heydon Pickering - ARIA Examples](https://heydonworks.com/practical_aria_examples/)
+- [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
 ## Outros pontos a serem consideração {#other-points-for-consideration}
