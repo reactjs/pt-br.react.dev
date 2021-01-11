@@ -172,16 +172,16 @@ Ao testar esta versão, nós também criamos uma [tabela para todos os atributos
 Você pode tentar essa mudança neste [CodePen](https://codepen.io/gaearon/pen/gxNVdP?editors=0010).
 Ele usa React 16 RC, e você pode [nos ajudar testando o RC em seu projeto!](https://github.com/facebook/react/issues/10294)
 
-## Thanks {#thanks}
+## Agradecimentos {#thanks}
 
-This effort was largely driven by [Nathan Hunzaker](https://github.com/nhunzaker) who has been a [prolific outside contributor to React](https://github.com/facebook/react/pulls?q=is:pr+author:nhunzaker+is:closed).
+Esse esforço foi em grande parte conduzido por [Nathan Hunzaker](https://github.com/nhunzaker) que tem sido um [ativo colaborador externo do React](https://github.com/facebook/react/pulls?q=is:pr+author:nhunzaker+is:closed).
 
-You can find his work on this issue in several PRs over the course of last year: [#6459](https://github.com/facebook/react/pull/6459), [#7311](https://github.com/facebook/react/pull/7311), [#10229](https://github.com/facebook/react/pull/10229), [#10397](https://github.com/facebook/react/pull/10397), [#10385](https://github.com/facebook/react/pull/10385), and [#10470](https://github.com/facebook/react/pull/10470).
+Você pode encontrar seu trabalho sobre este assunto em vários PRs ao longo do ano passado: [#6459](https://github.com/facebook/react/pull/6459), [#7311](https://github.com/facebook/react/pull/7311), [#10229](https://github.com/facebook/react/pull/10229), [#10397](https://github.com/facebook/react/pull/10397), [#10385](https://github.com/facebook/react/pull/10385), e [#10470](https://github.com/facebook/react/pull/10470).
 
-Major changes in a popular project can take a lot of time and research. Nathan demonstrated perseverance and commitment to getting this change through, and we are very thankful to him for this and other efforts.
+Mudanças importantes em um projeto popular podem exigir muito tempo e pesquisa. Nathan demonstrou perseverança e compromisso em realizar essa mudança, e somos muito gratos a ele por esse e outros esforços.
 
-We would also like to thank [Brandon Dail](https://github.com/aweary) and [Jason Quense](https://github.com/jquense) for their invaluable help maintaining React this year.
+Também gostaríamos de agradecer a [Brandon Dail](https://github.com/aweary) e [Jason Quense](https://github.com/jquense) por sua ajuda inestimável para manter o React este ano.
 
-## Future Work {#future-work}
+## Trabalho Futuro {#future-work}
 
-We are not changing how [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) work in React 16, but there are [existing discussions](https://github.com/facebook/react/issues/7249) about setting properties instead of attributes, and we might revisit this in React 17. Feel free to chime in if you'd like to help!
+Não estamos mudando como [elementos customizados](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements) funcionam no React 16, mas há [discussões existentes](https://github.com/facebook/react/issues/7249) sobre a definição de propriedades em vez de atributos e podemos revisitar isso no React 17. Sinta-se à vontade para entrar em contato se quiser ajudar!
