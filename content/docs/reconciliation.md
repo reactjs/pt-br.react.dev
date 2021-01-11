@@ -27,7 +27,7 @@ Quando diferenciando duas árvores, o React primeiro compara os dois elementos r
 
 Sempre que os elementos raíz tiverem tipos diferentes, o React irá destruir a árvore antiga e construir uma árvore nova do zero. Indo de  `<a>` para `<img>`, ou de `<Article>` para `<Comment>`, ou de `<Button>` para `<div>` - qualquer uma dessas mudanças resultará em uma reconstrução total.
 
-Quando destruímos uma árvore, os nós antigos do DOM são destruídos. Instâncias de componentes recebem `componentWillUnmount()`. Quando construímos uma nova árvore, novos nós do DOM são inseridos no DOM. Instâncias de componentes recebem `componentWillMount()` e depois `componentDidMount()`. Qualquer estado associado com a árvore antiga é perdido.
+Quando destruímos uma árvore, os nós antigos do DOM são destruídos. Instâncias de componentes recebem `componentWillUnmount()`. Quando construímos uma nova árvore, novos nós do DOM são inseridos no DOM. Instâncias de componentes recebem `UNSAFE_componentWillMount()` e depois `componentDidMount()`. Qualquer estado associado com a árvore antiga é perdido.
 
 Qualquer componente abaixo irá ser desmontado e ter seu estado destruído.
 Por exemplo, quando diferenciando: 
@@ -43,10 +43,15 @@ Por exemplo, quando diferenciando:
 
 Isso irá destruir o antigo `Counter` e remontar um novo.
 
+>Nota:
+>
+>Esses métodos são considerados legados e você deve [evitá-los](/blog/2018/03/27/update-on-async-rendering.html) no novo código:
+>
+>- `UNSAFE_componentWillMount()`
+
 ### Elementos DOM de Mesmo Tipo {#dom-elements-of-the-same-type}
 
 Quando comparando dois Elementos DOM React do mesmo tipo, React olhará para os atributos de ambos, mantendo os nós DOM subjacentes e apenas atualizando os atributos modificados. Por exemplo:
-
 
 ```xml
 <div className="before" title="stuff" />
@@ -67,9 +72,16 @@ Depois de manipular o nó do DOM, o React itera recursivamente sobre os filhos.
 
 ### Componentes de Elementos do Mesmo Tipo {#component-elements-of-the-same-type}
 
-Quando um componente atualiza, a instância continua a mesma, então o estado é mantido entre as renderizações. O React atualiza as props das instâncias dos componentes subjacentes para sincronizar com o novo elemento e então chama `componentWillReceiveProps()` e `componentWillUpdate()` na instância subjacente.
+Quando um componente atualiza, a instância continua a mesma, então o estado é mantido entre as renderizações. O React atualiza as props das instâncias dos componentes subjacentes para sincronizar com o novo elemento e então chama `UNSAFE_componentWillReceiveProps()`, `UNSAFE_componentWillUpdate()` e `componentDidUpdate()` na instância subjacente.
 
 Depois, o método `render()` é chamado e o Algoritmo de Diferenciação itera recursivamente no resultado anterior e no novo resultado.
+
+>Note:
+>
+>Esses métodos são considerados legados e você deve [evitá-los](/blog/2018/03/27/update-on-async-rendering.html) no novo código:
+>
+>- `UNSAFE_componentWillUpdate()`
+>- `UNSAFE_componentWillReceiveProps()`
 
 ### Iterando Recursivamente nos Filhos {#recursing-on-children}
 
