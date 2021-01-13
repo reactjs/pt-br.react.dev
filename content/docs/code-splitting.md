@@ -102,7 +102,7 @@ Isto automaticamente carregará o pacote contendo o `OtherComponent` quando este
 
 `React.lazy` recebe uma função que deve retornar um `import()`. Este último retorna uma `Promise` que é resolvida para um módulo com um `export default` que contém um componente React.
 
-O componente lazy pode ser renderizado dentro de um componente `Suspense`, o que no permite mostrar algum conteúdo de fallback (como um indicador de carregamento) enquanto aguardamos o carregamento do componente lazy.
+O componente lazy pode ser renderizado dentro de um componente `Suspense`, o que nos permite mostrar algum conteúdo de fallback (como um indicador de carregamento) enquanto aguardamos o carregamento do componente lazy.
 
 ```js
 import React, { Suspense } from 'react';
