@@ -246,29 +246,29 @@ Esses acessórios são implementados como um aplicativo React localizado em [`fi
 
 O aplicativo de fixture permite que você escolha uma versão do React (local ou uma das versões publicadas) que é útil para comparar o comportamento antes e depois das alterações. Quando mudamos o comportamento relacionado à forma como interagimos com o DOM, podemos verificar que ele não regrediu, passando pelos acessórios relacionados em diferentes navegadores.
 
-In some cases, a change proved to be so complex that it necessitated a standalone purpose-built fixture to verify it. For example, the [DOM attribute handling in React 16](/blog/2017/09/08/dom-attributes-in-react-16.html) was very hard to pull off with confidence at first. We kept discovering different edge cases, and almost gave up on doing it in time for the React 16 release. However, then we've built an ["attribute table" fixture](https://github.com/facebook/react/tree/d906de7f602df810c38aa622c83023228b047db6/fixtures/attribute-behavior) that renders all supported attributes and their misspellings with previous and next version of React, and displays the differences. It took a few iterations (the key insight was to group attributes with similar behavior together) but it ultimately allowed us to fix all major issues in just a few days.
+Em alguns casos, uma mudança provou ser tão complexa que exigiu um acessório autônomo feito sob medida para verificá-la. Por exemplo, a [manipulação de atributos DOM](/blog/2017/09/08/dom-attributes-in-react-16.html) foi muito difícil começar com confiança no início. Continuamos descobrindo diferentes casos extremos e quase desistimos de fazer isso a tempo para o lançamento do React 16. No entanto, construímos uma [ferramenta de "tabela de atributos"](https://github.com/facebook/react/tree/d906de7f602df810c38aa622c83023228b047db6/fixtures/attribute-behavior) que renderiza todos os atributos suportados e seus erros ortográficos com a versão anterior e a próxima do React, e exibe as diferenças. Demorou algumas iterações (o insight principal foi agrupar atributos com comportamento semelhante), mas acabou nos permitindo corrigir todos os principais problemas em apenas alguns dias.
 
 <br>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We went through the table to vet the new behavior for every case (and discovered some old bugs too) <a href="https://t.co/cmF2qnK9Q9">pic.twitter.com/cmF2qnK9Q9</a></p>&mdash; Dan Abramov (@dan_abramov) <a href="https://twitter.com/dan_abramov/status/906244378066345984?ref_src=twsrc%5Etfw">September 8, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Analisamos a tabela para examinar o novo comportamento para cada caso (e descobrimos alguns bugs antigos também) <a href="https://t.co/cmF2qnK9Q9">pic.twitter.com/cmF2qnK9Q9</a></p>&mdash; Dan Abramov (@dan_abramov) <a href="https://twitter.com/dan_abramov/status/906244378066345984?ref_src=twsrc%5Etfw">September 8, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-Going through the fixtures is still a lot of work, and we are considering automating some of it. Still, the fixture app is invaluable even as documentation for the existing behavior and all the edge cases and browser bugs that React currently handles. Having it gives us confidence in making significant changes to the logic without breaking important use cases. Another improvement we're considering is to have a GitHub bot build and deploy the fixtures automatically for every pull request that touches the relevant files so anyone can help with browser testing.
+Examinar os acessórios ainda dá muito trabalho e estamos considerando automatizar parte disso. Ainda assim, o aplicativo de fixture é inestimável até mesmo como documentação para o comportamento existente e todos os casos extremos e bugs do navegador que o React lida atualmente. Isso nos dá confiança para fazer alterações significativas na lógica sem quebrar casos de uso importantes. Outra melhoria que estamos considerando é criar um bot do GitHub e implantar os fixtures automaticamente para cada pull request que toque nos arquivos relevantes para que qualquer pessoa possa ajudar no teste do navegador.
 
-### Preventing Infinite Loops {#preventing-infinite-loops}
+### Prevenindo Loops Infinitos {#preventing-infinite-loops}
 
-The React 16 codebase contains many `while` loops. They let us avoid the dreaded deep stack traces that occurred with earlier versions of React, but can make development of React really difficult. Every time there is a mistake in an exit condition our tests would just hang, and it took a while to figure out which of the loops is causing the issue.
+A base de código React 16 contém muitos laços `while`. Eles nos permitem evitar os temidos deep stack traces que ocorriam com versões anteriores do React, mas podem tornar o desenvolvimento do React realmente difícil. Sempre que há um erro em uma condição de saída, nossos testes simplesmente travam e demoramos um pouco para descobrir qual dos loops está causando o problema.
 
-Inspired by the [strategy adopted by Repl.it](https://repl.it/site/blog/infinite-loops), we have added a [Babel plugin that prevents infinite loops](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/babel/transform-prevent-infinite-loops.js) in the test environment. If some loop continues for more than the maximum allowed number of iterations, we throw an error and immediately fail it so that Jest can display where exactly this happened.
+Inspirado pela [estratégia adotada pelo Repl.it](https://repl.it/site/blog/infinite-loops), nós adicionamos um [plugin Babel que previne loops infinitos](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/babel/transform-prevent-infinite-loops.js) no ambiente de teste. Se algum loop continuar por mais do que o número máximo permitido de iterações, lançamos um erro e o reprovamos imediatamente para que Jest possa mostrar onde exatamente isso aconteceu.
 
-This approach has a pitfall. If an error thrown from the Babel plugin gets caught and ignored up the call stack, the test will pass even though it has an infinite loop. This is really, really bad. To solve this problem, we [set a global field](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/babel/transform-prevent-infinite-loops.js#L26-L30) before throwing the error. Then, after every test run, we [rethrow that error if the global field has been set](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/jest/setupTests.js#L42-L56). This way any infinite loop will cause a test failure, no matter whether the error from the Babel plugin was caught or not.
+Essa abordagem tem uma armadilha. Se um erro lançado pelo plugin Babel for detectado e ignorado na pilha de chamadas, o teste será aprovado, embora tenha um loop infinito. Isso é muito, muito ruim. Para resolver este problema, nós [definimos um campo global](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/babel/transform-prevent-infinite-loops.js#L26-L30) antes de lançar o erro. Então, após cada execução de teste, nós [relançamos esse erro se o campo global tiver sido definido](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/jest/setupTests.js#L42-L56). Desta forma, qualquer loop infinito causará uma falha no teste, não importando se o erro do plugin Babel foi detectado ou não.
 
-## Customizing the Build {#customizing-the-build}
+## Customizando o Build {#customizing-the-build}
 
-There were a few things that we had to fine-tune after introducing our new build process. It took us a while to figure them out, but we're moderately happy with the solutions that we arrived at.
+Houve algumas coisas que tivemos que ajustar depois de apresentar nosso novo processo de construção. Demorou um pouco para descobri-los, mas estamos moderadamente felizes com as soluções a que chegamos.
 
-### Dead Code Elimination {#dead-code-elimination}
+### Eliminação de código morto {#dead-code-elimination}
 
-The combination of Rollup and Google Closure Compiler already gets us pretty far in terms of stripping development-only code in production bundles. We [replace](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L223-L226) the `__DEV__` literal with a boolean constant during the build, and both Rollup together and Google Closure Compiler can strip out the `if (false) {}` code branches and even some more sophisticated patterns. However, there is one particularly nasty case:
+A combinação de Rollup e Google Closure Compiler já nos leva muito longe em termos de remoção de código somente de desenvolvimento em pacotes de produção. Nós [substituímos](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L223-L226) o literal `__DEV__` com uma constante booleana durante a compilação, e tanto o Rollup quanto o Google Closure Compiler, juntos, podem remover os ramos de código `if (false) {}` e até mesmo alguns padrões mais sofisticados. No entanto, há um caso particularmente desagradável:
 
 ```js
 import warning from 'fbjs/lib/warning';
@@ -278,23 +278,21 @@ if (__DEV__) {
 }
 ```
 
-This pattern is very common in the React source code. However `fbjs/lib/warning` is an external import that isn't being bundled by Rollup for the CommonJS bundle. Therefore, even if `warning()` call ends up being removed, Rollup doesn't know whether it's safe to remove to the import itself. What if the module performs a side effect during initialization? Then removing it would not be safe.
+Esse padrão é muito comum no código-fonte do React. No entanto, `fbjs / lib / warning` é uma importação externa que não está sendo empacotada pelo Rollup para o pacote do CommonJS. Portanto, mesmo se a chamada `warning ()` acabar sendo removida, Rollup não sabe se é seguro remover para a própria importação. E se o módulo tiver um efeito colateral durante a inicialização? Então, removê-lo não seria seguro.
 
-To solve this problem, we use the [`treeshake.pureExternalModules` Rollup option](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L338-L340) which takes an array of modules that we can guarantee don't have side effects. This lets Rollup know that an import to `fbjs/lib/warning` is safe to completely strip out if its value is not being used. However, if it *is* being used (e.g. if we decide to add warnings in production), the import will be preserved. That's why this approach is safer than replacing modules with empty shims.
+Para resolver este problema, usamos a [opção `treeshake.pureExternalModules` do Rollup](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L338-L340) que usa uma série de módulos que podemos garantir que não têm efeitos colaterais. Isso permite que o Rollup saiba que uma importação para `fbjs / lib / warning` é segura para remover completamente se seu valor não estiver sendo usado. No entanto, se *estiver* sendo usado (por exemplo, se decidirmos adicionar avisos na produção), a importação será preservada. É por isso que essa abordagem é mais segura do que substituir módulos por calços vazios.
 
-When we optimize something, we need to ensure it doesn't regress in the future. What if somebody introduces a new development-only import of an external module, and not realize they also need to add it to `pureExternalModules`? Rollup prints a warning in such cases but we've [decided to fail the build completely](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L395-L412) instead. This forces the person adding a new external development-only import to [explicitly specify whether it has side effects or not](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/modules.js#L10-L22) every time.
+Quando otimizamos algo, precisamos garantir que não regrida no futuro. E se alguém introduzir uma nova importação somente de desenvolvimento de um módulo externo e não perceber que também precisa adicioná-lo a `pureExternalModules`? O Rollup imprime um aviso em tais casos, mas nós [decidimos reprovar completamente a compilação](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/build.js#L395-L412) em vez disso. Isso força a pessoa a adicionar uma nova importação externa somente de desenvolvimento para [especificar explicitamente se tem efeitos colaterais ou não](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/modules.js#L10-L22) toda vez.
 
-### Forking Modules {#forking-modules}
+### Bifurcando Módulos {#forking-modules}
 
-In some cases, different bundles need to contain slightly different code. For example, React Native bundles have a different error handling mechanism that shows a redbox instead of printing a message to the console. However, it can be very inconvenient to thread these differences all the way through the calling modules.
+Em alguns casos, pacotes diferentes precisam conter códigos ligeiramente diferentes. Por exemplo, os bundles do React Native têm um mecanismo de tratamento de erros diferente que mostra uma caixa vermelha em vez de imprimir uma mensagem no console. No entanto, pode ser muito inconveniente encadear essas diferenças em todos os módulos de chamada.
 
-Problems like this are often solved with runtime configuration. However, sometimes it is impossible: for example, the React DOM bundles shouldn't even attempt to import the React Native redbox helpers. It is also unfortunate to bundle the code that never gets used in a particular environment.
+Problemas como esse geralmente são resolvidos com a configuração do tempo de execução. No entanto, às vezes é impossível: por exemplo, os pacotes do React DOM nem deveriam tentar importar os auxiliares redbox do React Native. Também é lamentável agrupar o código que nunca é usado em um ambiente específico.
 
-Another solution is to use dynamic dependency injection. However, it often produces code that is hard to understand, and may cause cyclical dependencies. It also defies some optimization opportunities.
+Outra solução é usar injeção de dependência dinâmica. No entanto, isso geralmente produz um código difícil de entender e pode causar dependências cíclicas. Isso também desafia algumas oportunidades de otimização. Do ponto de vista do código, o ideal é apenas "redirecionar" um módulo para seus diferentes "garfos" de pacotes específicos. Os "garfos" têm exatamente a mesma API dos módulos originais, mas fazem algo diferente. Achamos esse modelo mental muito intuitivo e [criamos um arquivo de configuração de fork](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/forks.js) que especifica como os módulos originais são mapeados para seus "garfos" e as condições em que isso deve acontecer.
 
-From the code point of view, ideally we just want to "redirect" a module to its different "forks" for specific bundles. The "forks" have the exact same API as the original modules, but do something different. We found this mental model very intuitive, and [created a fork configuration file](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/forks.js) that specifies how the original modules map to their forks, and the conditions under which this should happen.
-
-For example, this fork config entry specifies different [feature flags](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/shared/ReactFeatureFlags.js) for different bundles:
+por exemplo, esta entrada de configuração de fork especifica diferentes [feature flags](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/shared/ReactFeatureFlags.js) para diferentes pacotes:
 
 ```js
 'shared/ReactFeatureFlags': (bundleType, entry) => {
@@ -314,9 +312,9 @@ For example, this fork config entry specifies different [feature flags](https://
 },
 ```
 
-During the build, [our custom Rollup plugin](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/plugins/use-forks-plugin.js#L40) replaces modules with their forks if the conditions have matched. Since both the original modules and the forks are written as ES Modules, Rollup and Google Closure Compiler can inline constants like numbers or booleans, and thus efficiently eliminate dead code for disabled feature flags. In tests, when necessary, we [use `jest.mock()`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-cs-renderer/src/__tests__/ReactNativeCS-test.internal.js#L15-L17) to point the module to the appropriate forked version.
+Durante a compilação, [nosso plugin do Rollup personalizado](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/scripts/rollup/plugins/use-forks-plugin.js#L40) substitui os módulos por seus "garfos" se as condições forem correspondentes. Como os módulos originais e os "garfos" são escritos como Módulos ES, Rollup e Google Closure Compiler podem reconhecer constantes como números ou booleanos e, assim, eliminam com eficiência o código morto para sinalizadores de recursos desabilitados. Em testes, quando necessário, [usamos `jest.mock()`](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/react-cs-renderer/src/__tests__/ReactNativeCS-test.internal.js#L15-L17) para apontar o módulo para a versão bifurcada apropriada.
 
-As a bonus, we might want to verify that the export types of the original modules match the export types of the forks exactly. We can use a [slightly odd but totally working Flow trick](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/shared/forks/ReactFeatureFlags.native.js#L32-L36) to accomplish this:
+Como um bônus, podemos querer verificar se os tipos de exportação dos módulos originais correspondem exatamente aos tipos de exportação dos "garfos". Podemos usar um [truque de fluxo um pouco estranho, mas totalmente funcional](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/shared/forks/ReactFeatureFlags.native.js#L32-L36) para fazer isso:
 
 ```js
 import typeof * as FeatureFlagsType from 'shared/ReactFeatureFlags';
@@ -325,64 +323,63 @@ type Check<_X, Y: _X, X: Y = _X> = null;
 (null: Check<FeatureFlagsShimType, FeatureFlagsType>);
 ```
 
-This works by essentially forcing Flow to verify that two types are assignable to each other (and thus are equivalent). Now if we modify the exports of either the original module or the fork without changing the other file, the type check will fail. This might be a little goofy but we found this helpful in practice.
+Isso funciona essencialmente forçando o Flow a verificar se dois tipos podem ser atribuídos um ao outro (e, portanto, são equivalentes). Agora, se modificarmos as exportações do módulo original ou do fork sem alterar o outro arquivo, a verificação de tipo falhará. Isso pode ser um pouco bobo, mas achamos isso útil na prática.
 
-To conclude this section, it is important to note that you can't specify your own module forks if you consume React from npm. This is intentional because none of these files are public API, and they are not covered by the [semver](https://semver.org/) guarantees. However, you are always welcome to build React from master or even fork it if you don't mind the instability and the risk of divergence. We hope that this writeup was still helpful in documenting one possible approach to targeting different environments from a single JavaScript library.
+Para concluir esta seção, é importante observar que você não pode especificar suas próprias bifurcações de módulo se consumir React do npm. Isso é intencional porque nenhum desses arquivos é uma API pública e não são cobertos pelas guarantees do [semver](https://semver.org/). No entanto, você é sempre bem-vindo para construir o React do master ou até mesmo fazer um fork dele se não se importar com a instabilidade e o risco de divergência. Esperamos que este artigo ainda seja útil na documentação de uma abordagem possível para direcionar diferentes ambientes a partir de uma única biblioteca JavaScript.
 
-### Tracking Bundle Size {#tracking-bundle-size}
+### Rastreando o Tamanho do Bundle {#tracking-bundle-size}
 
-As a final build step, we now [record build sizes for all bundles](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/rollup/build.js#L264-L272) and write them to a file that [looks like this](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/rollup/results.json). When you run `yarn build`, it prints a table with the results:
+Como uma etapa final de compilação, agora [registramos os tamanhos de compilação para todos os pacotes](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/rollup/build.js#L264-L272) e gravá-los em um arquivo que [se parece com este](https://github.com/facebook/react/blob/d906de7f602df810c38aa622c83023228b047db6/scripts/rollup/results.json). Quando você executa `yarn build`, ele imprime uma tabela com os resultados:
 
 <br>
 
 <img src="https://user-images.githubusercontent.com/1519870/28427900-80487dbc-6d6f-11e7-828d-1b594bd1ddb5.png" style="max-width:100%" alt="Build results after running GCC">
 
-*(It doesn't always look as good as this. This was the commit that migrated React from Uglify to Google Closure Compiler.)*
+*(Nem sempre parece tão bom assim. Este foi o commit que migrou o React do Uglify para o Google Closure Compiler.)*
 
-Keeping the file sizes committed for everyone to see was helpful for tracking size changes and motivating people to find optimization opportunities.
+Manter os tamanhos de arquivo comprometidos para que todos vejam foi útil para rastrear alterações de tamanho e motivar as pessoas a encontrar oportunidades de otimização.
 
-We haven't been entirely happy with this strategy because the JSON file often causes merge conflicts on larger branches. Updating it is also not currently enforced so it gets out of date. In the future, we're considering integrating a bot that would comment on pull requests with the size changes.
+Não ficamos totalmente satisfeitos com essa estratégia porque o arquivo JSON geralmente causa conflitos de mesclagem em branches maiores. A atualização também não é obrigatória no momento, por isso fica desatualizada. No futuro, estamos considerando integrar um bot que comentaria sobre as pull requests com as mudanças de tamanho.
 
-## Simplifying the Release Process {#simplifying-the-release-process}
+## Simplificando o Processo de Release {#simplifying-the-release-process}
 
-We like to release updates to the open source community often. Unfortunately, the old process of creating a release was slow and would typically take an entire day. After some changes to this process, we're now able to do a full release in less than an hour. Here's what we changed.
+Gostamos de lançar atualizações para a comunidade de código aberto com frequência. Infelizmente, o antigo processo de criação de uma versão era lento e normalmente levava um dia inteiro. Depois de algumas alterações nesse processo, agora podemos fazer uma versão completa em menos de uma hora. Aqui está o que mudamos.
 
-### Branching Strategy {#branching-strategy}
+### Estratégia de Ramificação {#branching-strategy}
 
-Most of the time spent in the old release process was due to our branching strategy. The `master` branch was assumed to be unstable and would often contain breaking changes. Releases were done from a `stable` branch, and changes were manually cherry-picked into this branch prior to a release. We had [tooling to help automate](https://github.com/facebook/react/pull/7330) some of this process, but it was still [pretty complicated to use](https://github.com/facebook/react/blob/b5a2a1349d6e804d534f673612357c0be7e1d701/scripts/release-manager/Readme.md).
+A maior parte do tempo gasto no processo de lançamento antigo foi devido à nossa estratégia de ramificação. O branch `master` foi considerado instável e frequentemente conteria alterações significativas. Os lançamentos foram feitos a partir de um branch `stable` e as mudanças foram manualmente selecionadas neste branch antes de um lançamento. Nós tínhamos [ferramentas para ajudar a automatizar](https://github.com/facebook/react/pull/7330) parte desse processo, mas ainda era [muito complicado de usar](https://github.com/facebook/react/blob/b5a2a1349d6e804d534f673612357c0be7e1d701/scripts/release-manager/Readme.md).
 
-As of version 16, we now release from the `master` branch. Experimental features and breaking changes are allowed, but must be hidden behind [feature flags](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/shared/ReactFeatureFlags.js) so they can be removed during the build process. The new flat bundles and dead code elimination make it possible for us to do this without fear of leaking unwanted code into open source builds.
+A partir da versão 16, agora lançamos do branch `master`. Recursos experimentais e alterações importantes são permitidos, mas devem ser ocultados atrás de [feature flags](https://github.com/facebook/react/blob/cc52e06b490e0dc2482b345aa5d0d65fae931095/packages/shared/ReactFeatureFlags.js) para que possam ser removidos durante o processo de construção. Os novos pacotes simples e a eliminação de código morto possibilitam fazer isso sem medo de vazar código indesejado em compilações de código aberto.
 
-### Automated Scripts {#automated-scripts}
+### Scripts Automatizados {#automated-scripts}
 
-After changing to a stable `master`, we created a new [release process checklist](https://github.com/facebook/react/issues/10620). Although much simpler than the previous process, this still involved dozens of steps and forgetting one could result in a broken release.
+Depois de mudar para uma `master` estável, criamos uma nova [lista de verificação do processo de lançamento](https://github.com/facebook/react/issues/10620). Embora muito mais simples do que o processo anterior, isso ainda envolvia dezenas de etapas e o esquecimento de uma delas poderia resultar em uma versão interrompida.
 
-To address this, we created a new [automated release process](https://github.com/facebook/react/pull/11223) that is [much easier to use](https://github.com/facebook/react/tree/master/scripts/release#react-release-script) and has several built-in checks to ensure that we release a working build. The new process is split into two steps: _build_ and _publish_. Here's what it looks like the first time you run it:
+Para resolver isso, criamos um novo [processo de lançamento automatizado](https://github.com/facebook/react/pull/11223) isso é [muito mais fácil de usar](https://github.com/facebook/react/tree/master/scripts/release#react-release-script) e tem várias verificações integradas para garantir o lançamento de uma versão funcional. O novo processo é dividido em duas etapas: _build_ e _publish_. Esta é a aparência da primeira vez que você o executa:
 
 ![Release Script overview](../images/blog/release-script-build-overview.png)
 
-The _build_ step does most of the work- verifying permissions, running tests, and checking CI status. Once it finishes, it prints a reminder to update the CHANGELOG and to verify the bundle using the [manual fixtures](#creating-manual-test-fixtures) described above.
+A etapa _build_ faz a maior parte do trabalho - verificar as permissões, executar testes e verificar o status do CI. Assim que terminar, ele imprime um lembrete para atualizar o CHANGELOG e verificar o bundle usando os [acessórios manuais](#creating-manual-test-fixtures) descritos acima.
 
 ![Release Script build confirmation screen](../images/blog/release-script-build-confirmation.png)
 
-All that's left is to tag and publish the release to NPM using the _publish_ script.
+Tudo o que resta é marcar e publicar o lançamento para o NPM usando o script _publish_.
 
 ![Release Script publish confirmation screen](../images/blog/release-script-publish-confirmation.png)
 
-(You may have noticed a `--dry` flag in the screenshots above. This flag allows us to run a release, end-to-end, without actually publishing to NPM. This is useful when working on the release script itself.)
+(Você deve ter notado uma flag `--dry` nas imagens acima. Essa flag nos permite executar uma versão, ponta a ponta, sem realmente publicar no NPM. Isso é útil ao trabalhar no próprio script de lançamento.)
 
-## In Conclusion {#in-conclusion}
+## Em conclusão {#in-conclusion}
 
-Did this post inspire you to try some of these ideas in your own projects? We certainly hope so! If you have other ideas about how React build, test, or contribution workflow could be improved, please let us know on [our issue tracker](https://github.com/facebook/react/issues).
+Esta postagem o inspirou a experimentar algumas dessas ideias em seus próprios projetos? Certamente esperamos que sim! Se você tiver outras ideias sobre como o fluxo de trabalho de construção, teste ou contribuição do React pode ser melhorado, informe-nos em [nosso rastreador de issues](https://github.com/facebook/react/issues).
 
-You can find the related issues by the [build infrastructure label](https://github.com/facebook/react/labels/Component%3A%20Build%20Infrastructure). These are often great first contribution opportunities!
+Você pode encontrar as issues relacionadas pela [label "build infrastructure"](https://github.com/facebook/react/labels/Component%3A%20Build%20Infrastructure). Geralmente, essas são ótimas oportunidades de primeira contribuição!
 
-## Acknowledgements {#acknowledgements}
+## Reconhecimentos {#acknowledgements}
 
-We would like to thank:
+Gostaríamos de agradecer:
 
-* [Rich Harris](https://github.com/Rich-Harris) and [Lukas Taegert](https://github.com/lukastaegert) for maintaining Rollup and helping us integrate it.
-* [Dimitris Vardoulakis](https://github.com/dimvar), [Chad Killingsworth](https://github.com/ChadKillingsworth), and [Tyler Breisacher](https://github.com/MatrixFrog) for their work on Google Closure Compiler and timely advice.
-* [Adrian Carolli](https://github.com/watadarkstar), [Adams Au](https://github.com/rivenhk), [Alex Cordeiro](https://github.com/accordeiro), [Jordan Tepper](https://github.com/HeroProtagonist), [Johnson Shi](https://github.com/sjy), [Soo Jae Hwang](https://github.com/misoguy), [Joe Lim](https://github.com/xjlim), [Yu Tian](https://github.com/yu-tian113), and others for helping prototype and implement some of these and other improvements.
-* [Anushree Subramani](https://github.com/anushreesubramani), [Abid Uzair](https://github.com/abiduzz420), [Sotiris Kiritsis](https://github.com/skiritsis), [Tim Jacobi](https://github.com/timjacobi), [Anton Arboleda](https://github.com/aarboleda1), [Jeremias Menichelli](https://github.com/jeremenichelli), [Audy Tanudjaja](https://github.com/audyodi), [Gordon Dent](https://github.com/gordyd), [Iacami Gevaerd
-](https://github.com/enapupe), [Lucas Lentz](https://github.com/sadpandabear), [Jonathan Silvestri](https://github.com/silvestrijonathan), [Mike Wilcox](https://github.com/mjw56), [Bernardo Smaniotto](https://github.com/smaniotto), [Douglas Gimli](https://github.com/douglasgimli), [Ethan Arrowood](https://github.com/ethan-arrowood), and others for their help porting the React test suite to use the public API.
+* [Rich Harris](https://github.com/Rich-Harris) and [Lukas Taegert](https://github.com/lukastaegert) por manter o Rollup e nos ajudar a integrá-lo.
+* [Dimitris Vardoulakis](https://github.com/dimvar), [Chad Killingsworth](https://github.com/ChadKillingsworth), e [Tyler Breisacher](https://github.com/MatrixFrog) por seu trabalho no Google Closure Compiler e por conselhos oportunos.
+* [Adrian Carolli](https://github.com/watadarkstar), [Adams Au](https://github.com/rivenhk), [Alex Cordeiro](https://github.com/accordeiro), [Jordan Tepper](https://github.com/HeroProtagonist), [Johnson Shi](https://github.com/sjy), [Soo Jae Hwang](https://github.com/misoguy), [Joe Lim](https://github.com/xjlim), [Yu Tian](https://github.com/yu-tian113), e outros para ajudar a prototipar e implementar algumas dessas e outras melhorias.
+* [Anushree Subramani](https://github.com/anushreesubramani), [Abid Uzair](https://github.com/abiduzz420), [Sotiris Kiritsis](https://github.com/skiritsis), [Tim Jacobi](https://github.com/timjacobi), [Anton Arboleda](https://github.com/aarboleda1), [Jeremias Menichelli](https://github.com/jeremenichelli), [Audy Tanudjaja](https://github.com/audyodi), [Gordon Dent](https://github.com/gordyd), [Iacami Gevaerd](https://github.com/enapupe), [Lucas Lentz](https://github.com/sadpandabear), [Jonathan Silvestri](https://github.com/silvestrijonathan), [Mike Wilcox](https://github.com/mjw56), [Bernardo Smaniotto](https://github.com/smaniotto), [Douglas Gimli](https://github.com/douglasgimli), [Ethan Arrowood](https://github.com/ethan-arrowood), e outros por sua ajuda na portabilidade do conjunto de testes React para usar a API pública.
