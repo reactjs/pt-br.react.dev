@@ -31,7 +31,7 @@ Podemos combinar os dois fazendo o estado React ser a "única fonte da verdade".
 
 Por exemplo, se quisermos que o exemplo anterior registre o nome quando ele for enviado, podemos escrever o formulário como um componente controlado:
 
-```javascript{4,10-12,24}
+```javascript{4,10-12,21,24}
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
