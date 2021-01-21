@@ -88,7 +88,7 @@ O Core Team está monitorando os ***pull requests***. Analisaremos seu envio e f
 2. Execute `yarn` no repositório raíz.
 3. Se você corrigiu um bug ou um código adicionado que deve ser testado, adicione testes!
 4. Certifique-se de que a suíte de teste passe (`yarn test`). Dica: `yarn test --watch TestName` é útil no desenvolvimento.
-5. Execute `yarn test-prod` para testar no ambiente de produção. Suporta as mesmas opções que `yarn test`.
+5. Execute `yarn test --prod` para testar no ambiente de produção. Suporta as mesmas opções que `yarn test`.
 6. Se você precisar de um depurador, execute `yarn debug-test --watch TestName`, abra `chrome://inspect`e aperte em "Inspecionar".
 7. Formate seu código com [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
 8. Certifique-se de que seus códigos foram verificados com linters (`yarn lint`). Dica: `yarn linc` verifica somente os arquivos alterados.
@@ -116,8 +116,8 @@ Depois de clonar o React, execute `yarn` para buscar suas dependências. Então,
 * `yarn linc` funciona como o `yarn lint`, mas é mais rápido porque verifica apenas os arquivos que diferem na sua ***branch***.
 * `yarn test` executa o conjunto de testes completo.
 * `yarn test --watch` executa um observador de testes interativo.
+* `yarn test --prod` executa testes no ambiente de produção.
 * `yarn test <pattern>` executa testes com nomes de arquivos correspondentes.
-* `yarn test-prod` executa testes no ambiente de produção. Suporta todas as mesmas opções que o `yarn test`.
 * `yarn debug-test` é como `yarn test` mas com um depurador. Abra `chrome://inspect` e clique em "Inspecionar".
 * `yarn flow` executa o typecheck do [Flow](https://flowtype.org/) .
 * `yarn build` cria uma pasta `build` com todos os pacotes.
