@@ -84,29 +84,16 @@ O Core Team está monitorando os ***pull requests***. Analisaremos seu envio e f
 
 **Antes de enviar o seu pull request,** certifique-se de ter feito os seguintes passos:
 
-<<<<<<< HEAD
 1. Faça fork do [repositório oficial](https://github.com/facebook/react) and criou sua branch da `master`.
 2. Execute `yarn` no repositório raíz.
 3. Se você corrigiu um bug ou um código adicionado que deve ser testado, adicione testes!
 4. Certifique-se de que a suíte de teste passe (`yarn test`). Dica: `yarn test --watch TestName` é útil no desenvolvimento.
-5. Execute `yarn test-prod` para testar no ambiente de produção. Suporta as mesmas opções que `yarn test`.
+5. Execute `yarn test --prod` para testar no ambiente de produção. Suporta as mesmas opções que `yarn test`.
 6. Se você precisar de um depurador, execute `yarn debug-test --watch TestName`, abra `chrome://inspect`e aperte em "Inspecionar".
 7. Formate seu código com [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
 8. Certifique-se de que seus códigos foram verificados com linters (`yarn lint`). Dica: `yarn linc` verifica somente os arquivos alterados.
 9. Rode o [Flow](https://flowtype.org/) para typechecks (`yarn flow`).
 10. Se ainda não fez, preencha o CLA.
-=======
-1. Fork [the repository](https://github.com/facebook/react) and create your branch from `master`.
-2. Run `yarn` in the repository root.
-3. If you've fixed a bug or added code that should be tested, add tests!
-4. Ensure the test suite passes (`yarn test`). Tip: `yarn test --watch TestName` is helpful in development.
-5. Run `yarn test --prod` to test in the production environment.
-6. If you need a debugger, run `yarn debug-test --watch TestName`, open `chrome://inspect`, and press "Inspect".
-7. Format your code with [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
-8. Make sure your code lints (`yarn lint`). Tip: `yarn linc` to only check changed files.
-9. Run the [Flow](https://flowtype.org/) typechecks (`yarn flow`).
-10. If you haven't already, complete the CLA.
->>>>>>> 3844da103db4c2dea4783f5b3a2a0b53708d04ab
 
 ### Licença de Acordo de Contribuidor (***Contributor License Agreement*** - CLA) {#contributor-license-agreement-cla}
 
@@ -125,29 +112,16 @@ Para aceitar seu ***pull request***, precisamos que você envie um CLA. Você s�
 
 Depois de clonar o React, execute `yarn` para buscar suas dependências. Então, você pode executar vários comandos:
 
-<<<<<<< HEAD
 * `yarn lint` verifica o estilo de código.
 * `yarn linc` funciona como o `yarn lint`, mas é mais rápido porque verifica apenas os arquivos que diferem na sua ***branch***.
 * `yarn test` executa o conjunto de testes completo.
 * `yarn test --watch` executa um observador de testes interativo.
+* `yarn test --prod` executa testes no ambiente de produção.
 * `yarn test <pattern>` executa testes com nomes de arquivos correspondentes.
-* `yarn test-prod` executa testes no ambiente de produção. Suporta todas as mesmas opções que o `yarn test`.
 * `yarn debug-test` é como `yarn test` mas com um depurador. Abra `chrome://inspect` e clique em "Inspecionar".
 * `yarn flow` executa o typecheck do [Flow](https://flowtype.org/) .
 * `yarn build` cria uma pasta `build` com todos os pacotes.
 * `yarn build react/index,react-dom/index --type=UMD` cria compilações UMD somente com o React e ReactDOM.
-=======
-* `yarn lint` checks the code style.
-* `yarn linc` is like `yarn lint` but faster because it only checks files that differ in your branch.
-* `yarn test` runs the complete test suite.
-* `yarn test --watch` runs an interactive test watcher.
-* `yarn test --prod` runs tests in the production environment.
-* `yarn test <pattern>` runs tests with matching filenames.
-* `yarn debug-test` is just like `yarn test` but with a debugger. Open `chrome://inspect` and press "Inspect".
-* `yarn flow` runs the [Flow](https://flowtype.org/) typechecks.
-* `yarn build` creates a `build` folder with all the packages.
-* `yarn build react/index,react-dom/index --type=UMD` creates UMD builds of just React and ReactDOM.
->>>>>>> 3844da103db4c2dea4783f5b3a2a0b53708d04ab
 
 Recomendamos executar o `yarn test` (ou suas variações acima) para garantir que você não introduza nenhuma regressão enquanto trabalha na sua mudança. No entanto, pode ser útil testar sua versão do React em um projeto real.
 
