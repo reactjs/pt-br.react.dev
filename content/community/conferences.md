@@ -30,7 +30,7 @@ April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 ### React India 2021 {#react-india-2021}
 12 e 13 de novembro de 2021. Mumbai, India
 
-[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)	[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
+[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
 ## Conferências passadas {#past-conferences}
 
@@ -435,9 +435,9 @@ April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 [Website](https://reactiveconf.com/)
 
 ### ReactNL 2016 {#reactnl-2016}
-13 de outubro em Amsterdã, Holanda (Países Baixos) - [Agenda](http://reactnl.org/#program)
+13 de outubro em Amsterdã, Países Baixos
 
-[Website](http://reactnl.org/)
+[Website](http://reactnl.org/) - [Agenda](http://reactnl.org/#program)
 
 ### ReactNext 2016 {#reactnext-2016}
 15 de setembro em Tel Aviv, Israel
@@ -478,5 +478,3 @@ April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
 
 [Website](http://conf2015.reactjs.org/) - [Agenda](http://conf2015.reactjs.org/Agenda.html) - [Vídeos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
-
-<iframe title="React.js Conf 2015 Keynote" width="650" height="315" src="//www.youtube-nocookie.com/embed/KVZ-P-ZI6W4?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr" frameborder="0" allowfullscreen></iframe> 
