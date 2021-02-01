@@ -435,9 +435,15 @@ April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 [Website](https://reactiveconf.com/)
 
 ### ReactNL 2016 {#reactnl-2016}
+<<<<<<< HEAD
 13 de outubro em Amsterdã, Países Baixos
 
 [Website](http://reactnl.org/) - [Agenda](http://reactnl.org/#program)
+=======
+October 13 in Amsterdam, The Netherlands
+
+[Website](http://reactnl.org/) - [Schedule](http://reactnl.org/#program)
+>>>>>>> 5e2a231e02bd76061fd2f89814ee1e3f9fad82d3
 
 ### ReactNext 2016 {#reactnext-2016}
 15 de setembro em Tel Aviv, Israel
@@ -475,6 +481,12 @@ April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 [Website](http://www.react-europe.org/) - [Agenda](http://www.react-europe.org/#Agenda) - [Vídeos](https://www.youtube.com/channel/UCorlLn2oZfgOJ-FUcF2eZ1A/playlists)
 
 ### React.js Conf 2015 {#reactjs-conf-2015}
+<<<<<<< HEAD
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
 
 [Website](http://conf2015.reactjs.org/) - [Agenda](http://conf2015.reactjs.org/Agenda.html) - [Vídeos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
+=======
+January 28 & 29 in Facebook HQ, CA
+
+[Website](http://conf2015.reactjs.org/) - [Schedule](http://conf2015.reactjs.org/schedule.html) - [Videos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
+>>>>>>> 5e2a231e02bd76061fd2f89814ee1e3f9fad82d3
