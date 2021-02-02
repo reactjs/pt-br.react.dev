@@ -135,7 +135,7 @@ Se o seu projeto usa React from npm, você pode excluir `react` e `react-dom` em
 
 ```sh
 cd ~/path_to_your_react_clone/
-yarn build react/index,react-dom/index,scheduler --type=NODE
+yarn build react/index,react/jsx,react-dom/index,scheduler --type=NODE
 
 cd build/node_modules/react
 yarn link
