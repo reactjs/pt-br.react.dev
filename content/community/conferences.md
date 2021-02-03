@@ -478,3 +478,4 @@ April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
 
 [Website](http://conf2015.reactjs.org/) - [Agenda](http://conf2015.reactjs.org/Agenda.html) - [Vídeos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
+
