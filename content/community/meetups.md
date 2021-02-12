@@ -12,6 +12,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 * [Tirana](https://www.meetup.com/React-User-Group-Albania/)
 
 ## Argentina {#argentina}
+* [Buenos Aires](https://www.meetup.com/es/React-en-Buenos-Aires)
 * [Rosario](https://www.meetup.com/es/reactrosario)
 
 ## Austrália {#australia}

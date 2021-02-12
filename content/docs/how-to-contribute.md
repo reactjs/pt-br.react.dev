@@ -70,7 +70,7 @@ Se você está apenas corrigindo um bug, não tem problema em enviar uma ***pull
 
 Trabalhando em seu primeiro ***Pull Request***. Você pode aprender como desta série de vídeos gratuitos:
 
-**[Como contribuir para um projeto de código aberto no GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)**
+**[Como contribuir para um projeto de código aberto no GitHub](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
 
 Para ajudar você a se familiarizar com o nosso processo de contribuição, temos uma lista de [boas primeiras ***issues***](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue") que contém erros que têm um escopo relativamente limitado. Este é um ótimo lugar para começar.
 
@@ -135,7 +135,7 @@ Se o seu projeto usa React from npm, você pode excluir `react` e `react-dom` em
 
 ```sh
 cd ~/path_to_your_react_clone/
-yarn build react/index,react-dom/index,scheduler --type=NODE
+yarn build react/index,react/jsx,react-dom/index,scheduler --type=NODE
 
 cd build/node_modules/react
 yarn link
