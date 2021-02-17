@@ -199,7 +199,7 @@ A `defaultProps` será usada para garantir que `this.props.name` tenha um valor 
 
 ### Function Componentes {#function-components}
 
-Se você estiver usando function componentes em seu desenvolvimento, pode desejar fazer algumas pequenas alterações para permitir que os PropTypes sejam aplicados adequadamente.
+Se você estiver usando function componentes em seu desenvolvimento, pode desejar fazer algumas pequenas alterações para permitir que os PropTypes sejam aplicados corretamente.
 
 Digamos que você tenha um componente como este:
 

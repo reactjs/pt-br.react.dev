@@ -18,7 +18,7 @@ permalink: community/courses.html
 
 - [Frontend Armory: React Fundamentals](https://frontarm.com/courses/react-fundamentals/) - Learn React without the buzzwords.
 
-- [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) - Curso gratuito para novatos no React e para aqueles que procuram uma melhor compreensão sobre os fundamentos do React.
+- [Egghead.io: The Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-react) - Curso gratuito para novatos no React e para aqueles que procuram uma melhor compreensão sobre os fundamentos do React.
 
 - [Free React Bootcamp](https://tylermcginnis.com/free-react-bootcamp/) - Gravações de três dias de um bootcamp online gratuito de React.
 
