@@ -70,11 +70,7 @@ Se você está apenas corrigindo um bug, não tem problema em enviar uma ***pull
 
 Trabalhando em seu primeiro ***Pull Request***. Você pode aprender como desta série de vídeos gratuitos:
 
-<<<<<<< HEAD
 **[Como contribuir para um projeto de código aberto no GitHub](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
-=======
-**[How to Contribute to an Open Source Project on GitHub](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
->>>>>>> 888d9eae7a33ec1a48c18f28e82c26d048d885be
 
 Para ajudar você a se familiarizar com o nosso processo de contribuição, temos uma lista de [boas primeiras ***issues***](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue") que contém erros que têm um escopo relativamente limitado. Este é um ótimo lugar para começar.
 
