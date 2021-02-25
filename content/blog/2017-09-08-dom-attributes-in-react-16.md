@@ -32,11 +32,7 @@ O React sempre forneceu uma API central do JavaScript para o DOM. Visto que os c
 <div tabIndex={-1} />
 ```
 
-<<<<<<< HEAD
 Isso não mudou. Porém, a maneira como aplicamos isso no passado, nos forçou manter uma lista de permissões de todos os atributos do DOM válidos para o React no bundle.
-=======
-This has not changed. However, the way we enforced it in the past forced us to maintain a allowlist of all valid React DOM attributes in the bundle:
->>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 
 ```js
 // ...
@@ -51,15 +47,9 @@ Isso tem duas desvantagens:
 
 * Você não pode [passar um atributo personalizado](https://github.com/facebook/react/issues/140). Isso é útil por fornecer atributos não padronizados específicos de um navegador, tentando novas APIs do DOM, e interagindo com arbitrárias bibliotecas de terceiros.
 
-<<<<<<< HEAD
 * A lista de atributos continuou crescendo ao longo do tempo, porém, a maioria dos atributos canônicos do React já são válidos no DOM. Removendo a maioria das listas de permissões, tornou-se possível reduzir bastante o tamanho do bundle. 
 
 Com uma nova abordagem, ambos problemas foram solucionados. No React 16, você pode passar um atributo personalizado para qualquer elemento HTML e SVG, que o React não irá incluir toda lista de permissões do atributo na versão de produção. 
-=======
-* The attribute list kept growing over time, but most React canonical attribute names are already valid in the DOM. Removing most of the allowlist helped us reduce the bundle size a little bit.
-
-With the new approach, both of these problems are solved. With React 16, you can now pass custom attributes to all HTML and SVG elements, and React doesn't have to include the whole attribute allowlist in the production version.
->>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 
 **Observe que você ainda deve usar atributos canônicos do React para atributos desconhecidos:**
 
