@@ -12,7 +12,7 @@ Hooks são funções JavaScript, mas você precisa seguir duas regras ao utiliz�
 
 ### Use Hooks Apenas no Nível Superior {#only-call-hooks-at-the-top-level}
 
-**Não use Hooks dentro de loops, regras condicionais ou funções aninhadas (funções dentro de funções).** Em vez disso, sempre use Hooks no nível superior de sua função React. Seguindo essas regras, você garante que os Hooks serão chamados na mesma ordem a cada vez que o componente renderizar. É isso que permite que o React preserve corretamente o estado dos Hooks quando são usados várias chamadas a `useState` e `useEffect` na mesma função. (Se você ficou curioso, iremos explicar isso melhor [abaixo](#explanation).)
+**Não use Hooks dentro de loops, regras condicionais ou funções aninhadas (funções dentro de funções).** Em vez disso, sempre use Hooks no nível superior de sua função React, antes de qualquer retorno antecipado. Seguindo essas regras, você garante que os Hooks serão chamados na mesma ordem a cada vez que o componente renderizar. É isso que permite que o React preserve corretamente o estado dos Hooks quando são usados várias chamadas a `useState` e `useEffect` na mesma função. (Se você ficou curioso, iremos explicar isso melhor [abaixo](#explanation).)
 
 ### Use Hooks Apenas Dentro de Funções do React {#only-call-hooks-from-react-functions}
 

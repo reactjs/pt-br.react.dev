@@ -129,7 +129,7 @@ Primeiro, execute `yarn build`. Isto irá produzir pacotes pré-construídos na 
 
 A maneira mais fácil de testar suas alterações é rodar `yarn build react/index,react-dom/index --type=UMD` e depois abrir `fixtures/packaging/babel-standalone/dev.html`. Este arquivo já usa o `react.development.js` a partir da pasta `build` para que ele possa pegar suas alterações.
 
-Se você quiser experimentar as alterações no seu projeto React existente, poderá copiar `build/dist/react.development.js`,`build/dist/react-dom.development.js` ou qualquer outro build em seu aplicativo e usá-los em vez da versão estável.
+Se você quiser experimentar as alterações no seu projeto React existente, poderá copiar `build/node_modules/react/umd/react.development.js`, `build/node_modules/react-dom/umd/react-dom.development.js` ou qualquer outro build em seu aplicativo e usá-los em vez da versão estável.
 
 Se o seu projeto usa React from npm, você pode excluir `react` e `react-dom` em suas dependências e usar o `yarn link` para apontá-los para a pasta local `build`. Note que **em vez de `--type = UMD`, você desejará passar `--type = NODE` ao criar**. Você também precisará criar o pacote `scheduler`:
 
