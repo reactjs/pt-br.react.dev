@@ -17,15 +17,15 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://fwdays.com/en/event/react-fwdays-2021) - [Twitter](https://twitter.com/fwdays) - [Facebook](https://www.facebook.com/events/1133828147054286) - [LinkedIn](https://www.linkedin.com/events/reactfwdays-21onlineconference6758046347334582273) - [Meetup](https://www.meetup.com/ru-RU/Fwdays/events/275764431/)
 
-### React Next 2020 {#react-next-2020}
-1 e 2 de dezembro de 2020 - Evento Remoto
-
-[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/)
-
 ### React Summit - Remote Edition 2021 {#react-summit-remote-2021}
-April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
+14 e 16 de abril de 2021, 7am PST / 10am EST / 4pm CEST - Evento Remoto
 
-[Website](https://remote.reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
+[Website](https://remote.reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Vídeos](https://youtube.com/c/ReactConferences)
+
+### React Case Study Festival 2021 {#react-case-study-festival-2021}
+27 e 28 de abril de 2021 - Evento Remoto
+
+[Website](https://link.geekle.us/react/offsite) - [LinkedIn](https://www.linkedin.com/events/reactcasestudyfestival6721300943411015680/) - [Facebook](https://www.facebook.com/events/255715435820203) 
 
 ### render(ATL) 2021 {#render-atlanta-2021} 
 13 e 15 de setembro de 2021. Atlanta, GA, USA
@@ -38,6 +38,11 @@ April 14-16, 2021, 7am PST / 10am EST / 4pm CEST - remote event
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
 ## Conferências passadas {#past-conferences}
+
+### React Next 2020 {#react-next-2020}
+1 e 2 de dezembro de 2020 - Evento Remoto
+
+[Website](https://react-next.com/) - [Twitter](https://twitter.com/reactnext) - [Facebook](https://www.facebook.com/ReactNext2016/)
 
 ### React Conf Brasil 2020 {#react-conf-brasil-2020}
 21 de novembro de 2020 - Evento Remoto
