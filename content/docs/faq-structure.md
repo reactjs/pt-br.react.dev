@@ -69,6 +69,6 @@ Há diversos pontos problemáticos associados ao aninhamento de pastas em projet
 
 Se você está apenas começando um projeto, [não gaste mais do que cinco minutos](https://en.wikipedia.org/wiki/Analysis_paralysis) na escolha de uma estrutura de arquivos. Escolha qualquer uma das abordagens acima (ou crie as suas próprias) e comece a escrever o código! Você provavelmente vai querer repensá-lo de qualquer jeito depois de ter escrito algum código.
 
-Se você se sentir completamente preso, comece mantendo todos os arquivos em uma única pasta. Eventualmente ele crescerá o suficiente para que você deseje separar alguns arquivos dos demais. A essa altura, você terá conhecimento suficiente para saber quais arquivos são modificados juntos com mais frequência. Em geral é uma boa ideia manter os arquivos que geralmente mudam juntos uns dos outros. Este princípio é chamado de "colocation".
+Se você se sentir completamente preso, comece mantendo todos os arquivos em uma única pasta. Eventualmente ele crescerá o suficiente para que você deseje separar alguns arquivos dos demais. A essa altura, você terá conhecimento suficiente para saber quais arquivos são modificados juntos com mais frequência. Em geral, é uma boa ideia manter os arquivos que costumam ser alterados juntos, próximos uns dos outros. Este princípio é chamado de "colocation".
 
 À medida que os projetos vão crescendo, eles costumam usar uma mistura de ambas as abordagens acima na prática. Então escolher a abordagem "certa" no começo não é muito importante.
