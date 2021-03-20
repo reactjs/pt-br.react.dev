@@ -25,7 +25,7 @@ Em uma aplicação típica do React, os dados são passados de cima para baixo (
 
 ## Quando Usar Contexto {#when-to-use-context}
 
-Contexto (context) é indicado para compartilhar dados que podem ser considerados "globais" para a árvore de componentes do React. Usuário autenticado ou o idioma preferido, são alguns casos comuns. No exemplo do código a seguir, nós passamos um tema para a fim de estilizar o componente Button.
+Contexto (context) é indicado para compartilhar dados que podem ser considerados "globais" para a árvore de componentes do React. Usuário autenticado ou o idioma preferido, são alguns casos comuns. No exemplo do código a seguir, nós passamos um tema a fim de estilizar o componente Button.
 
 `embed:context/motivation-problem.js`
 
