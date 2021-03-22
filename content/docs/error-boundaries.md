@@ -71,7 +71,11 @@ Veja [este exemplo de como declarar e usar uma error boundary](https://codepen.i
 
 ## Onde colocar error boundaries {#where-to-place-error-boundaries}
 
+<<<<<<< HEAD
 Você é quem decide a granularidade das errors boundaries. Você pode envolver componentes da rota superior para exibir uma mensagem como "Algo deu errado" para o usuário, da mesma forma que frameworks server-side costumam lidar com travamentos. Você também pode envolver widgets individuais em uma error boundary para protegê-los de quebrar o restante da aplicação.
+=======
+The granularity of error boundaries is up to you. You may wrap top-level route components to display a “Something went wrong” message to the user, just like how server-side frameworks often handle crashes. You may also wrap individual widgets in an error boundary to protect them from crashing the rest of the application.
+>>>>>>> df2fbde3b52336229eee550debd692184c427691
 
 
 ## Novo comportamento para erros não tratados {#new-behavior-for-uncaught-errors}
@@ -130,7 +134,11 @@ Error boundaries **não** tratam erros dentro de manipuladores de evento.
 
 O React não precisa que as error boundaries se recuperem de erros em manipuladores de evento. Ao contrário do método de renderização e dos métodos do ciclo de vida, manipuladores de evento não acontecem durante a renderização. Então, se eles quebrarem, o React ainda sabe o que exibir na tela.
 
+<<<<<<< HEAD
 Se você precisar capturar um erro dentro de um manipulador de evento, use a declaração comum de `try` / `catch` do JavaScript:
+=======
+If you need to catch an error inside an event handler, use the regular JavaScript `try` / `catch` statement:
+>>>>>>> df2fbde3b52336229eee550debd692184c427691
 
 ```js{9-13,17-20}
 class MyComponent extends React.Component {
