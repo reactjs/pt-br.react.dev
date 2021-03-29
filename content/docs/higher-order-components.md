@@ -14,7 +14,11 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Enquanto um componente transforma props em UI, um componente de ordem superior transforma um componente em outro componente.
 
+<<<<<<< HEAD
 HOCs são comuns em bibliotecas externas ao React, como o [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](http://facebook.github.io/relay/docs/en/fragment-container.html) do Relay.
+=======
+HOCs are common in third-party React libraries, such as Redux's [`connect`](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect) and Relay's [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer).
+>>>>>>> c970f75a0ac3513f50e7a4989757c50cde0b7396
 
 Neste documento, nós vamos discutir porque componentes de ordem superior são úteis e como escrever o seu.
 
