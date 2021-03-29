@@ -80,7 +80,7 @@ function App() {
 
 Observe como nosso código original **não precisava mais importar o React** para usar JSX! (Mas ainda precisaríamos importar o React para usar Hooks ou outras exportações que o React fornece.)
 
-**Esta mudança é totalmente compatível com todo o código JSX existente**, assim você não terá que mudar seus componentes. Se estiver curioso, vocÊ pode verificar a [RFC técnica](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#detailed-design) para obter mais detalhes sobre como a nova transformação funciona.
+**Esta mudança é totalmente compatível com todo o código JSX existente**, assim você não terá que mudar seus componentes. Se estiver curioso, você pode verificar a [RFC técnica](https://github.com/reactjs/rfcs/blob/createlement-rfc/text/0000-create-element-changes.md#detailed-design) para obter mais detalhes sobre como a nova transformação funciona.
 
 > Nota
 >
@@ -177,7 +177,7 @@ A partir do Babel 8, `"automatic"` será o tempo de execução padrão para ambo
 
 ### ESLint {#eslint}
 
-Se você estiver usando [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react), as regas de `react/jsx-uses-react` e `react/react-in-jsx-scope` não são mais necessárias e podem ser desativadas ou removidas.
+Se você estiver usando [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react), as regras de `react/jsx-uses-react` e `react/react-in-jsx-scope` não são mais necessárias e podem ser desativadas ou removidas.
 
 ```js
 {
@@ -264,4 +264,4 @@ Além de limpar as importações não utilizadas, isso também o ajudará a se p
 
 ## Obrigado {#thanks}
 
-Gostaríamso de agradecer aos mantenedores de Babel, TypeScript, Create React App, Next.js, Gatsby, ESLint e Flow por sua ajuda na implementação e intergação da nova transformação JSX. Também queremos agradecer à comunidade React por seus comentários e discussões sobre a [RFC técnica](https://github.com/reactjs/rfcs/pull/107).
+Gostaríamos de agradecer aos mantenedores de Babel, TypeScript, Create React App, Next.js, Gatsby, ESLint e Flow por sua ajuda na implementação e integração da nova transformação JSX. Também queremos agradecer à comunidade React por seus comentários e discussões sobre a [RFC técnica](https://github.com/reactjs/rfcs/pull/107).
