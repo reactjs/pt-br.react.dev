@@ -156,6 +156,7 @@ Você pode aprender mais sobre isso na [documentação do webpack](https://webpa
 
 Lembre que você somente precisa fazer isso para builds de produção. Você não deve aplicar `TerserPlugin` em desenvolvimento porque ele vai esconder avisos úteis do React, e farão as builds mais lentas.
 
+<<<<<<< HEAD
 ## Analisando componentes com o Chrome Performance Tab {#profiling-components-with-the-chrome-performance-tab}
 
 Em modo de **desenvolvimento**, você pode visualizar como os componentes são montados (mount), alterados (update), and desmontados (unmount), usando as ferramentas de performance nos browsers suportados. Por exemplo:
@@ -183,6 +184,9 @@ Perceba que **os números são relativos para que os componentes renderizem mais
 Atualmente Chrome, Edge e IE são os únicos browsers que suportam essa feature, mas nós usamos um padrão [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) então esperamos que mais navegadores deem suporte.
 
 ## Analisando componentes com o DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+=======
+## Profiling Components with the DevTools Profiler {#profiling-components-with-the-devtools-profiler}
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 `react-dom` 16.5+ e `react-native` 0.57+ fornecem melhorias nas capacidades de analise em modo de desenvolvimento com o React DevTools Profiler.
 
@@ -200,7 +204,16 @@ Se você ainda não tem o React DevTools instalado, você pode encontrá-lo aqui
 > Uma analise de uma build de produção do `react-dom` está disponível como `react-dom/profiling`.
 > Leia mais sobre como usar esse pacote no [fb.me/react-profiling](https://fb.me/react-profiling)
 
+<<<<<<< HEAD
 ## Virtualizando Longas Listas {#virtualize-long-lists}
+=======
+> Note
+>
+> Before React 17, we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) to profile components with the chrome performance tab. 
+> For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
+
+## Virtualize Long Lists {#virtualize-long-lists}
+>>>>>>> 968f09159512b59afd5246a928789ae52592c923
 
 Se sua aplicação renderiza longas listas de informação (milhares ou centenas de linhas), nós recomendamos usar uma técnica conhecida como "windowing". Esta técnica somente renderiza um pequeno conjunto de suas linhas e pode reduzir drasticamente o tempo que ele leva para re-renderizar os componentes bem como o número de nós criados no DOM.
 
