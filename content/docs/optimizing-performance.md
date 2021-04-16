@@ -156,32 +156,6 @@ Você pode aprender mais sobre isso na [documentação do webpack](https://webpa
 
 Lembre que você somente precisa fazer isso para builds de produção. Você não deve aplicar `TerserPlugin` em desenvolvimento porque ele vai esconder avisos úteis do React, e farão as builds mais lentas.
 
-## Analisando componentes com o Chrome Performance Tab {#profiling-components-with-the-chrome-performance-tab}
-
-Em modo de **desenvolvimento**, você pode visualizar como os componentes são montados (mount), alterados (update), and desmontados (unmount), usando as ferramentas de performance nos browsers suportados. Por exemplo:
-
-<center><img src="../images/blog/react-perf-chrome-timeline.png" style="max-width:100%" alt="Componentes do React na linha do tempo do Chrome" /></center>
-
-Para fazer isso no Chrome:
-
-1. Temporariamente **desabilite todas as extensões do Chrome, especialmente React DevTools**. Elas podem significativamente enviesar os resultados!
-
-2. Tenha certeza que você está rodando sua aplicação no modo de desenvolvimento.
-
-3. Abra o Chrome DevTools a aba **[Performance](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/timeline-tool)** a pressione **Record**.
-
-4. Faça as ações que você quer analisar. Não grave mais que 20 segundos ou o Chrome pode travar.
-
-5. Pare de gravar.
-
-6. Eventos do React serão agrupados sob a label **User Timing**.
-
-Para mais detalhes do passo a passo, veja [esse artigo do Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
-
-Perceba que **os números são relativos para que os componentes renderizem mais rápido em produção**. Ainda, isto deve ajudar você a perceber quando algo não relacionados da UI são alteradas, a quão profundo e frequente suas alterações de UI acontecem.
-
-Atualmente Chrome, Edge e IE são os únicos browsers que suportam essa feature, mas nós usamos um padrão [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) então esperamos que mais navegadores deem suporte.
-
 ## Analisando componentes com o DevTools Profiler {#profiling-components-with-the-devtools-profiler}
 
 `react-dom` 16.5+ e `react-native` 0.57+ fornecem melhorias nas capacidades de analise em modo de desenvolvimento com o React DevTools Profiler.
@@ -199,6 +173,11 @@ Se você ainda não tem o React DevTools instalado, você pode encontrá-lo aqui
 >
 > Uma analise de uma build de produção do `react-dom` está disponível como `react-dom/profiling`.
 > Leia mais sobre como usar esse pacote no [fb.me/react-profiling](https://fb.me/react-profiling)
+
+> Observação
+>
+> Antes do React 17, usamos o padrão [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) para criar o perfil de componentes com a guia de desempenho do chrome.
+> Para um passo a passo mais detalhado, confira [este artigo de Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
 
 ## Virtualizando Longas Listas {#virtualize-long-lists}
 
