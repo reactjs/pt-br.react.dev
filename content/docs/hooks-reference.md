@@ -76,6 +76,7 @@ Se sua função de atualização retornar exatamente o mesmo valor que o estado 
 > Ao contrário do método `setState` encontrado em componentes de classe, `useState` não combina automaticamente os objetos atualizados. Você pode replicar esse comportamento por combinar a função que atualiza o objeto e o estado anterior usando a sintaxe `object spread`
 >
 > ```js
+> const [state, setState] = useState({});
 > setState(prevState => {
 >   // Object.assign também funcionaria
 >   return {...prevState, ...updatedValues};

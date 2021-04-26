@@ -301,7 +301,11 @@ Perceba que este método é disparado a *cada* renderização, independentemente
 getSnapshotBeforeUpdate(prevProps, prevState)
 ```
 
+<<<<<<< HEAD
 `getSnapshotBeforeUpdate()` é invocado imediatamente antes que o retorno da renderização mais recente seja escrito e.g. no DOM. Isto permite que o componente capture alguma informação do DOM (e.g. posição do scroll) antes que ela seja potencialmente alterada. Qualquer valor retornado por este método do ciclo de vida será passado como parâmetro para `componentDidUpdate()`.
+=======
+`getSnapshotBeforeUpdate()` is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed. Any value returned by this lifecycle method will be passed as a parameter to `componentDidUpdate()`.
+>>>>>>> 5119600cf6f7a5dcbd4d2cc23f6b4ff55d2969b2
 
 Este caso de uso não é comum, mas pode ocorrer em UIs como um thread de um chat que precise tratar a posição do scroll de uma maneira especial.
 

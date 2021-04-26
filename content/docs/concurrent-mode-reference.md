@@ -28,7 +28,6 @@ Esta página é uma referência de API para o [Modo Concurrent](/docs/concurrent
 
 - [Ativando o Modo Concorrente](#concurrent-mode)
     - [`createRoot`](#createroot)
-    - [`createBlockingRoot`](#createblockingroot)
 - [Suspense](#suspense)
     - [`Suspense`](#suspensecomponent)
     - [`SuspenseList`](#suspenselist)
@@ -47,6 +46,7 @@ Substitui o `ReactDOM.render(<App />, rootNode)` e ativa o Modo Concorrente.
 
 Para mais informações sobre o Modo Concorrente, consulte a [documentação do Modo Concorrente.](/docs/concurrent-mode-intro.html)
 
+<<<<<<< HEAD
 ### `createBlockingRoot` {#createblockingroot}
 
 ```js
@@ -59,6 +59,8 @@ A opção pelo Modo Concorrente introduz alterações semânticas em como o Reac
 
 Modo Bloqueante contém apenas um pequeno subconjunto de recursos do Modo Concorrente e serve como uma etapa intermediária de migração para apps que não conseguem migrar diretamente.
 
+=======
+>>>>>>> 5119600cf6f7a5dcbd4d2cc23f6b4ff55d2969b2
 ## Suspense API {#suspense}
 
 ### `Suspense` {#suspensecomponent}
