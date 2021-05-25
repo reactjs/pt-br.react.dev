@@ -32,11 +32,7 @@ O React sempre forneceu uma API central do JavaScript para o DOM. Visto que os c
 <div tabIndex={-1} />
 ```
 
-<<<<<<< HEAD
 Isso não mudou. Porém, a maneira como aplicamos isso no passado, nos forçou manter uma lista de permissões de todos os atributos do DOM válidos para o React no bundle.
-=======
-This has not changed. However, the way we enforced it in the past forced us to maintain an allowlist of all valid React DOM attributes in the bundle:
->>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
 
 ```js
 // ...
