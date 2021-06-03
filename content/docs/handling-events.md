@@ -29,27 +29,27 @@ Por exemplo, com HTML:
 </button>
 ```
 
-Outra diferença é que você não pode retornar `false` para evitar o comportamento padrão no React. Você deve chamar `preventDefault` explícitamente. Por exemplo, com HTML simples, para evitar que um link abra uma nova página, você pode escrever:
+Outra diferença é que você não pode retornar `false` para evitar o comportamento padrão no React. Você deve chamar `preventDefault` explícitamente. Por exemplo, com HTML simples, para evitar o comportamento padrão do formulário de envio, você pode escrever:
 
 ```html
-<a href="#" onclick="console.log('O link foi clicado.'); return false">
-  Clique Aqui
-</a>
+<form onsubmit="console.log('Você clicou em enviar.'); return false">
+  <button type="submit">Enviar</button>
+</form>
 ```
 
 No React, isso poderia ser:
 
-```js{2-5,8}
-function ActionLink() {
-  function handleClick(e) {
+```js{3}
+function Form() {
+  function handleSubmit(e) {
     e.preventDefault();
-    console.log('O link foi clicado.');
+    console.log('Você clicou em enviar.');
   }
 
   return (
-    <a href="#" onClick={handleClick}>
-      Clique Aqui
-    </a>
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Enviar</button>
+    </form>
   );
 }
 ```
@@ -71,8 +71,8 @@ class Toggle extends React.Component {
   }
 
   handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
     }));
   }
 
