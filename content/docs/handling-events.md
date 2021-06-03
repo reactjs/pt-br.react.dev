@@ -29,21 +29,12 @@ Por exemplo, com HTML:
 </button>
 ```
 
-<<<<<<< HEAD
-Outra diferença é que você não pode retornar `false` para evitar o comportamento padrão no React. Você deve chamar `preventDefault` explícitamente. Por exemplo, com HTML simples, para evitar que um link abra uma nova página, você pode escrever:
+Outra diferença é que você não pode retornar `false` para evitar o comportamento padrão no React. Você deve chamar `preventDefault` explícitamente. Por exemplo, com HTML simples, para evitar o comportamento padrão do formulário de envio, você pode escrever:
 
 ```html
-<a href="#" onclick="console.log('O link foi clicado.'); return false">
-  Clique Aqui
-</a>
-=======
-Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default form behavior of submitting, you can write:
-
-```html
-<form onsubmit="console.log('You clicked submit.'); return false">
-  <button type="submit">Submit</button>
+<form onsubmit="console.log('Você clicou em enviar.'); return false">
+  <button type="submit">Enviar</button>
 </form>
->>>>>>> ec2d0adcb44d6394f4e6282d8bf52f0e25dbfec3
 ```
 
 No React, isso poderia ser:
@@ -52,23 +43,13 @@ No React, isso poderia ser:
 function Form() {
   function handleSubmit(e) {
     e.preventDefault();
-<<<<<<< HEAD
-    console.log('O link foi clicado.');
-  }
-
-  return (
-    <a href="#" onClick={handleClick}>
-      Clique Aqui
-    </a>
-=======
-    console.log('You clicked submit.');
+    console.log('Você clicou em enviar.');
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <button type="submit">Submit</button>
+      <button type="submit">Enviar</button>
     </form>
->>>>>>> ec2d0adcb44d6394f4e6282d8bf52f0e25dbfec3
   );
 }
 ```
