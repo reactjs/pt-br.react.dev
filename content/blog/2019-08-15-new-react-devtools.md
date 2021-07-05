@@ -12,7 +12,11 @@ Ela também oferece suporte completo para React Hooks, incluindo a possibilidade
 
 ![Screenshot da DevTools versão 4](../images/blog/devtools-v4-screenshot.png)
 
+<<<<<<< HEAD
 [Visite o tutorial interativo](https://react-devtools-tutorial.now.sh/) para testar a nova versão ou [veja o changelog](https://github.com/facebook/react/blob/master/packages/react-devtools/CHANGELOG.md#400-august-15-2019) para vídeos de demonstração e mais detalhes.
+=======
+[Visit the interactive tutorial](https://react-devtools-tutorial.now.sh/) to try out the new version or [see the changelog](https://github.com/facebook/react/blob/main/packages/react-devtools/CHANGELOG.md#400-august-15-2019) for demo videos and more details.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 ## Quais versões do React são suportadas? {#which-versions-of-react-are-supported}
 

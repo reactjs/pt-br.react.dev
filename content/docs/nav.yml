@@ -132,6 +132,7 @@
     - id: testing-recipes
       title: Receitas de Teste
     - id: testing-environments
+<<<<<<< HEAD
       title: Ambientes de Teste
 - title: Modo concorrente (Experimental)
   isOrdered: true
@@ -147,6 +148,10 @@
     - id: concurrent-mode-reference
       title: Referência da API do Modo Concorrente
 - title: Contribuindo
+=======
+      title: Testing Environments
+- title: Contributing
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
   items:
     - id: how-to-contribute
       title: Como Contribuir

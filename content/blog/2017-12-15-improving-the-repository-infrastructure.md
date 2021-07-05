@@ -355,7 +355,11 @@ A partir da versão 16, agora lançamos do branch `master`. Recursos experimenta
 
 Depois de mudar para uma `master` estável, criamos uma nova [lista de verificação do processo de lançamento](https://github.com/facebook/react/issues/10620). Embora muito mais simples do que o processo anterior, isso ainda envolvia dezenas de etapas e o esquecimento de uma delas poderia resultar em uma versão interrompida.
 
+<<<<<<< HEAD
 Para resolver isso, criamos um novo [processo de lançamento automatizado](https://github.com/facebook/react/pull/11223) isso é [muito mais fácil de usar](https://github.com/facebook/react/tree/master/scripts/release#react-release-script) e tem várias verificações integradas para garantir o lançamento de uma versão funcional. O novo processo é dividido em duas etapas: _build_ e _publish_. Esta é a aparência da primeira vez que você o executa:
+=======
+To address this, we created a new [automated release process](https://github.com/facebook/react/pull/11223) that is [much easier to use](https://github.com/facebook/react/tree/main/scripts/release#react-release-script) and has several built-in checks to ensure that we release a working build. The new process is split into two steps: _build_ and _publish_. Here's what it looks like the first time you run it:
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 ![Release Script overview](../images/blog/release-script-build-overview.png)
 

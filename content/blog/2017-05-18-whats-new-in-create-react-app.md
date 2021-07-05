@@ -54,7 +54,11 @@ Projetos criados recentemente são construídos como [Aplicações Web Progressi
 
 As novas aplicações têm esses recursos automaticamente, mas você pode converter facilmente um projeto existente em uma Aplicação Web Progressiva seguindo [nosso guia de migração](https://github.com/facebookincubator/create-react-app/releases/tag/v1.0.0).
 
+<<<<<<< HEAD
 Adicionaremos [mais documentação](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app ) sobre esse tópico nas próximas semanas. Por favor, fique à vontade para [fazer qualquer pergunta](https://github.com/facebookincubator/create-react-app/issues/new) através das issues no repositório do projeto!
+=======
+We will be adding [more documentation](https://github.com/facebookincubator/create-react-app/blob/main/packages/react-scripts/template/README.md#making-a-progressive-web-app) on this topic in the coming weeks. Please feel free to [ask any questions](https://github.com/facebookincubator/create-react-app/issues/new) on the issue tracker!
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 
 ### Jest 20 {#jest-20}

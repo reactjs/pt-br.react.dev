@@ -219,11 +219,19 @@ Para recaptular, atingir uma ótima experiência de usuário significa que nós 
 
 Esses padrões não são apenas ideias -- nós os implementamos no React Hooks e estamos usando eles em produção ao longo do novo facebook.com (o que está atualmente em teste beta). Se você estiver interessado em utilizá-lo ou aprender mais sobre esses padrões, aqui estão algumas referências:
 
+<<<<<<< HEAD
 * A [documentação do Modo Concorrente do React](/docs/concurrent-mode-intro.html) aborda como utilizar o Modo Concorrente e o Suspense e detalha melhor vários desses padrões. É uma ótima referência para aprender mais sobre as APIs e casos de uso que elas suportam.
 * A [versão experimental do Relay Hooks](https://relay.dev/docs/en/experimental/step-by-step) implementa os padrões descritos aqui. 
 * Nós implementamos dois aplicativos de exemplo que demonstram esses conceitos:
   * O [aplicativo exemplo do Relay Hooks](https://github.com/relayjs/relay-examples/tree/master/issue-tracker) utiliza a API GraphQL pública do GitHub para implementar um aplicativo simples de rastreamento de issues. Ele inclui suporte a rotas aninhadas com pré-carregamento de dados e código. O código está totalmente comentado -- nós encorajamos clonar o repositório, executar o aplicativo localmente, e explorar como ele funciona.
   * Nós também temos uma [versão de aplicativo não-GraphQL](https://github.com/gaearon/suspense-experimental-github-demo) que demonstra como esses conceitos podem ser aplicados para outras bibliotecas de obtenção de dados.
+=======
+* The [React Concurrent docs](/docs/concurrent-mode-intro.html) explore how to use Concurrent Mode and Suspense and go into more detail about many of these patterns. It's a great resource to learn more about the APIs and use-cases they support.
+* The [experimental release of Relay Hooks](https://relay.dev/docs/en/experimental/step-by-step) implements the patterns described here. 
+* We've implemented two similar example apps that demonstrate these concepts:
+  * The [Relay Hooks example app](https://github.com/relayjs/relay-examples/tree/main/issue-tracker) uses GitHub's public GraphQL API to implement a simple issue tracker app. It includes nested route support with code and data preloading. The code is fully commented -- we encourage cloning the repo, running the app locally, and exploring how it works.
+  * We also have a [non-GraphQL version of the app](https://github.com/gaearon/suspense-experimental-github-demo) that demonstrates how these concepts can be applied to other data-fetching libraries.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Mesmo que as APIs do Modo Concorrente e Suspense [ainda sejam experimentais](/docs/concurrent-mode-adoption.html#who-is-this-experimental-release-for), nós estamos confiantes que as ideias desse artigo são comprovadas na prática. De qualquer forma, nós entendemos que o Relay e GraphQL não são aplicáveis a todos. E tudo bem! **Nós estamos explorando como generalizar esses padrões para abordagens como REST,** e também explorando ideias para uma API mais genérica (isto é, não-GraphQL) para composição de árvores de dependência de dados. Enquanto isso, estamos animados por ver que novas bibliotecas irão surgir implementando os padrões descritos nesse artigo para criar de maneira mais fácil, experiências de usuário *rápidas*.
 

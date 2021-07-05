@@ -9,7 +9,11 @@ Antes desta versão, removemos as mensagens de erro no momento da construção e
 
 > Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.
 
+<<<<<<< HEAD
 Para facilitar o debug em produção, estamos introduzindo um Sistema de Código de Erro no [15.2.0](https://github.com/facebook/react/releases/tag/v15.2.0). Nós desenvolvemos um [script](https://github.com/facebook/react/blob/master/scripts/error-codes/extract-errors.js) que coleta todas as nossas mensagens de erro `invariantes` e as põem em um [arquivo JSON](https://github.com/facebook/react/blob/master/scripts/error-codes/codes.json), e em tempo de execução, o Babel usa o JSON para [reescrever](https://github.com/facebook/react/blob/master/scripts/error-codes/transform-error-messages.js) nossas chamadas `invariantes` em produção para referenciar os IDs de erro correspondentes. Agora, quando as coisas derem errado na produção, o erro que o React exibe contém um URL com um ID de erro e informações relevantes. O URL direcionará você para uma página em nossa documentação em que a mensagem de erro original é remontada.
+=======
+In order to make debugging in production easier, we're introducing an Error Code System in [15.2.0](https://github.com/facebook/react/releases/tag/v15.2.0). We developed a [script](https://github.com/facebook/react/blob/main/scripts/error-codes/extract-errors.js) that collects all of our `invariant` error messages and folds them to a [JSON file](https://github.com/facebook/react/blob/main/scripts/error-codes/codes.json), and at build-time Babel uses the JSON to [rewrite](https://github.com/facebook/react/blob/main/scripts/error-codes/transform-error-messages.js) our `invariant` calls in production to reference the corresponding error IDs. Now when things go wrong in production, the error that React throws will contain a URL with an error ID and relevant information. The URL will point you to a page in our documentation where the original error message gets reassembled.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Embora esperemos que você não veja erros com frequência, você pode ver como isso funciona [aqui](/docs/error-decoder.html?invariant=109&args[]=Foo). É assim que será o mesmo erro que exibimos acima na introdução:
 
