@@ -25,17 +25,10 @@ October 7-8, 2021. In-person in Amsterdam, Netherlands + remote (hybrid event)
 ### React Advanced 2021 {#react-advanced-2021}
 22 e 23 de outubro de 2021. Presencial em Londres, Reino Unido + remoto (evento híbrido)
 
-<<<<<<< HEAD
-[Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Vídeos](https://youtube.com/c/ReactConferences)
-
-### React India 2021 {#react-india-2021}
-12 e 13 de novembro de 2021. Mumbai, India
-=======
 [Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
 
 ### React India 2021 {#react-india-2021}
-November 12-14, 2021 - remote event
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+November 12-13, 2021. Mumbai, India
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
@@ -505,4 +498,3 @@ November 12-14, 2021 - remote event
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
 
 [Website](http://conf2015.reactjs.org/) - [Agenda](http://conf2015.reactjs.org/Agenda.html) - [Vídeos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
-

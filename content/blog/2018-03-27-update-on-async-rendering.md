@@ -122,11 +122,7 @@ As pessoas geralmente assumem que `componentWillMount` e `componentWillUnmount` 
 Por esse motivo, a maneira recomendada para adicionar ouvintes/inscrições é usar o ciclo de vida `componentDidMount`:
 `embed:update-on-async-rendering/adding-event-listeners-after.js`
 
-<<<<<<< HEAD
-Às vezes, é importante atualizar as inscrições às alterações de propriedades. Se você estiver utilizando uma biblioteca como o Redux ou Mobx, o componente de contêiner da da biblioteca deve lidar com isso para você. Para autores de aplicações, criamos uma pequena biblioteca, [`create-subscription`](https://github.com/facebook/react/tree/master/packages/create-subscription), para ajudar com isto. Vamos publicá-la junto com o React 16.3.
-=======
-Sometimes it is important to update subscriptions in response to property changes. If you're using a library like Redux or MobX, the library's container component should handle this for you. For application authors, we've created a small library, [`create-subscription`](https://github.com/facebook/react/tree/main/packages/create-subscription), to help with this. We'll publish it along with React 16.3.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+Às vezes, é importante atualizar as inscrições às alterações de propriedades. Se você estiver utilizando uma biblioteca como o Redux ou Mobx, o componente de contêiner da da biblioteca deve lidar com isso para você. Para autores de aplicações, criamos uma pequena biblioteca, [`create-subscription`](https://github.com/facebook/react/tree/main/packages/create-subscription), para ajudar com isto. Vamos publicá-la junto com o React 16.3.
 
 Em vez de passar uma prop `dataSource` assinada como fizemos no exemplo acima, poderíamos usar o `create-subscription` para passar o valor subscrito:
 
