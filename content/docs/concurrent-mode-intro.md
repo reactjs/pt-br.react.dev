@@ -16,18 +16,12 @@ next: concurrent-mode-suspense.html
 
 >Cuidado:
 >
-<<<<<<< HEAD
->Esta página descreve os **recursos experimentais que ainda [não estão disponíveis](/docs/concurrent-mode-adoption.html) em um release estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
->
->Esta documentação é destinada a adotante precoces e pessoas curiosas. **Se você é novo no React, não se preocupe com esses recursos** -- não precisa aprendê-los agora.
-=======
 >This page was about experimental features that aren't yet available in a stable release. It was aimed at early adopters and people who are curious.
 >
 >Much of the information on this page is now outdated and exists only for archival purposes. **Please refer to the [React 18 Alpha announcement post](/blog/2021/06/08/the-plan-for-react-18.html
 ) for the up-to-date information.**
 >
 >Before React 18 is released, we will replace this page with stable documentation.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 </div>
 
@@ -46,11 +40,7 @@ Esses recursos ainda são experimentais e estão sujeitos a alterações. Eles a
 
 ## Bloqueio vs Renderização Interrompida {#blocking-vs-interruptible-rendering}
 
-<<<<<<< HEAD
 **Para explicar o Modo Concorrente, usaremos o controle de versão como uma metáfora.** Se você trabalha em equipe, provavelmente usa um sistema de controle de versão como o Git e trabalha em _branches_. Quando uma _branch_ estiver pronta, você poderá dar merge do seu trabalho na master(_branch_ principal), para que outras pessoas possam puxa-las (_pull request_).
-=======
-**To explain Concurrent Mode, we'll use version control as a metaphor.** If you work on a team, you probably use a version control system like Git and work on branches. When a branch is ready, you can merge your work into main so that other people can pull it.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Antes da existência do controle de versão, o fluxo de trabalho de desenvolvimento era muito diferente. Não havia conceito de _branches_. Se você quiser editar alguns arquivos, precisará dizer a todos para não tocarem nesses arquivos até que você termine seu trabalho. Você não podia nem começar a trabalhar neles simultaneamente com essa pessoa - você estava literalmente *bloqueado* por ela.
 
@@ -74,11 +64,7 @@ As técnicas do modo concorrente reduzem a necessidade de renúncia e limitaçã
 
 ### Sequências de Carregamento Intencionais {#intentional-loading-sequences}
 
-<<<<<<< HEAD
 Dissemos antes que o Modo Concorrente é como React trabalhando "em uma _branch_". _Branches_ são úteis não apenas para correções de curto prazo, mas também para recursos de longa duração. Às vezes, você pode trabalhar em um recurso, mas pode levar semanas até que ele esteja em um "estado suficientemente bom" para fazer o _merge_ a master. Esse lado da nossa metáfora de controle de versão também se aplica à renderização.
-=======
-We've said before that Concurrent Mode is like React working "on a branch". Branches are useful not only for short-term fixes, but also for long-running features. Sometimes you might work on a feature, but it could take weeks before it's in a "good enough state" to merge into main. This side of our version control metaphor applies to rendering too.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Imagine que estamos navegando entre duas telas em um aplicativo. Às vezes, talvez não tenhamos código e dados suficientes carregados para mostrar um estado de carregamento "suficientemente bom" para o usuário na nova tela. A transição para uma tela vazia ou um grande *spinner* em toda a tela pode ser uma experiência chocante. No entanto, também é comum que o código e os dados necessários não demorem muito para serem buscados. **Não seria melhor se o React pudesse permanecer na tela antiga por mais algum tempo e "pular" o "estado de carregamento incorreto" antes de mostrar a nova tela?**
 

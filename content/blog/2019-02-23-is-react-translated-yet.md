@@ -51,11 +51,7 @@ A parte mais desafiadora foi fazer com que o bot sincronizasse as alterações d
 
 No final, decidimos que em vez de selecionar cada commit com cherry pick, fazia mais sentido juntar todos os novos commits e criar um novo pull request em torno de uma vez por dia. Conflitos são deixados como estão e listados no [pull request](https://github.com/reactjs/pt-BR.reactjs.org/pull/114), deixando uma lista de pontos para os mantenedores corrigirem.
 
-<<<<<<< HEAD
 Criar o [script de sincronização](https://github.com/reactjs/reactjs.org-translation/blob/main/scripts/sync.js) foi fácil: ele faz o download do repositório traduzido, adiciona o original como remoto, puxa dele, mescla os conflitos e cria um pull request.
-=======
-Creating the [sync script](https://github.com/reactjs/reactjs.org-translation/blob/main/scripts/sync.js) was easy enough: it downloads the translated repo, adds the original as a remote, pulls from it, merges the conflicts, and creates a pull request.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 O problema foi encontrar um lugar para o bot rodar. Eu sou uma desenvolvedora frontend por uma razão - Heroku e seus amigos são estranhos para mim e infinitamente frustrantes. Na verdade, até esta terça-feira passada, eu estava executando o script manualmente na minha máquina local!
 

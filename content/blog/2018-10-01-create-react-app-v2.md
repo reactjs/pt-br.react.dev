@@ -71,7 +71,6 @@ Mais algumas dicas para ajudar você.
 
 Aqui está uma lista de mudanças neste lançamento que podem quebrar suas aplicações.
 
-<<<<<<< HEAD
 * Node 6 não é mais suportado.
 * Suporte para navegadores antigos (como do IE 9 até IE 11) agora é opcional em um [pacote separado](https://github.com/facebook/create-react-app/tree/main/packages/react-app-polyfill).
 * Agora a divisão de código (code-splitting) utilizando `import()` se comporta mais semelhante à especificação, enquanto que `require.ensure()` foi desativado.
@@ -79,15 +78,6 @@ Aqui está uma lista de mudanças neste lançamento que podem quebrar suas aplic
 * Suporte para especificar um objeto como configuração de `proxy` foi substituído pelo suporte para módulo proxy customizado.
 * Suporte para extensão `.mjs` foi removido até que seu ecossistema se estabilize.
 * Definições de PropTypes são automaticamente removidas na compilação em ambiente de produção.
-=======
-* Node 6 is no longer supported.
-* Support for older browsers (such as IE 9 to IE 11) is now opt-in with a [separate package](https://github.com/facebook/create-react-app/tree/main/packages/react-app-polyfill).
-* Code-splitting with `import()` now behaves closer to specification, while `require.ensure()` is disabled.
-* The default Jest environment now includes jsdom.
-* Support for specifying an object as `proxy` setting was replaced with support for a custom proxy module.
-* Support for `.mjs` extension was removed until the ecosystem around it stabilizes.
-* PropTypes definitions are automatically stripped out of the production builds.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Se algum desses pontos afeta você, as [notas de lançamento 2.0.3](https://github.com/facebook/create-react-app/releases/tag/v2.0.3) tem mais instruções detalhadas.
 
