@@ -14,11 +14,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Enquanto um componente transforma props em UI, um componente de ordem superior transforma um componente em outro componente.
 
-<<<<<<< HEAD
-HOCs são comuns em bibliotecas externas ao React, como o [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) do Relay.
-=======
-HOCs are common in third-party React libraries, such as Redux's [`connect`](https://github.com/reduxjs/react-redux/blob/main/docs/api/connect.md#connect) and Relay's [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer).
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
+HOCs são comuns em bibliotecas externas ao React, como o [`connect`](https://github.com/reactjs/react-redux/blob/main/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) do Relay.
 
 Neste documento, nós vamos discutir porque componentes de ordem superior são úteis e como escrever o seu.
 
@@ -304,7 +300,7 @@ A função de conveniência `compose` é disponibilizada por várias bibliotecas
 <<<<<<< HEAD
 Os componentes container criados por HOCs aparecem no [React Developer Tools](https://github.com/facebook/react-devtools) como qualquer outro componente. Para facilitar a depuração, escolha um nome de exibição que comunique que o componente é o resultado de um HOC.
 =======
-The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of a HOC.
+The container components created by HOCs show up in the [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) like any other component. To ease debugging, choose a display name that communicates that it's the result of a HOC.
 >>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 A técnica mais comum é encapsular o nome de exibição do componente encapsulado. Então, se o seu componente de ordem superior se chama `withSubscription`, e o nome de exibição do componente encapsulado é `CommentList`, use o nome de exibição `WithSubscription(CommentList)`:

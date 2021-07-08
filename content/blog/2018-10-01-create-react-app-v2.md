@@ -59,11 +59,7 @@ Mais algumas dicas para ajudar você.
 
 **Quando você executar `npm start` pela primeira vez depois da atualização,** será perguntado quais navegadores você gostaria de suportar. Pressione `y` para aceitar os padrões. Ele serão escritos no seu `package.json` e você pode editá-los a qualquer momento. Create React App usará essa informação para produzir bundles CSS menores ou adicionar [polyfills](https://developer.mozilla.org/pt-BR/docs/Glossario/Polyfill) de acordo com sua opção de suportar navegadores modernos ou antigos.
 
-<<<<<<< HEAD
 **Se `npm start` ainda assim não funcionar depois da atualização,** [veja as instruções de migração detalhadas nas notas de lançamento](https://github.com/facebook/create-react-app/releases/tag/v2.0.3). De fato, **há** algumas mudanças radicais nesse lançamento que podem quebrar seu código (breaking changes), mas o escopo delas são limitadas, então elas não devem tomar mais do que algumas horas para resolver. Veja que o **[suporte para navegadores antigos](https://github.com/facebook/create-react-app/blob/main/packages/react-app-polyfill/README.md) agora é opcional** para reduzir o tamanho de [polyfills](https://developer.mozilla.org/pt-BR/docs/Glossario/Polyfill).
-=======
-**If `npm start` still doesn't quite work for you after the upgrade,** [check out the more detailed migration instructions in the release notes](https://github.com/facebook/create-react-app/releases/tag/v2.0.3). There *are* a few breaking changes in this release but the scope of them is limited, so they shouldn't take more than a few hours to sort out. Note that **[support for older browsers](https://github.com/facebook/create-react-app/blob/main/packages/react-app-polyfill/README.md) is now opt-in** to reduce the polyfill size.
->>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 **Se você ejetou anteriormente, mas agora quer atualizar,** uma solução comum é encontrar os commits onde você ejetou (e qualquer commit subsequence que altere a configuração), revertê-los, atualizar e depois talvez ejetar novamente. Também é possível que a funcionalidade pela qual você precisou ejetar (talvez Sass ou CSS Modules?), agora seja suportada por padrão.
 
