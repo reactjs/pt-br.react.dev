@@ -984,7 +984,7 @@ Em ambos os casos, **não recomendamos esse padrão** e só estamos mostrando aq
 
 React acompanha o componente que está renderizando. Graças as [Regras dos Hooks](/docs/hooks-rules.html), sabemos que Hooks são chamados somente dentro de componentes React (ou Hooks customizados -- que também só são chamados dentro de componentes React).
 
-Existe uma lista interna de "células de memória" associadas a cada componente. Elas são somente objetos JavaScript aonde podemos colocar alguns dados. Quando você chama um Hook como `useState()`, é lido a célula atual (ou inicializada durante a primeira renderização), e então move o ponteiro para a próxima.é assim que múltiplas chamadas de `useState()` recebem seu estado local independente.
+Existe uma lista interna de "células de memória" associadas a cada componente. Elas são somente objetos JavaScript aonde podemos colocar alguns dados. Quando você chama um Hook como `useState()`, é lido a célula atual (ou inicializada durante a primeira renderização), e então move o ponteiro para a próxima. É assim que múltiplas chamadas de `useState()` recebem seu estado local independente.
 
 ### Quais são as referências que influênciaram a criação dos Hooks? {#what-is-the-prior-art-for-hooks}
 
