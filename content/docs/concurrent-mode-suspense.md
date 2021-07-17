@@ -17,9 +17,12 @@ next: concurrent-mode-patterns.html
 
 >Cuidado:
 >
->Esta página descreve **recursos experimentais que [ainda não estão disponíveis](/docs/concurrent-mode-adoption.html) em uma versão estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
+>Esta página tratava de recursos experimentais que ainda não estão disponíveis em uma versão estável. Ele era voltado para os primeiros usuários e pessoas curiosas.
 >
->Esta documentação é destinada a adotantes precoces e pessoas curiosas. **Se você é novo no React, não se preocupe com esses recursos** -- você não precisa aprendê-los agora. Por exemplo, se você estiver procurando por um tutorial de busca de dados que funcione hoje, leia [este artigo](https://www.robinwieruch.de/react-hooks-fetch-data/).
+>Muitas das informações nesta página estão desatualizadas e existem apenas para fins de arquivamento. **Consulte a [postagem de anúncio do React 18 Alpha](/blog/2021/06/08/the-plan-for-react-18.html
+) para as informações atualizadas.**
+>
+>Antes do React 18 ser lançado, substituiremos esta página por uma documentação estável.
 
 </div>
 

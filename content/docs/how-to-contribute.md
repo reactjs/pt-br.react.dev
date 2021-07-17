@@ -11,9 +11,9 @@ redirect_from:
 
 React é um dos primeiros projetos de código aberto do Facebook que está sendo desenvolvido muito ativamente, além de ser usado para entregar código para todos em [facebook.com](https://www.facebook.com). Nós ainda estamos trabalhando para tornar esse projeto mais transparente e fácil possível, mas ainda não estamos lá. Esperamos que essa documentação torne esse processo de contribuição mais clara e responda algumas perguntas que você possa ter.
 
-### [Código de Conduta](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) {#code-of-conduct}
+### [Código de Conduta](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) {#code-of-conduct}
 
-O Facebook adotou o [Convênio do Contribuinte](https://www.contributor-covenant.org/) como seu Código de Conduta, e esperamos que os participantes do projeto o adotem. Por favor, [leia o texto completo](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md) para que você possa entender quais ações serão ou não toleradas.
+O Facebook adotou o [Convênio do Contribuinte](https://www.contributor-covenant.org/) como seu Código de Conduta, e esperamos que os participantes do projeto o adotem. Por favor, [leia o texto completo](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md) para que você possa entender quais ações serão ou não toleradas.
 
 ### Desenvolvimento Aberto {#open-development}
 
@@ -23,7 +23,7 @@ Todo trabalho no React acontece diretamente no [GitHub](https://github.com/faceb
 
 O React segue o [versionamento semântico](http://semver.org/). Lançamos versões de ***patch*** para correções críticas, versões secundárias (minor version) para novos recursos e versões principais (major version) para qualquer alteração de quebra. Quando fazemos alterações significativas, também introduzimos alguns avisos de descontinuidade em uma versão secundária para que nossos usuários tenham conhecimento sobre as próximas alterações e migrem seu código com antecedência. Saiba mais sobre nosso compromisso com a estabilidade e a migração incremental em [nossa política de versão](/docs/faq-versioning.html).
 
-Toda mudança significativa é documentada na [***changelog***](https://github.com/facebook/react/blob/master/CHANGELOG.md).
+Toda mudança significativa é documentada na [***changelog***](https://github.com/facebook/react/blob/main/CHANGELOG.md).
 
 ### Organização de Branches {#branch-organization}
 
@@ -35,7 +35,7 @@ O código que chega na `master` deve ser compatível com a versão estável mais
 
 Para manter o ramo da `master` em um estado liberável, as alterações de interrupção e os recursos experimentais devem ser colocados atrás de uma feature flag.
 
-Feature flags são definidas em [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/master/packages/shared/ReactFeatureFlags.js). Algums builds do React podem ativar conjuntos diferentes de features flags; por exemplo, o React Native build pode ser configurado de maneira diferente que o React DOM. Essas flags são encontradas em [`packages/shared/forks`](https://github.com/facebook/react/tree/master/packages/shared/forks). Feature flags são digitados estaticamente pelo Flow, para que você possa executar o `yarn flow` para confirmar que atualizou todos os arquivos necessários.
+Feature flags são definidas em [`packages/shared/ReactFeatureFlags.js`](https://github.com/facebook/react/blob/main/packages/shared/ReactFeatureFlags.js). Algums builds do React podem ativar conjuntos diferentes de features flags; por exemplo, o React Native build pode ser configurado de maneira diferente que o React DOM. Essas flags são encontradas em [`packages/shared/forks`](https://github.com/facebook/react/tree/main/packages/shared/forks). Feature flags são digitados estaticamente pelo Flow, para que você possa executar o `yarn flow` para confirmar que atualizou todos os arquivos necessários.
 
 O sistema de build do React removerá as branches de recursos desativados antes da publicação. Um trabalho de integração contínua é executado em todas as confirmações para verificar alterações no tamanho do pacote. Você pode usar a alteração de tamanho como um sinal de que o recurso foi bloqueado corretamente.
 

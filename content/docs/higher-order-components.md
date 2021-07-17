@@ -14,7 +14,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 Enquanto um componente transforma props em UI, um componente de ordem superior transforma um componente em outro componente.
 
-HOCs são comuns em bibliotecas externas ao React, como o [`connect`](https://github.com/reactjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) do Relay.
+HOCs são comuns em bibliotecas externas ao React, como o [`connect`](https://github.com/reactjs/react-redux/blob/main/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) do Redux e o [`createFragmentContainer`](https://relay.dev/docs/v10.1.3/fragment-container/#createfragmentcontainer) do Relay.
 
 Neste documento, nós vamos discutir porque componentes de ordem superior são úteis e como escrever o seu.
 
@@ -297,7 +297,7 @@ A função de conveniência `compose` é disponibilizada por várias bibliotecas
 
 ## Convenção: Envolver o nome de exibição para melhor depuração {#convention-wrap-the-display-name-for-easy-debugging}
 
-Os componentes container criados por HOCs aparecem no [React Developer Tools](https://github.com/facebook/react-devtools) como qualquer outro componente. Para facilitar a depuração, escolha um nome de exibição que comunique que o componente é o resultado de um HOC.
+Os componentes container criados por HOCs aparecem no [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) como qualquer outro componente. Para facilitar a depuração, escolha um nome de exibição que comunique que o componente é o resultado de um HOC.
 
 A técnica mais comum é encapsular o nome de exibição do componente encapsulado. Então, se o seu componente de ordem superior se chama `withSubscription`, e o nome de exibição do componente encapsulado é `CommentList`, use o nome de exibição `WithSubscription(CommentList)`:
 

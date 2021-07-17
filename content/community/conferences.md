@@ -17,13 +17,18 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
 
+### React Conference Live 2021 {#react-conference-live-2021} 
+7 e 8 de outubro de 2021. Presencial em Amsterdam, Netherlands + remote (evento híbrido)
+
+[Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl) - [LinkedIn](https://www.linkedin.com/company/frontendlove/)
+
 ### React Advanced 2021 {#react-advanced-2021}
 22 e 23 de outubro de 2021. Presencial em Londres, Reino Unido + remoto (evento híbrido)
 
-[Website](https://reactadvanced.com) - [Twitter](http://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Vídeos](https://youtube.com/c/ReactConferences)
+[Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
 
 ### React India 2021 {#react-india-2021}
-12 e 13 de novembro de 2021. Mumbai, India
+12 e 13 de novembro de 2021, 2021. Mumbai, India
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
@@ -493,4 +498,3 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 28 e 29 de janeiro no Facebook HQ, Califórnia, Estados Unidos
 
 [Website](http://conf2015.reactjs.org/) - [Agenda](http://conf2015.reactjs.org/Agenda.html) - [Vídeos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
-

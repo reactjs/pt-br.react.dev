@@ -91,7 +91,7 @@ Existe uma piada interna do time que o React deveria ter sido chamado de "Schedu
 
 Proporcionar uma boa experiência para o desenvolvedor é importante para nós.
 
-Por exemplo, mantemos uma ferramenta [React DevTools](https://github.com/facebook/react/tree/master/packages/react-devtools) na qual é possível inspecionar a árvore de componentes do React no Chrome e Firefox. Sabemos que esta ferramenta melhorou a produtividade, tanto para os engenheiros do Facebook, quanto para a comunidade.
+Por exemplo, mantemos uma ferramenta [React DevTools](https://github.com/facebook/react/tree/main/packages/react-devtools) na qual é possível inspecionar a árvore de componentes do React no Chrome e Firefox. Sabemos que esta ferramenta melhorou a produtividade, tanto para os engenheiros do Facebook, quanto para a comunidade.
 
 Nós também nos esforçamos para providenciar avisos de desenvolvedor úteis. Por exemplo, React o avisa se, no desenvolvimento, você aninhou as tags de certa forma que o navegador não entende ou se haver algum erro de digitação na API. Alertas para o desenvolvedor e as verificações relacionadas são a principal razão da versão de desenvolvimento do React ser mais lenta do que a versão de produção.
 

@@ -17,13 +17,12 @@ next: concurrent-mode-reference.html
 
 >Atenção:
 >
->Esta página descreve **recursos experimentais que ainda não estão disponíveis numa versão estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
+>Esta página tratava de recursos experimentais que ainda não estão disponíveis em uma versão estável. Ele era voltado para os primeiros usuários e pessoas curiosas.
 >
->Esta documentação é destinada a adotantes precoces e pessoas curiosas. **Se você é iniciante no React, não se preocupe com esses recursos** -- não precisa aprendê-los agora.
-
->Cuidado:
+>Muitas das informações nesta página estão desatualizadas e existem apenas para fins de arquivamento. **Consulte a [postagem de anúncio do React 18 Alpha](/blog/2021/06/08/the-plan-for-react-18.html
+) para as informações atualizadas.**
 >
->Todas as referências abaixo para "modo de bloqueio" e `createBlockingRoot` estão desatualizadas e devem ser ignoradas.
+>Antes do React 18 ser lançado, substituiremos esta página por uma documentação estável.
 
 </div>
 

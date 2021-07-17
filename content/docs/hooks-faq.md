@@ -990,11 +990,11 @@ Existe uma lista interna de "células de memória" associadas a cada componente.
 
 Hooks sintetizam ideias de diferentes fontes:
 
-* Nossos velhos experimentos com APIs funcionais no repositório [react-future](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State).
-* Experimentos feitos pela comunidade do React com as APIs de render props, incluindo [Reactions Component](https://github.com/reactions/component) feito por [Ryan Florence](https://github.com/ryanflorence).
+* Nossos velhos experimentos com APIs funcionais no repositório [react-future](https://github.com/reactjs/react-future/tree/main/07%20-%20Returning%20State).
+* Experimentos da comunidade React com APIs de prop de renderização, incluindo [Reactions Component](https://github.com/reactions/component) feito por [Ryan Florence](https://github.com/ryanflorence).
 * A proposta da [palavra chave `adopt`](https://gist.github.com/trueadm/17beb64288e30192f3aa29cad0218067) como um auxiliar para render props, feito por [Dominic Gannaway](https://github.com/trueadm).
 * Variáveis de estado e células de estado em [DisplayScript](http://displayscript.org/introduction.html).
-* [Componentes Reducer](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) em ReasonReact.
+* [Reducer components](https://reasonml.github.io/reason-react/docs/en/state-actions-reducer.html) em ReasonReact.
 * [Subscriptions](http://reactivex.io/rxjs/class/es6/Subscription.js~Subscription.html) em Rx.
 * [Efeitos algébricos](https://github.com/ocamllabs/ocaml-effects-tutorial#2-effectful-computations-in-a-pure-setting) em Multicore OCaml.
 

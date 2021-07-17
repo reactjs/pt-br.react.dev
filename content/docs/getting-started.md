@@ -38,7 +38,7 @@ React foi pensado desde o início para ser adotado gradualmente e **você pode u
 
 Se você está interessado em testar um pouco o React, pode usar um editor de código online. Tente um Olá Mundo no [CodePen](codepen://hello-world), [CodeSandbox](https://codesandbox.io/s/new), ou [Stackblitz](https://stackblitz.com/fork/react).
 
-Se prefere usar o seu próprio editor de texto, pode também [baixar este arquivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html), editá-lo e a partir do seu sistema de arquivos abrir em seu navegador web. Este arquivo faz uma lenta transformação de código em tempo de execução, portanto nós recomendamos usar somente para demonstrações simples.
+Se prefere usar o seu próprio editor de texto, pode também [baixar este arquivo HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html), editá-lo e a partir do seu sistema de arquivos abrir em seu navegador web. Este arquivo faz uma lenta transformação de código em tempo de execução, portanto nós recomendamos usar somente para demonstrações simples.
 
 ### Adicione React a um Website {#add-react-to-a-website}
 
@@ -115,7 +115,7 @@ O [blog do React](/blog/) é a fonte oficial para as atualizações feitas pelo 
 
 Você também pode seguir o [@reactjs](https://twitter.com/reactjs) no Twitter, mas você não perderá nenhuma informação essencial se apenas ler o blog.
 
-Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão no [arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/master/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react/releases).
+Nem toda versão do React tem sua própria publicação no blog. Mas você encontrará um detalhado registro de mudanças para cada versão no [arquivo `CHANGELOG.md` no repositório do React](https://github.com/facebook/react/blob/main/CHANGELOG.md), assim como na página de [Versões](https://github.com/facebook/react/releases).
 
 ## Documentação das Versões {#versioned-documentation}
 
