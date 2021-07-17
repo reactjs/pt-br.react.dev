@@ -21,15 +21,7 @@ module.exports = {
     'gatsby-transformer-authors-yaml',
     'gatsby-transformer-home-example-code',
     'gatsby-transformer-versions-yaml',
-    {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        mergeSecurityHeaders: false, // boolean to turn off the default security headers
-        mergeLinkHeaders: false, // boolean to turn off the default gatsby js headers
-        mergeCachingHeaders: false, // boolean to turn off the default caching headers
-        generateMatchPathRewrites: false, // boolean to turn off automatic creation of redirect rules for client only paths
-      },
-    },
+    'gatsby-plugin-netlify',
     'gatsby-plugin-glamor',
     'gatsby-plugin-twitter',
     {
