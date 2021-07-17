@@ -13,7 +13,7 @@ Seguindo o exemplo do [Yarn](https://github.com/yarnpkg/rfcs), [Ember](https://g
 - Após a discussão, o time principal pode aceitar ou não o RFC.
 - Se o RFC for aceito, a PR é aceita.
 
-Documentos RFCs são aceitos quando eles são aprovados para implementação no React. Uma descrição mais detalhada do processo está disponível no  [README](https://github.com/reactjs/rfcs/blob/master/README.md) do repositório. Os detalhes exatos podem ser melhorados no futuro.
+Documentos RFCs são aceitos quando eles são aprovados para implementação no React. Uma descrição mais detalhada do processo está disponível no  [README](https://github.com/reactjs/rfcs/blob/main/README.md) do repositório. Os detalhes exatos podem ser melhorados no futuro.
 
 ## Quem Pode Submeter RFCs? {#who-can-submit-rfcs}
 

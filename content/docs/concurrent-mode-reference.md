@@ -16,9 +16,12 @@ prev: concurrent-mode-adoption.html
 
 >Cuidado:
 >
->Esta página descreve os **recursos experimentais que ainda [não estão disponíveis](/docs/concurrent-mode-adoption.html) em um release estável**. Não confie nas versões experimentais do React em aplicativos de produção. Esses recursos podem mudar significativamente e sem aviso antes de se tornarem parte do React.
+>Esta página tratava de recursos experimentais que ainda não estão disponíveis em uma versão estável. Ele era voltado para os primeiros usuários e pessoas curiosas.
 >
->Esta documentação é destinada a adotante precoces e pessoas curiosas. **Se você é novo no React, não se preocupe com esses recursos** -- não precisa aprendê-los agora.
+>Muitas das informações nesta página estão desatualizadas e existem apenas para fins de arquivamento. **Consulte a [postagem de anúncio do React 18 Alpha](/blog/2021/06/08/the-plan-for-react-18.html
+) para as informações atualizadas.**
+>
+>Antes do React 18 ser lançado, substituiremos esta página por uma documentação estável.
 
 </div>
 

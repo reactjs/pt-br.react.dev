@@ -13,7 +13,7 @@ O React conta com uma comunidade de milhões de desenvolvedores.
 Nesta página, mostraremos algumas comunidades relacionadas ao React que você pode fazer parte;
 Veja as outras páginas desta seção para obter materiais de aprendizagem adicionais online e presencial.
 
-Antes de participar das comunidades do React, [leia nosso Código de Conduta](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md). Adotamos o [Convênio do Colaborador](https://www.contributor-covenant.org/) e esperamos que todos os membros da comunidade sigam as diretrizes contidas nele.
+Antes de participar das comunidades do React, [leia nosso Código de Conduta](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md). Adotamos o [Convênio do Colaborador](https://www.contributor-covenant.org/) e esperamos que todos os membros da comunidade sigam as diretrizes contidas nele.
 
 ## Stack Overflow {#stack-overflow}
 
