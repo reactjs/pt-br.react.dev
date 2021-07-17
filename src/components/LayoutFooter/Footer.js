@@ -20,7 +20,7 @@ import navFooter from '../../../content/footerNav.yml';
 
 import ossLogoPng from 'images/oss_logo.png';
 
-const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
+const Footer = ({layoutHasSidebar = false}) => (
   <footer
     css={{
       backgroundColor: colors.darker,

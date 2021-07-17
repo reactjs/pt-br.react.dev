@@ -20,21 +20,7 @@ import {sharedStyles} from 'theme';
 import createCanonicalUrl from 'utils/createCanonicalUrl';
 import {colors, media} from 'theme';
 
-import type {Node} from 'types';
-
-type Props = {
-  authors: Array<string>,
-  createLink: Function, // TODO: Add better flow type once we Flow-type createLink
-  date?: string,
-  enableScrollSync?: boolean,
-  ogDescription: string,
-  location: Location,
-  markdownRemark: Node,
-  sectionList: Array<Object>, // TODO: Add better flow type once we have the Section component
-  titlePostfix: string,
-};
-
-const getPageById = (sectionList: Array<Object>, templateFile: ?string) => {
+const getPageById = (sectionList, templateFile) => {
   if (!templateFile) {
     return null;
   }
@@ -56,7 +42,7 @@ const MarkdownPage = ({
   markdownRemark,
   sectionList,
   titlePostfix = '',
-}: Props) => {
+}) => {
   const hasAuthors = authors.length > 0;
   const titlePrefix = markdownRemark.frontmatter.title || '';
 
