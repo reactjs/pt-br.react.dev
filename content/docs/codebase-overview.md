@@ -20,6 +20,7 @@ Não recomendamos necessariamente nenhuma dessas convenções nos aplicativos Re
 Depois de clonar o [repositório do React](https://github.com/facebook/react), você verá algumas pastas no nível superior:
 
 * [`packages`](https://github.com/facebook/react/tree/main/packages) contém metadados (como `package.json`) e o código fonte (subdiretório `src`) para todos os pacotes no repositório React. **Se a sua alteração está relacionada ao código, o subdiretório `src` de cada pacote é onde você passará a maior parte do seu tempo.**
+
 * [`fixtures`](https://github.com/facebook/react/tree/main/fixtures) contém alguns pequenos aplicativos de teste do React para os contribuidores.
 * `build` é a saída de compilação do React. Não está no repositório, mas aparecerá no seu clone do React depois de você [fizer o _build_](/docs/how-to-contribute.html#development-workflow) pela primeira vez.
 
