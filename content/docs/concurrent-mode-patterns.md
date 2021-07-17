@@ -17,12 +17,12 @@ next: concurrent-mode-adoption.html
 
 >Cuidado:
 >
->This page was about experimental features that aren't yet available in a stable release. It was aimed at early adopters and people who are curious.
+>Esta página tratava de recursos experimentais que ainda não estão disponíveis em uma versão estável. Ele era voltado para os primeiros usuários e pessoas curiosas.
 >
->Much of the information on this page is now outdated and exists only for archival purposes. **Please refer to the [React 18 Alpha announcement post](/blog/2021/06/08/the-plan-for-react-18.html
-) for the up-to-date information.**
+>Muitas das informações nesta página estão desatualizadas e existem apenas para fins de arquivamento. **Consulte a [postagem de anúncio do React 18 Alpha](/blog/2021/06/08/the-plan-for-react-18.html
+) para as informações atualizadas.**
 >
->Before React 18 is released, we will replace this page with stable documentation.
+>Antes do React 18 ser lançado, substituiremos esta página por uma documentação estável.
 
 </div>
 
