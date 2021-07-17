@@ -19,9 +19,9 @@ Não recomendamos necessariamente nenhuma dessas convenções nos aplicativos Re
 
 Depois de clonar o [repositório do React](https://github.com/facebook/react), você verá algumas pastas no nível superior:
 
-* [`packages`](https://github.com/facebook/react/tree/master/packages) contém metadados (como `package.json`) e o código fonte (subdiretório `src`) para todos os pacotes no repositório React. **Se a sua alteração está relacionada ao código, o subdiretório `src` de cada pacote é onde você passará a maior parte do seu tempo.**
+* [`packages`](https://github.com/facebook/react/tree/main/packages) contém metadados (como `package.json`) e o código fonte (subdiretório `src`) para todos os pacotes no repositório React. **Se a sua alteração está relacionada ao código, o subdiretório `src` de cada pacote é onde você passará a maior parte do seu tempo.**
 
-* [`fixtures`](https://github.com/facebook/react/tree/master/fixtures) contém alguns pequenos aplicativos de teste do React para os contribuidores.
+* [`fixtures`](https://github.com/facebook/react/tree/main/fixtures) contém alguns pequenos aplicativos de teste do React para os contribuidores.
 * `build` é a saída de compilação do React. Não está no repositório, mas aparecerá no seu clone do React depois de você [fizer o _build_](/docs/how-to-contribute.html#development-workflow) pela primeira vez.
 
 A documentação está hospedada [em um repositório separado do React](https://github.com/reactjs/reactjs.org).
@@ -107,7 +107,7 @@ O "core" do React inclui todas as [`React` APIs de nível superior](/docs/top-le
 
 **O core React inclui apenas as APIs necessárias para definir os componentes.** Não inclui o algoritmo de [reconciliação](/docs/reconciliation.html) ou qualquer código específico da plataforma. Ele é usado pelos componentes React DOM e React Native.
 
-O código do React core está localizado em [`packages/react`](https://github.com/facebook/react/tree/master/packages/react) na árvore de origem. Está disponível no npm como o pacote [`react`](https://www.npmjs.com/package/react). A construção do navegador independente correspondente é chamada `react.js`,e exporta um global chamado `React`.
+O código do React core está localizado em [`packages/react`](https://github.com/facebook/react/tree/main/packages/react) na árvore de origem. Está disponível no npm como o pacote [`react`](https://www.npmjs.com/package/react). A construção do navegador independente correspondente é chamada `react.js`,e exporta um global chamado `React`.
 
 ### Renderizadores {#renderers}
 
@@ -115,17 +115,17 @@ O React foi originalmente criado para o DOM, mas depois foi adaptado para també
 
 **Os renderizadores gerenciam como uma árvore no React se transforma nas chamadas de subjacentes da plataforma.**
 
-Renderizadores tambéms são encontrados em [`packages/`](https://github.com/facebook/react/tree/master/packages/):
+Renderizadores tambéms são encontrados em [`packages/`](https://github.com/facebook/react/tree/main/packages/):
 
-* [Renderizador de React DOM](https://github.com/facebook/react/tree/master/packages/react-dom) renderiza componentes React para o DOM. Implementa [APIs do `React` de nível superior](/docs/react-dom.html) e está disponível como pacote npm [`react-dom`](https://www.npmjs.com/package/react-dom). Ele também pode ser usado como um pacote de navegador autônomo chamado `react-dom.js` que exporta um global do `ReactDOM`.
-* [Renderizador do React Native](https://github.com/facebook/react/tree/master/packages/react-native-renderer) renderiza componentes React para views nativas. É usado internamente pelo React Native.
-* [Renderizador de testes do React](https://github.com/facebook/react/tree/master/packages/react-test-renderer) renderiza componentes React para árvores JSON. É usado pela funcionalidade de [teste de Snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) atributo do [Jest](https://facebook.github.io/jest) e está disponível como pacote npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) .
+* [Renderizador de React DOM](https://github.com/facebook/react/tree/main/packages/react-dom) renderiza componentes React para o DOM. Implementa [APIs do `React` de nível superior](/docs/react-dom.html) e está disponível como pacote npm [`react-dom`](https://www.npmjs.com/package/react-dom). Ele também pode ser usado como um pacote de navegador autônomo chamado `react-dom.js` que exporta um global do `ReactDOM`.
+* [Renderizador do React Native](https://github.com/facebook/react/tree/main/packages/react-native-renderer) renderiza componentes React para views nativas. É usado internamente pelo React Native.
+* [Renderizador de testes do React](https://github.com/facebook/react/tree/main/packages/react-test-renderer) renderiza componentes React para árvores JSON. É usado pela funcionalidade de [teste de Snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) atributo do [Jest](https://facebook.github.io/jest) e está disponível como pacote npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) .
 
-O único outro renderizador oficialmente suportado é o [`react-art`](https://github.com/facebook/react/tree/master/packages/react-art). Costumava estar em um [repositorio GitHub](https://github.com/reactjs/react-art) separado mas nós os movemos para a árvore de código principal.
+O único outro renderizador oficialmente suportado é o [`react-art`](https://github.com/facebook/react/tree/main/packages/react-art). Costumava estar em um [repositorio GitHub](https://github.com/reactjs/react-art) separado mas nós os movemos para a árvore de código principal.
 
 >**Nota:**
 >
->Tecnicamente o [`react-native-renderer`](https://github.com/facebook/react/tree/master/packages/react-native-renderer) é uma camada muito fina que ensina o React a interagir com a implementação do React Native. O código específico da plataforma real que gerencia as views nativas reside no [repositório do React Native](https://github.com/facebook/react-native) junto com seus componentes.
+>Tecnicamente o [`react-native-renderer`](https://github.com/facebook/react/tree/main/packages/react-native-renderer) é uma camada muito fina que ensina o React a interagir com a implementação do React Native. O código específico da plataforma real que gerencia as views nativas reside no [repositório do React Native](https://github.com/facebook/react-native) junto com seus componentes.
 
 ### Reconciliadores {#reconcilers}
 
@@ -153,11 +153,11 @@ Seus principais objetivos são:
 
 Você pode ler mais sobre a arquitetura do React Fiber [aqui](https://github.com/acdlite/react-fiber-architecture) e [aqui](https://blog.ag-grid.com/inside-fiber-an-in-depth-overview-of-the-new-reconciliation-algorithm-in-react). Embora tenha sido fornecido com o React 16, os recursos assíncronos ainda não estão habilitados por padrão.
 
-Seu código-fonte está localizado em [`packages/react-reconciler`](https://github.com/facebook/react/tree/master/packages/react-reconciler).
+Seu código-fonte está localizado em [`packages/react-reconciler`](https://github.com/facebook/react/tree/main/packages/react-reconciler).
 
 ### Sistema de Eventos  {#event-system}
 
-O React implementa uma camada sobre eventos nativos para suavizar as diferenças entre navegadores. Seu código fonte está localizado em [`packages/react-dom/src/events`](https://github.com/facebook/react/tree/master/packages/react-dom/src/events).
+O React implementa uma camada sobre eventos nativos para suavizar as diferenças entre navegadores. Seu código fonte está localizado em [`packages/react-dom/src/events`](https://github.com/facebook/react/tree/main/packages/react-dom/src/events).
 
 ### Qual o proximo passo? {#what-next}
 

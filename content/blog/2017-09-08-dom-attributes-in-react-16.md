@@ -165,7 +165,7 @@ Abaixo está uma lista detalhada delas.
     React 15: Converte `NaN`s para strings e passa os valores.
     React 16: Converte `NaN`s para strings e passa os valores com um aviso. 
 
-Ao testar esta versão, nós também criamos uma [tabela para todos os atributos conhecidos](https://github.com/facebook/react/blob/master/fixtures/attribute-behavior/AttributeTableSnapshot.md), que atualiza automaticamente, para rastrear possíveis regressões. 
+Ao testar esta versão, nós também criamos uma [tabela para todos os atributos conhecidos](https://github.com/facebook/react/blob/main/fixtures/attribute-behavior/AttributeTableSnapshot.md), que atualiza automaticamente, para rastrear possíveis regressões. 
 
 ## Tente! {#try-it}
 

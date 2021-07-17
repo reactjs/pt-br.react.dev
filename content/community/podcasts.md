@@ -22,6 +22,8 @@ Podcasts dedicados a React e episódios individuais de podcast com discussões s
 
 ## Episódios {#episodes}
 
+- [The React Native Show](https://callstack.com/podcast-react-native-show) - Discuss everything React Native, hosted by [Callstack](https://callstack.com/?utm_campaign=Podcast&utm_source=reactjs_org&utm_medium=community_podcasts)
+
 - [CodeWinds Episódio 4](https://codewinds.com/podcast/004.html) - Pete Hunt fala com Jeff Barczewski sobre React.
 
 - [JavaScript Jabber 73](https://devchat.tv/js-jabber/073-jsj-react-with-pete-hunt-and-jordan-walke) - Pete Hunt e Jordan Walke conversam sobre React.
