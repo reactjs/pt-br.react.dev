@@ -1,59 +1,59 @@
 ---
-title: "The Plan for React 18"
+title: "O plano para o React 18"
 author: [acdlite, bvaughn, abernathyca, gaearon, rachelnabors, rickhanlonii, sebmarkbage, sethwebster]
 ---
 
-The React team is excited to share a few updates:
+O time do React está animado para compartilhar algumas atualizações:
 
-1. We’ve started work on the React 18 release, which will be our next major version.
-2. We’ve created a Working Group to prepare the community for gradual adoption of new features in React 18.
-3. We’ve published a React 18 Alpha so that library authors can try it and provide feedback.
+1. Começamos a trabalhar no lançamento do React 18, que será nossa próxima versão principal.
+2. Criamos um Grupo de Trabalho para preparar a comunidade para a adoção gradual de novos recursos no React 18.
+3. Publicamos um Alpha do React 18 para que os autores de bibliotecas possam testá-lo e fornecer feedback.
 
-These updates are primarily aimed at maintainers of third-party libraries. If you’re learning, teaching, or using React to build user-facing applications, you can safely ignore this post. But you are welcome to follow the discussions in the React 18 Working Group if you're curious!
+Essas atualizações são destinadas principalmente aos mantenedores de bibliotecas de terceiros. Se você está aprendendo, ensinando ou usando o React para criar aplicações voltadas para o usuário, pode seguramente ignorar este post. Mas você é bem vindo para acompanhar as discussões no Grupo de Trabalho React 18 se estiver curioso!
 
-## What’s coming in React 18
+## O que está chegando no React 18
 
-When it’s released, React 18 will include out-of-the-box improvements (like [automatic batching](https://github.com/reactwg/react-18/discussions/21)), new APIs (like [`startTransition`](https://github.com/reactwg/react-18/discussions/41)), and a [new streaming server renderer](https://github.com/reactwg/react-18/discussions/37) with built-in support for `React.lazy`.
+Quando for lançado, o React 18 incluirá melhorias prontas para uso (como [lote automático](https://github.com/reactwg/react-18/discussions/21)), novas APIs (como [`startTransition`](https://github.com/reactwg/react-18/discussions/41)) e um [novo renderizador de servidor de streaming](https://github.com/reactwg/react-18/discussions/37) com suporte integrado para `React.lazy`.
 
-These features are possible thanks to a new opt-in mechanism we’re adding in React 18. It’s called “concurrent rendering” and it lets React prepare multiple versions of the UI at the same time. This change is mostly behind-the-scenes, but it unlocks new possibilities to improve both real and perceived performance of your app.
+Esses recursos são possíveis graças a um novo mecanismo opcional que estamos adicionando no React 18. É chamado de “renderização concorrente” e permite que o React prepare várias versões da UI ao mesmo tempo. Essa mudança ocorre principalmente nos bastidores, mas abre novas possibilidades para melhorar o desempenho real e percebido de sua aplicação.
 
-If you've been following our research into the future of React (we don't expect you to!), you might have heard of something called “concurrent mode” or that it might break your app. In response to this feedback from the community, we’ve redesigned the upgrade strategy for gradual adoption. Instead of an all-or-nothing “mode”, concurrent rendering will only be enabled for updates triggered by one of the new features. In practice, this means **you will be able to adopt React 18 without rewrites and try the new features at your own pace.**
+Se você tem acompanhado nossa pesquisa sobre o futuro do React (não esperamos que você faça isso!), você pode ter ouvido falar de algo chamado “modo concorrente” ou que esse modo pode quebrar sua aplicação. Em resposta a este feedback da comunidade, reformulamos a estratégia de atualização para uma adoção gradual. Em vez de um “modo” tudo ou nada, a renderização concorrente só será habilitada para atualizações acionadas por um dos novos recursos. Na prática, isso significa que **você poderá adotar o React 18 sem reescrever e experimentar os novos recursos em seu próprio ritmo.**
 
-## A gradual adoption strategy
+## Uma estratégia de adoção gradual
 
-Since concurrency in React 18 is opt-in, there are no significant out-of-the-box breaking changes to component behavior. **You can upgrade to React 18 with minimal or no changes to your application code, with a level of effort comparable to a typical major React release**. Based on our experience converting several apps to React 18, we expect that many users will be able to upgrade within a single afternoon.
+Como a concorrência no React 18 é opcional, não há mudanças significativas fora da caixa no comportamento de componente. **Você pode atualizar para o React 18 com o mínimo ou nenhuma alteração no código da aplicação, com um nível de esforço comparável a uma versão principal típica do React**. Com base em nossa experiência na conversão de várias aplicações para React 18, esperamos que muitos usuários sejam capazes de atualizar em uma única tarde.
 
-We successfully shipped concurrent features to tens of thousands of components at Facebook, and in our experience, we've found that most React components “just work” without additional changes. We're committed to making sure this is a smooth upgrade for the entire community, so today we're announcing the React 18 Working Group.
+Enviamos com sucesso recursos concorrentes para dezenas de milhares de componentes no Facebook e, em nossa experiência, descobrimos que a maioria dos componentes do React “simplesmente funcionam” sem alterações adicionais. Estamos empenhados em garantir que esta seja uma atualização tranquila para toda a comunidade, então hoje estamos anunciando o Grupo de Trabalho React 18.
 
-## Working with the community
+## Trabalhando com a comunidade
 
-We’re trying something new for this release: We've invited a panel of experts, developers, library authors, and educators from across the React community to participate in our [React 18 Working Group](https://github.com/reactwg/react-18) to provide feedback, ask questions, and collaborate on the release. We couldn't invite everyone we wanted to this initial, small group, but if this experiment works out, we hope there will be more in the future!
+Estamos tentando algo novo para este lançamento: convidamos um painel de especialistas, desenvolvedores, autores de bibliotecas e educadores de toda a comunidade React para participar de nosso [Grupo de Trabalho React 18](https://github.com/reactwg/react-18) para fornecer feedback, fazer perguntas e colaborar no lançamento. Não pudemos convidar todos que queríamos para este pequeno grupo inicial, mas se essa experiência funcionar, esperamos que haja mais no futuro!
 
-**The goal of the React 18 Working Group is to prepare the ecosystem for a smooth, gradual adoption of React 18 by existing applications and libraries.** The Working Group is hosted on [GitHub Discussions](https://github.com/reactwg/react-18/discussions) and is available for the public to read. Members of the working group can leave feedback, ask questions, and share ideas. The core team will also use the discussions repo to share our research findings. As the stable release gets closer, any important information will also be posted on this blog.
+**O objetivo do Grupo de Trabalho React 18 é preparar o ecossistema para uma adoção gradual e suave do React 18 por aplicações e bibliotecas existentes.** O Grupo de Trabalho está hospedado em [GitHub Discussions](https://github.com/reactwg/react-18/discussions) e está disponível para leitura do público. Os membros do grupo de trabalho podem deixar comentários, fazer perguntas e compartilhar ideias. O time principal também usará o repositório de discussões para compartilhar nossos resultados de pesquisa. Conforme a versão estável se aproxima, qualquer informação importante também será postada neste blog.
 
-For more information on upgrading to React 18, or additional resources about the release, see the [React 18 announcement post](https://github.com/reactwg/react-18/discussions/4).
+Para obter mais informações sobre como atualizar para o React 18 ou recursos adicionais sobre o lançamento, consulte a [postagem de anúncio do React 18](https://github.com/reactwg/react-18/discussions/4).
 
-## Accessing the React 18 Working Group
+## Acessando o Grupo de Trabalho React 18
 
-Everyone can read the discussions in the [React 18 Working Group repo](https://github.com/reactwg/react-18).
+Todos podem ler as discussões no [repositório Grupo de Trabalho React 18](https://github.com/reactwg/react-18).
 
-Because we expect an initial surge of interest in the Working Group, only invited members will be allowed to create or comment on threads. However, the threads are fully visible to the public, so everyone has access to the same information. We believe this is a good compromise between creating a productive environment for working group members, while maintaining transparency with the wider community.
+Como esperamos um aumento inicial de interesse no Grupo de Trabalho, apenas membros convidados terão permissão para criar ou comentar nos tópicos. No entanto, os tópicos são totalmente visíveis ao público, para que todos tenham acesso às mesmas informações. Acreditamos que este é um bom balanço entre a criação de um ambiente produtivo para os membros do grupo de trabalho e manter a transparência com a comunidade em geral.
 
-As always, you can submit bug reports, questions, and general feedback to our [issue tracker](https://github.com/facebook/react/issues).
+Como sempre, você pode enviar relatórios de bugs, perguntas e feedback geral para nosso [rastreador de problemas](https://github.com/facebook/react/issues).
 
-## How to try React 18 Alpha today
+## Como experimentar o Alpha do React 18 hoje
 
-New alphas are [regularly published to npm using the `@alpha` tag](https://github.com/reactwg/react-18/discussions/9). These releases are built using the most recent commit to our main repo. When a feature or bugfix is merged, it will appear in an alpha the following weekday.
+Novos alphas são [publicados regularmente para o npm usando a tag `@alpha`](https://github.com/reactwg/react-18/discussions/9). Essas versões são criadas usando o commit mais recente de nosso repositório principal. Quando um recurso ou correção de bug é mesclado, ele aparecerá em um alpha no próximo dia útil.
 
-There may be significant behavioral or API changes between alpha releases. Please remember that **alpha releases are not recommended for user-facing, production applications**.
+Podem haver mudanças comportamentais ou de API significativas entre as versões alpha. Por favor lembre-se de que **versões alpha não são recomendadas para aplicações de produção voltados para o usuário**.
 
-## Projected React 18 release timeline
+## Cronograma de lançamento projetado do React 18
 
-We don't have a specific release date scheduled, but we expect it will take several months of feedback and iteration before React 18 is ready for most production applications.
+Não temos uma data de lançamento específica agendada, mas esperamos que leve vários meses de feedback e iteração antes que o React 18 esteja pronto para a maioria das aplicações de produção.
 
-* Library Alpha: Available today
-* Public Beta: At least several months
-* Release Candidate (RC): At least several weeks after Beta
-* General Availability: At least several weeks after RC
+* Biblioteca Alpha: disponível hoje
+* Beta Público: pelo menos vários meses
+* Release Candidate (RC): pelo menos várias semanas após o Beta
+* Disponibilidade Geral: pelo menos várias semanas após RC
 
-More details about our projected release timeline are [available in the Working Group](https://github.com/reactwg/react-18/discussions/9). We'll post updates on this blog when we're closer to a public release.
+Mais detalhes sobre nosso cronograma de lançamento projetado estão [disponíveis no Grupo de Trabalho](https://github.com/reactwg/react-18/discussions/9). Publicaremos atualizações neste blog quando estivermos próximos de um lançamento público.
