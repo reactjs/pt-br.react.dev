@@ -259,7 +259,11 @@ Vamos cobrir isso em dois passos:
 }
 ```
 
+<<<<<<< HEAD
 Ótimo! Agora quando executarmos o nosso script de build, o compilador vai colocar o JavaScript gerado na pasta `build`. O [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/main/tsconfig.json) oferece um `tsconfig.json` com um bom conjunto de regras para você começar.
+=======
+Great! Now when we run our build script the compiler will output the generated javascript to the `build` folder. The [TypeScript React Starter](https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json) provides a `tsconfig.json` with a good set of rules to get you started.
+>>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 Geralmente, você não quer manter o JavaScript gerado no seu repositório, então tenha certeza de que adicionou a pasta do build no seu `.gitignore`.
 
