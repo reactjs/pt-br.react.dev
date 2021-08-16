@@ -21,11 +21,7 @@ A principal característica do React são os componentes. Componentes escritos p
 
 Por exemplo, é possível introduzir um state (estado) local dentro de um componente, sem alterar nenhum dos componentes que usam o mesmo. Da mesma forma, será possível adicionar código de inicialização e "destruição" em qualquer componente quando necessário.
 
-<<<<<<< HEAD
 Não há nada de "errado" em usar state (estado) ou métodos do ciclo de vida nos componentes. Como qualquer funcionalidade poderosa, eles devem ser usados com moderação. Porém, não temos a intenção de removê-los. Pelo contrário, pensamos que eles são partes importantes do que torna o React útil. Poderemos permitir [mais padrões funcionais](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) no futuro. Porém, tanto state (estado) local e métodos do ciclo de vida serão parte desse modelo.
-=======
-There is nothing "bad" about using state or lifecycle methods in components. Like any powerful feature, they should be used in moderation, but we have no intention to remove them. On the contrary, we think they are integral parts of what makes React useful. We might enable [more functional patterns](https://github.com/reactjs/react-future/tree/master/07%20-%20Returning%20State) in the future, but both local state and lifecycle methods will be a part of that model.
->>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
 
 Componentes geralmente são descritos como "apenas funções". Porém, pelo nosso ponto de vista, eles precisam ser mais do que isso para serem úteis. No React, os componentes descrevem qualquer comportamento "composable", incluindo rendering (renderização), lifecycle (ciclo de vida) e state. Algumas bibliotecas, como [Relay (Retransmissão)](https://facebook.github.io/relay/) aumentam a responsabilidade dos componentes, como por exemplo descrever a dependência de dados. É possível que essas ideias possam voltar para o React também de alguma forma.
 
