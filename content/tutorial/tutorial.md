@@ -243,11 +243,7 @@ class Square extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-Se você clicar em um quadrado agora, deverá ver um alerta no seu navegador.
-=======
-If you click on a Square now, you should see 'click' in your browser's devtools console.
->>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
+Se você clicar em um quadrado agora, deverá ver 'clique' no console do devtools do seu navegador.
 
 >Nota
 >
@@ -265,11 +261,7 @@ If you click on a Square now, you should see 'click' in your browser's devtools 
 >}
 >```
 >
-<<<<<<< HEAD
->Note que com `onClick = {() => alert ('click')}`, estamos passando *uma função* como prop `onClick`. O React só chamará essa função depois de um clique. Esquecendo `() =>` e escrevendo somente `onClick = {alert ('click')}` é um erro comum, e dispararia o alerta toda vez que o componente fosse renderizado novamente.
-=======
->Notice how with `onClick={() => console.log('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={console.log('click')}` is a common mistake, and would fire every time the component re-renders.
->>>>>>> 95e15d063b205007a92c52efb5311f76ad5a0b6c
+>Note que com `onClick = {() => console.log('click')}`, estamos passando *uma função* como prop `onClick`. O React só chamará essa função depois de um clique. Esquecendo `() =>` e escrevendo somente `onClick = {console.log('click')}` é um erro comum e seria acionado sempre que o componente fosse renderizado novamente.
 
 Como próximo passo, queremos que o componente Square "lembre" que foi clicado e preencha com um "X". Para "lembrar" as coisas, os componentes usam o **estado (_state_)**.
 
