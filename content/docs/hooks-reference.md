@@ -495,7 +495,7 @@ function useFriendStatus(friendID) {
 
 > Dica
 > 
-> Não recomendamos adicionar valores de depuração a cada custom hook criado. É mais valioso para `custom hooks` que são partes de bibliotecas compartilhas.
+> Não recomendamos adicionar valores de depuração a cada custom hook criado. É mais valioso para `custom hooks` que são partes de bibliotecas compartilhadas.
 
 #### Adiar a formatação de valores de depuração {#defer-formatting-debug-values}
 
