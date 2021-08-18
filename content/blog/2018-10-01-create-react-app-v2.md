@@ -19,7 +19,7 @@ Agora que Create React App 2.0 não está mais em _beta_, vamos ver o que há de
 
 Aqui está um pequeno resumo das novidades nesse lançamento:
 
-* 🎉 Mais opções de estilização: você pode usar [Sass](https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/template/README.md#adding-a-sass-stylesheet) e [CSS Modules](https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/template/README.md#adding-a-css-modules-stylesheet) por padrão.
+* 🎉 Mais opções de estilização: você pode usar [Sass](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-sass-stylesheet) e [CSS Modules](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-modules-stylesheet) por padrão.
 * 🐠 Atualizamos para [Babel 7](https://babeljs.io/blog/2018/08/27/7.0.0), incluindo suporte para [a sintaxe de Fragmento React](/docs/fragments.html#short-syntax) e várias correções de erros.
 * 📦 Atualizamos para [webpack 4](https://medium.com/webpack/webpack-4-released-today-6cdb994702d4), que automaticamente divide seus bundles de JS de maneira mais inteligente.
 * 🃏 Atualizamos para [Jest 23](https://jestjs.io/blog/2018/05/29/jest-23-blazing-fast-delightful-testing.html), que inclui um [mode interativo](https://jestjs.io/blog/2018/05/29/jest-23-blazing-fast-delightful-testing#interactive-snapshot-mode) para revisar _snapshots_.
@@ -27,7 +27,7 @@ Aqui está um pequeno resumo das novidades nesse lançamento:
 * 💎 Você pode usar [Apollo](https://github.com/leoasis/graphql-tag.macro#usage), [Relay Modern](https://github.com/facebook/relay/pull/2171#issuecomment-411459604), [MDX](https://github.com/facebook/create-react-app/issues/5149#issuecomment-425396995) e outros transformadores [Babel Macros](https://babeljs.io/blog/2017/09/11/zero-config-with-babel-macros) de terceiros.
 * 🌠 Agora você pode [importar um SVG como componente React](https://facebook.github.io/create-react-app/docs/adding-images-fonts-and-files#adding-svgs) e utilizá-lo no JSX.
 * 🐈 Você pode testar o novo modo experimental [Yarn Plug'n'Play](https://github.com/yarnpkg/rfcs/pull/101) que remove a necessidade de `node_modules`.
-* 🕸 Agora você pode [usar sua própria implementação de proxy](https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/template/README.md#configuring-the-proxy-manually) em desenvolvimento para coincidir com a API do seu servidor.
+* 🕸 Agora você pode [usar sua própria implementação de proxy](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#configuring-the-proxy-manually) em desenvolvimento para coincidir com a API do seu servidor.
 * 🚀 Agora você pode usar [pacotes escritos para as mais novas versões de Node](https://github.com/sindresorhus/ama/issues/446#issuecomment-281014491)  sem quebrar o build.
 * ✂️ Agora você pode opcionalmente obter um CSS bundle menor se você planeja suportar apenas navegadores mais modernos.
 * 👷‍♀️ Service workers agora são opcionais e implementados utilizando o [Workbox](https://developers.google.com/web/tools/workbox/) do Google.
@@ -59,7 +59,7 @@ Mais algumas dicas para ajudar você.
 
 **Quando você executar `npm start` pela primeira vez depois da atualização,** será perguntado quais navegadores você gostaria de suportar. Pressione `y` para aceitar os padrões. Ele serão escritos no seu `package.json` e você pode editá-los a qualquer momento. Create React App usará essa informação para produzir bundles CSS menores ou adicionar [polyfills](https://developer.mozilla.org/pt-BR/docs/Glossario/Polyfill) de acordo com sua opção de suportar navegadores modernos ou antigos.
 
-**Se `npm start` ainda assim não funcionar depois da atualização,** [veja as instruções de migração detalhadas nas notas de lançamento](https://github.com/facebook/create-react-app/releases/tag/v2.0.3). De fato, **há** algumas mudanças radicais nesse lançamento que podem quebrar seu código (breaking changes), mas o escopo delas são limitadas, então elas não devem tomar mais do que algumas horas para resolver. Veja que o **[suporte para navegadores antigos](https://github.com/facebook/create-react-app/blob/main/packages/react-app-polyfill/README.md) agora é opcional** para reduzir o tamanho de [polyfills](https://developer.mozilla.org/pt-BR/docs/Glossario/Polyfill).
+**Se `npm start` ainda assim não funcionar depois da atualização,** [veja as instruções de migração detalhadas nas notas de lançamento](https://github.com/facebook/create-react-app/releases/tag/v2.0.3). De fato, **há** algumas mudanças radicais nesse lançamento que podem quebrar seu código (breaking changes), mas o escopo delas são limitadas, então elas não devem tomar mais do que algumas horas para resolver. Veja que o **[suporte para navegadores antigos](https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md) agora é opcional** para reduzir o tamanho de [polyfills](https://developer.mozilla.org/pt-BR/docs/Glossario/Polyfill).
 
 **Se você ejetou anteriormente, mas agora quer atualizar,** uma solução comum é encontrar os commits onde você ejetou (e qualquer commit subsequence que altere a configuração), revertê-los, atualizar e depois talvez ejetar novamente. Também é possível que a funcionalidade pela qual você precisou ejetar (talvez Sass ou CSS Modules?), agora seja suportada por padrão.
 
@@ -72,7 +72,7 @@ Mais algumas dicas para ajudar você.
 Aqui está uma lista de mudanças neste lançamento que podem quebrar suas aplicações.
 
 * Node 6 não é mais suportado.
-* Suporte para navegadores antigos (como do IE 9 até IE 11) agora é opcional em um [pacote separado](https://github.com/facebook/create-react-app/tree/main/packages/react-app-polyfill).
+* Suporte para navegadores antigos (como do IE 9 até IE 11) agora é opcional em um [pacote separado](https://github.com/facebook/create-react-app/tree/master/packages/react-app-polyfill).
 * Agora a divisão de código (code-splitting) utilizando `import()` se comporta mais semelhante à especificação, enquanto que `require.ensure()` foi desativado.
 * O ambiente padrão do Jest agora inclui jsdom.
 * Suporte para especificar um objeto como configuração de `proxy` foi substituído pelo suporte para módulo proxy customizado.
