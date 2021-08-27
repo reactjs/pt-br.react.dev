@@ -191,7 +191,7 @@ npx babel --watch src --out-dir . --presets react-app/prod
 >
 >`npx` não é um erro de digitação -- [é uma ferramenta de executar pacotes que vem com npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).
 >
->Se você ver uma mensagem de erro dizendo "You have mistakenly installed the `babel` package", você pode ter perdido [o passo anterior](#add-jsx-to-a-project). Execute o passo anterior na mesma pasta e tente novamente.
+>Se você vir uma mensagem de erro dizendo "You have mistakenly installed the `babel` package", você pode ter perdido [o passo anterior](#add-jsx-to-a-project). Execute o passo anterior na mesma pasta e tente novamente.
 
 Não espere o comando finalizar -- esse comando inicia um watcher automatizado para o JSX.
 
