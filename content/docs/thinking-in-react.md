@@ -39,9 +39,15 @@ Mas como você sabe o que deveria ser seu próprio componente? Use as mesmas té
 
 Visto que você estará frequentemente exibindo um modelo de dados em JSON ao usuário, você perceberá que caso o seu modelo esteja corretamente construído, sua UI (e portanto a sua estrutura de componente) será mapeada satisfatoriamente. Isso acontece pois UI e modelo de dados tendem a aderir à mesma *arquitetura de informação*. Separe sua UI em componentes, onde cada componente corresponde a uma parte do seu modelo de dados.
 
+<<<<<<< HEAD
 ![Diagrama de componentes](../images/blog/thinking-in-react-components.png)
 
 Você verá que nós temos cinco componentes nessa aplicação. Em itálico estão os dados que cada componente representa.
+=======
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
+
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> a11c2534062bd79cc1e6e34db0e149f928df35bb
 
   1. **`FilterableProductTable` (laranja):** contém a totalidade do exemplo
   2. **`SearchBar` (azul):** recebe todo *input do usuário*
