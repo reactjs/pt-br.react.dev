@@ -230,7 +230,11 @@ class ComponentePai extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Ao usar um HOC (Componente de alta ordem) para estender componentes é recomendado [encaminhar a ref](/docs/forwarding-refs.html) para o componente de menor order usando a função  de React `forwardRef`. Se um terceiro HOC não passar a referência, o padrão acima ainda pode ser usado como fallback.
+=======
+When using a [HOC](/docs/higher-order-components.html) to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+>>>>>>> 4fab3d31469ab7a53dbf8b50cab5d57880a0c035
 
 Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Este é um exemplo relativamente raro de uma janela modal totalmente acessível. Não só define o foco inicial o botão cancelar (impedindo o usuário do teclado de ativar acidentalmente a ação de sucesso) e interceptar o foco do teclado dentro do modal, ele também redefine o foco de volta para o elemento que inicialmente acionou o modal.
 

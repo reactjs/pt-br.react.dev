@@ -46,6 +46,14 @@ Dan começou na programação depois de ter descoberto acidentalmente o Visual B
 
 Luna aprendeu a programar porque ela pensou que isso significava criar video games. Ao invés disso, ele acabou trabalhando no aplicativo web do Pinterest, e agora no próprio React. Luna não quer mais fazer video games, mas ela tem planos de praticar escrita criativa se ela se entediar.
 
+### Marco Salazar {#marco-salazar}
+
+![Marco](../images/team/salazarm.jpeg)
+
+[@salazarm on GitHub](https://github.com/salazarm) &middot; [@BkOptimism on Twitter](https://twitter.com/BkOptimism)
+
+Marco's first programming language was Assembly because he could use it to hack video games. Now online games are much more secure so he settles for playing fairly (mostly). In his spare time he plays games on his treadmill desk and makes art that he never finishes. Hopefully his PRs don't have the same fate.
+
 ### Rachel Nabors {#rachel-nabors}
 
 ![Rachel](../images/team/rnabors.jpg)
