@@ -55,8 +55,4 @@ Alguns componentes podem estar usando funções com base no tempo como `setTimeo
 
 Testes _end-to-end_ são úteis para testar grandes fluxos de trabalho, especialmente quando eles são críticos para o seu negócio (por exemplo, pagamentos ou criação de contas). Para esses testes, você provavelmente irá querer testar não só a forma que um navegador de verdade renderiza a aplicação inteira, como também a forma em que ele busca dados dos endpoints da API de verdade, usa sessões e cookies, e navega entre links diferentes. Você também pode querer fazer verificações não somente no estado do DOM, como também nos dados da aplicação (por exemplo, verificar se as atualizações foram persistidas ou não para o banco de dados).
 
-<<<<<<< HEAD
-Nesse cenário, poderiam ser utilizados frameworks como [Cypress](https://www.cypress.io/) ou uma biblioteca como [puppeteer](https://github.com/GoogleChrome/puppeteer) para que você possa navegar entre múltiplas rotas e fazer asserções sobre efeitos colaterais não somente no navegador, mas também possivelmente no backend.
-=======
-In this scenario, you would use a framework like [Cypress](https://www.cypress.io/), [Playwright](https://playwright.dev) or a library like [Puppeteer](https://pptr.dev/) so you can navigate between multiple routes and assert on side effects not just in the browser, but potentially on the backend as well.
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
+Nesse cenário, poderiam ser utilizados frameworks como [Cypress](https://www.cypress.io/), [Playwright](https://playwright.dev) ou uma biblioteca como [Puppeteer](https://pptr.dev/) para que você possa navegar entre múltiplas rotas e fazer asserções sobre efeitos colaterais não somente no navegador, mas também possivelmente no backend.

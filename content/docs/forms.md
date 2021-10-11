@@ -270,11 +270,7 @@ Além disso, como o `setState()` automaticamente [mescla um estado parcial ao es
 
 ## Valor Nulo em um Input Controlado {#controlled-input-null-value}
 
-<<<<<<< HEAD
 A especificação de uma prop `value` em um [componente controlado](/docs/forms.html#controlled-components) impede que o usuário altere a entrada, a menos que você deseje. Se você especificou uma prop `value`, mas o input ainda é editável, você pode ter acidentalmente definido o `value` como `undefined` ou `null`.
-=======
-Specifying the `value` prop on a [controlled component](/docs/forms.html#controlled-components) prevents the user from changing the input unless you desire so. If you've specified a `value` but the input is still editable, you may have accidentally set `value` to `undefined` or `null`.
->>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 O código a seguir demonstra isso. (O input é bloqueada no início, mas torna-se editável após um tempo.)
 
