@@ -230,7 +230,11 @@ class ComponentePai extends React.Component {
 this.inputElement.current.focus();
 ```
 
+<<<<<<< HEAD
 Ao usar um HOC (Componente de alta ordem) para estender componentes é recomendado [encaminhar a ref](/docs/forwarding-refs.html) para o componente de menor order usando a função  de React `forwardRef`. Se um terceiro HOC não passar a referência, o padrão acima ainda pode ser usado como fallback.
+=======
+When using a [HOC](/docs/higher-order-components.html) to extend components, it is recommended to [forward the ref](/docs/forwarding-refs.html) to the wrapped component using the `forwardRef` function of React. If a third party HOC does not implement ref forwarding, the above pattern can still be used as a fallback.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Este é um exemplo relativamente raro de uma janela modal totalmente acessível. Não só define o foco inicial o botão cancelar (impedindo o usuário do teclado de ativar acidentalmente a ação de sucesso) e interceptar o foco do teclado dentro do modal, ele também redefine o foco de volta para o elemento que inicialmente acionou o modal.
 
@@ -457,7 +461,11 @@ Deque Systems oferece [aXe-core](https://github.com/dequelabs/axe-core) para tes
 
 [O mecanismo de acessibilidade aXe](https://www.deque.com/products/axe/) é uma extensão de navegador de inspetor de acessibilidade construída com `aXe-core`.
 
+<<<<<<< HEAD
 Você também pode usar o [react-axe](https://github.com/dylanb/react-axe), um módulo para logar essas descobertas de acessibilidade diretamente no console durante o desenvolvimento e avaliação.
+=======
+You can also use the [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react) module to report these accessibility findings directly to the console while developing and debugging.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 #### WebAIM WAVE {#webaim-wave}
 

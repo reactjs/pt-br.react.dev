@@ -39,9 +39,15 @@ Mas como você sabe o que deveria ser seu próprio componente? Use as mesmas té
 
 Visto que você estará frequentemente exibindo um modelo de dados em JSON ao usuário, você perceberá que caso o seu modelo esteja corretamente construído, sua UI (e portanto a sua estrutura de componente) será mapeada satisfatoriamente. Isso acontece pois UI e modelo de dados tendem a aderir à mesma *arquitetura de informação*. Separe sua UI em componentes, onde cada componente corresponde a uma parte do seu modelo de dados.
 
+<<<<<<< HEAD
 ![Diagrama mostrando aninhamento de componentes](../images/blog/thinking-in-react-components.png)
 
 Você verá que nós temos cinco componentes nessa aplicação. Em itálico estão os dados que cada componente representa. Os números na imagem correspondem aos números abaixo.
+=======
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
+
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
   1. **`FilterableProductTable` (laranja):** contém a totalidade do exemplo
   2. **`SearchBar` (azul):** recebe todo *input do usuário*
@@ -137,7 +143,11 @@ Até aqui nós construímos um app que comporta-se como uma função das props e
 
 React torna este fluxo de dados explícito para ajudá-lo a entender como o seu programa funciona, mas isso requer um pouco mais de digitação que o a ligação bi-direcional de dados (two-way data binding) tradicional.
 
+<<<<<<< HEAD
 Se você tentar escrever ou marcar o checkbox na versão atual do nosso exemplo, perceberá que o React ignorará o seu input. Isso é intencional, uma vez que nós estabelecemos que a prop `value` do input deve ser sempre igual ao `state` passado por `FilterableProductTable`.
+=======
+If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 Vamos pensar um pouco sobre o que nós queremos que aconteça. Queremos ter certeza que sempre que o usuário modificar o formulário o state é atualizado para refletir o input. Uma vez que componentes devem atualizar apenas o seu próprio state, `FilterableProductTable` passará para `SearchBar` callbacks que deverão ser acionados sempre que o state precisar ser alterado. Nós podemos usar o evento `onChange` dos inputs para sermos notificados sobre isso. Os callbacks passados por `FilterableProductTable` irão chamar `setState()` e o app será atualizado.
 

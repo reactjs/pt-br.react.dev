@@ -910,11 +910,15 @@ Note que você ainda pode escolher entre passar o estado da aplicação para bai
 
 >Nota
 >
+<<<<<<< HEAD
 >Recomendamos [passar `dispatch` para baixo com context](#how-to-avoid-passing-callbacks-down) ao invés de callbacks individuais em props. A abordagem abaixo só é mencionada aqui para a integralidade e como válvula de escape.
 >
 >Note também que esse padrão pode causar problemas no [modo concorrente](/blog/2018/03/27/update-on-async-rendering.html). Planejamos prover mais alternativas ergonomicas no futuro, mas a solução mais segura no momento é sempre invalidar a callback se algum dos valores dos quais ela depende mudar.
 
 ### Como ler um valor frequentemente variável de `useCallback`? {#how-to-read-an-often-changing-value-from-usecallback}
+=======
+>We recommend to [pass `dispatch` down in context](#how-to-avoid-passing-callbacks-down) rather than individual callbacks in props. The approach below is only mentioned here for completeness and as an escape hatch.
+>>>>>>> 9b3c3f4e613440baf2e2f1775be65dac8c08ab5f
 
 Em alguns casos raros você pode precirar memorizar uma callback com [`useCallback`](/docs/hooks-reference.html#usecallback) mas a memorização não funciona muito bem porque a função interna tem que ser recriada muitas vezes. Se a função que você está memorizando é um manipulador de eventos e não é usado durante a renderização, você pode usar [ref como uma variável de instância](#is-there-something-like-instance-variables) e salvar o último valor nela manualmente:
 
