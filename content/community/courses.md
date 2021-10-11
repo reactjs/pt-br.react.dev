@@ -24,6 +24,8 @@ permalink: community/courses.html
 
 - [Scrimba: Learn React for free](https://scrimba.com/g/glearnreact) - 48 tutoriais em vídeo hands-on construindo react apps.
 
+- [University of Helsinki: Full Stack Open MOOC](https://fullstackopen.com/en/) - Aprenda a construir aplicativos da web com React. Disponível em inglês, espanhol, chinês e finlandês.
+
 ## Cursos pagos {#paid-courses}
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Pequenos vídeos instrutivos sobre React e muitos outros tópicos.

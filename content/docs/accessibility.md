@@ -230,7 +230,7 @@ class ComponentePai extends React.Component {
 this.inputElement.current.focus();
 ```
 
-Ao usar um HOC (Componente de alta ordem) para estender componentes é recomendado [encaminhar a ref](/docs/forwarding-refs.html) para o componente de menor order usando a função  de React `forwardRef`. Se um terceiro HOC não passar a referência, o padrão acima ainda pode ser usado como fallback.
+Ao usar um [HOC](/docs/higher-order-components.html)(Componente de alta ordem) para estender componentes é recomendado [encaminhar a ref](/docs/forwarding-refs.html) para o componente de menor order usando a função  de React `forwardRef`. Se um terceiro HOC não passar a referência, o padrão acima ainda pode ser usado como fallback.
 
 Um ótimo exemplo de gerenciamento de foco é o [react-aria-modal](https://github.com/davidtheclark/react-aria-modal). Este é um exemplo relativamente raro de uma janela modal totalmente acessível. Não só define o foco inicial o botão cancelar (impedindo o usuário do teclado de ativar acidentalmente a ação de sucesso) e interceptar o foco do teclado dentro do modal, ele também redefine o foco de volta para o elemento que inicialmente acionou o modal.
 
@@ -457,7 +457,7 @@ Deque Systems oferece [aXe-core](https://github.com/dequelabs/axe-core) para tes
 
 [O mecanismo de acessibilidade aXe](https://www.deque.com/products/axe/) é uma extensão de navegador de inspetor de acessibilidade construída com `aXe-core`.
 
-Você também pode usar o [react-axe](https://github.com/dylanb/react-axe), um módulo para logar essas descobertas de acessibilidade diretamente no console durante o desenvolvimento e avaliação.
+Você também pode usar o [@axe-core/react](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/react), um módulo para logar essas descobertas de acessibilidade diretamente no console durante o desenvolvimento e avaliação.
 
 #### WebAIM WAVE {#webaim-wave}
 

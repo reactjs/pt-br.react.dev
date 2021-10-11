@@ -99,7 +99,7 @@ React é um [monorepo](https://danluu.com/monorepo/). Seu repositório contém v
 
 ### React Core {#react-core}
 
-O "core" do React inclui todas as [`React` APIs de nível superior](/docs/top-level-api.html#react), por exemplo:
+O "core" do React inclui todas as [`React` APIs de nível superior](/docs/react-api.html#react), por exemplo:
 
 * `React.createElement()`
 * `React.Component`

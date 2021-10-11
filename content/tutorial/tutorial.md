@@ -480,7 +480,7 @@ Quando um Quadrado for clicado, a função `onClick` provida pelo Tabuleiro ser�
 1. A propriedade `onClick` do DOM embutida no componente `<button>` diz ao React para criar um evento de escuta (event listener).
 2. Quando o botão é clicado, o React irá chamar a função o manipulador de eventos `onClick` definido no método `render()` do Quadrado.
 3. Esse manipulador de eventos chamará a função recebida através da propriedade `onClick` que foi criada no Tabuleiro (`this.props.onClick()`).
-4. Como o Tabuleiro passou `onClick={() => this.handleClick(i)}` para o Quadrado, a função `this.handleClick(i)` será chamada quando o Quadrado for clicado.
+4. Como o Tabuleiro passou `onClick={() => this.handleClick(i)}` para o Quadrado, a função `handleClick(i)` será chamada quando o Quadrado for clicado.
 5. Como nós não definimos a função `handleClick()` ainda, nosso código quebrará.
 
 >Nota
@@ -550,7 +550,7 @@ Note como na função `handleClick`, nós chamamos `.slice()` para criar uma có
 
 ### Por que Imutabilidade é Importante {#why-immutability-is-important}
 
-No código do exemplo anterior nós sugerimos que você usasse o método `.slice()` para criar uma cópia do array de `quadrados` ao invés de modificar o existente. Iremos agora discutir imutabilidade e porque ela é importante de se aprender.
+No exemplo de código anterior, sugerimos que você crie uma cópia do array `squares` usando o método `slice ()` em vez de modificar o array existente. Agora discutiremos a imutabilidade e por que a imutabilidade é importante aprender.
 
 Geralmente existem duas maneiras de se alterar dados. A primeira é *mutar* o dado alterando diretamente seu valor. A segunda maneira é substituir o dado antigo por uma nova cópia com as alterações desejadas.
 
@@ -1071,6 +1071,8 @@ Vamos fazer um `map` sobre o `history` no método `render` do componente Game:
 ```
 
 **[Veja o código completo nessa etapa](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+
+À medida que iteramos através do array `history`, a variável `step` se refere ao valor do elemento `history` atual, e `move` se refere ao índice do elemento `history` atual. Estamos interessados ​​apenas em `move` aqui, portanto `step` não está sendo atribuído a nada.
 
 Para cada jogada no histórico do Jogo da Velha, nós criamos um item de lista `<li>` que contém um botão `<button>`. O botão tem um manipulador `onClick` que chama um método chamado `this.jumpTo()`. Nós ainda não implementamos o método `jumpTo()`. Por agora, nós devemos ver uma lista das jogadas que já ocorreram no jogo e um aviso no console do developer tools que diz: 
 

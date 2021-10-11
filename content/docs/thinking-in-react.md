@@ -137,7 +137,7 @@ Até aqui nós construímos um app que comporta-se como uma função das props e
 
 React torna este fluxo de dados explícito para ajudá-lo a entender como o seu programa funciona, mas isso requer um pouco mais de digitação que o a ligação bi-direcional de dados (two-way data binding) tradicional.
 
-Se você tentar escrever ou marcar o checkbox na versão atual do nosso exemplo, perceberá que o React ignorará o seu input. Isso é intencional, uma vez que nós estabelecemos que a prop `value` do input deve ser sempre igual ao `state` passado por `FilterableProductTable`.
+Se você tentar digitar ou marcar a caixa na versão anterior do exemplo (etapa 4), perceberá que o React ignorará o seu input. Isso é intencional, uma vez que nós estabelecemos que a prop `value` do input deve ser sempre igual ao `state` passado por `FilterableProductTable`.
 
 Vamos pensar um pouco sobre o que nós queremos que aconteça. Queremos ter certeza que sempre que o usuário modificar o formulário o state é atualizado para refletir o input. Uma vez que componentes devem atualizar apenas o seu próprio state, `FilterableProductTable` passará para `SearchBar` callbacks que deverão ser acionados sempre que o state precisar ser alterado. Nós podemos usar o evento `onChange` dos inputs para sermos notificados sobre isso. Os callbacks passados por `FilterableProductTable` irão chamar `setState()` e o app será atualizado.
 

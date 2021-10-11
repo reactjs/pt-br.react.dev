@@ -62,7 +62,7 @@ E então você pode usá-la como um componente qualquer:
 
 Error boundaries funcionam como o bloco `catch {}` do JavaScript, mas para componentes. Apenas componentes de classe podem ser error boundaries. Na prática, na maioria das vezes você irá declarar um componente error boundary uma vez e usá-lo em toda a aplicação.
 
-Note que **as error boundaries apenas capturam erros nos componentes abaixo delas na árvore**. Uma error boundary não pode capturar um erro em si mesma. Se uma error boundary falhar ao tentar renderizar a mensagem de erro, o erro será propagado para a error boundary mais próxima acima dela. Isto também é parecido com a forma que o bloco catch {} funciona no JavaScript.
+Note que **as error boundaries apenas capturam erros nos componentes abaixo delas na árvore**. Uma error boundary não pode capturar um erro em si mesma. Se uma error boundary falhar ao tentar renderizar a mensagem de erro, o erro será propagado para a error boundary mais próxima acima dela. Isto também é parecido com a forma que o bloco `catch {}` funciona no JavaScript.
 
 ## Demonstração ao vivo {#live-demo}
 
