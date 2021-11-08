@@ -1178,7 +1178,7 @@ Em seguida, definiremos o método `jumpTo` no componente Game para atualizar aqu
     // esse método não mudou
   }
 ```
-Notice in `jumpTo` method, we haven't updated history property of the state. That is because state updates are merged or in more simple words react will update only the properties mentioned in `setState` method leaving the remaining state as that is. For more info **[see the documentation](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-are-merged)**
+Observe no método `jumpTo`, não atualizamos a propriedade de histórico do estado. Isso ocorre porque as atualizações de estado são mescladas ou, em palavras mais simples, o react atualizará apenas as propriedades mencionadas no método `setState`, deixando o estado restante como está. Para mais informações **[veja a documentação](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-are-merged)**
 
 Agora faremos algumas modificações no método `handleClick` do componente Game, que é disparado quando você clica em um quadradado do tabuleiro (square).
 

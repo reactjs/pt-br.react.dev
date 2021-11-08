@@ -100,11 +100,7 @@ function ProfileTimeline() {
 
 Esta demo é um teaser. Não se preocupe se ainda não faz sentido. Falaremos mais sobre como isso funciona abaixo. Lembre-se de que o Suspense é mais um *mecanismo*, e APIs específicas como `fetchProfileData()` ou `resource.posts.read()` no exemplo acima não são muito importantes. Se você estiver curioso, poderá encontrar as definições deles no [sandbox de demonstração](https://codesandbox.io/s/frosty-hermann-bztrp).
 
-<<<<<<< HEAD
-Suspense não é uma biblioteca de busca de dados. É um **mecanismo para as bibliotecas de busca de dados** para comunicar o React que *os dados que um componente está lendo ainda não estão prontos*. O React pode esperar que esteja pronto e atualizar a UI. No Facebook, usamos o Relay e sua [nova integração com Suspense](docs/getting-started/step-by-step-guide/). Esperamos que outras bibliotecas como Apollo possam fornecer integrações semelhantes.
-=======
-Suspense is not a data fetching library. It's a **mechanism for data fetching libraries** to communicate to React that *the data a component is reading is not ready yet*. React can then wait for it to be ready and update the UI. At Facebook, we use Relay and its [new Suspense integration](https://relay.dev/docs/getting-started/step-by-step-guide/). We expect that other libraries like Apollo can provide similar integrations.
->>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
+Suspense não é uma biblioteca de busca de dados. É um **mecanismo para as bibliotecas de busca de dados** para comunicar o React que *os dados que um componente está lendo ainda não estão prontos*. O React pode esperar que esteja pronto e atualizar a UI. No Facebook, usamos o Relay e sua [nova integração com Suspense](https://relay.dev/docs/getting-started/step-by-step-guide/). Esperamos que outras bibliotecas como Apollo possam fornecer integrações semelhantes.
 
 A longo prazo, pretendemos que o Suspense se torne a principal maneira de ler dados assíncronos dos componentes -- não importa de onde esses dados sejam provenientes.
 
