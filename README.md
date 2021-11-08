@@ -1,6 +1,6 @@
-# reactjs.org
+# pt-br.reactjs.org
 
-This repo contains the source code and documentation powering [reactjs.org](https://reactjs.org/).
+This repo contains the source code and documentation powering [pt-br.reactjs.org](https://pt-br.reactjs.org/).
 
 ## Getting started
 
@@ -10,11 +10,11 @@ This repo contains the source code and documentation powering [reactjs.org](http
 1. Node: any 12.x version starting with v12.0.0 or greater
 1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
 1. A fork of the repo (for any contributions)
-1. A clone of the [reactjs.org repo](https://github.com/reactjs/reactjs.org) on your local machine
+1. A clone of the [pt-br.reactjs.org repo](https://github.com/reactjs/pt-br.reactjs.org) on your local machine
 
 ### Installation
 
-1. `cd reactjs.org` to go into the project root
+1. `cd pt-br.reactjs.org` to go into the project root
 1. `yarn` to install the website's npm dependencies
 
 ### Running locally
@@ -30,7 +30,7 @@ The documentation is divided into several sections with a different tone and pur
 
 ### Create a branch
 
-1. `git checkout main` from any folder in your local `reactjs.org` repository
+1. `git checkout main` from any folder in your local `pt-br.reactjs.org` repository
 1. `git pull origin main` to ensure you have the latest main code
 1. `git checkout -b the-name-of-my-branch` (replacing `the-name-of-my-branch` with a suitable name) to create a branch
 
