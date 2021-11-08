@@ -12,37 +12,48 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
-### React Brussels 2021 {#react-brussels-2021} 
-15 de outubro de 2021 - Evento remoto
+### React India 2021 {#react-india-2021}
+12 e 13 de novembro de 2021, 2021. Mumbai, India
 
-[Website](https://www.react.brussels/) - [Twitter](https://twitter.com/BrusselsReact) - [LinkedIn](https://www.linkedin.com/events/6805708233819336704/)
+[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
-### React Conf Brasil 2021 {#react-conf-brasil-2021}
-16 de outubro de 2021 - Evento remoto
+### AgentConf 2022 {#agent-conf-2022} 
+27 a 30 de janeiro de 2022. Presencial em Dornbirn e Lech Áustria
 
-[Website](http://reactconf.com.br) - [Twitter](https://twitter.com/reactconfbr) - [Slack](https://react.now.sh) - [Facebook](https://facebook.com/reactconf) - [Instagram](https://instagram.com/reactconfbr) - [YouTube](https://www.youtube.com/channel/UCJL5eorStQfC0x1iiWhvqPA/videos)
+[Website](https://agent.sh/) - [Twitter](https://twitter.com/AgentConf) - [Instagram](https://www.instagram.com/teamagent/)
 
-### React Advanced London 2021 {#react-advanced-2021} 
-20 e 22 de outubro de 2021. London, UK & Evento remoto
+### render(ATL) 2022 {#render-atlanta-2022} 
+2 a 4 de junho 2022. Atlanta, GA, USA
 
-[Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced)
+[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
 
-### React Advanced 2021 {#react-advanced-2021}
-22 e 23 de outubro de 2021. Presencial em Londres, Reino Unido + Evento remoto (evento híbrido)
-
-[Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
+## Conferências passadas {#past-conferences}
 
 ### < React Global > by Geekle {#react-global-2021}
 3 e 4 de novembro de 2021 - Evento remoto
 
 [Website](https://geekle.us/react) - [LinkedIn](https://www.linkedin.com/events/javascriptglobalsummit6721691514176720896/) 
 
-### React India 2021 {#react-india-2021}
-12 e 13 de novembro de 2021, 2021. Mumbai, India
+### React Advanced 2021 {#react-advanced-2021}
+22 e 23 de outubro de 2021. Presencial em Londres, Reino Unido + Evento remoto (evento híbrido)
 
-[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
+[Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
 
-## Conferências passadas {#past-conferences}
+### React Advanced London 2021 {#react-advanced-2021} 
+20 e 22 de outubro de 2021. London, UK & Evento remoto
+
+[Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced)
+
+### React Conf Brasil 2021 {#react-conf-brasil-2021}
+16 de outubro de 2021 - Evento remoto
+
+[Website](http://reactconf.com.br) - [Twitter](https://twitter.com/reactconfbr) - [Slack](https://react.now.sh) - [Facebook](https://facebook.com/reactconf) - [Instagram](https://instagram.com/reactconfbr) - [YouTube](https://www.youtube.com/channel/UCJL5eorStQfC0x1iiWhvqPA/videos)
+
+
+### React Brussels 2021 {#react-brussels-2021} 
+15 de outubro de 2021 - Evento remoto
+
+[Website](https://www.react.brussels/) - [Twitter](https://twitter.com/BrusselsReact) - [LinkedIn](https://www.linkedin.com/events/6805708233819336704/)
 
 ### render(ATL) 2021 {#render-atlanta-2021} 
 13 e 15 de setembro de 2021. Atlanta, GA, USA
