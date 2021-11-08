@@ -72,7 +72,7 @@ Você pode seguir uma abordagem cima-para-baixo ou baixo-para-cima. Isso signifi
 
 No final dessa etapa, você terá uma biblioteca de componentes reutilizáveis que renderizam seu modelo de dados. Seus componentes terão apenas o método `render()` uma vez que é apenas uma versão estática do seu app. O componente no topo da hierarquia (`FilterableProductTable`) receberá o modelo de dados como uma prop. Se você fizer alguma alteração no seu modelo de dados e chamar `ReactDOM.render()` novamente, a UI será atualizada. É fácil entender como sua UI é atualizada e onde realizar as alterações. O **fluxo de dados unidirecional** (_one-way data flow_) do React (também chamado de **ligação unidirecional** _ou one-way binding_) mantém tudo rápido e modular.
 
-Recorra à [documentação do React](/docs/) caso você precise de ajuda para executar esse passo.
+Recorra à [documentação do React](/docs/getting-started.html) caso você precise de ajuda para executar esse passo.
 
 ### Um Breve Interlúdio: Props vs State {#a-brief-interlude-props-vs-state}
 
