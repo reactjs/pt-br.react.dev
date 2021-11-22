@@ -3,7 +3,15 @@ title: "O plano para o React 18"
 author: [acdlite, bvaughn, abernathyca, gaearon, rachelnabors, rickhanlonii, sebmarkbage, sethwebster]
 ---
 
+<<<<<<< HEAD
 O time do React está animado para compartilhar algumas atualizações:
+=======
+> Update Nov. 15th, 2021
+>
+> React 18 is now in beta. More information about the status of the release is [available in the React 18 Working Group post](https://github.com/reactwg/react-18/discussions/112).
+
+The React team is excited to share a few updates:
+>>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
 1. Começamos a trabalhar no lançamento do React 18, que será nossa próxima versão principal.
 2. Criamos um Grupo de Trabalho para preparar a comunidade para a adoção gradual de novos recursos no React 18.
