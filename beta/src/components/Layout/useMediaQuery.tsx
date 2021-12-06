@@ -17,14 +17,14 @@ const useMediaQuery = (width: number) => {
 
   useEffect(() => {
     const media = window.matchMedia(`(max-width: ${width}px)`);
-    media.addEventListener('change', updateTarget);
+    media.addListener(updateTarget);
 
     // Check on mount (callback is not called until a change occurs)
     if (media.matches) {
       setTargetReached(true);
     }
 
-    return () => media.removeEventListener('change', updateTarget);
+    return () => media.removeListener(updateTarget);
   }, [updateTarget, width]);
 
   return targetReached;

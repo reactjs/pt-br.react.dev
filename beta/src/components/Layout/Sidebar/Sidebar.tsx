@@ -18,7 +18,7 @@ export function Sidebar({isMobileOnly}: {isMobileOnly?: boolean}) {
   const {menuRef, isOpen} = React.useContext(MenuContext);
   const isMobileSidebar = useMediaQuery(SIDEBAR_BREAKPOINT);
   let routeTree = React.useContext(SidebarContext);
-  const isHidden = isMobileSidebar ? !isOpen : false;
+  const isHidden = isMobileOnly && !isMobileSidebar;
 
   // HACK. Fix up the data structures instead.
   if ((routeTree as any).routes.length === 1) {
@@ -62,10 +62,14 @@ export function Sidebar({isMobileOnly}: {isMobileOnly?: boolean}) {
   return (
     <aside
       className={cn(
-        `lg:flex-grow lg:flex flex-col w-full pt-4 pb-8 lg:pb-0 lg:max-w-xs fixed lg:sticky bg-wash dark:bg-wash-dark z-10 top-0`,
+        `lg:flex-grow lg:flex flex-col w-full pt-4 pb-8 lg:pb-0 lg:max-w-xs fixed lg:sticky bg-wash dark:bg-wash-dark z-10`,
         isOpen ? 'block z-40' : 'hidden lg:block'
       )}
-      aria-hidden={isHidden}>
+      aria-hidden={isHidden ? 'true' : 'false'}
+      style={{
+        top: 0,
+        visibility: isHidden ? 'hidden' : undefined,
+      }}>
       <div className="px-5">
         <Search />
       </div>

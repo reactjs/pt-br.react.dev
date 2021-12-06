@@ -1076,7 +1076,7 @@ Vamos fazer um `map` sobre o `history` no método `render` do componente Game:
 À medida que iteramos através do array `history`, a variável `step` se refere ao valor do elemento `history` atual, e `move` se refere ao índice do elemento `history` atual. Estamos interessados ​​apenas em `move` aqui, portanto `step` não está sendo atribuído a nada.
 =======
 As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We are only interested in `move` here, hence `step` is not getting assigned to anything.
->>>>>>> aa70dcedc6db07987a814dba2b296cc4c5219860
+>>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
 Para cada jogada no histórico do Jogo da Velha, nós criamos um item de lista `<li>` que contém um botão `<button>`. O botão tem um manipulador `onClick` que chama um método chamado `this.jumpTo()`. Nós ainda não implementamos o método `jumpTo()`. Por agora, nós devemos ver uma lista das jogadas que já ocorreram no jogo e um aviso no console do developer tools que diz: 
 
@@ -1187,7 +1187,7 @@ Observe no método `jumpTo`, não atualizamos a propriedade de histórico do est
 =======
 
 Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as that is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
->>>>>>> aa70dcedc6db07987a814dba2b296cc4c5219860
+>>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
 Agora faremos algumas modificações no método `handleClick` do componente Game, que é disparado quando você clica em um quadradado do tabuleiro (square).
 

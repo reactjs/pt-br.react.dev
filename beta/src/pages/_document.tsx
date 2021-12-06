@@ -46,7 +46,7 @@ class MyDocument extends Document {
                   }
                   setTheme(initialTheme);
 
-                  darkQuery.addEventListener('change', function (e) {
+                  darkQuery.addListener(function (e) {
                     if (!preferredTheme) {
                       setTheme(e.matches ? 'dark' : 'light');
                     }
