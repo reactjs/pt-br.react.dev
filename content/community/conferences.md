@@ -37,16 +37,12 @@ December 15, 2021. Tel-Aviv, Israel
 
 [Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Videos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
 
-### AgentConf 2022 {#agent-conf-2022} 
+### AgentConf 2022 {#agent-conf-2022}
 27 a 30 de janeiro de 2022. Presencial em Dornbirn e Lech Áustria
 
 [Website](https://agent.sh/) - [Twitter](https://twitter.com/AgentConf) - [Instagram](https://www.instagram.com/teamagent/)
 
 ### render(ATL) 2022 {#render-atlanta-2022} 
-<<<<<<< HEAD
-2 a 4 de junho 2022. Atlanta, GA, USA
-
-[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
 
 ## Conferências passadas {#past-conferences}
 
@@ -66,11 +62,7 @@ June 2-4, 2022. Atlanta, GA, USA
 June 17 & 21, 2022. In-person in Amsterdam, Netherlands + remote first interactivity (hybrid event)
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
->>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
-## Past Conferences {#past-conferences}
-
-<<<<<<< HEAD
 ### React Advanced London 2021 {#react-advanced-2021} 
 20 e 22 de outubro de 2021. London, UK & Evento remoto
 
@@ -102,7 +94,6 @@ October 16, 2021 - remote event
 
 ### React Brussels 2021 {#react-brussels-2021} 
 October 15, 2021 - remote event
->>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
 [Website](https://www.react.brussels/) - [Twitter](https://twitter.com/BrusselsReact) - [LinkedIn](https://www.linkedin.com/events/6805708233819336704/)
 
