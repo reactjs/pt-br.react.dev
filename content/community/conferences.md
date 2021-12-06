@@ -10,67 +10,10 @@ redirect_from:
 
 Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por favor, mantenha a lista em ordem cronológica)
 
-<<<<<<< HEAD
-## Próximas Conferências {#upcoming-conferences}
-
-### React India 2021 {#react-india-2021}
-12 e 13 de novembro de 2021, 2021. Mumbai, India
-
-[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
-
-### React India 2021 {#react-india-2021}
-November 12-13, 2021 - remote event
-
-[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
-
-### React Conf 2021 {#react-conf-2021}
-December 8, 2021 - remote event (replay event on December 9)
-
-[Website](https://conf.reactjs.org/)
-
-### ReactEurope 2021 {#reacteurope-2021}
-December 9-10, 2021 - remote event
-
-[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Videos](https://www.youtube.com/c/ReacteuropeOrgConf)
-
-### ReactNext 2021 {#react-next-2021}
-December 15, 2021. Tel-Aviv, Israel
-
-[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Videos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
-
-### AgentConf 2022 {#agent-conf-2022} 
-27 a 30 de janeiro de 2022. Presencial em Dornbirn e Lech Áustria
-=======
-## Upcoming Conferences {#upcoming-conferences}
-
-### React Conf 2021 {#react-conf-2021}
-December 8, 2021 - remote event (replay event on December 9)
-
-[Website](https://conf.reactjs.org/)
-
-### ReactEurope 2021 {#reacteurope-2021}
-December 9-10, 2021 - remote event
-
-[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Videos](https://www.youtube.com/c/ReacteuropeOrgConf)
-
-### ReactNext 2021 {#react-next-2021}
-December 15, 2021. Tel-Aviv, Israel
-
-[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Videos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
-
-### AgentConf 2022 {#agent-conf-2022} 
-January 27th - 30th, 2022. In-person in Dornbirn and Lech Austria
->>>>>>> aa70dcedc6db07987a814dba2b296cc4c5219860
-
 [Website](https://agent.sh/) - [Twitter](https://twitter.com/AgentConf) - [Instagram](https://www.instagram.com/teamagent/)
 
 ### render(ATL) 2022 {#render-atlanta-2022} 
-<<<<<<< HEAD
-2 a 4 de junho 2022. Atlanta, GA, USA
 
-[Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
-
-<<<<<<< HEAD
 ## Conferências passadas {#past-conferences}
 
 ### < React Global > by Geekle {#react-global-2021}
@@ -89,11 +32,7 @@ June 2-4, 2022. Atlanta, GA, USA
 June 17 & 21, 2022. In-person in Amsterdam, Netherlands + remote first interactivity (hybrid event)
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
->>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
-## Past Conferences {#past-conferences}
-
-<<<<<<< HEAD
 ### React Advanced London 2021 {#react-advanced-2021} 
 20 e 22 de outubro de 2021. London, UK & Evento remoto
 
@@ -125,17 +64,6 @@ October 16, 2021 - remote event
 
 ### React Brussels 2021 {#react-brussels-2021} 
 October 15, 2021 - remote event
->>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
-
-[Website](https://www.react.brussels/) - [Twitter](https://twitter.com/BrusselsReact) - [LinkedIn](https://www.linkedin.com/events/6805708233819336704/)
-=======
-### React Summit 2022 {#react-summit-2022}
-June 17 & 21, 2022. In-person in Amsterdam, Netherlands + remote first interactivity (hybrid event)
-
-[Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
-
-## Past Conferences {#past-conferences}
->>>>>>> aa70dcedc6db07987a814dba2b296cc4c5219860
 
 ### React India 2021 {#react-india-2021}
 November 12-13, 2021 - remote event
