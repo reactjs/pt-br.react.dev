@@ -7,8 +7,6 @@ author: [acdlite, bvaughn, abernathyca, gaearon, rachelnabors, rickhanlonii, seb
 >
 > React 18 está em beta. Mais informações sobre o status da release está [disponível no post React 18 Working Group](https://github.com/reactwg/react-18/discussions/112).
 
-The React team is excited to share a few updates:
-
 O time do React está animado para compartilhar algumas atualizações:
 
 1. Começamos a trabalhar no lançamento do React 18, que será nossa próxima versão principal.
