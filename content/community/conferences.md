@@ -22,6 +22,7 @@ November 12-13, 2021 - remote event
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia/) - [LinkedIn](https://www.linkedin.com/showcase/14545585) - [YouTube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w/videos)
 
+<<<<<<< HEAD
 ### React Conf 2021 {#react-conf-2021}
 December 8, 2021 - remote event (replay event on December 9)
 
@@ -39,6 +40,10 @@ December 15, 2021. Tel-Aviv, Israel
 
 ### AgentConf 2022 {#agent-conf-2022}
 27 a 30 de janeiro de 2022. Presencial em Dornbirn e Lech Áustria
+=======
+### AgentConf 2022 {#agent-conf-2022} 
+January 27th - 30th, 2022. In-person in Dornbirn and Lech Austria
+>>>>>>> 569949e266f5724a04821d6c4f211286238616dc
 
 [Website](https://agent.sh/) - [Twitter](https://twitter.com/AgentConf) - [Instagram](https://www.instagram.com/teamagent/)
 
@@ -66,7 +71,27 @@ June 17 & 21, 2022. In-person in Amsterdam, Netherlands + remote first interacti
 ### React Advanced London 2021 {#react-advanced-2021} 
 20 e 22 de outubro de 2021. London, UK & Evento remoto
 
+<<<<<<< HEAD
 [Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced)
+=======
+### React Conf 2021 {#react-conf-2021}
+December 8, 2021 - remote event (replay event on December 9)
+
+[Website](https://conf.reactjs.org/)
+
+### ReactEurope 2021 {#reacteurope-2021}
+December 9-10, 2021 - remote event
+
+[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Videos](https://www.youtube.com/c/ReacteuropeOrgConf)
+
+### ReactNext 2021 {#react-next-2021}
+December 15, 2021. Tel-Aviv, Israel
+
+[Website](https://react-next.com) - [Twitter](https://twitter.com/ReactNext) - [Videos](https://www.youtube.com/channel/UC3BT8hh3yTTYxbLQy_wbk2w)
+
+### React India 2021 {#react-india-2021}
+November 12-13, 2021 - remote event
+>>>>>>> 569949e266f5724a04821d6c4f211286238616dc
 
 ### React Conf Brasil 2021 {#react-conf-brasil-2021}
 16 de outubro de 2021 - Evento remoto
