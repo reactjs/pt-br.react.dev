@@ -10,7 +10,7 @@ React tem uma comunidade de milhões de desenvolvedores. Nesta página nós list
 
 ## Código de Conduta {/*code-of-conduct*/}
 
-Antes de participar das comunidades de React, [por favor leia nosso Código de Conduta](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md). Nós adotamos o [Contributor Covenant](https://www.contributor-covenant.org/pt-br/version/2/0/code_of_conduct/) e nós esperamos que todos os membros da comunidade adiram a essas diretrizes.
+Antes de participar das comunidades de React, [por favor leia nosso Código de Conduta](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md). Nós adotamos o [Contributor Covenant](https://www.contributor-covenant.org/pt-br/version/2/0/code_of_conduct/) e nós esperamos que todos os membros da comunidade sigam essas diretrizes.
 
 ## Stack Overflow {/*stack-overflow*/}
 
