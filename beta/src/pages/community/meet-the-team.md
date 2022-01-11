@@ -9,7 +9,7 @@ O desenvolvimento do React é liderado por uma pequena equipe dedicada que traba
 
 ## React Core {/*react-core*/}
 
-Os membros da equipe React Core trabalham em tempo integral nas APIs do componente principal, no mecanismo que alimenta o React DOM e React Native, React DevTools e o site de documentação React.
+Os membros da equipe React Core trabalham em tempo integral nas APIs do componente principal, no mecanismo que alimenta o React DOM e React Native, React DevTools e o site de documentação do React.
 
 Os membros atuais da equipe React estão listados em ordem alfabética abaixo.
 
@@ -19,7 +19,7 @@ Os membros atuais da equipe React estão listados em ordem alfabética abaixo.
 
 [@acdlite no GitHub](https://github.com/acdlite) &middot; [@acdlite no Twitter](https://twitter.com/acdlite)
 
-Andrew começou com o desenvolvimento web criando sites com WordPress e, eventualmente, foi levedo a fazer JavaScript. Seu passatempo favorito é karaokê. Andrew pode ser um vilão da Disney ou uma princesa da Disney, dependendo do dia.
+Andrew começou com o desenvolvimento web criando sites com WordPress e, eventualmente, para o ecossistema JavaScript. Seu passatempo favorito é karaokê. Andrew pode ser um vilão da Disney ou uma princesa da Disney, dependendo do dia.
 
 
 
@@ -59,7 +59,7 @@ Luna aprendeu programação porque ela pensou que isso significava criar videoga
 
 [@salazarm no GitHub](https://github.com/salazarm) &middot; [@BkOptimism no Twitter](https://twitter.com/BkOptimism)
 
-A primeira linguagem de programação de Marco foi a Assembly porque ele poderia usá-la para hackear videogames. Agora, os jogos online são muito mais seguros, então ele se contenta em jogar de forma justa (na maioria das vezes). Em seu tempo livre, ele joga em sua mesa de esteira e faz artes que nunca termina. Esperançosamente, seus PRs não terão o mesmo destino.
+A primeira linguagem de programação de Marco foi a Assembly, porque ele poderia usá-la para hackear videogames. Agora, os jogos online são muito mais seguros, então ele se contenta em jogar de forma justa (na maioria das vezes). Em seu tempo livre, ele joga em sua mesa de esteira e faz artes que nunca termina. Esperançosamente, seus PRs não terão o mesmo destino.
 
 
 
@@ -69,7 +69,7 @@ A primeira linguagem de programação de Marco foi a Assembly porque ele poderia
 
 [@rachelnabors no GitHub](https://github.com/rachelnabors) &middot; [@rachelnabors no Twitter](https://twitter.com/rachelnabors)
 
-Rachel escreveu um [livro sobre animação de interface do usuário](https://abookapart.com/products/animation-at-work) e trabalhou com MDN e W3C na API de animações da web. Agora ela está ocupada com materiais educacionais e engenharia comunitária na equipe React. Secretamente, ela é uma cartunista premiada para adolescentes. Ela está fazendo um chá chique com água morna na micro-cozinha agora mesmo.
+Rachel escreveu um [livro sobre animação de interface do usuário](https://abookapart.com/products/animation-at-work) e trabalhou com MDN e W3C na API de animações da web. Agora ela está ocupada com materiais educacionais e engenharia comunitária na equipe React. Secretamente, ela é uma premiada cartunista, com foco em adolescentes. Ela está fazendo um chá chique com água morna na micro-cozinha agora mesmo.
 
 
 
@@ -79,7 +79,7 @@ Rachel escreveu um [livro sobre animação de interface do usuário](https://abo
 
 [@rickhanlonii no GitHub](https://github.com/rickhanlonii) &middot; [@rickhanlonii no Twitter](https://twitter.com/rickhanlonii)
 
-Ricky formou-se em matemática teórica e, de alguma forma, acabou fazendo parte da equipe React Native por alguns anos antes de se juntar à equipe React. Quando ele não está programando, você pode encontrá-lo praticando snowboard, ciclismo, escalada, golfe ou fechando "issues"" do GitHub que não correspondem ao modelo.
+Ricky formou-se em matemática teórica e, de alguma forma, acabou fazendo parte da equipe React Native por alguns anos antes de se juntar à equipe React. Quando ele não está programando, você pode encontrá-lo praticando snowboard, ciclismo, escalada, golfe ou fechando "issues" do GitHub que não correspondem ao modelo.
 
 ### Sebastian Markbåge {/*sebastian-markbåge*/}
 
