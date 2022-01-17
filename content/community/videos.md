@@ -10,6 +10,11 @@ redirect_from:
 
 Vídeos dedicados à discussão sobre o React e o ecossistema do React.
 
+### React Conf 2021 {#react-conf-2021}
+
+A playlist of videos from React Conf 2021.
+<iframe title="React Conf 2021" width="650" height="366" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa" frameborder="0" allowfullscreen></iframe>
+
 ### React Conf 2019 {#react-conf-2019}
 
 Uma playlist de vídeos do React Conf 2019.

@@ -35,7 +35,7 @@ Alternatively, you can [use Immer](#write-concise-update-logic-with-immer) which
 
 <Gotcha>
 
-Unfortunately, [`slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) and [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) are named similarly but are very different:
+Unfortunately, [`slice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) and [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) are named similarly but are very different:
 
 * `slice` lets you copy an array or a part of it.
 * `splice` **mutates** the array (to insert or delete items).
@@ -208,7 +208,7 @@ setArtists(
 );
 ```
 
-Here, `artists.filter(s => s.id !== artist.id)` means "create an array that consists of those `artists` whose IDs are different from `artist.id`." In other words, each artist's "Delete" button will filter _that_ artist out of the array, and then request a re-render with the resulting array. Note that `filter` does not modify the original array.
+Here, `artists.filter(a => a.id !== artist.id)` means "create an array that consists of those `artists` whose IDs are different from `artist.id`." In other words, each artist's "Delete" button will filter _that_ artist out of the array, and then request a re-render with the resulting array. Note that `filter` does not modify the original array.
 
 ### Transforming an array {/*transforming-an-array*/}
 
