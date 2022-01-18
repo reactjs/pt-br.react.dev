@@ -48,4 +48,4 @@ _Note que esta funcionalidade não faz parte do React, mas é fornecida por bibl
 
 ### Posso fazer animações em React? {#can-i-do-animations-in-react} 
 
-O React pode ser usado para animações. Veja [React Transition Group](https://reactcommunity.org/react-transition-group/) e [React Motion](https://github.com/chenglou/react-motion) ou [React Spring](https://github.com/react-spring/react-spring), por exemplo.
+O React pode ser usado para animações. Veja [React Transition Group](https://reactcommunity.org/react-transition-group/), [React Motion](https://github.com/chenglou/react-motion), [React Spring](https://github.com/react-spring/react-spring) ou [Framer Motion](https://framer.com/motion) por exemplo.
