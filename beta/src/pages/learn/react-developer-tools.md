@@ -45,7 +45,7 @@ Em seguida, conecte seu website adicionando a seguinte tag `<script>` ao início
 
 Agora recarregue seu website para que você possa ver a ferramenta de desenvolvedor.
 
-![React Developer Tools standalone](https://beta.reactjs.org/images/docs/react-devtools-standalone.png)
+![React Developer Tools standalone](/images/docs/react-devtools-standalone.png)
 
 ## Mobile (React Native) {/*mobile-react-native*/}
 A ferramenta de desenvolvedor do React também pode ser usada para inspecionar aplicações construídas com [React Native](https://reactnative.dev/).
