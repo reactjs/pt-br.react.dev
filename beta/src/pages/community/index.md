@@ -1,5 +1,5 @@
 ---
-title: Community
+title: Comunidade
 ---
 
 <Intro>
