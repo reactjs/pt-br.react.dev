@@ -173,11 +173,15 @@ Decidir onde introduzir a divisão de código em sua aplicação pode ser um pou
 
 Um bom lugar para começar é nas rotas. A maioria das pessoas na web estão acostumadas com transições entre páginas que levam algum tempo para carregar. Você também tende a re-renderizar toda a página de uma só vez para que seus usuários não interajam com outros elementos na página ao mesmo tempo.
 
+<<<<<<< HEAD
 Aqui está um exemplo de como configurar a divisão de código baseada em rotas na sua aplicação usando bibliotecas como o [React Router](https://reacttraining.com/react-router/) com `React.lazy`.
+=======
+Here's an example of how to setup route-based code splitting into your app using libraries like [React Router](https://reactrouter.com/) with `React.lazy`.
+>>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
 
 ```js
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./routes/Home'));
 const About = lazy(() => import('./routes/About'));
@@ -185,10 +189,10 @@ const About = lazy(() => import('./routes/About'));
 const App = () => (
   <Router>
     <Suspense fallback={<div>Loading...</div>}>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </Suspense>
   </Router>
 );

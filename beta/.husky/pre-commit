@@ -2,7 +2,11 @@
 . "$(dirname "$0")/_/husky.sh"
 
 cd beta
+<<<<<<< HEAD
 yarn generate-ids
 git add -u src/pages/**/*.md
+=======
+yarn lint-heading-ids
+>>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
 yarn prettier
 yarn lint:fix
