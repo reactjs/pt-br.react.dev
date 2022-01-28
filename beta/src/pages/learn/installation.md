@@ -8,7 +8,7 @@ O React foi projetado desde o início para a adoção gradual, e você pode usar
 
 </Intro>
 
-<YouWillLearn>
+<YouWillLearn isChapter={true}>
 
 * [Como adicionar o React a uma página HTML](/learn/add-react-to-a-website)
 * [Como criar um novo projeto React](/learn/start-a-new-react-project)
