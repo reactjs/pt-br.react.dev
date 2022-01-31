@@ -18,7 +18,7 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 [Website](https://agent.sh/) - [Twitter](https://twitter.com/AgentConf) - [Instagram](https://www.instagram.com/teamagent/)
 
 ### React Live 2022 {#react-live-2022}
-April 1st, 2022. Amsterdam, The Netherlands
+1 de abril de 2022. Amsterdã, Holanda
 
 [Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
 
@@ -28,7 +28,7 @@ April 1st, 2022. Amsterdam, The Netherlands
 [Website](https://www.reactmiami.com/)
 
 ### Reactathon 2022 {#reactathon-2022} 
-May 3 - 5, 2022. Berkeley, CA
+3 a 5 de maio de 2022. Berkeley, CA
 
 [Website](https://reactathon.com) - [Twitter](https://twitter.com/reactathon) -[YouTube](https://www.youtube.com/watch?v=-YG5cljNXIA)
 
