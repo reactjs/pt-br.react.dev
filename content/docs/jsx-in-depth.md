@@ -231,11 +231,7 @@ No geral, nós não recomendamos *não* a passagem de um valor para uma prop, po
 
 ### Atributos com Spread {#spread-attributes}
 
-<<<<<<< HEAD
-Se você já tiver `props` como um objeto e quiser passar em JSX, você pode usar `...` como um operador "spread" para passar todo o objeto props. Esses dois componentes são equivalentes:
-=======
-If you already have `props` as an object, and you want to pass it in JSX, you can use `...` as a "spread" syntax to pass the whole props object. These two components are equivalent:
->>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
+Se você já tiver `props` como um objeto e quiser passar em JSX, você pode usar `...` como uma sintaxe "spread" para passar todo o objeto props. Esses dois componentes são equivalentes:
 
 ```js{7}
 function App1() {
@@ -248,11 +244,7 @@ function App2() {
 }
 ```
 
-<<<<<<< HEAD
-Você também pode escolher props específicas que seu componente irá consumir enquanto passa todas as outras props usando o operador spread.
-=======
-You can also pick specific props that your component will consume while passing all other props using the spread syntax.
->>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
+Você também pode escolher props específicas que seu componente irá consumir enquanto passa todas as outras props usando a sintaxe de propagação.
 
 ```js{2}
 const Button = props => {
