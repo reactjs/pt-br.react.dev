@@ -41,11 +41,7 @@ Essa abordagem nos atraiu por vários motivos:
 
 Começamos com um período inicial de teste em três idiomas: espanhol, japonês e chinês simplificado. Isso nos permitiu resolver quaisquer problemas no processo e garantir que futuras traduções tenham ótimas chances de sucesso. Eu queria dar a liberdade para que as equipes de tradução pudessem escolher qualquer ferramenta com a qual se sentissem à vontade. O único requisito é uma [checklist](https://github.com/reactjs/reactjs.org-translation/blob/master/PROGRESS.template.md) que descreve a ordem de importância para a tradução de páginas.
 
-<<<<<<< HEAD
-Após o período de testes, estávamos prontos para aceitar mais idiomas. Eu criei [um script](https://github.com/reactjs/reactjs.org-translation/blob/master/scripts/create.js) para automatizar a criação de novos repositórios de idiomas, e um site, [O React já esta traduzido?](https://isreacttranslatedyet.com), para acompanhar o andamento das diferentes traduções. Começamos *10* novas traduções apenas no nosso primeiro dia!
-=======
-After the trial period, we were ready to accept more languages. I created [a script](https://github.com/reactjs/reactjs.org-translation/blob/master/scripts/create.js) to automate the creation of the new language repo, and a site, [Is React Translated Yet?](https://translations.reactjs.org), to track progress on the different translations. We started *10* new translations on our first day alone!
->>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
+Após o período de testes, estávamos prontos para aceitar mais idiomas. Eu criei [um script](https://github.com/reactjs/reactjs.org-translation/blob/master/scripts/create.js) para automatizar a criação de novos repositórios de idiomas, e um site, [O React já esta traduzido?](https://translations.reactjs.org), para acompanhar o andamento das diferentes traduções. Começamos *10* novas traduções apenas no nosso primeiro dia!
 
 Por causa da automação, o restante da manutenção foi em geral tranquila. Nós finalmente criamos um [canal no Slack](https://rt-slack-invite.herokuapp.com) para facilitar o compartilhamento de informações pelos tradutores, e eu publiquei um guia para solidificar as [responsabilidades dos mantenedores](https://github.com/reactjs/reactjs.org-translation/blob/master/maintainer-guide.md). Permitir que os tradutores conversassem entre si foi um grande benefício - por exemplo, as traduções em árabe, persa e hebraico eram capazes de se comunicar entre si para obter o [texto da direita para a esquerda](https://en.wikipedia.org/wiki/Right-to-left) funcionando!
 
