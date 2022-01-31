@@ -36,11 +36,7 @@ function MyDiv(props) {
 }
 ```
 
-<<<<<<< HEAD
-**Bom:** O spread operator pode ser usado para extrair variáveis ​​de props e colocar os objetos restantes em uma variável.
-=======
-**Good:** The spread syntax can be used to pull variables off props, and put the remaining props into a variable.
->>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
+**Bom:** O spread sintaxe pode ser usado para extrair variáveis ​​de props e colocar os objetos restantes em uma variável.
 
 ```js
 function MyDiv(props) {
