@@ -44,6 +44,7 @@ React foi originalmente criado por [Jordan Walke](https://github.com/jordwalke).
 Esta lista não é exaustiva.
 
 Gostaríamos de agradecer especialmente ao [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Somos também gratos a todos voluntários que [traduziram o React em outros idiomas](https://translations.reactjs.org/).
+
 ## React Docs {/*react-docs*/}
 
 ### Documentação {/*documentation*/}
