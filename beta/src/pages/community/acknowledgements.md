@@ -4,7 +4,7 @@ title: Acknowledgements
 
 ## React {/*react*/}
 
-React was originally created by [Jordan Walke](https://github.com/jordwalke). Today, React has a [dedicated full-time team working on it](/community/team.html), as well as over a thousand [open source contributors](https://github.com/facebook/react/blob/main/AUTHORS). We'd like to recognize a few people who have made significant contributions to React and its documentation in the past and have helped maintain them over the years:
+React foi originalmente criado por [Jordan Walke](https://github.com/jordwalke). Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team.html), assim como milhares de [contribuidores open source](https://github.com/facebook/react/blob/main/AUTHORS). Gostaríamos de dar reconhecimento a algumas pessoas que fizeram contribuições significativas ao React e sua documentação no passado e ajudaram a mantê-lo através dos anos:
 
 * [Almero Steyn](https://github.com/AlmeroSteyn)
 * [Andreas Svensson](https://github.com/syranide)
@@ -41,38 +41,37 @@ React was originally created by [Jordan Walke](https://github.com/jordwalke). To
 * [Tim Yung](https://github.com/yungsters)
 * [Yuzhi Zheng](https://github.com/yuzhi)
 
-This list is not exhaustive.
+Esta lista não é exaustiva.
 
-We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We are also thankful to all the volunteers who [translated React into other languages](https://translations.reactjs.org/).
-
+Gostaríamos de agradecer especialmente ao [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Somos também gratos a todos voluntários que [traduziram o React em outros idiomas](https://translations.reactjs.org/).
 ## React Docs {/*react-docs*/}
 
-### Documentation {/*documentation*/}
+### Documentação {/*documentation*/}
 
-* [Rachel Nabors](https://twitter.com/RachelNabors): editing, writing, illustrating
-* [Dan Abramov](https://twitter.com/dan_abramov): writing, curriculum design
-* [Sylwia Vargas](https://twitter.com/SylwiaVargas): example code
+* [Rachel Nabors](https://twitter.com/RachelNabors): edição, escrita e ilustração
+* [Dan Abramov](https://twitter.com/dan_abramov): escrita, design de currículo
+* [Sylwia Vargas](https://twitter.com/SylwiaVargas): código de exemplo
 
 ### Design {/*design*/}
 
 * [Dan Lebowitz](https://twitter.com/lebo): design
 * [Razvan Gradinar](https://dribbble.com/GradinarRazvan): design
-* [Maggie Appleton](https://maggieappleton.com/): diagram system
+* [Maggie Appleton](https://maggieappleton.com/): diagramação do sistema
 
-### Development {/*development*/}
+### Desenvolvimento {/*development*/}
 
-* [Jared Palmer](https://twitter.com/jaredpalmer): site development
-* [ThisDotLabs](https://www.thisdot.co/) ([Dane Grant](https://twitter.com/danecando), [Dustin Goodman](https://twitter.com/dustinsgoodman)): site development
-* [CodeSandbox](https://codesandbox.io/) ([Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), [Danilo Woznica](https://twitter.com/danilowoz)): sandbox integration
-* [Rick Hanlon](https://twitter.com/rickhanlonii): site development
+* [Jared Palmer](https://twitter.com/jaredpalmer): desenvolvimento do site
+* [ThisDotLabs](https://www.thisdot.co/) ([Dane Grant](https://twitter.com/danecando), [Dustin Goodman](https://twitter.com/dustinsgoodman)): desenvolvimento do site
+* [CodeSandbox](https://codesandbox.io/) ([Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), [Danilo Woznica](https://twitter.com/danilowoz)): integração da sandbox
+* [Rick Hanlon](https://twitter.com/rickhanlonii): desenvolvimento do site
 
-We'd also like to thank countless alpha testers and community members who gave us feedback along the way.
+Gostaríamos também de agradecer aos inúmeros alpha testers e membros comunitários que nos deram feedback ao longo do processo.
 
-## Additional Thanks {/*additional-thanks*/}
+## Agradecimentos Extras {/*additional-thanks*/}
 
-Additionally, we're grateful to:
+Adicionalmente, somos gratos a:
 
-* [Jeff Barczewski](https://github.com/jeffbski) for allowing us to use the `react` package name on npm
-* [Christopher Aue](https://christopheraue.net/) for letting us use the reactjs.com domain name and the [@reactjs](https://twitter.com/reactjs) username on Twitter
-* [ProjectMoon](https://github.com/ProjectMoon) for letting us use the [flux](https://www.npmjs.com/package/flux) package name on npm
-* Shane Anderson for allowing us to use the [react](https://github.com/react) org on GitHub
+* [Jeff Barczewski](https://github.com/jeffbski) por nos permitir a usar o nome de pacote `react` no npm
+* [Christopher Aue](https://christopheraue.net/) por nos permitir a usar o domínio reactjs.com e o nome de usuário [@reactjs](https://twitter.com/reactjs) no Twitter
+* [ProjectMoon](https://github.com/ProjectMoon) por nos permitir a usar o nome de pacote [flux](https://www.npmjs.com/package/flux) no npm
+* Shane Anderson por nos permitir a usar a org [react](https://github.com/react) no GitHub
