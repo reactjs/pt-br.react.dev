@@ -22,6 +22,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
 
+### < React Global > by Geekle {#react-global-2022}
+April 21-22, 2022 - Online Summit
+
+[Website](https://events.geekle.us/react2/) - [LinkedIn](https://www.linkedin.com/events/reactglobalonlinesummit-226887417664541614081/) 
+
 ### React Miami 2022 🌴 {#react-miami-2022}
 18 e 19 de abril de 2022. Miami, Flórida
 
