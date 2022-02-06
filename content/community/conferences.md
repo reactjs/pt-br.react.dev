@@ -47,6 +47,11 @@ April 21-22, 2022 - Online Summit
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
 
+### React India 2022 {#react-india-2022}
+22 a 24 de setembro de 2022. Pessoalmente em Goa, Índia + remoto (evento híbrido)
+
+[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Videos](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
+
 ## Conferências passadas {#past-conferences}
 
 ### ReactNext 2021 {#react-next-2021}
