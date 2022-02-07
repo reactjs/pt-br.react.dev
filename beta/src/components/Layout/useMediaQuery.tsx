@@ -17,14 +17,37 @@ const useMediaQuery = (width: number) => {
 
   useEffect(() => {
     const media = window.matchMedia(`(max-width: ${width}px)`);
+<<<<<<< HEAD
     media.addListener(updateTarget);
+=======
+
+    try {
+      // Chrome & Firefox
+      media.addEventListener('change', updateTarget);
+    } catch {
+      // @deprecated method - Safari <= iOS12
+      media.addListener(updateTarget);
+    }
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
 
     // Check on mount (callback is not called until a change occurs)
     if (media.matches) {
       setTargetReached(true);
     }
 
+<<<<<<< HEAD
     return () => media.removeListener(updateTarget);
+=======
+    return () => {
+      try {
+        // Chrome & Firefox
+        media.removeEventListener('change', updateTarget);
+      } catch {
+        // @deprecated method - Safari <= iOS12
+        media.removeListener(updateTarget);
+      }
+    };
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
   }, [updateTarget, width]);
 
   return targetReached;

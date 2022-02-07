@@ -22,6 +22,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
 
+### < React Global > by Geekle {#react-global-2022}
+April 21-22, 2022 - Online Summit
+
+[Website](https://events.geekle.us/react2/) - [LinkedIn](https://www.linkedin.com/events/reactglobalonlinesummit-226887417664541614081/) 
+
 ### React Miami 2022 🌴 {#react-miami-2022}
 18 e 19 de abril de 2022. Miami, Flórida
 
@@ -42,7 +47,26 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
 
+<<<<<<< HEAD
 ## Conferências passadas {#past-conferences}
+=======
+### React India 2022 {#react-india-2022}
+September 22 - 24, 2022. In-person in Goa, India + remote (hybrid event)
+
+[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Videos](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
+
+## Past Conferences {#past-conferences}
+
+### React Conf 2021 {#react-conf-2021}
+December 8, 2021 - remote event (replay event on December 9)
+
+[Website](https://conf.reactjs.org/)
+
+### ReactEurope 2021 {#reacteurope-2021}
+December 9-10, 2021 - remote event
+
+[Website](https://www.react-europe.org) - [Twitter](https://twitter.com/ReactEurope) - [Facebook](https://www.facebook.com/ReactEurope) - [Videos](https://www.youtube.com/c/ReacteuropeOrgConf)
+>>>>>>> 20f0fe280f3c122df7541256b983c46e21e33b20
 
 ### ReactNext 2021 {#react-next-2021}
 15 de dezembro de 2021. Telavive, Israel
