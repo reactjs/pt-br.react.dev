@@ -35,7 +35,7 @@ export default function App() {
 
 </Sandpack>
 
-Nós utilizamos sandboxes ao longo desta documentação como ferramentas de aprendizagem. As sandboxes lhe ajudam a familiarizar-se com o funcionamento do React e te auxiliam a decidir se o React é a escolha certa para você. Além das presentes na documentação oficial, existem diversas sandboxes online que têm suporte para React: [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), ou [CodePen](https://codepen.io/pen/?template=wvdqJJm), por exemplo.
+Nós utilizamos sandboxes ao longo desta documentação como ferramentas de aprendizagem. As sandboxes te ajudam a se familiarizar com o funcionamento do React e te auxiliam a decidir se o React é a escolha certa para você. Além das presentes na documentação oficial, existem diversas sandboxes online que têm suporte para React: [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), ou [CodePen](https://codepen.io/pen/?template=wvdqJJm), por exemplo.
 
 ### Testar o React localmente {/*try-react-locally*/}
 
