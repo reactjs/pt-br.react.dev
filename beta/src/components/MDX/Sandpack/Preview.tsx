@@ -12,7 +12,7 @@ import {computeViewportSize, generateRandomId} from './utils';
 
 type CustomPreviewProps = {
   className?: string;
-  customStyle: Record<string, unknown>;
+  customStyle?: Record<string, unknown>;
   isExpanded: boolean;
 };
 
@@ -145,9 +145,12 @@ export function Preview({
       }}>
       <div
         className={cn(
-          'p-0 sm:p-2 md:p-4 lg:p-8 bg-card dark:bg-wash-dark h-full relative rounded-b-lg lg:rounded-b-none'
-        )}
-        style={{overflow}}>
+          'p-0 sm:p-2 md:p-4 lg:p-8 md:bg-card md:dark:bg-wash-dark h-full relative md:rounded-b-lg lg:rounded-b-none',
+          // Allow content to be scrolled if it's too high to fit.
+          // Note we don't want this in the expanded state
+          // because it breaks position: sticky (and isn't needed anyway).
+          !isExpanded && (error || isReady) ? 'overflow-auto' : null
+        )}>
         <div
           style={{
             padding: 'initial',
@@ -160,11 +163,8 @@ export function Preview({
           }}>
           <iframe
             ref={iframeRef}
-            className="rounded-t-none bg-white shadow-md sm:rounded-lg w-full max-w-full"
-            title="Sandbox Preview"
-            style={{
-              height: iframeComputedHeight || '100%',
-              position: hideContent ? 'absolute' : undefined,
+            className={cn(
+              'rounded-t-none bg-white md:shadow-md sm:rounded-lg w-full max-w-full',
               // We can't *actually* hide content because that would
               // break calculating the computed height in the iframe
               // (which we're using for autosizing). This is noticeable
