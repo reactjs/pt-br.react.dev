@@ -22,8 +22,13 @@ Este é um **website beta**. Haverá bugs, problemas de desempenho e conteúdo f
 
 ## O que já está pronto? {/*how-much-content-is-ready*/}
 
+<<<<<<< HEAD
 * [Aprenda React](/learn): ~70% terminado.
 * [Referência da API](/reference): ~5% terminado.
+=======
+* [Learn React](/learn): ~70% finished.
+* [API Reference](/apis): ~5% finished.
+>>>>>>> 71cc6be6182418dec43b72f2a9ef464619cb7025
 
 Você pode acompanhar nosso progresso [no GitHub](https://github.com/reactjs/reactjs.org/issues/3308).
 
