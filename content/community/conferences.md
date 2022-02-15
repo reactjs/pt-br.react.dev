@@ -42,6 +42,11 @@ April 21-22, 2022 - Online Summit
 
 [Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
 
+### App.js Conf 2022 {#appjs-conf-2022}
+June 8-10, 2022. In-person in Kraków, Poland + remote
+
+[Website](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
+
 ### React Summit 2022 {#react-summit-2022}
 17 a 21 de junho de 2022. Presencial em Amsterdã, Holanda + primeira interatividade remota (evento híbrido)
 
