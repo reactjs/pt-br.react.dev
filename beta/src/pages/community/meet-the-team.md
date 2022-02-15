@@ -19,9 +19,7 @@ Os membros atuais da equipe React estão listados em ordem alfabética abaixo.
 
 [@acdlite no GitHub](https://github.com/acdlite) &middot; [@acdlite no Twitter](https://twitter.com/acdlite)
 
-Andrew começou com o desenvolvimento web criando sites com WordPress e, eventualmente, foi levedo a fazer JavaScript. Seu passatempo favorito é karaokê. Andrew pode ser um vilão da Disney ou uma princesa da Disney, dependendo do dia.
-
-
+Andrew começou com o desenvolvimento web criando sites com WordPress e, eventualmente, acabou migrando para o ecossistema JavaScript. Seu passatempo favorito é karaokê. Andrew pode ser um vilão da Disney ou uma princesa da Disney, dependendo do dia.
 
 ### Brian Vaughn {/*brian-vaughn*/}
 
@@ -39,7 +37,7 @@ Brian estudou arte na faculdade e fez programação para pagar seus estudos. Eve
 
 [@gaearon no GitHub](https://github.com/gaearon) &middot; [@dan_abramov no Twitter](https://twitter.com/dan_abramov)
 
-Dan começou a programar depois de acidentalmente descobrir o Visual Basic dentro do Microsoft PowerPoint. Ele encontrou sua verdadeira vocação ao transformar os tweets de [Sebastian](#sebastian-markbåge)'em longas postagens de blog. Dan ocasionalmente vence no Fortnite, escondendo-se em um arbusto até o fim do jogo.
+Dan começou a programar depois de acidentalmente descobrir o Visual Basic dentro do Microsoft PowerPoint. Ele encontrou sua verdadeira vocação ao transformar os tweets de [Sebastian](#sebastian-markbåge) em longas postagens de blog. Dan ocasionalmente vence no Fortnite, escondendo-se em um arbusto até o fim do jogo.
 
 
 

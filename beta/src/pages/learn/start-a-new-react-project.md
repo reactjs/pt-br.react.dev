@@ -12,14 +12,14 @@ Se você está aprendendo React ou pensando em adicioná-lo a um projeto existen
 
 React é uma biblioteca que permite organizar o código da interface do usuário dividindo-o em partes chamadas componentes. O React não cuida do roteamento ou gerenciamento de dados. Para esses recursos, convém usar bibliotecas de terceiros ou escrever suas próprias soluções. Isso significa que existem várias maneiras de iniciar um novo projeto React:
 
-* Comece com uma **configuração mínima com apenas uma cadeia de ferramentas,** adicionando recursos ao seu projeto conforme necessário.
+* Comece com uma **configuração mínima com apenas um conjunto de ferramentas,** adicionando recursos ao seu projeto conforme necessário.
 * Comece com um **software opinativo** com funcionalidade comum já incorporada.
 
-Se você está apenas começando, procurando construir algo grande ou deseja configurar sua própria cadeia de ferramentas, este guia te colocará no caminho certo.
+Se você está apenas começando, procurando construir algo grande ou deseja configurar seu próprio conjunto de ferramentas, este guia te colocará no caminho certo.
 
-## Começando com uma cadeia de ferramentas React {/*getting-started-with-a-react-toolchain*/}
+## Começando com um conjunto de ferramentas React {/*getting-started-with-a-react-toolchain*/}
 
-Se você está apenas começando com o React, recomendamos [Ceate React App](https://create-react-app.dev/),  maneira mais popular de experimentar os recursos do React e uma ótima maneira de criar um novo aplicativo do lado do cliente de single-page. Create React App é uma cadeia de ferramentas sem opinião configurada apenas para React. As cadeias de ferramentas ajudam com coisas como:
+Se você está apenas começando com o React, recomendamos [Ceate React App](https://create-react-app.dev/), a maneira mais popular de experimentar os recursos do React e uma ótima maneira de criar um novo aplicativo do lado do cliente de single-page. Create React App é um conjunto de ferramentas sem opinião configurada apenas para React.Os conjuntos de ferramentas ajudam com coisas como:
 
 * Dimensionamento para muitos arquivos e componentes
 * Usando bibliotecas de terceiros do npm
@@ -50,7 +50,7 @@ Para mais informações [confira o guia oficial ](https://create-react-app.dev/d
 
 ### Outras opções {/*other-options*/}
 
-O Create React App é ótimo para começar a trabalhar com o React, mas se você quiser uma cadeia de ferramentas ainda mais leve, tente uma dessas outras cadeias de ferramentas populares:
+O Create React App é ótimo para começar a trabalhar com o React, mas se você quiser um conjunto de ferramentas ainda mais leve, tente um desses outros cconjuntos de ferramentas populares:
 
 * [Vite](https://vitejs.dev/guide/)
 * [Parcel](https://parceljs.org/)
@@ -68,10 +68,10 @@ Se você deseja iniciar um projeto maior e pronto para produção, o [Next.js](h
 * [Gatsby](https://www.gatsbyjs.org/) permite gerar sites estáticos com React com GraphQL.
 * [Razzle](https://razzlejs.org/)  é uma estrutura de renderização de servidor que não requer nenhuma configuração, mas oferece mais flexibilidade do que o Next.js.
 
-## Cadeias de ferramentas personalizadas
+## Conjuntos de ferramentas personalizadas
 s {/*custom-toolchains*/}
 
-Você pode preferir criar e configurar sua própria cadeia de ferramentas. Uma cadeia de ferramentas de construção JavaScript normalmente consiste em:
+Você pode preferir criar e configurar sueu próprio conjunto de ferramentas. Um  conjunto de ferramentas de construção JavaScript normalmente consiste em:
 
 * Um **gerenciador de pacotes**—permite instalar, atualizar e gerenciar pacotes de terceiros. [Yarn](https://yarnpkg.com/) e [npm](https://www.npmjs.com/) são dois gerenciadores de pacotes populares.
 * Um **bundler**— permite escrever código modular e agrupá-lo em pequenos pacotes para otimizar o tempo de carregamento. [Webpack](https://webpack.js.org/), [Snowpack](https://www.snowpack.dev/), [Parcel](https://parceljs.org/) são alguns bundlers populares.
@@ -79,4 +79,4 @@ Você pode preferir criar e configurar sua própria cadeia de ferramentas. Uma c
 
 Em um projeto maior, você também pode querer ter uma ferramenta para gerenciar vários pacotes em um único repositório.  [Nx](https://nx.dev/react) é um exemplo deesse tipo de ferramenta.
 
-Se você preferir configurar sua própria cadeia de ferramentas JavaScript do zero, [confira este guia ](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recria algumas das funcionalidades Create React App.
+Se você preferir configurar seu própria conjunto de ferramentas JavaScript do zero, [confira este guia ](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recria algumas das funcionalidades Create React App.
