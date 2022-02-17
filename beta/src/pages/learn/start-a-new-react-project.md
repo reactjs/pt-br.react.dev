@@ -56,8 +56,7 @@ O Create React App é ótimo para começar a trabalhar com o React, mas se você
 * [Parcel](https://parceljs.org/)
 * [Snowpack](https://www.snowpack.dev/tutorials/react)
 
-## Programando com com React e um framework
- {/*building-with-react-and-a-framework*/}
+## Programando com React e um framework {/*building-with-react-and-a-framework*/}
 
 Se você deseja iniciar um projeto maior e pronto para produção, o [Next.js](https://nextjs.org/) é um ótimo lugar para começar. Next.js é uma estrutura popular e leve para aplicativos estáticos e renderizados por servidor criados com React. Ele vem em um pacote com recursos como roteamento, estilo e renderização do lado do servidor, colocando seu projeto em funcionamento rapidamente.
 
