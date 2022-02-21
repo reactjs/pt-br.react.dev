@@ -4,38 +4,68 @@ title: Quick Start
 
 <Intro>
 
-Welcome to the React documentation! Here is an overview of what you can find on this site.
+Welcome to the React documentation! This page will give you an introduction to the 80% of React concepts that you will use on a daily basis.
 
 </Intro>
 
 <YouWillLearn>
 
-* [How to set up React](/learn/installation)
-* [How to think about building user interfaces with React](/learn/thinking-in-react)
-* [How to get something rendering on the screen](/learn/describing-the-ui)
-* [How to make your user interface respond to interactions](/learn/adding-interactivity)
-* [How to keep your logic maintainable as your app grows](/learn/managing-state)
-* [How to step outside React when necessary](/learn/escape-hatches)
+- How to create and nest components
+- How to add markup and styles
+- How to display data
+- How to render conditions and lists
+- How to respond to events and update the screen
+- How to share data between components
 
 </YouWillLearn>
 
-## Introduction {/*introduction*/}
+## Creating and nesting components {/*components*/}
 
-This is a tiny React app. To get your first taste of React, **edit the code below** and make it display your name:
+React apps are made out of components. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+
+React components are JavaScript functions that return markup:
+
+```js
+function MyButton() {
+  return (
+    <button>Click me</button>
+  );
+}
+```
+
+Now that you've declared `MyButton`, you can nest it into another component:
+
+```js {5}
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Welcome to my app</h1>
+      <MyButton />
+    </div>
+  );
+}
+```
+
+Notice that `<MyButton />` starts with a capital letter. That's how you know it's a React component. React component names must always start with a capital letter, while HTML tags must be lowercase.
+
+Have a look at the result:
 
 <Sandpack>
 
 ```js
-function Greeting({ name }) {
-  return <h1>Hello, {name}!</h1>;
+function MyButton() {
+  return (
+    <button>
+      Click me
+    </button>
+  );
 }
 
-export default function App() {
+export default function MyApp() {
   return (
     <div>
-      <Greeting name="Divyesh" />
-      <Greeting name="Sarah" />
-      <Greeting name="Taylor" />
+      <h1>Welcome to my app</h1>
+      <MyButton />
     </div>
   );
 }
@@ -43,14 +73,15 @@ export default function App() {
 
 </Sandpack>
 
-### What is React? {/*what-is-react*/}
+The `export default` keywords specify the main component in the file. If you're not familiar with some piece of JavaScript syntax, [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [javascript.info](https://javascript.info/import-export) have great references.
 
-React is a JavaScript library for building user interfaces.
+## Writing markup with JSX {/*writing-markup-with-jsx*/}
 
-React stands at the intersection of design and programming. **It lets you take a complex user interface, and break it down into nestable and reusable pieces called ["components"](/learn/your-first-component) that fit well together.** If you have a programming background, this might remind you of making a program out of functions. If you're a designer, this might remind you of composing a design out of layers. If you're new to both disciplines, that's okay! Many people get into them with React. Using React might also remind you of building a castle out of toy bricks. Sometimes, it's even fun.
+The markup syntax you've seen above is called JSX. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
 
-React does not prescribe how you build your entire application. It helps you define and compose components, but stays out of your way in other questions. This means that you will either pick one of the ecosystem solutions for problems like routing, styling, and data fetching, or [use a framework](/learn/start-a-new-react-project#building-with-react-and-a-framework) that provides great defaults.
+JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper:
 
+<<<<<<< HEAD
 ### What can you do with React? {/*what-can-you-do-with-react*/}
 
 Quite a lot, really! People use React to create all kinds of user interfaces--from small controls like buttons and dropdowns to entire apps. **These docs will teach you to use React on the web.** However, most of what you'll learn here applies equally for [React Native](https://reactnative.dev/) which lets you build apps for Android, iOS, and even [Windows and macOS](https://microsoft.github.io/react-native-windows/).
@@ -290,31 +321,93 @@ export default function Gallery() {
   }
 
   let sculpture = sculptureList[index];
+=======
+```js {3,6}
+function AboutPage() {
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
   return (
     <>
-      <button onClick={handleNextClick}>
-        Next
-      </button>
-      <h2>
-        <i>{sculpture.name} </i>
-        by {sculpture.artist}
-      </h2>
-      <h3>
-        ({index + 1} of {sculptureList.length})
-      </h3>
-      <button onClick={handleMoreClick}>
-        {showMore ? 'Hide' : 'Show'} details
-      </button>
-      {showMore && <p>{sculpture.description}</p>}
+      <h1>About</h1>
+      <p>Hello there.<br />How do you do?</p>
+    </>
+  );
+}
+```
+
+If you have a lot of HTML to port to JSX, you can use an [online converter](https://transform.tools/html-to-jsx).
+
+## Adding styles {/*adding-styles*/}
+
+In React, you specify a CSS class with `className`. It works the same way as HTML [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) attribute:
+
+```js
+<img className="avatar" />
+```
+
+Then you write the CSS rules for it in a separate CSS file:
+
+```css
+/* In your CSS */
+.avatar {
+  border-radius: 50%;
+}
+```
+
+React does not prescribe how you add CSS files. In the simplest case, you'll add a [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) tag to your HTML. If you use a build tool or a framework, consult its documentation to learn how to add a CSS file to your project.
+
+## Displaying data {/*displaying-data*/}
+
+JSX lets you put markup into JavaScript. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. For example, this will display `user.name`:
+
+```js {3}
+return (
+  <h1>
+    {user.name}
+  </h1>
+);
+```
+
+You can also "escape into JavaScript" from JSX attributes, but you have to use curly braces *instead of* quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
+
+```js {3,4}
+return (
+  <img
+    className="avatar"
+    src={user.imageUrl}
+  />
+);
+```
+
+You can put more complex expressions inside the JSX curly braces too, for example, [string concatenation](https://javascript.info/operators#string-concatenation-with-binary):
+
+<Sandpack>
+
+```js
+const user = {
+  name: 'Hedy Lamarr',
+  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+  imageSize: 90,
+};
+
+export default function Profile() {
+  return (
+    <>
+      <h1>{user.name}</h1>
       <img
-        src={sculpture.url}
-        alt={sculpture.alt}
+        className="avatar"
+        src={user.imageUrl}
+        alt={'Photo of ' + user.name}
+        style={{
+          width: user.imageSize,
+          height: user.imageSize
+        }}
       />
     </>
   );
 }
 ```
 
+<<<<<<< HEAD
 ```js data.js
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
@@ -389,143 +482,363 @@ export const sculptureList = [{
   url: 'https://i.imgur.com/6o5Vuyu.jpg',
   alt: 'A group of bronze hippo sculptures emerging from the sett sidewalk as if they were swimming.'
 }];
+=======
+```css
+.avatar {
+  border-radius: 50%;
+}
+
+.large {
+  border: 4px solid gold;
+}
+```
+
+</Sandpack>
+
+In the above example, `style={{}}` is not a special syntax, but a regular `{}` object inside the `style={ }` JSX curly braces. You can use the `style` attribute when your styles depend on JavaScript variables.
+
+## Conditional rendering {/*conditional-rendering*/}
+
+In React, there is no special syntax for writing conditions. Instead, you'll use the same techniques as you use when writing regular JavaScript code. For example, you can use an [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to conditionally include JSX:
+
+```js
+let content;
+if (isLoggedIn) {
+  content = <AdminPanel />;
+} else {
+  content = <LoginForm />;
+}
+return (
+  <div>
+    {content}
+  </div>
+);
+```
+
+If you prefer more compact code, you can use the [conditional `?` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). Unlike `if`, it works inside JSX:
+
+```js
+<div>
+  {isLoggedIn ? (
+    <AdminPanel />
+  ) : (
+    <LoginForm />
+  )}
+</div>
+```
+
+When you don't need the `else` branch, you can also use a shorter [logical `&&` syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation):
+
+```js
+<div>
+  {isLoggedIn && <AdminPanel />}
+</div>
+```
+
+All of these approaches also work for conditionally specifying attributes. If you're unfamiliar with some of this JavaScript syntax, you can start by always using `if...else`.
+
+## Rendering lists {/*rendering-lists*/}
+
+You will rely on JavaScript features like [`for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) and the [array `map()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to render lists of components.
+
+For example, let's say you have an array of products:
+
+```js
+const products = [
+  { title: 'Cabbage', id: 1 },
+  { title: 'Garlic', id: 2 },
+  { title: 'Apple', id: 3 },
+];
+```
+
+Inside your component, use the `map()` function to transform an array of products into an array of `<li>` items:
+
+```js
+const listItems = products.map(product =>
+  <li key={product.id}>
+    {product.title}
+  </li>
+);
+
+return (
+  <ul>{listItems}</ul>
+);
+```
+
+Notice how `<li>` has a `key` attribute. For each item in a list, you should pass a string or a number that uniquely identifies that item among its siblings. Usually, a key should be coming from your data, such as a database ID. React will rely on your keys to understand what happened if you later insert, delete, or reorder the items.
+
+<Sandpack>
+
+```js
+const products = [
+  { title: 'Cabbage', isFruit: false, id: 1 },
+  { title: 'Garlic', isFruit: false, id: 2 },
+  { title: 'Apple', isFruit: true, id: 3 },
+];
+
+export default function ShoppingList() {
+  const listItems = products.map(product =>
+    <li
+      key={product.id}
+      style={{
+        color: product.isFruit ? 'magenta' : 'darkgreen'
+      }}
+    >
+      {product.title}
+    </li>
+  );
+
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+```
+
+</Sandpack>
+
+## Responding to events {/*responding-to-events*/}
+
+You can respond to events by declaring event handler functions inside your components:
+
+```js {2-4,7}
+function MyButton() {
+  function handleClick() {
+    alert('You clicked me!');
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Click me
+    </button>
+  );
+}
+```
+
+Notice how `onClick={handleClick}` has no parentheses at the end! Do not _call_ the event handler function: you only need to *pass it down*. React will call your event handler when the user clicks the button.
+
+## Updating the screen {/*updating-the-screen*/}
+
+Often, you'll want your component to "remember" some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add *state* to your component.
+
+First, import [`useState`](/apis/usestate) from React:
+
+```js {1,4}
+import { useState } from 'react';
+```
+
+Now you can declare a *state variable* inside your component:
+
+```js
+function MyButton() {
+  const [count, setCount] = useState(0);
+```
+
+You will get two things from `useState`: the current state (`count`), and the function that lets you update it (`setCount`). You can give them any names, but the convention is to call them like `[something, setSomething]`.
+
+The first time the button is displayed, `count` will be `0` because you passed `0` to `useState()`. When you want to change state, call `setCount()` and pass the new value to it. Clicking this button will increment the counter:
+
+```js {5}
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+```
+
+React will call your component function again. This time, `count` will be `1`. Then it will be `2`. And so on.
+
+If you render the same component multiple times, each will get its own state. Try clicking each button separately:
+
+<Sandpack>
+
+```js
+import { useState } from 'react';
+
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
 ```
 
 ```css
-h2 { margin-top: 10px; margin-bottom: 0; }
-h3 {
- margin-top: 5px;
- font-weight: normal;
- font-size: 100%;
-}
-img { width: 120px; height: 120px; }
 button {
   display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 ```
 
 </Sandpack>
 
-State can hold complex values, too. For example, if you're implementing a form, you can keep an object in state with different fields. The `...` syntax in the below example lets you [create new objects based on existing ones](/learn/updating-objects-in-state).
+Notice how each button "remembers" its own `count` state and doesn't affect other buttons.
+
+## Using Hooks {/*using-hooks*/}
+
+Functions starting with `use` are called Hooks. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference](/apis). You can also write your own Hooks by combining the existing ones.
+
+Hooks are more restrictive than regular functions. You can only call Hooks *at the top level* of your components (or other Hooks). If you want to `useState` in a condition or a loop, extract a new component and put it there.
+
+## Sharing data between components {/*sharing-data-between-components*/}
+
+In the previous example, each button had its own independent counter:
+
+```js {2-4}
+- MyApp
+  - MyButton (count: 3)
+  - MyButton (count: 1)
+  - MyButton (count: 2)
+```
+
+However, you'll often need components to *share data and always update together*.
+
+To make all buttons display the same `count` and update together, you need to move the state from the individual buttons "upwards" to the closest component containing all of them. In this example, it is `MyApp`:
+
+```js {1}
+- MyApp (count: 3)
+  - MyButton
+  - MyButton
+  - MyButton
+```
+
+Here's how you can express this in code.
+
+First, *move the state up* from `MyButton` into `MyApp`:
+
+```js {2,6-10}
+function MyButton() {
+  // ... we're moving code from here ...
+}
+
+export default function MyApp() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <h1>Counters that update separately</h1>
+      <MyButton />
+      <MyButton />
+      <MyButton />
+    </div>
+  );
+}
+```
+
+Then, *pass the state down* from `MyApp` to each `MyButton`, together with the shared click handler. You can pass information to `MyButton` using the JSX curly braces, just like you previously did with built-in tags like `<img>`:
+
+```js {11-13}
+export default function MyApp() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <h1>Counters that update together</h1>
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
+    </div>
+  );
+}
+```
+
+The information you pass down like this is called _props_. Now the `MyApp` component contains the `count` state and the `handleClick` event handler, and *passes both of them down as props* to each of the buttons.
+
+Finally, change `MyButton` to *read* the props you have passed from its parent component:
+
+```js {1,3}
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+```
+
+When you click the button, the `onClick` handler fires. Each button's `onClick` prop was set to the `handleClick` function inside `MyApp`, so the code inside of it runs. That code calls `setCount(count + 1)`, incrementing the `count` state variable. The new `count` value is passed as a prop to each button, so they all show the new value.
+
+This is called "lifting state up". By moving state up, we've shared it between components.
 
 <Sandpack>
 
 ```js
 import { useState } from 'react';
 
-export default function Form() {
-  const [person, setPerson] = useState({
-    firstName: 'Barbara',
-    lastName: 'Hepworth',
-    email: 'bhepworth@sculpture.com'
-  });
+function MyButton({ count, onClick }) {
+  return (
+    <button onClick={onClick}>
+      Clicked {count} times
+    </button>
+  );
+}
 
-  function handleFirstNameChange(e) {
-    setPerson({
-      ...person,
-      firstName: e.target.value
-    });
-  }
+export default function MyApp() {
+  const [count, setCount] = useState(0);
 
-  function handleLastNameChange(e) {
-    setPerson({
-      ...person,
-      lastName: e.target.value
-    });
-  }
-
-  function handleEmailChange(e) {
-    setPerson({
-      ...person,
-      email: e.target.value
-    });
+  function handleClick() {
+    setCount(count + 1);
   }
 
   return (
-    <>
-      <label>
-        First name:
-        <input
-          value={person.firstName}
-          onChange={handleFirstNameChange}
-        />
-      </label>
-      <label>
-        Last name:
-        <input
-          value={person.lastName}
-          onChange={handleLastNameChange}
-        />
-      </label>
-      <label>
-        Email:
-        <input
-          value={person.email}
-          onChange={handleEmailChange}
-        />
-      </label>
-      <p>
-        {person.firstName}{' '}
-        {person.lastName}{' '}
-        ({person.email})
-      </p>
-    </>
+    <div>
+      <h1>Counters that update together</h1>
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
+      <MyButton count={count} onClick={handleClick} />
+    </div>
   );
 }
 ```
 
 ```css
-label { display: block; }
-input { margin-left: 5px; margin-bottom: 5px; }
-```
-
-</Sandpack>
-
-You can also hold arrays in state. This lets you add, remove, or change things in a list in response to user interactions. Depending on what you want to do, there are [different ways to make new arrays from existing ones](/learn/updating-arrays-in-state).
-
-<Sandpack>
-
-```js
-import { useState } from 'react';
-
-let nextId = 0;
-
-export default function List() {
-  const [name, setName] = useState('');
-  const [artists, setArtists] = useState([]);
-
-  return (
-    <>
-      <h1>Inspiring sculptors:</h1>
-      <input
-        value={name}
-        onChange={e => setName(e.target.value)}
-      />
-      <button onClick={() => {
-        setName('');
-        setArtists([
-          ...artists,
-          { id: nextId++, name: name }
-        ]);
-      }}>Add</button>
-      <ul>
-        {artists.map(artist => (
-          <li key={artist.id}>{artist.name}</li>
-        ))}
-      </ul>
-    </>
-  );
+button {
+  display: block;
+  margin-bottom: 5px;
 }
 ```
 
 </Sandpack>
 
-<LearnMore path="/learn/adding-interactivity">
+## Next Steps {/*next-steps*/}
 
-Read **[Adding Interactivity](/learn/adding-interactivity)** to learn how to update the screen on interaction, including adding event handlers, declaring and updating state, and the different ways to update objects and arrays in state.
+By now, you know the basics of how to write React code!
 
+<<<<<<< HEAD
 </LearnMore>
 
 ### Chapter 3 overview: Managing state {/*chapter-3-overview-managing-state*/}
@@ -717,3 +1030,6 @@ Your next steps depend on what you'd like to do:
 * Or, start with [Describing the UI](/learn/describing-the-ui) to get a closer look at the first chapter.
 
 And don't forget to check the [API Reference](/reference) when you need the API without the fluff!
+=======
+Head to [Thinking in React](/learn/thinking-in-react) to see how it feels to build a UI with React in practice.
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764

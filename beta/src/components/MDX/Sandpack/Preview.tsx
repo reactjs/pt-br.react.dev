@@ -12,7 +12,7 @@ import {computeViewportSize, generateRandomId} from './utils';
 
 type CustomPreviewProps = {
   className?: string;
-  customStyle: Record<string, unknown>;
+  customStyle?: Record<string, unknown>;
   isExpanded: boolean;
 };
 
@@ -46,6 +46,7 @@ export function Preview({
     errorScreenRegisteredRef,
     openInCSBRegisteredRef,
     loadingScreenRegisteredRef,
+    status,
   } = sandpack;
 
   if (
@@ -67,29 +68,37 @@ export function Preview({
   errorScreenRegisteredRef.current = true;
   loadingScreenRegisteredRef.current = true;
 
-  React.useEffect(() => {
+  React.useEffect(function createBundler() {
     const iframeElement = iframeRef.current!;
     registerBundler(iframeElement, clientId.current);
 
-    const unsub = listen((message: any) => {
-      if (message.type === 'resize') {
-        setComputedAutoHeight(message.height);
-      } else if (message.type === 'start') {
-        if (message.firstLoad) {
-          setIsReady(false);
-        }
-      } else if (message.type === 'test') {
-        // Does it make sense that we're listening to "test" event?
-        // Not really. Does it cause less flicker than "done"? Yes.
-        setIsReady(true);
-      }
-    }, clientId.current);
-
     return () => {
-      unsub();
       unregisterBundler(clientId.current);
     };
   }, []);
+
+  React.useEffect(
+    function bundlerListener() {
+      const unsubscribe = listen((message: any) => {
+        if (message.type === 'resize') {
+          setComputedAutoHeight(message.height);
+        } else if (message.type === 'start') {
+          if (message.firstLoad) {
+            setIsReady(false);
+          }
+        } else if (message.type === 'done') {
+          setIsReady(true);
+        }
+      }, clientId.current);
+
+      return () => {
+        setIsReady(false);
+        setComputedAutoHeight(null);
+        unsubscribe();
+      };
+    },
+    [status === 'idle']
+  );
 
   const viewportStyle = computeViewportSize('auto', 'portrait');
   const overrideStyle = error
@@ -136,9 +145,18 @@ export function Preview({
       }}>
       <div
         className={cn(
+<<<<<<< HEAD
           'p-0 sm:p-2 md:p-4 lg:p-8 bg-card dark:bg-wash-dark h-full relative rounded-b-lg lg:rounded-b-none'
         )}
         style={{overflow}}>
+=======
+          'p-0 sm:p-2 md:p-4 lg:p-8 md:bg-card md:dark:bg-wash-dark h-full relative md:rounded-b-lg lg:rounded-b-none',
+          // Allow content to be scrolled if it's too high to fit.
+          // Note we don't want this in the expanded state
+          // because it breaks position: sticky (and isn't needed anyway).
+          !isExpanded && (error || isReady) ? 'overflow-auto' : null
+        )}>
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
         <div
           style={{
             padding: 'initial',
@@ -151,11 +169,16 @@ export function Preview({
           }}>
           <iframe
             ref={iframeRef}
+<<<<<<< HEAD
             className="rounded-t-none bg-white shadow-md sm:rounded-lg w-full max-w-full"
             title="Sandbox Preview"
             style={{
               height: iframeComputedHeight || '100%',
               position: hideContent ? 'absolute' : undefined,
+=======
+            className={cn(
+              'rounded-t-none bg-white md:shadow-md sm:rounded-lg w-full max-w-full',
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
               // We can't *actually* hide content because that would
               // break calculating the computed height in the iframe
               // (which we're using for autosizing). This is noticeable
@@ -179,7 +202,10 @@ export function Preview({
             <Error error={error} />
           </div>
         )}
-        <LoadingOverlay clientId={clientId.current} />
+        <LoadingOverlay
+          clientId={clientId.current}
+          loading={!isReady && iframeComputedHeight === null}
+        />
       </div>
     </div>
   );
