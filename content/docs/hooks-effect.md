@@ -18,7 +18,7 @@ function Exemplo() {
 
   // Similar ao componentDidMount e componentDidUpdate:
   useEffect(() => {
-    // Atualiza o titulo do documento usando a API do browser
+    // Atualiza o título do documento usando a API do browser
     document.title = `Você clicou ${count} vezes`;
   });
 
@@ -33,7 +33,7 @@ function Exemplo() {
 }
 ```
 
-Esse trecho de código é baseado no [exemplo de contador da página anterior](/docs/hooks-state.html), mas nós adicionamos uma nova funcionalidade a ele: nós definimos o titulo do documento para ser uma mensagem customizada que inclua o número de cliques.
+Esse trecho de código é baseado no [exemplo de contador da página anterior](/docs/hooks-state.html), mas nós adicionamos uma nova funcionalidade a ele: nós definimos o título do documento para ser uma mensagem customizada que inclua o número de cliques.
 
 Buscar dados, configurar uma subscription, e mudar o DOM manualmente dentro dos componentes React são exemplos de efeitos colaterais. Esteja você acostumado ou não a chamar essas operações de "efeitos colaterais" (ou somente "efeitos"), você provavelmente já usou eles em seus componentes antes.
 
@@ -51,7 +51,7 @@ De vez em quando, nós queremos **executar algum código adicional depois que o 
 
 Em um componente de classe do React, o método `render` não deve causar efeitos colaterais. Seria muito cedo -- nós geralmente queremos executar nossos efeitos *depois* que o React atualizou a DOM.
 
-Isso é o porque nas classes do React, nós colocamos efeitos dentro de `componentDidMount` e `componentDidUpdate`. Voltando ao nosso exemplo, aqui está um componente de classe do React chamado contador que atualiza o titulo logo após o React faz as mudanças na DOM:
+Isso é o porque nas classes do React, nós colocamos efeitos dentro de `componentDidMount` e `componentDidUpdate`. Voltando ao nosso exemplo, aqui está um componente de classe do React chamado contador que atualiza o título logo após o React faz as mudanças na DOM:
 
 ```js{9-15}
 class Exemplo extends React.Component {
@@ -234,7 +234,7 @@ function FriendStatus(props) {
 
 ## Recapitulando {#recap}
 
-Nós aprendemos que `useEffect` nos deixa expressar diferentes tipos de efeitos colaterais depois que o componente renderiza. Alguns efeitos podem requerir limpeza, então eles retornam uma função:
+Nós aprendemos que `useEffect` nos deixa expressar diferentes tipos de efeitos colaterais depois que o componente renderiza. Alguns efeitos podem requerer limpeza, então eles retornam uma função:
 
 ```js
   useEffect(() => {
@@ -338,9 +338,9 @@ function FriendStatusWithCounter(props) {
 
 ### Explicação: Por Que Efeitos Executam em Cada Atualização {#explanation-why-effects-run-on-each-update}
 
-Se você esta acostumado com classes, você pode estar se perguntando o porquê da fase de limpeza dos efeitos acontecerem depois de cada re-renderização, e não apenas uma vez durante a desmontagem. Vamos dar uma olhada em um exemplo prático para ver porque esse design nos ajuda a criar componentes com menos bugs.
+Se você está acostumado com classes, você pode estar se perguntando o porquê da fase de limpeza dos efeitos acontecerem depois de cada re-renderização, e não apenas uma vez durante a desmontagem. Vamos dar uma olhada em um exemplo prático para ver porque esse design nos ajuda a criar componentes com menos bugs.
 
-[Anteriormente nessa página](#example-using-classes-1), nós introduzimos um componente de exemplo `FriendStatus` que mostra quando um amigo está online ou não. Nossa classes lê `friend.id` do `this.props`, faz subscribe no status do amigo após a montagem do componente e faz unsubscribe durante a desmontagem:
+[Anteriormente nessa página](#example-using-classes-1), nós introduzimos um componente de exemplo `FriendStatus` que mostra quando um amigo está online ou não. Nossa classe lê `friend.id` do `this.props`, faz subscribe no status do amigo após a montagem do componente e faz unsubscribe durante a desmontagem:
 
 ```js
   componentDidMount() {

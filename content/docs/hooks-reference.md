@@ -58,8 +58,8 @@ function Counter({initialCount}) {
   const [count, setCount] = useState(initialCount);
   return (
     <>
-      Count: {count}
-      <button onClick={() => setCount(initialCount)}>Reset</button>
+      Contador: {count}
+      <button onClick={() => setCount(initialCount)}>Reiniciar</button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
       <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
     </>
@@ -67,7 +67,7 @@ function Counter({initialCount}) {
 }
 ```
 
-Os botões "+" and "-" usam a forma funcional, porque o valor atualizado é baseado no valor anterior. Mas o botão "Reset" usa a forma normal, porque ele sempre define a contagem de volta para o valor inicial.
+Os botões "+" e "-" usam a forma funcional, porque o valor atualizado é baseado no valor anterior. Mas o botão "Reiniciar" usa a forma normal, porque ele sempre define a contagem de volta para o valor inicial.
 
 Se sua função de atualização retornar exatamente o mesmo valor que o estado atual, o renderizador subsequente será ignorado completamente.
 
@@ -99,7 +99,7 @@ const [state, setState] = useState(() => {
 
 Se você atualizar o estado do Hook com o mesmo valor do estado atual, React irá pular a atualização sem renderizar os filhos ou disparar os efeitos. (React usa o algoritmo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
-Note que o React pode ainda precisar renderizar esse componente específico novamente antes de sair. Isso não deveria ser uma preocupação porque o React não irá ser "mais profundo" do que o necessário na árvore. Se você está fazendo um processamento mais demorado enquanto renderizada, você pode otimizar isso usando `useMemo`.
+Note que o React pode ainda precisar renderizar esse componente específico novamente antes de sair. Isso não deveria ser uma preocupação porque o React não irá ser "mais profundo" do que o necessário na árvore. Se você está fazendo um processamento mais demorado enquanto renderiza, você pode otimizar isso usando `useMemo`.
 
 ### `useEffect` {#useeffect}
 
@@ -135,7 +135,7 @@ A função de limpeza é executada antes que o componente seja removido da UI pa
 
 Ao contrário de `componentDidMount` e `componentDidUpdate`, a função passada para `useEffect` dispara **após** a renderização, durante o evento adiado. Isto torna o `useEffect` adequado para os muitos efeitos colaterais comuns, como a criação de assinaturas e manipuladores de eventos, porque a maioria dos tipos de trabalho não deve bloquear o navegador ao atualizar a tela.
 
-No entanto, nem todos os efeitos podem ser adiados. Por exemplo, uma alteração no DOM visível para o usuário, deve disparar sincronizadamente antes da próxima renderização, para que o usuário não perceba uma inconsistência visual. (A distinção é conceitualmente semelhante a ouvintes de eventos ativos vs passivos.) Para estes tipos de efeitos, React fornece um Hook adicional chamado [`useLayoutEffect`](#uselayouteffect). Tem a mesma estrutura que `useEffect`, mas é diferente quando disparado.
+No entanto, nem todos os efeitos podem ser adiados. Por exemplo, uma alteração no DOM visível para o usuário, deve disparar sincronizadamente antes da próxima renderização, para que o usuário não perceba uma inconsistência visual. (A distinção é conceitualmente semelhante a ouvintes de eventos ativos x passivos.) Para estes tipos de efeitos, React fornece um Hook adicional chamado [`useLayoutEffect`](#uselayouteffect). Tem a mesma estrutura que `useEffect`, mas é diferente quando disparado.
 
 Embora `useEffect` seja adiado até a próxima renderização do navegador, é mais garantido disparar antes de qualquer nova renderização. React sempre apagará os efeitos de uma renderização anterior antes de iniciar uma nova atualização.
 
@@ -159,7 +159,7 @@ useEffect(
 );
 ```
 
-Agora a assinatura só será recriada quando `props.source` alterar.
+Agora, a assinatura só será recriada quando `props.source` for alterado.
 
 > Nota
 > 
@@ -167,7 +167,7 @@ Agora a assinatura só será recriada quando `props.source` alterar.
 >
 >Se você quer executar um efeito e limpá-lo apenas uma vez (na montagem e desmontagem), você pode passar um array vazio (`[]`) como segundo argumento. Isso conta ao React que o seu efeito não depende de *nenhum* valor das props ou state, então ele nunca precisa re-executar. Isso não é tratado como um caso especial -- ele segue diretamente a maneira como o array de entrada sempre funcionam.
 >
->Se você passar um array vazio (`[]`), a props e o state passados dentro do efeito sempre terão seus valores iniciais. Enquanto passando `[]` como segundo parâmetro aproxima-se do modelo mental familiar de `componentDidMount` e `componentWillUnmount`, geralmente hás [melhores](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [soluções](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) para evitar efeitos repetidos com muita freqüência. Além disso, não esqueça de que o React adia a execução do `useEffect` até o navegador ser pintado, então fazer trabalho extra é menos problemático.
+>Se você passar um array vazio (`[]`), a props e o state passados dentro do efeito sempre terão seus valores iniciais. Enquanto passando `[]` como segundo parâmetro aproxima-se do modelo mental familiar de `componentDidMount` e `componentWillUnmount`, geralmente hás [melhores](/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies) [soluções](/docs/hooks-faq.html#what-can-i-do-if-my-effect-dependencies-change-too-often) para evitar efeitos repetidos com muita frequência. Além disso, não esqueça de que o React adia a execução do `useEffect` até o navegador ser pintado, então fazer trabalho extra é menos problemático.
 >
 >
 >Recomendamos usar as regras do [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte do nosso pacote [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ele avisa quando as dependências são especificadas incorretamente e sugere uma correção.
@@ -180,7 +180,7 @@ O array de dependências não é passada como argumentos para a função de efei
 const value = useContext(MyContext);
 ```
 
-Aceita um objeto de contexto (o valor retornado de `React.createContext`) e retorna o valor atual do contexto. O valor de contexto atual é determinado pela prop `value` do` <MyContext.Provider> `mais próximo acima do componente de chamada na árvore.
+Aceita um objeto de contexto (o valor retornado de `React.createContext`) e retorna o valor atual do contexto. O valor de contexto atual é determinado pela prop `value` do `<MyContext.Provider>` mais próximo acima do componente de chamada na árvore.
 
 Quando o `<MyContext.Provider>` mais próximo acima do componente for atualizado, este Hook acionará um novo renderizador com o `value` de contexto mais recente passando para o provedor `MyContext`. Mesmo que um ancestral use [`React.memo`](/docs/react-api.html#reactmemo) ou [`shouldComponentUpdate`](/docs/react-component.html#shouldcomponentupdate), um renderizador ainda ocorrerá começando no próprio componente usando `useContext`.
 
@@ -234,7 +234,7 @@ function ThemedButton() {
 
   return (
     <button style={{ background: theme.background, color: theme.foreground }}>
-      I am styled by theme context!
+      Eu sou estilizado pelo tema do contexto!
     </button>
   );
 }
@@ -244,7 +244,7 @@ Este exemplo é modificado para hooks a partir de um exemplo anterior no [Guia A
 
 ## Hooks Adicionais {#additional-hooks}
 
-Os próximos Hooks são variações dos princípios básicos da seção anterior ou apenas necessários para um caso de uso específico. Não se estresse sobre aprendê-las antes dos princípios básicos.
+Os próximos Hooks são variações dos princípios básicos da seção anterior ou apenas necessários para um caso de uso específico. Não se estresse sobre aprendê-los antes dos princípios básicos.
 
 ### `useReducer` {#usereducer}
 
@@ -276,7 +276,7 @@ function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>
-      Count: {state.count}
+      Contador: {state.count}
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
@@ -286,7 +286,7 @@ function Counter() {
 
 >Nota
 >
->React garante que a identidade da função `dispatch` é estável e não será alterada nos re-renderizadores. É por isso que é seguro omitir da lista de dependências `useEffect` ou` useCallback`.
+>React garante que a identidade da função `dispatch` seja estável e não será alterada nos re-renderizadores. É por isso que é seguro omitir da lista de dependências `useEffect` ou `useCallback`.
 
 #### Determinando o Estado Inicial {#specifying-the-initial-state}
 
@@ -331,11 +331,11 @@ function Counter({initialCount}) {
   const [state, dispatch] = useReducer(reducer, initialCount, init);
   return (
     <>
-      Count: {state.count}
+      Contador: {state.count}
       <button
         onClick={() => dispatch({type: 'reset', payload: initialCount})}>
 
-        Reset
+        Reiniciar
       </button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
@@ -349,7 +349,7 @@ function Counter({initialCount}) {
 Se você retornar o mesmo valor do Hook Reducer que o valor do `state` atual, React irá pular a ação sem renderizar os filhos ou disparar os efeitos. (React usa o algoritmo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).)
 
 
-Note que o React ainda pode precisar renderizar aquele componente específico novamente antes de pular para fora da ação. Isso não deve ser um problema porque o React não vai se aprofundar desnecessariamente na árvore. Se você está fazendo cálculos de alto custo enquanto renderiza, você pode optimizá-los usando o `useMemo`.
+Note que o React ainda pode precisar renderizar aquele componente específico novamente antes de pular para fora da ação. Isso não deve ser um problema porque o React não vai se aprofundar desnecessariamente na árvore. Se você está fazendo cálculos de alto custo enquanto renderiza, você pode otimizá-los usando o `useMemo`.
 
 ### `useCallback` {#usecallback}
 
@@ -364,7 +364,7 @@ const memoizedCallback = useCallback(
 
 Retorna um callback [memoizado](https://en.wikipedia.org/wiki/Memoization).
 
-Recebe como argumentos, um callback e um array. `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo ` shouldComponentUpdate `).
+Recebe como argumentos, um callback e um array. `useCallback` retornará uma versão memoizada do `callback` que só muda se uma das entradas tiverem sido alteradas. Isto é útil quando utilizamos callbacks a fim de otimizar componentes filhos, que dependem da igualdade de referência para evitar renderizações desnecessárias (como por exemplo `shouldComponentUpdate`).
 
 `useCallback(fn, inputs)` é equivalente a `useMemo(() => fn, inputs)`
 
@@ -386,13 +386,13 @@ Recebe uma função `create` e um array como argumentos. O `useMemo` só recuper
 
 Lembre-se de que a função passada para `useMemo` será executa durante a renderização. Não faça nada lá que você normalmente não faria ao renderizar. Por exemplo, os `side effects` pertencem a `useEffect`, não à `useMemo`.
 
-Se nenhum array for fornecida, um novo valor será calculado em cada renderização.
+Se nenhum array for fornecido, um novo valor será calculado em cada renderização.
 
 **Você pode confiar em `useMemo` como uma otimização de desempenho, não como uma garantia semântica.** No futuro, o React pode escolher "esquecer" alguns valores anteriormente agrupados e recalculá-los na próxima renderização, por exemplo, para liberar memória para outros componentes. Escreva seu código para que ele ainda funcione sem `useMemo` — e depois adicione-o para otimizar o desempenho.
 
 > Note
 > 
-> O array de entradas não é passada como argumentos para a função. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
+> O array de entradas não é passado como argumento para a função. Conceitualmente, porém, é isso que eles representam: todos os valores referenciados dentro da função também devem aparecer no array passado como argumento. No futuro, um compilador suficientemente avançado poderia criar este array automaticamente.
 >
 > Recomendamos usar as regras do [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte do nosso pacote [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ele avisa quando as dependências são especificadas incorretamente e sugere uma correção.
 
@@ -465,7 +465,7 @@ Prefira o padrão `useEffect` quando possível, para evitar bloquear atualizaç�
 > 
 > Se você está migrando código de um componente de classe, `useLayoutEffect` dispara na mesma fase que `componentDidMount` e `componentDidUpdate`, No entanto, **recomendamos iniciar com `useEffect` primeiro** e apenas tentar `useLayoutEffect` se isso causar algum problema.
 >
-> Se você usar a renderização do servidor, tenha em mente que *nem* `useLayoutEffect` nem` useEffect` podem ser executados até que o JavaScript seja baixado. É por isso que React avisa quando um componente renderizado pelo servidor contém `useLayoutEffect`. Para corrigir isso, mova essa lógica para `useEffect` (se não for necessário para a primeira renderização) ou retarde a exibição desse componente até depois que o cliente renderizar (se o HTML parecer quebrado até que `useLayoutEffect` seja executado).
+> Se você usar a renderização do servidor, tenha em mente que *nem* `useLayoutEffect` nem `useEffect` podem ser executados até que o JavaScript seja baixado. É por isso que React avisa quando um componente renderizado pelo servidor contém `useLayoutEffect`. Para corrigir isso, mova essa lógica para `useEffect` (se não for necessário para a primeira renderização) ou retarde a exibição desse componente até depois que o cliente renderizar (se o HTML parecer quebrado até que `useLayoutEffect` seja executado).
 >
 > Para excluir um componente que precisa de efeitos de layout do HTML renderizado pelo servidor, renderize-o condicionalmente com `showChild && <Child />` e adie a exibição dele com `useEffect (() => { setShowChild(true); }, [])`. Dessa forma, a UI não parece quebrada antes da hidratação.
 

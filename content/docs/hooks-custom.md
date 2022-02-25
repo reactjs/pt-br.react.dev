@@ -193,7 +193,7 @@ Pelo fato de o Hook `useState` nos fornecer o último valor da variável de esta
   const isRecipientOnline = useFriendStatus(recipientID);
 ```
 
-Isto nos informa se o amigo *atualmente seleccionado* está online. Se escolhermos um amigo diferente e atualizarmos a variável de estado `recipientID`, o nosso Hook `useFriendStatus` irá cancelar a subscrição do amigo seleccionado anteriormente, e subscrever para o status do recém-selecionado. 
+Isto nos informa se o amigo *atualmente selecionado* está online. Se escolhermos um amigo diferente e atualizarmos a variável de estado `recipientID`, o nosso Hook `useFriendStatus` irá cancelar a subscrição do amigo selecionado anteriormente, e subscrever para o status do recém-selecionado. 
 
 ## `useSuaImaginação()` {#useyourimagination}
 
@@ -220,7 +220,7 @@ function todosReducer(state, action) {
 
 Reducers são muito convenientes para testar de forma isolada e escalonar para expressar uma lógica complexa de atualização. Você pode ainda quebrar eles em reducers menores caso necessário. Contudo, você pode também gostar dos benefícios de utilizar a lógica local (`state`) do React ou não queira instalar outra biblioteca.
 
-Então se pudéssemos escrever um Hook `useReducer` que nos permite gerenciar o estado *local* (`state`) do nosso componente com um reducer? Uma versão simplificada deveria ser mais ou menos assim:
+E se pudéssemos escrever um Hook `useReducer` que nos permite gerenciar o estado *local* (`state`) do nosso componente com um reducer? Uma versão simplificada deveria ser mais ou menos assim:
 
 ```js
 function useReducer(reducer, initialState) {
@@ -249,4 +249,4 @@ function Todos() {
 }
 ```
 
-A necessidade de se gerenciar o estado local (`state`) com um reducer em um componente complexo é comum o bastante que construímos o Hook `useReducer` no próprio React. Você o achará juntamente com outros Hooks nativos na [referência da API dos Hooks](/docs/hooks-reference.html).
+A necessidade de se gerenciar o estado local (`state`) com um reducer em um componente complexo é tão comum que construímos o Hook `useReducer` no próprio React. Você o achará juntamente com outros Hooks nativos na [referência da API dos Hooks](/docs/hooks-reference.html).
