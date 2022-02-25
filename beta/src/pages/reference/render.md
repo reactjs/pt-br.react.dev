@@ -4,7 +4,7 @@ title: render()
 
 <Intro>
 
-`render` renders a piece of [JSX](/learn/writing-markup-with-jsx) ("React element") into a browser DOM container node. It instructs React to change the DOM inside of the `container` so that it matches the passed JSX.
+`render` renderiza um [JSX](/learn/writing-markup-with-jsx) ("elemento React") em um nó de contêiner DOM do navegador. Ele instrui o React a alterar o DOM dentro do `container` para que ele corresponda ao JSX que foi passado.
 
 ```js
 render(<App />, container);
@@ -13,21 +13,21 @@ render(<App />, container, callback);
 
 </Intro>
 
-## Rendering the root component {/*rendering-the-root-component*/}
+## Renderizando o componente *root* {/*rendering-the-root-component*/}
 
-To call `render`, you need a piece of JSX and a DOM container:
+Para chamar `render`, você precisa de um JSX e um contêiner DOM:
 
 <APIAnatomy>
 
 <AnatomyStep title="React element">
 
-The UI you want to render.
+A UI que você deseja renderizar.
 
 </AnatomyStep>
 
 <AnatomyStep title="DOM container">
 
-The DOM node you want to render your UI into. The container itself isn’t modified, only its children are.
+O nó do DOM no qual você deseja renderizar sua UI. O contêiner em si não é modificado, apenas seus filhos são.
 
 </AnatomyStep>
 
@@ -38,7 +38,7 @@ render(<App />, container);
 
 </APIAnatomy>
 
-In apps fully built with React, you will do this once at the top level of your app--to render the "root" component.
+Em aplicativos totalmente construídos com React, você fará isso uma vez no nível superior do seu aplicativo - para renderizar o componente "root".
 
 <Sandpack>
 
@@ -52,7 +52,7 @@ render(<App />, document.getElementById('root'));
 
 ```js App.js
 export default function App() {
-  return <h1>Hello, world!</h1>;
+  return <h1>Olá, mundo!</h1>;
 }
 ```
 
@@ -60,42 +60,42 @@ export default function App() {
 
 <br />
 
-## Rendering multiple roots {/*rendering-multiple-roots*/}
+## Renderizando vários *root* {/*rendering-multiple-roots*/}
 
-If you use ["sprinkles"](/learn/add-react-to-a-website) of React here and there, call `render` for each top-level piece of UI managed by React.
+Se você usar ["pedaços"](/learn/add-react-to-a-website) do React aqui e ali, chame `render` para cada parte de nível superior da UI gerenciada pelo React.
 
 <Sandpack>
 
 ```html public/index.html
-<nav id="navigation"></nav>
+<nav id="navegacao"></nav>
 <main>
-  <p>This paragraph is not rendered by React (open index.html to verify).</p>
-  <section id="comments"></section>
+  <p>Este parágrafo não é renderizado pelo React (abra index.html para verificar).</p>
+  <section id="comentarios"></section>
 </main>
 ```
 
 ```js index.js active
 import './styles.css';
 import { render } from 'react-dom';
-import { Comments, Navigation } from './Components.js';
+import { Comentarios, Navegacao } from './Components.js';
 
 render(
-  <Navigation />,
-  document.getElementById('navigation')
+  <Navegacao />,
+  document.getElementById('navegacao')
 );
 
 render(
-  <Comments />,
-  document.getElementById('comments')
+  <Comentarios />,
+  document.getElementById('comentarios')
 );
 ```
 
 ```js Components.js
-export function Navigation() {
+export function Navegacao() {
   return (
     <ul>
       <NavLink href="/">Home</NavLink>
-      <NavLink href="/about">About</NavLink>
+      <NavLink href="/sobre">Sobre</NavLink>
     </ul>
   );
 }
@@ -108,19 +108,19 @@ function NavLink({ href, children }) {
   );
 }
 
-export function Comments() {
+export function Comentarios() {
   return (
     <>
-      <h2>Comments</h2>
-      <Comment text="Hello!" author="Sophie" />
-      <Comment text="How are you?" author="Sunil" />
+      <h2>Comentarios</h2>
+      <Comentario texto="Olá!" autor="Sophie" />
+      <Comentario texto="Como vai você?" autor="Sunil" />
     </>
   );
 }
 
-function Comment({ text, author }) {
+function Comentario({ texto, autor }) {
   return (
-    <p>{text} — <i>{author}</i></p>
+    <p>{texto} — <i>{autor}</i></p>
   );
 }
 ```
@@ -134,9 +134,9 @@ nav ul li { display: inline-block; margin-right: 20px; }
 
 <br />
 
-## Updating the rendered tree {/*updating-the-rendered-tree*/}
+## Atualizando a árvore renderizada {/*updating-the-rendered-tree*/}
 
-You can call `render` more than once on the same DOM node. As long as the component tree structure matches up with what was previously rendered, React will [preserve the state](/learn/preserving-and-resetting-state). Notice how you can type in the input:
+Você pode chamar `render` mais de uma vez no mesmo nó do DOM. Contanto que a estrutura da árvore de componentes corresponda ao que foi renderizado anteriormente, o React [preservará o estado](/learn/preserving-and-resetting-state). Observe como você pode digitar a entrada:
 
 <Sandpack>
 
@@ -147,7 +147,7 @@ import App from './App.js';
 let i = 0;
 setInterval(() => {
   render(
-    <App counter={i} />,
+    <App contador={i} />,
     document.getElementById('root')
   );
   i++;
@@ -155,11 +155,11 @@ setInterval(() => {
 ```
 
 ```js App.js
-export default function App({counter}) {
+export default function App({contador}) {
   return (
     <>
-      <h1>Hello, world! {counter}</h1>
-      <input placeholder="Type something here" />
+      <h1>Olá, mundo! {contador}</h1>
+      <input placeholder="Digite algo aqui!" />
     </>
   );
 }
@@ -167,22 +167,22 @@ export default function App({counter}) {
 
 </Sandpack>
 
-You can destroy the rendered tree with [`unmountComponentAtNode()`](TODO).
+Você pode destruir a árvore renderizada com [`unmountComponentAtNode()`](TODO).
 
 <br />
 
-## When not to use it {/*when-not-to-use-it*/}
+## Quando não usar {/*when-not-to-use-it*/}
 
-* If your app uses server rendering and generates HTML on the server, use [`hydrate`](TODO) instead of `render`.
-* If your app is fully built with React, you shouldn't need to use `render` more than once. If you want to render something in a different part of the DOM tree (for example, a modal or a tooltip), use [`createPortal`](TODO) instead.
+* Se seu aplicativo usa renderização de servidor (SSR) e gera HTML no servidor, use [`hydrate`](TODO) em vez de `render`.
+* Se seu aplicativo for totalmente construído com React, você não precisará usar `render` mais de uma vez. Se você quiser renderizar algo em uma parte diferente da árvore DOM (por exemplo, um modal ou uma dica de ferramenta), use [`createPortal`](TODO).
 
 <br />
 
 
-## Behavior in detail {/*behavior-in-detail*/}
+## Comportamento em detalhes {/*behavior-in-detail*/}
 
-The first time you call `render`, any existing DOM elements inside `container` are replaced. If you call `render` again, React will update the DOM as necessary to reflect the latest JSX. React will decide which parts of the DOM can be reused and which need to be recreated by ["matching it up"](/learn/preserving-and-resetting-state) with the previously rendered tree. Calling `render` repeatedly is similar to calling `setState`--in both cases, React avoids unnecessary DOM updates.
+Na primeira vez que você chama `render`, todos os elementos DOM existentes dentro de `container` são substituídos. Se você chamar `render` novamente, o React atualizará o DOM conforme necessário para refletir o JSX mais recente. O React decidirá quais partes do DOM podem ser reutilizadas e quais precisam ser recriadas ["combinando"](/learn/preserving-and-resetting-state) com a árvore renderizada anteriormente. Chamar `render` repetidamente é semelhante a chamar `setState` -- em ambos os casos, o React evita atualizações desnecessárias do DOM.
 
-You can pass a callback as the third argument. React will call it after your component is in the DOM.
+Você pode passar um *callback* como o terceiro argumento. O React irá chamá-lo depois que seu componente estiver no DOM.
 
-If you render `<MyComponent />`, and `MyComponent` is a class component, `render` will return the instance of that class. In all other cases, it will return `null`.
+Se você renderizar `<MyComponent />`, e `MyComponent` for um componente de classe, `render` retornará a instância dessa classe. Em todos os outros casos, retornará `null`.
