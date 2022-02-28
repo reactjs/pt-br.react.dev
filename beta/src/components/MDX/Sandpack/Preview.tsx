@@ -109,16 +109,6 @@ export function Preview({
     : null;
   const hideContent = !isReady || error;
 
-  // Allow content to be scrolled if it's too high to fit.
-  // Note we don't want this in the expanded state
-  // because it breaks position: sticky (and isn't needed anyway).
-  // We also don't want this for errors because they expand
-  // parent and making them scrollable is confusing.
-  let overflow;
-  if (!isExpanded && !error && isReady) {
-    overflow = 'auto';
-  }
-
   // WARNING:
   // The layout and styling here is convoluted and really easy to break.
   // If you make changes to it, you need to test different cases:
@@ -170,21 +160,25 @@ export function Preview({
               // (which we're using for autosizing). This is noticeable
               // if you make a compiler error and then fix it with code
               // that expands the content. You want to measure that.
-              opacity: hideContent ? 0 : 1,
-              pointerEvents: hideContent ? 'none' : undefined,
+              hideContent
+                ? 'absolute opacity-0 pointer-events-none'
+                : 'opacity-100'
+            )}
+            title="Sandbox Preview"
+            style={{
+              height: iframeComputedHeight || '100%',
               zIndex: isExpanded ? 'initial' : -1,
             }}
           />
         </div>
         {error && (
           <div
-            className="p-2"
-            style={{
+            className={cn(
+              'p-2',
               // This isn't absolutely positioned so that
               // the errors can also expand the parent height.
-              position: isExpanded ? 'sticky' : undefined,
-              top: isExpanded ? '2rem' : '',
-            }}>
+              isExpanded ? 'sticky top-8' : null
+            )}>
             <Error error={error} />
           </div>
         )}
