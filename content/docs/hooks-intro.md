@@ -16,9 +16,9 @@ function Example() {
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Você clicou {count} vezes</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Clique aqui
       </button>
     </div>
   );
@@ -52,7 +52,7 @@ Antes de continuar, note que Hooks são:
 
 **Não temos planos de remover classes do React.** Você pode aprender mais sobre a estratégia de adoção gradual para Hooks na [seção inferior](#gradual-adoption-strategy) desta página.
 
-**Hooks não substituem seu conhecimento dos conceitos de React.** Ao invés disso, Hooks provêem uma API mais direta para os conceitos de React que você já conhece: props, state, context, refs e ciclo de vida. Como iremos mostrar em breve, Hooks também oferecem uma poderosa nova forma de combiná-los.
+**Hooks não substituem seu conhecimento dos conceitos de React.** Ao invés disso, Hooks proveem uma API mais direta para os conceitos de React que você já conhece: props, state, context, refs e ciclo de vida. Como iremos mostrar em breve, Hooks também oferecem uma poderosa nova forma de combiná-los.
 
 **Se você só quiser começar a aprender Hooks, sinta-se livre para [pular direto para a próxima página!](/docs/hooks-overview.html)** Você também pode continuar lendo esta página para aprender mais sobre o porquê de estarmos adicionando Hooks e como nós iremos começar a usá-los sem reescrever nossas aplicações.
 
@@ -84,7 +84,7 @@ Além de deixar o reuso de código e a organização de código mais difícil, n
 
 Adicionalmente, React já foi lançado há mais ou menos cinco anos e nós queríamos ter certeza que ele se mantivesse relevante pelos próximos cinco anos. Assim como [Svelte](https://svelte.dev/), [Angular](https://angular.io/), [Glimmer](https://glimmerjs.com/), e outros mostraram, [compilação ahead-of-time](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) de componentes tem um grande potencial no futuro. Especialmente se não estiver limitado a templates. Recentemente, estivemos experimentando com [component folding](https://github.com/facebook/react/issues/7323) usando [Prepack](https://prepack.io/) e estamos encontrando resultados promissores. Porém, percebemos que componentes de classe podem encorajar padrões não intencionais que fazem com que essas otimizações recaiam em um caminho mais lento. Classes apresentam problemas para ferramentas dos dias de hoje, também. Por exemplo, classes não minificam muito bem e elas fazem com que hot reloading funcione de forma inconsistente e não confiável. Nós queremos disponibilizar uma API que torne mais provável o código permanecer no caminho otimizável.
 
-Para resolver esses problemas, **_Hooks_ permitem você usar mais das funcionalidades de React sem classes.** Conceitualmente, componentes React sempre estiveram mais próximos de funções. Hooks adotam funções, mas sem sacrificar o espírito prático de React. Hooks provêem acesso a válvulas de escape imperativas e não requerem você a aprender técnicas complexas de programação funcional ou reativa.
+Para resolver esses problemas, **_Hooks_ permitem você usar mais das funcionalidades de React sem classes.** Conceitualmente, componentes React sempre estiveram mais próximos de funções. Hooks adotam funções, mas sem sacrificar o espírito prático de React. Hooks proveem acesso a válvulas de escape imperativas e não requerem você a aprender técnicas complexas de programação funcional ou reativa.
 
 >Exemplos
 >

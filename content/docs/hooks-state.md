@@ -19,9 +19,9 @@ function Example() {
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Você clicou {count} vezes</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Clique aqui
       </button>
     </div>
   );
@@ -46,9 +46,9 @@ class Example extends React.Component {
   render() {
     return (
       <div>
-        <p>You clicked {this.state.count} times</p>
+        <p>Você clicou {this.state.count} vezes</p>
         <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-          Click me
+          Clique aqui
         </button>
       </div>
     );
@@ -159,13 +159,13 @@ Nós declaramos uma variável state chamada `count` e definimos ela para 0. O Re
 Quando queremos mostrar o count atual em classe, lemos `this.state.count`:
 
 ```js
-  <p>You clicked {this.state.count} times</p>
+  <p>Você clicou {this.state.count} vezes</p>
 ```
 
 Em uma função, podemos usar `count` diretamente:
 
 ```js
-  <p>You clicked {count} times</p>
+  <p>Você clicou {count} vezes</p>
 ```
 
 ## Atualizando o State {#updating-state}
@@ -174,7 +174,7 @@ Em uma classe, podemos chamar `this.setState()` para atualizar o state `count`:
 
 ```js{1}
   <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-    Click me
+    Clique aqui
   </button>
 ```
 
@@ -182,7 +182,7 @@ Na função, já temos `setCount` e `count` como variáveis então não precisam
 
 ```js{1}
   <button onClick={() => setCount(count + 1)}>
-    Click me
+    Clique aqui
   </button>
 ```
 
@@ -202,9 +202,9 @@ Vamos **recapitular o que aprendemos linha por linha** e checar nosso entendimen
  5:
  6:    return (
  7:      <div>
- 8:        <p>You clicked {count} times</p>
+ 8:        <p>Você clicou {count} vezes</p>
  9:        <button onClick={() => setCount(count + 1)}>
-10:         Click me
+10:         Clique aqui
 11:        </button>
 12:      </div>
 13:    );
@@ -247,14 +247,14 @@ Quando declaramos uma variável com `useState`, ela retorna um par -- um array c
 
 ### Dica: Usando Múltiplas Variáveis State {#tip-using-multiple-state-variables}
 
-Declarar variáveis de state como par de `[something, setSomething]` também é útil porque nos permite dar *diferentes* nomes para diferentes váriaveis de state se quiséssemos usar mais de uma:
+Declarar variáveis de state como par de `[something, setSomething]` também é útil porque nos permite dar *diferentes* nomes para diferentes variáveis de state se quiséssemos usar mais de uma:
 
 ```js
 function ExampleWithManyStates() {
 // Declarar múltiplas variáveis de state!
   const [age, setAge] = useState(42);
   const [fruit, setFruit] = useState('banana');
-  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+  const [todos, setTodos] = useState([{ text: 'Aprender Hooks' }]);
 ```
 
 No componente acima, temos `age`, `fruit` e `todos` como variáveis locais e podemos atualizá-las individualmente:
@@ -266,7 +266,7 @@ No componente acima, temos `age`, `fruit` e `todos` como variáveis locais e pod
   }
 ```
 
-Você **não tem que** usar muitas variáveis de state. Elas podem conter objetos e arrays muito bem. Portanto você ainda pode juntar dados relacionados. De qualquer maneira, diferente de `this.setState` em classe, ao atualizar uma variável de state, ela sempre é *substituida* ao invés de incorporada.
+Você **não tem que** usar muitas variáveis de state. Elas podem conter objetos e arrays muito bem. Portanto você ainda pode juntar dados relacionados. De qualquer maneira, diferente de `this.setState` em classe, ao atualizar uma variável de state, ela sempre é *substituída* ao invés de incorporada.
 
 Damos mais recomendações em separação de variáveis de state independentes [no FAQ](/docs/hooks-faq.html#should-i-use-one-or-many-state-variables).
 
