@@ -1,20 +1,20 @@
 ---
-title: Community
+title: Comunidade
 ---
 
 <Intro>
 
-React has a community of millions of developers. On this page we've listed some React-related communities that you can be a part of; see the other pages in this section for additional online and in-person learning materials.
+React tem uma comunidade de milhões de desenvolvedores. Nesta página nós listamos algumas comunidades relacionadas a React que você pode fazer parte; veja as outras páginas desta seção para materiais de ensino online e presenciais.
 
 </Intro>
 
-## Code of Conduct {/*code-of-conduct*/}
+## Código de Conduta {/*code-of-conduct*/}
 
-Before participating in React's communities, [please read our Code of Conduct](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md). We have adopted the [Contributor Covenant](https://www.contributor-covenant.org/) and we expect that all community members adhere to the guidelines within.
+Antes de participar das comunidades de React, [por favor leia nosso Código de Conduta](https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md). Nós adotamos o [Contributor Covenant](https://www.contributor-covenant.org/pt-br/version/2/0/code_of_conduct/) e nós esperamos que todos os membros da comunidade sigam essas diretrizes.
 
 ## Stack Overflow {/*stack-overflow*/}
 
-Stack Overflow is a popular forum to ask code-level questions or if you're stuck with a specific error. Read through the [existing questions](https://stackoverflow.com/questions/tagged/reactjs) tagged with **reactjs** or [ask your own](https://stackoverflow.com/questions/ask?tags=reactjs)!
+Stack Overflow é um fórum popular para fazer perguntas sobre código ou para caso você esteja travado em um erro específico. Leia as [perguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) marcadas com **reactjs** ou [faça a sua](https://stackoverflow.com/questions/ask?tags=reactjs)!
 
 <!--
 
@@ -33,6 +33,6 @@ Each community consists of many thousands of React users.
 
 -->
 
-## News {/*news*/}
+## Notícias {/*news*/}
 
-For the latest news about React, [follow **@reactjs** on Twitter](https://twitter.com/reactjs) and the [official React blog](/blog/) on this website.
+Para as últimas notícias sobre React, [siga **@reactjs** no Twitter](https://twitter.com/reactjs) e o [blog oficial do React](/blog/) neste webiste.
