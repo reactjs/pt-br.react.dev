@@ -1,33 +1,33 @@
 ---
-title: Start a New React Project
+title:Iniciar um novo projeto no React
 ---
 
 <Intro>
 
-If you're learning React or considering adding it to an existing project, you can get started quickly by [adding React to any HTML page with script tags](/learn/add-react-to-a-website). If your project will need many components and many files, it might be time to consider the options below!
+Se você está aprendendo React ou pensando em adicioná-lo a um projeto existente, pode começar rapidamente  [adicionando React a qualquer página HTML com tags de script](/learn/add-react-to-a-website). Se o seu projeto precisar de muitos componentes e muitos arquivos, talvez seja hora de considerar as opções abaixo!
 
 </Intro>
 
-## Choose your own adventure {/*choose-your-own-adventure*/}
+## Escolha sua própria aventura {/*choose-your-own-adventure*/}
 
-React is a library that lets you organize UI code by breaking it apart into pieces called components. React doesn't take care of routing or data management. For these features, you'll want to use third-party libraries or write your own solutions. This means there are several ways to start a new React project:
+React é uma biblioteca que permite organizar o código da interface do usuário dividindo-o em partes chamadas componentes. O React não cuida do roteamento ou gerenciamento de dados. Para esses recursos, convém usar bibliotecas de terceiros ou escrever suas próprias soluções. Isso significa que existem várias maneiras de iniciar um novo projeto React:
 
-* Start with a **minimal set up with just a toolchain,** adding features to your project as necessary.
-* Start with an **opinionated framework** with common functionality already built in.
+* Comece com uma **configuração mínima com apenas um conjunto de ferramentas,** adicionando recursos ao seu projeto conforme necessário.
+* Comece com um **software opinativo** com funcionalidade comum já incorporada.
 
-Whether you're just getting started, looking to build something big, or want to set up your own toolchain, this guide will set you on the right path.
+Se você está apenas começando, procurando construir algo grande ou deseja configurar seu próprio conjunto de ferramentas, este guia te colocará no caminho certo.
 
-## Getting started with a React toolchain {/*getting-started-with-a-react-toolchain*/}
+## Começando com um conjunto de ferramentas React {/*getting-started-with-a-react-toolchain*/}
 
-If you're just getting started with React, we recommend [Create React App](https://create-react-app.dev/), the most popular way to try out React's features and a great way to build a new single-page, client-side application. Create React App is an unopinionated toolchain configured just for React. Toolchains help with things like:
+Se você está apenas começando com o React, recomendamos [Ceate React App](https://create-react-app.dev/), a maneira mais popular de experimentar os recursos do React e uma ótima maneira de criar um novo aplicativo do lado do cliente de single-page. Create React App é um conjunto de ferramentas sem opinião configurada apenas para React.Os conjuntos de ferramentas ajudam com coisas como:
 
-* Scaling to many files and components
-* Using third-party libraries from npm
-* Detecting common mistakes early
-* Live-editing CSS and JS in development
-* Optimizing the output for production
+* Dimensionamento para muitos arquivos e componentes
+* Usando bibliotecas de terceiros do npm
+* Detectando erros comuns antecipadamente
+* Edição ao vivo de CSS e JS em desenvolvimento
+* Otimizando a saída para produção
 
-You can get started building with Create React App with one line of code in your terminal! (**Be sure you have [Node.js](https://nodejs.org/) installed!**)
+Você pode começar a construir com o Create React App com uma linha de código em seu terminal! (**Certifique-se de ter o [Node.js](https://nodejs.org/) instalado!**)
 
 <TerminalBlock>
 
@@ -35,7 +35,7 @@ npx create-react-app my-app
 
 </TerminalBlock>
 
-Now you can run your app with:
+Agora você pode executar seu aplicativo:
 
 <TerminalBlock>
 
@@ -44,37 +44,38 @@ npm start
 
 </TerminalBlock>
 
-For more information, [check out the official guide](https://create-react-app.dev/docs/getting-started).
+Para mais informações [confira o guia oficial ](https://create-react-app.dev/docs/getting-started).
 
-> Create React App doesn't handle backend logic or databases; it just creates a frontend build pipeline. This means you can use it with any backend you want. But if you're looking for more features like routing and server-side logic, read on!
+> Create React App não lida com lógica de back-end ou bancos de dados; ele apenas cria um pipeline de construção de front-end. Isso significa que você pode usá-lo com qualquer back-end que desejar. Mas se você estiver procurando por mais recursos, como roteamento e lógica do lado do servidor, continue lendo!
 
-### Other options {/*other-options*/}
+### Outras opções {/*other-options*/}
 
-Create React App is great to get started working with React, but if you'd like an even lighter toolchain, you might try one of these other popular toolchains:
+O Create React App é ótimo para começar a trabalhar com o React, mas se você quiser um conjunto de ferramentas ainda mais leve, tente um desses outros cconjuntos de ferramentas populares:
 
 * [Vite](https://vitejs.dev/guide/)
 * [Parcel](https://parceljs.org/)
 * [Snowpack](https://www.snowpack.dev/tutorials/react)
 
-## Building with React and a framework {/*building-with-react-and-a-framework*/}
+## Programando com React e um framework {/*building-with-react-and-a-framework*/}
 
-If you're looking to start a bigger, production-ready project, [Next.js](https://nextjs.org/) is a great place to start. Next.js is a popular, lightweight framework for static and server‑rendered applications built with React. It comes pre-packaged with features like routing, styling, and server-side rendering, getting your project up and running quickly. 
+Se você deseja iniciar um projeto maior e pronto para produção, o [Next.js](https://nextjs.org/) é um ótimo lugar para começar. Next.js é uma estrutura popular e leve para aplicativos estáticos e renderizados por servidor criados com React. Ele vem em um pacote com recursos como roteamento, estilo e renderização do lado do servidor, colocando seu projeto em funcionamento rapidamente.
 
-[Get started building with Next.js](https://nextjs.org/docs/getting-started) with the official guide.
+[Comece a criar com Next.js](https://nextjs.org/docs/getting-started) usando o guia oficial.
 
-### Other options {/*other-options-1*/}
+### Outras opções {/*other-options-1*/}
 
-* [Gatsby](https://www.gatsbyjs.org/) lets you generate static websites with React with GraphQL.
-* [Razzle](https://razzlejs.org/) is a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js.
+* [Gatsby](https://www.gatsbyjs.org/) permite gerar sites estáticos com React com GraphQL.
+* [Razzle](https://razzlejs.org/)  é uma estrutura de renderização de servidor que não requer nenhuma configuração, mas oferece mais flexibilidade do que o Next.js.
 
-## Custom toolchains {/*custom-toolchains*/}
+## Conjuntos de ferramentas personalizadas
+s {/*custom-toolchains*/}
 
-You may prefer to create and configure your own toolchain. A JavaScript build toolchain typically consists of:
+Você pode preferir criar e configurar sueu próprio conjunto de ferramentas. Um  conjunto de ferramentas de construção JavaScript normalmente consiste em:
 
-* A **package manager**—lets you install, updated and manage third-party packages. [Yarn](https://yarnpkg.com/) and [npm](https://www.npmjs.com/) are two popular package managers.
-* A **bundler**—lets you write modular code and bundle it together into small packages to optimize load time. [Webpack](https://webpack.js.org/), [Snowpack](https://www.snowpack.dev/), [Parcel](https://parceljs.org/) are several popular bundlers.
-* A **compiler**—lets you write modern JavaScript code that still works in older browsers. [Babel](https://babeljs.io/) is one such example.
+* Um **gerenciador de pacotes**—permite instalar, atualizar e gerenciar pacotes de terceiros. [Yarn](https://yarnpkg.com/) e [npm](https://www.npmjs.com/) são dois gerenciadores de pacotes populares.
+* Um **bundler**— permite escrever código modular e agrupá-lo em pequenos pacotes para otimizar o tempo de carregamento. [Webpack](https://webpack.js.org/), [Snowpack](https://www.snowpack.dev/), [Parcel](https://parceljs.org/) são alguns bundlers populares.
+* Um **compilador**— permite escrever código JavaScript moderno que ainda funciona em navegadores mais antigos. [Babel](https://babeljs.io/) é um desses exemplos.
 
-In a larger project, you might also want to have a tool to manage multiple packages in a single repository. [Nx](https://nx.dev/react) is an example of such a tool.
+Em um projeto maior, você também pode querer ter uma ferramenta para gerenciar vários pacotes em um único repositório.  [Nx](https://nx.dev/react) é um exemplo deesse tipo de ferramenta.
 
-If you prefer to set up your own JavaScript toolchain from scratch, [check out this guide](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) that re-creates some of the Create React App functionality.
+Se você preferir configurar seu própria conjunto de ferramentas JavaScript do zero, [confira este guia ](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recria algumas das funcionalidades Create React App.
