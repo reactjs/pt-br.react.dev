@@ -75,11 +75,7 @@ As seguintes toolchains oferecem mais flexibilidade e escolha. Nós as recomenda
 
 - **[Nx](https://nx.dev/react)** é um kit de ferramentas para o desenvolvimento de monorepo de stack completa, com suporte interno para o React, Next.js, [Express](https://expressjs.com/), e mais.
 
-<<<<<<< HEAD
 - **[Parcel](https://parceljs.org/)** é um bundler de aplicativos web rápido e sem configuração que [funciona com React](https://parceljs.org/recipes.html#react). 
-=======
-- **[Parcel](https://parceljs.org/)** is a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes/react/).
->>>>>>> 17ad2cbc71f4c1fcc3f3f9ae528bfd292a9fced7
 
 - **[Razzle](https://github.com/jaredpalmer/razzle)** é um framework renderizado no servidor que não requer configuração, porém oferece mais flexibilidade que o Next.js.
 
