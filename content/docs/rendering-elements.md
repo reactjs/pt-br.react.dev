@@ -38,7 +38,7 @@ Para renderizar um elemento React em um nó raiz, passe ambos para [`ReactDOM.re
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 Assim, é exibido "Hello, world" na página.
 
@@ -52,7 +52,7 @@ Veja o seguinte exemplo de um relógio:
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
 Chama-se o [`ReactDOM.render()`](/docs/react-dom.html#render) a cada segundo a partir de um callback do [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
 
@@ -66,7 +66,7 @@ Chama-se o [`ReactDOM.render()`](/docs/react-dom.html#render) a cada segundo a p
 
 O React DOM compara o elemento novo e seus filhos com os anteriores e somente aplica as modificações necessárias no DOM para levá-lo ao estado desejado.
 
-Você pode observar isso inspecionando o [último exemplo](codepen://rendering-elements/update-rendered-element) com as ferramentas do navegador:
+Você pode observar isso inspecionando o [último exemplo](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) com as ferramentas do navegador:
 
 ![Ferramenta de inspecionar elemento do DOM mostrando atualizações granulares](../images/docs/granular-dom-updates.gif)
 

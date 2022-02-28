@@ -161,6 +161,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 
 ## Suécia {#sweden}
 * [Goteborg](https://www.meetup.com/ReactJS-Goteborg/)
+* [Stockholm](https://www.meetup.com/Stockholm-ReactJS-Meetup/)
 
 ## Suíça {#switzerland}
 * [Zurich](https://www.meetup.com/Zurich-ReactJS-Meetup/)

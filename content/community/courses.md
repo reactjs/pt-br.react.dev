@@ -46,7 +46,7 @@ permalink: community/courses.html
 
 - [React Training: Advanced React.js](https://courses.reacttraining.com/p/advanced-react) - Conduza suas habilidades de React para o próximo nível.
 
-- [Tyler McGinnis](https://tylermcginnis.com/courses) - Tyler McGinnis fornece acesso aos seus cursos por uma taxa mensal. Os cursos incluem "React Fundamentals" e "Universal React".
+- [Tyler McGinnis](https://ui.dev/) - Tyler McGinnis fornece acesso aos seus cursos por uma taxa mensal. Os cursos incluem "React Fundamentals" e "Universal React".
 
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construa apps interativos e profissionais com o React.
 
