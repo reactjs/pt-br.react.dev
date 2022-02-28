@@ -2,6 +2,6 @@
 .DS_STORE
 .idea
 node_modules
-public
+/public
 yarn-error.log
 .vscode/settings.json
