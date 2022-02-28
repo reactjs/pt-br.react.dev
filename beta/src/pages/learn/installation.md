@@ -1,25 +1,25 @@
 ---
-title: Installation
+title: Instalação
 ---
 
 <Intro>
 
-React has been designed from the start for gradual adoption, and you can use as little or as much React as you need. Whether you want to get a taste of React, add some interactivity to an HTML page, or start a complex React-powered app, this section will help you get started.
+O React foi projetado desde o início para a adoção gradual, e você pode usar o React o quanto precisar, de acordo com a sua necessidade. Se você quiser experimentar o React, adicionar um pouco de interatividade a uma página HTML, ou iniciar um aplicação React complexa, esta seção irá ajudá-lo a começar. 
 
 </Intro>
 
 <YouWillLearn>
 
-* [How to add React to an HTML page](/learn/add-react-to-a-website)
-* [How to start a standalone React project](/learn/start-a-new-react-project)
-* [How to set up your editor](/learn/editor-setup)
-* [How to install React Developer Tools](/learn/react-developer-tools)
+* [Como adicionar o React a uma página HTML](/learn/add-react-to-a-website)
+* [Como criar um novo projeto React](/learn/start-a-new-react-project)
+* [Como configurar seu editor de código](/learn/editor-setup)
+* [Como instalar a Ferramenta de Desenvolvedor do React](/learn/react-developer-tools)
 
 </YouWillLearn>
 
-## Try React {/*try-react*/}
+## Testar o React {/*try-react*/}
 
-You don't need to install anything to play with React. Try editing this sandbox!
+Você não precisa instalar nada para testar o React. Tente editar a sandbox abaixo!
 
 <Sandpack>
 
@@ -35,21 +35,21 @@ export default function App() {
 
 </Sandpack>
 
-We use sandboxes throughout these docs as teaching aids. Sandboxes can help familiarize you with how React works and help you decide if React is right for you. Outside of the React documentation, there are many online sandboxes that support React: for example, [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), or [CodePen](
+Nós utilizamos sandboxes ao longo desta documentação como ferramentas de aprendizagem. As sandboxes te ajudam a se familiarizar com o funcionamento do React e te auxiliam a decidir se o React é a escolha certa para você. Além das presentes na documentação oficial, existem diversas sandboxes online que têm suporte para React, por exemplo: [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), ou [CodePen](
 https://codepen.io/pen/?template=wvdqJJm).
 
-### Try React locally {/*try-react-locally*/}
+### Testar o React localmente {/*try-react-locally*/}
 
-To try React locally on your computer, [download this HTML page](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html). Open it in your editor and in your browser!
+Para testar o React localmente, [faça o download desta página HTML](https://raw.githubusercontent.com/reactjs/reactjs.org/main/static/html/single-file-example.html). Abra-a no seu editor de código e no seu navegador!
 
-## Add React to a page {/*add-react-to-a-page*/}
+## Adicionar o React a uma página {/*add-react-to-a-page*/}
 
-If you're working with an existing site and just need to add a little bit of React, you can [add React with a script tag.](/learn/add-react-to-a-website)
+Se você estiver trabalhando em um site já existente e precisa usar apenas um pouco de React, você pode [adicionar o React com uma tag de script.](/learn/add-react-to-a-website)
 
-## Start a React project {/*start-a-react-project*/}
+## Iniciar um projeto React {/*start-a-react-project*/}
 
-If you're ready to [start a standalone project](/learn/start-a-new-react-project) with React, you can set up a minimal toolchain for a pleasant developer experience. You can also start with a framework that makes a lot of decisions for you out of the box.
+Se você estiver pronto para [iniciar um projeto do zero](/learn/start-a-new-react-project) com React, você pode utilizar uma toolchain pequena para ter uma experiência de desenvolvimento agradável. Você pode também iniciar com uma framework que toma diversas decisões para você por padrão. 
 
-## Next steps {/*next-steps*/}
+## Próximos passos {/*next-steps*/}
 
-Where you start depends on how you like to learn, what you need to accomplish, and where you want to go next! Why not read [Thinking in React](/learn/thinking-in-react)--our introductory tutorial? Or you can jump to [Describing the UI](/learn/describing-the-ui) to play with more examples and learn each topic step by step. There is no wrong way to learn React!
+Onde você irá iniciar a sua jornada depende de como você gosta de aprender, o que você precisa realizar, e o quanto você quer evoluir! Por que não ler [Pensando em React](/learn/thinking-in-react)--nosso tutorial de introdução? Ou você pode ir direto para [Descrevendo a UI](/learn/describing-the-ui) para testar mais exemplos e aprender cada tópico passo a passo. Não há maneira errada de aprender React!
