@@ -67,31 +67,31 @@ Se você usar ["pedaços"](/learn/add-react-to-a-website) do React aqui e ali, c
 <Sandpack>
 
 ```html public/index.html
-<nav id="navegacao"></nav>
+<nav id="navigation"></nav>
 <main>
   <p>Este parágrafo não é renderizado pelo React (abra index.html para verificar).</p>
-  <section id="comentarios"></section>
+  <section id="comments"></section>
 </main>
 ```
 
 ```js index.js active
 import './styles.css';
 import { render } from 'react-dom';
-import { Comentarios, Navegacao } from './Components.js';
+import { Comments, Navigation } from './Components.js';
 
 render(
-  <Navegacao />,
-  document.getElementById('navegacao')
+  <Navigation />,
+  document.getElementById('navigation')
 );
 
 render(
-  <Comentarios />,
-  document.getElementById('comentarios')
+  <Comments />,
+  document.getElementById('comments')
 );
 ```
 
 ```js Components.js
-export function Navegacao() {
+export function Navigation() {
   return (
     <ul>
       <NavLink href="/">Home</NavLink>
@@ -108,19 +108,19 @@ function NavLink({ href, children }) {
   );
 }
 
-export function Comentarios() {
+export function Comments() {
   return (
     <>
       <h2>Comentarios</h2>
-      <Comentario texto="Olá!" autor="Sophie" />
-      <Comentario texto="Como vai você?" autor="Sunil" />
+      <Comment text="Olá!" author="Sophie" />
+      <Comment text="Como vai você?" author="Sunil" />
     </>
   );
 }
 
-function Comentario({ texto, autor }) {
+function Comentario({ text, author }) {
   return (
-    <p>{texto} — <i>{autor}</i></p>
+    <p>{text} — <i>{author}</i></p>
   );
 }
 ```
@@ -147,7 +147,7 @@ import App from './App.js';
 let i = 0;
 setInterval(() => {
   render(
-    <App contador={i} />,
+    <App counter={i} />,
     document.getElementById('root')
   );
   i++;
@@ -155,10 +155,10 @@ setInterval(() => {
 ```
 
 ```js App.js
-export default function App({contador}) {
+export default function App({counter}) {
   return (
     <>
-      <h1>Olá, mundo! {contador}</h1>
+      <h1>Olá, mundo! {counter}</h1>
       <input placeholder="Digite algo aqui!" />
     </>
   );
