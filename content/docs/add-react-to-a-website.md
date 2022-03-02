@@ -39,7 +39,7 @@ Primeiramente, abra a página HTML que você deseja alterar. Adicione uma tag `<
 <!-- ... HTML existente ... -->
 ```
 
-Nós atribuimos a esta `<div>` um atributo HTML `id` único. Isso nos permitirá encontrá-lo no código JavaScript e mais tarde exibir um componente React dentro dele.
+Nós atribuímos a esta `<div>` um atributo HTML `id` único. Isso nos permitirá encontrá-lo no código JavaScript e mais tarde exibir um componente React dentro dele.
 
 >Dica
 >
@@ -110,7 +110,7 @@ Normalmente, você pode querer exibir seus componentes React em vários lugares 
 
 ### Dica: Minifique o JavaScript para Produção {#tip-minify-javascript-for-production}
 
-Antes de realizar o deploy de seu site para produção, lembre-se que o código JavaScript não minificado pode deixar sua página significamente mais lenta para seus usuários.
+Antes de realizar o deploy de seu site para produção, lembre-se que o código JavaScript não minificado pode deixar sua página significativamente mais lenta para seus usuários.
 
 Se você já minifica os scripts da sua aplicação, **seu site estará pronto para produção** se você garantir que o HTML carregue a versão do React terminando em `production.min.js`:
 
@@ -123,7 +123,7 @@ Se você não possui uma etapa de minificação para seus scripts, [aqui está u
 
 ## Opcional: Experimente o React com JSX {#optional-try-react-with-jsx}
 
-Nos exemplos acima, nós contamos apenas com recursos que são nativamentes suportados pelos navegadores. E é por isso que usamos uma chamada de função JavaScript para informar ao React o que exibir:
+Nos exemplos acima, nós contamos apenas com recursos que são nativamente suportados pelos navegadores. E é por isso que usamos uma chamada de função JavaScript para informar ao React o que exibir:
 
 ```js
 const e = React.createElement;

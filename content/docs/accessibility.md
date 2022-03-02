@@ -4,7 +4,7 @@ title: Acessibilidade
 permalink: docs/accessibility.html
 ---
 
-## Por que Acessibilidade ? {#why-accessibility}
+## Por que Acessibilidade? {#why-accessibility}
 
 A acessibilidade da Web (também chamada de [** a11y **](https://en.wiktionary.org/wiki/a11y)) é o design e a criação de sites que podem ser usados ​​por todos. O suporte à acessibilidade é necessário para permitir que tecnologias assistivas interpretem as páginas da web.
 
@@ -83,7 +83,7 @@ function Glossario(props) {
   return (
     <dl>
       {props.items.map(item => (
-        // Fragments também aceitam `key`(chave) prop quando estao mapeando coleções
+        // Fragments também aceitam `key`(chave) prop quando estão mapeando coleções
         <Fragment key={item.id}>
           <dt>{item.nome}</dt>
           <dd>{item.descricao}</dd>
@@ -107,7 +107,7 @@ function ListaDeItems({ item }) {
 }
 ```
 
-Para mais informações, veja a [doumentação para Fragments](/docs/fragments.html).
+Para mais informações, veja a [documentação para Fragments](/docs/fragments.html).
 
 ## Formulários Acessíveis {#accessible-forms}
 
@@ -153,7 +153,7 @@ Somente use CSS que elimine este contorno, por exemplo, definindo `outline: 0`, 
 
 São mecanismos para permitir que os usuários ignorem as seções de navegação anteriores em seu aplicativo, pois isso ajuda e acelera a navegação pelo teclado.
 
-Skiplinks ou Links para Pular Navegacão são links de navegação ocultos que só se tornam visíveis quando os usuários interagem com a página usando o teclado. Eles são muito fáceis de implementar com alguns estilos e âncoras de páginas:
+Skiplinks ou Links para Pular Navegação são links de navegação ocultos que só se tornam visíveis quando os usuários interagem com a página usando o teclado. Eles são muito fáceis de implementar com alguns estilos e âncoras de páginas:
 
 - [WebAIM - Skip Navigation Links](https://webaim.org/techniques/skipnav/)
 
@@ -285,12 +285,12 @@ class ClickForaExemplo extends React.Component {
   render() {
     return (
       <div ref={this.toggleContainer}>
-        <button onClick={this.onClickHandler}>Select an option</button>
+        <button onClick={this.onClickHandler}>Selecione uma opção</button>
         {this.state.isOpen && (
           <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
+            <li>Opção 1</li>
+            <li>Opção 2</li>
+            <li>Opção 3</li>
           </ul>
         )}
       </div>
@@ -350,13 +350,13 @@ class ExamploDeBlur extends React.Component {
         <button onClick={this.onClickHandler}
                 aria-haspopup="true"
                 aria-expanded={this.state.isOpen}>
-          Select an option
+          Selecione uma opção
         </button>
         {this.state.isOpen && (
           <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
+            <li>Opção 1</li>
+            <li>Opção 2</li>
+            <li>Opção 3</li>
           </ul>
         )}
       </div>
