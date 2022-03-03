@@ -88,7 +88,7 @@ function App() {
 **Por si só, esse código ainda não faz nada.** Precisamos usar os valores de retorno deste Hook para configurar nossa transição de estado. Existem dois valores retornados por `useTransition`:
 
 * `startTransition` é uma função. Vamos usá-la para informar ao React *qual* atualização de estado queremos adiar.
-* `isPending` é um booleano. É o React nos dizendo se essa transição está em andamento no momento.
+* `isPending` é um boolean. É o React nos dizendo se essa transição está em andamento no momento.
 
 Vamos usá-los logo abaixo.
 
@@ -130,13 +130,13 @@ Se fizermos as respostas da API demorarem 5 segundos, [podemos confirmar](https:
 
 Ainda tem algo que parece quebrado em relação ao [nosso último exemplo](https://codesandbox.io/s/musing-driscoll-6nkie). Claro, é bom não ver um estado de carregamento "ruim". **Mas não ter nenhuma indicação de progresso é ainda pior!** Quando clicamos em "Next", nada acontece e parece que o aplicativo está quebrado.
 
-Nossa chamada do `useTransition()` retorna dois valores: `startTransition` e` isPending`.
+Nossa chamada do `useTransition()` retorna dois valores: `startTransition` e `isPending`.
 
 ```js
   const [startTransition, isPending] = useTransition({ timeoutMs: 3000 });
 ```
 
-Já usamos `startTransition` para encapsular a atualização de estado. Agora vamos usar também o `isPending`. O React fornece esse booleano para que possamos saber se **estamos atualmente aguardando a conclusão da transição**. Vamos usá-lo para indicar que algo está acontecendo:
+Já usamos `startTransition` para encapsular a atualização de estado. Agora vamos usar também o `isPending`. O React fornece esse boolean para que possamos saber se **estamos atualmente aguardando a conclusão da transição**. Vamos usá-lo para indicar que algo está acontecendo:
 
 ```js{4,14}
 return (
@@ -152,7 +152,7 @@ return (
     >
       Next
     </button>
-    {isPending ? " Loading..." : null}
+    {isPending ? "Loading..." : null}
     <ProfilePage resource={resource} />
   </>
 );
@@ -185,7 +185,7 @@ function App() {
       >
         Next
       </button>
-      {isPending ? " Loading..." : null}
+      {isPending ? "Loading..." : null}
       <ProfilePage resource={resource} />
     </>
   );
@@ -358,7 +358,7 @@ function ProfilePage() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/modest-ritchie-iufrh)**
 
-Quando um botão é clicado, ele inicia uma transição e chama `props.onClick()` dentro dele -- o que aciona `handleRefreshClick` no componente`<ProfilePage>`. Começamos a buscar os dados atualizados, mas isso não aciona um fallback porque estamos dentro de uma transição, e o tempo limite de 10 segundos especificado na chamada `useTransition` ainda não passou. Enquanto uma transição está pendente, o botão exibe um indicador de carregamento embutido.
+Quando um botão é clicado, ele inicia uma transição e chama `props.onClick()` dentro dele -- o que aciona `handleRefreshClick` no componente `<ProfilePage>`. Começamos a buscar os dados atualizados, mas isso não aciona um fallback porque estamos dentro de uma transição, e o tempo limite de 10 segundos especificado na chamada `useTransition` ainda não passou. Enquanto uma transição está pendente, o botão exibe um indicador de carregamento embutido.
 
 Podemos ver agora como o Modo Concorrente nos ajuda a obter uma boa experiência de usuário sem sacrificar o isolamento e a modularidade dos componentes. React coordena a transição.
 
@@ -512,7 +512,7 @@ function ProfileTrivia({ resource }) {
 
 Se você pressionar "Open Profile" agora, poderá notar que algo está errado. Demora sete segundos para fazer a transição agora! Isso ocorre porque nossa API de trivia é muito lenta. Digamos que não possamos tornar a API mais rápida. Como podemos melhorar a experiência do usuário com essa restrição?
 
-Se não queremos permanecer no estado Pendente por muito tempo, nosso primeiro instinto pode ser definir `timeoutMs` em` useTransition` para um valor menor, como `3000`. Você pode tentar isso [aqui](https://codesandbox.io/s/practical-kowalevski-kpjg4). Isso nos permite escapar do estado Pendente prolongado, mas ainda não temos nada de útil para mostrar!
+Se não queremos permanecer no estado Pendente por muito tempo, nosso primeiro instinto pode ser definir `timeoutMs` em `useTransition` para um valor menor, como `3000`. Você pode tentar isso [aqui](https://codesandbox.io/s/practical-kowalevski-kpjg4). Isso nos permite escapar do estado Pendente prolongado, mas ainda não temos nada de útil para mostrar!
 
 Existe uma maneira mais simples de resolver isso. **Em vez de tornar a transição mais curta, podemos "desconectar" o componente lento da transição** encapsulando-o em `<Suspense>`:
 
@@ -621,7 +621,7 @@ As transições são, provavelmente, o padrão mais comum do Modo Concorrente qu
 
 ### Dividindo Estado de Alta e Baixa Prioridade {#splitting-high-and-low-priority-state}
 
-Ao projetar componentes do React, geralmente é melhor encontrar a "representação mínima" do state. Por exemplo, em vez de manter `firstName`,` lastName` e `fullName` no state, geralmente é melhor manter apenas` firstName` e `lastName`, e depois calcular` fullName` durante a renderização. Isso nos permite evitar erros quando atualizamos um estado, mas esquecemos do outro.
+Ao projetar componentes do React, geralmente é melhor encontrar a "representação mínima" do state. Por exemplo, em vez de manter `firstName`, `lastName` e `fullName` no state, geralmente é melhor manter apenas `firstName` e `lastName`, e depois calcular `fullName` durante a renderização. Isso nos permite evitar erros quando atualizamos um estado, mas esquecemos do outro.
 
 No entanto, no Modo Concorrente, há casos em que você pode *querer* "duplicar" alguns dados em diferentes variáveis de estado. Considere este pequeno aplicativo de tradução:
 
@@ -708,7 +708,7 @@ A resposta para esse problema **é dividir o estado em duas partes:** uma parte 
 
 No nosso exemplo, já temos duas variáveis de estado. O texto de entrada está em `query` e lemos a tradução de `resource`. Queremos que as alterações no estado `query` ocorram imediatamente, mas as alterações no `resource` (ou seja, buscando uma nova tradução) devem disparar uma transição.
 
-Portanto, a solução correta é colocar `setQuery` (que não é suspenso) *fora* da transição, mas ` setResource` (que será suspenso) *dentro* dela.
+Portanto, a solução correta é colocar `setQuery` (que não é suspenso) *fora* da transição, mas `setResource` (que será suspenso) *dentro* dela.
 
 ```js{4,5}
 function handleChange(e) {
@@ -856,7 +856,7 @@ Agora, a digitação tem muito menos engasgos -- embora paguemos por isso por mo
 
 Como isso é diferente de _debouncing_? Nosso exemplo tem um atraso artificial fixo (3ms para cada um dos 80 itens); portanto, sempre há um atraso, independentemente da velocidade do nosso computador. No entanto, o valor `useDeferredValue` apenas "fica para trás" se a renderização demorar um pouco. Não há atraso mínimo imposto pelo React. Com uma carga de trabalho mais realista, você pode esperar que o atraso se ajuste ao dispositivo do usuário. Em máquinas rápidas, o atraso seria menor ou inexistente e, em máquinas lentas, seria mais perceptível. Em ambos os casos, o aplicativo permaneceria responsivo. Essa é a vantagem desse mecanismo em relação à _debouncing_ ou _throttling_, que sempre impõe um atraso mínimo e não podem evitar o bloqueio da thread durante a renderização.
 
-Embora haja uma melhoria na responsividade, este exemplo ainda não é tão atraente porque o Modo Concorrente não possui algumas otimizações cruciais para este caso de uso. Ainda assim, é interessante ver que recursos como `useDeferredValue` (ou` useTransition`) são úteis, independentemente de estarmos esperando a rede ou o trabalho computacional terminar.
+Embora haja uma melhoria na responsividade, este exemplo ainda não é tão atraente porque o Modo Concorrente não possui algumas otimizações cruciais para este caso de uso. Ainda assim, é interessante ver que recursos como `useDeferredValue` (ou `useTransition`) são úteis, independentemente de estarmos esperando a rede ou o trabalho computacional terminar.
 
 ### SuspenseList {#suspenselist}
 

@@ -76,7 +76,7 @@ Quando o Webpack encontra esta sintaxe, automaticamente ele divide o código de 
 
 Se você está configurando o Webpack manualmente, provavelmente vai querer ler o [guia de divisão de código](https://webpack.js.org/guides/code-splitting/) do Webpack. Sua configuração do Webpack deverá ser parecida [com isto](https://gist.github.com/gaearon/ca6e803f5c604d37468b0091d9959269).
 
-Ao usar o [Babel](https://babeljs.io/), você precisa se certificar que o Babel consegue analizar a sintaxe de importação dinâmica mas não está a transformando. Para isso, você precisará do [@babel/plugin-syntax-dynamic-import](https://classic.yarnpkg.com/en/package/@babel/plugin-syntax-dynamic-import).
+Ao usar o [Babel](https://babeljs.io/), você precisa se certificar que o Babel consegue analisar a sintaxe de importação dinâmica mas não está a transformando. Para isso, você precisará do [@babel/plugin-syntax-dynamic-import](https://classic.yarnpkg.com/en/package/@babel/plugin-syntax-dynamic-import).
 
 ## `React.lazy` {#reactlazy}
 
@@ -112,7 +112,7 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 function MyComponent() {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Carregando...</div>}>
         <OtherComponent />
       </Suspense>
     </div>
@@ -131,7 +131,7 @@ const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 function MyComponent() {
   return (
     <div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Carregando...</div>}>
         <section>
           <OtherComponent />
           <AnotherComponent />
@@ -156,7 +156,7 @@ const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
 const MyComponent = () => (
   <div>
     <MyErrorBoundary>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Carregando...</div>}>
         <section>
           <OtherComponent />
           <AnotherComponent />
@@ -184,7 +184,7 @@ const About = lazy(() => import('./routes/About'));
 
 const App = () => (
   <Router>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Carregando...</div>}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

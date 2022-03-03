@@ -80,7 +80,7 @@ function Page(props) {
 
 Com esta mudança, apenas o componente `Page` do topo precisa saber sobre os componentes `Link` e `Avatar` e das props `user` e `avatarSize`.
 
-Esta *inversão de controle* pode fazer seu código mais limpo em vários casos, reduzindo a quantidade de props que você precisa passar através da sua aplicação e dando mais controle para os componentes raíz. Essa inversão, entretanto, não é a escolha certa em todos os casos; mover mais complexibilidade para o topo da árvore, faz com que estes componentes fiquem mais complicados e forçando os componentes dos níveis mais abaixo ficarem mais flexíveis do que você gostaria.
+Esta *inversão de controle* pode fazer seu código mais limpo em vários casos, reduzindo a quantidade de props que você precisa passar através da sua aplicação e dando mais controle para os componentes raiz. Essa inversão, entretanto, não é a escolha certa em todos os casos; mover mais complexabilidade para o topo da árvore, faz com que estes componentes fiquem mais complicados e forçando os componentes dos níveis mais abaixo ficarem mais flexíveis do que você gostaria.
 
 Você não está limitado a um único filho por componente, Você pode passar vários componentes filhos ou até mesmo ter vários *slots* de componentes filhos [como documentado aqui](/docs/composition-vs-inheritance.html#containment):
 
@@ -123,16 +123,16 @@ O argumento `defaultValue` (valor padrão) é usado *apenas* quando o componente
 ### `Context.Provider` {#contextprovider}
 
 ```js
-<MyContext.Provider value={/* some value */}>
+<MyContext.Provider value={/* algum valor */}>
 ```
 
 Cada objeto Contexto (context) vem com um componente Provider que permite componentes consumidores a assinarem mudanças no contexto.
 
 O componente Provider aceita uma prop `value` que pode ser passada para ser consumida por componentes que são descendentes deste Provider. Um Provider pode ser conectado a vários consumidores. Providers podem ser aninhados para substituir valores mais ao fundo da árvore.
 
-Todos consumidores que são descendentes de um Provider serão renderizados novamente sempre que a prop `value` do Provider for alterada. A propagação do Provider aos seus descendentes (incluido [`.contextType`](#classcontexttype) e [`useContext`](/docs/hooks-reference.html#usecontext)), não está condicionada ao método `shouldComponenteUpdate`, logo, o consumidor é atualizado mesmo quando um componente antepassado ignora uma atualização.
+Todos consumidores que são descendentes de um Provider serão renderizados novamente sempre que a prop `value` do Provider for alterada. A propagação do Provider aos seus descendentes (incluído [`.contextType`](#classcontexttype) e [`useContext`](/docs/hooks-reference.html#usecontext)), não está condicionada ao método `shouldComponenteUpdate`, logo, o consumidor é atualizado mesmo quando um componente antepassado ignora uma atualização.
 
-Mudanças são determinadas comparando os valores novos com os anteriores usando o mesmo algoritimo de [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).
+Mudanças são determinadas comparando os valores novos com os anteriores usando o mesmo algorítimo de [`Object.is`](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description).
 
 > Nota
 >
@@ -192,7 +192,7 @@ class MyClass extends React.Component {
 
 Um componente React que assina mudanças de contexto. Usar este componente permite você assinar a um contexto por um [function component](/docs/components-and-props.html#function-and-class-components).
 
-Requer uma [*function as a child*](/docs/render-props.html#using-props-other-than-render). A função recebe o valor atual do contexto e retorna um nó React. O argumento `value` passado para a função será igual ao `value` da prop do Provider do contexto mais próximo acíma na árvore. Se não houver um Provider para este contexto acima, o argumento `value` será igual a `defaultValue` que foi passado ao criar o contexto com `createContext()`.
+Requer uma [*function as a child*](/docs/render-props.html#using-props-other-than-render). A função recebe o valor atual do contexto e retorna um nó React. O argumento `value` passado para a função será igual ao `value` da prop do Provider do contexto mais próximo acima na árvore. Se não houver um Provider para este contexto acima, o argumento `value` será igual a `defaultValue` que foi passado ao criar o contexto com `createContext()`.
 
 > Nota
 >
@@ -205,7 +205,7 @@ O objeto Context aceita uma propriedade string `displayName`. React DevTools usa
 Por exemplo, o seguinte componente aparecerá como MyDisplayName no DevTools:
 
 ```js{2}
-const MyContext = React.createContext(/* some value */);
+const MyContext = React.createContext(/* algum valor */);
 MyContext.displayName = 'MyDisplayName';
 
 <MyContext.Provider> // "MyDisplayName.Provider" in DevTools

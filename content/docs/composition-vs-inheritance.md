@@ -166,6 +166,6 @@ class SignUpDialog extends React.Component {
 
 No Facebook, nós usamos o React em milhares de componentes, e não encontramos nenhum caso que recomendaríamos criar componentes utilizando hierarquia de herança.
 
-O uso de props e composição irá te dar toda flexibilidade que você precisa para customizar o comportamento e aparência dos componentes, de uma maneira explícita e segura. Lembre-se de que os componentes podem aceitar um número variável de props, incluindo valores primitivos, como int, array, boolean; assim como elementos Reacts e funções.
+O uso de props e composição irá te dar toda flexibilidade que você precisa para customizar o comportamento e aparência dos componentes, de uma maneira explícita e segura. Lembre-se de que os componentes podem aceitar um número variável de props, incluindo valores primitivos, como int, array, boolean; assim como elementos React e funções.
 
 E se você desejar reutilizar funcionalidades (não gráficas) entre componentes, sugerimos que você a extraia em módulos JavaScript. Os componentes podem importar essa função, objeto ou classe sem precisar estender.
