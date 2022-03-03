@@ -6,22 +6,22 @@ layout: docs
 category: Add-Ons
 ---
 
-> Note:
+> Nota:
 >
-> `PureRenderMixin` is a legacy add-on. Use [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) instead.
+> `PureRenderMixin` é um add-on legado. Use [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) em vez disso.
 
-**Importing**
+**Importando**
 
 ```javascript
 import PureRenderMixin from 'react-addons-pure-render-mixin'; // ES6
-var PureRenderMixin = require('react-addons-pure-render-mixin'); // ES5 with npm
+var PureRenderMixin = require('react-addons-pure-render-mixin'); // ES5 com npm
 ```
 
-## Overview {#overview}
+## Visão geral {#overview}
 
-If your React component's render function renders the same result given the same props and state, you can use this mixin for a performance boost in some cases.
+Se a função de renderização do seu componente React renderizar o mesmo resultado com as mesmas props e state, você pode usar este mixin para aumentar o desempenho em alguns casos.
 
-Example:
+Exemplo:
 
 ```js
 const createReactClass = require('create-react-class');
@@ -35,10 +35,10 @@ createReactClass({
 });
 ```
 
-Under the hood, the mixin implements [shouldComponentUpdate](/docs/component-specs.html#updating-shouldcomponentupdate), in which it compares the current props and state with the next ones and returns `false` if the equalities pass.
+Sob o capô, o mixin implementa o [shouldComponentUpdate](/docs/component-specs.html#updating-shouldcomponentupdate), no qual compara as props e o estado atuais com os próximos e retorna `false` se as igualdades forem aprovadas.
 
-> Note:
+> Nota:
 >
-> This only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only mix into components which have simple props and state, or use `forceUpdate()` when you know deep data structures have changed. Or, consider using [immutable objects](https://facebook.github.io/immutable-js/) to facilitate fast comparisons of nested data.
+> Isso apenas compara superficialmente os objetos. Se estes contiverem estruturas de dados complexas, podem produzir falsos negativos para diferenças mais profundas. Apenas misture em componentes que tenham props e estado simples, ou use `forceUpdate()` quando você souber que estruturas de dados profundas foram alteradas. Ou considere usar [objetos imutáveis](https://facebook.github.io/immutable-js/) para facilitar comparações rápidas de dados aninhados.
 >
-> Furthermore, `shouldComponentUpdate` skips updates for the whole component subtree. Make sure all the children components are also "pure".
+> Além disso, `shouldComponentUpdate` ignora atualizações para toda a subárvore do componente. Certifique-se de que todos os componentes childrens também sejam "puros".

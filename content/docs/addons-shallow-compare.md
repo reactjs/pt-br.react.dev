@@ -1,29 +1,29 @@
 ---
 id: shallow-compare
-title: Shallow Compare
+title: Comparação superficial
 permalink: docs/shallow-compare.html
 layout: docs
 category: Reference
 ---
 
-> Note:
+> Nota:
 >
-> `shallowCompare` is a legacy add-on. Use [`React.memo`](/docs/react-api.html#reactmemo) or [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) instead.
+> `shallowCompare` é um add-on legado. Em vez disso, use [`React.memo`](/docs/react-api.html#reactmemo) ou [`React.PureComponent`](/docs/react-api.html#reactpurecomponent).
 
-**Importing**
+**Importando**
 
 ```javascript
 import shallowCompare from 'react-addons-shallow-compare'; // ES6
-var shallowCompare = require('react-addons-shallow-compare'); // ES5 with npm
+var shallowCompare = require('react-addons-shallow-compare'); // ES5 com npm
 ```
 
-## Overview {#overview}
+## Visão geral {#overview}
 
-Before [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) was introduced, `shallowCompare` was commonly used to achieve the same functionality as [`PureRenderMixin`](pure-render-mixin.html) while using ES6 classes with React.
+Antes do [`React.PureComponent`](/docs/react-api.html#reactpurecomponent) ser introduzido, o `shallowCompare` era comumente usado para obter a mesma funcionalidade do [`PureRenderMixin`](pure-render-mixin.html) ao usar classes ES6 com React.
 
-If your React component's render function is "pure" (in other words, it renders the same result given the same props and state), you can use this helper function for a performance boost in some cases.
+Se a função de renderização do seu componente React for "pura" (em outras palavras, ela renderiza o mesmo resultado com as mesmas props e estado), você pode usar essa função auxiliar para aumentar o desempenho em alguns casos.
 
-Example:
+Exemplo:
 
 ```js
 export class SampleComponent extends React.Component {
@@ -37,8 +37,8 @@ export class SampleComponent extends React.Component {
 }
 ```
 
-`shallowCompare` performs a shallow equality check on the current `props` and `nextProps` objects as well as the current `state` and `nextState` objects.  
-It does this by iterating on the keys of the objects being compared and returning true when the values of a key in each object are not strictly equal.
+`shallowCompare` executa uma verificação de igualdade superficial nos objetos `props` e `nextProps` atuais, bem como nos objetos `state` e `nextState` atuais.  
+Ele faz isso iterando nas chaves dos objetos que estão sendo comparados e retornando true quando os valores de uma chave em cada objeto não são estritamente iguais.
 
-`shallowCompare` returns `true` if the shallow comparison for props or state fails and therefore the component should update.  
-`shallowCompare` returns `false` if the shallow comparison for props and state both pass and therefore the component does not need to update.
+`shallowCompare` retorna `true` se na comparação superficial para props ou state ambos falharem, portanto, o componente deve ser atualizado.
+`shallowCompare` retorna `false` se na comparação superficial para props e state ambos passarem, portanto, o componente não precisar ser atualizado.

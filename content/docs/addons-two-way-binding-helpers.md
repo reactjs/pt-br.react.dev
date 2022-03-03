@@ -1,48 +1,48 @@
 ---
 id: two-way-binding-helpers
-title: Two-way Binding Helpers
+title: Auxiliares de ligação bidirecional
 permalink: docs/two-way-binding-helpers.html
 layout: docs
 category: Add-Ons
 ---
 
-> Note:
+> Nota:
 >
-> `LinkedStateMixin` is deprecated as of React v15. The recommendation is to explicitly set the value and change handler, instead of using `LinkedStateMixin`.
+> `LinkedStateMixin` está obsoleto a partir do React v15. A recomendação é definir explicitamente o valor e alterar o manipulador, em vez de usar `LinkedStateMixin`.
 
-**Importing**
+**Importando**
 
 ```javascript
 import LinkedStateMixin from 'react-addons-linked-state-mixin'; // ES6
-var LinkedStateMixin = require('react-addons-linked-state-mixin'); // ES5 with npm
+var LinkedStateMixin = require('react-addons-linked-state-mixin'); // ES5 com npm
 ```
 
-## Overview {#overview}
+## Visão geral {#overview}
 
-`LinkedStateMixin` is an easy way to express two-way binding with React.
+`LinkedStateMixin` é uma maneira fácil de expressar ligação bidirecional com React.
 
-In React, data flows one way: from owner to child. We think that this makes your app's code easier to understand. You can think of it as "one-way data binding."
+No React, os dados fluem de uma maneira: do owner para o child. Acreditamos que isso torna o código do seu aplicativo mais fácil de entender. Você pode pensar nisso como "vinculação de dados unidirecional".
 
-However, there are lots of applications that require you to read some data and flow it back into your program. For example, when developing forms, you'll often want to update some React `state` when you receive user input. Or perhaps you want to perform layout in JavaScript and react to changes in some DOM element size.
+No entanto, existem muitos aplicativos que exigem que você leia alguns dados e os envie de volta ao seu programa. Por exemplo, ao desenvolver formulários, muitas vezes você desejará atualizar algum `state` do React quando receber a entrada do usuário. Ou talvez você queira executar o layout em JavaScript e reagir a alterações no tamanho de algum elemento DOM.
 
-In React, you would implement this by listening to a "change" event, read from your data source (usually the DOM) and call `setState()` on one of your components. "Closing the data flow loop" explicitly leads to more understandable and easier-to-maintain programs. See [our forms documentation](/docs/forms.html) for more information.
+No React, você implementaria isso ouvindo um evento "change", lendo sua fonte de dados (geralmente o DOM) e chamando `setState()` em um de seus componentes. "Fechar o ciclo de fluxo de dados" explicitamente leva a programas mais compreensíveis e fáceis de manter. Veja [nossa documentação de formulários](/docs/forms.html) para maiores informações.
 
-Two-way binding -- implicitly enforcing that some value in the DOM is always consistent with some React `state` -- is concise and supports a wide variety of applications. We've provided `LinkedStateMixin`: syntactic sugar for setting up the common data flow loop pattern described above, or "linking" some data source to React `state`.
+A vinculação bidirecional -- implícita que algum valor no DOM é sempre consistente com algum `state` do React -- é conciso e suporta uma ampla variedade de aplicações. Fornecemos `LinkedStateMixin`: "syntactic sugar" para configurar o padrão de loop de fluxo de dados comum descrito acima, ou "vincular" alguma fonte de dados ao React `state`.
 
-> Note:
+> Nota:
 >
-> `LinkedStateMixin` is just a thin wrapper and convention around the `onChange`/`setState()` pattern. It doesn't fundamentally change how data flows in your React application.
+> `LinkedStateMixin` é apenas um wrapper fino e convenção em torno do padrão `onChange`/`setState()`. Ele não altera fundamentalmente como os dados fluem em seu aplicativo React.
 
-## LinkedStateMixin: Before and After {#linkedstatemixin-before-and-after}
+## LinkedStateMixin: Antes e Depois {#linkedstatemixin-before-and-after}
 
-Here's a simple form example without using `LinkedStateMixin`:
+Aqui está um exemplo de formulário simples sem usar `LinkedStateMixin`:
 
 ```javascript
 var createReactClass = require('create-react-class');
 
 var NoLink = createReactClass({
   getInitialState: function() {
-    return {message: 'Hello!'};
+    return {message: 'Olá!'};
   },
   handleChange: function(event) {
     this.setState({message: event.target.value});
@@ -54,7 +54,7 @@ var NoLink = createReactClass({
 });
 ```
 
-This works really well and it's very clear how data is flowing, however, with a lot of form fields it could get a bit verbose. Let's use `LinkedStateMixin` to save us some typing:
+Isso funciona muito bem e é muito claro como os dados estão fluindo, no entanto, com muitos campos de formulário, pode ficar um pouco detalhado. Vamos usar `LinkedStateMixin` para nos poupar algumas digitações:
 
 ```javascript{4,9}
 var createReactClass = require('create-react-class');
@@ -62,7 +62,7 @@ var createReactClass = require('create-react-class');
 var WithLink = createReactClass({
   mixins: [LinkedStateMixin],
   getInitialState: function() {
-    return {message: 'Hello!'};
+    return {message: 'Olá!'};
   },
   render: function() {
     return <input type="text" valueLink={this.linkState('message')} />;
@@ -70,27 +70,27 @@ var WithLink = createReactClass({
 });
 ```
 
-`LinkedStateMixin` adds a method to your React component called `linkState()`. `linkState()` returns a `valueLink` object which contains the current value of the React state and a callback to change it.
+`LinkedStateMixin` adiciona um método ao seu componente React chamado `linkState()`. `linkState()` retorna um objeto `valueLink` que contém o valor atual do estado React e um callback para alterá-lo.
 
-`valueLink` objects can be passed up and down the tree as props, so it's easy (and explicit) to set up two-way binding between a component deep in the hierarchy and state that lives higher in the hierarchy.
+Objetos `valueLink` podem ser passados ​​para cima e para baixo na árvore como props, então é fácil (e explícito) configurar uma ligação bidirecional entre um componente profundo na hierarquia e um estado que vive mais alto na hierarquia.
 
-Note that checkboxes have a special behavior regarding their `value` attribute, which is the value that will be sent on form submit if the checkbox is checked (defaults to `on`). The `value` attribute is not updated when the checkbox is checked or unchecked. For checkboxes, you should use `checkedLink` instead of `valueLink`:
+Observe que as caixas de seleção têm um comportamento especial em relação ao atributo `value`, que é o valor que será enviado no envio do formulário se a caixa de seleção estiver marcada (o padrão é `on`). O atributo `value` não é atualizado quando a caixa de seleção é marcada ou desmarcada. Para caixas de seleção, você deve usar `checkedLink` em vez de `valueLink`:
 ```
 <input type="checkbox" checkedLink={this.linkState('booleanValue')} />
 ```
 
-## Under the Hood {#under-the-hood}
+## Sob o capô {#under-the-hood}
 
-There are two sides to `LinkedStateMixin`: the place where you create the `valueLink` instance and the place where you use it. To prove how simple `LinkedStateMixin` is, let's rewrite each side separately to be more explicit.
+Existem dois lados do `LinkedStateMixin`: o local onde você cria a instância `valueLink` e o local onde você a usa. Para provar o quão simples é o `LinkedStateMixin`, vamos reescrever cada lado separadamente para ser mais explícito.
 
-### valueLink Without LinkedStateMixin {#valuelink-without-linkedstatemixin}
+### valueLink sem LinkedStateMixin {#valuelink-without-linkedstatemixin}
 
 ```javascript{7-9,11-14}
 var createReactClass = require('create-react-class');
 
 var WithoutMixin = createReactClass({
   getInitialState: function() {
-    return {message: 'Hello!'};
+    return {message: 'Olá!'};
   },
   handleChange: function(newValue) {
     this.setState({message: newValue});
@@ -105,9 +105,9 @@ var WithoutMixin = createReactClass({
 });
 ```
 
-As you can see, `valueLink` objects are very simple objects that just have a `value` and `requestChange` prop. And `LinkedStateMixin` is similarly simple: it just populates those fields with a value from `this.state` and a callback that calls `this.setState()`.
+Como você pode ver, objetos `valueLink` são objetos muito simples que possuem apenas uma prop `value` e `requestChange`. E `LinkedStateMixin` é igualmente simples: ele apenas preenche esses campos com um valor de `this.state` e um callback que chama `this.setState()`.
 
-### LinkedStateMixin Without valueLink {#linkedstatemixin-without-valuelink}
+### LinkedStateMixin sem valueLink {#linkedstatemixin-without-valuelink}
 
 ```javascript
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
@@ -116,7 +116,7 @@ var createReactClass = require('create-react-class');
 var WithoutLink = createReactClass({
   mixins: [LinkedStateMixin],
   getInitialState: function() {
-    return {message: 'Hello!'};
+    return {message: 'Olá!'};
   },
   render: function() {
     var valueLink = this.linkState('message');
@@ -128,4 +128,4 @@ var WithoutLink = createReactClass({
 });
 ```
 
-The `valueLink` prop is also quite simple. It simply handles the `onChange` event and calls `this.props.valueLink.requestChange()` and also uses `this.props.valueLink.value` instead of `this.props.value`. That's it!
+A prop `valueLink` também é bastante simples. Ele simplesmente manipula o evento `onChange` e chama `this.props.valueLink.requestChange()` e também usa `this.props.valueLink.value` em vez de `this.props.value`. É isso!
