@@ -1,39 +1,39 @@
 ---
 id: update
-title: Immutability Helpers
+title: Auxiliares de Imutabilidade
 permalink: docs/update.html
 layout: docs
 category: Add-Ons
 ---
 
-> Note:
+> Nota:
 >
-> `update` is a legacy add-on. Use [`immutability-helper`](https://github.com/kolodny/immutability-helper) instead.
+> `update` é um add-on legado. Em vez disso, use [`immutability-helper`](https://github.com/kolodny/immutability-helper).
 
-**Importing**
+**Importando**
 
 ```javascript
 import update from 'react-addons-update'; // ES6
-var update = require('react-addons-update'); // ES5 with npm
+var update = require('react-addons-update'); // ES5 com npm
 ```
 
-## Overview {#overview}
+## Visão geral {#overview}
 
-React lets you use whatever style of data management you want, including mutation. However, if you can use immutable data in performance-critical parts of your application it's easy to implement a fast [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) method to significantly speed up your app.
+O React permite que você use qualquer estilo de gerenciamento de dados que desejar, incluindo mutação. No entanto, se você puder usar dados imutáveis ​​em partes críticas de desempenho de seu aplicativo, é fácil implementar um método rápido [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) para acelerar significativamente seu aplicativo.
 
-Dealing with immutable data in JavaScript is more difficult than in languages designed for it, like [Clojure](https://clojure.org/). However, we've provided a simple immutability helper, `update()`, that makes dealing with this type of data much easier, *without* fundamentally changing how your data is represented. You can also take a look at Facebook's [Immutable-js](https://facebook.github.io/immutable-js/docs/) and the [Advanced Performance](/docs/advanced-performance.html) section for more detail on Immutable-js.
+Lidar com dados imutáveis ​​em JavaScript é mais difícil do que em linguagens projetadas para isso, como [Clojure](https://clojure.org/). No entanto, nós fornecemos um simples auxiliar de imutabilidade, `update()`, que torna muito mais fácil lidar com esse tipo de dados, *sem* alterar fundamentalmente a forma como seus dados são representados. Você também pode dar uma olhada no Facebook [Immutable-js](https://facebook.github.io/immutable-js/docs/) e na seção de [desempenho avançado](/docs/advanced-performance.html) para obter mais detalhes sobre Immutable-js.
 
-### The Main Idea {#the-main-idea}
+### A ideia principal {#the-main-idea}
 
-If you mutate data like this:
+Se você alterar dados assim:
 
 ```js
 myData.x.y.z = 7;
-// or...
+// ou...
 myData.a.b.push(9);
 ```
 
-You have no way of determining which data has changed since the previous copy has been overwritten. Instead, you need to create a new copy of `myData` and change only the parts of it that need to be changed. Then you can compare the old copy of `myData` with the new one in `shouldComponentUpdate()` using triple-equals:
+Você não tem como determinar quais dados foram alterados desde que a cópia anterior foi substituída. Em vez disso, você precisa criar uma nova cópia de `myData` e alterar apenas as partes que precisam ser alteradas. Então você pode comparar a cópia antiga de `myData` com a nova em `shouldComponentUpdate()` usando triplos iguais:
 
 ```js
 const newData = deepCopy(myData);
@@ -41,7 +41,7 @@ newData.x.y.z = 7;
 newData.a.b.push(9);
 ```
 
-Unfortunately, deep copies are expensive, and sometimes impossible. You can alleviate this by only copying objects that need to be changed and by reusing the objects that haven't changed. Unfortunately, in today's JavaScript this can be cumbersome:
+Infelizmente, cópias profundas são custosas e às vezes impossíveis. Você pode aliviar isso copiando apenas os objetos que precisam ser alterados e reutilizando os objetos que não foram alterados. Infelizmente, no JavaScript de hoje, isso pode ser complicado:
 
 ```js
 const newData = extend(myData, {
@@ -52,11 +52,11 @@ const newData = extend(myData, {
 });
 ```
 
-While this is fairly performant (since it only makes a shallow copy of `log n` objects and reuses the rest), it's a big pain to write. Look at all the repetition! This is not only annoying, but also provides a large surface area for bugs.
+Embora isso tenha um bom desempenho (já que apenas faz uma cópia superficial de objetos `log n` e reutiliza o resto), é um grande trabalho escrever. Olhe para toda a repetição! Isso não é apenas irritante, mas também fornece uma grande área de superfície para bugs.
 
 ## `update()` {#update}
 
-`update()` provides simple syntactic sugar around this pattern to make writing this code easier. This code becomes:
+`update()` fornece "syntactic sugar" simples em torno deste padrão para tornar a escrita deste código mais fácil. Este código se torna:
 
 ```js
 import update from 'react-addons-update';
@@ -67,49 +67,49 @@ const newData = update(myData, {
 });
 ```
 
-While the syntax takes a little getting used to (though it's inspired by [MongoDB's query language](https://docs.mongodb.com/manual/crud/#query)) there's no redundancy, it's statically analyzable and it's not much more typing than the mutative version.
+Embora a sintaxe demore um pouco para se acostumar (pelo fato de ser inspirada na [linguagem de consulta do MongoDB](https://docs.mongodb.com/manual/crud/#query)), não há redundância, é estaticamente analisável e não tem muito mais digitação do que a versão mutativa.
 
-The `$`-prefixed keys are called *commands*. The data structure they are "mutating" is called the *target*.
+As chaves prefixadas com `$` são chamadas de *comandos (command)*. A estrutura de dados que eles estão "mutando" é chamada de *destino (target)*.
 
-## Available Commands {#available-commands}
+## Comandos disponíveis {#available-commands}
 
-  * `{$push: array}` `push()` all the items in `array` on the target.
-  * `{$unshift: array}` `unshift()` all the items in `array` on the target.
-  * `{$splice: array of arrays}` for each item in `arrays` call `splice()` on the target with the parameters provided by the item.
-  * `{$set: any}` replace the target entirely.
-  * `{$merge: object}` merge the keys of `object` with the target.
-  * `{$apply: function}` passes in the current value to the function and updates it with the new returned value.
+  * `{$push: array}` `push()` todos os itens em `array` no destino.
+  * `{$unshift: array}` `unshift()` todos os itens em `array` no destino.
+  * `{$splice: array of arrays}` para cada item em `arrays` chama `splice()` no destino com os parâmetros fornecidos pelo item.
+  * `{$set: any}` substitui o destino inteiramente.
+  * `{$merge: object}` mescla as chaves de `object` com o destino.
+  * `{$apply: function}` passa o valor atual para a função e o atualiza com o novo valor retornado.
 
-## Examples {#examples}
+## Exemplos {#examples}
 
-### Simple push {#simple-push}
+### Push simples {#simple-push}
 
 ```js
 const initialArray = [1, 2, 3];
 const newArray = update(initialArray, {$push: [4]}); // => [1, 2, 3, 4]
 ```
-`initialArray` is still `[1, 2, 3]`.
+`initialArray` ainda é `[1, 2, 3]`.
 
-### Nested collections {#nested-collections}
+### Coleções aninhadas {#nested-collections}
 
 ```js
 const collection = [1, 2, {a: [12, 17, 15]}];
 const newCollection = update(collection, {2: {a: {$splice: [[1, 1, 13, 14]]}}});
 // => [1, 2, {a: [12, 13, 14, 15]}]
 ```
-This accesses `collection`'s index `2`, key `a`, and does a splice of one item starting from index `1` (to remove `17`) while inserting `13` and `14`.
+Isso acessa o índice `2` da `collection`, chave `a`, e faz uma junção de um item começando no índice `1` (para remover `17`) enquanto insere `13` e `14`.
 
-### Updating a value based on its current one {#updating-a-value-based-on-its-current-one}
+### Atualizando um valor com base no valor atual {#updating-a-value-based-on-its-current-one}
 
 ```js
 const obj = {a: 5, b: 3};
 const newObj = update(obj, {b: {$apply: function(x) {return x * 2;}}});
 // => {a: 5, b: 6}
-// This is equivalent, but gets verbose for deeply nested collections:
+// Isso é equivalente, mas fica detalhado para coleções profundamente aninhadas:
 const newObj2 = update(obj, {b: {$set: obj.b * 2}});
 ```
 
-### (Shallow) Merge {#shallow-merge}
+### Mesclagem (Superficial) {#shallow-merge}
 
 ```js
 const obj = {a: 5, b: 3};

@@ -33,11 +33,11 @@ Os add-ons abaixo são considerados legados e seu uso é desencorajado. Eles con
 
 ## Usando React com Add-ons {#using-react-with-add-ons}
 
-Você pode instalar os add-ons individualmente via npm (e.g. `npm install react-addons-create-fragment`) e importá-lo:
+Você pode instalar os add-ons individualmente via npm (Por exemplo, `npm install react-addons-create-fragment`) e importá-los:
 
 ```javascript
 import createFragment from 'react-addons-create-fragment'; // ES6
-var createFragment = require('react-addons-create-fragment'); // ES5 with npm
+var createFragment = require('react-addons-create-fragment'); // ES5 com npm
 ```
 
 Quando utilizar React 15 ou anterior via CDN, você pode usar `react-with-addons.js` ao invés de `react.js`:
@@ -46,4 +46,4 @@ Quando utilizar React 15 ou anterior via CDN, você pode usar `react-with-addons
 <script src="https://unpkg.com/react@15/dist/react-with-addons.js"></script>
 ```
 
-Os add-ons estarão disponíveis através do global `React.addons` (e.g. `React.addons.TestUtils`).
+Os add-ons estarão disponíveis através do global `React.addons` (Por exemplo, `React.addons.TestUtils`).

@@ -29,9 +29,9 @@ function Example() {
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Você clicou {count} vezes</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Clique aqui
       </button>
     </div>
   );
@@ -42,7 +42,7 @@ Aqui, `useState` é um *Hook* (nós vamos falar sobre o que isso significa em in
 
 O único argumento para `useState` é o state inicial. No exemplo acima, é `0` porque nosso contador começa do zero. Perceba que diferente de `this.state`, o state não precisa ser um objeto -- apesar de que possa ser se você quiser. O argumento de state inicial é utilizado apenas durante a primeira renderização.
 
-#### Declarando multiplas variáveis de state {#declaring-multiple-state-variables}
+#### Declarando múltiplas variáveis de state {#declaring-multiple-state-variables}
 
 Você pode utilizar o State Hook mais de uma vez em um único componente:
 
@@ -86,14 +86,14 @@ function Example() {
   // Similar a componentDidMount e componentDidUpdate:
   useEffect(() => {
     // Atualiza o título do documento utilizando a API do navegador
-    document.title = `You clicked ${count} times`;
+    document.title = `Você clicou ${count} vezes`;
   });
 
   return (
     <div>
-      <p>You clicked {count} times</p>
+      <p>Você clicou {count} vezes</p>
       <button onClick={() => setCount(count + 1)}>
-        Click me
+        Clique aqui
       </button>
     </div>
   );
@@ -137,7 +137,7 @@ Assim como `useState`, você pode utilizar mais de um efeito em um componente:
 function FriendStatusWithCounter(props) {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
+    document.title = `Você clicou ${count} vezes`;
   });
 
   const [isOnline, setIsOnline] = useState(null);

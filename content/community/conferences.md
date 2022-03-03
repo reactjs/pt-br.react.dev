@@ -22,6 +22,11 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://www.reactlive.nl/) - [Twitter](https://twitter.com/reactlivenl)
 
+### < React Global > by Geekle {#react-global-2022}
+April 21-22, 2022 - Online Summit
+
+[Website](https://events.geekle.us/react2/) - [LinkedIn](https://www.linkedin.com/events/reactglobalonlinesummit-226887417664541614081/) 
+
 ### React Miami 2022 🌴 {#react-miami-2022}
 18 e 19 de abril de 2022. Miami, Flórida
 
@@ -37,10 +42,20 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 [Website](https://renderatl.com) - [Twitter](https://twitter.com/renderATL) - [Instagram](https://www.instagram.com/renderatl/) - [Facebook](https://www.facebook.com/renderatl/) - [LinkedIn](https://www.linkedin.com/company/renderatl)
 
+### App.js Conf 2022 {#appjs-conf-2022}
+June 8-10, 2022. In-person in Kraków, Poland + remote
+
+[Website](https://appjs.co) - [Twitter](https://twitter.com/appjsconf)
+
 ### React Summit 2022 {#react-summit-2022}
 17 a 21 de junho de 2022. Presencial em Amsterdã, Holanda + primeira interatividade remota (evento híbrido)
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
+
+### React India 2022 {#react-india-2022}
+22 a 24 de setembro de 2022. Pessoalmente em Goa, Índia + remoto (evento híbrido)
+
+[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Videos](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
 
 ## Conferências passadas {#past-conferences}
 

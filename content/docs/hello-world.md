@@ -17,7 +17,7 @@ ReactDOM.render(
 
 Isso mostra um header dizendo “Hello, world!” na página.
 
-[](codepen://hello-world)
+**[Experimente no CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
 
 Clique no link acima para abrir um editor online. Sinta-se livre para fazer algumas mudanças e ver como elas afetam a saída. A maioria das páginas neste guia terão exemplos editáveis como esse.
 
