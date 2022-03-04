@@ -40,11 +40,11 @@ O código-base do React usa `console.error` para exibir avisos:
 
 ```js
 if (__DEV__) {
-  console.error('Something is wrong.');
+  console.error('Algo está errado.');
 }
 ```
 
-Os alertas só são ativados no desenvolvimento. Na produção, eles são  retirados. Se você precisar impedir a execuçāo de algum caminho do código, use o módulo `invariant` em vez disso:
+Os alertas só são ativados no desenvolvimento. Na produção, eles são  retirados. Se você precisar impedir a execução de algum caminho do código, use o módulo `invariant` em vez disso:
 
 ```js
 var invariant = require('invariant');
@@ -63,7 +63,7 @@ invariant(
 
 ### Desenvolvimento e produção {#development-and-production}
 
-Você pode usar a variável pseudo-global ` __DEV__` no código-base para proteger blocos de código usados apenas no desenvolvimento.
+Você pode usar a variável pseudo-global `__DEV__` no código-base para proteger blocos de código usados apenas no desenvolvimento.
 
 Ele é embutido durante a etapa de compilação e se transforma em verificações `process.env.NODE_ENV! == 'production'` nos builds do CommonJS.
 
@@ -115,13 +115,13 @@ O React foi originalmente criado para o DOM, mas depois foi adaptado para també
 
 **Os renderizadores gerenciam como uma árvore no React se transforma nas chamadas de subjacentes da plataforma.**
 
-Renderizadores tambéms são encontrados em [`packages/`](https://github.com/facebook/react/tree/main/packages/):
+Renderizadores também são encontrados em [`packages/`](https://github.com/facebook/react/tree/main/packages/):
 
 * [Renderizador de React DOM](https://github.com/facebook/react/tree/main/packages/react-dom) renderiza componentes React para o DOM. Implementa [APIs do `React` de nível superior](/docs/react-dom.html) e está disponível como pacote npm [`react-dom`](https://www.npmjs.com/package/react-dom). Ele também pode ser usado como um pacote de navegador autônomo chamado `react-dom.js` que exporta um global do `ReactDOM`.
 * [Renderizador do React Native](https://github.com/facebook/react/tree/main/packages/react-native-renderer) renderiza componentes React para views nativas. É usado internamente pelo React Native.
 * [Renderizador de testes do React](https://github.com/facebook/react/tree/main/packages/react-test-renderer) renderiza componentes React para árvores JSON. É usado pela funcionalidade de [teste de Snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) atributo do [Jest](https://facebook.github.io/jest) e está disponível como pacote npm [react-test-renderer](https://www.npmjs.com/package/react-test-renderer) .
 
-O único outro renderizador oficialmente suportado é o [`react-art`](https://github.com/facebook/react/tree/main/packages/react-art). Costumava estar em um [repositorio GitHub](https://github.com/reactjs/react-art) separado mas nós os movemos para a árvore de código principal.
+O único outro renderizador oficialmente suportado é o [`react-art`](https://github.com/facebook/react/tree/main/packages/react-art). Costumava estar em um [repositório GitHub](https://github.com/reactjs/react-art) separado mas nós os movemos para a árvore de código principal.
 
 >**Nota:**
 >
@@ -129,7 +129,7 @@ O único outro renderizador oficialmente suportado é o [`react-art`](https://gi
 
 ### Reconciliadores {#reconcilers}
 
-Até mesmo renderizadores muito diferentes, como o React DOM e o React Native, precisam compartilhar muita lógica. Em particular, o algoritmo de  [reconciliação](/docs/reconciliation.html) deve ser o mais semelhante possível para que a renderização declarativa, os componentes personalizados, o state, os lifecycle méthods e os refs funcionem de maneira consistente em todas as plataformas.
+Até mesmo renderizadores muito diferentes, como o React DOM e o React Native, precisam compartilhar muita lógica. Em particular, o algoritmo de  [reconciliação](/docs/reconciliation.html) deve ser o mais semelhante possível para que a renderização declarativa, os componentes personalizados, o state, os lifecycle methods e os refs funcionem de maneira consistente em todas as plataformas.
 
 Para resolver isso, diferentes renderizadores compartilham algum código entre eles. Nós chamamos essa parte do React de "reconciliador". Quando uma atualização como `setState()` está agendado, o reconciliador chama o método `render()` em componentes na árvore e monta, atualiza ou desmonta.
 

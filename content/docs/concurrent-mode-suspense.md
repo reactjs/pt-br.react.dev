@@ -31,7 +31,7 @@ O React 16.6 adicionou um componente `<Suspense>` que permite você "esperar" pa
 ```jsx
 const ProfilePage = React.lazy(() => import('./ProfilePage')); // Carregado quando necessário
 
-// Mostrar um spinner enquanto o perfil está carregando
+// Mostra um spinner enquanto o perfil está carregando
 <Suspense fallback={<Spinner />}>
   <ProfilePage />
 </Suspense>
@@ -98,7 +98,7 @@ function ProfileTimeline() {
 
 **[Experimente no CodeSandbox](https://codesandbox.io/s/frosty-hermann-bztrp)**
 
-Esta demo é um teaser. Não se preocupe se ainda não faz sentido. Falaremos mais sobre como isso funciona abaixo. Lembre-se de que o Suspense é mais um *mecanismo*, e APIs específicas como `fetchProfileData()` ou `resource.posts.read()` no exemplo acima não são muito importantes. Se você estiver curioso, poderá encontrar as definições deles no [sandbox de demonstração](https://codesandbox.io/s/frosty-hermann-bztrp).
+Esta demo é um tease. Não se preocupe se ainda não faz sentido. Falaremos mais sobre como isso funciona abaixo. Lembre-se de que o Suspense é mais um *mecanismo*, e APIs específicas como `fetchProfileData()` ou `resource.posts.read()` no exemplo acima não são muito importantes. Se você estiver curioso, poderá encontrar as definições deles no [sandbox de demonstração](https://codesandbox.io/s/frosty-hermann-bztrp).
 
 Suspense não é uma biblioteca de busca de dados. É um **mecanismo para as bibliotecas de busca de dados** para comunicar o React que *os dados que um componente está lendo ainda não estão prontos*. O React pode esperar que esteja pronto e atualizar a UI. No Facebook, usamos o Relay e sua [nova integração com Suspense](https://relay.dev/docs/getting-started/step-by-step-guide/). Esperamos que outras bibliotecas como Apollo possam fornecer integrações semelhantes.
 

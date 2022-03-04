@@ -83,7 +83,7 @@ As seguintes toolchains oferecem mais flexibilidade e escolha. Nós as recomenda
 
 Uma build toolchain em JavaScript consiste tipicamente de:
 
-* Um **gerenciador de pacotes**, como [Yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/). Ele permite aproveitar de um vasto ecosistema de pacotes de terceiros, e facilmente instalar e atualizá-los.
+* Um **gerenciador de pacotes**, como [Yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/). Ele permite aproveitar de um vasto ecossistema de pacotes de terceiros, e facilmente instalar e atualizá-los.
 
 * Um **bundler**, como [webpack](https://webpack.js.org/) ou [Parcel](https://parceljs.org/). Ele permite escrever código modular e empacotá-lo em pequenos pedaços para otimizar o tempo de carregamento.
 

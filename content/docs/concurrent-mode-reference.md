@@ -134,7 +134,7 @@ function App() {
       >
         Próximo
       </button>
-      {isPending ? " Carregando..." : null}
+      {isPending ? "Carregando..." : null}
       <Suspense fallback={<Spinner />}>
         <ProfilePage resource={resource} />
       </Suspense>

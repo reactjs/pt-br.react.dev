@@ -46,7 +46,7 @@ Antes da existência do controle de versão, o fluxo de trabalho de desenvolvime
 
 Isso ilustra como as bibliotecas de UI, incluindo React, normalmente funcionam hoje. Depois que eles começam a renderizar uma atualização, incluindo a criação de novos nós do DOM e a execução do código nos componentes, eles não podem interromper esse trabalho. Vamos chamar essa abordagem de "bloqueio de renderização".
 
-Em Modo Concorrente, a renderização e não bloqueante. É interruptível. Isso melhora a experiência do usuário. Também desbloqueia novos recursos que antes não eram possíveis. Antes de examinarmos exemplos concretos nos [próximos](/docs/concurrent-mode-suspense.html) [capítulos](/docs/concurrent-mode-patterns.html), faremos uma visão geral de alto nível dos novos recursos.
+Em Modo Concorrente, a renderização e não bloqueante. É ininterruptível. Isso melhora a experiência do usuário. Também desbloqueia novos recursos que antes não eram possíveis. Antes de examinarmos exemplos concretos nos [próximos](/docs/concurrent-mode-suspense.html) [capítulos](/docs/concurrent-mode-patterns.html), faremos uma visão geral de alto nível dos novos recursos.
 
 ### Renderização interrompida {#interruptible-rendering}
 
@@ -56,11 +56,11 @@ Uma maneira comum de contornar a gagueira é "rejeitar" a entrada. Ao rebater, a
 
 A razão para os travamentos são simples: uma vez iniciada a renderização, ela não pode ser interrompida. Portanto, o navegador não pode atualizar a entrada de texto logo após pressionar a tecla. Independentemente da aparência de uma biblioteca de interface do usuário (como React), se ela usa a renderização de bloqueante, uma certa quantidade de trabalho em seus componentes sempre causarão travamentos. E, muitas vezes, não há solução fácil.
 
-**O Modo Concorrente corrige essa limitação fundamental, tornando a renderização interrompível.** Isso significa que quando o usuário pressiona outra tecla, o React não precisa impedir o navegador de atualizar a entrada de texto. Em vez disso, ele pode deixar o navegador pintar uma atualização na entrada e continuar renderizando a lista atualizada *na memória*. Quando a renderização é concluída, o React atualiza o DOM e as alterações são refletidas na tela.
+**O Modo Concorrente corrige essa limitação fundamental, tornando a renderização ininterruptível.** Isso significa que quando o usuário pressiona outra tecla, o React não precisa impedir o navegador de atualizar a entrada de texto. Em vez disso, ele pode deixar o navegador pintar uma atualização na entrada e continuar renderizando a lista atualizada *na memória*. Quando a renderização é concluída, o React atualiza o DOM e as alterações são refletidas na tela.
 
 Conceitualmente, você pode pensar nisso como React preparando todas as atualizações "em uma _branch_". Assim como você pode abandonar o trabalho em _branches_ ou alternar entre elas, o React no modo concorrente pode interromper uma atualização contínua para fazer algo mais importante e depois voltar ao que estava fazendo anteriormente. Essa técnica também pode lembrá-lo do [buffer duplo](https://wiki.osdev.org/Double_Buffering) nos videogames.
 
-As técnicas do modo concorrente reduzem a necessidade de renúncia e limitação na interface do usuário. Como a renderização é interrompível, o React não precisa *atrasar* artificialmente o trabalho para evitar interrupções. Ele pode começar a renderizar imediatamente, mas interrompa esse trabalho quando necessário para manter o aplicativo responsivo.
+As técnicas do modo concorrente reduzem a necessidade de renúncia e limitação na interface do usuário. Como a renderização é ininterruptível, o React não precisa *atrasar* artificialmente o trabalho para evitar interrupções. Ele pode começar a renderizar imediatamente, mas interrompa esse trabalho quando necessário para manter o aplicativo responsivo.
 
 ### Sequências de Carregamento Intencionais {#intentional-loading-sequences}
 

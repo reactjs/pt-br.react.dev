@@ -95,7 +95,7 @@ De acordo com nossa experiência, utilizar os padrões idiomáticos do React no 
 
 Para códigos antigos, o Modo Concorrente pode ser um passo muito grande. Este é o motivo de nós também termos disponibilizado o novo "Modo Bloqueante" nas versões experimentais do React. Você pode testá-lo substituindo `createRoot` por `createBlockingRoot`. Isso apenas confere uma *pequena parte* dos recursos presentes no Modo Concorrente, mas é mais próximo da forma como o React funciona hoje e pode servir como um passo na migração.
 
-Para recaptular:
+Para recapitular:
 
 * **Modo Legado:** `ReactDOM.render(<App />, rootNode)`. Está é a forma que os aplicativos React usam hoje. Não existem planos para remover o Modo Legado num futuro próximo — mas não será possível dar suporte para esses novos recursos.
 * **Modo Bloqueante:** `ReactDOM.createBlockingRoot(rootNode).render(<App />)`. Atualmente é experimental. A intenção é que seja um primeiro passo na migração para aplicativos que desejam utilizar uma parte dos recursos do Modo Concorrente.
@@ -141,4 +141,4 @@ Você pode pensar no Modo Bloqueante como uma versão suavemente degradada do Mo
 
 \*: O modo Legado possui eventos gerenciados pelo React em lote mas é limitado a uma tarefa do navegador. Eventos que não são do React podem utilizá-lo através do `unstable_batchedUpdates`. No Modo Bloqueante e Concorrente, todos os `setState`s são feitos em lote por padrão.
 
-\*\*: Avisa em desenvolvimento.
+\*\*: Avisa que está em desenvolvimento.
