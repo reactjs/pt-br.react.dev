@@ -53,7 +53,15 @@ June 8-10, 2022. In-person in Kraków, Poland + remote
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
 
 ### React India 2022 {#react-india-2022}
+<<<<<<< HEAD
 22 a 24 de setembro de 2022. Pessoalmente em Goa, Índia + remoto (evento híbrido)
+=======
+September 22 - 24, 2022. In-person in Goa, India + remote (hybrid event)
+
+[Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Videos](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
+
+## Past Conferences {#past-conferences}
+>>>>>>> a08e1fd4b574a4d2d55e292af9eb01d55a526303
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Videos](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
 

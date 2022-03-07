@@ -66,7 +66,11 @@ Chama-se o [`ReactDOM.render()`](/docs/react-dom.html#render) a cada segundo a p
 
 O React DOM compara o elemento novo e seus filhos com os anteriores e somente aplica as modificações necessárias no DOM para levá-lo ao estado desejado.
 
+<<<<<<< HEAD
 Você pode observar isso inspecionando o [último exemplo](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) com as ferramentas do navegador:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> a08e1fd4b574a4d2d55e292af9eb01d55a526303
 
 ![Ferramenta de inspecionar elemento do DOM mostrando atualizações granulares](../images/docs/granular-dom-updates.gif)
 
