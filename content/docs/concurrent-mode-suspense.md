@@ -221,7 +221,11 @@ function ProfileTimeline() {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodeSandbox](https://codesandbox.io/s/fragrant-glade-8huj6)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/fast-glade-rqnhtt)**
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 Se você executar esse código e olhar os logs no console, notará que a sequência é:
 
@@ -296,7 +300,11 @@ function ProfileTimeline({ posts }) {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodeSandbox](https://codesandbox.io/s/wandering-morning-ev6r0)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/hopeful-lake-loddz9)**
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 A sequência de eventos agora fica assim:
 
@@ -422,7 +430,11 @@ function App() {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodeSandbox](https://codesandbox.io/s/infallible-feather-xjtbu)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/sparkling-field-41z4r3)**
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 Com essa abordagem, podemos **buscar código e dados em paralelo**. Quando navegamos entre as páginas, não precisamos esperar o código de uma página carregar para começar a carregar seus dados. Podemos começar a buscar código e dados ao mesmo tempo (durante o clique no link), proporcionando uma experiência de usuário muito melhor.
 
@@ -509,7 +521,11 @@ function ProfileTimeline({ id }) {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodeSandbox](https://codesandbox.io/s/nervous-glade-b5sel)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/beautiful-mendeleev-qwyxzg)**
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 Observe como também mudamos as dependências do efeito de `[]` para `[id]` — porque queremos que o efeito seja executado novamente quando o `id` mudar. Caso contrário, não buscaremos novamente os dados.
 
@@ -587,7 +603,11 @@ class ProfileTimeline extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodeSandbox](https://codesandbox.io/s/trusting-clarke-8twuq)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/async-wind-9o4ojn)**
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 Este código é enganosamente fácil de ler.
 
@@ -647,7 +667,11 @@ function ProfileTimeline({ resource }) {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodeSandbox](https://codesandbox.io/s/infallible-feather-xjtbu)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/sparkling-field-41z4r3)**
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 No exemplo anterior utilizando Suspense, tínhamos apenas um `resource`, portanto mantivemos em uma variável de nível superior. Agora que temos vários recursos, o movemos para o state do componente `<App>`:
 
@@ -720,7 +744,11 @@ function ProfilePage() {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodeSandbox](https://codesandbox.io/s/adoring-goodall-8wbn7)**
+=======
+**[Try it on CodeSandbox](https://codesandbox.io/s/sparkling-rgb-r5vfhs)**
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 Ele pegaria erros de renderização *e* erros da busca de dados do Suspense. Podemos ter quantos error boundaries quisermos, mas é melhor [ser intencional](https://aweary.dev/fault-tolerance-react/) sobre o posicionamento deles.
 
@@ -730,10 +758,18 @@ Agora, abordamos o básico do Suspense para Busca de Dados! Importante, agora en
 
 O Suspense responde a algumas perguntas, mas também trás suas próprias novas questões:
 
+<<<<<<< HEAD
 * Se algum componente "suspende", o aplicativo congela? Como evitar isso?
 * E se quisermos mostrar um spinner em um local diferente do que "acima" do componente em uma árvore?
 * Se intencionalmente *queremos* mostrar uma UI inconsistente por um pequeno período, podemos fazer isso?
 * Em vez de mostrar um spinner, podemos adicionar um efeito visual como "acinzentar" a tela atual?
 * Por que nosso [último exemplo Suspense](https://codesandbox.io/s/infallible-feather-xjtbu) mostra um warning no console ao clicar no botão "Next"?
+=======
+* If some component "suspends", does the app freeze? How to avoid this?
+* What if we want to show a spinner in a different place than "above" the component in a tree?
+* If we intentionally *want* to show an inconsistent UI for a small period of time, can we do that?
+* Instead of showing a spinner, can we add a visual effect like "greying out" the current screen?
+* Why does our [last Suspense example](https://codesandbox.io/s/sparkling-field-41z4r3) log a warning when clicking the "Next" button?
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 
 Para responder a essas perguntas, veremos a próxima seção sobre [Padrões de UI Concorrente](/docs/concurrent-mode-patterns.html).

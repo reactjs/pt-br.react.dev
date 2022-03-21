@@ -9,13 +9,12 @@ import {MenuContext} from 'components/useMenu';
 import {useMediaQuery} from '../useMediaQuery';
 import {SidebarRouteTree} from './SidebarRouteTree';
 import {Search} from 'components/Search';
-import {Button} from 'components/Button';
 import {MobileNav} from '../Nav/MobileNav';
 import {Feedback} from '../Feedback';
 
 const SIDEBAR_BREAKPOINT = 1023;
 
-export function Sidebar({isMobileOnly}: {isMobileOnly?: boolean}) {
+export function Sidebar() {
   const {menuRef, isOpen} = React.useContext(MenuContext);
   const isMobileSidebar = useMediaQuery(SIDEBAR_BREAKPOINT);
   let routeTree = React.useContext(SidebarContext);
@@ -31,12 +30,17 @@ export function Sidebar({isMobileOnly}: {isMobileOnly?: boolean}) {
         `lg:grow lg:flex flex-col w-full pt-4 pb-8 lg:pb-0 lg:max-w-xs fixed lg:sticky bg-wash dark:bg-wash-dark z-10 top-0`,
         isOpen ? 'block z-40' : 'hidden lg:block'
       )}
+<<<<<<< HEAD
       aria-hidden={isHidden ? 'true' : 'false'}
       style={{
         top: 0,
         visibility: isHidden ? 'hidden' : undefined,
       }}>
       <div className="px-5">
+=======
+      aria-hidden={isHidden}>
+      <div className="px-5 pt-16 sm:pt-10 lg:pt-0">
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
         <Search />
       </div>
       <nav

@@ -34,6 +34,11 @@ If you use React on the web, you'll also need the same version of [ReactDOM](/ap
 
 ## Exports {/*exports*/}
 
+<<<<<<< HEAD
+=======
+### State {/*state*/}
+
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 <YouWillLearnCard title="useState" path="/apis/usestate">
 
 Declares a state variable.
@@ -46,6 +51,47 @@ function MyComponent() {
 
 </YouWillLearnCard>
 
+<<<<<<< HEAD
+=======
+<YouWillLearnCard title="useReducer" path="/apis/usereducer">
+
+Declares a state variable managed with a reducer.
+
+```js
+function MyComponent() {
+  const [state, dispatch] = useReducer(reducer, { age: 42 });
+  // ...
+```
+
+</YouWillLearnCard>
+
+### Context {/*context*/}
+
+<YouWillLearnCard title="useContext" path="/apis/usecontext">
+
+Reads and subscribes to a context.
+
+```js
+function MyComponent() {
+  const theme = useContext(ThemeContext);
+  // ...
+```
+
+</YouWillLearnCard>
+
+<YouWillLearnCard title="createContext" path="/apis/createContext">
+
+Creates a context that components can provide or read.
+
+```js
+const ThemeContext = createContext('light');
+```
+
+</YouWillLearnCard>
+
+### Refs {/*refs*/}
+
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
 <YouWillLearnCard title="useRef" path="/apis/useref">
 
 Declares a ref.
