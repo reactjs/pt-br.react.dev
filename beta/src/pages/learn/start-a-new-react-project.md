@@ -72,9 +72,15 @@ s {/*custom-toolchains*/}
 
 Você pode preferir criar e configurar sueu próprio conjunto de ferramentas. Um  conjunto de ferramentas de construção JavaScript normalmente consiste em:
 
+<<<<<<< HEAD
 * Um **gerenciador de pacotes**—permite instalar, atualizar e gerenciar pacotes de terceiros. [Yarn](https://yarnpkg.com/) e [npm](https://www.npmjs.com/) são dois gerenciadores de pacotes populares.
 * Um **bundler**— permite escrever código modular e agrupá-lo em pequenos pacotes para otimizar o tempo de carregamento. [Webpack](https://webpack.js.org/), [Snowpack](https://www.snowpack.dev/), [Parcel](https://parceljs.org/) são alguns bundlers populares.
 * Um **compilador**— permite escrever código JavaScript moderno que ainda funciona em navegadores mais antigos. [Babel](https://babeljs.io/) é um desses exemplos.
+=======
+* A **package manager**—lets you install, update and manage third-party packages. [Yarn](https://yarnpkg.com/) and [npm](https://www.npmjs.com/) are two popular package managers.
+* A **bundler**—lets you write modular code and bundle it together into small packages to optimize load time. [Webpack](https://webpack.js.org/), [Snowpack](https://www.snowpack.dev/), [Parcel](https://parceljs.org/) are several popular bundlers.
+* A **compiler**—lets you write modern JavaScript code that still works in older browsers. [Babel](https://babeljs.io/) is one such example.
+>>>>>>> 5e9d673c6bc1530c901548c0b51af3ad3f91d594
 
 Em um projeto maior, você também pode querer ter uma ferramenta para gerenciar vários pacotes em um único repositório.  [Nx](https://nx.dev/react) é um exemplo deesse tipo de ferramenta.
 
