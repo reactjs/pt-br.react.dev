@@ -1179,13 +1179,21 @@ Em seguida, definiremos o método `jumpTo` no componente Game para atualizar aqu
   }
 ```
 
+<<<<<<< HEAD
 Observe no método `jumpTo`, não atualizamos a propriedade de histórico do estado. Isso ocorre porque as atualizações de estado são mescladas ou, em palavras mais simples, o react atualizará apenas as propriedades mencionadas no método `setState`, deixando o estado restante como está. Para mais informações **[veja a documentação](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+=======
+Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 Agora faremos algumas modificações no método `handleClick` do componente Game, que é disparado quando você clica em um quadradado do tabuleiro (square).
 
 O state `stepNumber` que adicionamos reflete a jogada mostrada ao usuário nesse momento. Após fazermos uma nova jogada, precisamos atualizar `stepNumber` adicionando `stepNumber: history.length` como parte do argumento de `this.setState`. Isso certifica que não ficaremos presos mostrando a mesma jogada após uma novo ter sido feita. 
 
+<<<<<<< HEAD
 Também iremos substituir a leitura de `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Isso certifica que se nós "voltarmos no tempo", e então fizermos uma nova jogada a partir daquele ponto, descartamos todo o histórico do "futuro" que agora se tornaria incorreto.
+=======
+We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now be incorrect.
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
 
 ```javascript{2,13}
   handleClick(i) {

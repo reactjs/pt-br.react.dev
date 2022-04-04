@@ -11,11 +11,36 @@ interface DiagramProps {
   height: number;
   width: number;
   children: string;
+<<<<<<< HEAD
 }
 
 export function Diagram({name, alt, height, width, children}: DiagramProps) {
   return (
     <figure className="flex flex-col px-0 py-5 sm:p-10">
+=======
+  captionPosition: 'top' | 'bottom' | null;
+}
+
+function Caption({text}: {text: string}) {
+  return (
+    <figcaption className="p-1 sm:p-2 mt-0 sm:mt-0 text-gray-40 text-base lg:text-lg text-center leading-tight">
+      {text}
+    </figcaption>
+  );
+}
+
+export function Diagram({
+  name,
+  alt,
+  height,
+  width,
+  children,
+  captionPosition,
+}: DiagramProps) {
+  return (
+    <figure className="flex flex-col px-0 p-0 sm:p-10 first:mt-0 mt-10 sm:mt-0 justify-center items-center">
+      {captionPosition === 'top' && <Caption text={children} />}
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
       <div className="dark-image">
         <Image
           src={`/images/docs/diagrams/${name}.dark.svg`}
@@ -32,9 +57,15 @@ export function Diagram({name, alt, height, width, children}: DiagramProps) {
           width={width}
         />
       </div>
+<<<<<<< HEAD
       <figcaption className="p-1 sm:p-4 mt-4 sm:mt-0 text-gray-40 text-base lg:text-lg text-center leading-6">
         {children}
       </figcaption>
+=======
+      {(!captionPosition || captionPosition === 'bottom') && (
+        <Caption text={children} />
+      )}
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
     </figure>
   );
 }

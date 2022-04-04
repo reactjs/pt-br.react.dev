@@ -8,4 +8,8 @@ O aviso invalid-aria-prop irá disparar caso você tente renderizar um elemento 
 
 1. Caso você ache que está usando uma propriedade válida, verifique se escreveu ela corretamente. `aria-labelledby` e `aria-activedescendant` são muitas vezes escritas de forma incorreta.
 
+<<<<<<< HEAD
 2. O React não reconhece o atributo que você especificou. Isso será corrigido em uma futura versão do React. No entanto, atualmente o React remove todos os atributos desconhecidos, logo ao especificar eles em sua aplicação React não fará com que eles sejam renderizados.
+=======
+2. React does not yet recognize the attribute you specified. This will likely be fixed in a future version of React.
+>>>>>>> 707f22d25f5b343a2e5e063877f1fc97cb1f48a1
