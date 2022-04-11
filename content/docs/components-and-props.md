@@ -70,20 +70,29 @@ function Welcome(props) {
 }
 
 const element = <Welcome name="Sara" />;
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(element);
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 Vamos recapitular o que acontece nesse exemplo:
 
+<<<<<<< HEAD
 1. Nós chamamos `ReactDOM.render()` com o elemento `<Welcome name="Sara" />`.
 2. React chama o componente `Welcome` com `{name: 'Sara'}` como props.
 3. Nosso componente `Welcome` retorna um elemento `<h1>Olá, Sara</h1>` como resultado.
 4. React DOM atualiza eficientemente o DOM para corresponder `<h1>Olá, Sara</h1>`.
+=======
+1. We call `root.render()` with the `<Welcome name="Sara" />` element.
+2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
+3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
+4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 >**Nota:** Sempre inicie os nomes dos componentes com uma letra maiúscula.
 >
@@ -111,14 +120,13 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 Tipicamente, novos aplicativos React tem um único componente `App` no topo. Contudo, se você integrar o React em um aplicativo existente, você pode começar de baixo para cima com um pequeno componente como o `Button` e gradualmente chegar ao topo da hierarquia de exibição.
 
@@ -152,7 +160,11 @@ function Comment(props) {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodePen](https://codepen.io/gaearon/pen/VKQwEo?editors=1010)**
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/VKQwEo?editors=1010)**
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 Ele aceita `author` (um objeto), `text` (uma string) e `date` (uma data) como props e descreve um comentário em um site de mídia social.
 
@@ -231,7 +243,11 @@ function Comment(props) {
 }
 ```
 
+<<<<<<< HEAD
 **[Experimente no CodePen](https://codepen.io/gaearon/pen/rrJNJY?editors=1010)**
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrJNJY?editors=1010)**
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 
 Extrair componentes pode parecer um trabalho pesado no começo, mas ter uma paleta de componentes reutilizáveis compensa em aplicativos maiores. Uma boa regra é que se uma parte da sua UI for usada várias vezes (`Button`, `Panel`, `Avatar`) ou for complexa o suficiente por si só (`App`, `FeedStory`, `Comment`) é uma boa candidata a ser extraída para um componente separado.
 

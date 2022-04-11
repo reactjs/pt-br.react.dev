@@ -23,13 +23,19 @@ const CodeBlock = function CodeBlock({
   className = 'language-js',
   metastring,
   noMargin,
+<<<<<<< HEAD
   noMarkers,
+=======
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 }: {
   children: string;
   className?: string;
   metastring: string;
   noMargin?: boolean;
+<<<<<<< HEAD
   noMarkers?: boolean;
+=======
+>>>>>>> 84ad3308338e2bb819f4f24fa8e9dfeeffaa970b
 }) {
   const getDecoratedLineInfo = () => {
     if (!metastring) {
