@@ -52,10 +52,17 @@ A seguir, adicione três tags `<script>` em sua página HTML logo antes do fecha
 ```html{5,6,9}
   <!-- ... HTML qualquer ... -->
 
+<<<<<<< HEAD
   <!-- Adicionar o React. -->
   <!-- Nota: ao fazer o deploy, substitua "development.js" por "production.min.js". -->
   <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+=======
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 
   <!-- Adicione nosso componente React. -->
   <script src="like_button.js"></script>
@@ -77,14 +84,24 @@ Abra **[este código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd9
 
 Depois **[do código inicial](https://gist.github.com/gaearon/0b180827c190fe4fd98b4c7f570ea4a8/raw/b9157ce933c79a4559d2aa9ff3372668cce48de7/LikeButton.js)**, adicione essas duas linhas no final do arquivo `like_button.js`:
 
+<<<<<<< HEAD
 ```js{3,4}
 // ... o código inicial que você copiou ...
+=======
+```js{3,4,5}
+// ... the starter code you pasted ...
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 
 const domContainer = document.querySelector('#like_button_container');
-ReactDOM.render(e(LikeButton), domContainer);
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(LikeButton));
 ```
 
+<<<<<<< HEAD
 Essas duas linhas de código encontram a `<div>` que adicionamos em nosso HTML no primeiro passo e então mostrará o componente React dentro dele.
+=======
+These three lines of code find the `<div>` we added to our HTML in the first step, create a React app with it, and then display our "Like" button React component inside of it.
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 
 ### É Isso Aí! {#thats-it}
 
@@ -115,8 +132,8 @@ Antes de realizar o deploy de seu site para produção, lembre-se que o código 
 Se você já minifica os scripts da sua aplicação, **seu site estará pronto para produção** se você garantir que o HTML carregue a versão do React terminando em `production.min.js`:
 
 ```js
-<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
 Se você não possui uma etapa de minificação para seus scripts, [aqui está um jeito de configurá-lo](https://gist.github.com/gaearon/42a2ffa41b8319948f9be4076286e1f3).

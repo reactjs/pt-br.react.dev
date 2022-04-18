@@ -24,6 +24,11 @@ const value = useContext(SomeContext)
   - [My component doesn't see the value from my provider](#my-component-doesnt-see-the-value-from-my-provider)
   - [I am always getting undefined from my context although the default value is different](#i-am-always-getting-undefined-from-my-context-although-the-default-value-is-different)
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 ## Usage {/*usage*/}
 
 

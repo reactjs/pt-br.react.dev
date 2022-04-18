@@ -275,10 +275,10 @@ A especificação de uma prop `value` em um [componente controlado](/docs/forms.
 O código a seguir demonstra isso. (O input é bloqueada no início, mas torna-se editável após um tempo.)
 
 ```javascript
-ReactDOM.render(<input value="hi" />, mountNode);
+ReactDOM.createRoot(mountNode).render(<input value="hi" />);
 
 setTimeout(function() {
-  ReactDOM.render(<input value={null} />, mountNode);
+  ReactDOM.createRoot(mountNode).render(<input value={null} />);
 }, 1000);
 
 ```

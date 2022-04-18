@@ -22,6 +22,11 @@ const ref = useRef(initialValue)
 - [Troubleshooting](#troubleshooting)
   - [I can’t get a ref to a custom component](#i-cant-get-a-ref-to-a-custom-component)
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 ## Usage {/*usage*/}
 
 ### Referencing a value with a ref {/*referencing-a-value-with-a-ref*/}

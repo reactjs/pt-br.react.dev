@@ -86,7 +86,19 @@ Sebastian é graduado em psicologia. Ele é geralmente quieto. Mesmo quando ele 
 
 Seth começou a programar quando criança em Tucson, AZ. Depois da escola, ele foi mordido pelo bug da música e foi músico em turnê por cerca de 10 anos antes de retornar ao *trabalho*, começando com a Intuit. Em seu tempo livre, ele adora [tirar fotos](https://www.sethwebster.com) e voar para resgatar animais no nordeste dos Estados Unidos.
 
+<<<<<<< HEAD
 ## Reconhecimentos {#acknowledgements}
+=======
+### Xuan Huang {#xuan-huang}
+
+![Xuan](../images/team/huxpro.jpg)
+
+[@huxpro on GitHub](https://github.com/huxpro) &middot; [@huxpro on Twitter](https://twitter.com/huxpro)
+
+Xuan met with programming in childhood to make games in Flash. He did digital media arts in college but eventually got tricked into making compilers, and somehow React needs one. Out of work, he pours terrible latte arts and plays tennis either on or off a table.
+
+## Acknowledgements {#acknowledgements}
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
 
 React foi originalmente criado por [Jordan Walke](https://github.com/jordwalke). Atualmente, o React tem mais de mil contribuintes open source. Nos gostaríamos de reconhecer algumas pessoas que fizeram contribuições significativas para o React e sua documentação no passado e tem ajudado a mantê-lo ao longo dos anos:
 
@@ -127,4 +139,8 @@ React foi originalmente criado por [Jordan Walke](https://github.com/jordwalke).
 
 Essa lista não é exaustiva.
 
+<<<<<<< HEAD
 Nós gostaríamos de agradecer especialmente ao [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por nos guiar e apoiar ao longo dos anos. Nós também gostaríamos de agradecer a todos os voluntários que [traduziram o React para outros idiomas](https://translations.reactjs.org/).
+=======
+We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We'd also like to thank all the volunteers who [translated React into other languages](https://translations.reactjs.org/).
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450

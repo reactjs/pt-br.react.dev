@@ -49,8 +49,11 @@ export const computeViewportSize = (
 };
 
 export const createFileMap = (codeSnippets: any) => {
+<<<<<<< HEAD
   let isSingleFile = true;
 
+=======
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
   return codeSnippets.reduce(
     (result: Record<string, SandpackFile>, codeSnippet: React.ReactElement) => {
       if (codeSnippet.props.mdxType !== 'pre') {
@@ -70,7 +73,10 @@ export const createFileMap = (codeSnippets: any) => {
         if (params.includes('active')) {
           fileActive = true;
         }
+<<<<<<< HEAD
         isSingleFile = false;
+=======
+>>>>>>> 07dbd86ca421c262157af673a2584a40fd3b2450
       } else {
         if (props.className === 'language-js') {
           filePath = '/App.js';
