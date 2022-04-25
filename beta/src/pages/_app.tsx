@@ -12,7 +12,10 @@ import '../styles/algolia.css';
 import '../styles/index.css';
 import '../styles/sandpack.css';
 import '@codesandbox/sandpack-react/dist/index.css';
+<<<<<<< HEAD
 import Script from 'next/script';
+=======
+>>>>>>> 1d21630e126af0f4c04ff392934dcee80fc54892
 
 const EmptyAppShell: React.FC = ({children}) => <>{children}</>;
 
