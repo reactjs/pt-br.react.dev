@@ -22,6 +22,11 @@ const ref = useRef(initialValue)
 - [Troubleshooting](#troubleshooting)
   - [I can’t get a ref to a custom component](#i-cant-get-a-ref-to-a-custom-component)
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 ## Usage {/*usage*/}
 
 ### Referencing a value with a ref {/*referencing-a-value-with-a-ref*/}
@@ -590,7 +595,11 @@ const MyInput = forwardRef(({ value, onChange }, ref) => {
       ref={ref}
     />
   );
+<<<<<<< HEAD
 };
+=======
+});
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
 export default MyInput;
 ```

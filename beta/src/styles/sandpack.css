@@ -301,4 +301,13 @@ html.dark .sp-devtools > div {
   .sp-layout.sp-layout-expanded > .sp-stack:nth-child(2) {
     max-height: unset;
   }
+<<<<<<< HEAD
+=======
+}
+
+.expandable-callout .sp-stack:nth-child(2) {
+  min-width: 431px;
+  min-height: 40vh;
+  max-height: 40vh;
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 }
