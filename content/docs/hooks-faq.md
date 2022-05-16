@@ -97,9 +97,13 @@ Você não pode usar Hooks *dentro* de um componente classe, mas você definitiv
 
 Nosso objetivo é que Hooks cubra todos os casos de uso o mais rápido possível. Ainda não há Hook equivalente para os ciclos de vida `getSnapshotBeforeUpdate`, `getDerivedStateFromError` e `componentDidCatch`, que são mais incomuns, mas planejamos adiciona-los em breve.
 
+<<<<<<< HEAD
 ### Hooks substituem render props e HOC (componente de alta-ordem, do inglês *high-order component*)? {#do-hooks-replace-render-props-and-higher-order-components}
 
 Frequentemente, render props e HOC renderizam somente um filho. Nós achamos que Hooks são uma maneira mais simples de atender esse caso de uso. Ainda existe lugar para ambos os padrões (por exemplo, um componente de scroll virtual talvez tenha uma prop `renderItem`, ou um container visual talvez tenha sua própria estrutura DOM). Mas na maioria dos casos, Hooks serão suficiente e podem ajudar a reduzir o aninhamento na sua árvore.
+=======
+### Do Hooks replace render props and higher-order components? {#do-hooks-replace-render-props-and-higher-order-components}
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
 
 ### O que Hooks significam para APIs populares como o `connect()` do Redux e o React Router? {#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
@@ -148,7 +152,7 @@ Nós vamos testa-lo usando React DOM. Para garantir que o comportamento correspo
 
 ```js{3,20-22,29-31}
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import Counter from './Counter';
 
@@ -167,7 +171,7 @@ afterEach(() => {
 it('can render and update a counter', () => {
   // Testa a primeira renderização e efeito
   act(() => {
-    ReactDOM.render(<Counter />, container);
+    ReactDOM.createRoot(container).render(<Counter />);
   });
   const button = container.querySelector('button');
   const label = container.querySelector('p');

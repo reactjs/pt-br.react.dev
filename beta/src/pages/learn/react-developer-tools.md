@@ -9,7 +9,17 @@ Use a ferramenta de desenvolvedor do React para inspecionar [componentes](/learn
 
 </Intro>
 
+<<<<<<< HEAD
 ## Extensão do navegador {/*browser-extension*/}
+=======
+<YouWillLearn>
+
+* How to install React Developer Tools
+
+</YouWillLearn>
+
+## Browser extension {/*browser-extension*/}
+>>>>>>> 951fae39f0e12dc061f1564d02b2f4707c0541c4
 
 A forma mais fácil de depurar websites construídos com React é instalar a ferramenta de desenvolvedor do React no navegador. Ela está disponível para vários navegadores populares:
 
