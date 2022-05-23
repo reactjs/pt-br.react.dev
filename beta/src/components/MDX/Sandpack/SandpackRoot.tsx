@@ -4,6 +4,10 @@
 
 import * as React from 'react';
 import {SandpackProvider} from '@codesandbox/sandpack-react';
+<<<<<<< HEAD
+=======
+import {SandpackLogLevel} from '@codesandbox/sandpack-client';
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
 import {CustomPreset} from './CustomPreset';
 import {createFileMap} from './utils';
 
@@ -82,7 +86,13 @@ function SandpackRoot(props: SandpackProps) {
         customSetup={{...setup, files: files}}
         autorun={autorun}
         initMode="user-visible"
+<<<<<<< HEAD
         initModeObserverOptions={{rootMargin: '1400px 0px'}}>
+=======
+        initModeObserverOptions={{rootMargin: '1400px 0px'}}
+        bundlerURL="https://22530bfe.sandpack-bundler.pages.dev"
+        logLevel={SandpackLogLevel.None}>
+>>>>>>> 3aac8c59848046fb427aab4373a7aadd7069a24c
         <CustomPreset
           isSingleFile={isSingleFile}
           showDevTools={showDevTools}
