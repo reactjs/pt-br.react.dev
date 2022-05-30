@@ -7,6 +7,7 @@ import {useSandpack} from '@codesandbox/sandpack-react';
 import {IconArrowSmall} from '../../Icon/IconArrowSmall';
 export interface DownloadButtonProps {}
 
+<<<<<<< HEAD
 let initialIsSupported = false;
 
 export const DownloadButton: React.FC<DownloadButtonProps> = () => {
@@ -24,6 +25,37 @@ export const DownloadButton: React.FC<DownloadButtonProps> = () => {
     }
   }, [supported]);
 
+=======
+let supportsImportMap: boolean | void;
+
+function useSupportsImportMap() {
+  function subscribe() {
+    // It never updates.
+    return () => {};
+  }
+  function getCurrentValue() {
+    if (supportsImportMap === undefined) {
+      supportsImportMap =
+        (HTMLScriptElement as any).supports &&
+        (HTMLScriptElement as any).supports('importmap');
+    }
+    return supportsImportMap;
+  }
+  function getServerSnapshot() {
+    return false;
+  }
+
+  return React.useSyncExternalStore(
+    subscribe,
+    getCurrentValue,
+    getServerSnapshot
+  );
+}
+
+export const DownloadButton: React.FC<DownloadButtonProps> = () => {
+  const {sandpack} = useSandpack();
+  const supported = useSupportsImportMap();
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
   if (!supported) {
     return null;
   }

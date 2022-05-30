@@ -22,6 +22,11 @@ const ref = useRef(initialValue)
 - [Troubleshooting](#troubleshooting)
   - [I can’t get a ref to a custom component](#i-cant-get-a-ref-to-a-custom-component)
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
 ## Usage {/*usage*/}
 
 ### Referencing a value with a ref {/*referencing-a-value-with-a-ref*/}
@@ -204,7 +209,11 @@ When you break these rules, your component might still work, but most of the new
 
 ### Manipulating the DOM with a ref {/*manipulating-the-dom-with-a-ref*/}
 
+<<<<<<< HEAD
 It's particularly common to use a ref to manipulate the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API). React has bulit-in support for this.
+=======
+It's particularly common to use a ref to manipulate the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API). React has built-in support for this.
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
 
 First, declare a <CodeStep step={1}>ref object</CodeStep> with an <CodeStep step={3}>initial value</CodeStep> of `null`:
 
@@ -590,7 +599,11 @@ const MyInput = forwardRef(({ value, onChange }, ref) => {
       ref={ref}
     />
   );
+<<<<<<< HEAD
 };
+=======
+});
+>>>>>>> d522a5f4a9faaf6fd314f4d15f1be65ca997760f
 
 export default MyInput;
 ```
