@@ -209,7 +209,7 @@ Neste ponto, você não deve estar usando nenhum valor de estado. Isso é para o
 
 Para tornar a UI interativa, você precisa deixar os usuários mudarem seu modelo de dados subjacente. Você usará o *estado* para isso.
 
-Pense no estado como o conjunto mínimo de dados em mudança que seu aplicativo precisa lembrar. O princípio mais importante para estruturar o estado é mantê-lo [DRY (Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Descubra a representação mínima absoluta do estado que sua aplicação precisa e calcule tudo o mais sob demanda. Por exemplo, se você estiver construindo uma lista de compras, você pode armazenar os itens como um vetor em estado. Se você também quiser exibir o número de itens na lista, não armazene o número de itens como outro valor de estado-- em vez disso, leia o comprimento de seu vetor.
+Pense no estado como o conjunto mínimo de dados em mudança que seu aplicativo precisa lembrar. O princípio mais importante para estruturar o estado é mantê-lo [DRY (Don't Repeat Yourself)](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Descubra a representação mínima absoluta do estado que sua aplicação precisa e calcule tudo o mais sob demanda. Por exemplo, se você estiver construindo uma lista de compras, você pode armazenar os itens como um vetor em estado. Se você também quiser exibir o número de itens na lista, não armazene o número de itens como outro valor de estado-- em vez disso, leia o comprimento de seu vetor.
 
 Agora pense em todos os dados deste exemplo de aplicação:
 
