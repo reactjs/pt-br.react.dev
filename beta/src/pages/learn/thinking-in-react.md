@@ -8,9 +8,9 @@ React pode mudar a maneira como você pensa sobre os projetos que você vê e as
 
 </Intro>
 
-## Comece com uma maquete {/*start-with-the-mockup*/}
+## Comece com um mockup {/*start-with-the-mockup*/}
 
-Imagine que você já tenha uma API JSON e uma maquete desenvolvida por um designer.
+Imagine que você já tenha uma API JSON e um mockup desenvolvida por um designer.
 
 A API JSON retorna dados que se parecem com isto:
 
@@ -25,7 +25,7 @@ A API JSON retorna dados que se parecem com isto:
 ]
 ```
 
-A maquete se parece com isto:
+O mockup se parece com isto:
 
 <img src="/images/docs/s_thinking-in-react_ui.png" width="300" style={{margin: '0 auto'}} />
 
@@ -33,7 +33,7 @@ Para implementar uma UI no React, você geralmente seguirá os mesmos cinco pass
 
 ## Passo 1: Separe a UI em uma hierarquia de componentes {/*step-1-break-the-ui-into-a-component-hierarchy*/}
 
-Comece desenhando caixas em torno de cada componente e subcomponente da maquete e nomeando-os. Se você trabalhar com um designer, eles podem já ter nomeado estes componentes em sua ferramenta de projeto. Verifique com eles!
+Comece desenhando caixas em torno de cada componente e subcomponente do mockup e nomeando-os. Se você trabalhar com um designer, eles podem já ter nomeado estes componentes em sua ferramenta de projeto. Verifique com eles!
 
 Dependendo de sua formação, você pode pensar em dividir um projeto em componentes de diferentes maneiras:
 
@@ -63,7 +63,7 @@ Há cinco componentes nesta tela:
 
 Se você olhar para `ProductTable` (lavanda), verá que o header da tabela (contendo as etiquetas "Name" e "Price") não é seu próprio componente. Esta é uma questão de preferência, e você poderia ir para qualquer lado. Para este exemplo, é uma parte da `ProductTable` porque aparece dentro da lista da `ProductTable`. Entretanto, se este header se tornar complexo (por exemplo, se você acrescentar ordenação), faria sentido fazer deste seu próprio componente `ProductTableHeader`.
 
-Agora que você identificou os componentes na maquete, organize-os em uma hierarquia. Os componentes que aparecem dentro de outro componente na maquete devem aparecer como um filho na hierarquia:
+Agora que você identificou os componentes no mockup, organize-os em uma hierarquia. Os componentes que aparecem dentro de outro componente no mockup devem aparecer como um filho na hierarquia:
 
 * `FilterableProductTable`
     * `SearchBar`
@@ -75,7 +75,7 @@ Agora que você identificou os componentes na maquete, organize-os em uma hierar
 
 Agora que você já tem sua hierarquia de componentes, chegou a hora de implementar o seu app. A abordagem mais simples é construir uma versão que renderize a UI a partir de seu modelo de dados sem adicionar nenhuma interatividade... ainda! Muitas vezes é mais fácil construir primeiro a versão estática e depois adicionar a interatividade separadamente. Construir uma versão estática requer muita digitação e pouco pensamento, mas adicionar interatividade requer muito pensamento e pouca digitação.
 
-Para construir uma versão estática que renderiza seu modelo de dados, você quer criar [componentes](/learn/your-first-component) que reutilizem outros componentes e passem dados utilizando [props](/learn/passing-props-to-a-component). Props são uma forma de passar dados de pai para filho. Se você é familiar com o conceito de [state](/learn/state-a-components-memory), não use o state para construir essa versão estática. State é reservado apenas para interatividade, ou seja, dados que mudam com o tempo. Uma vez que essa é uma versão estática do app, seu uso não será necessário.
+Para construir uma versão estática que renderiza seu modelo de dados, você quer criar [componentes](/learn/your-first-component) que reutilizem outros componentes e passem dados utilizando [props](/learn/passing-props-to-a-component). Props são uma forma de passar dados de pai para filho. Se você é familiar com o conceito de [estado](/learn/state-a-components-memory), não use o estado para construir essa versão estática. Estado é reservado apenas para interatividade, ou seja, dados que mudam com o tempo. Uma vez que essa é uma versão estática do app, seu uso não será necessário.
 
 Você pode construir "top down", começando com a construção dos componentes superiores na hierarquia (como `FilterableProductTable`) ou "bottom up", trabalhando a partir de componentes inferiores (como `ProductRow`). Em exemplos mais simples, geralmente é mais fácil ir de cima para baixo, e em projetos maiores, é mais fácil ir de baixo para cima.
 
@@ -201,15 +201,15 @@ Depois de construir seus componentes, você terá uma biblioteca de componentes 
 
 <Gotcha>
 
-Neste ponto, você não deve estar usando nenhum valor de state. Isso é para o próximo passo!
+Neste ponto, você não deve estar usando nenhum valor de estado. Isso é para o próximo passo!
 
 </Gotcha>
 
-## Passo 3: Encontre a representação mínima mas completa do state da UI {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
+## Passo 3: Encontre a representação mínima mas completa do estado da UI {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
 
-Para tornar a UI interativa, você precisa deixar os usuários mudarem seu modelo de dados subjacente. Você usará o *state* para isso.
+Para tornar a UI interativa, você precisa deixar os usuários mudarem seu modelo de dados subjacente. Você usará o *estado* para isso.
 
-Pense no estado como o conjunto mínimo de dados em mudança que seu aplicativo precisa lembrar. O princípio mais importante para estruturar o estado é mantê-lo [DRY (Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)]. Descubra a representação mínima absoluta do estado que sua aplicação precisa e calcule tudo o mais sob demanda. Por exemplo, se você estiver construindo uma lista de compras, você pode armazenar os itens como um vetor em estado. Se você também quiser exibir o número de itens na lista, não armazene o número de itens como outro valor de estado-- em vez disso, leia o comprimento de seu vetor.
+Pense no estado como o conjunto mínimo de dados em mudança que seu aplicativo precisa lembrar. O princípio mais importante para estruturar o estado é mantê-lo [DRY (Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Descubra a representação mínima absoluta do estado que sua aplicação precisa e calcule tudo o mais sob demanda. Por exemplo, se você estiver construindo uma lista de compras, você pode armazenar os itens como um vetor em estado. Se você também quiser exibir o número de itens na lista, não armazene o número de itens como outro valor de estado-- em vez disso, leia o comprimento de seu vetor.
 
 Agora pense em todos os dados deste exemplo de aplicação:
 
@@ -220,33 +220,33 @@ Agora pense em todos os dados deste exemplo de aplicação:
 
 Quais deles são estados? Identifique os que não são:
 
-* **Permanece inalterado** com o tempo? Se sim, não é state.
-* É **recebido por um pai** via props? Se sim, não é state.
-* **Você pode calculá-lo** com base no estado existente ou props em seu componente? Se sim, *definitivamente* não é state! 
+* **Permanece inalterado** com o tempo? Se sim, não é estado.
+* É **recebido por um pai** via props? Se sim, não é estado.
+* **Você pode calculá-lo** com base no estado existente ou props em seu componente? Se sim, *definitivamente* não é estado! 
 
-O que restou provavelmente é state.
+O que restou provavelmente é estado.
 
 Vamos passar por eles um a um novamente:
 
-1. A lista original de produtos é **passada como props, portanto não é state**
-2. O texto de busca parece ser um state, pois muda com o tempo e não pode ser calculado a partir de nada.
-3. O valor do checkbox parece ser um state, uma vez que muda com o tempo e não pode ser calculado a partir de nada.
-4. A lista filtrada de produtos **não é state porque pode ser calculada** tomando a lista original de produtos e filtrando-a de acordo com o texto de busca e o valor do checkbox.
+1. A lista original de produtos é **passada como props, portanto não é estado**
+2. O texto de busca parece ser um estado, pois muda com o tempo e não pode ser calculado a partir de nada.
+3. O valor do checkbox parece ser um estado, uma vez que muda com o tempo e não pode ser calculado a partir de nada.
+4. A lista filtrada de produtos **não é estado porque pode ser calculada** tomando a lista original de produtos e filtrando-a de acordo com o texto de busca e o valor do checkbox.
 
-Isso significa que apenas o texto de busca e o valor da caixa de seleção são states! Muito bem feito!
+Isso significa que apenas o texto de busca e o valor da caixa de seleção são estados! Muito bem feito!
 
-<DeepDive title="Props vs State">
+<DeepDive title="Props vs Estado">
 
-Há dois tipos de "modelo" de dados em React: props e state. Os dois são muito diferentes:
+Há dois tipos de "modelo" de dados em React: props e estado. Os dois são muito diferentes:
 
 * [**Props** são como argumentos que você passa](/learn/passing-props-to-a-component) para uma função. Elas deixam um componente pai passar dados para um componente filho e personalizam sua aparência. Por exemplo, um `Form` pode passar uma `color` para um `Button`.
-* [**State** é como a memória de um componente.](/learn/state-a-components-memory) Permite que um componente acompanhe algumas informações e as altere em resposta às interações. Por exemplo, um `Button` pode rastrear o estado `isHovered`.
+* [**Estado** é como a memória de um componente.](/learn/state-a-components-memory) Permite que um componente acompanhe algumas informações e as altere em resposta às interações. Por exemplo, um `Button` pode rastrear o estado `isHovered`.
 
-Props e state são diferentes, mas eles trabalham juntos. Um componente pai muitas vezes mantém algumas informações em estado (para que possa mudá-las), e *passam-nas para baixo* para componentes filhos como props. Não há problema se a diferença ainda se sentir confusa na primeira leitura. É preciso um pouco de prática para que ela realmente grude!
+Props e estado são diferentes, mas eles trabalham juntos. Um componente pai muitas vezes mantém algumas informações em estado (para que possa mudá-las), e *passam-nas para baixo* para componentes filhos como props. Não há problema se a diferença ainda se sentir confusa na primeira leitura. É preciso um pouco de prática para que ela realmente grude!
 
 </DeepDive>
 
-## Passo 4: Identifique onde o state deve ficar {/*step-4-identify-where-your-state-should-live*/}
+## Passo 4: Identifique onde o estado deve ficar {/*step-4-identify-where-your-state-should-live*/}
 
 Após identificar os dados mínimos de estado de seu app, você precisa identificar qual componente é responsável pela mudança deste estado, ou *possuem* o estado. Lembre-se: React usa o fluxo de dados unidirecional, passando os dados pela hierarquia de componentes do pai para filho. Pode não ficar imediatamente claro qual componente deve possuir qual estado. Isto pode ser um desafio se você é novo neste conceito, mas você pode descobri-lo seguindo estas etapas!
 
@@ -263,11 +263,11 @@ Na etapa anterior, você encontrou duas partes de estado nesta aplicação: o te
 
 Agora vamos analisar nossa estratégia para este estado:
 
-1. **Identificar componentes que usam state:**
+1. **Identificar componentes que usam estado:**
     * `ProductTable` precisa filtrar a lista de produtos com base nesse estado (texto de busca e valor do checkbox). 
     * `SearchBar` precisa exibir esse estado (texto de busca e valor do checkbox).
 1. **Encontrar seu pai comum:** O primeiro componente pai que ambos os componentes compartilham é `FilterableProductTable`.
-2. **Decidir onde o state vai ficar**: Manteremos o state de texto de busca e o valor do checkbox em `FilterableProductTable`.
+2. **Decidir onde o estado vai ficar**: Manteremos o estado de texto de busca e o valor do checkbox em `FilterableProductTable`.
 
 Assim, os valores dos estados vão ficar em `FilterableProductTable`. 
 
