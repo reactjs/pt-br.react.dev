@@ -3,10 +3,16 @@
  */
 
 import * as React from 'react';
+<<<<<<< HEAD
 import dynamic from 'next/dynamic';
 import {createFileMap} from './utils';
 
 const SandpackRoot = dynamic(() => import('./SandpackRoot'), {suspense: true});
+=======
+import {createFileMap} from './createFileMap';
+
+const SandpackRoot = React.lazy(() => import('./SandpackRoot'));
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
 
 const SandpackGlimmer = ({code}: {code: string}) => (
   <div className="sandpack-container my-8">

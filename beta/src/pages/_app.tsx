@@ -5,15 +5,19 @@
 import * as React from 'react';
 import {AppProps} from 'next/app';
 import {useRouter} from 'next/router';
+<<<<<<< HEAD
 // @ts-ignore
 import galite from 'ga-lite';
+=======
+import {ga} from '../utils/analytics';
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
 import '@docsearch/css';
 import '../styles/algolia.css';
 import '../styles/index.css';
 import '../styles/sandpack.css';
 import '@codesandbox/sandpack-react/dist/index.css';
-import Script from 'next/script';
 
+<<<<<<< HEAD
 const EmptyAppShell: React.FC = ({children}) => <>{children}</>;
 
 if (typeof window !== 'undefined') {
@@ -23,6 +27,19 @@ if (typeof window !== 'undefined') {
   const terminationEvent = 'onpagehide' in window ? 'pagehide' : 'unload';
   window.addEventListener(terminationEvent, function () {
     galite('send', 'timing', 'JS Dependencies', 'unload');
+=======
+const EmptyAppShell = ({children}: {children: React.ReactNode}) => (
+  <>{children}</>
+);
+
+if (typeof window !== 'undefined') {
+  if (process.env.NODE_ENV === 'production') {
+    ga('create', process.env.NEXT_PUBLIC_GA_TRACKING_ID, 'auto');
+  }
+  const terminationEvent = 'onpagehide' in window ? 'pagehide' : 'unload';
+  window.addEventListener(terminationEvent, function () {
+    ga('send', 'timing', 'JS Dependencies', 'unload');
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
   });
 }
 
@@ -30,8 +47,13 @@ export default function MyApp({Component, pageProps}: AppProps) {
   const router = useRouter();
   React.useEffect(() => {
     const handleRouteChange = (url: string) => {
+<<<<<<< HEAD
       galite('set', 'page', url);
       galite('send', 'pageview');
+=======
+      ga('set', 'page', url);
+      ga('send', 'pageview');
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
     };
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {

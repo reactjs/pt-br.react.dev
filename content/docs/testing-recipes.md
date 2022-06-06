@@ -605,7 +605,11 @@ Tipicamente é melhor fazer afirmações mais específicas do que utilizar snaps
 
 ### Renderizações múltiplas {#multiple-renderers}
 
+<<<<<<< HEAD
 Em casos raros, você pode estar executando um teste em um componente que utiliza múltiplos renderizadores. Por exemplo, você pode estar executando testes de _snapshot_ em um componente com `react-test-renderer`, que internamente usa `ReactDOM.render` dentro de um componente filho para renderizar algum conteúdo. Nesse cenário, você pode encapsular as atualizações com o respectivo `act()` dos seus renderizadores.
+=======
+In rare cases, you may be running a test on a component that uses multiple renderers. For example, you may be running snapshot tests on a component with `react-test-renderer`, that internally uses `render` from `react-dom` inside a child component to render some content. In this scenario, you can wrap updates with `act()`s corresponding to their renderers.
+>>>>>>> 9a5bf3e1f1c151720b3ce383fdd9743d4038b71e
 
 ```jsx
 import { act as domAct } from "react-dom/test-utils";
