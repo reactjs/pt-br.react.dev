@@ -11,6 +11,7 @@ interface DiagramProps {
   height: number;
   width: number;
   children: string;
+<<<<<<< HEAD
 }
 
 export function Diagram({name, alt, height, width, children}: DiagramProps) {
@@ -19,6 +20,35 @@ export function Diagram({name, alt, height, width, children}: DiagramProps) {
       <div className="dark-image">
         <Image
           src={`/images/docs/diagrams/${name}.dark.svg`}
+=======
+  captionPosition: 'top' | 'bottom' | null;
+}
+
+function Caption({text}: {text: string}) {
+  return (
+    <div className="w-full table">
+      <figcaption className="p-1 sm:p-2 mt-0 sm:mt-0 text-gray-40 text-base lg:text-lg text-center leading-tight table-caption">
+        {text}
+      </figcaption>
+    </div>
+  );
+}
+
+export function Diagram({
+  name,
+  alt,
+  height,
+  width,
+  children,
+  captionPosition,
+}: DiagramProps) {
+  return (
+    <figure className="flex flex-col px-0 p-0 sm:p-10 first:mt-0 mt-10 sm:mt-0 justify-center items-center">
+      {captionPosition === 'top' && <Caption text={children} />}
+      <div className="dark-image">
+        <Image
+          src={`/images/docs/diagrams/${name}.dark.png`}
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
           alt={alt}
           height={height}
           width={width}
@@ -26,15 +56,25 @@ export function Diagram({name, alt, height, width, children}: DiagramProps) {
       </div>
       <div className="light-image">
         <Image
+<<<<<<< HEAD
           src={`/images/docs/diagrams/${name}.svg`}
+=======
+          src={`/images/docs/diagrams/${name}.png`}
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
           alt={alt}
           height={height}
           width={width}
         />
       </div>
+<<<<<<< HEAD
       <figcaption className="p-1 sm:p-4 mt-4 sm:mt-0 text-gray-40 text-base lg:text-lg text-center leading-6">
         {children}
       </figcaption>
+=======
+      {(!captionPosition || captionPosition === 'bottom') && (
+        <Caption text={children} />
+      )}
+>>>>>>> 6d965422a4056bac5f93f92735364cb08bcffc6b
     </figure>
   );
 }
