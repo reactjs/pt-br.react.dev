@@ -216,10 +216,8 @@ var TickTock = createReactClass({
   }
 });
 
-ReactDOM.render(
-  <TickTock />,
-  document.getElementById('example')
-);
+const root = ReactDOM.createRoot(document.getElementById('example'));
+root.render(<TickTock />);
 ```
 
 Se um componente está usando múltiplos mixins e diversos desses mixins definem o mesmo lifecycle method (por ex. diversos mixins querem fazer uma limpeza quando um componente é destruído), todos os lifecycle methods terão garantia de serem chamados. Métodos definidos em um mixin são executados na ordem em que foram listados, seguidos por uma chamada de método no componente.

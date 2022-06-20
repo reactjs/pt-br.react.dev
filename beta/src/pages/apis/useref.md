@@ -15,13 +15,21 @@ const ref = useRef(initialValue)
 - [Usage](#usage)
   - [Referencing a value with a ref](#referencing-a-value-with-a-ref)
   - [Manipulating the DOM with a ref](#manipulating-the-dom-with-a-ref)
+<<<<<<< HEAD
   - [Exposing a ref from your component](#exposing-a-ref-from-your-component)
+=======
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
   - [Avoiding recreating the ref contents](#avoiding-recreating-the-ref-contents)
 - [Reference](#reference)
   - [`useRef(initialValue)`](#useref)
 - [Troubleshooting](#troubleshooting)
   - [I can’t get a ref to a custom component](#i-cant-get-a-ref-to-a-custom-component)
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 ## Usage {/*usage*/}
 
 ### Referencing a value with a ref {/*referencing-a-value-with-a-ref*/}
@@ -62,9 +70,15 @@ function handleStopClick() {
 
 By using a ref, you ensure that:
 
+<<<<<<< HEAD
 - You can **store information** between re-renders. (Unlike regular variables, which reset on every render.)
 - Changing it **does not trigger a re-render**. (Unlike state variables, which trigger a re-render.)
 - The **information is local** to each copy of your component. (Unlike the variables outside, which are shared.)
+=======
+- You can **store information** between re-renders (unlike regular variables, which reset on every render).
+- Changing it **does not trigger a re-render** (unlike state variables, which trigger a re-render).
+- The **information is local** to each copy of your component (unlike the variables outside, which are shared).
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 
 Changing a ref does not trigger a re-render, so refs are not appropriate for storing information that you want to display on the screen. Use state for that instead. Read more about [choosing between `useRef` and `useState`](/learn/referencing-values-with-refs#differences-between-refs-and-state).
 
@@ -204,7 +218,11 @@ When you break these rules, your component might still work, but most of the new
 
 ### Manipulating the DOM with a ref {/*manipulating-the-dom-with-a-ref*/}
 
+<<<<<<< HEAD
 It's particularly common to use a ref to manipulate the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API). React has bulit-in support for this.
+=======
+It's particularly common to use a ref to manipulate the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API). React has built-in support for this.
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 
 First, declare a <CodeStep step={1}>ref object</CodeStep> with an <CodeStep step={3}>initial value</CodeStep> of `null`:
 
@@ -590,7 +608,11 @@ const MyInput = forwardRef(({ value, onChange }, ref) => {
       ref={ref}
     />
   );
+<<<<<<< HEAD
 };
+=======
+});
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 
 export default MyInput;
 ```

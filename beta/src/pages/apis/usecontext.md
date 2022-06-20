@@ -24,6 +24,11 @@ const value = useContext(SomeContext)
   - [My component doesn't see the value from my provider](#my-component-doesnt-see-the-value-from-my-provider)
   - [I am always getting undefined from my context although the default value is different](#i-am-always-getting-undefined-from-my-context-although-the-default-value-is-different)
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
 ## Usage {/*usage*/}
 
 
@@ -1327,7 +1332,11 @@ Call `useContext` at the top level of your component to read and subscribe to [c
 import { useContext } from 'react';
 
 function MyComponent() {
+<<<<<<< HEAD
   const theme = useTheme(ThemeContext);
+=======
+  const theme = useContext(ThemeContext);
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
   // ...
 ```
 
@@ -1390,4 +1399,8 @@ In both of these cases you should see a warning from React in the console. To fi
 </ThemeContext.Provider>
 ```
 
+<<<<<<< HEAD
 Note that the [default value from your `createContext(defaultValue)` call](#specifying-a-fallback-default-value) is only used **if there is no matching provider above at all.** If there is a `<SomeContext.Provider value={undefined}>` component somewhere in the parent tree, the component calling `useContext(SomeContext)` *will* receive `undefined` as the context value.
+=======
+Note that the [default value from your `createContext(defaultValue)` call](#specifying-a-fallback-default-value) is only used **if there is no matching provider above at all.** If there is a `<SomeContext.Provider value={undefined}>` component somewhere in the parent tree, the component calling `useContext(SomeContext)` *will* receive `undefined` as the context value.
+>>>>>>> df2673d1b6ec0cc6657fd58690bbf30fa1e6e0e6
