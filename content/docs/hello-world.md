@@ -8,16 +8,18 @@ next: introducing-jsx.html
 
 O menor exemplo de React é algo assim:
 
-```js
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
+```jsx
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<h1>Hello, world!</h1>);
 ```
 
 Isso mostra um header dizendo “Hello, world!” na página.
 
+<<<<<<< HEAD
 **[Experimente no CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
+=======
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
+>>>>>>> 26caa649827e8f8cadd24dfc420ea802dcbee246
 
 Clique no link acima para abrir um editor online. Sinta-se livre para fazer algumas mudanças e ver como elas afetam a saída. A maioria das páginas neste guia terão exemplos editáveis como esse.
 
