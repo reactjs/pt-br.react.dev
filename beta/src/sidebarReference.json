@@ -12,8 +12,25 @@
           "path": "/apis",
           "routes": [
             {
+              "title": "createContext()",
+              "path": "/apis/createcontext"
+            },
+            {
+              "title": "useContext()",
+              "path": "/apis/usecontext"
+            },
+            {
+              "title": "useReducer()",
+              "path": "/apis/usereducer"
+            },
+            {
+              "title": "useRef()",
+              "path": "/apis/useref"
+            },
+            {
               "title": "useState()",
               "path": "/apis/usestate"
+<<<<<<< HEAD
             },
             {
               "title": "useContext()",
@@ -22,6 +39,8 @@
             {
               "title": "useRef()",
               "path": "/apis/useref"
+=======
+>>>>>>> ee7705675d2304c53c174b9fb316e2fbde1e9fb3
             }
           ]
         },

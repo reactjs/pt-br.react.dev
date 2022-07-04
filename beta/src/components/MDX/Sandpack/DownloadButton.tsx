@@ -4,9 +4,10 @@
 
 import * as React from 'react';
 import {useSandpack} from '@codesandbox/sandpack-react';
-import {IconArrowSmall} from '../../Icon/IconArrowSmall';
+import {IconDownload} from '../../Icon/IconDownload';
 export interface DownloadButtonProps {}
 
+<<<<<<< HEAD
 let initialIsSupported = false;
 
 export const DownloadButton: React.FC<DownloadButtonProps> = () => {
@@ -24,6 +25,37 @@ export const DownloadButton: React.FC<DownloadButtonProps> = () => {
     }
   }, [supported]);
 
+=======
+let supportsImportMap: boolean | void;
+
+function useSupportsImportMap() {
+  function subscribe() {
+    // It never updates.
+    return () => {};
+  }
+  function getCurrentValue() {
+    if (supportsImportMap === undefined) {
+      supportsImportMap =
+        (HTMLScriptElement as any).supports &&
+        (HTMLScriptElement as any).supports('importmap');
+    }
+    return supportsImportMap;
+  }
+  function getServerSnapshot() {
+    return false;
+  }
+
+  return React.useSyncExternalStore(
+    subscribe,
+    getCurrentValue,
+    getServerSnapshot
+  );
+}
+
+export const DownloadButton: React.FC<DownloadButtonProps> = () => {
+  const {sandpack} = useSandpack();
+  const supported = useSupportsImportMap();
+>>>>>>> ee7705675d2304c53c174b9fb316e2fbde1e9fb3
   if (!supported) {
     return null;
   }
@@ -80,11 +112,7 @@ ${css}
       onClick={downloadHTML}
       title="Download Sandbox"
       type="button">
-      <IconArrowSmall
-        displayDirection="down"
-        className="inline mb-0.5 mr-1 mt-1"
-      />{' '}
-      Download
+      <IconDownload className="inline mr-1" /> Download
     </button>
   );
 };
