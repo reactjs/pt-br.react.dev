@@ -1,7 +1,6 @@
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
-
 import React from 'react';
 // @ts-ignore
 import {flushSync} from 'react-dom';
@@ -13,6 +12,7 @@ import {
   SandpackReactDevTools,
 } from '@codesandbox/sandpack-react';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import cn from 'classnames';
 
 import cn from 'classnames';
 
@@ -20,6 +20,10 @@ import {IconChevron} from 'components/Icon/IconChevron';
 import {NavigationBar} from './NavigationBar';
 import {Preview} from './Preview';
 import {CustomTheme} from './Themes';
+import {useSandpackLint} from './useSandpackLint';
+
+// Workaround for https://github.com/reactjs/reactjs.org/issues/4686#issuecomment-1137402613.
+const emptyArray: Array<any> = [];
 
 export function CustomPreset({
   isSingleFile,
@@ -32,6 +36,7 @@ export function CustomPreset({
   devToolsLoaded: boolean;
   onDevToolsLoad: () => void;
 }) {
+  const {lintErrors, lintExtensions} = useSandpackLint();
   const lineCountRef = React.useRef<{[key: string]: number}>({});
   const containerRef = React.useRef<HTMLDivElement>(null);
   const {sandpack} = useSandpack();
@@ -64,10 +69,19 @@ export function CustomPreset({
               showInlineErrors
               showTabs={false}
               showRunButton={false}
+<<<<<<< HEAD
+=======
+              extensions={lintExtensions}
+              extensionsKeymap={emptyArray}
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
             />
             <Preview
               className="order-last xl:order-2"
               isExpanded={isExpanded}
+<<<<<<< HEAD
+=======
+              lintErrors={lintErrors}
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
             />
             {isExpandable && (
               <button

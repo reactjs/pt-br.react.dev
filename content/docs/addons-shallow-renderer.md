@@ -59,7 +59,11 @@ O teste superficial atualmente tem algumas limitações, ou seja, não suporta r
 
 Você pode pensar no shallowRenderer como um "lugar" para renderizar o componente que você esta testando, e do qual irá extrair a saída do componente.
 
+<<<<<<< HEAD
 `shallowRenderer.render()` é similar ao [`ReactDOM.render()`](/docs/react-dom.html#render) mas ela não requer o DOM e somente renderiza um nível simples de profundidade. Isto significa que você pode testar componentes isolados de como seus filhos são implementados.
+=======
+`shallowRenderer.render()` is similar to [`root.render()`](/docs/react-dom-client.html#createroot) but it doesn't require DOM and only renders a single level deep. This means you can test components isolated from how their children are implemented.
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 
 ### `shallowRenderer.getRenderOutput()` {#shallowrenderergetrenderoutput}
 

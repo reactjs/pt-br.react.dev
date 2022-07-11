@@ -145,6 +145,7 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 
 ## Polônia {#poland}
 * [Warsaw](https://www.meetup.com/React-js-Warsaw/)
+* [Wrocław](https://www.meetup.com/ReactJS-Wroclaw/)
 
 ## Portugal {#portugal}
 * [Lisbon](https://www.meetup.com/JavaScript-Lisbon/)
@@ -152,10 +153,14 @@ Você está organizando um Meetup de ReactJS? Adicione-o aqui! (Por favor, mante
 ## Escócia (UK) {#scotland-uk}
 * [Edinburgh](https://www.meetup.com/React-Scotland/)
 
+<<<<<<< HEAD
 ## Singapura {#singapore}
 * [Singapore - React Knowledgeable](https://reactknowledgeable.org/)
 
 ## Espanha {#spain}
+=======
+## Spain {#spain}
+>>>>>>> f67fa22cc1faee261f9e22449d90323e26174e8e
 * [Barcelona](https://www.meetup.com/ReactJS-Barcelona/)
 * [Canarias](https://www.meetup.com/React-Canarias/)
 
