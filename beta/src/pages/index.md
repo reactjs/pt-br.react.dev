@@ -22,14 +22,23 @@ Este é um **website beta**. Haverá bugs, problemas de desempenho e conteúdo f
 
 ## O que já está pronto? {/*how-much-content-is-ready*/}
 
+<<<<<<< HEAD
 * [Aprenda React](/learn): ~70% terminado.
 * [Referência da API](/reference): ~5% terminado.
+=======
+* [Learn React](/learn): ~70% finished.
+* [API Reference](/apis): ~20% finished.
+>>>>>>> 8223159395aae806f8602de35e6527d35260acfb
 
 Você pode acompanhar nosso progresso [no GitHub](https://github.com/reactjs/reactjs.org/issues/3308).
 
 ## Como posso fornecer feedback? {/*how-can-i-provide-feedback*/}
 
+<<<<<<< HEAD
 Favor usar [este GitHub issue](https://github.com/reactjs/reactjs.org/issues/3308) ou [este formulário anônimo](https://www.surveymonkey.co.uk/r/Y6GH986) para feedback superficial. Além disso, cada página tem um botão de Feedback no canto. Se você encontrar algo que não faz sentido, por favor, nos avise!
+=======
+Please use [this GitHub issue](https://github.com/reactjs/reactjs.org/issues/3308) or [this anonymous form](https://www.surveymonkey.co.uk/r/Y6GH986) for high-level feedback. If you spot something that doesn't make sense, please tell us! Additionally, each page has thumbs up/down buttons in the corner.
+>>>>>>> 8223159395aae806f8602de35e6527d35260acfb
 
 ## Este site irá substituir o site principal? {/*will-this-site-replace-the-main-site*/}
 

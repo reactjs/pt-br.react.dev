@@ -70,7 +70,11 @@ Se você está apenas corrigindo um bug, não tem problema em enviar uma ***pull
 
 Trabalhando em seu primeiro ***Pull Request***. Você pode aprender como desta série de vídeos gratuitos:
 
+<<<<<<< HEAD
 **[Como contribuir para um projeto de código aberto no GitHub](https://app.egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+=======
+**[How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)**
+>>>>>>> 8223159395aae806f8602de35e6527d35260acfb
 
 Para ajudar você a se familiarizar com o nosso processo de contribuição, temos uma lista de [boas primeiras ***issues***](https://github.com/facebook/react/issues?q=is:open+is:issue+label:"good+first+issue") que contém erros que têm um escopo relativamente limitado. Este é um ótimo lugar para começar.
 
@@ -103,10 +107,17 @@ Para aceitar seu ***pull request***, precisamos que você envie um CLA. Você s�
 
 ### Pré-requisitos de Contribuição {#contribution-prerequisites}
 
+<<<<<<< HEAD
 * Possuir o [Node](https://nodejs.org) instalado na versão v8.0.0+ e [Yarn](https://yarnpkg.com/en/) na versão v1.2.0+.
 * Possuir o [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) instalado.
 * Você deve ter o `gcc` instalado ou está confortável em instalar um compilador, se necessário. Algumas de nossas dependências podem exigir uma etapa de compilação. No OS X, as Ferramentas de Linha de Comando do Xcode cobrirão isso. No Ubuntu, `apt-get install build-essential` instalará os pacotes requeridos. Comandos semelhantes devem funcionar em outras distribuições Linux. O Windows irá requerer alguns passos adicionais, veja as instruções de instalação do [node-gyp](https://github.com/nodejs/node-gyp#installation) para detalhes.
 * Você deve ser familiarizado com o Git.
+=======
+* You have [Node](https://nodejs.org) installed at LTS and [Yarn](https://yarnpkg.com/en/) at v1.2.0+.
+* You have [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) installed.
+* You have `gcc` installed or are comfortable installing a compiler if needed. Some of our dependencies may require a compilation step. On OS X, the Xcode Command Line Tools will cover this. On Ubuntu, `apt-get install build-essential` will install the required packages. Similar commands should work on other Linux distros. Windows will require some additional steps, see the [`node-gyp` installation instructions](https://github.com/nodejs/node-gyp#installation) for details.
+* You are familiar with Git.
+>>>>>>> 8223159395aae806f8602de35e6527d35260acfb
 
 ### Fluxo de Trabalho de Desenvolvimento {#development-workflow}
 

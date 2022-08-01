@@ -10,7 +10,10 @@ import {
 } from 'body-scroll-lock';
 import {useRouter} from 'next/router';
 
+<<<<<<< HEAD
 type SidebarNav = 'root' | 'docs' | 'apis';
+=======
+>>>>>>> 8223159395aae806f8602de35e6527d35260acfb
 /**
  * Menu toggle that enables body scroll locking (for
  * iOS Mobile and Tablet, Android, desktop Safari/Chrome/Firefox)
