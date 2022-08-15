@@ -359,13 +359,21 @@ h1 { display: block; margin: 10px; }
 You can put objects and arrays into state. In React, state is considered read-only, so **you should *replace* it rather than *mutate* your existing objects**. For example, if you have a `form` object in state, don't update it like this:
 
 ```js
+<<<<<<< HEAD
 // Don't mutate an object in state like this:
+=======
+// 🚩 Don't mutate an object in state like this:
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 form.firstName = 'Taylor';
 ```
 
 Instead, replace the whole object by creating a new one:
 
 ```js
+<<<<<<< HEAD
+=======
+// ✅ Replace state with a new object
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 setForm({
   ...form,
   firstName: 'Taylor'
@@ -1077,7 +1085,11 @@ button { margin-bottom: 10px; }
 
 Note that if you call a `set` function while rendering, it must be inside a condition like `prevCount !== count`, and there must be a call like `setPrevCount(count)` inside of the condition. Otherwise, your component would re-render in a loop until it crashes. Also, you can only update the state of the *currently rendering* component like this. Calling the `set` function of *another* component during rendering is an error. Finally, your `set` call should still [update state without mutation](#updating-objects-and-arrays-in-state) -- this special case doesn't mean you can break other rules of [pure functions](/learn/keeping-components-pure).
 
+<<<<<<< HEAD
 This pattern can be hard to understand and is usually best avoided. However, it's better than updating state in an effect. When you call the `set` function during render, React will re-render that component immediately after your component exits with a `return` statement, and before rendering the children. This way, children don't need to render twice. The rest of your component function will still execute (and the result will be thrown away), but if your condition is below all the calls to Hooks, you may add `return null` inside it to restart rendering earlier.
+=======
+This pattern can be hard to understand and is usually best avoided. However, it's better than updating state in an effect. When you call the `set` function during render, React will re-render that component immediately after your component exits with a `return` statement, and before rendering the children. This way, children don't need to render twice. The rest of your component function will still execute (and the result will be thrown away), but if your condition is below all the calls to Hooks, you may add an early `return;` inside it to restart rendering earlier.
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 
 ---
 
@@ -1193,6 +1205,7 @@ console.log(nextCount); // 1
 
 React will **ignore your update if the next state is equal to the previous state,** as determined by an [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. This usually happens when you change an object or an array in state directly:
 
+<<<<<<< HEAD
 ```js {2}
 obj.x = 10;
 setObj(obj); // Doesn't do anything
@@ -1201,6 +1214,17 @@ setObj(obj); // Doesn't do anything
 You called `setObj` with the same `obj` object, so React bailed out of rendering. To fix this, you need to ensure that you're always [_replacing_ objects and arrays in state instead of _mutating_ them](#updating-objects-and-arrays-in-state):
 
 ```js
+=======
+```js
+obj.x = 10;  // 🚩 Wrong: mutating existing object
+setObj(obj); // 🚩 Doesn't do anything
+```
+
+You mutated an existing `obj` object and passed it back to `setObj`, so React ignored the update. To fix this, you need to ensure that you're always [_replacing_ objects and arrays in state instead of _mutating_ them](#updating-objects-and-arrays-in-state):
+
+```js
+// ✅ Correct: creating a new object
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 setObj({
   ...obj,
   x: 10

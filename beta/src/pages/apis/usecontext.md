@@ -24,6 +24,11 @@ const value = useContext(SomeContext)
   - [My component doesn't see the value from my provider](#my-component-doesnt-see-the-value-from-my-provider)
   - [I am always getting undefined from my context although the default value is different](#i-am-always-getting-undefined-from-my-context-although-the-default-value-is-different)
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 ## Usage {/*usage*/}
 
 
@@ -925,7 +930,11 @@ ul, li { margin: 0; padding: 0; }
 
 ### Specifying a fallback default value {/*specifying-a-fallback-default-value*/}
 
+<<<<<<< HEAD
 If React can't find any providers of that particular <CodeStep step={1}>context</CodeStep> in the parent tree, the context value returned by `useContext()` will be equal to the <CodeStep step={3}>default value</CodeStep> that you specified when you [created that context](/api/createcontext):
+=======
+If React can't find any providers of that particular <CodeStep step={1}>context</CodeStep> in the parent tree, the context value returned by `useContext()` will be equal to the <CodeStep step={3}>default value</CodeStep> that you specified when you [created that context](/apis/createcontext):
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 
 ```js [[1, 1, "ThemeContext"], [3, 1, "null"]]
 const ThemeContext = createContext(null);
@@ -1327,7 +1336,11 @@ Call `useContext` at the top level of your component to read and subscribe to [c
 import { useContext } from 'react';
 
 function MyComponent() {
+<<<<<<< HEAD
   const theme = useTheme(ThemeContext);
+=======
+  const theme = useContext(ThemeContext);
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
   // ...
 ```
 
@@ -1335,11 +1348,19 @@ function MyComponent() {
 
 #### Parameters {/*parameters*/}
 
+<<<<<<< HEAD
 * `SomeContext`: The context that you've previously created with [`createContext`](/api/createcontext). The context itself does not hold the information, it only represents the kind of information you can provide or read from components.
 
 #### Returns {/*returns*/}
 
 `useContext` returns the context value for the calling component. It is determined as the `value` passed to the closest `SomeContext.Provider` above the calling component in the tree. If there is no such provider, then the returned value will be the `defaultValue` you have passed to [`createContext`](/api/createcontext) for that context. The returned value is always up-to-date. React automatically re-renders components that read some context if it changes.
+=======
+* `SomeContext`: The context that you've previously created with [`createContext`](/apis/createcontext). The context itself does not hold the information, it only represents the kind of information you can provide or read from components.
+
+#### Returns {/*returns*/}
+
+`useContext` returns the context value for the calling component. It is determined as the `value` passed to the closest `SomeContext.Provider` above the calling component in the tree. If there is no such provider, then the returned value will be the `defaultValue` you have passed to [`createContext`](/apis/createcontext) for that context. The returned value is always up-to-date. React automatically re-renders components that read some context if it changes.
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 
 #### Caveats {/*caveats*/}
 
@@ -1390,4 +1411,8 @@ In both of these cases you should see a warning from React in the console. To fi
 </ThemeContext.Provider>
 ```
 
+<<<<<<< HEAD
 Note that the [default value from your `createContext(defaultValue)` call](#specifying-a-fallback-default-value) is only used **if there is no matching provider above at all.** If there is a `<SomeContext.Provider value={undefined}>` component somewhere in the parent tree, the component calling `useContext(SomeContext)` *will* receive `undefined` as the context value.
+=======
+Note that the [default value from your `createContext(defaultValue)` call](#specifying-a-fallback-default-value) is only used **if there is no matching provider above at all.** If there is a `<SomeContext.Provider value={undefined}>` component somewhere in the parent tree, the component calling `useContext(SomeContext)` *will* receive `undefined` as the context value.
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33

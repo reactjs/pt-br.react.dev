@@ -97,6 +97,18 @@ Sebastian formou-se em psicologia. Ele geralmente fica quieto. Mesmo quando ele 
 
 Seth começou a programar quando era uma criança crescendo em Tucson, AZ. Depois da escola, ele foi mordido pelo inseto da música e foi músico em turnê por cerca de 10 anos antes de retornar ao trabalho, começando com a Intuit. Nas horas vagas, ele adora tirar fotos e voar para resgates de animais no nordeste dos Estados Unidos.
 
+<<<<<<< HEAD
 ## Contribuidores anteriores {/*past-contributors*/}
+=======
+### Xuan Huang {/*xuan-huang*/}
+
+![Xuan](../images/team/huxpro.jpg)
+
+[@huxpro on GitHub](https://github.com/huxpro) &middot; [@huxpro on Twitter](https://twitter.com/huxpro)
+
+Xuan met with programming in childhood to make games in Flash. He did digital media arts in college but eventually got tricked into making compilers, and somehow React needs one. Out of work, he pours terrible latte arts and plays tennis either on or off a table.
+
+## Past contributors {/*past-contributors*/}
+>>>>>>> 5fed75dac5f4e208369b102a1337d76944111b33
 
 Você pode encontrar os membros anteriores da equipe e outras pessoas que contribuíram significativamente para o React ao longo dos anos na página de [reconhecimentos] (/community/acknowledgements).
