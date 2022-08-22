@@ -21,14 +21,22 @@ Welcome to the React documentation! This page will give you an introduction to t
 
 ## Creating and nesting components {/*components*/}
 
+<<<<<<< HEAD
 React apps are made out of components. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+=======
+React apps are made out of *components*. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 React components are JavaScript functions that return markup:
 
 ```js
 function MyButton() {
   return (
+<<<<<<< HEAD
     <button>Click me</button>
+=======
+    <button>I'm a button</button>
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
   );
 }
 ```
@@ -56,7 +64,11 @@ Have a look at the result:
 function MyButton() {
   return (
     <button>
+<<<<<<< HEAD
       Click me
+=======
+      I'm a button
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
     </button>
   );
 }
@@ -77,7 +89,11 @@ The `export default` keywords specify the main component in the file. If you're 
 
 ## Writing markup with JSX {/*writing-markup-with-jsx*/}
 
+<<<<<<< HEAD
 The markup syntax you've seen above is called JSX. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
+=======
+The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper:
 
@@ -280,7 +296,11 @@ export default function ShoppingList() {
 
 ## Responding to events {/*responding-to-events*/}
 
+<<<<<<< HEAD
 You can respond to events by declaring event handler functions inside your components:
+=======
+You can respond to events by declaring *event handler* functions inside your components:
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 ```js {2-4,7}
 function MyButton() {
@@ -302,7 +322,11 @@ Notice how `onClick={handleClick}` has no parentheses at the end! Do not _call_ 
 
 Often, you'll want your component to "remember" some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add *state* to your component.
 
+<<<<<<< HEAD
 First, import [`useState`](/apis/usestate) from React:
+=======
+First, import [`useState`](/apis/react/useState) from React:
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 ```js {1,4}
 import { useState } from 'react';
@@ -382,9 +406,15 @@ Notice how each button "remembers" its own `count` state and doesn't affect othe
 
 ## Using Hooks {/*using-hooks*/}
 
+<<<<<<< HEAD
 Functions starting with `use` are called Hooks. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference](/apis). You can also write your own Hooks by combining the existing ones.
 
 Hooks are more restrictive than regular functions. You can only call Hooks *at the top level* of your components (or other Hooks). If you want to `useState` in a condition or a loop, extract a new component and put it there.
+=======
+Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [React API reference](/apis/react). You can also write your own Hooks by combining the existing ones.
+
+Hooks are more restrictive than regular functions. You can only call Hooks *at the top level* of your components (or other Hooks). If you want to use `useState` in a condition or a loop, extract a new component and put it there.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 ## Sharing data between components {/*sharing-data-between-components*/}
 
@@ -392,6 +422,7 @@ In the previous example, each `MyButton` had its own independent `count`, and wh
 
 <DiagramGroup>
 
+<<<<<<< HEAD
 <Diagram name="sharing_data_child" height={734} width={814} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. Both MyButton components contain a count with value zero.">
 
 Before clicking, each MyButton has a count value set to zero.
@@ -401,6 +432,17 @@ Before clicking, each MyButton has a count value set to zero.
 <Diagram name="sharing_data_child_clicked" height={734} width={814} alt="The same diagram as the previous, with the count of the first child MyButton component highlighted indicating a click with the count value incremented to one. The second MyButton component still contains value zero." >
 
 After clicking, only one MyButton count value has updated.
+=======
+<Diagram name="sharing_data_child" height={367} width={407} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. Both MyButton components contain a count with value zero.">
+
+Initially, each `MyButton`'s `count` state is `0`
+
+</Diagram>
+
+<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="The same diagram as the previous, with the count of the first child MyButton component highlighted indicating a click with the count value incremented to one. The second MyButton component still contains value zero." >
+
+The first `MyButton` updates its `count` to `1`
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 </Diagram>
 
@@ -414,6 +456,7 @@ In this example, it is `MyApp`:
 
 <DiagramGroup>
 
+<<<<<<< HEAD
 <Diagram name="sharing_data_parent" height={770} width={820} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. MyApp contains a count value of zero which is passed down to both of the MyButton components, which also show value zero." >
 
 Before clicking, count is stored in MyApp and passed down to both children as props.
@@ -423,6 +466,17 @@ Before clicking, count is stored in MyApp and passed down to both children as pr
 <Diagram name="sharing_data_parent_clicked" height={770} width={820} alt="The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down." >
 
 After clicking, count updates in MyApp and the new value is passed to both children as props.
+=======
+<Diagram name="sharing_data_parent" height={385} width={410} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. MyApp contains a count value of zero which is passed down to both of the MyButton components, which also show value zero." >
+
+Initially, `MyApp`'s `count` state is `0` and is passed down to both children
+
+</Diagram>
+
+<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down." >
+
+On click, `MyApp` updates its `count` state to `1` and passes it down to both children
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 </Diagram>
 

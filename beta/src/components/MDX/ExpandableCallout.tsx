@@ -7,7 +7,7 @@ import cn from 'classnames';
 import {IconNote} from '../Icon/IconNote';
 import {IconGotcha} from '../Icon/IconGotcha';
 
-type CalloutVariants = 'gotcha' | 'note';
+type CalloutVariants = 'gotcha' | 'note' | 'wip';
 
 interface ExpandableCalloutProps {
   children: React.ReactNode;
@@ -32,6 +32,14 @@ const variantMap = {
     overlayGradient:
       'linear-gradient(rgba(249, 247, 243, 0), rgba(249, 247, 243, 1)',
   },
+  wip: {
+    title: 'Under Construction',
+    Icon: IconNote,
+    containerClasses: 'bg-yellow-5 dark:bg-yellow-60 dark:bg-opacity-20',
+    textColor: 'text-yellow-50 dark:text-yellow-40',
+    overlayGradient:
+      'linear-gradient(rgba(249, 247, 243, 0), rgba(249, 247, 243, 1)',
+  },
 };
 
 function ExpandableCallout({children, type}: ExpandableCalloutProps) {
@@ -41,6 +49,7 @@ function ExpandableCallout({children, type}: ExpandableCalloutProps) {
   return (
     <div
       className={cn(
+        'expandable-callout',
         'pt-8 pb-4 px-5 sm:px-8 my-8 relative rounded-none shadow-inner -mx-5 sm:mx-auto sm:rounded-lg',
         variant.containerClasses
       )}>

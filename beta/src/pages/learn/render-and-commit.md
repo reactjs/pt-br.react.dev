@@ -20,7 +20,7 @@ Before your components are displayed on screen, they must be rendered by React. 
 Imagine that your components are cooks in the kitchen, assembling tasty dishes from ingredients. In this scenario, React is the waiter who puts in requests from customers and brings them their orders. This process of requesting and serving UI has three steps:
 
 1. **Triggering** a render (delivering the guest's order to the kitchen)
-2. **Rendering** the component (getting the order from the kitchen)
+2. **Rendering** the component (preparing the order in the kitchen)
 3. **Committing** to the DOM (placing the order on the table)
 
 <IllustrationBlock sequential>
@@ -69,7 +69,11 @@ Try commenting out the `ReactDOM.render` call and see the component disappear!
 
 ### Re-renders when state updates {/*re-renders-when-state-updates*/}
 
+<<<<<<< HEAD
 Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function](/apis/usestate#setstate). Updating your component's state automatically queues a render. (You can imagine these as a restaurant guest ordering tea, dessert, and all sorts of things after putting in their first order, depending on the state of their thirst or hunger.)
+=======
+Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function](/apis/react/useState#setstate). Updating your component's state automatically queues a render. (You can imagine these as a restaurant guest ordering tea, dessert, and all sorts of things after putting in their first order, depending on the state of their thirst or hunger.)
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 <IllustrationBlock sequential>
   <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. They patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />
@@ -138,7 +142,7 @@ Rendering must always be a [pure calculation](/learn/keeping-components-pure):
 * **Same inputs, same output.** Given the same inputs, a component should always return the same JSX. (When someone orders a salad with tomatoes, they should not receive a salad with onions!)
 * **Mind its own business.** It should not change any objects or variables that existed before rendering. (One order should not change anyone else's order.)
 
-Otherwise, you can encounter confusing bugs and unpredictable behavior as your codebase grows in complexity. When developing in "Strict Mode," React calls each component's function twice, which can help surface mistakes caused by impure functions.
+Otherwise, you can encounter confusing bugs and unpredictable behavior as your codebase grows in complexity. When developing in "Strict Mode", React calls each component's function twice, which can help surface mistakes caused by impure functions.
 
 </Gotcha>
 
