@@ -4,7 +4,11 @@ title: Instalação
 
 <Intro>
 
+<<<<<<< HEAD
 O React foi projetado desde o início para a adoção gradual, e você pode usar o React o quanto precisar, de acordo com a sua necessidade. Se você quiser experimentar o React, adicionar um pouco de interatividade a uma página HTML, ou iniciar um aplicação React complexa, esta seção irá ajudá-lo a começar. 
+=======
+React has been designed from the start for gradual adoption. You can use as little or as much React as you need. Whether you want to get a taste of React, add some interactivity to an HTML page, or start a complex React-powered app, this section will help you get started.
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 </Intro>
 
@@ -35,8 +39,14 @@ export default function App() {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Nós utilizamos sandboxes ao longo desta documentação como ferramentas de aprendizagem. As sandboxes te ajudam a se familiarizar com o funcionamento do React e te auxiliam a decidir se o React é a escolha certa para você. Além das presentes na documentação oficial, existem diversas sandboxes online que têm suporte para React, por exemplo: [CodeSandbox](https://codesandbox.io/s/new), [Stackblitz](https://stackblitz.com/fork/react), ou [CodePen](
 https://codepen.io/pen/?template=wvdqJJm).
+=======
+You can edit it directly or open it in a new tab by pressing the "Fork" button in the upper right corner.
+
+Most pages in the React documentation contain sandboxes like this. Outside of the React documentation, there are many online sandboxes that support React: for example, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), or [CodePen](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb).
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 ### Testar o React localmente {/*try-react-locally*/}
 
@@ -44,7 +54,11 @@ Para testar o React localmente, [faça o download desta página HTML](https://ra
 
 ## Adicionar o React a uma página {/*add-react-to-a-page*/}
 
+<<<<<<< HEAD
 Se você estiver trabalhando em um site já existente e precisa usar apenas um pouco de React, você pode [adicionar o React com uma tag de script.](/learn/add-react-to-a-website)
+=======
+If you're working with an existing site and need to add a little bit of React, you can [add React with a script tag.](/learn/add-react-to-a-website)
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 ## Iniciar um projeto React {/*start-a-react-project*/}
 
@@ -52,4 +66,9 @@ Se você estiver pronto para [iniciar um projeto do zero](/learn/start-a-new-rea
 
 ## Próximos passos {/*next-steps*/}
 
+<<<<<<< HEAD
 Onde você irá iniciar a sua jornada depende de como você gosta de aprender, o que você precisa realizar, e o quanto você quer evoluir! Por que não ler [Pensando em React](/learn/thinking-in-react)--nosso tutorial de introdução? Ou você pode ir direto para [Descrevendo a UI](/learn/describing-the-ui) para testar mais exemplos e aprender cada tópico passo a passo. Não há maneira errada de aprender React!
+=======
+Head to the [Quick Start](/learn) guide for a tour of the most important React concepts you will encounter every day.
+
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606

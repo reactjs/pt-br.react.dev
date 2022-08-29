@@ -4,13 +4,17 @@ title: "State: A Component's Memory"
 
 <Intro>
 
-Components often need to change what's on the screen as a result of an interaction. Typing into the form should update the input field, clicking "next" on an image carousel should change which image is displayed, clicking "buy" should put a product in the shopping cart. Components need to "remember" things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called **state**.
+Components often need to change what's on the screen as a result of an interaction. Typing into the form should update the input field, clicking "next" on an image carousel should change which image is displayed, clicking "buy" should put a product in the shopping cart. Components need to "remember" things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called *state*.
 
 </Intro>
 
 <YouWillLearn>
 
+<<<<<<< HEAD
 * How to add a state variable with the [`useState`](/apis/usestate) Hook
+=======
+* How to add a state variable with the [`useState`](/apis/react/useState) Hook
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 * What pair of values the `useState` Hook returns
 * How to add more than one state variable
 * Why state is called local
@@ -161,7 +165,11 @@ To update a component with new data, two things need to happen:
 1. **Retain** the data between renders.
 2. **Trigger** React to render the component with new data (re-rendering).
 
+<<<<<<< HEAD
 The [`useState`](/apis/usestate) Hook provides those two things:
+=======
+The [`useState`](/apis/react/useState) Hook provides those two things:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 1. A **state variable** to retain the data between renders.
 2. A **state setter function** to update the variable and trigger React to render the component again.
@@ -333,9 +341,9 @@ button {
 
 ### Meet your first Hook {/*meet-your-first-hook*/}
 
-In React, `useState`, as well as any other function starting with "`use`," is called a **Hook**.
+In React, `useState`, as well as any other function starting with "`use`," is called a Hook.
 
-Hooks are special functions that are only available while React is [rendering](/learn/render-and-commit#step-1-trigger-a-render) (which we'll get into in more detail on the next page). They let you "hook into" different React features.
+*Hooks* are special functions that are only available while React is [rendering](/learn/render-and-commit#step-1-trigger-a-render) (which we'll get into in more detail on the next page). They let you "hook into" different React features.
 
 State is just one of those features, but you will meet the other Hooks later.
 
@@ -347,7 +355,11 @@ State is just one of those features, but you will meet the other Hooks later.
 
 ### Anatomy of `useState` {/*anatomy-of-usestate*/}
 
+<<<<<<< HEAD
 When you call [`useState`](/apis/usestate), you are telling React that you want this component to remember something:
+=======
+When you call [`useState`](/apis/react/useState), you are telling React that you want this component to remember something:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 ```js
 const [index, setIndex] = useState(0);

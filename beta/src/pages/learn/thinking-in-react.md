@@ -271,7 +271,11 @@ Now let's run through our strategy for this state:
 
 So the state values will live in `FilterableProductTable`. 
 
+<<<<<<< HEAD
 Add state to the component with the [`useState()` Hook](/apis/usestate). Hooks let you "hook into" a component's [render cycle](/learn/render-and-commit). Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
+=======
+Add state to the component with the [`useState()` Hook](/apis/react/useState). Hooks let you "hook into" a component's [render cycle](/learn/render-and-commit). Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
 
 ```js
 function FilterableProductTable({ products }) {

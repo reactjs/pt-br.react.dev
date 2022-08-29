@@ -182,7 +182,11 @@ export default function Nav() {
         <NavLink href="/learn" isActive={section === 'learn'}>
           Learn
         </NavLink>
+<<<<<<< HEAD
         <NavLink href="/apis" isActive={section === 'apis'}>
+=======
+        <NavLink href="/apis/react" isActive={section === 'apis'}>
+>>>>>>> ea9e9ab2817c8b7eff5ff60e8fe9b649fd747606
           API
         </NavLink>
       </div>
