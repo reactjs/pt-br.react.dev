@@ -6,7 +6,7 @@ import React, {createRef} from 'react';
 import cn from 'classnames';
 import {IconChevron} from 'components/Icon/IconChevron';
 import {ChallengeContents} from './Challenges';
-const debounce = require('debounce');
+import {debounce} from 'debounce';
 
 export function Navigation({
   challenges,
@@ -15,7 +15,11 @@ export function Navigation({
   isRecipes,
 }: {
   challenges: ChallengeContents[];
+<<<<<<< HEAD
   handleChange: (id: string) => void;
+=======
+  handleChange: (index: number) => void;
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
   currentChallenge: ChallengeContents;
   isRecipes?: boolean;
 }) {
@@ -36,7 +40,11 @@ export function Navigation({
       if (containerRef.current) {
         containerRef.current.scrollLeft = currentNavRef.offsetLeft;
       }
+<<<<<<< HEAD
       handleChange(challenges[scrollPos + 1].id);
+=======
+      handleChange(scrollPos + 1);
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
     }
   };
 
@@ -49,19 +57,24 @@ export function Navigation({
       if (containerRef.current) {
         containerRef.current.scrollLeft = currentNavRef.offsetLeft;
       }
+<<<<<<< HEAD
       handleChange(challenges[scrollPos - 1].id);
+=======
+      handleChange(scrollPos - 1);
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
     }
   };
 
-  const handleSelectNav = (id: string) => {
-    const selectedChallenge = challenges.findIndex(
-      (challenge) => challenge.id === id
-    );
-    const currentNavRef = challengesNavRef.current[selectedChallenge].current;
+  const handleSelectNav = (index: number) => {
+    const currentNavRef = challengesNavRef.current[index].current;
     if (containerRef.current) {
       containerRef.current.scrollLeft = currentNavRef?.offsetLeft || 0;
     }
+<<<<<<< HEAD
     handleChange(id);
+=======
+    handleChange(index);
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
   };
 
   const handleResize = React.useCallback(() => {
@@ -97,7 +110,7 @@ export function Navigation({
                   currentChallenge.id === id &&
                   'text-link border-link hover:text-link dark:text-link-dark dark:border-link-dark dark:hover:text-link-dark'
               )}
-              onClick={() => handleSelectNav(id)}
+              onClick={() => handleSelectNav(index)}
               key={`button-${id}`}
               ref={challengesNavRef.current[index]}>
               {order}. {name}
@@ -122,7 +135,7 @@ export function Navigation({
           onClick={handleScrollRight}
           aria-label="Scroll right"
           className={cn(
-            'bg-secondary-button dark:bg-secondary-button-dark h-8 px-2 rounded-r-lg',
+            'bg-secondary-button dark:bg-secondary-button-dark h-8 px-2 rounded-r',
             {
               'text-primary dark:text-primary-dark': canScrollRight,
               'text-gray-30': !canScrollRight,

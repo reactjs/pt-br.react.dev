@@ -4,8 +4,12 @@
 
 import * as React from 'react';
 import {useRouter} from 'next/router';
+<<<<<<< HEAD
 // @ts-ignore
 import galite from 'ga-lite';
+=======
+import {ga} from '../../utils/analytics';
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 export function Feedback({onSubmit = () => {}}: {onSubmit?: () => void}) {
   const {pathname} = useRouter();
@@ -48,7 +52,11 @@ const thumbsDownIcon = (
 function sendGAEvent(isPositive: boolean) {
   // Fragile. Don't change unless you've tested the network payload
   // and verified that the right events actually show up in GA.
+<<<<<<< HEAD
   galite(
+=======
+  ga(
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
     'send',
     'event',
     'button',

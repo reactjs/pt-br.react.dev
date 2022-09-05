@@ -30,7 +30,11 @@ function HomepageHero() {
           </YouWillLearnCard>
         </div>
         <div className="flex flex-col justify-center">
+<<<<<<< HEAD
           <YouWillLearnCard title="API Reference" path="/apis">
+=======
+          <YouWillLearnCard title="API Reference" path="/apis/react">
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
             <p>
               Look up the API signatures of React Hooks, and see their shape
               using the visual code diagrams.

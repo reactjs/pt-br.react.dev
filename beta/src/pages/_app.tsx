@@ -5,15 +5,26 @@
 import * as React from 'react';
 import {AppProps} from 'next/app';
 import {useRouter} from 'next/router';
+<<<<<<< HEAD
 // @ts-ignore
 import galite from 'ga-lite';
+=======
+import {MarkdownPage} from 'components/Layout/MarkdownPage';
+import {Page} from 'components/Layout/Page';
+import {ga} from '../utils/analytics';
+import type {RouteItem} from 'components/Layout/useRouteMeta';
+import sidebarHome from '../sidebarHome.json';
+import sidebarLearn from '../sidebarLearn.json';
+import sidebarReference from '../sidebarReference.json';
+
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 import '@docsearch/css';
 import '../styles/algolia.css';
 import '../styles/index.css';
 import '../styles/sandpack.css';
 import '@codesandbox/sandpack-react/dist/index.css';
-import Script from 'next/script';
 
+<<<<<<< HEAD
 const EmptyAppShell: React.FC = ({children}) => <>{children}</>;
 
 if (typeof window !== 'undefined') {
@@ -23,6 +34,15 @@ if (typeof window !== 'undefined') {
   const terminationEvent = 'onpagehide' in window ? 'pagehide' : 'unload';
   window.addEventListener(terminationEvent, function () {
     galite('send', 'timing', 'JS Dependencies', 'unload');
+=======
+if (typeof window !== 'undefined') {
+  if (process.env.NODE_ENV === 'production') {
+    ga('create', process.env.NEXT_PUBLIC_GA_TRACKING_ID, 'auto');
+  }
+  const terminationEvent = 'onpagehide' in window ? 'pagehide' : 'unload';
+  window.addEventListener(terminationEvent, function () {
+    ga('send', 'timing', 'JS Dependencies', 'unload');
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
   });
 }
 
@@ -30,8 +50,13 @@ export default function MyApp({Component, pageProps}: AppProps) {
   const router = useRouter();
   React.useEffect(() => {
     const handleRouteChange = (url: string) => {
+<<<<<<< HEAD
       galite('set', 'page', url);
       galite('send', 'pageview');
+=======
+      ga('set', 'page', url);
+      ga('send', 'pageview');
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
     };
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
@@ -39,16 +64,140 @@ export default function MyApp({Component, pageProps}: AppProps) {
     };
   }, [router.events]);
 
+<<<<<<< HEAD
   let AppShell = (Component as any).appShell || EmptyAppShell;
   // In order to make sidebar scrolling between pages work as expected
   // we need to access the underlying MDX component.
+=======
+  let routeTree = sidebarHome as RouteItem;
+  let content = <Component {...pageProps} />;
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
   if ((Component as any).isMDXComponent) {
-    AppShell = (Component as any)({}).props.originalType.appShell;
+    const mdxContent = (Component as any)({}); // HACK: Extract MDX out of the generated wrapper
+    const {section, meta} = mdxContent.props.layout; // Injected by md-layout-loader.js
+    switch (section) {
+      case 'apis':
+        routeTree = sidebarReference as RouteItem;
+        break;
+      case 'learn':
+        routeTree = sidebarLearn as RouteItem;
+        break;
+    }
+
+    const rawChildren = mdxContent.props.children;
+    const toc = getTableOfContents(rawChildren);
+    const children = wrapChildrenInMaxWidthContainers(rawChildren);
+    content = (
+      <MarkdownPage toc={toc} meta={meta}>
+        {children}
+      </MarkdownPage>
+    );
   }
 
   return (
+<<<<<<< HEAD
     <AppShell>
       <Component {...pageProps} />
     </AppShell>
+=======
+    <Page routeTree={routeTree}>
+      <React.Fragment key={router.pathname}>{content}</React.Fragment>
+    </Page>
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
   );
+}
+
+function MaxWidth({children}: {children: any}) {
+  return <div className="max-w-4xl ml-0 2xl:mx-auto">{children}</div>;
+}
+
+function wrapChildrenInMaxWidthContainers(
+  children: React.ReactNode
+): React.ReactNode {
+  // Auto-wrap everything except a few types into
+  // <MaxWidth> wrappers. Keep reusing the same
+  // wrapper as long as we can until we meet
+  // a full-width section which interrupts it.
+  let fullWidthTypes = [
+    'Sandpack',
+    'FullWidth',
+    'Illustration',
+    'IllustrationBlock',
+    'Challenges',
+    'Recipes',
+  ];
+  let wrapQueue: React.ReactNode[] = [];
+  let finalChildren: React.ReactNode[] = [];
+  function flushWrapper(key: string | number) {
+    if (wrapQueue.length > 0) {
+      finalChildren.push(<MaxWidth key={key}>{wrapQueue}</MaxWidth>);
+      wrapQueue = [];
+    }
+  }
+  function handleChild(child: any, key: string | number) {
+    if (child == null) {
+      return;
+    }
+    if (typeof child !== 'object') {
+      wrapQueue.push(child);
+      return;
+    }
+    if (fullWidthTypes.includes(child.props.mdxType)) {
+      flushWrapper(key);
+      finalChildren.push(child);
+    } else {
+      wrapQueue.push(child);
+    }
+  }
+  React.Children.forEach(children, handleChild);
+  flushWrapper('last');
+  return finalChildren;
+}
+
+function getTableOfContents(children: React.ReactNode): Array<{
+  url: string;
+  text: React.ReactNode;
+  depth: number;
+}> {
+  const anchors = React.Children.toArray(children)
+    .filter((child: any) => {
+      if (child.props?.mdxType) {
+        return ['h1', 'h2', 'h3', 'Challenges', 'Recap'].includes(
+          child.props.mdxType
+        );
+      }
+      return false;
+    })
+    .map((child: any) => {
+      if (child.props.mdxType === 'Challenges') {
+        return {
+          url: '#challenges',
+          depth: 0,
+          text: 'Challenges',
+        };
+      }
+      if (child.props.mdxType === 'Recap') {
+        return {
+          url: '#recap',
+          depth: 0,
+          text: 'Recap',
+        };
+      }
+      return {
+        url: '#' + child.props.id,
+        depth:
+          (child.props?.mdxType &&
+            parseInt(child.props.mdxType.replace('h', ''), 0)) ??
+          0,
+        text: child.props.children,
+      };
+    });
+  if (anchors.length > 0) {
+    anchors.unshift({
+      depth: 1,
+      text: 'Overview',
+      url: '#',
+    });
+  }
+  return anchors;
 }

@@ -4,7 +4,7 @@ title: 'Manipulating the DOM with Refs'
 
 <Intro>
 
-Because React handles updating the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) to match your render output, your components won't often need to manipulate the DOM. However, sometimes you might need access to the DOM elements managed by React--for example, to focus a node, scroll to it, or measure its size and position. There is no built-in way to do those things in React, so you will need a [ref](/learn/referencing-values-with-refs#refs-and-the-dom) to the DOM node.
+React automatically updates the [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) to match your render output, so your components won't often need to manipulate it. However, sometimes you might need access to the DOM elements managed by React--for example, to focus a node, scroll to it, or measure its size and position. There is no built-in way to do those things in React, so you will need a *ref* to the DOM node.
 
 </Intro>
 
@@ -80,11 +80,11 @@ To implement this:
 3. In the `handleClick` function, read the input DOM node from `inputRef.current` and call [`focus()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus) on it with `inputRef.current.focus()`.
 4. Pass the `handleClick` event handler to `<button>` with `onClick`.
 
-While DOM manipulation is the most common use case for refs, the `useRef` Hook can be used for storing other things outside React, like timer IDs. Similarly to state, refs remain between renders. You can even think of refs as state variables that don't trigger re-renders when you set them! You can learn more about refs in [Referencing Values with Refs](/learn/referencing-values-with-refs).
+While DOM manipulation is the most common use case for refs, the `useRef` Hook can be used for storing other things outside React, like timer IDs. Similarly to state, refs remain between renders. Refs are like state variables that don't trigger re-renders when you set them. For an introduction to refs, see [Referencing Values with Refs](/learn/referencing-values-with-refs).
 
 ### Example: Scrolling to an element {/*example-scrolling-to-an-element*/}
 
-You can have more than a single ref in a component. In this example, there is a carousel of three images and three buttons to center them in the view port by calling the browser [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) method the corresponding DOM node:
+You can have more than a single ref in a component. In this example, there is a carousel of three images. Each button centers an image by calling the browser [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) method the corresponding DOM node:
 
 <Sandpack>
 
@@ -694,7 +694,7 @@ However, this doesn't mean that you can't do it at all. It requires caution. **Y
 
 <Challenges>
 
-### Play and pause the video {/*play-and-pause-the-video*/}
+#### Play and pause the video {/*play-and-pause-the-video*/}
 
 In this example, the button toggles a state variable to switch between a playing and a paused state. However, in order to actually play or pause the video, toggling state is not enough. You also need to call [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) and [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) on the DOM element for the `<video>`. Add a ref to it, and make the button work.
 
@@ -790,7 +790,7 @@ In order to handle the built-in browser controls, you can add `onPlay` and `onPa
 
 </Solution>
 
-### Focus the search field {/*focus-the-search-field*/}
+#### Focus the search field {/*focus-the-search-field*/}
 
 Make it so that clicking the "Search" button puts focus into the field.
 
@@ -854,7 +854,7 @@ button { display: block; margin-bottom: 10px; }
 
 </Solution>
 
-### Scrolling an image carousel {/*scrolling-an-image-carousel*/}
+#### Scrolling an image carousel {/*scrolling-an-image-carousel*/}
 
 This image carousel has a "Next" button that switches the active image. Make the gallery scroll horizontally to the active image on click. You will want to call [`scrollIntoView()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) on the DOM node of the active image:
 
@@ -1080,7 +1080,7 @@ img {
 
 </Solution>
 
-### Focus the search field with separate components {/*focus-the-search-field-with-separate-components*/}
+#### Focus the search field with separate components {/*focus-the-search-field-with-separate-components*/}
 
 Make it so that clicking the "Search" button puts focus into the field. Note that each component is defined in a separate file and shouldn't be moved out of it. How do you connect them together?
 

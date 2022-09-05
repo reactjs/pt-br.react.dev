@@ -4,13 +4,17 @@ title: "State: A Component's Memory"
 
 <Intro>
 
-Components often need to change what's on the screen as a result of an interaction. Typing into the form should update the input field, clicking "next" on an image carousel should change which image is displayed, clicking "buy" should put a product in the shopping cart. Components need to "remember" things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called **state**.
+Components often need to change what's on the screen as a result of an interaction. Typing into the form should update the input field, clicking "next" on an image carousel should change which image is displayed, clicking "buy" should put a product in the shopping cart. Components need to "remember" things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called *state*.
 
 </Intro>
 
 <YouWillLearn>
 
+<<<<<<< HEAD
 * How to add a state variable with the [`useState`](/apis/usestate) Hook
+=======
+* How to add a state variable with the [`useState`](/apis/react/useState) Hook
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 * What pair of values the `useState` Hook returns
 * How to add more than one state variable
 * Why state is called local
@@ -161,7 +165,11 @@ To update a component with new data, two things need to happen:
 1. **Retain** the data between renders.
 2. **Trigger** React to render the component with new data (re-rendering).
 
+<<<<<<< HEAD
 The [`useState`](/apis/usestate) Hook provides those two things:
+=======
+The [`useState`](/apis/react/useState) Hook provides those two things:
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 1. A **state variable** to retain the data between renders.
 2. A **state setter function** to update the variable and trigger React to render the component again.
@@ -333,9 +341,9 @@ button {
 
 ### Meet your first Hook {/*meet-your-first-hook*/}
 
-In React, `useState`, as well as any other function starting with "`use`," is called a **Hook**.
+In React, `useState`, as well as any other function starting with "`use`," is called a Hook.
 
-Hooks are special functions that are only available while React is [rendering](/learn/render-and-commit#step-1-trigger-a-render) (which we'll get into in more detail on the next page). They let you "hook into" different React features.
+*Hooks* are special functions that are only available while React is [rendering](/learn/render-and-commit#step-1-trigger-a-render) (which we'll get into in more detail on the next page). They let you "hook into" different React features.
 
 State is just one of those features, but you will meet the other Hooks later.
 
@@ -347,7 +355,11 @@ State is just one of those features, but you will meet the other Hooks later.
 
 ### Anatomy of `useState` {/*anatomy-of-usestate*/}
 
+<<<<<<< HEAD
 When you call [`useState`](/apis/usestate), you are telling React that you want this component to remember something:
+=======
+When you call [`useState`](/apis/react/useState), you are telling React that you want this component to remember something:
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 ```js
 const [index, setIndex] = useState(0);
@@ -907,7 +919,7 @@ What if you wanted both galleries to keep their states in sync? The right way to
 
 <Challenges>
 
-### Complete the gallery {/*complete-the-gallery*/}
+#### Complete the gallery {/*complete-the-gallery*/}
 
 When you press "Next" on the last sculpture, the code crashes. Fix the logic to prevent the crash. You may do this by adding extra logic to event handler or by disabling the button when the action is not possible.
 
@@ -1217,7 +1229,7 @@ Notice how `hasPrev` and `hasNext` are used *both* for the returned JSX and insi
 
 </Solution>
 
-### Fix stuck form inputs {/*fix-stuck-form-inputs*/}
+#### Fix stuck form inputs {/*fix-stuck-form-inputs*/}
 
 When you type into the input fields, nothing appears. It's like the input values are "stuck" with empty strings. The `value` of the first `<input>` is set to always match the `firstName` variable, and the `value` for the second `<input>` is set to always match the `lastName` variable. This is correct. Both inputs have `onChange` event handlers, which try to update the variables based on the latest user input (`e.target.value`). However, the variables don't seem to "remember" their values between re-renders. Fix this by using state variables instead.
 
@@ -1319,7 +1331,7 @@ h1 { margin-top: 10px; }
 
 </Solution>
 
-### Fix a crash {/*fix-a-crash*/}
+#### Fix a crash {/*fix-a-crash*/}
 
 Here is a small form that is supposed to let the user leave some feedback. When the feedback is submitted, it's supposed to display a thank-you message. However, it crashes with an error message saying "Rendered fewer hooks than expected". Can you spot the mistake and fix it?
 
@@ -1441,7 +1453,7 @@ In general, these types of mistakes are caught by the [`eslint-plugin-react-hook
 
 </Solution>
 
-### Remove unnecessary state {/*remove-unnecessary-state*/}
+#### Remove unnecessary state {/*remove-unnecessary-state*/}
 
 When the button is clicked, this example should ask for the user's name and then display an alert greeting them. You tried to use state to keep the name, but for some reason it always shows "Hello, !".
 

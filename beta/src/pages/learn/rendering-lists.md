@@ -30,7 +30,7 @@ Say that you have a list of content.
 </ul>
 ```
 
-The only difference among those list items are their contents, their data. You will run into many situations where you need many of the same component using different data when building interfaces: from lists of comments to galleries of profile images. In these situations, you can store that data in JavaScript objects and arrays and use methods like [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to render lists of components from them.
+The only difference among those list items is their contents, their data. You will often need to show several instances of the same component using different data when building interfaces: from lists of comments to galleries of profile images. In these situations, you can store that data in JavaScript objects and arrays and use methods like [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to render lists of components from them.
 
 Here’s a short example of how to generate a list of items from an array:
 
@@ -390,7 +390,7 @@ Fragments disappear from the DOM, so this will produce a flat list of `<h1>`, `<
 Different sources of data provide different sources of keys:
 
 * **Data from a database:** If your data is coming from a database, you can use the database keys/IDs, which are unique by nature.
-* **Locally generated data:** If your data is generated and persisted locally (e.g. notes in a note-taking app), use an incrementing counter or a package like [`uuid`](https://www.npmjs.com/package/uuid) when creating items.
+* **Locally generated data:** If your data is generated and persisted locally (e.g. notes in a note-taking app), use an incrementing counter, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) or a package like [`uuid`](https://www.npmjs.com/package/uuid) when creating items.
 
 ### Rules of keys {/*rules-of-keys*/}
 
@@ -428,7 +428,7 @@ On this page you learned:
 
 <Challenges>
 
-### Splitting a list in two {/*splitting-a-list-in-two*/}
+#### Splitting a list in two {/*splitting-a-list-in-two*/}
 
 This example shows a list of all people.
 
@@ -870,7 +870,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Solution>
 
-### Nested lists in one component {/*nested-lists-in-one-component*/}
+#### Nested lists in one component {/*nested-lists-in-one-component*/}
 
 Make a list of recipes from this array! For each recipe in the array, display its title as an `<h2>` and list its ingredients in a `<ul>`.
 
@@ -964,7 +964,7 @@ Each of the `recipes` already includes an `id` field, so that's what the outer l
 
 </Solution>
 
-### Extracting a list item component {/*extracting-a-list-item-component*/}
+#### Extracting a list item component {/*extracting-a-list-item-component*/}
 
 This `RecipeList` component contains two nested `map` calls. To simplify it, extract a `Recipe` component from it which will accept `id`, `name`, and `ingredients` props. Where do you place the outer `key` and why?
 
@@ -1072,7 +1072,7 @@ Here, `<Recipe {...recipe} key={recipe.id} />` is a syntax shortcut saying "pass
 
 </Solution>
 
-### List with a separator {/*list-with-a-separator*/}
+#### List with a separator {/*list-with-a-separator*/}
 
 This example renders a famous haiku by Katsushika Hokusai, with each line wrapped in a `<p>` tag. Your job is to insert an `<hr />` separator between each paragraph. Your resulting structure should look like this:
 

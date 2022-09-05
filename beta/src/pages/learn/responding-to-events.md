@@ -4,7 +4,7 @@ title: Responding to Events
 
 <Intro>
 
-React lets you add event handlers to your JSX. Event handlers are your own functions that will be triggered in response to user interactions like clicking, hovering, focusing on form inputs, and so on.
+React lets you add *event handlers* to your JSX. Event handlers are your own functions that will be triggered in response to interactions like clicking, hovering, focusing form inputs, and so on.
 
 </Intro>
 
@@ -67,7 +67,7 @@ You defined the `handleClick` function and then [passed it as a prop](/learn/pas
 * Are usually defined *inside* your components.
 * Have names that start with `handle`, followed by the name of the event.
 
-> While there is no special syntax for event handlers, it is a convention to name them `handle` followed by the event handled. You'll often see `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, and so on.
+> By convention, it is common to name event handlers as `handle` followed by the event name. You'll often see `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, and so on.
 
 Alternatively, you can define an event handler inline in the JSX:
 
@@ -231,7 +231,11 @@ If you use a [design system](https://uxdesign.cc/everything-you-need-to-know-abo
 
 ### Naming event handler props {/*naming-event-handler-props*/}
 
+<<<<<<< HEAD
 Built-in components like `<button>` and `<div>` only support [browser event names](/apis/reactdom-api) like `onClick`. However, when you're building your own components, you can name their event handler props any way that you like.
+=======
+Built-in components like `<button>` and `<div>` only support [browser event names](/apis/react-dom/events) like `onClick`. However, when you're building your own components, you can name their event handler props any way that you like.
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
 
 > By convention, event handler props should start with `on`, followed by a capital letter.
 
@@ -540,7 +544,7 @@ Unlike rendering functions, event handlers don't need to be [pure](/learn/keepin
 
 <Challenges>
 
-### Fix an event handler {/*fix-an-event-handler*/}
+#### Fix an event handler {/*fix-an-event-handler*/}
 
 Clicking this button is supposed to switch the page background between white and black. However, nothing happens when you click it. Fix the problem. (Don't worry about the logic inside `handleClick`—that part is fine.)
 
@@ -621,7 +625,7 @@ export default function LightSwitch() {
 
 </Solution>
 
-### Wire up the events {/*wire-up-the-events*/}
+#### Wire up the events {/*wire-up-the-events*/}
 
 This `ColorSwitch` component renders a button. It's supposed to change the page color. Wire it up to the `onChangeColor` event handler prop it receives from the parent so that clicking the button changes the color.
 

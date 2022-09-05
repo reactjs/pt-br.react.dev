@@ -11,22 +11,25 @@ import {Seo} from 'components/Seo';
 import PageHeading from 'components/PageHeading';
 import {useRouteMeta} from './useRouteMeta';
 import {Toc} from './Toc';
+
 export interface MarkdownProps<Frontmatter> {
   meta: Frontmatter & {description?: string};
   children?: React.ReactNode;
-}
-
-function MaxWidth({children}: {children: any}) {
-  return <div className="max-w-4xl ml-0 2xl:mx-auto">{children}</div>;
+  toc: Array<{
+    url: string;
+    text: React.ReactNode;
+    depth: number;
+  }>;
 }
 
 export function MarkdownPage<
   T extends {title: string; status?: string} = {title: string; status?: string}
->({children, meta}: MarkdownProps<T>) {
+>({children, meta, toc}: MarkdownProps<T>) {
   const {route, nextRoute, prevRoute} = useRouteMeta();
   const title = meta.title || route?.title || '';
   const description = meta.description || route?.description || '';
 
+<<<<<<< HEAD
   let anchors: Array<{
     url: string;
     text: React.ReactNode;
@@ -72,10 +75,13 @@ export function MarkdownPage<
     });
   }
 
+=======
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
   if (!route) {
     console.error('This page was not added to one of the sidebar JSON files.');
   }
   const isHomePage = route?.path === '/';
+<<<<<<< HEAD
 
   // Auto-wrap everything except a few types into
   // <MaxWidth> wrappers. Keep reusing the same
@@ -115,8 +121,10 @@ export function MarkdownPage<
   React.Children.forEach(children, handleChild);
   flushWrapper('last');
 
+=======
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
   return (
-    <article className="h-full mx-auto relative w-full min-w-0">
+    <>
       <div className="lg:pt-0 pt-20 pl-0 lg:pl-80 2xl:px-80 ">
         <Seo title={title} />
         {!isHomePage && (
@@ -129,7 +137,11 @@ export function MarkdownPage<
         <div className="px-5 sm:px-12">
           <div className="max-w-7xl mx-auto">
             <MDXContext.Provider value={MDXComponents}>
+<<<<<<< HEAD
               {finalChildren}
+=======
+              {children}
+>>>>>>> e9faee62db6981e26a1cdabad6ae39620a1d2e3e
             </MDXContext.Provider>
           </div>
           <DocsPageFooter
@@ -140,8 +152,8 @@ export function MarkdownPage<
         </div>
       </div>
       <div className="w-full lg:max-w-xs hidden 2xl:block">
-        {!isHomePage && anchors.length > 0 && <Toc headings={anchors} />}
+        {!isHomePage && toc.length > 0 && <Toc headings={toc} />}
       </div>
-    </article>
+    </>
   );
 }
