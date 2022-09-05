@@ -76,7 +76,7 @@ O state do componente é similar as props, mas é privado e totalmente controlad
 
 Você pode converter um componente de função como `Clock` em uma classe em cinco etapas:
 
-1. Criar uma [classe ES6](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), com o mesmo nome, estendendo `React.component`.
+1. Criar uma [classe ES6](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes), com o mesmo nome, estendendo `React.Component`.
 
 2. Adicionar um único método vazio chamado `render()`.
 
