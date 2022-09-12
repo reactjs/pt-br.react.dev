@@ -45,7 +45,11 @@ Isso irá destruir o antigo `Counter` e remontar um novo.
 
 >Nota:
 >
+<<<<<<< HEAD
 >Esses métodos são considerados legados e você deve [evitá-los](/blog/2018/03/27/update-on-async-rendering.html) no novo código:
+=======
+>This method is considered legacy and you should [avoid it](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
 >
 >- `UNSAFE_componentWillMount()`
 

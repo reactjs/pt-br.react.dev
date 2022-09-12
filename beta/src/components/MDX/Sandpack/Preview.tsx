@@ -4,16 +4,27 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 import * as React from 'react';
-import {useSandpack, LoadingOverlay} from '@codesandbox/sandpack-react';
+import {
+  useSandpack,
+  LoadingOverlay,
+  SandpackStack,
+} from '@codesandbox/sandpack-react';
 import cn from 'classnames';
-
 import {Error} from './Error';
-import {computeViewportSize, generateRandomId} from './utils';
+import {SandpackConsole} from './Console';
+import type {LintDiagnostic} from './useSandpackLint';
+
+/**
+ * TODO: can we use React.useId?
+ */
+const generateRandomId = (): string =>
+  Math.floor(Math.random() * 10000).toString();
 
 type CustomPreviewProps = {
   className?: string;
   customStyle?: Record<string, unknown>;
   isExpanded: boolean;
+  lintErrors: LintDiagnostic;
 };
 
 function useDebounced(value: any): any {
@@ -32,6 +43,7 @@ export function Preview({
   customStyle,
   isExpanded,
   className,
+  lintErrors,
 }: CustomPreviewProps) {
   const {sandpack, listen} = useSandpack();
   const [isReady, setIsReady] = React.useState(false);
@@ -56,6 +68,30 @@ export function Preview({
     // Work around a noisy internal error.
     rawError = null;
   }
+
+  // Memoized because it's fed to debouncing.
+  const firstLintError = React.useMemo(() => {
+    if (lintErrors.length === 0) {
+      return null;
+    } else {
+      const {line, column, message} = lintErrors[0];
+      return {
+        title: 'Lint Error',
+        message: `${line}:${column} - ${message}`,
+      };
+    }
+  }, [lintErrors]);
+
+  if (rawError == null || rawError.title === 'Runtime Exception') {
+    if (firstLintError !== null) {
+      rawError = firstLintError;
+    }
+  }
+
+  if (rawError != null && rawError.title === 'Runtime Exception') {
+    rawError.title = 'Runtime Error';
+  }
+
   // It changes too fast, causing flicker.
   const error = useDebounced(rawError);
 
@@ -100,7 +136,10 @@ export function Preview({
     [status === 'idle']
   );
 
+<<<<<<< HEAD
   const viewportStyle = computeViewportSize('auto', 'portrait');
+=======
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
   const overrideStyle = error
     ? {
         // Don't collapse errors
@@ -125,17 +164,20 @@ export function Preview({
   // The best way to test it is to actually go through some challenges.
 
   return (
-    <div
-      className={cn('sp-stack', className)}
+    <SandpackStack
+      className={className}
       style={{
         // TODO: clean up this mess.
         ...customStyle,
-        ...viewportStyle,
         ...overrideStyle,
       }}>
       <div
         className={cn(
+<<<<<<< HEAD
           'p-0 sm:p-2 md:p-4 lg:p-8 md:bg-card md:dark:bg-wash-dark h-full relative md:rounded-b-lg lg:rounded-b-none',
+=======
+          'p-0 sm:p-2 md:p-4 lg:p-8 bg-card dark:bg-wash-dark h-full relative md:rounded-b-lg lg:rounded-b-none',
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
           // Allow content to be scrolled if it's too high to fit.
           // Note we don't want this in the expanded state
           // because it breaks position: sticky (and isn't needed anyway).
@@ -183,10 +225,15 @@ export function Preview({
           </div>
         )}
         <LoadingOverlay
+<<<<<<< HEAD
+=======
+          showOpenInCodeSandbox
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
           clientId={clientId.current}
           loading={!isReady && iframeComputedHeight === null}
         />
       </div>
-    </div>
+      {!error && <SandpackConsole />}
+    </SandpackStack>
   );
 }

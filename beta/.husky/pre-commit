@@ -2,4 +2,8 @@
 . "$(dirname "$0")/_/husky.sh"
 
 cd beta
+<<<<<<< HEAD
 yarn lint-staged
+=======
+yarn lint-staged
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6

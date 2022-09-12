@@ -4,6 +4,7 @@
 
 import * as React from 'react';
 import {SandpackProvider} from '@codesandbox/sandpack-react';
+<<<<<<< HEAD
 import {CustomPreset} from './CustomPreset';
 import {createFileMap} from './utils';
 
@@ -11,6 +12,16 @@ import type {SandpackSetup} from '@codesandbox/sandpack-react';
 
 type SandpackProps = {
   children: React.ReactChildren;
+=======
+import {SandpackLogLevel} from '@codesandbox/sandpack-client';
+import {CustomPreset} from './CustomPreset';
+import {createFileMap} from './createFileMap';
+import {CustomTheme} from './Themes';
+import type {SandpackSetup} from '@codesandbox/sandpack-react';
+
+type SandpackProps = {
+  children: React.ReactNode;
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
   autorun?: boolean;
   setup?: SandpackSetup;
   showDevTools?: boolean;
@@ -65,9 +76,13 @@ ul {
 function SandpackRoot(props: SandpackProps) {
   let {children, setup, autorun = true, showDevTools = false} = props;
   const [devToolsLoaded, setDevToolsLoaded] = React.useState(false);
+<<<<<<< HEAD
   let codeSnippets = React.Children.toArray(children) as React.ReactElement[];
   let isSingleFile = true;
 
+=======
+  const codeSnippets = React.Children.toArray(children) as React.ReactElement[];
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
   const files = createFileMap(codeSnippets);
 
   files['/styles.css'] = {
@@ -76,6 +91,7 @@ function SandpackRoot(props: SandpackProps) {
   };
 
   return (
+<<<<<<< HEAD
     <div className="sandpack-container my-8" translate="no">
       <SandpackProvider
         template="react"
@@ -88,6 +104,26 @@ function SandpackRoot(props: SandpackProps) {
           showDevTools={showDevTools}
           onDevToolsLoad={() => setDevToolsLoaded(true)}
           devToolsLoaded={devToolsLoaded}
+=======
+    <div className="sandpack sandpack--playground sandbox my-8">
+      <SandpackProvider
+        template="react"
+        files={files}
+        customSetup={setup}
+        theme={CustomTheme}
+        options={{
+          autorun,
+          initMode: 'user-visible',
+          initModeObserverOptions: {rootMargin: '1400px 0px'},
+          bundlerURL: 'https://ac83f2d6.sandpack-bundler.pages.dev',
+          logLevel: SandpackLogLevel.None,
+        }}>
+        <CustomPreset
+          showDevTools={showDevTools}
+          onDevToolsLoad={() => setDevToolsLoaded(true)}
+          devToolsLoaded={devToolsLoaded}
+          providedFiles={Object.keys(files)}
+>>>>>>> c7d858947f832d1ba4e78caebc391fd964ff6de6
         />
       </SandpackProvider>
     </div>
