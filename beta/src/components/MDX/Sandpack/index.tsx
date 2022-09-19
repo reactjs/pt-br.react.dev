@@ -3,6 +3,7 @@
  */
 
 import * as React from 'react';
+<<<<<<< HEAD
 import dynamic from 'next/dynamic';
 import {createFileMap} from './utils';
 
@@ -10,6 +11,14 @@ const SandpackRoot = dynamic(() => import('./SandpackRoot'), {suspense: true});
 
 const SandpackGlimmer = ({code}: {code: string}) => (
   <div className="sandpack-container my-8">
+=======
+import {createFileMap} from './createFileMap';
+
+const SandpackRoot = React.lazy(() => import('./SandpackRoot'));
+
+const SandpackGlimmer = ({code}: {code: string}) => (
+  <div className="sandpack my-8">
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
     <div className="shadow-lg dark:shadow-lg-dark rounded-lg">
       <div className="bg-wash h-10 dark:bg-card-dark flex justify-between items-center relative z-10 border-b border-border dark:border-border-dark rounded-t-lg rounded-b-none">
         <div className="px-4 lg:px-6">

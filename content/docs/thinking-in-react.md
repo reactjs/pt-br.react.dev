@@ -70,7 +70,11 @@ Para construir uma versão estática que renderiza seu modelo de dados, você qu
 
 Você pode seguir uma abordagem cima-para-baixo ou baixo-para-cima. Isso significa que você pode começar criando os componentes no topo da hierarquia (i.e. começar com `FilterableProductTable`) ou os da base (`ProductRow`). Em exemplos simples, cima-para-baixo é normalmente mais fácil, enquanto que para projetos maiores o melhor é usar uma estratégia baixo-para-cima e escrever testes à medida que você for avançando.
 
+<<<<<<< HEAD
 No final dessa etapa, você terá uma biblioteca de componentes reutilizáveis que renderizam seu modelo de dados. Seus componentes terão apenas o método `render()` uma vez que é apenas uma versão estática do seu app. O componente no topo da hierarquia (`FilterableProductTable`) receberá o modelo de dados como uma prop. Se você fizer alguma alteração no seu modelo de dados e chamar `ReactDOM.render()` novamente, a UI será atualizada. É fácil entender como sua UI é atualizada e onde realizar as alterações. O **fluxo de dados unidirecional** (_one-way data flow_) do React (também chamado de **ligação unidirecional** _ou one-way binding_) mantém tudo rápido e modular.
+=======
+At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `root.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 
 Recorra à [documentação do React](/docs/getting-started.html) caso você precise de ajuda para executar esse passo.
 
@@ -143,4 +147,8 @@ Vamos pensar um pouco sobre o que nós queremos que aconteça. Queremos ter cert
 
 ## E É Isso {#and-thats-it}
 
+<<<<<<< HEAD
 Com sorte, esse artigo lhe dará uma ideia de como pensar ao se construir aplicações com React. Embora possa ter um pouco mais de digitação do que você esteja acostumado, lembre-se que códigos são lidos muito mais que escritos, e é menos difícil de ler um código explícito e modular. À medida que você começar a criar grandes bibliotecas de componentes, você apreciará essa clareza e modularidade, e com o reuso de código, suas linhas de código começarão a diminuir. :)
+=======
+Hopefully, this gives you an idea of how to think about building components and applications with React. While it may be a little more typing than you're used to, remember that code is read far more often than it's written, and it's less difficult to read this modular, explicit code. As you start to build large libraries of components, you'll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to shrink. :)
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd

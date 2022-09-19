@@ -3,7 +3,8 @@
  */
 
 import * as React from 'react';
-import Document, {Html, Head, Main, NextScript} from 'next/document';
+import {Html, Head, Main, NextScript} from 'next/document';
+import {getSandpackCssText} from '@codesandbox/sandpack-react';
 
 const MyDocument = () => {
   //  @todo specify language in HTML?
@@ -11,6 +12,10 @@ const MyDocument = () => {
     <Html lang="en">
       <Head />
       <body className="font-sans antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
+<<<<<<< HEAD
+=======
+        <style id="sandpack">{getSandpackCssText()}</style>
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
         <script
           dangerouslySetInnerHTML={{
             __html: `

@@ -3,13 +3,12 @@
  */
 
 import React from 'react';
-import {siteConfig} from 'siteConfig';
 
 const TOP_OFFSET = 75;
 
 export function getHeaderAnchors(): HTMLAnchorElement[] {
   return Array.prototype.filter.call(
-    document.getElementsByClassName(siteConfig.headerIdConfig.className),
+    document.getElementsByClassName('mdx-header-anchor'),
     function (testElement) {
       return (
         testElement.parentNode.nodeName === 'H1' ||

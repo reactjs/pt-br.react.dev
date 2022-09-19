@@ -4,6 +4,7 @@
 
 import * as React from 'react';
 import {SandpackProvider} from '@codesandbox/sandpack-react';
+<<<<<<< HEAD
 import {CustomPreset} from './CustomPreset';
 import {createFileMap} from './utils';
 
@@ -11,6 +12,16 @@ import type {SandpackSetup} from '@codesandbox/sandpack-react';
 
 type SandpackProps = {
   children: React.ReactChildren;
+=======
+import {SandpackLogLevel} from '@codesandbox/sandpack-client';
+import {CustomPreset} from './CustomPreset';
+import {createFileMap} from './createFileMap';
+import {CustomTheme} from './Themes';
+import type {SandpackSetup} from '@codesandbox/sandpack-react';
+
+type SandpackProps = {
+  children: React.ReactNode;
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
   autorun?: boolean;
   setup?: SandpackSetup;
   showDevTools?: boolean;
@@ -57,6 +68,13 @@ h6 {
   font-size: 12px;
 }
 
+<<<<<<< HEAD
+=======
+code {
+  font-size: 1.2em;
+}
+
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 ul {
   padding-left: 20px;
 }
@@ -65,9 +83,13 @@ ul {
 function SandpackRoot(props: SandpackProps) {
   let {children, setup, autorun = true, showDevTools = false} = props;
   const [devToolsLoaded, setDevToolsLoaded] = React.useState(false);
+<<<<<<< HEAD
   let codeSnippets = React.Children.toArray(children) as React.ReactElement[];
   let isSingleFile = true;
 
+=======
+  const codeSnippets = React.Children.toArray(children) as React.ReactElement[];
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
   const files = createFileMap(codeSnippets);
 
   files['/styles.css'] = {
@@ -76,6 +98,7 @@ function SandpackRoot(props: SandpackProps) {
   };
 
   return (
+<<<<<<< HEAD
     <div className="sandpack-container my-8" translate="no">
       <SandpackProvider
         template="react"
@@ -88,6 +111,26 @@ function SandpackRoot(props: SandpackProps) {
           showDevTools={showDevTools}
           onDevToolsLoad={() => setDevToolsLoaded(true)}
           devToolsLoaded={devToolsLoaded}
+=======
+    <div className="sandpack sandpack--playground sandbox my-8">
+      <SandpackProvider
+        template="react"
+        files={files}
+        customSetup={setup}
+        theme={CustomTheme}
+        options={{
+          autorun,
+          initMode: 'user-visible',
+          initModeObserverOptions: {rootMargin: '1400px 0px'},
+          bundlerURL: 'https://ac83f2d6.sandpack-bundler.pages.dev',
+          logLevel: SandpackLogLevel.None,
+        }}>
+        <CustomPreset
+          showDevTools={showDevTools}
+          onDevToolsLoad={() => setDevToolsLoaded(true)}
+          devToolsLoaded={devToolsLoaded}
+          providedFiles={Object.keys(files)}
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
         />
       </SandpackProvider>
     </div>

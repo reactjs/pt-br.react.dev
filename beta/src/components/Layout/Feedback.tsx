@@ -4,6 +4,7 @@
 
 import * as React from 'react';
 import {useRouter} from 'next/router';
+<<<<<<< HEAD
 // @ts-ignore
 import galite from 'ga-lite';
 
@@ -11,6 +12,14 @@ export function Feedback({onSubmit = () => {}}: {onSubmit?: () => void}) {
   const {pathname} = useRouter();
   // Reset on route changes.
   return <SendFeedback key={pathname} onSubmit={onSubmit} />;
+=======
+import {ga} from '../../utils/analytics';
+
+export function Feedback({onSubmit = () => {}}: {onSubmit?: () => void}) {
+  const {asPath} = useRouter();
+  // Reset on route changes.
+  return <SendFeedback key={asPath} onSubmit={onSubmit} />;
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 }
 
 const thumbsUpIcon = (
@@ -48,7 +57,11 @@ const thumbsDownIcon = (
 function sendGAEvent(isPositive: boolean) {
   // Fragile. Don't change unless you've tested the network payload
   // and verified that the right events actually show up in GA.
+<<<<<<< HEAD
   galite(
+=======
+  ga(
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
     'send',
     'event',
     'button',
@@ -62,7 +75,11 @@ function SendFeedback({onSubmit}: {onSubmit: () => void}) {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   return (
     <div className="max-w-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex">
+<<<<<<< HEAD
       <p className="w-full font-bold text-primary dark:text-primary-dark text-lg">
+=======
+      <p className="w-full font-bold text-primary dark:text-primary-dark text-lg mr-4">
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
         {isSubmitted ? 'Thank you for your feedback!' : 'Is this page useful?'}
       </p>
       {!isSubmitted && (

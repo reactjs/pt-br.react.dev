@@ -6,7 +6,6 @@ import cn from 'classnames';
 import {
   SandpackCodeViewer,
   SandpackProvider,
-  SandpackThemeProvider,
 } from '@codesandbox/sandpack-react';
 import rangeParser from 'parse-numeric-range';
 import {CustomTheme} from '../Sandpack/Themes';
@@ -23,13 +22,19 @@ const CodeBlock = function CodeBlock({
   className = 'language-js',
   metastring,
   noMargin,
+<<<<<<< HEAD
   noMarkers,
+=======
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 }: {
   children: string;
   className?: string;
   metastring: string;
   noMargin?: boolean;
+<<<<<<< HEAD
   noMarkers?: boolean;
+=======
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 }) {
   const getDecoratedLineInfo = () => {
     if (!metastring) {
@@ -70,14 +75,25 @@ const CodeBlock = function CodeBlock({
   const decorators = getDecoratedLineInfo();
   return (
     <div
-      translate="no"
+      key={
+        // HACK: There seems to be a bug where the rendered result
+        // "lags behind" the edits to it. For now, force it to reset.
+        process.env.NODE_ENV === 'development' ? children : ''
+      }
       className={cn(
+        'sandpack sandpack--codeblock',
         'rounded-lg h-full w-full overflow-x-auto flex items-center bg-wash dark:bg-gray-95 shadow-lg',
         !noMargin && 'my-8'
       )}>
       <SandpackProvider
+        files={{
+          [filename]: {
+            code: children.trimEnd(),
+          },
+        }}
         customSetup={{
           entry: filename,
+<<<<<<< HEAD
           files: {
             [filename]: {
               code: children.trimEnd(),
@@ -91,6 +107,18 @@ const CodeBlock = function CodeBlock({
             decorators={decorators}
           />
         </SandpackThemeProvider>
+=======
+        }}
+        options={{
+          initMode: 'immediate',
+        }}
+        theme={CustomTheme}>
+        <SandpackCodeViewer
+          key={children.trimEnd()}
+          showLineNumbers={false}
+          decorators={decorators}
+        />
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
       </SandpackProvider>
     </div>
   );
