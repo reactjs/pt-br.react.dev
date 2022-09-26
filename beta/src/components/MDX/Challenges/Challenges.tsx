@@ -2,15 +2,16 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
+import {Children, useRef, useEffect, useState} from 'react';
 import * as React from 'react';
 import cn from 'classnames';
-import {Button} from 'components/Button';
 import {H2} from 'components/MDX/Heading';
 import {H4} from 'components/MDX/Heading';
+<<<<<<< HEAD
+=======
+import {Challenge} from './Challenge';
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
 import {Navigation} from './Navigation';
-import {IconHint} from '../../Icon/IconHint';
-import {IconSolution} from '../../Icon/IconSolution';
-import {IconArrowSmall} from '../../Icon/IconArrowSmall';
 
 interface ChallengesProps {
   children: React.ReactElement[];
@@ -39,9 +40,9 @@ const parseChallengeContents = (
 
   let challenge: Partial<ChallengeContents> = {};
   let content: React.ReactElement[] = [];
-  React.Children.forEach(children, (child) => {
-    const {props} = child;
-    switch (props.mdxType) {
+  Children.forEach(children, (child) => {
+    const {props, type} = child;
+    switch ((type as any).mdxName) {
       case 'Solution': {
         challenge.solution = child;
         challenge.content = content;
@@ -54,7 +55,7 @@ const parseChallengeContents = (
         challenge.hint = child;
         break;
       }
-      case 'h3': {
+      case 'h4': {
         challenge.order = contents.length + 1;
         challenge.name = props.children;
         challenge.id = props.id;
@@ -76,24 +77,21 @@ export function Challenges({
   titleId = isRecipes ? 'examples' : 'challenges',
 }: ChallengesProps) {
   const challenges = parseChallengeContents(children);
-  const scrollAnchorRef = React.useRef<HTMLDivElement>(null);
+  const totalChallenges = challenges.length;
+  const scrollAnchorRef = useRef<HTMLDivElement>(null);
+  const queuedScrollRef = useRef<boolean>(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const currentChallenge = challenges[activeIndex];
 
-  const [showHint, setShowHint] = React.useState(false);
-  const [showSolution, setShowSolution] = React.useState(false);
-  const [activeChallenge, setActiveChallenge] = React.useState(
-    challenges[0].id
-  );
-
-  const handleChallengeChange = (challengeId: string) => {
-    setShowHint(false);
-    setShowSolution(false);
-    setActiveChallenge(challengeId);
-  };
-
-  const toggleHint = () => {
-    if (showSolution && !showHint) {
-      setShowSolution(false);
+  useEffect(() => {
+    if (queuedScrollRef.current === true) {
+      queuedScrollRef.current = false;
+      scrollAnchorRef.current!.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
     }
+<<<<<<< HEAD
     setShowHint((hint) => !hint);
   };
 
@@ -112,6 +110,14 @@ export function Challenges({
     return order === currentChallenge.order + 1;
   });
 
+=======
+  });
+
+  const handleChallengeChange = (index: number) => {
+    setActiveIndex(index);
+  };
+
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
   const Heading = isRecipes ? H4 : H2;
   return (
     <div className="max-w-7xl mx-auto py-4">
@@ -130,7 +136,11 @@ export function Challenges({
             )}>
             {titleText}
           </Heading>
+<<<<<<< HEAD
           {challenges.length > 1 && (
+=======
+          {totalChallenges > 1 && (
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
             <Navigation
               currentChallenge={currentChallenge}
               challenges={challenges}
@@ -139,6 +149,7 @@ export function Challenges({
             />
           )}
         </div>
+<<<<<<< HEAD
         <div className="p-5 sm:py-8 sm:px-8">
           <div key={activeChallenge}>
             <h3 className="text-xl text-primary dark:text-primary-dark mb-2">
@@ -237,6 +248,19 @@ export function Challenges({
             </div>
           )}
         </div>
+=======
+        <Challenge
+          key={currentChallenge.id}
+          isRecipes={isRecipes}
+          currentChallenge={currentChallenge}
+          totalChallenges={totalChallenges}
+          hasNextChallenge={activeIndex < totalChallenges - 1}
+          handleClickNextChallenge={() => {
+            setActiveIndex((i) => i + 1);
+            queuedScrollRef.current = true;
+          }}
+        />
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export function Footer() {
   const socialLinkClasses = 'hover:text-primary dark:text-primary-dark';
   return (
     <>
-      <div className="self-stretch w-full sm:pl-0 lg:pl-80 sm:pr-0 2xl:pr-80 pl-0 pr-0">
+      <div className="self-stretch w-full">
         <div className="mx-auto w-full px-5 sm:px-12 md:px-12 pt-10 md:pt-12 lg:pt-10">
           <hr className="max-w-7xl mx-auto border-border dark:border-border-dark" />
         </div>
@@ -89,11 +89,19 @@ export function Footer() {
               </FooterLink>
             </div>
             <div className="flex flex-col">
+<<<<<<< HEAD
               <FooterLink href="/apis" isHeader={true}>
                 API Reference
               </FooterLink>
               <FooterLink href="/apis">React APIs</FooterLink>
               <FooterLink href="/apis/reactdom">React DOM APIs</FooterLink>
+=======
+              <FooterLink href="/apis/react" isHeader={true}>
+                API Reference
+              </FooterLink>
+              <FooterLink href="/apis/react">React APIs</FooterLink>
+              <FooterLink href="/apis/react-dom">React DOM APIs</FooterLink>
+>>>>>>> e3073b03a5b9eff4ef12998841b9e56120f37e26
             </div>
             <div className="flex flex-col sm:col-start-2 xl:col-start-4">
               <FooterLink href="/" isHeader={true}>
@@ -108,6 +116,7 @@ export function Footer() {
               <FooterLink href="/community/meet-the-team">
                 Meet the Team
               </FooterLink>
+              <FooterLink href="https://reactjs.org/blog">Blog</FooterLink>
               {/* <FooterLink href="/">Community Resources</FooterLink> */}
             </div>
             <div className="flex flex-col">
