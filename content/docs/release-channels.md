@@ -53,13 +53,13 @@ Se você é o autor de um projeto de terceiros como um framework, biblioteca, fe
 - Configure um cron job usando sua plataforma de integração contínua preferida. Cron jobs são suportados ambos pelo [CircleCI](https://circleci.com/docs/2.0/triggers/#scheduled-builds) e pelo [Travis CI](https://docs.travis-ci.com/user/cron-jobs/).
 - No cron job, atualize seus pacotes React para o release mais recente do React no canal Next, usando a tag `next` no npm. Usando o npm cli:
 
-  ```
+  ```console
   npm update react@next react-dom@next
   ```
 
   Ou yarn:
 
-  ```
+  ```console
   yarn upgrade react@next react-dom@next
   ```
 - Execute sua suíte de testes nos pacotes atualizados.
