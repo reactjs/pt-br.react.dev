@@ -6,14 +6,22 @@ category: Reference
 permalink: docs/javascript-environment-requirements.html
 ---
 
+<<<<<<< HEAD
 O React 16 depende de uma coleção de tipos [Map](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Map) e [Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set). Se você precisa manter o suporte para navegadores antigos e dispositivos que podem não disponibilizar esses recursos (ex. IE < 11) ou tenham uma implementação que não seja padrão (ex. IE 11), considere incluir um polyfill global no bundle de sua aplicação, tal como o pacote [core-js](https://github.com/zloirock/core-js).
 
 Um ambiente com polyfill incluido para o React 16, usando core-js para prestar suporte a navegadores antigos, pode parecer assim:
+=======
+React 18 supports all modern browsers (Edge, Firefox, Chrome, Safari, etc).
 
-```js
-import 'core-js/es/map';
-import 'core-js/es/set';
+If you support older browsers and devices such as Internet Explorer which do not provide modern browser features natively or have non-compliant implementations, consider including a global polyfill in your bundled application.
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 
+Here is a list of the modern features React 18 uses:
+- [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [`Symbol`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+- [`Object.assign`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -29,3 +37,6 @@ Você pode usar o pacote [raf](https://www.npmjs.com/package/raf) como substitut
 ```js
 import 'raf/polyfill';
 ```
+=======
+The correct polyfill for these features depend on your environment. For many users, you can configure your [Browserlist](https://github.com/browserslist/browserslist) settings. For others, you may need to import polyfills like [`core-js`](https://github.com/zloirock/core-js) directly.
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27

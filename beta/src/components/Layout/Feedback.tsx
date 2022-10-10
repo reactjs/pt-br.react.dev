@@ -2,6 +2,7 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
+<<<<<<< HEAD
 import * as React from 'react';
 import {useRouter} from 'next/router';
 // @ts-ignore
@@ -11,6 +12,16 @@ export function Feedback({onSubmit = () => {}}: {onSubmit?: () => void}) {
   const {pathname} = useRouter();
   // Reset on route changes.
   return <SendFeedback key={pathname} onSubmit={onSubmit} />;
+=======
+import {useState} from 'react';
+import {useRouter} from 'next/router';
+import {ga} from '../../utils/analytics';
+
+export function Feedback({onSubmit = () => {}}: {onSubmit?: () => void}) {
+  const {asPath} = useRouter();
+  // Reset on route changes.
+  return <SendFeedback key={asPath} onSubmit={onSubmit} />;
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
 }
 
 const thumbsUpIcon = (
@@ -48,7 +59,11 @@ const thumbsDownIcon = (
 function sendGAEvent(isPositive: boolean) {
   // Fragile. Don't change unless you've tested the network payload
   // and verified that the right events actually show up in GA.
+<<<<<<< HEAD
   galite(
+=======
+  ga(
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
     'send',
     'event',
     'button',
@@ -59,10 +74,17 @@ function sendGAEvent(isPositive: boolean) {
 }
 
 function SendFeedback({onSubmit}: {onSubmit: () => void}) {
+<<<<<<< HEAD
   const [isSubmitted, setIsSubmitted] = React.useState(false);
   return (
     <div className="max-w-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex">
       <p className="w-full font-bold text-primary dark:text-primary-dark text-lg">
+=======
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  return (
+    <div className="max-w-xs w-80 lg:w-auto py-3 shadow-lg rounded-lg m-4 bg-wash dark:bg-gray-95 px-4 flex">
+      <p className="w-full font-bold text-primary dark:text-primary-dark text-lg mr-4">
+>>>>>>> d07016aea812d26c60252a952bff7ae3e70bde27
         {isSubmitted ? 'Thank you for your feedback!' : 'Is this page useful?'}
       </p>
       {!isSubmitted && (
