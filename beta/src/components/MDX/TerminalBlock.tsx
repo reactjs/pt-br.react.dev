@@ -2,6 +2,7 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
+import {isValidElement, useState, useEffect} from 'react';
 import * as React from 'react';
 import {IconTerminal} from '../Icon/IconTerminal';
 import {IconCopy} from 'components/Icon/IconCopy';
@@ -29,14 +30,21 @@ function TerminalBlock({level = 'info', children}: TerminalBlockProps) {
   if (typeof children === 'string') {
     message = children;
   } else if (
-    React.isValidElement(children) &&
+    isValidElement(children) &&
     typeof children.props.children === 'string'
   ) {
     message = children.props.children;
+  } else {
+    throw Error('Expected TerminalBlock children to be a plain string.');
   }
 
+<<<<<<< HEAD
   const [copied, setCopied] = React.useState(false);
   React.useEffect(() => {
+=======
+  const [copied, setCopied] = useState(false);
+  useEffect(() => {
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
     if (!copied) {
       return;
     } else {

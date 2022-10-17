@@ -134,7 +134,11 @@ var SayHello = createReactClass({
 
 Isso significa que escrever classes ES6 necessita um pouco mais de código boilerplate para controladores de eventos. Por outro lado, é levemente mais performático em aplicações de larga escala.
 
+<<<<<<< HEAD
 Se você acha que código boilerplate pouco atraente, você pode ativar a proposta de [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) **experimentais** com Babel:
+=======
+If the boilerplate code is too unattractive to you, you may use [ES2022 Class Properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) syntax:
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
 
 
 ```javascript
@@ -143,11 +147,16 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Hello!'};
   }
+<<<<<<< HEAD
   // AVISO: essa sintaxe é experimental!
   // Usar uma arrow function aqui já faz bind do método
+=======
+  
+  // Using an arrow here binds the method:
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
   handleClick = () => {
     alert(this.state.message);
-  }
+  };
 
   render() {
     return (
@@ -159,9 +168,13 @@ class SayHello extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Por favor, notem que a sintaxe acima é **experimental** e que a sintaxe pode mudar ou ainda, a proposta pode não ser implementada na linguagem.
 
 Se você prefere jogar seguro, você tem algumas opções:
+=======
+You also have a few other options:
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
 
 * Fazer bind do método no construtor.
 * Usar arrow functions, e.g. `onClick={(e) => this.handleClick(e)}`.
@@ -216,10 +229,8 @@ var TickTock = createReactClass({
   }
 });
 
-ReactDOM.render(
-  <TickTock />,
-  document.getElementById('example')
-);
+const root = ReactDOM.createRoot(document.getElementById('example'));
+root.render(<TickTock />);
 ```
 
 Se um componente está usando múltiplos mixins e diversos desses mixins definem o mesmo lifecycle method (por ex. diversos mixins querem fazer uma limpeza quando um componente é destruído), todos os lifecycle methods terão garantia de serem chamados. Métodos definidos em um mixin são executados na ordem em que foram listados, seguidos por uma chamada de método no componente.
