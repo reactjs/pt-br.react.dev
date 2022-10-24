@@ -32,10 +32,15 @@ O reconciliador em si não possui uma API pública. [Renderizadores](/docs/codeb
 Vamos considerar a primeira vez que você monta um componente:
 
 ```js
-ReactDOM.render(<App />, rootEl);
+const root = ReactDOM.createRoot(rootEl);
+root.render(<App />);
 ```
 
+<<<<<<< HEAD
 O React DOM passará `<App />` para o reconciliador. Lembre-se que `<App />` é um elemento React, isto é, uma descrição *do quê* renderizar. Você pode pensar nele como um simples objeto:
+=======
+`root.render` will pass `<App />` along to the reconciler. Remember that `<App />` is a React element, that is, a description of *what* to render. You can think about it as a plain object:
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 
 ```js
 console.log(<App />);
@@ -236,9 +241,15 @@ Isto funciona mas ainda está longe de como o reconciliador é realmente impleme
 A característica principal do React é que você pode re-renderizar tudo, e ele não irá recriar o DOM ou resetar o estado.
 
 ```js
+<<<<<<< HEAD
 ReactDOM.render(<App />, rootEl);
 // Deve reutilizar o DOM existente:
 ReactDOM.render(<App />, rootEl);
+=======
+root.render(<App />);
+// Should reuse the existing DOM:
+root.render(<App />);
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 ```
 
 Contudo, a nossa implementação acima apenas sabe como montar a árvore inicial. Ela não executa atualizações na árvore pois não armazena todas as informações necessárias, como todas as `publicInstance`s, ou quais nós do DOM correspondem a qual componente.
@@ -412,7 +423,11 @@ Se você está tendo dificuldades para imaginar como uma árvore de instâncias 
 
  <img src="../images/docs/implementation-notes-tree.png" width="500" style="max-width: 100%" alt="React DevTools tree" />
 
+<<<<<<< HEAD
 Para completar essa refatoração, nós vamos introduzir a função que monta a árvore completa em um nó contêiner, assim como faz `ReactDOM.render()`. Ela retorna uma instância pública, também como `ReactDOM.render()` faz.
+=======
+To complete this refactoring, we will introduce a function that mounts a complete tree into a container node and a public instance:
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 
 ```js
 function mountTree(element, containerNode) {

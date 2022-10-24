@@ -408,7 +408,11 @@ Certifique-se de que todo o texto legível em seu site tenha contraste de cores 
 - [Everything About Color Contrast And Why You Should Rethink It](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - What is Color Contrast](https://a11yproject.com/posts/what-is-color-contrast/)
 
+<<<<<<< HEAD
 Pode ser entediante calcular manualmente as combinações de cores adequadas para todos os casos em seu site. Em vez disso, você pode [calcular uma paleta de cores inteira acessível com Colorable](https://jxnblk.com/colorable/).
+=======
+It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://colorable.jxnblk.com/).
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 
 As ferramentas abaixo aXe e WAVE incluem testes de contraste de cores e relatam erros de contraste.
 

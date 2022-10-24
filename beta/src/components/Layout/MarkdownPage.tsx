@@ -3,30 +3,37 @@
  */
 
 import * as React from 'react';
+<<<<<<< HEAD
 // @ts-ignore
 import {MDXContext} from '@mdx-js/react';
+=======
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
 import {DocsPageFooter} from 'components/DocsFooter';
-import {MDXComponents} from 'components/MDX/MDXComponents';
 import {Seo} from 'components/Seo';
 import PageHeading from 'components/PageHeading';
 import {useRouteMeta} from './useRouteMeta';
-import {Toc} from './Toc';
+import {TocContext} from '../MDX/TocContext';
+
+import(/* webpackPrefetch: true */ '../MDX/CodeBlock/CodeBlock');
+
 export interface MarkdownProps<Frontmatter> {
   meta: Frontmatter & {description?: string};
   children?: React.ReactNode;
-}
-
-function MaxWidth({children}: {children: any}) {
-  return <div className="max-w-4xl ml-0 2xl:mx-auto">{children}</div>;
+  toc: Array<{
+    url: string;
+    text: React.ReactNode;
+    depth: number;
+  }>;
 }
 
 export function MarkdownPage<
   T extends {title: string; status?: string} = {title: string; status?: string}
->({children, meta}: MarkdownProps<T>) {
+>({children, meta, toc}: MarkdownProps<T>) {
   const {route, nextRoute, prevRoute} = useRouteMeta();
   const title = meta.title || route?.title || '';
   const description = meta.description || route?.description || '';
 
+<<<<<<< HEAD
   let anchors: Array<{
     url: string;
     text: React.ReactNode;
@@ -72,10 +79,13 @@ export function MarkdownPage<
     });
   }
 
+=======
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
   if (!route) {
     console.error('This page was not added to one of the sidebar JSON files.');
   }
   const isHomePage = route?.path === '/';
+<<<<<<< HEAD
 
   // Auto-wrap everything except a few types into
   // <MaxWidth> wrappers. Keep reusing the same
@@ -115,9 +125,11 @@ export function MarkdownPage<
   React.Children.forEach(children, handleChild);
   flushWrapper('last');
 
+=======
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
   return (
-    <article className="h-full mx-auto relative w-full min-w-0">
-      <div className="lg:pt-0 pt-20 pl-0 lg:pl-80 2xl:px-80 ">
+    <>
+      <div className="pl-0">
         <Seo title={title} />
         {!isHomePage && (
           <PageHeading
@@ -128,9 +140,13 @@ export function MarkdownPage<
         )}
         <div className="px-5 sm:px-12">
           <div className="max-w-7xl mx-auto">
+<<<<<<< HEAD
             <MDXContext.Provider value={MDXComponents}>
               {finalChildren}
             </MDXContext.Provider>
+=======
+            <TocContext.Provider value={toc}>{children}</TocContext.Provider>
+>>>>>>> d483aebbac6d3c8f059b52abf21240bc91d0b96e
           </div>
           <DocsPageFooter
             route={route}
@@ -139,9 +155,6 @@ export function MarkdownPage<
           />
         </div>
       </div>
-      <div className="w-full lg:max-w-xs hidden 2xl:block">
-        {!isHomePage && anchors.length > 0 && <Toc headings={anchors} />}
-      </div>
-    </article>
+    </>
   );
 }
