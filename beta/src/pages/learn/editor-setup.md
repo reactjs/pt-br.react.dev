@@ -16,7 +16,7 @@ Outros editores de texto populares usados na comunidade React incluem:
 
 * [WebStorm](https://www.jetbrains.com/webstorm/)—um ambiente de desenvolvimento integrado desenvolvido especificamente para JavaScript.
 * [Sublime Text](https://www.sublimetext.com/)—tem suporte para JSX e TypeScript, [syntax highlighting](https://stackoverflow.com/a/70960574/458193) e auto-completar incorporados.
-* [Vim](https://www.vim.org/)—um editor de texto altamente configurável construído para tornar a criação e modificação de qualquer tipo de texto muito eficiente. Ele está incluído como "vi" na maioria dos sistemas UNIX e com o Apple OS X.
+* [Vim](https://www.vim.org/)—um editor de texto altamente configurável construído para tornar a criação e modificação de qualquer tipo de texto muito eficiente. Ele está incluído como "vi" na maioria dos sistemas UNIX e no Apple OS X.
 
 ## Funcionalidades recomendadas do editor de texto {/*recommended-text-editor-features*/}
 
