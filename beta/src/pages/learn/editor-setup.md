@@ -37,7 +37,7 @@ Você pode instalar a extensão [Prettier extensão no VSCode](https://marketpla
 
 1. Inicie o VS Code
 2. Use a Abertura Rápida (pressione `CTRL/CMD + P`)
-3. Colar em `ext install esbenp.prettier-vscode`
+3. Colar `ext install esbenp.prettier-vscode`
 4. Pressione enter
 
 #### Formatação ao salvar {/*formatting-on-save*/}
