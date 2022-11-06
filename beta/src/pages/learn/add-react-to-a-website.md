@@ -5,19 +5,16 @@ title: Add React to a Website
 <Intro>
 O React foi projetado desde o início para adoção gradual, e você pode usar o mínimo ou o máximo de React que precisar. Esteja você trabalhando com micro-frontends, um sistema existente ou apenas experimentando o React, você pode começar adicionando componentes interativos do React a uma página HTML com apenas algumas linhas de código - e sem ferramentas de compilação!
 
-<!-- React has been designed from the start for gradual adoption, and you can use as little or as much React as you need. Whether you're working with micro-frontends, an existing system, or just giving React a try, you can start adding interactive React components to an HTML page with just a few lines of code—and no build tooling! -->
-
 </Intro>
 
-## Adicione React em um minuto {/*add-react-in-one-minute*/}
+## Adicione React em um minuto 
 
 Você pode adicionar um componente React a uma página HTML existente em menos de um minuto. Experimente isso com seu próprio site ou [um arquivo HTML vazio](https://gist.github.com/rachelnabors/7b33305bf33776354797a2e3c1445186/archive/859eac2f7079c9e1f0a6eb818a9684a464064d80.zip) — tudo que você precisa é uma conexão com a internet e um editor de texto como o Bloco de Notas (ou VSCode - confira nosso guia em [como configurar o seu](/learn/editor-setup/))!
 
-### Etapa 1: adicionar um elemento ao HTML {/*step-1-add-an-element-to-the-html*/}
+### Etapa 1: adicionar um elemento ao HTML 
 
 Na página HTML que você deseja editar, adicione um elemento HTML como uma tag `<div>` vazia com um id exclusivo para marcar o local onde você deseja exibir algo com React.
 
-<!-- You can place a "container" element like this `<div>` anywhere inside the `<body>` tag. React will replace any existing content inside HTML elements, so they are usually empty. You can have as many of these HTML elements on one page as you need. -->
 
 ```html {3}
 <!-- ... existing HTML ... -->
@@ -27,7 +24,7 @@ Na página HTML que você deseja editar, adicione um elemento HTML como uma tag 
 <!-- ... existing HTML ... -->
 ```
 
-### Etapa 2: adicionar as tags de script {/*step-2-add-the-script-tags*/}
+### Etapa 2: adicionar as tags de script {/
 
 Na página HTML, logo antes da tag de fechamento `</body>` tag, adicione três tags `<script>` para os seguintes arquivos:
 
@@ -49,7 +46,7 @@ Quando adicionar, substitua "development.js" com "production.min.js".
 </body>
 ```
 
-### Etapa 3: criar um componente React {/*step-3-create-a-react-component*/}
+### Etapa 3: criar um componente React
 
 Crie um arquivo chamado **like_button.js** ao lado de sua página HTML, adicione este snippet de código e salve o arquivo. Este código define um componente React chamado `LikeButton`. [Você pode aprender mais sobre como fazer componentes em nossos guias.](/learn/your-first-component)
 
@@ -73,7 +70,7 @@ function LikeButton() {
 }
 ```
 
-### Etapa 4: adicione seu componente React à página {/*step-4-add-your-react-component-to-the-page*/}
+### Etapa 4: adicione seu componente React à página
 
 Por fim, adicione duas linhas na parte inferior de **like_button.js**. Essas duas linhas de código encontram o `<div>` que você adicionou ao seu HTML na primeira etapa e, em seguida, exibem o botão "Curtir" do componente React dentro dele.
 
@@ -87,7 +84,7 @@ ReactDOM.render(React.createElement(LikeButton), domContainer);
 - [Veja o código-fonte completo do exemplo](https://gist.github.com/rachelnabors/c64b3aeace8a191cf5ea6fb5202e66c9)
 - [Baixe o exemplo completo (2KB compactado)](https://gist.github.com/rachelnabors/c64b3aeace8a191cf5ea6fb5202e66c9/archive/7b41a88cb1027c9b5d8c6aff5212ecd3d0493504.zip)
 
-#### Você pode reutilizar componentes! {/*you-can-reuse-components*/}
+#### Você pode reutilizar componentes!
 
 Você pode querer exibir um componente React em vários lugares na mesma página HTML. Isso é mais útil enquanto as partes da página com React estão isoladas umas das outras. Você pode fazer isso chamando `ReactDOM.render()` várias vezes com vários elementos de contêiner.
 
@@ -108,7 +105,7 @@ ReactDOM.render(
 
 Verificação de saída [um exemplo que exibe o botão "Curtir" três vezes e passa alguns dados para ele](https://gist.github.com/rachelnabors/c0ea05cc33fbe75ad9bbf78e9044d7f8)!
 
-### Etapa 5: otimize o JavaScript para produção {/*step-5-minify-javascript-for-production*/}
+### Etapa 5: otimize o JavaScript para produção 
 
 O JavaScript não Otimizado pode diminuir significativamente o tempo de carregamento da página para seus usuários. Antes de implantar seu site em produção, é uma boa ideia reduzir seus scripts.
 
@@ -120,7 +117,7 @@ O JavaScript não Otimizado pode diminuir significativamente o tempo de carregam
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 ```
 
-## Experimente o React com JSX {/*try-react-with-jsx*/}
+## Experimente o React com JSX 
 
 Os exemplos acima contam com recursos que são suportados nativamente pelos navegadores. É por isso que **like_button.js** usa uma chamada de função JavaScript para dizer ao React o que exibir:
 
@@ -139,8 +136,7 @@ Esses dois trechos de código são equivalentes. JSX é uma sintaxe popular para
 
 > Você pode brincar com a transformação da marcação HTML em JSX usando [este conversor online](https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwIwrgLhD2B2AEcDCAbAlgYwNYF4DeAFAJTw4B88EAFmgM4B0tAphAMoQCGETBe86WJgBMAXJQBOYJvAC-RGWQBQ8FfAAyaQYuAB6cFDhkgA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.3).
 
-### Experimente o JSX {/*try-jsx*/}
-
+### Experimente o JSX
 A maneira mais rápida de experimentar o JSX em seu projeto é adicionar o compilador Babel ao `<head>` da sua página junto com React e ReactDOM assim:
 
 ```html {6}
@@ -194,7 +190,7 @@ Aqui está [um arquivo HTML de exemplo com JSX](https://raw.githubusercontent.co
 
 Essa abordagem é boa para aprender e criar demos simples. No entanto, isso torna seu site lento e **não é adequado para produção**. Quando estiver pronto para seguir em frente, remova esta nova tag `<script>` e os atributos `type="text/babel"` que você adicionou. Em vez disso, na próxima seção, você configurará um pré-processador JSX para converter todas as suas tags `<script>` automaticamente.
 
-### Adicionar JSX a um projeto {/*add-jsx-to-a-project*/}
+### Adicionar JSX a um projeto
 Adicionar JSX a um projeto não requer ferramentas complicadas como um [bundler](/learn/start-a-new-react-project#custom-toolchains) ou um servidor de desenvolvimento. Adicionar um pré-processador JSX é muito parecido com adicionar um pré-processador CSS.
 
 Vá para a pasta do seu projeto no terminal e cole estes dois comandos (**Certifique-se de ter o [Node.js](https://nodejs.org/) instalado!**):
@@ -206,7 +202,7 @@ Você só precisa do npm para instalar o pré-processador JSX. Você não vai pr
 
 Parabéns! Você acabou de adicionar uma **configuração JSX pronta para produção** ao seu projeto.
 
-### Execute o pré-processador JSX {/*run-the-jsx-preprocessor*/}
+### Execute o pré-processador JSX
 
 Você pode pré-processar o JSX para que toda vez que salvar um arquivo com JSX nele, a transformação seja executada novamente, convertendo o arquivo JSX em um novo arquivo JavaScript simples.
 
