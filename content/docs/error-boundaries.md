@@ -66,7 +66,11 @@ Note que **as error boundaries apenas capturam erros nos componentes abaixo dela
 
 ## Demonstração ao vivo {#live-demo}
 
+<<<<<<< HEAD
 Veja [este exemplo de como declarar e usar uma error boundary](https://codepen.io/gaearon/pen/wqvxGa?editors=0010) com [React 16](/blog/2017/09/26/react-v16.0.html).
+=======
+Check out [this example of declaring and using an error boundary](https://codepen.io/gaearon/pen/wqvxGa?editors=0010).
+>>>>>>> 822330c3dfa686dbb3424886abce116f20ed20e6
 
 
 ## Onde colocar error boundaries {#where-to-place-error-boundaries}
