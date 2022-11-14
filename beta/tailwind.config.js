@@ -68,6 +68,14 @@ module.exports = {
         code: 'calc(1em - 20%)',
       },
       colors,
+<<<<<<< HEAD
+=======
+      gridTemplateColumns: {
+        'only-content': 'auto',
+        'sidebar-content': '20rem auto',
+        'sidebar-content-toc': '20rem auto 20rem',
+      },
+>>>>>>> 3bba430b5959c2263c73f0d05d46e2c99c972b1c
     },
   },
   plugins: [],
