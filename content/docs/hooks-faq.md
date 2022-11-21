@@ -97,9 +97,13 @@ Você não pode usar Hooks *dentro* de um componente classe, mas você definitiv
 
 Nosso objetivo é que Hooks cubra todos os casos de uso o mais rápido possível. Ainda não há Hook equivalente para os ciclos de vida `getSnapshotBeforeUpdate`, `getDerivedStateFromError` e `componentDidCatch`, que são mais incomuns, mas planejamos adiciona-los em breve.
 
+<<<<<<< HEAD
 ### Hooks substituem render props e HOC (componente de alta-ordem, do inglês *high-order component*)? {#do-hooks-replace-render-props-and-higher-order-components}
 
 Frequentemente, render props e HOC renderizam somente um filho. Nós achamos que Hooks são uma maneira mais simples de atender esse caso de uso. Ainda existe lugar para ambos os padrões (por exemplo, um componente de scroll virtual talvez tenha uma prop `renderItem`, ou um container visual talvez tenha sua própria estrutura DOM). Mas na maioria dos casos, Hooks serão suficiente e podem ajudar a reduzir o aninhamento na sua árvore.
+=======
+### Do Hooks replace render props and higher-order components? {#do-hooks-replace-render-props-and-higher-order-components}
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 ### O que Hooks significam para APIs populares como o `connect()` do Redux e o React Router? {#what-do-hooks-mean-for-popular-apis-like-redux-connect-and-react-router}
 
@@ -148,7 +152,7 @@ Nós vamos testa-lo usando React DOM. Para garantir que o comportamento correspo
 
 ```js{3,20-22,29-31}
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import Counter from './Counter';
 
@@ -167,7 +171,7 @@ afterEach(() => {
 it('can render and update a counter', () => {
   // Testa a primeira renderização e efeito
   act(() => {
-    ReactDOM.render(<Counter />, container);
+    ReactDOM.createRoot(container).render(<Counter />);
   });
   const button = container.querySelector('button');
   const label = container.querySelector('p');
@@ -331,31 +335,30 @@ Esse é um caso de uso raro. Se você precisar, você pode [usar uma ref mutáve
 
 ### Como acessar as props ou o estado anterior? {#how-to-get-the-previous-props-or-state}
 
+<<<<<<< HEAD
 Atualmente, você pode fazer isso manualmente [com uma ref](#is-there-something-like-instance-variables):
+=======
+There are two cases in which you might want to get previous props or state.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
-```js{6,8}
-function Counter() {
-  const [count, setCount] = useState(0);
+Sometimes, you need previous props to **clean up an effect.** For example, you might have an effect that subscribes to a socket based on the `userId` prop. If the `userId` prop changes, you want to unsubscribe from the _previous_ `userId` and subscribe to the _next_ one. You don't need to do anything special for this to work:
 
-  const prevCountRef = useRef();
-  useEffect(() => {
-    prevCountRef.current = count;
-  });
-  const prevCount = prevCountRef.current;
-
-  return <h1>Now: {count}, before: {prevCount}</h1>;
-}
+```js
+useEffect(() => {
+  ChatAPI.subscribeToSocket(props.userId);
+  return () => ChatAPI.unsubscribeFromSocket(props.userId);
+}, [props.userId]);
 ```
 
+<<<<<<< HEAD
 Isso pode ser um pouco confuso mas você pode extrair para um Hook customizado:
+=======
+In the above example, if `userId` changes from `3` to `4`, `ChatAPI.unsubscribeFromSocket(3)` will run first, and then `ChatAPI.subscribeToSocket(4)` will run. There is no need to get "previous" `userId` because the cleanup function will capture it in a closure.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
-```js{3,7}
-function Counter() {
-  const [count, setCount] = useState(0);
-  const prevCount = usePrevious(count);
-  return <h1>Now: {count}, before: {prevCount}</h1>;
-}
+Other times, you might need to **adjust state based on a change in props or other state**. This is rarely needed and is usually a sign you have some duplicate or redundant state. However, in the rare case that you need this pattern, you can [store previous state or props in state and update them during rendering](#how-do-i-implement-getderivedstatefromprops).
 
+<<<<<<< HEAD
 function usePrevious(value) {
   const ref = useRef();
   useEffect(() => {
@@ -379,6 +382,9 @@ function Counter() {
 É possível que no futuro o React forneça um Hook `usePrevious` pois esse é um caso de uso relativamente comum.
 
 Veja também [o padrão recomendado para estado derivado](#how-do-i-implement-getderivedstatefromprops).
+=======
+We have previously suggested a custom Hook called `usePrevious` to hold the previous value. However, we've found that most use cases fall into the two patterns described above. If your use case is different, you can [hold a value in a ref](#is-there-something-like-instance-variables) and manually update it when needed. Avoid reading and updating refs during rendering because this makes your component's behavior difficult to predict and understand.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 ### Por que estou vendo props obsoletos ou state dentro da minha função? {#why-am-i-seeing-stale-props-or-state-inside-my-function}
 
