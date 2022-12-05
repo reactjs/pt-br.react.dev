@@ -30,7 +30,13 @@ permalink: community/courses.html
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Pequenos vídeos instrutivos sobre React e muitos outros tópicos.
 
+<<<<<<< HEAD
 - [Frontend Masters](https://frontendmasters.com/learn/react/) - Cursos em vídeo de React.
+=======
+- [Meta Front-End Developer Professional Certificate](https://www.coursera.org/professional-certificates/meta-front-end-developer) - Launch your career as a front-end developer. Build job-ready skills for an in-demand career and earn a credential from Meta. No degree or prior experience required to get started.
+
+- [Egghead.io](https://egghead.io/browse/frameworks/react) - Short instructional videos on React and many other topics.
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 - [Fullstack React](https://www.fullstackreact.com/) - Um guia completo e atualizado de React e suas usabilidades.
 
@@ -48,7 +54,11 @@ permalink: community/courses.html
 
 - [Tyler McGinnis](https://ui.dev/) - Tyler McGinnis fornece acesso aos seus cursos por uma taxa mensal. Os cursos incluem "React Fundamentals" e "Universal React".
 
+<<<<<<< HEAD
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construa apps interativos e profissionais com o React.
+=======
+- [Tyler McGinnis](https://ui.dev/) - Tyler McGinnis provides access to his courses for a monthly fee. Courses include "React Fundamentals" and "Universal React".
+>>>>>>> cb9854a54984ef1288a8a2b8754897b15e75f433
 
 - [React Tutorial](https://react-tutorial.app) - Aprenda React passo a passo em um ambiente interativo com flashcards.
 

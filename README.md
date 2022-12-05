@@ -8,7 +8,7 @@ This repo contains the source code and documentation powering [pt-br.reactjs.org
 
 1. Git
 1. Node: any 12.x version starting with v12.0.0 or greater
-1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
+1. Yarn v1: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
 1. A fork of the repo (for any contributions)
 1. A clone of the [pt-br.reactjs.org repo](https://github.com/reactjs/pt-br.reactjs.org) on your local machine
 
@@ -66,4 +66,4 @@ If your language does not have a translation and you would like to create one, p
 - `yarn reset` to clear the local cache
 
 ## License
-Content submitted to [reactjs.org](https://reactjs.org/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/open-source-explorer/reactjs.org/blob/master/LICENSE-DOCS.md) file.
+Content submitted to [reactjs.org](https://reactjs.org/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](LICENSE-DOCS.md) file.
