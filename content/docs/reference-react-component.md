@@ -56,7 +56,11 @@ Estes métodos são chamados na seguinte ordem quando uma instância de um compo
 
 >Nota:
 >
+<<<<<<< HEAD
 >Estes métodos são considerados legado e você deve [evitá-los](/blog/2018/03/27/update-on-async-rendering.html) em código novo:
+=======
+>This method is considered legacy and you should [avoid it](/blog/2018/03/27/update-on-async-rendering.html) in new code:
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
@@ -130,8 +134,16 @@ Quando chamado, ele examina `this.props` e `this.state` e retorna um dos seguint
 - **String e números.** Estes são renderizados como nós de texto no DOM.
 - **Booleanos ou `null`**. Não renderizam nada.(A maioria existe para suportar  o padrão `return test && <Child />` , onde `test` é um booleano.)
 
+<<<<<<< HEAD
 A função `render()` deve ser pura, o que significa que ela não modifica o state. Pois, ela retorna o mesmo resultado a cada vez que é chamada e isso não interage diretamente com o browser.
 Se você precisar interagir com o browser, faça isto no método `componentDidMount()` ou em outros métodos do ciclo de vida. Manter `render()` puro faz com que os componentes sejam fáceis de se trabalhar.
+=======
+- **React elements.** Typically created via [JSX](/docs/introducing-jsx.html). For example, `<div />` and `<MyComponent />` are React elements that instruct React to render a DOM node, or another user-defined component, respectively.
+- **Arrays and fragments.** Let you return multiple elements from render. See the documentation on [fragments](/docs/fragments.html) for more details.
+- **Portals**. Let you render children into a different DOM subtree. See the documentation on [portals](/docs/portals.html) for more details.
+- **String and numbers.** These are rendered as text nodes in the DOM.
+- **Booleans or `null` or `undefined`**. Render nothing. (Mostly exists to support `return test && <Child />` pattern, where `test` is boolean).
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 
 > Nota
@@ -508,12 +520,16 @@ Existem apenas dois deles: `setState()` e `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater, [callback])
+setState(updater[, callback])
 ```
 
 `setState()` enfileira mudanças ao *state* do componente e diz ao React que este componente e seus componentes filho precisam ser re-renderizados com a atualização do *state*. Este é o principal método que você utiliza para atualizar a UI em resposta a *event handlers* e à resposta de servidores.
 
+<<<<<<< HEAD
 Pense em `setState()` como uma *requisição* ao invés de um comando imediato para atualizar o componente. Para uma melhoria na performance, o React pode atrasar a atualização, e então atualizar diversos componentes numa só leva. O React não garante que as mudanças no *state* são aplicadas imediatamente.
+=======
+Think of `setState()` as a *request* rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. In the rare case that you need to force the DOM update to be applied synchronously, you may wrap it in [`flushSync`](/docs/react-dom.html#flushsync), but this may hurt performance.
+>>>>>>> c883f623d597852b49f9314bb8133442ef9d3298
 
 `setState()` nem sempre atualiza o componente imediatamente. Ele pode adiar a atualização para mais tarde. Isto torna a leitura de `this.state` logo após chamar `setState()` uma potencial cilada. Como alternativa, utilize `componentDidUpdate` ou o *callback* de `setState` (`setState(updater, callback)`), ambos possuem a garantia de dispararem após a aplicação da atualização. Se você precisa definir o *state* baseado no *state* anterior, leia sobre o argumento `updater` abaixo.
 
