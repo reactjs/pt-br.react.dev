@@ -39,6 +39,10 @@ Sob o capô, o mixin implementa o [shouldComponentUpdate](/docs/component-specs.
 
 > Nota:
 >
+<<<<<<< HEAD
 > Isso apenas compara superficialmente os objetos. Se estes contiverem estruturas de dados complexas, podem produzir falsos negativos para diferenças mais profundas. Apenas misture em componentes que tenham props e estado simples, ou use `forceUpdate()` quando você souber que estruturas de dados profundas foram alteradas. Ou considere usar [objetos imutáveis](https://facebook.github.io/immutable-js/) para facilitar comparações rápidas de dados aninhados.
+=======
+> This only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only mix into components which have simple props and state, or use `forceUpdate()` when you know deep data structures have changed. Or, consider using [immutable objects](https://immutable-js.com/) to facilitate fast comparisons of nested data.
+>>>>>>> 868d525a74b717a10e0f61bb576213e133aa8d07
 >
 > Além disso, `shouldComponentUpdate` ignora atualizações para toda a subárvore do componente. Certifique-se de que todos os componentes childrens também sejam "puros".
