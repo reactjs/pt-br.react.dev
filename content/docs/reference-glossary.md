@@ -39,12 +39,25 @@ JSX é uma extensão de sintaxe para JavaScript. É semelhante a uma linguagem d
 
 React DOM usa a convenção de nomenclatura de propriedades camelCase em vez dos nomes de atributos HTML. Por exemplo, `tabindex` torna-se `tabIndex` em JSX. O atributo `class` também é escrito como `className`, já que `class` é uma palavra reservada em JavaScript:
 
+<<<<<<< HEAD
 ```js
 const nome = 'Clementine';
 ReactDOM.render(
   <h1 className="hello">Meu nome é {nome}!</h1>,
   document.getElementById('root')
 );
+=======
+```jsx
+<h1 className="hello">My name is Clementine!</h1>
+```
+
+## [Elements](/docs/rendering-elements.html) {#elements}
+
+React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of "components". An element describes what you want to see on the screen. React elements are immutable.
+
+```js
+const element = <h1>Hello, world</h1>;
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 ```
 
 ## [Elementos](/docs/rendering-elements.html) {#elements}

@@ -45,7 +45,11 @@ Um caso típico do uso de portals é quando um componente pai tem o estilo `over
 >
 > Quando estiver trabalhando com portals, lembre-se que [tratar o evento focus](/docs/accessibility.html#programmatically-managing-focus) se torna muito importante.
 >
+<<<<<<< HEAD
 > No caso dos modals, assegure-se que todos possam interagir com eles seguindo as práticas descritas em [WAI-ARIA Modal Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
+=======
+> For modal dialogs, ensure that everyone can interact with them by following the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
@@ -146,7 +150,8 @@ function Child() {
   );
 }
 
-ReactDOM.render(<Parent />, appRoot);
+const root = ReactDOM.createRoot(appRoot);
+root.render(<Parent />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/jGBWpE)

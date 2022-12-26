@@ -380,7 +380,7 @@ Estas são caixas de ferramentas preenchidas com atributos HTML que são totalme
 
 Cada tipo de widget tem um padrão de design específico e espera-se que funcione de certa forma por usuários e agentes do usuário:
 
-- [WAI-ARIA Authoring Practices - Design Patterns and Widgets](https://www.w3.org/TR/wai-aria-practices/#aria_ex)
+- [ARIA Authoring Practices Guide (APG) - Design Patterns and Examples](https://www.w3.org/WAI/ARIA/apg/patterns/)
 - [Heydon Pickering - ARIA Examples](https://heydonworks.com/article/practical-aria-examples/)
 - [Inclusive Components](https://inclusive-components.design/)
 
@@ -408,7 +408,11 @@ Certifique-se de que todo o texto legível em seu site tenha contraste de cores 
 - [Everything About Color Contrast And Why You Should Rethink It](https://www.smashingmagazine.com/2014/10/color-contrast-tips-and-tools-for-accessibility/)
 - [A11yProject - What is Color Contrast](https://a11yproject.com/posts/what-is-color-contrast/)
 
+<<<<<<< HEAD
 Pode ser entediante calcular manualmente as combinações de cores adequadas para todos os casos em seu site. Em vez disso, você pode [calcular uma paleta de cores inteira acessível com Colorable](https://jxnblk.com/colorable/).
+=======
+It can be tedious to manually calculate the proper color combinations for all cases in your website so instead, you can [calculate an entire accessible color palette with Colorable](https://colorable.jxnblk.com/).
+>>>>>>> 4b68508440a985598571f78f60637b6dccdd5a1a
 
 As ferramentas abaixo aXe e WAVE incluem testes de contraste de cores e relatam erros de contraste.
 
