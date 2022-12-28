@@ -1025,7 +1025,7 @@ const numbers = [1, 2, 3];
 const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 ```
 
-Utilizando o método `map`, nós podemos mapear nosso histórico de jogadas para elementos React, representando botões na tela, e mostrar uma lista de botões que "pulam" para os jogadas anteriores.
+Utilizando o método `map`, nós podemos mapear nosso histórico de jogadas para elementos React, representando botões na tela, e mostrar uma lista de botões que "pulam" para as jogadas anteriores.
 
 Vamos fazer um `map` sobre o `history` no método `render` do componente Game:
 
@@ -1239,7 +1239,7 @@ Se você tiver algum tempo extra e quiser praticar suas habilidades no React, aq
 1. Mostrar a localização de cada jogada no formato (col,row), para cada jogada no histórico.
 2. Estilizar com negrito o item da lista de jogadas que está selecionado no momento.
 3. Reescrever o componente Board para utilizar 2 loops para fazer os quadrados, em vez de deixá-los hardcoded.
-4. Adicionar um botão de toggle que lhe permita ordenar os jogadas em ordem ascendente ou descendente.
+4. Adicionar um botão de toggle que lhe permita ordenar as jogadas em ordem ascendente ou descendente.
 5. Quando alguém ganhar, destaque os 3 quadrados que causaram a vitória.
 6. Quando ninguém ganhar, exiba uma mensagem informando que o resultado foi um empate.
 
