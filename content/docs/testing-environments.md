@@ -47,7 +47,11 @@ No Node.js, executadores de teste como o Jest [dão suporte ao mock de módulos]
 
 ### Fazendo o mock de temporizadores {#mocking-timers}
 
+<<<<<<< HEAD
 Alguns componentes podem estar usando funções com base no tempo como `setTimeout`, `setInterval`, ou `Date.now`. Em ambientes de teste, fazer o mock dessas funções com substitutos que lhe permitam "avançar no tempo" pode ser de grande ajuda. Isso é ótimo para garantir que os seus testes executem de forma rápida! Testes que dependem de temporizadores ainda seriam resolvidos ordenadamente, mas de forma mais rápida[<small>(exemplo)</small>](/docs/testing-recipes.html#timers). A maioria dos frameworks, incluindo o [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/v7.3.2/fake-timers/) e [lolex](https://github.com/sinonjs/lolex), permitem que você faça o mock de temporizadores nos seus testes.
+=======
+Components might be using time-based functions like `setTimeout`, `setInterval`, or `Date.now`. In testing environments, it can be helpful to mock these functions out with replacements that let you manually "advance" time. This is great for making sure your tests run fast! Tests that are dependent on timers would still resolve in order, but quicker [<small>(example)</small>](/docs/testing-recipes.html#timers). Most frameworks, including [Jest](https://jestjs.io/docs/en/timer-mocks), [sinon](https://sinonjs.org/releases/latest/fake-timers) and [lolex](https://github.com/sinonjs/lolex), let you mock timers in your tests.
+>>>>>>> e77ba1e90338ff18f965c9b94c733b034b3ac18f
 
 Às vezes, você pode não querer fazer o mock de temporizadores. Por exemplo, talvez você está testando uma animação, ou interagindo com um endpoint que é sensível a tempo (como uma API com um limitador de requisições). Bibliotecas com mocks de temporizadores te permitem habilitar e desabilitar esses mocks para cada teste/suíte de testes, de forma que você pode explicitamente escolher como esses testes irão ser executados.
 
