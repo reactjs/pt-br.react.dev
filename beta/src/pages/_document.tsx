@@ -2,8 +2,7 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
-import * as React from 'react';
-import Document, {Html, Head, Main, NextScript} from 'next/document';
+import {Html, Head, Main, NextScript} from 'next/document';
 
 const MyDocument = () => {
   //  @todo specify language in HTML?
