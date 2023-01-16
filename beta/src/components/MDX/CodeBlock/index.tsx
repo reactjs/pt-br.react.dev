@@ -5,17 +5,38 @@ import cn from 'classnames';
 import * as React from 'react';
 const CodeBlock = React.lazy(() => import('./CodeBlock'));
 
+<<<<<<< HEAD
 export default React.memo(function CodeBlockWrapper(props: {
   isFromPackageImport: boolean;
   children: string;
   className?: string;
   metastring: string;
+=======
+import * as React from 'react';
+import cn from 'classnames';
+import {lazy, memo, Suspense} from 'react';
+const CodeBlock = lazy(() => import('./CodeBlock'));
+
+export default memo(function CodeBlockWrapper(props: {
+  children: React.ReactNode & {
+    props: {
+      className: string;
+      children: string;
+      meta?: string;
+    };
+  };
+  isFromPackageImport: boolean;
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   noMargin?: boolean;
   noMarkers?: boolean;
 }): any {
   const {children, isFromPackageImport} = props;
   return (
+<<<<<<< HEAD
     <React.Suspense
+=======
+    <Suspense
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
       fallback={
         <pre
           className={cn(
@@ -28,6 +49,10 @@ export default React.memo(function CodeBlockWrapper(props: {
         </pre>
       }>
       <CodeBlock {...props} />
+<<<<<<< HEAD
     </React.Suspense>
+=======
+    </Suspense>
+>>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   );
 });
