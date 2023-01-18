@@ -37,20 +37,11 @@ export function Page({children, toc}: PageProps) {
           <div className="fixed lg:sticky top-0 left-0 right-0 py-0 shadow lg:shadow-none z-50">
             <Nav />
           </div>
-<<<<<<< HEAD
-
-          <div className="flex flex-1 w-full h-full self-stretch">
-            <div className="w-full min-w-0">
-              <main
-                className="flex flex-1 self-stretch flex-col items-end"
-                style={{justifyContent: 'space-around'}}>
-=======
           {/* No fallback UI so need to be careful not to suspend directly inside. */}
           <Suspense fallback={null}>
             <main className="min-w-0">
               <div className="lg:hidden h-16 mb-2" />
               <article className="break-words" key={asPath}>
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
                 {children}
               </article>
               <Footer />

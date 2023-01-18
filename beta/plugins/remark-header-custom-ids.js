@@ -26,30 +26,6 @@ module.exports = ({icon = svgIcon, className = `anchor`} = {}) => {
   return function transformer(tree) {
     const ids = new Set();
     visit(tree, 'heading', (node) => {
-<<<<<<< HEAD
-      const children = node.children;
-      let tail = children[children.length - 1];
-      // Generate slugs on the fly (even if not specified in markdown)
-      // so that it's possible to copy anchor links in newly written content.
-      let id = slugs.slug(toString(node), maintainCase);
-      // However, for committed docs, we'll extract slug from the headers.
-      if (tail && tail.type === 'text' && tail.value === '/}') {
-        tail = children[children.length - 2];
-        if (tail && tail.type === 'emphasis') {
-          // Use custom ID instead.
-          id = toString(tail);
-          // Until we're on MDX 2, we need to "cut off" the comment syntax.
-          tail = children[children.length - 3];
-          if (tail && tail.type === 'text' && tail.value.endsWith('{/')) {
-            // Remove the emphasis and trailing `/}`
-            children.splice(children.length - 2, 2);
-            // Remove the `{/`
-            tail.value = tail.value.replace(/[ \t]*\{\/$/, '');
-          }
-        }
-      }
-
-=======
       let children = [...node.children];
       let id;
       if (children[children.length - 1].type === 'mdxTextExpression') {
@@ -89,7 +65,6 @@ module.exports = ({icon = svgIcon, className = `anchor`} = {}) => {
       }
       ids.add(id);
 
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
       const data = patch(node, 'data', {});
       patch(data, 'id', id);
       patch(data, 'htmlAttributes', {});

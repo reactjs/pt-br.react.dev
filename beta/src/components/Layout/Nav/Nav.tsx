@@ -92,45 +92,6 @@ const lightIcon = (
   </svg>
 );
 
-<<<<<<< HEAD
-function inferSection(pathname: string): 'learn' | 'apis' | 'home' {
-  if (pathname.startsWith('/learn')) {
-    return 'learn';
-  } else if (pathname.startsWith('/apis')) {
-    return 'apis';
-  } else {
-    return 'home';
-  }
-}
-
-export default function Nav() {
-  const {pathname} = useRouter();
-  const {isOpen, toggleOpen} = React.useContext(MenuContext);
-  const [showFeedback, setShowFeedback] = React.useState(false);
-  const feedbackAutohideRef = React.useRef<any>(null);
-  const section = inferSection(pathname);
-  const feedbackPopupRef = React.useRef<null | HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    if (!showFeedback) {
-      return;
-    }
-    function handleDocumentClickCapture(e: MouseEvent) {
-      if (!feedbackPopupRef.current!.contains(e.target as any)) {
-        e.stopPropagation();
-        e.preventDefault();
-        setShowFeedback(false);
-      }
-    }
-    document.addEventListener('click', handleDocumentClickCapture, {
-      capture: true,
-    });
-    return () =>
-      document.removeEventListener('click', handleDocumentClickCapture, {
-        capture: true,
-      });
-  }, [showFeedback]);
-=======
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -197,13 +158,10 @@ export default function Nav() {
       media.removeEventListener('change', closeIfNeeded);
     };
   }, []);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
   function handleFeedback() {
     clearTimeout(feedbackAutohideRef.current);
     setShowFeedback(!showFeedback);
-<<<<<<< HEAD
-=======
   }
 
   // Hide the Feedback widget on any click outside.
@@ -230,7 +188,6 @@ export default function Nav() {
   function selectTab(nextTab: 'learn' | 'reference') {
     setTab(nextTab);
     scrollParentRef.current!.scrollTop = 0;
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   }
 
   return (
@@ -397,72 +354,6 @@ export default function Nav() {
           </div>
         </aside>
       </div>
-<<<<<<< HEAD
-      <div className="px-0 pt-2 w-full 2xl:max-w-xs hidden lg:flex items-center self-center border-b-0 lg:border-b border-border dark:border-border-dark">
-        <NavLink href="/" isActive={section === 'home'}>
-          Home
-        </NavLink>
-        <NavLink href="/learn" isActive={section === 'learn'}>
-          Learn
-        </NavLink>
-        <NavLink href="/apis" isActive={section === 'apis'}>
-          API
-        </NavLink>
-      </div>
-      <div className="flex my-4 h-10 mx-0 w-full lg:hidden justify-end lg:max-w-sm">
-        <Search />
-        <button
-          aria-label="Give feedback"
-          type="button"
-          className={cn(
-            'inline-flex lg:hidden items-center rounded-full px-1.5 ml-4 lg:ml-6 relative top-px',
-            {
-              'bg-card dark:bg-card-dark': showFeedback,
-            }
-          )}
-          onClick={handleFeedback}>
-          {feedbackIcon}
-        </button>
-        <div className="block dark:hidden">
-          <button
-            type="button"
-            aria-label="Use Dark Mode"
-            onClick={() => {
-              window.__setPreferredTheme('dark');
-            }}
-            className="flex lg:hidden items-center p-1 h-full ml-4 lg:ml-6">
-            {darkIcon}
-          </button>
-        </div>
-        <div
-          ref={feedbackPopupRef}
-          className={cn(
-            'fixed top-12 right-0',
-            showFeedback ? 'block' : 'hidden'
-          )}>
-          <Feedback
-            onSubmit={() => {
-              clearTimeout(feedbackAutohideRef.current);
-              feedbackAutohideRef.current = setTimeout(() => {
-                setShowFeedback(false);
-              }, 1000);
-            }}
-          />
-        </div>
-        <div className="hidden dark:block">
-          <button
-            type="button"
-            aria-label="Use Light Mode"
-            onClick={() => {
-              window.__setPreferredTheme('light');
-            }}
-            className="flex lg:hidden items-center p-1 h-full ml-4 lg:ml-6">
-            {lightIcon}
-          </button>
-        </div>
-      </div>
-    </nav>
-=======
     </div>
   );
 }
@@ -488,6 +379,5 @@ function TabButton({
     <button className={classes} onClick={onClick}>
       {children}
     </button>
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   );
 }

@@ -4,15 +4,6 @@
 
 import {memo} from 'react';
 
-<<<<<<< HEAD
-export const IconNewPage = React.memo<JSX.IntrinsicElements['svg']>(
-  function IconNewPage(props) {
-    return (
-      <svg
-        width="0.72em"
-        height="0.72em"
-        viewBox="0 0 13 13"
-=======
 export const IconNewPage = memo<JSX.IntrinsicElements['svg']>(
   function IconNewPage(props) {
     return (
@@ -21,7 +12,6 @@ export const IconNewPage = memo<JSX.IntrinsicElements['svg']>(
         height="1em"
         viewBox="0 0 24 24"
         fill="none"
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
         xmlns="http://www.w3.org/2000/svg"
         {...props}>
         <path

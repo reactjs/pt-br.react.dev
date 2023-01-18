@@ -2,13 +2,9 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
-<<<<<<< HEAD
-import * as React from 'react';
-=======
 import {useRef, useLayoutEffect, Fragment} from 'react';
 
 import cn from 'classnames';
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 import {RouteItem} from 'components/Layout/useRouteMeta';
 import {useRouter} from 'next/router';
 import {removeFromLast} from 'utils/removeFromLast';
