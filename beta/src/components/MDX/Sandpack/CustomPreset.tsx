@@ -7,13 +7,8 @@ import {
   useSandpack,
   useActiveCode,
   SandpackCodeEditor,
-<<<<<<< HEAD
-  SandpackThemeProvider,
-  SandpackReactDevTools,
-=======
   // SandpackReactDevTools,
   SandpackLayout,
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 } from '@codesandbox/sandpack-react';
 import cn from 'classnames';
 
@@ -23,18 +18,6 @@ import {IconChevron} from 'components/Icon/IconChevron';
 import {NavigationBar} from './NavigationBar';
 import {Preview} from './Preview';
 
-<<<<<<< HEAD
-export function CustomPreset({
-  isSingleFile,
-  showDevTools,
-  onDevToolsLoad,
-  devToolsLoaded,
-}: {
-  isSingleFile: boolean;
-  showDevTools: boolean;
-  devToolsLoaded: boolean;
-  onDevToolsLoad: () => void;
-=======
 import {useSandpackLint} from './useSandpackLint';
 
 export const CustomPreset = memo(function CustomPreset({
@@ -47,7 +30,6 @@ export const CustomPreset = memo(function CustomPreset({
   devToolsLoaded: boolean;
   onDevToolsLoad: () => void;
   providedFiles: Array<string>;
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 }) {
   const {lintErrors, lintExtensions} = useSandpackLint();
   const {sandpack} = useSandpack();
@@ -57,10 +39,6 @@ export const CustomPreset = memo(function CustomPreset({
   if (!lineCountRef.current[activeFile]) {
     lineCountRef.current[activeFile] = code.split('\n').length;
   }
-<<<<<<< HEAD
-  const lineCount = lineCountRef.current[activePath];
-  const isExpandable = lineCount > 16 || isExpanded;
-=======
   const lineCount = lineCountRef.current[activeFile];
   const isExpandable = lineCount > 16;
   return (
@@ -75,7 +53,6 @@ export const CustomPreset = memo(function CustomPreset({
     />
   );
 });
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 const SandboxShell = memo(function SandboxShell({
   showDevTools,
@@ -101,39 +78,6 @@ const SandboxShell = memo(function SandboxShell({
       <div
         className="shadow-lg dark:shadow-lg-dark rounded-lg"
         ref={containerRef}>
-<<<<<<< HEAD
-        <NavigationBar showDownload={isSingleFile} />
-        <SandpackThemeProvider theme={CustomTheme}>
-          <div
-            ref={sandpack.lazyAnchorRef}
-            className={cn(
-              'sp-layout sp-custom-layout',
-              showDevTools && devToolsLoaded && 'sp-layout-devtools',
-              isExpanded && 'sp-layout-expanded'
-            )}>
-            <SandpackCodeEditor
-              showLineNumbers
-              showInlineErrors
-              showTabs={false}
-              showRunButton={false}
-            />
-            <Preview
-              className="order-last xl:order-2"
-              isExpanded={isExpanded}
-            />
-            {isExpandable && (
-              <button
-                translate="yes"
-                className="flex text-base justify-between dark:border-card-dark bg-wash dark:bg-card-dark items-center z-10 rounded-t-none p-1 w-full order-2 xl:order-last border-b-1 relative top-0"
-                onClick={() => {
-                  const nextIsExpanded = !isExpanded;
-                  flushSync(() => {
-                    setIsExpanded(nextIsExpanded);
-                  });
-                  if (!nextIsExpanded && containerRef.current !== null) {
-                    scrollIntoView(containerRef.current, {
-                      scrollMode: 'if-needed',
-=======
         <NavigationBar providedFiles={providedFiles} />
         <SandpackLayout
           className={cn(
@@ -163,29 +107,10 @@ const SandboxShell = memo(function SandboxShell({
                     containerRef.current.scrollIntoViewIfNeeded();
                   } else {
                     containerRef.current.scrollIntoView({
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
                       block: 'nearest',
                       inline: 'nearest',
                     });
                   }
-<<<<<<< HEAD
-                }}>
-                <span className="flex p-2 focus:outline-none text-primary dark:text-primary-dark">
-                  <IconChevron
-                    className="inline mr-1.5 text-xl"
-                    displayDirection={isExpanded ? 'up' : 'down'}
-                  />
-                  {isExpanded ? 'Show less' : 'Show more'}
-                </span>
-              </button>
-            )}
-          </div>
-
-          {showDevTools && (
-            <SandpackReactDevTools onLoadModule={onDevToolsLoad} />
-          )}
-        </SandpackThemeProvider>
-=======
                 }
               }}>
               <span className="flex p-2 focus:outline-none text-primary dark:text-primary-dark leading-[20px]">
@@ -203,7 +128,6 @@ const SandboxShell = memo(function SandboxShell({
           // @ts-ignore TODO(@danilowoz): support devtools
           <SandpackReactDevTools onLoadModule={onDevToolsLoad} />
         )} */}
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
       </div>
     </>
   );

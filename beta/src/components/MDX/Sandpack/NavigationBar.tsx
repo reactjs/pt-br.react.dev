@@ -2,9 +2,6 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
-<<<<<<< HEAD
-import * as React from 'react';
-=======
 import {
   useRef,
   useInsertionEffect,
@@ -14,7 +11,6 @@ import {
   Fragment,
 } from 'react';
 import cn from 'classnames';
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 import {
   FileTabs,
   useSandpack,
@@ -26,14 +22,6 @@ import {DownloadButton} from './DownloadButton';
 import {IconChevron} from '../../Icon/IconChevron';
 import {Listbox} from '@headlessui/react';
 
-<<<<<<< HEAD
-export function NavigationBar({showDownload}: {showDownload: boolean}) {
-  const {sandpack} = useSandpack();
-  const [dropdownActive, setDropdownActive] = React.useState(false);
-  const {openPaths, clients} = sandpack;
-  const clientId = Object.keys(clients)[0];
-  const {refresh} = useSandpackNavigation(clientId);
-=======
 export function useEvent(fn: any): any {
   const ref = useRef(null);
   useInsertionEffect(() => {
@@ -63,7 +51,6 @@ export function NavigationBar({providedFiles}: {providedFiles: Array<string>}) {
   const {refresh} = useSandpackNavigation(clientId);
   const isMultiFile = visibleFiles.length > 1;
   const hasJustToggledDropdown = useRef(false);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
   // Keep track of whether we can show all tabs or just the dropdown.
   const onContainerResize = useEvent((containerWidth: number) => {
@@ -195,15 +182,9 @@ export function NavigationBar({providedFiles}: {providedFiles: Array<string>}) {
         </Listbox>
       </div>
       <div
-<<<<<<< HEAD
-        className="px-3 flex items-center justify-end grow text-right"
-        translate="yes">
-        {showDownload && <DownloadButton />}
-=======
         className="px-3 flex items-center justify-end text-right"
         translate="yes">
         <DownloadButton providedFiles={providedFiles} />
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
         <ResetButton onReset={handleReset} />
         <OpenInCodeSandboxButton />
       </div>

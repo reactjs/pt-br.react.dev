@@ -7,26 +7,7 @@ import {useSandpack} from '@codesandbox/sandpack-react';
 import {IconDownload} from '../../Icon/IconDownload';
 export interface DownloadButtonProps {}
 
-<<<<<<< HEAD
-let initialIsSupported = false;
-
-export const DownloadButton: React.FC<DownloadButtonProps> = () => {
-  const {sandpack} = useSandpack();
-  const [supported, setSupported] = React.useState(initialIsSupported);
-  React.useEffect(() => {
-    // This detection will work in Chrome 97+
-    if (
-      !supported &&
-      (HTMLScriptElement as any).supports &&
-      (HTMLScriptElement as any).supports('importmap')
-    ) {
-      setSupported(true);
-      initialIsSupported = true;
-    }
-  }, [supported]);
-=======
 let supportsImportMap: boolean | void;
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 function useSupportsImportMap() {
   function subscribe() {

@@ -2,19 +2,6 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
-<<<<<<< HEAD
-import * as React from 'react';
-import {SandpackProvider} from '@codesandbox/sandpack-react';
-import {CustomPreset} from './CustomPreset';
-import {createFileMap} from './utils';
-
-import type {SandpackSetup} from '@codesandbox/sandpack-react';
-
-type SandpackProps = {
-  children: React.ReactChildren;
-  autorun?: boolean;
-  setup?: SandpackSetup;
-=======
 import {Children, useState} from 'react';
 import * as React from 'react';
 import {SandpackProvider} from '@codesandbox/sandpack-react';
@@ -26,7 +13,6 @@ import {CustomTheme} from './Themes';
 type SandpackProps = {
   children: React.ReactNode;
   autorun?: boolean;
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   showDevTools?: boolean;
 };
 
@@ -71,52 +57,23 @@ h6 {
   font-size: 12px;
 }
 
-<<<<<<< HEAD
-=======
 code {
   font-size: 1.2em;
 }
 
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 ul {
   padding-left: 20px;
 }
 `.trim();
 
 function SandpackRoot(props: SandpackProps) {
-<<<<<<< HEAD
-  let {children, setup, autorun = true, showDevTools = false} = props;
-  const [devToolsLoaded, setDevToolsLoaded] = React.useState(false);
-  let codeSnippets = React.Children.toArray(children) as React.ReactElement[];
-  let isSingleFile = true;
-
-=======
   let {children, autorun = true, showDevTools = false} = props;
   const [devToolsLoaded, setDevToolsLoaded] = useState(false);
   const codeSnippets = Children.toArray(children) as React.ReactElement[];
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   const files = createFileMap(codeSnippets);
 
   files['/styles.css'] = {
     code: [sandboxStyle, files['/styles.css']?.code ?? ''].join('\n\n'),
-<<<<<<< HEAD
-    hidden: true,
-  };
-
-  return (
-    <div className="sandpack-container my-8" translate="no">
-      <SandpackProvider
-        template="react"
-        customSetup={{...setup, files: files}}
-        autorun={autorun}
-        initMode="user-visible"
-        initModeObserverOptions={{rootMargin: '1400px 0px'}}>
-        <CustomPreset
-          isSingleFile={isSingleFile}
-          showDevTools={showDevTools}
-          onDevToolsLoad={() => setDevToolsLoaded(true)}
-          devToolsLoaded={devToolsLoaded}
-=======
     hidden: !files['/styles.css']?.visible,
   };
 
@@ -138,16 +95,10 @@ function SandpackRoot(props: SandpackProps) {
           onDevToolsLoad={() => setDevToolsLoaded(true)}
           devToolsLoaded={devToolsLoaded}
           providedFiles={Object.keys(files)}
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
         />
       </SandpackProvider>
     </div>
   );
 }
 
-<<<<<<< HEAD
-SandpackRoot.displayName = 'Sandpack';
-
-=======
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 export default SandpackRoot;

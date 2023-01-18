@@ -3,18 +3,10 @@
  */
 
 import cn from 'classnames';
-<<<<<<< HEAD
-import {
-  SandpackCodeViewer,
-  SandpackProvider,
-  SandpackThemeProvider,
-} from '@codesandbox/sandpack-react';
-=======
 import {highlightTree, HighlightStyle, tags} from '@codemirror/highlight';
 import {javascript} from '@codemirror/lang-javascript';
 import {html} from '@codemirror/lang-html';
 import {css} from '@codemirror/lang-css';
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 import rangeParser from 'parse-numeric-range';
 import {CustomTheme} from '../Sandpack/Themes';
 
@@ -25,52 +17,6 @@ interface InlineHiglight {
   endColumn: number;
 }
 
-<<<<<<< HEAD
-const CodeBlock = function CodeBlock({
-  children,
-  className = 'language-js',
-  metastring,
-  noMargin,
-  noMarkers,
-}: {
-  children: string;
-  className?: string;
-  metastring: string;
-  noMargin?: boolean;
-  noMarkers?: boolean;
-}) {
-  const getDecoratedLineInfo = () => {
-    if (!metastring) {
-      return [];
-    }
-
-    const linesToHighlight = getHighlightLines(metastring);
-    const highlightedLineConfig = linesToHighlight.map((line) => {
-      return {
-        className: 'bg-github-highlight dark:bg-opacity-10',
-        line,
-      };
-    });
-
-    const inlineHighlightLines = getInlineHighlights(metastring, children);
-    const inlineHighlightConfig = inlineHighlightLines.map(
-      (line: InlineHiglight) => ({
-        ...line,
-        elementAttributes: {'data-step': `${line.step}`},
-        className: cn(
-          'code-step bg-opacity-10 dark:bg-opacity-20 relative rounded px-1 py-[1.5px] border-b-[2px] border-opacity-60',
-          {
-            'bg-blue-40 border-blue-40': line.step === 1,
-            'bg-yellow-40 border-yellow-40': line.step === 2,
-            'bg-green-40 border-green-40': line.step === 3,
-            'bg-purple-40 border-purple-40': line.step === 4,
-          }
-        ),
-      })
-    );
-
-    return highlightedLineConfig.concat(inlineHighlightConfig);
-=======
 const jsxLang = javascript({jsx: true, typescript: false});
 const cssLang = css();
 const htmlLang = html();
@@ -87,7 +33,6 @@ const CodeBlock = function CodeBlock({
       children?: string;
       meta?: string;
     };
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   };
   className?: string;
   noMargin?: boolean;
@@ -253,25 +198,6 @@ const CodeBlock = function CodeBlock({
         'rounded-lg h-full w-full overflow-x-auto flex items-center bg-wash dark:bg-gray-95 shadow-lg',
         !noMargin && 'my-8'
       )}>
-<<<<<<< HEAD
-      <SandpackProvider
-        customSetup={{
-          entry: filename,
-          files: {
-            [filename]: {
-              code: children.trimEnd(),
-            },
-          },
-        }}>
-        <SandpackThemeProvider theme={CustomTheme}>
-          <SandpackCodeViewer
-            key={children.trimEnd()}
-            showLineNumbers={false}
-            decorators={decorators}
-          />
-        </SandpackThemeProvider>
-      </SandpackProvider>
-=======
       <div className="sp-wrapper">
         <div className="sp-stack">
           <div className="sp-code-editor">
@@ -281,7 +207,6 @@ const CodeBlock = function CodeBlock({
           </div>
         </div>
       </div>
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
     </div>
   );
 };

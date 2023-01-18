@@ -7,10 +7,7 @@ import * as React from 'react';
 import cn from 'classnames';
 import {H2} from 'components/MDX/Heading';
 import {H4} from 'components/MDX/Heading';
-<<<<<<< HEAD
-=======
 import {Challenge} from './Challenge';
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 import {Navigation} from './Navigation';
 import {useRouter} from 'next/router';
 
@@ -71,14 +68,11 @@ const parseChallengeContents = (
   return contents;
 };
 
-<<<<<<< HEAD
-=======
 enum QueuedScroll {
   INIT = 'init',
   NEXT = 'next',
 }
 
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 export function Challenges({
   children,
   isRecipes,
@@ -119,31 +113,6 @@ export function Challenges({
     setActiveIndex(index);
   };
 
-<<<<<<< HEAD
-  const toggleHint = () => {
-    if (showSolution && !showHint) {
-      setShowSolution(false);
-    }
-    setShowHint((hint) => !hint);
-  };
-
-  const toggleSolution = () => {
-    if (showHint && !showSolution) {
-      setShowHint(false);
-    }
-    setShowSolution((solution) => !solution);
-  };
-
-  const currentChallenge = challenges.find(({id}) => id === activeChallenge);
-  if (currentChallenge === undefined) {
-    throw new TypeError('currentChallenge should always exist');
-  }
-  const nextChallenge = challenges.find(({order}) => {
-    return order === currentChallenge.order + 1;
-  });
-
-=======
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   const Heading = isRecipes ? H4 : H2;
   return (
     <div className="max-w-7xl mx-auto py-4">
@@ -162,11 +131,7 @@ export function Challenges({
             )}>
             {titleText}
           </Heading>
-<<<<<<< HEAD
-          {challenges.length > 1 && (
-=======
           {totalChallenges > 1 && (
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
             <Navigation
               currentChallenge={currentChallenge}
               challenges={challenges}
@@ -175,106 +140,6 @@ export function Challenges({
             />
           )}
         </div>
-<<<<<<< HEAD
-        <div className="p-5 sm:py-8 sm:px-8">
-          <div key={activeChallenge}>
-            <h3 className="text-xl text-primary dark:text-primary-dark mb-2">
-              <div className="font-bold block md:inline">
-                {isRecipes ? 'Example' : 'Challenge'} {currentChallenge.order}{' '}
-                of {challenges.length}
-                <span className="text-primary dark:text-primary-dark">: </span>
-              </div>
-              {currentChallenge.name}
-            </h3>
-            <>{currentChallenge.content}</>
-          </div>
-          <div className="flex justify-between items-center mt-4">
-            {currentChallenge.hint ? (
-              <div>
-                <Button className="mr-2" onClick={toggleHint} active={showHint}>
-                  <IconHint className="mr-1.5" />{' '}
-                  {showHint ? 'Hide hint' : 'Show hint'}
-                </Button>
-                <Button
-                  className="mr-2"
-                  onClick={toggleSolution}
-                  active={showSolution}>
-                  <IconSolution className="mr-1.5" />{' '}
-                  {showSolution ? 'Hide solution' : 'Show solution'}
-                </Button>
-              </div>
-            ) : (
-              !isRecipes && (
-                <Button
-                  className="mr-2"
-                  onClick={toggleSolution}
-                  active={showSolution}>
-                  <IconSolution className="mr-1.5" />{' '}
-                  {showSolution ? 'Hide solution' : 'Show solution'}
-                </Button>
-              )
-            )}
-
-            {nextChallenge && (
-              <Button
-                className={cn(
-                  isRecipes
-                    ? 'bg-purple-50 border-purple-50 hover:bg-purple-50 focus:bg-purple-50 active:bg-purple-50'
-                    : 'bg-link dark:bg-link-dark'
-                )}
-                onClick={() => {
-                  setActiveChallenge(nextChallenge.id);
-                  setShowSolution(false);
-                }}
-                active>
-                Next {isRecipes ? 'Example' : 'Challenge'}
-                <IconArrowSmall
-                  displayDirection="right"
-                  className="block ml-1.5"
-                />
-              </Button>
-            )}
-          </div>
-          {showHint && currentChallenge.hint}
-
-          {showSolution && (
-            <div className="mt-6">
-              <h3 className="text-2xl font-bold text-primary dark:text-primary-dark">
-                Solution
-              </h3>
-              {currentChallenge.solution}
-              <div className="flex justify-between items-center mt-4">
-                <Button onClick={() => setShowSolution(false)}>
-                  Close solution
-                </Button>
-                {nextChallenge && (
-                  <Button
-                    className={cn(
-                      isRecipes ? 'bg-purple-50' : 'bg-link dark:bg-link-dark'
-                    )}
-                    onClick={() => {
-                      setActiveChallenge(nextChallenge.id);
-                      setShowSolution(false);
-                      if (scrollAnchorRef.current) {
-                        scrollAnchorRef.current.scrollIntoView({
-                          block: 'start',
-                          behavior: 'smooth',
-                        });
-                      }
-                    }}
-                    active>
-                    Next Challenge
-                    <IconArrowSmall
-                      displayDirection="right"
-                      className="block ml-1.5"
-                    />
-                  </Button>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-=======
         <Challenge
           key={currentChallenge.id}
           isRecipes={isRecipes}
@@ -286,7 +151,6 @@ export function Challenges({
             queuedScrollRef.current = QueuedScroll.NEXT;
           }}
         />
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
       </div>
     </div>
   );

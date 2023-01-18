@@ -38,13 +38,8 @@ function TerminalBlock({level = 'info', children}: TerminalBlockProps) {
     throw Error('Expected TerminalBlock children to be a plain string.');
   }
 
-<<<<<<< HEAD
-  const [copied, setCopied] = React.useState(false);
-  React.useEffect(() => {
-=======
   const [copied, setCopied] = useState(false);
   useEffect(() => {
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
     if (!copied) {
       return;
     } else {

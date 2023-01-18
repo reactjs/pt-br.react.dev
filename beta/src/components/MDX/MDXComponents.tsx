@@ -386,16 +386,9 @@ export const MDXComponents = {
   h3: H3,
   h4: H4,
   hr: Divider,
-<<<<<<< HEAD
-  a: Link,
-  code: CodeBlock,
-  // The code block renders <pre> so we just want a div here.
-  pre: (p: JSX.IntrinsicElements['div']) => <div {...p} />,
-=======
   a: LinkWithTodo,
   code: InlineCode,
   pre: CodeBlock,
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   CodeDiagram,
   ConsoleBlock,
   DeepDive: (props: {
@@ -405,9 +398,6 @@ export const MDXComponents = {
   }) => <ExpandableExample {...props} type="DeepDive" />,
   Diagram,
   DiagramGroup,
-<<<<<<< HEAD
-  Gotcha,
-=======
   FullWidth({children}: {children: any}) {
     return children;
   },
@@ -417,7 +407,6 @@ export const MDXComponents = {
   Pitfall,
   Deprecated,
   Wip,
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   HomepageHero,
   Illustration,
   IllustrationBlock,

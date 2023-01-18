@@ -15,11 +15,7 @@ export function Navigation({
   isRecipes,
 }: {
   challenges: ChallengeContents[];
-<<<<<<< HEAD
-  handleChange: (id: string) => void;
-=======
   handleChange: (index: number) => void;
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   currentChallenge: ChallengeContents;
   isRecipes?: boolean;
 }) {
@@ -40,11 +36,7 @@ export function Navigation({
       if (containerRef.current) {
         containerRef.current.scrollLeft = currentNavRef.offsetLeft;
       }
-<<<<<<< HEAD
-      handleChange(challenges[scrollPos + 1].id);
-=======
       handleChange(scrollPos + 1);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
     }
   };
 
@@ -57,11 +49,7 @@ export function Navigation({
       if (containerRef.current) {
         containerRef.current.scrollLeft = currentNavRef.offsetLeft;
       }
-<<<<<<< HEAD
-      handleChange(challenges[scrollPos - 1].id);
-=======
       handleChange(scrollPos - 1);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
     }
   };
 
@@ -70,11 +58,7 @@ export function Navigation({
     if (containerRef.current) {
       containerRef.current.scrollLeft = currentNavRef?.offsetLeft || 0;
     }
-<<<<<<< HEAD
-    handleChange(id);
-=======
     handleChange(index);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   };
 
   const handleResize = useCallback(() => {

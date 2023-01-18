@@ -14,10 +14,6 @@ import {LoadingOverlay} from './LoadingOverlay';
 
 type CustomPreviewProps = {
   className?: string;
-<<<<<<< HEAD
-  customStyle?: Record<string, unknown>;
-=======
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   isExpanded: boolean;
   lintErrors: LintDiagnostic;
 };
@@ -99,20 +95,6 @@ export function Preview({
   errorScreenRegisteredRef.current = true;
   loadingScreenRegisteredRef.current = true;
 
-<<<<<<< HEAD
-  React.useEffect(function createBundler() {
-    const iframeElement = iframeRef.current!;
-    registerBundler(iframeElement, clientId.current);
-
-    return () => {
-      unregisterBundler(clientId.current);
-    };
-  }, []);
-
-  React.useEffect(
-    function bundlerListener() {
-      const unsubscribe = listen((message: any) => {
-=======
   const sandpackIdle = sandpack.status === 'idle';
 
   useEffect(function createBundler() {
@@ -129,22 +111,10 @@ export function Preview({
       let timeout: ReturnType<typeof setTimeout>;
 
       const unsubscribe = listen((message) => {
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
         if (message.type === 'resize') {
           setComputedAutoHeight(message.height);
         } else if (message.type === 'start') {
           if (message.firstLoad) {
-<<<<<<< HEAD
-            setIsReady(false);
-          }
-        } else if (message.type === 'done') {
-          setIsReady(true);
-        }
-      }, clientId.current);
-
-      return () => {
-        setIsReady(false);
-=======
             setBundlerIsReady(false);
           }
 
@@ -166,27 +136,12 @@ export function Preview({
       return () => {
         clearTimeout(timeout);
         setBundlerIsReady(false);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
         setComputedAutoHeight(null);
         unsubscribe();
       };
     },
-<<<<<<< HEAD
-    [status === 'idle']
-  );
-
-  const viewportStyle = computeViewportSize('auto', 'portrait');
-  const overrideStyle = error
-    ? {
-        // Don't collapse errors
-        maxHeight: undefined,
-      }
-    : null;
-  const hideContent = !isReady || error;
-=======
     [sandpackIdle]
   );
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
   // WARNING:
   // The layout and styling here is convoluted and really easy to break.
@@ -221,29 +176,17 @@ export function Preview({
     <SandpackStack className={className}>
       <div
         className={cn(
-<<<<<<< HEAD
-          'p-0 sm:p-2 md:p-4 lg:p-8 md:bg-card md:dark:bg-wash-dark h-full relative md:rounded-b-lg lg:rounded-b-none',
-          // Allow content to be scrolled if it's too high to fit.
-          // Note we don't want this in the expanded state
-          // because it breaks position: sticky (and isn't needed anyway).
-          !isExpanded && (error || isReady) ? 'overflow-auto' : null
-=======
           'p-0 sm:p-2 md:p-4 lg:p-8 bg-card dark:bg-wash-dark h-full relative md:rounded-b-lg lg:rounded-b-none',
           // Allow content to be scrolled if it's too high to fit.
           // Note we don't want this in the expanded state
           // because it breaks position: sticky (and isn't needed anyway).
           !isExpanded && (error || bundlerIsReady) ? 'overflow-auto' : null
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
         )}>
         <div style={iframeWrapperPosition()}>
           <iframe
             ref={iframeRef}
             className={cn(
-<<<<<<< HEAD
-              'rounded-t-none bg-white md:shadow-md sm:rounded-lg w-full max-w-full',
-=======
               'rounded-t-none bg-white md:shadow-md sm:rounded-lg w-full max-w-full transition-opacity',
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
               // We can't *actually* hide content because that would
               // break calculating the computed height in the iframe
               // (which we're using for autosizing). This is noticeable
@@ -272,17 +215,11 @@ export function Preview({
             <ErrorMessage error={error} />
           </div>
         )}
-<<<<<<< HEAD
-        <LoadingOverlay
-          clientId={clientId.current}
-          loading={!isReady && iframeComputedHeight === null}
-=======
 
         <LoadingOverlay
           clientId={clientId}
           dependenciesLoading={!bundlerIsReady && iframeComputedHeight === null}
           forceLoading={showLoading}
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
         />
       </div>
       <SandpackConsole visible={!error} />

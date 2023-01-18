@@ -34,11 +34,6 @@ const variantMap = {
     overlayGradient:
       'linear-gradient(rgba(245, 249, 248, 0), rgba(245, 249, 248, 1)',
   },
-<<<<<<< HEAD
-  gotcha: {
-    title: 'Pitfall',
-    Icon: IconGotcha,
-=======
   pitfall: {
     title: 'Pitfall',
     Icon: IconPitfall,
@@ -50,7 +45,6 @@ const variantMap = {
   wip: {
     title: 'Under Construction',
     Icon: IconNote,
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
     containerClasses: 'bg-yellow-5 dark:bg-yellow-60 dark:bg-opacity-20',
     textColor: 'text-yellow-50 dark:text-yellow-40',
     overlayGradient:
