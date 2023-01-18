@@ -12,11 +12,6 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     plugins: true,
-<<<<<<< HEAD
-    // TODO: this doesn't work because https://github.com/vercel/next.js/issues/30714
-    concurrentFeatures: false,
-=======
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
     scrollRestoration: true,
     legacyBrowsers: false,
     browsersListForSwc: true,

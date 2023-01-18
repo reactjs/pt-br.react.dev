@@ -1,16 +1,11 @@
 {
   "root": true,
   "extends": "next/core-web-vitals",
-<<<<<<< HEAD
-  "rules": {
-    "no-unused-vars": "warn"
-=======
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "warn"
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   },
   "env": {
     "node": true,
