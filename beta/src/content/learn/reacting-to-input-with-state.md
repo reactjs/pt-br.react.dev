@@ -346,11 +346,7 @@ Form states
 
 ### Step 3: Represent the state in memory with `useState` {/*step-3-represent-the-state-in-memory-with-usestate*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/reacting-to-input-with-state.md
-Next you'll need to represent the visual states of your component in memory with [`useState`](/apis/usestate). Simplicity is key: each piece of state is a "moving piece", and **you want as few "moving pieces" as possible**. More complexity leads to more bugs!
-=======
 Next you'll need to represent the visual states of your component in memory with [`useState`.](/reference/react/useState) Simplicity is key: each piece of state is a "moving piece", and **you want as few "moving pieces" as possible.** More complexity leads to more bugs!
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/reacting-to-input-with-state.md
 
 Start with the state that *absolutely must* be there. For example, you'll need to store the `answer` for the input, and the `error` (if it exists) to store the last error:
 

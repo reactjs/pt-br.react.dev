@@ -67,11 +67,7 @@ Try commenting out the `root.render()` call and see the component disappear!
 
 ### Re-renders when state updates {/*re-renders-when-state-updates*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/render-and-commit.md
-Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function](/apis/usestate#setstate). Updating your component's state automatically queues a render. (You can imagine these as a restaurant guest ordering tea, dessert, and all sorts of things after putting in their first order, depending on the state of their thirst or hunger.)
-=======
 Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function.](/reference/react/useState#setstate) Updating your component's state automatically queues a render. (You can imagine these as a restaurant guest ordering tea, dessert, and all sorts of things after putting in their first order, depending on the state of their thirst or hunger.)
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/render-and-commit.md
 
 <IllustrationBlock sequential>
   <Illustration caption="State update..." alt="React as a server in a restaurant, serving a Card UI to the user, represented as a patron with a cursor for their head. They patron expresses they want a pink card, not a black one!" src="/images/docs/illustrations/i_rerender1.png" />

@@ -81,11 +81,7 @@ const [startTime, setStartTime] = useState(null);
 const [now, setNow] = useState(null);
 ```
 
-<<<<<<< HEAD:beta/src/pages/learn/referencing-values-with-refs.md
-When the user presses "Start," you'll use [`setInterval`](https://developer.mozilla.org/docs/Web/API/setInterval) in order to update the time every 10 milliseconds:
-=======
 When the user presses "Start", you'll use [`setInterval`](https://developer.mozilla.org/docs/Web/API/setInterval) in order to update the time every 10 milliseconds:
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/referencing-values-with-refs.md
 
 <Sandpack>
 

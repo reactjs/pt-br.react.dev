@@ -9,17 +9,13 @@ Use a ferramenta de desenvolvedor do React para inspecionar [componentes](/learn
 
 </Intro>
 
-<<<<<<< HEAD:beta/src/pages/learn/react-developer-tools.md
-## Extensão do navegador {/*browser-extension*/}
-=======
 <YouWillLearn>
 
-* How to install React Developer Tools
+* Como instalar React Developer Tools
 
 </YouWillLearn>
 
-## Browser extension {/*browser-extension*/}
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/react-developer-tools.md
+## Extensão do navegador {/*browser-extension*/}
 
 A forma mais fácil de depurar websites construídos com React é instalar a ferramenta de desenvolvedor do React no navegador. Ela está disponível para vários navegadores populares:
 
@@ -27,11 +23,7 @@ A forma mais fácil de depurar websites construídos com React é instalar a fer
 * [Instalar para **Firefox**](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
 * [Instalar para **Edge**](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil)
 
-<<<<<<< HEAD:beta/src/pages/learn/react-developer-tools.md
 Agora, se você visitar um website **construído com React**, você verá os painéis _Components_ e _Profiler_.
-=======
-Now, if you visit a website **built with React,** you will see the _Components_ and _Profiler_ panels.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/react-developer-tools.md
 
 ![Extensão de ferramenta de desenvolvedor do React](https://beta.reactjs.org/images/docs/react-devtools-extension.png)
 

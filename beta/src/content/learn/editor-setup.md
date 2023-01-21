@@ -21,15 +21,9 @@ A properly configured editor can make code clearer to read and faster to write. 
 
 Other popular text editors used in the React community include:
 
-<<<<<<< HEAD:beta/src/pages/learn/editor-setup.md
-* [WebStorm](https://www.jetbrains.com/webstorm/)—an integrated development environment designed specifically for JavaScript.
-* [Sublime Text](https://www.sublimetext.com/)—has support for JSX and TypeScript, [syntax highlighting](https://stackoverflow.com/a/70960574/458193) and autocomplete built in.
-* [Vim](https://www.vim.org/)—a highly configurable text editor built to make creating and changing any kind of text very efficient. It is included as "vi" with most UNIX systems and with Apple OS X.
-=======
 * [WebStorm](https://www.jetbrains.com/webstorm/) is an integrated development environment designed specifically for JavaScript.
 * [Sublime Text](https://www.sublimetext.com/) has support for JSX and TypeScript, [syntax highlighting](https://stackoverflow.com/a/70960574/458193) and autocomplete built in.
 * [Vim](https://www.vim.org/) is a highly configurable text editor built to make creating and changing any kind of text very efficient. It is included as "vi" with most UNIX systems and with Apple OS X.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/editor-setup.md
 
 ## Recommended text editor features {/*recommended-text-editor-features*/}
 

@@ -1,33 +1,13 @@
 {
   "title": "API Reference",
   "heading": true,
-<<<<<<< HEAD
-  "path": "/apis",
-=======
   "path": "/reference/react",
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   "routes": [
     {
       "heading": true,
       "path": "",
       "routes": [
         {
-<<<<<<< HEAD
-          "title": "React APIs",
-          "path": "/apis",
-          "routes": [
-            {
-              "title": "useState()",
-              "path": "/apis/usestate"
-            },
-            {
-              "title": "useContext()",
-              "path": "/apis/usecontext"
-            },
-            {
-              "title": "useRef()",
-              "path": "/apis/useref"
-=======
           "hasSectionHeader": true,
           "sectionHeader": "'react' package"
         },
@@ -50,19 +30,10 @@
             {
               "title": "<Suspense>",
               "path": "/reference/react/Suspense"
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
             }
           ]
         },
         {
-<<<<<<< HEAD
-          "title": "ReactDOM APIs",
-          "path": "/apis/reactdom",
-          "routes": [
-            {
-              "title": "render()",
-              "path": "/apis/render"
-=======
           "title": "Hooks",
           "path": "/reference/react",
           "routes": [
@@ -301,7 +272,6 @@
             {
               "title": "PureComponent",
               "path": "/reference/react/PureComponent"
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
             }
           ]
         }

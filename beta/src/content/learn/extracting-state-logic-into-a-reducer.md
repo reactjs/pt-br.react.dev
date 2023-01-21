@@ -499,14 +499,7 @@ import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
 export default function TaskApp() {
-<<<<<<< HEAD:beta/src/pages/learn/extracting-state-logic-into-a-reducer.md
-  const [tasks, dispatch] = useReducer(
-    tasksReducer,
-    initialTasks
-  );
-=======
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/extracting-state-logic-into-a-reducer.md
 
   function handleAddTask(text) {
     dispatch({
@@ -692,14 +685,7 @@ import TaskList from './TaskList.js';
 import tasksReducer from './tasksReducer.js';
 
 export default function TaskApp() {
-<<<<<<< HEAD:beta/src/pages/learn/extracting-state-logic-into-a-reducer.md
-  const [tasks, dispatch] = useReducer(
-    tasksReducer,
-    initialTasks
-  );
-=======
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/extracting-state-logic-into-a-reducer.md
 
   function handleAddTask(text) {
     dispatch({
@@ -894,13 +880,8 @@ We recommend using a reducer if you often encounter bugs due to incorrect state 
 
 Keep these two tips in mind when writing reducers:
 
-<<<<<<< HEAD:beta/src/pages/learn/extracting-state-logic-into-a-reducer.md
-* **Reducers must be pure.** Similar to [state updater functions](/learn/queueing-a-series-of-state-updates), reducers run during rendering! (Actions are queued until the next render.) This means that reducers [must be pure](/learn/keeping-components-pure)—same inputs always result in the same output. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should update [objects](/learn/updating-objects-in-state) and [arrays](/learn/updating-arrays-in-state) without mutations.
-* **Each action describes a single user interaction, even if that leads to multiple changes in the data.** For example, if a user presses "Reset" on a form with five fields managed by a reducer, it makes more sense to dispatch one `reset_form` action rather than five separate `set_field` actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!
-=======
 - **Reducers must be pure.** Similar to [state updater functions](/learn/queueing-a-series-of-state-updates), reducers run during rendering! (Actions are queued until the next render.) This means that reducers [must be pure](/learn/keeping-components-pure)—same inputs always result in the same output. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should update [objects](/learn/updating-objects-in-state) and [arrays](/learn/updating-arrays-in-state) without mutations.
 - **Each action describes a single user interaction, even if that leads to multiple changes in the data.** For example, if a user presses "Reset" on a form with five fields managed by a reducer, it makes more sense to dispatch one `reset_form` action rather than five separate `set_field` actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/extracting-state-logic-into-a-reducer.md
 
 ## Writing concise reducers with Immer {/*writing-concise-reducers-with-immer*/}
 
@@ -938,14 +919,7 @@ function tasksReducer(draft, action) {
 }
 
 export default function TaskApp() {
-<<<<<<< HEAD:beta/src/pages/learn/extracting-state-logic-into-a-reducer.md
-  const [tasks, dispatch] = useImmerReducer(
-    tasksReducer,
-    initialTasks
-  );
-=======
   const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks);
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/extracting-state-logic-into-a-reducer.md
 
   function handleAddTask(text) {
     dispatch({
@@ -1116,17 +1090,10 @@ Reducers must be pure, so they shouldn't mutate state. But Immer provides you wi
   1. Dispatch actions from event handlers.
   2. Write a reducer function that returns the next state for a given state and action.
   3. Replace `useState` with `useReducer`.
-<<<<<<< HEAD:beta/src/pages/learn/extracting-state-logic-into-a-reducer.md
-* Reducers require you to write a bit more code, but they help with debugging and testing.
-* Reducers must be pure.
-* Each action describes a single user interaction.
-* Use Immer if you want to write reducers in a mutating style.
-=======
 - Reducers require you to write a bit more code, but they help with debugging and testing.
 - Reducers must be pure.
 - Each action describes a single user interaction.
 - Use Immer if you want to write reducers in a mutating style.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/extracting-state-logic-into-a-reducer.md
 
 </Recap>
 

@@ -17,11 +17,7 @@
 
   @font-face {
     font-family: 'Optimistic Display';
-<<<<<<< HEAD
-    src: url('https://conf.reactjs.org/fonts/Optimistic_Display_W_Lt.woff2')
-=======
     src: url('https://beta.reactjs.org/fonts/Optimistic_Display_W_Lt.woff2')
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
       format('woff2');
     font-weight: 300;
     font-style: normal;
@@ -30,11 +26,7 @@
 
   @font-face {
     font-family: 'Optimistic Display';
-<<<<<<< HEAD
-    src: url('https://conf.reactjs.org/fonts/Optimistic_Display_W_Md.woff2')
-=======
     src: url('https://beta.reactjs.org/fonts/Optimistic_Display_W_Md.woff2')
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
       format('woff2');
     font-weight: 500;
     font-style: normal;
@@ -43,11 +35,7 @@
 
   @font-face {
     font-family: 'Optimistic Display';
-<<<<<<< HEAD
-    src: url('https://conf.reactjs.org/fonts/Optimistic_Display_W_Bd.woff2')
-=======
     src: url('https://beta.reactjs.org/fonts/Optimistic_Display_W_Bd.woff2')
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
       format('woff2');
     font-weight: 700;
     font-style: normal;
@@ -161,18 +149,8 @@
     max-width: calc(min(700px, 100%));
   }
 
-<<<<<<< HEAD
-  @keyframes nav-fadein {
-    from {
-      opacity: 0.5;
-    }
-    to {
-      opacity: 1;
-    }
-=======
   summary::-webkit-details-marker {
     display: none;
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   }
 
   /*
@@ -226,22 +204,14 @@
 }
 
 .code-step * {
-<<<<<<< HEAD
-  color: black !important;
-}
-=======
   color: inherit !important;
 }
 
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 .code-step code {
   background: none !important;
   padding: 2px !important;
 }
 html.dark .code-step * {
-<<<<<<< HEAD
-  color: white !important;
-=======
   color: inherit !important;
 }
 
@@ -351,5 +321,4 @@ ol.mdx-illustration-block {
     right: auto;
     transform: translateX(-50%) translateY(-100%) rotate(90deg);
   }
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 }
