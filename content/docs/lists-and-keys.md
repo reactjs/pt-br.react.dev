@@ -33,13 +33,10 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-Adicionamos todo o array `listItems` dentro de um elemento `<ul>` e [renderizamos ele no DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+Então, podemos incluir todo o array `listItems` dentro de um elemento `<ul>`:
 
 ```javascript{2}
-ReactDOM.render(
-  <ul>{listItems}</ul>,
-  document.getElementById('root')
-);
+<ul>{listItems}</ul>
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -64,10 +61,8 @@ function NumberList(props) {
 }
 
 const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
 ```
 
 Ao executar esse código, você receberá um aviso que uma chave deve ser definida para os itens da lista. `key` é um atributo string especial que você precisa definir ao criar listas de elementos. Iremos analisar os motivos pelos quais isso é importante na próxima seção.
@@ -86,12 +81,6 @@ function NumberList(props) {
     <ul>{listItems}</ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -130,7 +119,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alterada. Isso pode impactar de forma negativa o desempenho e poderá causar problemas com o estado do componente. Leia o artigo escrito por Robin Pokorny para [uma explicação aprofundada nos impactos negativos de se usar um índice como chave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Se você não atribuir uma chave de forma explícita para os itens de uma lista, então o React irá utilizar os índices como chave por padrão.
+Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alterada. Isso pode impactar de forma negativa o desempenho e poderá causar problemas com o estado do componente. Leia o artigo escrito por Robin Pokorny para [uma explicação aprofundada nos impactos negativos de se usar um índice como chave](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). Se você não atribuir uma chave de forma explícita para os itens de uma lista, então o React irá utilizar os índices como chave por padrão.
 
 Aqui você poderá ver [uma explicação aprofundada sobre o porquê o uso das chaves é necessário](/docs/reconciliation.html#recursing-on-children) caso você esteja interessado em aprender mais sobre isso.
 
@@ -165,12 +154,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 **Exemplo: Uso Correto de Chaves**
@@ -193,12 +176,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -239,10 +216,9 @@ const posts = [
   {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
   {id: 2, title: 'Installation', content: 'You can install React from npm.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)

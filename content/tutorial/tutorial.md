@@ -106,7 +106,7 @@ cd ..
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 ```
 
@@ -568,7 +568,7 @@ var player = {score: 1, name: 'Jeff'};
 var newPlayer = Object.assign({}, player, {score: 2});
 // Agora o player não sofreu alteração, mas o newPlayer é {score: 2, name: 'Jeff'}
 
-// Ou então se você estiver usando a sintaxe "object spread", você pode escrever:
+// Ou se você estiver usando a sintaxe de difusão de objetos, você pode escrever:
 // var newPlayer = {...player, score: 2};
 ```
 
@@ -1179,13 +1179,13 @@ Em seguida, definiremos o método `jumpTo` no componente Game para atualizar aqu
   }
 ```
 
-Observe no método `jumpTo`, não atualizamos a propriedade de histórico do estado. Isso ocorre porque as atualizações de estado são mescladas ou, em palavras mais simples, o react atualizará apenas as propriedades mencionadas no método `setState`, deixando o estado restante como está. Para mais informações **[veja a documentação](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+Observe que no método `jumpTo`, não atualizamos a propriedade `history` do estado. Isso ocorre porque as atualizações de estado são mescladas ou, em palavras mais simples, o React atualizará apenas as propriedades mencionadas no método `setState`, deixando o estado restante como está. Para mais informações **[consulte a documentação](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
 
 Agora faremos algumas modificações no método `handleClick` do componente Game, que é disparado quando você clica em um quadradado do tabuleiro (square).
 
 O state `stepNumber` que adicionamos reflete a jogada mostrada ao usuário nesse momento. Após fazermos uma nova jogada, precisamos atualizar `stepNumber` adicionando `stepNumber: history.length` como parte do argumento de `this.setState`. Isso certifica que não ficaremos presos mostrando a mesma jogada após uma novo ter sido feita. 
 
-Também iremos substituir a leitura de `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Isso certifica que se nós "voltarmos no tempo", e então fizermos uma nova jogada a partir daquele ponto, descartamos todo o histórico do "futuro" que agora se tornaria incorreto.
+Também substituiremos a leitura `this.state.history` por `this.state.history.slice(0, this.state.stepNumber + 1)`. Isso garante que, se "voltarmos no tempo" e fizermos um novo movimento a partir desse ponto, jogaremos fora toda a história "futura" que agora estaria incorreta.
 
 ```javascript{2,13}
   handleClick(i) {

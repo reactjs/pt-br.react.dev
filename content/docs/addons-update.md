@@ -21,7 +21,7 @@ var update = require('react-addons-update'); // ES5 com npm
 
 O React permite que você use qualquer estilo de gerenciamento de dados que desejar, incluindo mutação. No entanto, se você puder usar dados imutáveis ​​em partes críticas de desempenho de seu aplicativo, é fácil implementar um método rápido [`shouldComponentUpdate()`](/docs/react-component.html#shouldcomponentupdate) para acelerar significativamente seu aplicativo.
 
-Lidar com dados imutáveis ​​em JavaScript é mais difícil do que em linguagens projetadas para isso, como [Clojure](https://clojure.org/). No entanto, nós fornecemos um simples auxiliar de imutabilidade, `update()`, que torna muito mais fácil lidar com esse tipo de dados, *sem* alterar fundamentalmente a forma como seus dados são representados. Você também pode dar uma olhada no Facebook [Immutable-js](https://facebook.github.io/immutable-js/docs/) e na seção de [desempenho avançado](/docs/advanced-performance.html) para obter mais detalhes sobre Immutable-js.
+Lidar com dados imutáveis ​​em JavaScript é mais difícil do que em linguagens projetadas para isso, como [Clojure](https://clojure.org/). No entanto, nós fornecemos um simples auxiliar de imutabilidade, `update()`, que torna muito mais fácil lidar com esse tipo de dados, *sem* alterar fundamentalmente a forma como seus dados são representados. Você também pode dar uma olhada no Facebook [Immutable-js](https://immutable-js.com/docs/latest@main/) e na seção de [desempenho avançado](/docs/advanced-performance.html) para obter mais detalhes sobre Immutable-js.
 
 ### A ideia principal {#the-main-idea}
 
