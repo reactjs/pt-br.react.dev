@@ -134,7 +134,7 @@ var SayHello = createReactClass({
 
 Isso significa que escrever classes ES6 necessita um pouco mais de código boilerplate para controladores de eventos. Por outro lado, é levemente mais performático em aplicações de larga escala.
 
-Se você acha que código boilerplate pouco atraente, você pode ativar a proposta de [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) **experimentais** com Babel:
+Se você acha que código boilerplate pouco atraente, você pode usar [ES2022 Class Properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) sintaxe:
 
 
 ```javascript
@@ -143,11 +143,11 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Hello!'};
   }
-  // AVISO: essa sintaxe é experimental!
+
   // Usar uma arrow function aqui já faz bind do método
   handleClick = () => {
     alert(this.state.message);
-  }
+  };
 
   render() {
     return (
@@ -159,9 +159,7 @@ class SayHello extends React.Component {
 }
 ```
 
-Por favor, notem que a sintaxe acima é **experimental** e que a sintaxe pode mudar ou ainda, a proposta pode não ser implementada na linguagem.
-
-Se você prefere jogar seguro, você tem algumas opções:
+Você também tem algumas outras opções:
 
 * Fazer bind do método no construtor.
 * Usar arrow functions, e.g. `onClick={(e) => this.handleClick(e)}`.
@@ -216,10 +214,8 @@ var TickTock = createReactClass({
   }
 });
 
-ReactDOM.render(
-  <TickTock />,
-  document.getElementById('example')
-);
+const root = ReactDOM.createRoot(document.getElementById('example'));
+root.render(<TickTock />);
 ```
 
 Se um componente está usando múltiplos mixins e diversos desses mixins definem o mesmo lifecycle method (por ex. diversos mixins querem fazer uma limpeza quando um componente é destruído), todos os lifecycle methods terão garantia de serem chamados. Métodos definidos em um mixin são executados na ordem em que foram listados, seguidos por uma chamada de método no componente.
