@@ -134,11 +134,7 @@ var SayHello = createReactClass({
 
 Isso significa que escrever classes ES6 necessita um pouco mais de código boilerplate para controladores de eventos. Por outro lado, é levemente mais performático em aplicações de larga escala.
 
-<<<<<<< HEAD
-Se você acha que código boilerplate pouco atraente, você pode ativar a proposta de [Class Properties](https://babeljs.io/docs/plugins/transform-class-properties/) **experimentais** com Babel:
-=======
-If the boilerplate code is too unattractive to you, you may use [ES2022 Class Properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) syntax:
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+Se você acha que código boilerplate pouco atraente, você pode usar [ES2022 Class Properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields) sintaxe:
 
 
 ```javascript
@@ -147,13 +143,8 @@ class SayHello extends React.Component {
     super(props);
     this.state = {message: 'Hello!'};
   }
-<<<<<<< HEAD
-  // AVISO: essa sintaxe é experimental!
+
   // Usar uma arrow function aqui já faz bind do método
-=======
-  
-  // Using an arrow here binds the method:
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
   handleClick = () => {
     alert(this.state.message);
   };
@@ -168,13 +159,7 @@ class SayHello extends React.Component {
 }
 ```
 
-<<<<<<< HEAD
-Por favor, notem que a sintaxe acima é **experimental** e que a sintaxe pode mudar ou ainda, a proposta pode não ser implementada na linguagem.
-
-Se você prefere jogar seguro, você tem algumas opções:
-=======
-You also have a few other options:
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+Você também tem algumas outras opções:
 
 * Fazer bind do método no construtor.
 * Usar arrow functions, e.g. `onClick={(e) => this.handleClick(e)}`.

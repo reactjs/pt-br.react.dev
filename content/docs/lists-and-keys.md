@@ -33,11 +33,7 @@ const listItems = numbers.map((number) =>
 );
 ```
 
-<<<<<<< HEAD
-Adicionamos todo o array `listItems` dentro de um elemento `<ul>` e [renderizamos ele no DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
-=======
-Then, we can include the entire `listItems` array inside a `<ul>` element:
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+Então, podemos incluir todo o array `listItems` dentro de um elemento `<ul>`:
 
 ```javascript{2}
 <ul>{listItems}</ul>
@@ -123,11 +119,7 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
-<<<<<<< HEAD
-Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alterada. Isso pode impactar de forma negativa o desempenho e poderá causar problemas com o estado do componente. Leia o artigo escrito por Robin Pokorny para [uma explicação aprofundada nos impactos negativos de se usar um índice como chave](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Se você não atribuir uma chave de forma explícita para os itens de uma lista, então o React irá utilizar os índices como chave por padrão.
-=======
-We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+Não recomendamos o uso de índices para chave se a ordem dos itens pode ser alterada. Isso pode impactar de forma negativa o desempenho e poderá causar problemas com o estado do componente. Leia o artigo escrito por Robin Pokorny para [uma explicação aprofundada nos impactos negativos de se usar um índice como chave](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). Se você não atribuir uma chave de forma explícita para os itens de uma lista, então o React irá utilizar os índices como chave por padrão.
 
 Aqui você poderá ver [uma explicação aprofundada sobre o porquê o uso das chaves é necessário](/docs/reconciliation.html#recursing-on-children) caso você esteja interessado em aprender mais sobre isso.
 

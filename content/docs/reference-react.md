@@ -123,11 +123,7 @@ Se o método `render()` do seu componente React renderiza o mesmo resultado dado
 
 > Nota
 >
-<<<<<<< HEAD
-> O método `shouldComponentUpdate()` do `React.PureComponent` compara os objetos apenas superficialmente. Se eles contiverem estruturas de dados complexas, isto pode causar falso-negativos para diferenças mais profundas. Estenda `PureComponent` quando você espera possuir props e state simples, ou então use [`forceUpdate()`](/docs/react-component.html#forceupdate) quando você souber que ocorreram mudanças profundas na estrutura de dados.
-=======
-> `React.PureComponent`'s `shouldComponentUpdate()` only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend `PureComponent` when you expect to have simple props and state, or use [`forceUpdate()`](/docs/react-component.html#forceupdate) when you know deep data structures have changed. Or, consider using [immutable objects](https://immutable-js.com/) to facilitate fast comparisons of nested data.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+> O `shouldComponentUpdate()` do `React.PureComponent` apenas compara superficialmente os objetos. Se estes contiverem estruturas de dados complexas, podem produzir falsos negativos para diferenças mais profundas. Apenas estenda `PureComponent` quando você espera ter propriedades e estados simples, ou use [`forceUpdate()`](/docs/react-component.html#forceupdate) quando você souber que estruturas de dados profundas foram alteradas. Ou considere usar [objetos imutáveis](https://immutable-js.com/) para facilitar comparações rápidas de dados aninhados.
 >
 > Além disso, o método `shouldComponentUpdate()` do `React.PureComponent` pula atualizações de prop para toda a subárvore do componente. Esteja certo de que todos seus componentes que descendem dele também são "puros".
 
@@ -347,21 +343,11 @@ const SomeComponent = React.lazy(() => import('./SomeComponent'));
 
 Note que renderizar componentes `lazy` requer que exista um componente `<React.Suspense>` num nível mais alto da árvore de renderização. É assim que você especifica um indicador de carregamento.
 
-<<<<<<< HEAD
-> Nota
->
-> Usar `React.lazy` com *import* dinâmico requer que `Promises` estejam disponíveis no ambiente JS. Isto requer um *polyfill* no IE11 e suas versōes anteriores.
-
 ### `React.Suspense` {#reactsuspense}
 
-`React.Suspense` permite especificar o indicador de carregamento em caso de alguns componentes abaixo na árvore ainda não estarem prontos para renderizar. Atualmente, componentes de carregamento *lazy* são a **única** finalidade que o `<React.Suspense>` presta suporte:
-=======
-### `React.Suspense` {#reactsuspense}
+`React.Suspense` permite que você especifique o indicador de carregamento no caso de alguns componentes na árvore abaixo dele ainda não estarem prontos para renderizar. No futuro, planejamos permitir que `Suspense` lide com mais cenários, como busca de dados. Você pode ler sobre isso em [nosso roteiro](/blog/2018/11/27/react-16-roadmap.html).
 
-`React.Suspense` lets you specify the loading indicator in case some components in the tree below it are not yet ready to render. In the future we plan to let `Suspense` handle more scenarios such as data fetching. You can read about this in [our roadmap](/blog/2018/11/27/react-16-roadmap.html).
-
-Today, lazy loading components is the **only** use case supported by `<React.Suspense>`:
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+Hoje, carregamento lento de componentes é o **único** caso de uso suportado por `<React.Suspense>`:
 
 ```js
 // Este componente é carregado dinamicamente
@@ -381,36 +367,28 @@ function MyComponent() {
 
 Isto está documentado em nosso [guia para *code splitting*](/docs/code-splitting.html#reactlazy). Note que componentes `lazy` podem estar em níveis profundos dentro da árvore de `Suspense` -- ele não precisa envolver cada um deles. A melhor prática é colocar `<Suspense>` onde você quer ver um indicador de carregamento, mas utilizar `lazy()` onde você quiser realizar *code splitting*.
 
-<<<<<<< HEAD
-Enquanto o React não presta suporte a isto, no futuro nós planejamos permitir que `Suspense` lide com mais cenários como busca de dados. Você pode ler sobre isso em [nosso *roadmap*](/blog/2018/11/27/react-16-roadmap.html).
-
 > Nota
 >
-> `React.lazy()` e `<React.Suspense>` ainda não tem suporte através do `ReactDOMServer`. Esta é uma limitação conhecida que será resolvida futuramente.
-=======
-> Note
->
-> For content that is already shown to the user, switching back to a loading indicator can be disorienting. It is sometimes better to show the "old" UI while the new UI is being prepared. To do this, you can use the new transition APIs [`startTransition`](#starttransition) and [`useTransition`](/docs/hooks-reference.html#usetransition) to mark updates as transitions and avoid unexpected fallbacks.
+> Para o conteúdo que já é mostrado ao usuário, voltar para um indicador de carregamento pode ser desorientador. Às vezes, é melhor mostrar a IU "antiga" enquanto a nova IU está sendo preparada. Para fazer isso, você pode usar as novas APIs de transição [`startTransition`](#starttransition) e [`useTransition`](/docs/hooks-reference.html#usetransition) para marcar atualizações como transições e evitar fallbacks inesperados.
 
-#### `React.Suspense` in Server Side Rendering {#reactsuspense-in-server-side-rendering}
-During server side rendering Suspense Boundaries allow you to flush your application in smaller chunks by suspending.
-When a component suspends we schedule a low priority task to render the closest Suspense boundary's fallback. If the component unsuspends before we flush the fallback then we send down the actual content and throw away the fallback.
+#### `React.Suspense` na renderização do lado do servidor {#reactsuspense-in-server-side-rendering}
+Durante a renderização do lado do servidor, os limites de suspensão permitem que você elimine seu aplicativo em partes menores por meio da suspensão.
+Quando um componente é suspenso, agendamos uma tarefa de baixa prioridade para renderizar o fallback do limite Suspense mais próximo. Se o componente for suspenso antes de liberarmos o fallback, enviaremos o conteúdo real e descartaremos o fallback.
 
-#### `React.Suspense` during hydration {#reactsuspense-during-hydration}
-Suspense boundaries depend on their parent boundaries being hydrated before they can hydrate, but they can hydrate independently from sibling boundaries. Events on a boundary before it is hydrated will cause the boundary to hydrate at a higher priority than neighboring boundaries. [Read more](https://github.com/reactwg/react-18/discussions/130)
+#### `React.Suspense` durante a hidratação {#reactsuspense-during-hydration}
+Os limites suspensos dependem de seus limites pais serem hidratados antes que possam se hidratar, mas eles podem se hidratar independentemente dos limites irmãos. Eventos em um limite antes de ser hidratado farão com que o limite seja hidratado com uma prioridade mais alta do que os limites vizinhos. [Leia mais](https://github.com/reactwg/react-18/discussions/130)
 
 ### `React.startTransition` {#starttransition}
 
 ```js
 React.startTransition(callback)
 ```
-`React.startTransition` lets you mark updates inside the provided callback as transitions. This method is designed to be used when [`React.useTransition`](/docs/hooks-reference.html#usetransition) is not available.
+`React.startTransition` permite marcar atualizações dentro do callback fornecido como transições. Este método é projetado para ser usado quando [`React.useTransition`](/docs/hooks-reference.html#usetransition) não está disponível.
 
-> Note:
+> Nota:
 >
-> Updates in a transition yield to more urgent updates such as clicks.
+> Atualizações em uma transição dão lugar a atualizações mais urgentes, como cliques.
 >
-> Updates in a transition will not show a fallback for re-suspended content, allowing the user to continue interacting while rendering the update.
+> As atualizações em uma transição não mostrarão um fallback para conteúdo ressuspenso, permitindo que o usuário continue interagindo enquanto renderiza a atualização.
 >
-> `React.startTransition` does not provide an `isPending` flag. To track the pending status of a transition see [`React.useTransition`](/docs/hooks-reference.html#usetransition).
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+> `React.startTransition` não fornece um sinalizador `isPending`. Para acompanhar o status pendente de uma transição, consulte [`React.useTransition`](/docs/hooks-reference.html#usetransition).

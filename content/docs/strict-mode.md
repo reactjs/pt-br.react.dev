@@ -15,22 +15,13 @@ Você pode habilitar o modo estrito para qualquer parte da sua aplicação, por 
 
 No exemplo acima, as verificações do modo estrito *não* serão executadas nos componentes `Header` e `Footer`. No entanto, `ComponentOne` e `ComponentTwo`, assim como todos os seus componentes descendentes, serão verificados.
 
-<<<<<<< HEAD
-O modo estrito ajuda atualmente com:
-* [Identificação de métodos de ciclo de vida (lifecycles) inseguros](#identifying-unsafe-lifecycles)
-* [Avisos em relação ao uso da antiga string ref API](#warning-about-legacy-string-ref-api-usage)
-* [Avisos em relação ao uso do depreciado findDOMNode](#warning-about-deprecated-finddomnode-usage)
-* [Detecção de efeitos colaterais (side effects) inesperados](#detecting-unexpected-side-effects)
-* [Detecção de uso da antiga API de contexto (Context API)](#detecting-legacy-context-api)
-=======
-`StrictMode` currently helps with:
-* [Identifying components with unsafe lifecycles](#identifying-unsafe-lifecycles)
-* [Warning about legacy string ref API usage](#warning-about-legacy-string-ref-api-usage)
-* [Warning about deprecated findDOMNode usage](#warning-about-deprecated-finddomnode-usage)
-* [Detecting unexpected side effects](#detecting-unexpected-side-effects)
+`StrictMode` atualmente ajuda com:
+* [Identificando componentes com ciclos de vida inseguros](#identifying-unsafe-lifecycles)
+* [Aviso sobre o uso da API de referência de string legada](#warning-about-legacy-string-ref-api-usage)
+* [Aviso sobre uso obsoleto de findDOMNode](#warning-about-deprecated-finddomnode-usage)
+* [Detectando efeitos colaterais inesperados](#detecting-unexpected-side-effects)
 * [Detecting legacy context API](#detecting-legacy-context-api)
-* [Ensuring reusable state](#ensuring-reusable-state)
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+* [Garantindo o estado reutilizável](#garantindo-reusable-state)
 
 Funcionalidades adicionais serão adicionadas em versões futuras do React.
 
@@ -128,13 +119,9 @@ Ao intencionalmente invocar os métodos de ciclo de vida duas vezes, como o cons
 
 > Nota:
 >
-<<<<<<< HEAD
-> A partir do React 17, o React modifica automaticamente os métodos do console como `console.log()` para silenciar os logs na segunda chamada para funções de ciclo de vida. No entanto, pode causar um comportamento indesejado em certos casos em que [uma solução alternativa pode ser usada](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
-=======
-> In React 17, React automatically modifies the console methods like `console.log()` to silence the logs in the second call to lifecycle functions. However, it may cause undesired behavior in certain cases where [a workaround can be used](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
+> No React 17, o React modifica automaticamente os métodos do console como `console.log()` para silenciar os logs na segunda chamada para funções de ciclo de vida. No entanto, pode causar um comportamento indesejado em certos casos em que [uma solução alternativa pode ser usada](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
 >
-> Starting from React 18, React does not suppress any logs. However, if you have React DevTools installed, the logs from the second call will appear slightly dimmed. React DevTools also offers a setting (off by default) to suppress them completely.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+> A partir do React 18, o React não suprime nenhum log. No entanto, se você tiver o React DevTools instalado, os logs da segunda chamada aparecerão ligeiramente esmaecidos. O React DevTools também oferece uma configuração (desativada por padrão) para suprimi-los completamente.
 
 ### Detectar o uso da antiga API de contexto (Context API) {#detecting-legacy-context-api}
 
@@ -142,53 +129,50 @@ A antiga API de contexto era propensa a erros, e será removida em uma futura ve
 
 ![](../images/blog/warn-legacy-context-in-strict-mode.png)
 
-<<<<<<< HEAD
-Leia a [documentação da nova API de contexto](/docs/context.html) para ajudá-lo a migrar para a nova versão.
-=======
-Read the [new context API documentation](/docs/context.html) to help migrate to the new version.
+Leia a [nova documentação da API de contexto](/docs/context.html) para ajudar a migrar para a nova versão.
 
 
-### Ensuring reusable state {#ensuring-reusable-state}
+### Garantindo o estado reutilizável {#ensuring-reusable-state}
 
-In the future, we’d like to add a feature that allows React to add and remove sections of the UI while preserving state. For example, when a user tabs away from a screen and back, React should be able to immediately show the previous screen. To do this, React will support remounting trees using the same component state used before unmounting.
+No futuro, gostaríamos de adicionar um recurso que permita ao React adicionar e remover seções da interface do usuário enquanto preserva o estado. Por exemplo, quando um usuário sai de uma tela e volta, o React deve ser capaz de mostrar imediatamente a tela anterior. Para fazer isso, o React oferecerá suporte à remontagem de árvores usando o mesmo estado de componente usado antes da desmontagem.
 
-This feature will give React better performance out-of-the-box, but requires components to be resilient to effects being mounted and destroyed multiple times. Most effects will work without any changes, but some effects do not properly clean up subscriptions in the destroy callback, or implicitly assume they are only mounted or destroyed once.
+Esse recurso dará ao React um melhor desempenho pronto para uso, mas requer que os componentes sejam resistentes a efeitos sendo montados e destruídos várias vezes. A maioria dos efeitos funcionará sem nenhuma alteração, mas alguns efeitos não limpam adequadamente as assinaturas no callback de destruição ou assumem implicitamente que são montados ou destruídos apenas uma vez.
 
-To help surface these issues, React 18 introduces a new development-only check to Strict Mode. This new check will automatically unmount and remount every component, whenever a component mounts for the first time, restoring the previous state on the second mount.
+Para ajudar a resolver esses problemas, o React 18 apresenta uma nova verificação somente de desenvolvimento para o Strict Mode. Essa nova verificação desmontará e remontará automaticamente cada componente, sempre que um componente for montado pela primeira vez, restaurando o estado anterior na segunda montagem.
 
-To demonstrate the development behavior you'll see in Strict Mode with this feature, consider what happens when React mounts a new component. Without this change, when a component mounts, React creates the effects:
+Para demonstrar o comportamento de desenvolvimento que você verá no Strict Mode com esse recurso, considere o que acontece quando o React monta um novo componente. Sem essa alteração, quando um componente é montado, o React cria os efeitos:
 
 ```
-* React mounts the component.
-  * Layout effects are created.
-  * Effects are created.
+* React monta o componente.
+  * Efeitos de layout são criados.
+  * Efeitos são criados.
 ```
 
-With Strict Mode starting in React 18, whenever a component mounts in development, React will simulate immediately unmounting and remounting the component:
+Com o Strict Mode começando no React 18, sempre que um componente é montado em desenvolvimento, o React simulará imediatamente a desmontagem e remontagem do componente:
 
 ```
-* React mounts the component.
-    * Layout effects are created.
-    * Effects are created.
-* React simulates effects being destroyed on a mounted component.
-    * Layout effects are destroyed.
-    * Effects are destroyed.
-* React simulates effects being re-created on a mounted component.
-    * Layout effects are created
-    * Effect setup code runs
+* React monta o componente.
+    * Efeitos de layout são criados.
+    * Efeitos são criados.
+* React simula efeitos sendo destruídos em um componente montado.
+    * Efeitos de layout são destruídos.
+    * Os efeitos são destruídos.
+* React simula efeitos sendo recriados em um componente montado.
+    * Efeitos de layout são criados
+    * O código de configuração do efeito é executado
 ```
 
-On the second mount, React will restore the state from the first mount. This feature simulates user behavior such as a user tabbing away from a screen and back, ensuring that code will properly handle state restoration.
+Na segunda montagem, o React restaurará o estado da primeira montagem. Esse recurso simula o comportamento do usuário, como um usuário saindo de uma tela e voltando, garantindo que o código lidará adequadamente com a restauração do estado.
 
-When the component unmounts, effects are destroyed as normal:
+Quando o componente desmonta, os efeitos são destruídos normalmente:
 
 ```
-* React unmounts the component.
-  * Layout effects are destroyed.
-  * Effects are destroyed.
+* React desmonta o componente.
+  * Efeitos de layout são destruídos.
+  * Os efeitos são destruídos.
 ```
 
-Unmounting and remounting includes:
+A desmontagem e remontagem incluem:
 
 - `componentDidMount`
 - `componentWillUnmount`
@@ -196,10 +180,9 @@ Unmounting and remounting includes:
 - `useLayoutEffect`
 - `useInsertionEffect`
 
-> Note:
+> Nota:
 >
-> This only applies to development mode, _production behavior is unchanged_.
+> Isso só se aplica ao modo de desenvolvimento, _comportamento de produção inalterado_.
 
-For help supporting common issues, see:
-  - [How to support Reusable State in Effects](https://github.com/reactwg/react-18/discussions/18)
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+Para obter ajuda com problemas comuns, consulte:
+  - [Como oferecer suporte ao estado reutilizável em efeitos](https://github.com/reactwg/react-18/discussions/18)

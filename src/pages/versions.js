@@ -39,12 +39,8 @@ const Versions = ({location}: Props) => (
                 rel="noopener">
                 no GitHub
               </a>
-<<<<<<< HEAD
-              .<br />A documentação mais recente pode ser encontrada abaixo.
-=======
               .<br />
-              Changelogs for recent releases can also be found below.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+              A documentação mais recente pode ser encontrada abaixo.
             </p>
             <blockquote>
               <p>Note</p>

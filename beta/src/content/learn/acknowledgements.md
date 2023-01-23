@@ -4,17 +4,13 @@ title: Reconhecimentos
 
 <Intro>
 
-<<<<<<< HEAD:beta/src/pages/community/acknowledgements.md
-React foi originalmente criado por [Jordan Walke](https://github.com/jordwalke). Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team.html), assim como milhares de [contribuidores open source](https://github.com/facebook/react/blob/main/AUTHORS). Gostaríamos de dar reconhecimento a algumas pessoas que fizeram contribuições significativas ao React e sua documentação no passado e ajudaram a mantê-lo através dos anos:
-=======
-React was originally created by [Jordan Walke.](https://github.com/jordwalke) Today, React has a [dedicated full-time team working on it](/learn/meet-the-team), as well as over a thousand [open source contributors.](https://github.com/facebook/react/blob/main/AUTHORS)
+O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/learn/meet-the-team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/blob/main/AUTHORS)
 
 </Intro>
 
-## Past contributors {/*past-contributors*/}
+## Colaboradores anteriores {/*past-contributors*/}
 
-We'd like to recognize a few people who have made significant contributions to React and its documentation in the past and have helped maintain them over the years:
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/acknowledgements.md
+Gostaríamos de reconhecer algumas pessoas que fizeram contribuições significativas para o React e sua documentação no passado e ajudaram a mantê-los ao longo dos anos:
 
 * [Almero Steyn](https://github.com/AlmeroSteyn)
 * [Andreas Svensson](https://github.com/syranide)
@@ -59,34 +55,7 @@ We'd like to recognize a few people who have made significant contributions to R
 
 Esta lista não é exaustiva.
 
-<<<<<<< HEAD:beta/src/pages/community/acknowledgements.md
-Gostaríamos de agradecer especialmente ao [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Somos também gratos a todos voluntários que [traduziram o React em outros idiomas](https://translations.reactjs.org/).
-
-## React Docs {/*react-docs*/}
-
-### Documentação {/*documentation*/}
-
-* [Rachel Nabors](https://twitter.com/RachelNabors): edição, escrita e ilustração
-* [Dan Abramov](https://twitter.com/dan_abramov): escrita, design de currículo
-* [Sylwia Vargas](https://twitter.com/SylwiaVargas): código de exemplo
-
-### Design {/*design*/}
-
-* [Dan Lebowitz](https://twitter.com/lebo): design
-* [Razvan Gradinar](https://dribbble.com/GradinarRazvan): design
-* [Maggie Appleton](https://maggieappleton.com/): diagramação do sistema
-
-### Desenvolvimento {/*development*/}
-
-* [Jared Palmer](https://twitter.com/jaredpalmer): desenvolvimento do site
-* [ThisDotLabs](https://www.thisdot.co/) ([Dane Grant](https://twitter.com/danecando), [Dustin Goodman](https://twitter.com/dustinsgoodman)): desenvolvimento do site
-* [CodeSandbox](https://codesandbox.io/) ([Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), [Danilo Woznica](https://twitter.com/danilowoz)): integração da sandbox
-* [Rick Hanlon](https://twitter.com/rickhanlonii): desenvolvimento do site
-
-Gostaríamos também de agradecer aos inúmeros alpha testers e membros comunitários que nos deram feedback ao longo do processo.
-=======
-We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We are also thankful to all the volunteers who [translated React into other languages.](https://translations.reactjs.org/)
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227:beta/src/content/learn/acknowledgements.md
+Gostaríamos de agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Também somos gratos a todos os voluntários que [traduziram o React para outros idiomas.](https://translations.reactjs.org/)
 
 ## Agradecimentos Extras {/*additional-thanks*/}
 

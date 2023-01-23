@@ -151,17 +151,13 @@ Ao contrário de `componentDidMount` e `componentDidUpdate`, a função passada 
 
 No entanto, nem todos os efeitos podem ser adiados. Por exemplo, uma alteração no DOM visível para o usuário, deve disparar sincronizadamente antes da próxima renderização, para que o usuário não perceba uma inconsistência visual. (A distinção é conceitualmente semelhante a ouvintes de eventos ativos x passivos.) Para estes tipos de efeitos, React fornece um Hook adicional chamado [`useLayoutEffect`](#uselayouteffect). Tem a mesma estrutura que `useEffect`, mas é diferente quando disparado.
 
-<<<<<<< HEAD
+Além disso, a partir do React 18, a função passada para `useEffect` será acionada de forma síncrona **antes** do layout e da pintura quando for o resultado de uma entrada discreta do usuário, como um clique, ou quando for o resultado de uma atualização agrupada em [ `flushSync`](/docs/react-dom.html#flushsync). Este comportamento permite que o resultado do efeito seja observado pelo sistema de eventos, ou pelo chamador de [`flushSync`](/docs/react-dom.html#flushsync).
+
+> Nota
+>
+> Isso afeta apenas o momento em que a função passada para `useEffect` é chamada - as atualizações agendadas dentro desses efeitos ainda são adiadas. Isso é diferente de [`useLayoutEffect`](#uselayouteffect), que aciona a função e processa as atualizações dentro dela imediatamente.
+
 Embora `useEffect` seja adiado até a próxima renderização do navegador, é mais garantido disparar antes de qualquer nova renderização. React sempre apagará os efeitos de uma renderização anterior antes de iniciar uma nova atualização.
-=======
-Additionally, starting in React 18, the function passed to `useEffect` will fire synchronously **before** layout and paint when it's the result of a discrete user input such as a click, or when it's the result of an update wrapped in [`flushSync`](/docs/react-dom.html#flushsync). This behavior allows the result of the effect to be observed by the event system, or by the caller of [`flushSync`](/docs/react-dom.html#flushsync).
-
-> Note
-> 
-> This only affects the timing of when the function passed to `useEffect` is called - updates scheduled inside these effects are still deferred. This is different than [`useLayoutEffect`](#uselayouteffect), which fires the function and processes the updates inside of it immediately.
-
-Even in cases where `useEffect` is deferred until after the browser has painted, it's guaranteed to fire before any new renders. React will always flush a previous render's effects before starting a new update.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 #### Disparando um Efeito Condicionalmente {#conditionally-firing-an-effect}
 
@@ -539,12 +535,12 @@ useDebugValue(date, date => date.toDateString());
 const deferredValue = useDeferredValue(value);
 ```
 
-`useDeferredValue` accepts a value and returns a new copy of the value that will defer to more urgent updates. If the current render is the result of an urgent update, like user input, React will return the previous value and then render the new value after the urgent render has completed.
+`useDeferredValue` aceita um valor e retorna uma nova cópia do valor que irá adiar para atualizações mais urgentes. Se a renderização atual for o resultado de uma atualização urgente, como a entrada do usuário, o React retornará o valor anterior e, em seguida, renderizará o novo valor após a conclusão da renderização urgente.
 
-This hook is similar to user-space hooks which use debouncing or throttling to defer updates. The benefits to using `useDeferredValue` is that React will work on the update as soon as other work finishes (instead of waiting for an arbitrary amount of time), and like [`startTransition`](/docs/react-api.html#starttransition), deferred values can suspend without triggering an unexpected fallback for existing content.
+Esse hook é semelhante aos hooks de espaço do usuário que usam debouncing ou limitação para adiar atualizações. Os benefícios de usar `useDeferredValue` é que o React funcionará na atualização assim que outro trabalho terminar (em vez de esperar por um período de tempo arbitrário) e como [`startTransition`](/docs/react-api.html# starttransition), os valores adiados podem ser suspensos sem acionar um fallback inesperado para o conteúdo existente.
 
-#### Memoizing deferred children {#memoizing-deferred-children}
-`useDeferredValue` only defers the value that you pass to it. If you want to prevent a child component from re-rendering during an urgent update, you must also memoize that component with [`React.memo`](/docs/react-api.html#reactmemo) or [`React.useMemo`](/docs/hooks-reference.html#usememo):
+#### Memorizando crianças adiadas {#memoizing-deferred-children}
+`useDeferredValue` apenas adia o valor que você passa para ele. Se você deseja impedir que um componente filho seja renderizado novamente durante uma atualização urgente, também deve memorizar esse componente com [`React.memo`](/docs/react-api.html#reactmemo) ou [`React.useMemo`](/docs/hooks-reference.html#usememo):
 
 ```js
 function Typeahead() {
@@ -569,7 +565,7 @@ function Typeahead() {
 }
 ```
 
-Memoizing the children tells React that it only needs to re-render them when `deferredQuery` changes and not when `query` changes. This caveat is not unique to `useDeferredValue`, and it's the same pattern you would use with similar hooks that use debouncing or throttling.
+Memorizar os filhos diz ao React que ele só precisa renderizá-los novamente quando `deferredQuery` mudar e não quando `query` mudar. Esta ressalva não é exclusiva de `useDeferredValue`, e é o mesmo padrão que você usaria com hooks semelhantes que usam debouncing ou throttling.
 
 ### `useTransition` {#usetransition}
 
@@ -577,9 +573,9 @@ Memoizing the children tells React that it only needs to re-render them when `de
 const [isPending, startTransition] = useTransition();
 ```
 
-Returns a stateful value for the pending state of the transition, and a function to start it.
+Retorna um valor stateful para o estado pendente da transição e uma função para iniciá-la.
 
-`startTransition` lets you mark updates in the provided callback as transitions:
+`startTransition` permite marcar atualizações no callback fornecido como transições:
 
 ```js
 startTransition(() => {
@@ -587,7 +583,7 @@ startTransition(() => {
 });
 ```
 
-`isPending` indicates when a transition is active to show a pending state:
+`isPending` indica quando uma transição está ativa para mostrar um estado pendente:
 
 ```js
 function App() {
@@ -609,11 +605,11 @@ function App() {
 }
 ```
 
-> Note:
+> Nota:
 >
-> Updates in a transition yield to more urgent updates such as clicks.
+> Atualizações em uma transição dão lugar a atualizações mais urgentes, como cliques.
 >
-> Updates in a transition will not show a fallback for re-suspended content. This allows the user to continue interacting with the current content while rendering the update.
+> As atualizações em uma transição não mostrarão um fallback para conteúdo ressuspenso. Isso permite que o usuário continue interagindo com o conteúdo atual enquanto processa a atualização.
 
 ### `useId` {#useid}
 
@@ -621,13 +617,13 @@ function App() {
 const id = useId();
 ```
 
-`useId` is a hook for generating unique IDs that are stable across the server and client, while avoiding hydration mismatches.
+`useId` é um gancho para gerar IDs exclusivos que são estáveis ​​no servidor e no cliente, evitando incompatibilidades de hidratação.
 
-> Note
+> Nota
 >
-> `useId` is **not** for generating [keys in a list](/docs/lists-and-keys.html#keys). Keys should be generated from your data.
+> `useId` **não** é para gerar [chaves em uma lista](/docs/lists-and-keys.html#keys). As chaves devem ser geradas a partir de seus dados.
 
-For a basic example, pass the `id` directly to the elements that need it:
+Para um exemplo básico, passe o `id` diretamente para os elementos que precisam dele:
 
 ```js
 function Checkbox() {
@@ -641,7 +637,7 @@ function Checkbox() {
 };
 ```
 
-For multiple IDs in the same component, append a suffix using the same `id`:
+Para vários IDs no mesmo componente, anexe um sufixo usando o mesmo `id`:
 
 ```js
 function NameFields() {
@@ -661,15 +657,15 @@ function NameFields() {
 }
 ```
 
-> Note:
-> 
-> `useId` generates a string that includes the `:` token. This helps ensure that the token is unique, but is not supported in CSS selectors or APIs like `querySelectorAll`.
-> 
-> `useId` supports an `identifierPrefix` to prevent collisions in multi-root apps. To configure, see the options for [`hydrateRoot`](/docs/react-dom-client.html#hydrateroot) and [`ReactDOMServer`](/docs/react-dom-server.html).
+> Nota:
+>
+> `useId` gera uma string que inclui o token `:`. Isso ajuda a garantir que o token seja exclusivo, mas não é compatível com seletores CSS ou APIs como `querySelectorAll`.
+>
+> `useId` suporta um `identifierPrefix` para evitar colisões em aplicativos multi-raiz. Para configurar, veja as opções de [`hydrateRoot`](/docs/react-dom-client.html#hydrateroot) e [`ReactDOMServer`](/docs/react-dom-server.html).
 
-## Library Hooks {#library-hooks}
+## Biblioteca Hooks {#library-hooks}
 
-The following Hooks are provided for library authors to integrate libraries deeply into the React model, and are not typically used in application code.
+Os Hooks a seguir são fornecidos para autores de bibliotecas para integrar bibliotecas profundamente no modelo React e não são normalmente usados ​​no código do aplicativo.
 
 ### `useSyncExternalStore` {#usesyncexternalstore}
 
@@ -677,20 +673,20 @@ The following Hooks are provided for library authors to integrate libraries deep
 const state = useSyncExternalStore(subscribe, getSnapshot[, getServerSnapshot]);
 ```
 
-`useSyncExternalStore` is a hook recommended for reading and subscribing from external data sources in a way that's compatible with concurrent rendering features like selective hydration and time slicing.
+`useSyncExternalStore` é um gancho recomendado para leitura e assinatura de fontes de dados externas de uma forma compatível com recursos de renderização simultâneos, como hidratação seletiva e divisão de tempo.
 
-This method returns the value of the store and accepts three arguments:
-- `subscribe`: function to register a callback that is called whenever the store changes.
-- `getSnapshot`: function that returns the current value of the store.
-- `getServerSnapshot`: function that returns the snapshot used during server rendering.
+Este método retorna o valor da loja e aceita três argumentos:
+- `subscribe`: função para registrar um callback que é chamado sempre que a loja muda.
+- `getSnapshot`: função que retorna o valor atual da loja.
+- `getServerSnapshot`: função que retorna o snapshot utilizado durante a renderização do servidor.
 
-The most basic example simply subscribes to the entire store:
+O exemplo mais básico simplesmente se inscreve em toda a loja:
 
 ```js
 const state = useSyncExternalStore(store.subscribe, store.getSnapshot);
 ```
 
-However, you can also subscribe to a specific field:
+No entanto, você também pode se inscrever em um campo específico:
 
 ```js
 const selectedField = useSyncExternalStore(
@@ -699,7 +695,7 @@ const selectedField = useSyncExternalStore(
 );
 ```
 
-When server rendering, you must serialize the store value used on the server, and provide it to `useSyncExternalStore`. React will use this snapshot during hydration to prevent server mismatches:
+Ao renderizar o servidor, você deve serializar o valor armazenado usado no servidor e fornecê-lo para `useSyncExternalStore`. O React usará este instantâneo durante a hidratação para evitar incompatibilidades do servidor:
 
 ```js
 const selectedField = useSyncExternalStore(
@@ -709,13 +705,13 @@ const selectedField = useSyncExternalStore(
 );
 ```
 
-> Note:
+> Nota:
 >
-> `getSnapshot` must return a cached value. If getSnapshot is called multiple times in a row, it must return the same exact value unless there was a store update in between.
-> 
-> A shim is provided for supporting multiple React versions published as `use-sync-external-store/shim`. This shim will prefer `useSyncExternalStore` when available, and fallback to a user-space implementation when it's not.
-> 
-> As a convenience, we also provide a version of the API with automatic support for memoizing the result of getSnapshot published as `use-sync-external-store/with-selector`.
+> `getSnapshot` deve retornar um valor em cache. Se getSnapshot for chamado várias vezes seguidas, ele deverá retornar o mesmo valor exato, a menos que haja uma atualização de armazenamento no meio.
+>
+> Um shim é fornecido para suportar várias versões do React publicadas como `use-sync-external-store/shim`. Este shim irá preferir `useSyncExternalStore` quando disponível, e recorrer a uma implementação de espaço de usuário quando não estiver.
+>
+> Como conveniência, também fornecemos uma versão da API com suporte automático para memorizar o resultado de getSnapshot publicado como `use-sync-external-store/with-selector`.
 
 ### `useInsertionEffect` {#useinsertioneffect}
 
@@ -723,8 +719,8 @@ const selectedField = useSyncExternalStore(
 useInsertionEffect(didUpdate);
 ```
 
-The signature is identical to `useEffect`, but it fires synchronously _before_ all DOM mutations. Use this to inject styles into the DOM before reading layout in [`useLayoutEffect`](#uselayouteffect). Since this hook is limited in scope, this hook does not have access to refs and cannot schedule updates.
+A assinatura é idêntica a `useEffect`, mas dispara de forma síncrona _antes_ de todas as mutações DOM. Use isso para injetar estilos no DOM antes de ler o layout em [`useLayoutEffect`](#uselayouteffect). Como esse gancho tem escopo limitado, ele não tem acesso a refs e não pode agendar atualizações.
 
-> Note:
+> Nota:
 >
-> `useInsertionEffect` should be limited to css-in-js library authors. Prefer [`useEffect`](#useeffect) or [`useLayoutEffect`](#uselayouteffect) instead.
+> `useInsertionEffect` deve ser limitado aos autores da biblioteca css-in-js. Prefira [`useEffect`](#useeffect) ou [`useLayoutEffect`](#uselayouteffect) em vez disso.

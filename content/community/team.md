@@ -6,11 +6,7 @@ sectionid: community
 permalink: community/team.html
 ---
 
-<<<<<<< HEAD
-O desenvolvimento do React é liderado por uma pequena e dedicada equipe que trabalha em período integral no Facebook. Ele também recebe contribuições de pessoas do mundo todo.
-=======
-React development is led by a small dedicated team working full time at Meta. It also receives contributions from people all over the world.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+O desenvolvimento do React é liderado por uma pequena e dedicada equipe que trabalha em período integral no Meta. Ele também recebe contribuições de pessoas do mundo todo.
 
 ## Conheça a Equipe do React {#meet-the-react-team}
 
@@ -26,17 +22,6 @@ Os membros atuais da equipe do React estão listados em ordem alfabética abaixo
 
 Andrew começou no desenvolvimento web criando sites com WordPress, e então se desafiou em trabalhar com JavaScript. Seu passatempo favorito é karaokê. Andrew pode ser um vilão da Disney ou uma princesa da Disney, dependendo do dia.
 
-<<<<<<< HEAD
-### Brian Vaughn {#brian-vaughn}
-
-![Brian Vaughn](../images/team/bvaughn.jpg)
-
-[@bvaughn no GitHub](https://github.com/bvaughn) &middot; [@brian\_d\_vaughn no Twitter](https://twitter.com/brian_d_vaughn)
-
-Brian estudou artes na faculdade e trabalhou com programação para pagar seus estudos. No final, ele percebeu que ele gosta de trabalhar com open source. Brian tem uma [banda solo](https://soundcloud.com/brianvaughn/) e duas [bandas](https://soundcloud.com/pilotlessdrone) [de duas pessoas](https://soundcloud.com/pinwurm). Ele também cuida do gato mais fofo do mundo.
-
-=======
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 ### Dan Abramov {#dan-abramov}
 
 ![Dan Abramov](../images/team/gaearon.jpg)
@@ -49,7 +34,7 @@ Dan começou na programação depois de ter descoberto acidentalmente o Visual B
 
 ![Jason Bonta](../images/team/jasonbonta.jpg)
 
-Jason likes having large volumes of Amazon packages delivered to the office so that he can build forts. Despite literally walling himself off from his team at times and not understanding how for-of loops work, we appreciate him for the unique qualities he brings to his work. 
+Jason gosta de receber grandes volumes de pacotes da Amazon no escritório para poder construir fortes. Apesar de literalmente se isolar de sua equipe às vezes e não entender como os loops for-of funcionam, nós o apreciamos pelas qualidades únicas que ele traz para seu trabalho.
 
 ### Joe Savona {#joe-savona}
 
@@ -57,7 +42,7 @@ Jason likes having large volumes of Amazon packages delivered to the office so t
 
 [@josephsavona on GitHub](https://github.com/josephsavona) &middot; [@en_JS on Twitter](https://twitter.com/en_JS)
 
-Joe was planning to major in math and philosophy but got into computer science after writing physics simulations in Matlab. Prior to React, he worked on Relay, RSocket.js, and the Skip programming language. While he’s not building some sort of reactive system he enjoys running, studying Japanese, and spending time with his family.
+Joe estava planejando se formar em matemática e filosofia, mas entrou em ciência da computação depois de escrever simulações de física no Matlab. Antes do React, ele trabalhou em Relay, RSocket.js e na linguagem de programação Skip. Enquanto não está construindo algum tipo de sistema reativo, ele gosta de correr, estudar japonês e passar o tempo com sua família.
 
 ### Josh Story {#josh-story}
 
@@ -65,7 +50,7 @@ Joe was planning to major in math and philosophy but got into computer science a
 
 [@gnoff on GitHub](https://github.com/gnoff) &middot; [@joshcstory on Twitter](https://twitter.com/joshcstory)
 
-Josh majored in Mathematics and discovered programming while in college. His first professional developer job was to program insurance rate calculations in Microsoft Excel, the paragon of Reactive Programming which must be why he now works on React. In between that time Josh has been an IC, Manager, and Executive at a few startups. outside of work he likes to push his limits with cooking.
+Josh se formou em matemática e descobriu a programação enquanto estava na faculdade. Seu primeiro trabalho de desenvolvedor profissional foi programar cálculos de taxa de seguro no Microsoft Excel, o paradigma da Programação Reativa, que deve ser o motivo pelo qual ele agora trabalha no React. Nesse período, Josh foi IC, gerente e executivo em algumas startups. fora do trabalho, ele gosta de ultrapassar seus limites na culinária.
 
 ### Lauren Tan {#lauren-tan}
 
@@ -73,7 +58,7 @@ Josh majored in Mathematics and discovered programming while in college. His fir
 
 [@poteto on GitHub](https://github.com/poteto) &middot; [@potetotes on Twitter](https://twitter.com/potetotes)
 
-Lauren’s programming career peaked when she first discovered the `<marquee>` tag. She’s been chasing that high ever since. When she’s not adding bugs into React, she enjoys dropping cheeky memes in chat, and playing all too many video games with her partner, and her dog Zelda.
+A carreira de programação de Lauren atingiu o pico quando ela descobriu a tag `<marquee>`. Ela está perseguindo esse alto desde então. Quando ela não está adicionando bugs ao React, ela gosta de soltar memes atrevidos no bate-papo e jogando muitos videogames com seu parceiro e seu cachorro Zelda.
 
 ### Luna Ruan {#luna-ruan}
 
@@ -89,19 +74,7 @@ Luna aprendeu a programar porque ela pensou que isso significava criar video gam
 
 [@mofeiZ on GitHub](https://github.com/mofeiZ)]
 
-<<<<<<< HEAD
-A primeira linguagem de programação de Marco foi a Assembly porque ele poderia usá-la para hackear videogames. Agora, os jogos online são muito mais seguros, então ele se contenta em jogar de forma justa (principalmente). Em seu tempo livre, ele joga em sua mesa de esteira e faz arte que nunca termina. Esperançosamente, seus PRs não terão o mesmo destino.
-
-### Rachel Nabors {#rachel-nabors}
-
-![Rachel](../images/team/rnabors.jpg)
-
-[@rachelnabors no GitHub](https://github.com/rachelnabors) &middot; [@rachelnabors no Twitter](https://twitter.com/rachelnabors)
-
-Rachel escreveu um [livro sobre animação de interface de usuário](https://abookapart.com/products/animation-at-work) e trabalhou com MDN e o W3C na API de animações web. Agora ela está ocupada com materiais educativos e engenharia comunitária na equipe do React. Secretamente, ela é uma premiada cartunista para garotas adolescentes. Encontre ela fazendo chás glamourosos com água morna no microondas.
-=======
-Mofei started programming when she realized it can help her cheat in video games. She focused on operating systems in undergrad / grad school, but now finds herself happily tinkering on React. Outside of work, she enjoys debugging bouldering problems and planning her next backpacking trip(s).
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+Mofei começou a programar quando percebeu que isso poderia ajudá-la a trapacear em videogames. Ela se concentrou em sistemas operacionais na graduação / pós-graduação, mas agora se vê alegremente mexendo no React. Fora do trabalho, ela gosta de depurar problemas de boulder e planejar suas próximas viages de mochila.
 
 ### Rick Hanlon {#rick-hanlon}
 
@@ -117,7 +90,7 @@ Ricky se formou em matemática teórica e de alguma forma se encontrou na equipe
 
 [@sammy-SC on GitHub](https://github.com/sammy-SC) &middot; [@SamuelSusla on Twitter](https://twitter.com/SamuelSusla)
 
-Samuel’s interest in programming started with the movie Matrix. He still has Matrix screen saver. Before working on React, he was focused on writing iOS apps. Outside of work, Samuel enjoys playing beach volleyball, squash, badminton and spending time with his family.
+O interesse de Samuel pela programação começou com o filme Matrix. Ele ainda tem o protetor de tela Matrix. Antes de trabalhar no React, ele se concentrava em escrever aplicativos para iOS. Fora do trabalho, Samuel gosta de jogar vôlei de praia, squash, badminton e passar o tempo com a família.
 
 ### Sathya Gunasekaran {#sathya-gunasekaran}
 
@@ -125,7 +98,7 @@ Samuel’s interest in programming started with the movie Matrix. He still has M
 
 [@gsathya on GitHub](https://github.com/gsathya) &middot; [@_gsathya on Twitter](https://twitter.com/_gsathya)
 
-Sathya hated the Dragon Book in school but somehow ended up working on compilers all his career. When he's not compiling React components, he's either drinking coffee or eating yet another Dosa.
+Sathya odiava o Dragon Book na escola, mas de alguma forma acabou trabalhando em compiladores durante toda a sua carreira. Quando ele não está compilando componentes do React, ele está bebendo café ou comendo outro Dosa.
 
 ### Sebastian Markbåge {#sebastian-markbage}
 
@@ -141,7 +114,7 @@ Sebastian é graduado em psicologia. Ele é geralmente quieto. Mesmo quando ele 
 
 [@eps1lon on GitHub](https://github.com/eps1lon) &middot; [@sebsilbermann on Twitter](https://twitter.com/sebsilbermann)
 
-Sebastian learned programming to make the browser games he played during class more enjoyable. Eventually this lead to contributing to as much open source code as possible. Outside of coding he's busy making sure people don't confuse him with the other Sebastians and Zilberman of the React community.
+Sebastian aprendeu a programar para tornar os jogos de navegador que ele jogava durante as aulas mais agradáveis. Eventualmente, isso levou a contribuir com o máximo possível de código-fonte aberto. Fora da codificação, ele está ocupado garantindo que as pessoas não o confundam com os outros Sebastians e Zilberman da comunidade React.
 
 ### Seth Webster {#seth-webster}
 
@@ -151,16 +124,13 @@ Sebastian learned programming to make the browser games he played during class m
 
 Seth começou a programar quando criança em Tucson, AZ. Depois da escola, ele foi mordido pelo bug da música e foi músico em turnê por cerca de 10 anos antes de retornar ao *trabalho*, começando com a Intuit. Em seu tempo livre, ele adora [tirar fotos](https://www.sethwebster.com) e voar para resgatar animais no nordeste dos Estados Unidos.
 
-<<<<<<< HEAD
-## Reconhecimentos {#acknowledgements}
-=======
 ### Sophie Alpert {#sophie-alpert}
 
 ![Sophie](../images/team/sophiebits.jpg)
 
 [@sophiebits on GitHub](https://github.com/sophiebits) &middot; [@sophiebits on Twitter](https://twitter.com/sophiebits)
 
-Four days after React was released, Sophie rewrote the entirety of her then-current project to use it, which she now realizes was perhaps a bit reckless. After she became the project's #1 committer, she wondered why she wasn't getting paid by Facebook like everyone else was and joined the team officially to lead React through its adolescent years. Though she quit that job years ago, somehow she's still in the team's group chats and “providing value”.
+Quatro dias após o lançamento do React, Sophie reescreveu todo o seu projeto então atual para usá-lo, o que ela agora percebe que talvez tenha sido um pouco imprudente. Depois que ela se tornou a comprometedora número 1 do projeto, ela se perguntou por que não estava sendo paga pelo Facebook como todo mundo e se juntou à equipe oficialmente para liderar o React durante sua adolescência. Embora ela tenha deixado o emprego anos atrás, de alguma forma ela ainda está nos chats de grupo da equipe e “fornecendo valor”.
 
 ### Tianyu Yao {#tianyu-yao}
 
@@ -168,7 +138,7 @@ Four days after React was released, Sophie rewrote the entirety of her then-curr
 
 [@tyao1 on GitHub](https://github.com/tyao1) &middot; [@tianyu0 on Twitter](https://twitter.com/tianyu0)
 
-Tianyu’s interest in computers started as a kid because he loves video games. So he majored in computer science and still plays childish games like League of Legends. When he is not in front of a computer, he enjoys playing with his two kittens, hiking and kayaking.
+O interesse de Tianyu por computadores começou quando criança porque ele adora videogames. Então ele se formou em ciência da computação e ainda joga jogos infantis como League of Legends. Quando não está na frente do computador, gosta de brincar com seus dois gatinhos, fazer caminhadas e andar de caiaque.
 
 ### Yuzhi Zheng {#yuzhi-zheng}
 
@@ -176,10 +146,9 @@ Tianyu’s interest in computers started as a kid because he loves video games. 
 
 [@yuzhi on GitHub](https://github.com/yuzhi) &middot; [@yuzhiz on Twitter](https://twitter.com/yuzhiz)
 
-Yuzhi studied Computer Science in school. She liked the instant gratification of seeing code come to life without having to physically be in a laboratory. Now she’s a manager in the React org. Before management, she used to work on the Relay data fetching framework. In her spare time, Yuzhi enjoys optimizing her life via gardening and home improvement projects.
+Yuzhi estudou Ciência da Computação na escola. Ela gostou da gratificação instantânea de ver o código ganhar vida sem ter que estar fisicamente em um laboratório. Agora ela é gerente na organização React. Antes da gestão, ela costumava trabalhar na estrutura de busca de dados do Relay. Em seu tempo livre, Yuzhi gosta de otimizar sua vida por meio de projetos de jardinagem e melhorias domésticas.
 
-## Acknowledgements {#acknowledgements}
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+## Reconhecimentos {#acknowledgements}
 
 React foi originalmente criado por [Jordan Walke](https://github.com/jordwalke). Atualmente, o React tem mais de mil contribuintes open source. Nos gostaríamos de reconhecer algumas pessoas que fizeram contribuições significativas para o React e sua documentação no passado e tem ajudado a mantê-lo ao longo dos anos:
 
@@ -223,8 +192,4 @@ React foi originalmente criado por [Jordan Walke](https://github.com/jordwalke).
 
 Essa lista não é exaustiva.
 
-<<<<<<< HEAD
-Nós gostaríamos de agradecer especialmente ao [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por nos guiar e apoiar ao longo dos anos. Nós também gostaríamos de agradecer a todos os voluntários que [traduziram o React para outros idiomas](https://translations.reactjs.org/).
-=======
-We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We'd also like to thank all the volunteers who [translated React into other languages](https://translations.reactjs.org/).
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+Gostaríamos de agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Também gostaríamos de agradecer a todos os voluntários que [traduziram o React para outros idiomas](https://translations.reactjs.org/).

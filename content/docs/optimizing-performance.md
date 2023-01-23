@@ -176,13 +176,8 @@ Se você ainda não tem o React DevTools instalado, você pode encontrá-lo aqui
 
 > Observação
 >
-<<<<<<< HEAD
 > Antes do React 17, usamos o padrão [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) para criar o perfil de componentes com a guia de desempenho do chrome.
 > Para um passo a passo mais detalhado, confira [este artigo de Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
-=======
-> Before React 17, we use the standard [User Timing API](https://developer.mozilla.org/en-US/docs/Web/API/User_Timing_API) to profile components with the chrome performance tab.
-> For a more detailed walkthrough, check out [this article by Ben Schwarz](https://calibreapp.com/blog/react-performance-profiling-optimization).
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 ## Virtualizando Longas Listas {#virtualize-long-lists}
 

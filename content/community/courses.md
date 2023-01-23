@@ -30,13 +30,11 @@ permalink: community/courses.html
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Pequenos vídeos instrutivos sobre React e muitos outros tópicos.
 
-<<<<<<< HEAD
-- [Frontend Masters](https://frontendmasters.com/learn/react/) - Cursos em vídeo de React.
-=======
-- [Meta Front-End Developer Professional Certificate](https://www.coursera.org/professional-certificates/meta-front-end-developer) - Launch your career as a front-end developer. Build job-ready skills for an in-demand career and earn a credential from Meta. No degree or prior experience required to get started.
+- [Meta Front-End Developer Professional Certificate](https://www.coursera.org/professional-certificates/meta-front-end-developer) - Inicie sua carreira como desenvolvedor front-end. Desenvolva habilidades prontas para o trabalho para uma carreira sob demanda e ganhe uma credencial da Meta. Nenhum diploma ou experiência anterior é necessário para começar.
 
-- [Egghead.io](https://egghead.io/browse/frameworks/react) - Short instructional videos on React and many other topics.
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
+- [Egghead.io](https://egghead.io/browse/frameworks/react) - Vídeos instrutivos curtos sobre React e muitos outros tópicos.
+
+- [Frontend Masters](https://frontendmasters.com/learn/react/) - Cursos em vídeo de React.
 
 - [Fullstack React](https://www.fullstackreact.com/) - Um guia completo e atualizado de React e suas usabilidades.
 
@@ -54,11 +52,7 @@ permalink: community/courses.html
 
 - [Tyler McGinnis](https://ui.dev/) - Tyler McGinnis fornece acesso aos seus cursos por uma taxa mensal. Os cursos incluem "React Fundamentals" e "Universal React".
 
-<<<<<<< HEAD
 - [Mastering React](https://codewithmosh.com/p/mastering-react/) - Construa apps interativos e profissionais com o React.
-=======
-- [Tyler McGinnis](https://ui.dev/) - Tyler McGinnis provides access to his courses for a monthly fee. Courses include "React Fundamentals" and "Universal React".
->>>>>>> 38bf76a4a7bec6072d086ce8efdeef9ebb7af227
 
 - [React Tutorial](https://react-tutorial.app) - Aprenda React passo a passo em um ambiente interativo com flashcards.
 
