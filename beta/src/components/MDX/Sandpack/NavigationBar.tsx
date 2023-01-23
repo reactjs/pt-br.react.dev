@@ -110,11 +110,6 @@ export function NavigationBar({providedFiles}: {providedFiles: Array<string>}) {
     refresh();
   };
 
-  const handleReset = () => {
-    sandpack.resetAllFiles();
-    refresh();
-  };
-
   return (
     <div className="bg-wash dark:bg-card-dark flex justify-between items-center relative z-10 border-b border-border dark:border-border-dark rounded-t-lg text-lg">
       <div className="flex-1 grow min-w-0 px-4 lg:px-6">

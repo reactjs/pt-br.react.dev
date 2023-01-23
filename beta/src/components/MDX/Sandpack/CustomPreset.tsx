@@ -12,8 +12,6 @@ import {
 } from '@codesandbox/sandpack-react';
 import cn from 'classnames';
 
-import cn from 'classnames';
-
 import {IconChevron} from 'components/Icon/IconChevron';
 import {NavigationBar} from './NavigationBar';
 import {Preview} from './Preview';

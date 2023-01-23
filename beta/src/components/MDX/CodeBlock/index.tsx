@@ -1,9 +1,6 @@
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
-import cn from 'classnames';
-import * as React from 'react';
-const CodeBlock = React.lazy(() => import('./CodeBlock'));
 
 import * as React from 'react';
 import cn from 'classnames';
