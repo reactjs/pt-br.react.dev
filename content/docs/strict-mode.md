@@ -15,12 +15,13 @@ Você pode habilitar o modo estrito para qualquer parte da sua aplicação, por 
 
 No exemplo acima, as verificações do modo estrito *não* serão executadas nos componentes `Header` e `Footer`. No entanto, `ComponentOne` e `ComponentTwo`, assim como todos os seus componentes descendentes, serão verificados.
 
-O modo estrito ajuda atualmente com:
-* [Identificação de métodos de ciclo de vida (lifecycles) inseguros](#identifying-unsafe-lifecycles)
-* [Avisos em relação ao uso da antiga string ref API](#warning-about-legacy-string-ref-api-usage)
-* [Avisos em relação ao uso do depreciado findDOMNode](#warning-about-deprecated-finddomnode-usage)
-* [Detecção de efeitos colaterais (side effects) inesperados](#detecting-unexpected-side-effects)
-* [Detecção de uso da antiga API de contexto (Context API)](#detecting-legacy-context-api)
+`StrictMode` atualmente ajuda com:
+* [Identificando componentes com ciclos de vida inseguros](#identifying-unsafe-lifecycles)
+* [Aviso sobre o uso da API de referência de string legada](#warning-about-legacy-string-ref-api-usage)
+* [Aviso sobre uso obsoleto de findDOMNode](#warning-about-deprecated-finddomnode-usage)
+* [Detectando efeitos colaterais inesperados](#detecting-unexpected-side-effects)
+* [Detecting legacy context API](#detecting-legacy-context-api)
+* [Garantindo o estado reutilizável](#garantindo-reusable-state)
 
 Funcionalidades adicionais serão adicionadas em versões futuras do React.
 
@@ -118,7 +119,9 @@ Ao intencionalmente invocar os métodos de ciclo de vida duas vezes, como o cons
 
 > Nota:
 >
-> A partir do React 17, o React modifica automaticamente os métodos do console como `console.log()` para silenciar os logs na segunda chamada para funções de ciclo de vida. No entanto, pode causar um comportamento indesejado em certos casos em que [uma solução alternativa pode ser usada](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
+> No React 17, o React modifica automaticamente os métodos do console como `console.log()` para silenciar os logs na segunda chamada para funções de ciclo de vida. No entanto, pode causar um comportamento indesejado em certos casos em que [uma solução alternativa pode ser usada](https://github.com/facebook/react/issues/20090#issuecomment-715927125).
+>
+> A partir do React 18, o React não suprime nenhum log. No entanto, se você tiver o React DevTools instalado, os logs da segunda chamada aparecerão ligeiramente esmaecidos. O React DevTools também oferece uma configuração (desativada por padrão) para suprimi-los completamente.
 
 ### Detectar o uso da antiga API de contexto (Context API) {#detecting-legacy-context-api}
 
@@ -126,4 +129,60 @@ A antiga API de contexto era propensa a erros, e será removida em uma futura ve
 
 ![](../images/blog/warn-legacy-context-in-strict-mode.png)
 
-Leia a [documentação da nova API de contexto](/docs/context.html) para ajudá-lo a migrar para a nova versão.
+Leia a [nova documentação da API de contexto](/docs/context.html) para ajudar a migrar para a nova versão.
+
+
+### Garantindo o estado reutilizável {#ensuring-reusable-state}
+
+No futuro, gostaríamos de adicionar um recurso que permita ao React adicionar e remover seções da interface do usuário enquanto preserva o estado. Por exemplo, quando um usuário sai de uma tela e volta, o React deve ser capaz de mostrar imediatamente a tela anterior. Para fazer isso, o React oferecerá suporte à remontagem de árvores usando o mesmo estado de componente usado antes da desmontagem.
+
+Esse recurso dará ao React um melhor desempenho pronto para uso, mas requer que os componentes sejam resistentes a efeitos sendo montados e destruídos várias vezes. A maioria dos efeitos funcionará sem nenhuma alteração, mas alguns efeitos não limpam adequadamente as assinaturas no callback de destruição ou assumem implicitamente que são montados ou destruídos apenas uma vez.
+
+Para ajudar a resolver esses problemas, o React 18 apresenta uma nova verificação somente de desenvolvimento para o Strict Mode. Essa nova verificação desmontará e remontará automaticamente cada componente, sempre que um componente for montado pela primeira vez, restaurando o estado anterior na segunda montagem.
+
+Para demonstrar o comportamento de desenvolvimento que você verá no Strict Mode com esse recurso, considere o que acontece quando o React monta um novo componente. Sem essa alteração, quando um componente é montado, o React cria os efeitos:
+
+```
+* React monta o componente.
+  * Efeitos de layout são criados.
+  * Efeitos são criados.
+```
+
+Com o Strict Mode começando no React 18, sempre que um componente é montado em desenvolvimento, o React simulará imediatamente a desmontagem e remontagem do componente:
+
+```
+* React monta o componente.
+    * Efeitos de layout são criados.
+    * Efeitos são criados.
+* React simula efeitos sendo destruídos em um componente montado.
+    * Efeitos de layout são destruídos.
+    * Os efeitos são destruídos.
+* React simula efeitos sendo recriados em um componente montado.
+    * Efeitos de layout são criados
+    * O código de configuração do efeito é executado
+```
+
+Na segunda montagem, o React restaurará o estado da primeira montagem. Esse recurso simula o comportamento do usuário, como um usuário saindo de uma tela e voltando, garantindo que o código lidará adequadamente com a restauração do estado.
+
+Quando o componente desmonta, os efeitos são destruídos normalmente:
+
+```
+* React desmonta o componente.
+  * Efeitos de layout são destruídos.
+  * Os efeitos são destruídos.
+```
+
+A desmontagem e remontagem incluem:
+
+- `componentDidMount`
+- `componentWillUnmount`
+- `useEffect`
+- `useLayoutEffect`
+- `useInsertionEffect`
+
+> Nota:
+>
+> Isso só se aplica ao modo de desenvolvimento, _comportamento de produção inalterado_.
+
+Para obter ajuda com problemas comuns, consulte:
+  - [Como oferecer suporte ao estado reutilizável em efeitos](https://github.com/reactwg/react-18/discussions/18)

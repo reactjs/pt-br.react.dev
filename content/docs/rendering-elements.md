@@ -34,7 +34,7 @@ Nós o chamamos de nó raiz do DOM porque tudo dentro dele será gerenciado pelo
 
 Aplicações construídas apenas com React geralmente tem apenas um único nó raiz no DOM. Se deseja integrar o React a uma aplicação existente, você pode ter quantos nós raiz precisar.
 
-Para renderizar um elemento React em um nó raiz, passe ambos para [`ReactDOM.render()`](/docs/react-dom.html#render)`:
+Para renderizar um elemento React, primeiro passe o elemento DOM para [`ReactDOM.createRoot()`](/docs/react-dom-client.html#createroot), depois passe o elemento React para `root.render()`:
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -46,7 +46,7 @@ Assim, é exibido "Hello, world" na página.
 
 Elementos React são [imutáveis](https://pt.wikipedia.org/wiki/Objeto_imutável). Uma vez criados, você não pode alterar seus elementos filhos ou atributos.
 
-Com o que aprendemos até agora, a única forma de atualizar a interface é criar um novo elemento e passá-lo para [`ReactDOM.render()`](/docs/react-dom.html#render).
+Com nosso conhecimento até agora, a única maneira de atualizar a IU é criar um novo elemento e passá-lo para `root.render()`.
 
 Veja o seguinte exemplo de um relógio:
 
@@ -54,11 +54,11 @@ Veja o seguinte exemplo de um relógio:
 
 **[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
-Chama-se o [`ReactDOM.render()`](/docs/react-dom.html#render) a cada segundo a partir de um callback do [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval).
+Ele chama [`root.render()`](/docs/react-dom.html#render) a cada segundo de um [`setInterval()`](https://developer.mozilla.org/en-US/docs /Web/API/WindowTimers/setInterval).
 
 >**Nota:**
 >
->Na prática, a maioria dos aplicativos React usam o [`ReactDOM.render()`](/docs/react-dom.html#render) apenas uma única vez. Nas seções seguintes, aprenderemos como esse código pode ser encapsulado em [componentes com estado](/docs/state-and-lifecycle.html).
+>Na prática, a maioria dos aplicativos React chama `root.render()` apenas uma vez. Nas próximas seções, aprenderemos como esse código é encapsulado em [componentes com estado](/docs/state-and-lifecycle.html).
 >
 >Recomendamos que você não pule os tópicos porque eles se complementam.
 
@@ -66,7 +66,7 @@ Chama-se o [`ReactDOM.render()`](/docs/react-dom.html#render) a cada segundo a p
 
 O React DOM compara o elemento novo e seus filhos com os anteriores e somente aplica as modificações necessárias no DOM para levá-lo ao estado desejado.
 
-Você pode observar isso inspecionando o [último exemplo](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) com as ferramentas do navegador:
+Você pode verificar inspecionando o [último exemplo](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) com as ferramentas do navegador:
 
 ![Ferramenta de inspecionar elemento do DOM mostrando atualizações granulares](../images/docs/granular-dom-updates.gif)
 

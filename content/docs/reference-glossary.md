@@ -40,11 +40,7 @@ JSX é uma extensão de sintaxe para JavaScript. É semelhante a uma linguagem d
 React DOM usa a convenção de nomenclatura de propriedades camelCase em vez dos nomes de atributos HTML. Por exemplo, `tabindex` torna-se `tabIndex` em JSX. O atributo `class` também é escrito como `className`, já que `class` é uma palavra reservada em JavaScript:
 
 ```js
-const nome = 'Clementine';
-ReactDOM.render(
-  <h1 className="hello">Meu nome é {nome}!</h1>,
-  document.getElementById('root')
-);
+<h1 className="hello">My name is Clementine!</h1>
 ```
 
 ## [Elementos](/docs/rendering-elements.html) {#elements}

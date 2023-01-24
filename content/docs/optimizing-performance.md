@@ -43,8 +43,8 @@ Lembre que isto é somente necessário antes de publicar para produção. Para d
 Nós oferecemos versões de produção prontas do React e React DOM com arquivos únicos:
 
 ```html
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 ```
 
 Lembre que somente arquivos React terminados com `.production.min.js` são adequados para produção.

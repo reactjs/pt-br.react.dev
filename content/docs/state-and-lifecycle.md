@@ -10,9 +10,11 @@ next: handling-events.html
 
 Esta página apresenta o conceito de estado e ciclo de vida em um componente React. Você pode encontrar uma [referência detalhada da API de componente aqui](/docs/react-component.html).
 
-Considere o exemplo do relógio de [uma das seções anteriores](/docs/rendering-elements.html#updating-the-rendered-element). Em [Elementos de Renderização](/docs/rendering-elements.html#rendering-an-element-into-the-dom), nós aprendemos apenas uma maneira de atualizar a UI. Nós chamamos `ReactDOM.render()` para mudar a saída renderizada.
+Considere o exemplo do relógio de [uma das seções anteriores](/docs/rendering-elements.html#updating-the-rendered-element). Em [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), aprendemos apenas uma maneira de atualizar a IU. Chamamos `root.render()` para alterar a saída renderizada:
 
-```js{8-11}
+```js{10}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+  
 function tick() {
   const element = (
     <div>
@@ -20,10 +22,7 @@ function tick() {
       <h2>It is {new Date().toLocaleTimeString()}.</h2>
     </div>
   );
-  ReactDOM.render(
-    element,
-    document.getElementById('root')
-  );
+  root.render(element);
 }
 
 setInterval(tick, 1000);
@@ -35,7 +34,9 @@ Esta seção, aprenderemos como tornar o componente `Clock` verdadeiramente reut
 
 Podemos começar encapsulando como o relógio parece:
 
-```js{3-6,12}
+```js{5-8,13}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 function Clock(props) {
   return (
     <div>
@@ -46,10 +47,7 @@ function Clock(props) {
 }
 
 function tick() {
-  ReactDOM.render(
-    <Clock date={new Date()} />,
-    document.getElementById('root')
-  );
+  root.render(<Clock date={new Date()} />);
 }
 
 setInterval(tick, 1000);
@@ -62,10 +60,7 @@ No entanto, falta um requisito crucial: o fato de que o `Clock` configura um tem
 Idealmente, queremos escrever isto uma vez e ter o `Clock` se atualizando:
 
 ```js{2}
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+root.render(<Clock />);
 ```
 
 Para implementá-lo, precisamos adicionar um "state" ao componente `Clock`.
@@ -158,10 +153,7 @@ Componentes de classes devem sempre chamar o construtor com `props`.
 3) Remova a props `date` do elemento `<Clock />`:
 
 ```js{2}
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+root.render(<Clock />);
 ```
 
 Mais tarde, adicionaremos o código do temporizador de volta ao próprio componente.
@@ -185,10 +177,8 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clock />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
@@ -294,10 +284,8 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clock />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
@@ -306,7 +294,7 @@ Agora o relógio bate a cada segundo.
 
 Vamos recapitular rapidamente o que está acontencendo e a ordem na qual os métodos são chamados:
 
-1) Quando `<Clock />` é passado para `ReactDOM.render()`, o React chama o construtor do componente `Clock`. Como `Clock` precisa exibir a hora atual, ele inicializa `this.state` com um objeto incluindo a hora atual. Mais tarde, atualizaremos este state.
+1) Quando `<Clock />` é passado para `root.render()`, o React chama o construtor do componente `Clock`. Como `Clock` precisa exibir a hora atual, ele inicializa `this.state` com um objeto que inclui a hora atual. Posteriormente, atualizaremos esse estado.
 
 2) React chama então o método `render()` do componente `Clock`. É assim que o React aprende o que deve ser exibido na tela. React em seguida, atualiza o DOM para coincidir com a saída de renderização do `Clock`.
 
@@ -447,11 +435,6 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
