@@ -37,14 +37,14 @@ class Foo extends Component {
 }
 ```
 
-#### Propriedades de Classe (Stage 3 Proposal)  {#class-properties-stage-3-proposal}
+#### Propriedades de Classe (ES2022) {#class-properties-es2022}
 
 ```jsx
 class Foo extends Component {
   // Nota: esta sintaxe é experimental e ainda não padronizada.
   handleClick = () => {
     console.log('Clicado');
-  }
+  };
   render() {
     return <button onClick={this.handleClick}>Clique em mim!</button>;
   }
