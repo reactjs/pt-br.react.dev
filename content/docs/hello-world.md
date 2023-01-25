@@ -8,11 +8,9 @@ next: introducing-jsx.html
 
 O menor exemplo de React é algo assim:
 
-```js
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
+```jsx
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<h1>Hello, world!</h1>);
 ```
 
 Isso mostra um header dizendo “Hello, world!” na página.

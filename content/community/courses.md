@@ -30,6 +30,10 @@ permalink: community/courses.html
 
 - [Egghead.io](https://egghead.io/browse/frameworks/react) - Pequenos vídeos instrutivos sobre React e muitos outros tópicos.
 
+- [Meta Front-End Developer Professional Certificate](https://www.coursera.org/professional-certificates/meta-front-end-developer) - Inicie sua carreira como desenvolvedor front-end. Desenvolva habilidades prontas para o trabalho para uma carreira sob demanda e ganhe uma credencial da Meta. Nenhum diploma ou experiência anterior é necessário para começar.
+
+- [Egghead.io](https://egghead.io/browse/frameworks/react) - Vídeos instrutivos curtos sobre React e muitos outros tópicos.
+
 - [Frontend Masters](https://frontendmasters.com/learn/react/) - Cursos em vídeo de React.
 
 - [Fullstack React](https://www.fullstackreact.com/) - Um guia completo e atualizado de React e suas usabilidades.

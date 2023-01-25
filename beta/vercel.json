@@ -253,6 +253,27 @@
       "source": "/version/16.0",
       "destination": "https://5a046bf5a6188f4b8fa4938a--reactjs.netlify.com",
       "permanent": false
+    },
+    {
+      "source": "/apis/:path*",
+      "destination": "/reference/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/reference",
+      "destination": "/reference/react",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/fonts/(.*).woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "headers": [
