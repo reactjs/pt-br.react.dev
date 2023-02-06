@@ -15,6 +15,14 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
+<<<<<<< HEAD
+=======
+> Try the new React documentation for [`Component`](https://beta.reactjs.org/reference/react/Component).
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+This page contains a detailed API reference for the React component class definition. It assumes you're familiar with fundamental React concepts, such as [Components and Props](/docs/components-and-props.html), as well as [State and Lifecycle](/docs/state-and-lifecycle.html). If you're not, read them first.
+>>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 Esta página contém uma referência detalhada da API para a definição de classes de componentes React. Nós assumimos que você possui familiaridade com conceitos fundamentais do React, como [Componentes e Props](/docs/components-and-props.html), bem como [Estado e Ciclo de Vida](/docs/state-and-lifecycle.html). Se isto não é familiar para você, leia essas páginas primeiro.
 

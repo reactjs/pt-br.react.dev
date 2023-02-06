@@ -6,7 +6,21 @@ next: hooks-rules.html
 prev: hooks-state.html
 ---
 
+<<<<<<< HEAD
 _Hooks_ são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Synchronizing with Effects](https://beta.reactjs.org/learn/synchronizing-with-effects)
+> - [You Might Not Need an Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect)
+> - [`useEffect`](https://beta.reactjs.org/reference/react/useEffect)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+*Hooks* are a new addition in React 16.8. They let you use state and other React features without writing a class.
+>>>>>>> d4e42ab21f0cc7d8b79d1a619654e27c79e10af6
 
 O *Effect Hook* (Hook de Efeito) te permite executar efeitos colaterais em componentes funcionais:
 
