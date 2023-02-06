@@ -79,5 +79,5 @@ Você pode preferir criar e configurar sua própria toolchain. Uma toolchain ger
 * Um **linter** verifica seu código em busca de erros comuns. Linters populares: [ESLint.](https://eslint.org/)
 * Um **executor de testes** permite que você execute testes em seu código. Executor de teste popular: [Jest.](https://jestjs.io/)
 
-Se você preferir configurar sua própria toolchain JavaScript do zero, [confira este guia](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recria algumas das funcionalidades do Create React App. Um framework também geralmente fornece uma solução de roteamento e busca de dados. Em um projeto maior, você também pode querer gerenciar múltiplos pacotes em um único repositório com uma ferramenta como Nx ou outra similar. [Nx](https://nx.dev/react) ou [Turborepo.](https://turborepo.org/)
+Se você preferir configurar sua própria toolchain JavaScript do zero, [confira este guia](https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658) que recria algumas das funcionalidades do Create React App. Um framework também geralmente fornece uma solução de roteamento e busca de dados. Em um projeto maior, você também pode querer gerenciar múltiplos pacotes em um único repositório com uma ferramenta como [Nx](https://nx.dev/react) ou [Turborepo.](https://turborepo.org/)
 
