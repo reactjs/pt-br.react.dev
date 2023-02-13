@@ -14,7 +14,24 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+<<<<<<< HEAD
 O React implementa um sistema DOM independente ao navegador visando performance e compatibilidade entre navegadores. Aproveitamos a oportunidade para melhorar algumas implementações do DOM no navegador.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 No React, todas as propriedades e atributos (incluindo manipuladores de eventos) devem estar em _camelCase_. Por exemplo, o atributo HTML `tabindex` corresponde ao atributo `tabIndex` no React. As exceções são os atributos `aria-*` e `data-*`, os quais devem estar em _lowercase_. Por exemplo, você pode manter `aria-label` como `aria-label`.
 
