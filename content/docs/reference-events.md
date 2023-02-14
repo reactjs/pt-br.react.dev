@@ -6,6 +6,14 @@ layout: docs
 category: Reference
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Componentes comuns (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Este guia de referência documenta o agregador `SyntheticEvent` (evento sintético), que faz parte do sistema de eventos do React. Veja o guia [Manipulando Eventos](/docs/handling-events.html) para saber mais.
 
 ## Visão geral {#overview}

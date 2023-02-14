@@ -8,6 +8,15 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [State: a memória de um componente](https://beta.reactjs.org/learn/state-a-components-memory)
+> - [Sincronizando com Efeitos](https://beta.reactjs.org/learn/synchronizing-with-effects)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Esta página apresenta o conceito de estado e ciclo de vida em um componente React. Você pode encontrar uma [referência detalhada da API de componente aqui](/docs/react-component.html).
 
 Considere o exemplo do relógio de [uma das seções anteriores](/docs/rendering-elements.html#updating-the-rendered-element). Em [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), aprendemos apenas uma maneira de atualizar a IU. Chamamos `root.render()` para alterar a saída renderizada:

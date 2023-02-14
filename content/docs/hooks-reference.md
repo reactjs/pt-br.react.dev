@@ -35,6 +35,10 @@ Se Hooks é novidade pra você, talvez você queira primeiro ter uma [visão ger
 
 ### `useState` {#usestate}
 
+> Experimente a nova documentação do React para [`useState`](https://beta.reactjs.org/reference/react/useState).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```js
 const [state, setState] = useState(initialState);
 ```
@@ -117,6 +121,10 @@ In the rare case that you need to force the DOM update to be applied synchronous
 
 ### `useEffect` {#useeffect}
 
+> Experimente a nova documentação do React para [`useEffect`](https://beta.reactjs.org/reference/react/useEffect).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```js
 useEffect(didUpdate);
 ```
@@ -196,6 +204,11 @@ O array de dependências não é passada como argumentos para a função de efei
 
 ### `useContext` {#usecontext}
 
+> Experimente a nova documentação do React para [`useContext`](https://beta.reactjs.org/reference/react/useContext).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
 ```js
 const value = useContext(MyContext);
 ```
@@ -267,6 +280,11 @@ Este exemplo é modificado para hooks a partir de um exemplo anterior no [Guia A
 Os próximos Hooks são variações dos princípios básicos da seção anterior ou apenas necessários para um caso de uso específico. Não se estresse sobre aprendê-los antes dos princípios básicos.
 
 ### `useReducer` {#usereducer}
+
+> Experimente a nova documentação do React para [`useReducer`](https://beta.reactjs.org/reference/react/useReducer).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, init);
@@ -373,6 +391,10 @@ Note que o React ainda pode precisar renderizar aquele componente específico no
 
 ### `useCallback` {#usecallback}
 
+> Experimente a nova documentação do React para [`useCallback`](https://beta.reactjs.org/reference/react/useCallback).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```js
 const memoizedCallback = useCallback(
   () => {
@@ -396,6 +418,11 @@ Recebe como argumentos, um callback e um array. `useCallback` retornará uma ver
 
 ### `useMemo` {#usememo}
 
+> Experimente a nova documentação do React para [`useMemo`](https://beta.reactjs.org/reference/react/useMemo).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
 ```js
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
@@ -417,6 +444,11 @@ Se nenhum array for fornecido, um novo valor será calculado em cada renderizaç
 > Recomendamos usar as regras do [`exhaustive-deps`](https://github.com/facebook/react/issues/14920) como parte do nosso pacote [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks#installation). Ele avisa quando as dependências são especificadas incorretamente e sugere uma correção.
 
 ### `useRef` {#useref}
+
+> Experimente a nova documentação do React para [`useRef`](https://beta.reactjs.org/reference/react/useRef).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 
 ```js
 const refContainer = useRef(initialValue);
@@ -454,6 +486,11 @@ Tenha em mente que o `useRef` *não* avisa quando o conteúdo é alterado. Mover
 
 ### `useImperativeHandle` {#useimperativehandle}
 
+> Experimente a nova documentação do React para [`useImperativeHandle`](https://beta.reactjs.org/reference/react/useImperativeHandle).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
 ```js
 useImperativeHandle(ref, createHandle, [deps])
 ```
@@ -477,6 +514,10 @@ Neste exemplo, um componente pai que renderiza `<FancyInput ref={inputRef} />` s
 
 ### `useLayoutEffect` {#uselayouteffect}
 
+> Experimente a nova documentação do React para [`useLayoutEffect`](https://beta.reactjs.org/reference/react/useLayoutEffect).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 A assinatura é idêntica a `useEffect`, mas dispara sincronizadamente após todas as alterações no DOM. Use isto para ler o layout do DOM e renderizar sincronizadamente. Atualizações agendadas dentro de `useLayoutEffect` serão liberadas de forma síncrona, antes que o navegador tenha a chance de atualizar.
 
 Prefira o padrão `useEffect` quando possível, para evitar bloquear atualizações visuais.
@@ -490,6 +531,11 @@ Prefira o padrão `useEffect` quando possível, para evitar bloquear atualizaç�
 > Para excluir um componente que precisa de efeitos de layout do HTML renderizado pelo servidor, renderize-o condicionalmente com `showChild && <Child />` e adie a exibição dele com `useEffect (() => { setShowChild(true); }, [])`. Dessa forma, a UI não parece quebrada antes da hidratação.
 
 ### `useDebugValue` {#usedebugvalue}
+
+> Experimente a nova documentação do React para [`useDebugValue`](https://beta.reactjs.org/reference/react/useDebugValue).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 
 ```js
 useDebugValue(value)
@@ -531,6 +577,11 @@ useDebugValue(date, date => date.toDateString());
 
 ### `useDeferredValue` {#usedeferredvalue}
 
+> Experimente a nova documentação do React para [`useDeferredValue`](https://beta.reactjs.org/reference/react/useDeferredValue).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
 ```js
 const deferredValue = useDeferredValue(value);
 ```
@@ -568,6 +619,11 @@ function Typeahead() {
 Memorizar os filhos diz ao React que ele só precisa renderizá-los novamente quando `deferredQuery` mudar e não quando `query` mudar. Esta ressalva não é exclusiva de `useDeferredValue`, e é o mesmo padrão que você usaria com hooks semelhantes que usam debouncing ou throttling.
 
 ### `useTransition` {#usetransition}
+
+> Experimente a nova documentação do React para [`useTransition`](https://beta.reactjs.org/reference/react/useTransition).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 
 ```js
 const [isPending, startTransition] = useTransition();
@@ -612,6 +668,11 @@ function App() {
 > As atualizações em uma transição não mostrarão um fallback para conteúdo ressuspenso. Isso permite que o usuário continue interagindo com o conteúdo atual enquanto processa a atualização.
 
 ### `useId` {#useid}
+
+> Experimente a nova documentação do React para [`useId`](https://beta.reactjs.org/reference/react/useId).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 
 ```js
 const id = useId();
@@ -669,6 +730,11 @@ Os Hooks a seguir são fornecidos para autores de bibliotecas para integrar bibl
 
 ### `useSyncExternalStore` {#usesyncexternalstore}
 
+> Experimente a nova documentação do React para [`useSyncExternalStore`](https://beta.reactjs.org/reference/react/useSyncExternalStore).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
 ```js
 const state = useSyncExternalStore(subscribe, getSnapshot[, getServerSnapshot]);
 ```
@@ -714,6 +780,10 @@ const selectedField = useSyncExternalStore(
 > Como conveniência, também fornecemos uma versão da API com suporte automático para memorizar o resultado de getSnapshot publicado como `use-sync-external-store/with-selector`.
 
 ### `useInsertionEffect` {#useinsertioneffect}
+
+> Experimente a nova documentação do React para [`useInsertionEffect`](https://beta.reactjs.org/reference/react/useInsertionEffect).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```js
 useInsertionEffect(didUpdate);
