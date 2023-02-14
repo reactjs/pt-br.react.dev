@@ -36,6 +36,10 @@ Os métodos a seguir podem ser usados tanto em ambiente de servidor como de nave
 
 ### `renderToPipeableStream()` {#rendertopipeablestream}
 
+> Experimente a nova documentação do React para [`renderToPipeableStream`](https://beta.reactjs.org/reference/react-dom/server/renderToPipeableStream).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 ReactDOMServer.renderToPipeableStream(element, options)
 ```
@@ -90,6 +94,10 @@ Veja a [lista completa de opções](https://github.com/facebook/react/blob/14c2b
 * * *
 
 ### `renderToReadableStream()` {#rendertoreadablestream}
+
+> Experimente a nova documentação do React para [`renderToReadableStream`](https://beta.reactjs.org/reference/react-dom/server/renderToReadableStream).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 ReactDOMServer.renderToReadableStream(element, options);
@@ -148,6 +156,10 @@ See the [full list of options](https://github.com/facebook/react/blob/14c2be8dac
 
 ### `renderToNodeStream()`  (Deprecated) {#rendertonodestream}
 
+> Experimente a nova documentação do React para [`renderToNodeStream`](https://beta.reactjs.org/reference/react-dom/server/renderToNodeStream).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 ReactDOMServer.renderToNodeStream(element)
 ```
@@ -165,6 +177,10 @@ Se você chamar [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydratero
 * * *
 
 ### `renderToStaticNodeStream()` {#rendertostaticnodestream}
+
+> Experimente a nova documentação do React para [`renderToStaticNodeStream`](https://beta.reactjs.org/reference/react-dom/server/renderToStaticNodeStream).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 ReactDOMServer.renderToStaticNodeStream(element)
@@ -186,6 +202,10 @@ If you plan to use React on the client to make the markup interactive, do not us
 
 ### `renderToString()` {#rendertostring}
 
+> Experimente a nova documentação do React para [`renderToString`](https://beta.reactjs.org/reference/react-dom/server/renderToString).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 ReactDOMServer.renderToString(element)
 ```
@@ -203,6 +223,10 @@ Se você chamar [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydratero
 * * *
 
 ### `renderToStaticMarkup()` {#rendertostaticmarkup}
+
+> Experimente a nova documentação do React para [`renderToStaticMarkup`](https://beta.reactjs.org/reference/react-dom/server/renderToStaticMarkup).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 ReactDOMServer.renderToStaticMarkup(element)

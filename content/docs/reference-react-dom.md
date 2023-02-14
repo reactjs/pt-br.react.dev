@@ -50,6 +50,10 @@ O React suporta todos os navegadores modernos, embora [alguns polyfills sejam ne
 
 ### `createPortal()` {#createportal}
 
+> Experimente a nova documentação do React para [`createPortal`](https://beta.reactjs.org/reference/react-dom/createPortal).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 createPortal(child, container)
 ```
@@ -57,6 +61,10 @@ createPortal(child, container)
 Cria um portal. Os portais fornecem uma maneira de [processar filhos em um nó DOM que existe fora da hierarquia do componente DOM](/docs/portals.html).
 
 ### `flushSync()` {#flushsync}
+
+> Experimente a nova documentação do React para [`flushSync`](https://beta.reactjs.org/reference/react-dom/flushSync).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 flushSync(callback)
@@ -84,6 +92,11 @@ flushSync(() => {
 
 ## Referência herdada {#legacy-reference}
 ### `render()` {#render}
+
+> Experimente a nova documentação do React para [`render`](https://beta.reactjs.org/reference/react-dom/render).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 render(element, container[, callback])
 ```
@@ -114,6 +127,10 @@ Se a _callback_ opcional for fornecida, ela será executada depois do componente
 
 ### `hydrate()` {#hydrate}
 
+> Experimente a nova documentação do React para [`hydrate`](https://beta.reactjs.org/reference/react-dom/hydrate).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 hydrate(element, container[, callback])
 ```
@@ -136,6 +153,10 @@ Lembre-se de estar atento à experiência de usuário em conexões lentas. O có
 
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
+> Experimente a nova documentação do React para [`unmountComponentAtNode`](https://beta.reactjs.org/reference/react-dom/unmountComponentAtNode).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 ```javascript
 unmountComponentAtNode(container)
 ```
@@ -149,6 +170,10 @@ Remove a mounted React component from the DOM and clean up its event handlers an
 * * *
 
 ### `findDOMNode()` {#finddomnode}
+
+> Experimente a nova documentação do React para [`findDOMNode`](https://beta.reactjs.org/reference/react-dom/findDOMNode).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 > Nota:
 >
