@@ -8,6 +8,12 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
+> Experimente a nova documentação do React.
+> 
+> O guia atualizado [Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) ensina o React moderno e inclui exemplos ao vivo.
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 React é, na nossa opinião, o principal modo de se construir aplicações Web grandes e rápidas com JavaScript. Ele tem escalado muito bem para nós no Facebook e Instagram.
 
 Uma das muitas excelentes partes do React é o modo que ele faz você pensar sobre apps enquanto os constrói. Neste documento, nós iremos ensinar o processo mental envolvido na construção de uma tabela de produtos buscáveis utilizando o React.
