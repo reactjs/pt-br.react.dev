@@ -8,6 +8,15 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Respondendo a Eventos](https://beta.reactjs.org/learn/responding-to-events)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
 Manipular eventos em elementos React é muito semelhante a manipular eventos em elementos do DOM. Existem algumas diferenças de sintaxe:
 
 * Eventos em React são nomeados usando camelCase ao invés de letras minúsculas.
