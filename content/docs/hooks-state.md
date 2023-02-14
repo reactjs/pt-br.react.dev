@@ -6,7 +6,16 @@ next: hooks-effect.html
 prev: hooks-overview.html
 ---
 
-_Hooks_ são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [State: Memória de um componente](https://beta.reactjs.org/learn/state-a-components-memory)
+> - [`useState`](https://beta.reactjs.org/reference/react/useState)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+*Hooks* são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 
 A [página de introdução](/docs/hooks-intro.html) usou este exemplo para familiarizar com Hooks:
 

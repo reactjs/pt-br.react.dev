@@ -4,6 +4,15 @@ title: Encaminhamento de Refs
 permalink: docs/forwarding-refs.html
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Manipulando o DOM com Refs](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
+> - [`forwardRef`](https://beta.reactjs.org/reference/react/forwardRef)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Encaminhamento de Ref é uma técnica para passar automaticamente uma [ref](/docs/refs-and-the-dom.html) através de um componente para um dos seus filhos. Isso normalmente não é necessário para a maioria dos componentes na aplicação. Entretanto, pode ser útil para alguns tipos de componentes, especialmente em bibliotecas de componentes reutilizáveis. Os cenários mais comuns estão descritos abaixo.
 
 ## Encaminhamento de refs para componentes do DOM {#forwarding-refs-to-dom-components}

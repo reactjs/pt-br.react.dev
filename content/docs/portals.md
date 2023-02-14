@@ -4,6 +4,14 @@ title: Portals
 permalink: docs/portals.html
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [`createPortal`](https://beta.reactjs.org/reference/react-dom/createPortal)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Portals fornece uma forma elegante de renderizar um elemento filho dentro de um nó DOM que existe fora da hierarquia do componente pai.
 
 ```js
