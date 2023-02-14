@@ -8,17 +8,13 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-<<<<<<< HEAD
-React é, na nossa opinião, o principal modo de se construir aplicações Web grandes e rápidas com JavaScript. Ele tem escalado muito bem para nós no Facebook e Instagram.
-=======
-> Try the new React documentation.
+> Experimente a nova documentação do React.
 > 
-> The updated [Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) guide teaches modern React and includes live examples.
+> O guia atualizado [Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) ensina o React moderno e inclui exemplos ao vivo.
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-React is, in our opinion, the premier way to build big, fast Web apps with JavaScript. It has scaled very well for us at Facebook and Instagram.
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+React é, na nossa opinião, o principal modo de se construir aplicações Web grandes e rápidas com JavaScript. Ele tem escalado muito bem para nós no Facebook e Instagram.
 
 Uma das muitas excelentes partes do React é o modo que ele faz você pensar sobre apps enquanto os constrói. Neste documento, nós iremos ensinar o processo mental envolvido na construção de uma tabela de produtos buscáveis utilizando o React.
 

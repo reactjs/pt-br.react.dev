@@ -16,13 +16,6 @@ Antes de participar das comunidades do React, [leia nosso Código de Conduta.](h
 
 Stack Overflow é um fórum popular para fazer perguntas sobre código ou para caso você esteja travado em um erro específico. Leia as [perguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) marcadas com **reactjs** ou [faça a sua](https://stackoverflow.com/questions/ask?tags=reactjs)!
 
-<<<<<<< HEAD:beta/src/content/learn/community.md
-{/*
-
-TODO: decide on the criteria for inclusion before uncommenting.
-
-=======
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e:beta/src/content/community/index.md
 ## Popular Discussion Forums {/*popular-discussion-forums*/}
 
 There are many online forums which are a great place for discussion about best practices and application architecture as well as the future of React. If you have an answerable code-level question, Stack Overflow is usually a better fit.
@@ -34,12 +27,6 @@ Each community consists of many thousands of React users.
 * [Reactiflux online chat](https://discord.gg/reactiflux)
 * [Reddit's React community](https://www.reddit.com/r/reactjs/)
 
-<<<<<<< HEAD:beta/src/content/learn/community.md
-*/}
-
 ## Notícias {/*news*/}
-=======
-## News {/*news*/}
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e:beta/src/content/community/index.md
 
 Para as últimas notícias sobre React, [siga **@reactjs** no Twitter](https://twitter.com/reactjs) e o [blog oficial do React](/blog/) neste webiste.

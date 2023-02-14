@@ -4,11 +4,7 @@ title: Reconhecimentos
 
 <Intro>
 
-<<<<<<< HEAD:beta/src/content/learn/acknowledgements.md
-O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/learn/meet-the-team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/blob/main/AUTHORS)
-=======
-React was originally created by [Jordan Walke.](https://github.com/jordwalke) Today, React has a [dedicated full-time team working on it](/community/team), as well as over a thousand [open source contributors.](https://github.com/facebook/react/blob/main/AUTHORS)
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e:beta/src/content/community/acknowledgements.md
+O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/blob/main/AUTHORS)
 
 </Intro>
 

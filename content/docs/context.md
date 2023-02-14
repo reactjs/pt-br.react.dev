@@ -4,20 +4,16 @@ title: Context
 permalink: docs/context.html
 ---
 
-<<<<<<< HEAD
-Contexto (context) disponibiliza uma forma de passar dados entre a árvore de componentes sem precisar passar props manualmente em cada nível.
-=======
-> Try the new React documentation.
-> 
-> These new documentation pages teach modern React and include live examples:
+> Experimente a nova documentação do React.
 >
-> - [Passing Data Deeply with Context](https://beta.reactjs.org/learn/passing-data-deeply-with-context)
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Passando Dados Profundamente com Contexto](https://beta.reactjs.org/learn/passing-data-deeply-with-context)
 > - [`useContext`](https://beta.reactjs.org/reference/react/useContext)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-Context provides a way to pass data through the component tree without having to pass props down manually at every level.
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+Contexto (context) disponibiliza uma forma de passar dados entre a árvore de componentes sem precisar passar props manualmente em cada nível.
 
 Em uma aplicação típica do React, os dados são passados de cima para baixo (de pai para filho) via props, mas esse uso pode ser complicado para certos tipos de props (como preferências locais ou tema de UI), que são utilizadas por muitos componentes dentro da aplicação. Contexto (context) fornece a forma de compartilhar dados como esses, entre todos componentes da mesma árvore de componentes, sem precisar passar explicitamente props entre cada nível.
 

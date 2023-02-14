@@ -16,20 +16,16 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-<<<<<<< HEAD
-Componentes permitem você dividir a UI em partes independentes, reutilizáveis e pensar em cada parte isoladamente. Essa página fornece uma introdução à ideia de componentes. Você pode encontrar uma [referência detalhada da API de componente aqui](/docs/react-component.html).
-=======
-> Try the new React documentation.
-> 
-> These new documentation pages teach modern React and include live examples:
+> Experimente a nova documentação do React.
 >
-> - [Your First Component](https://beta.reactjs.org/learn/your-first-component)
-> - [Passing Props to a Component](https://beta.reactjs.org/learn/passing-props-to-a-component)
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> - [Seu primeiro componente](https://beta.reactjs.org/learn/your-first-component)
+> - [Passando props para um componente](https://beta.reactjs.org/learn/passing-props-to-a-component)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+Os componentes permitem que você divida a interface do usuário em partes independentes e reutilizáveis e pense em cada parte isoladamente. Esta página fornece uma introdução à ideia de componentes. Você pode encontrar uma [referência detalhada da API do componente aqui](/docs/react-component.html).
 
 Conceitualmente, componentes são como funções JavaScript. Eles aceitam entradas arbitrárias (chamadas "props") e retornam elementos React que descrevem o que deve aparecer na tela.
 

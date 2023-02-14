@@ -6,19 +6,15 @@ layout: docs
 category: Reference
 ---
 
-<<<<<<< HEAD
-Este guia de referência documenta o agregador `SyntheticEvent` (evento sintético), que faz parte do sistema de eventos do React. Veja o guia [Manipulando Eventos](/docs/handling-events.html) para saber mais.
-=======
-> Try the new React documentation.
-> 
-> These new documentation pages teach modern React and include live examples:
+> Experimente a nova documentação do React.
 >
-> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> - [Componentes comuns (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+Este guia de referência documenta o agregador `SyntheticEvent` (evento sintético), que faz parte do sistema de eventos do React. Veja o guia [Manipulando Eventos](/docs/handling-events.html) para saber mais.
 
 ## Visão geral {#overview}
 

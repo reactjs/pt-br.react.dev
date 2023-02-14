@@ -5,10 +5,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-<<<<<<< HEAD
-      "source": "/reference/:path*",
-      "destination": "/apis/:path*",
-=======
       "source": "/docs/add-react-to-a-website.html",
       "destination": "/learn/add-react-to-a-website",
       "permanent": false
@@ -91,7 +87,6 @@
     {
       "source": "/:path*(\\.html)",
       "destination": "https://legacy.reactjs.org/:path*.html",
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
       "permanent": false
     },
     {

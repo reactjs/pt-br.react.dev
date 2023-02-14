@@ -6,20 +6,15 @@ prev: conditional-rendering.html
 next: forms.html
 ---
 
-<<<<<<< HEAD
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Listas de renderização](https://beta.reactjs.org/learn/rendering-lists)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Primeiro, vamos rever como transformamos listas em JavaScript.
-=======
-> Try the new React documentation.
-> 
-> These new documentation pages teach modern React and include live examples:
->
-> - [Rendering Lists](https://beta.reactjs.org/learn/rendering-lists)
->
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
-
-
-First, let's review how you transform lists in JavaScript.
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 Dado o código abaixo, nós usamos a função [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) para receber um array de `números` e dobrar o valor de cada um deles. Atribuímos o novo array retornado pela função `map()` para a variável `doubled` e imprime no console:
 

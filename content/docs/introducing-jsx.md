@@ -6,20 +6,16 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
-<<<<<<< HEAD
-Considere esta declaração de variável:
-=======
-> Try the new React documentation.
-> 
-> These new documentation pages teach modern React and include live examples:
+> Experimente a nova documentação do React.
 >
-> - [Writing Markup with JSX](https://beta.reactjs.org/learn/writing-markup-with-jsx)
-> - [JavaScript in JSX with Curly Braces](https://beta.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> - [Escrevendo marcação com JSX](https://beta.reactjs.org/learn/writing-markup-with-jsx)
+> - [JavaScript em JSX com chaves](https://beta.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-Consider this variable declaration:
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+Considere esta declaração de variável:
 
 ```js
 const element = <h1>Hello, world!</h1>;

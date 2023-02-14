@@ -4,20 +4,15 @@ title: Modo Estrito (Strict Mode)
 permalink: docs/strict-mode.html
 ---
 
-<<<<<<< HEAD
-O modo estrito (`Strict Mode`) é uma ferramenta para sinalizar potenciais problemas em uma aplicação. Assim como o `Fragment`, o `StrictMode` não renderiza nenhum elemento visível na interface. Ele ativa, no entanto, verificações e avisos adicionais para os seus descendentes.
-=======
-> Try the new React documentation.
-> 
-> These new documentation pages teach modern React and include live examples:
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
 > - [`StrictMode`](https://beta.reactjs.org/reference/react/StrictMode)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-
-`StrictMode` is a tool for highlighting potential problems in an application. Like `Fragment`, `StrictMode` does not render any visible UI. It activates additional checks and warnings for its descendants.
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+O modo estrito (`Strict Mode`) é uma ferramenta para sinalizar potenciais problemas em uma aplicação. Assim como o `Fragment`, o `StrictMode` não renderiza nenhum elemento visível na interface. Ele ativa, no entanto, verificações e avisos adicionais para os seus descendentes.
 
 > Nota:
 >

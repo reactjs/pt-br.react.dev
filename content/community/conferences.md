@@ -12,24 +12,6 @@ Você sabe de alguma conferência local sobre ReactJS? Adicione-a aqui! (Por fav
 
 ## Próximas Conferências {#upcoming-conferences}
 
-<<<<<<< HEAD
-### React Global Online Summit 22.2 by Geekle {#react-global-v2-2022}
-8 a 9 de novembro de 2022 - Reunião on-line
-
-[Website](https://events.geekle.us/react3/) - [LinkedIn](https://www.linkedin.com/posts/geekle-us_event-react-reactjs-activity-6964904611207864320-gpDx?utm_source=share&utm_medium=member_desktop)
-
-### Remix Conf Europe 2022 {#remixconfeu-2022}
-18 de novembro 2022, 7h PST / 10h EST / 16h CET - evento remoto
-
-[Website](https://remixconf.eu/) - [Twitter](https://twitter.com/remixconfeu)
-
-### React Day Berlin 2022 {#react-day-berlin-2022}
-2 de dezembro de 2022. Presencial em Berlim, Alemanha + remoto (evento híbrido)
-
-[Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/c/ReactConferences)
-=======
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
-
 ### RemixConf 2023 {#remixconf-2023}
 Maio de 2023. Salt Lake City, UT
 
@@ -55,34 +37,31 @@ Maio de 2023. Salt Lake City, UT
 
 [Website](https://www.react-next.com/) - [Facebook](https://www.facebook.com/ReactNextConf) - [Youtube](https://www.youtube.com/@ReactNext)
 
-<<<<<<< HEAD
-## Conferências anteriores {#past-conferences}
-=======
 ### React Nexus 2023 {#react-nexus-2023}
-July 07 & 08, 2023. In-person in Bangalore, India
+07 e 08 de julho de 2023. Presencial em Bangalore, Índia
 
 [Website](https://reactnexus.com/) - [Twitter](https://twitter.com/ReactNexus) - [Linkedin](https://www.linkedin.com/company/react-nexus) - [YouTube](https://www.youtube.com/reactify_in)
 
 ### React India 2023 {#react-india-2023}
-Oct 5 - 7, 2023. In-person in Goa, India (hybrid event) + Oct 3 2023 - remote day 
+5 a 7 de outubro de 2023. Presencial em Goa, Índia (evento híbrido) + 3 de outubro de 2023 - dia remoto
 
 [Website](https://www.reactindia.io) - [Twitter](https://twitter.com/react_india) - [Facebook](https://www.facebook.com/ReactJSIndia) - [Youtube](https://www.youtube.com/channel/UCaFbHCBkPvVv1bWs_jwYt3w)
 
-## Past Conferences {#past-conferences}
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+## Conferências anteriores {#past-conferences}
 
 ### React Day Berlin 2022 {#react-day-berlin-2022}
-December 2, 2022. In-person in Berlin, Germany + remote (hybrid event)
+2 de dezembro de 2022. Presencial em Berlim, Alemanha + remoto (evento híbrido)
 
 [Website](https://reactday.berlin) - [Twitter](https://twitter.com/reactdayberlin) - [Facebook](https://www.facebook.com/reactdayberlin/) - [Videos](https://www.youtube.com/c/ReactConferences)
 
+
 ### Remix Conf Europe 2022 {#remixconfeu-2022}
-November 18, 2022, 7am PST / 10am EST / 4pm CET - remote event
+18 de novembro 2022, 7h PST / 10h EST / 16h CET - evento remoto
 
 [Website](https://remixconf.eu/) - [Twitter](https://twitter.com/remixconfeu)
 
 ### React Global Online Summit 22.2 by Geekle {#react-global-v2-2022}
-November 8 - 9, 2022 - Online Summit
+8 a 9 de novembro de 2022 - Reunião on-line
 
 [Website](https://events.geekle.us/react3/) - [LinkedIn](https://www.linkedin.com/posts/geekle-us_event-react-reactjs-activity-6964904611207864320-gpDx?utm_source=share&utm_medium=member_desktop)
 

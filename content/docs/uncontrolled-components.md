@@ -4,21 +4,17 @@ title: Componentes não controlados
 permalink: docs/uncontrolled-components.html
 ---
 
-<<<<<<< HEAD
-Na maioria dos casos, recomendamos o uso de [componentes controlados](/docs/forms.html#controlled-components) para implementar formulários. Em um componente controlado, os dados de formulário são manipulados por um componente React. A alternativa são componentes não controlados, onde os dados de formulário são controlados pelo próprio DOM.
-=======
-> Try the new React documentation.
-> 
-> These new documentation pages teach modern React and include live examples:
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
 > - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
 > - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
 > - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-In most cases, we recommend using [controlled components](/docs/forms.html#controlled-components) to implement forms. In a controlled component, form data is handled by a React component. The alternative is uncontrolled components, where form data is handled by the DOM itself.
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+Na maioria dos casos, recomendamos o uso de [componentes controlados](/docs/forms.html#controlled-components) para implementar formulários. Em um componente controlado, os dados de formulário são manipulados por um componente React. A alternativa são componentes não controlados, onde os dados de formulário são controlados pelo próprio DOM.
 
 Para criar um componente não controlado, em vez de criar um manipulador de evento para cada atualização de estado, você pode [usar ref](/docs/refs-and-the-dom.html) para obter os valores do formulário do DOM.
 

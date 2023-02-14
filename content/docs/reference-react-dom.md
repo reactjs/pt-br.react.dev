@@ -50,9 +50,9 @@ O React suporta todos os navegadores modernos, embora [alguns polyfills sejam ne
 
 ### `createPortal()` {#createportal}
 
-> Try the new React documentation for [`createPortal`](https://beta.reactjs.org/reference/react-dom/createPortal).
+> Experimente a nova documentação do React para [`createPortal`](https://beta.reactjs.org/reference/react-dom/createPortal).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 createPortal(child, container)
@@ -62,9 +62,9 @@ Cria um portal. Os portais fornecem uma maneira de [processar filhos em um nó D
 
 ### `flushSync()` {#flushsync}
 
-> Try the new React documentation for [`flushSync`](https://beta.reactjs.org/reference/react-dom/flushSync).
+> Experimente a nova documentação do React para [`flushSync`](https://beta.reactjs.org/reference/react-dom/flushSync).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 flushSync(callback)
@@ -93,9 +93,9 @@ flushSync(() => {
 ## Referência herdada {#legacy-reference}
 ### `render()` {#render}
 
-> Try the new React documentation for [`render`](https://beta.reactjs.org/reference/react-dom/render).
+> Experimente a nova documentação do React para [`render`](https://beta.reactjs.org/reference/react-dom/render).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 render(element, container[, callback])
@@ -127,9 +127,9 @@ Se a _callback_ opcional for fornecida, ela será executada depois do componente
 
 ### `hydrate()` {#hydrate}
 
-> Try the new React documentation for [`hydrate`](https://beta.reactjs.org/reference/react-dom/hydrate).
+> Experimente a nova documentação do React para [`hydrate`](https://beta.reactjs.org/reference/react-dom/hydrate).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 hydrate(element, container[, callback])
@@ -153,9 +153,9 @@ Lembre-se de estar atento à experiência de usuário em conexões lentas. O có
 
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
-> Try the new React documentation for [`unmountComponentAtNode`](https://beta.reactjs.org/reference/react-dom/unmountComponentAtNode).
+> Experimente a nova documentação do React para [`unmountComponentAtNode`](https://beta.reactjs.org/reference/react-dom/unmountComponentAtNode).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 ```javascript
 unmountComponentAtNode(container)
@@ -171,15 +171,11 @@ Remove a mounted React component from the DOM and clean up its event handlers an
 
 ### `findDOMNode()` {#finddomnode}
 
-<<<<<<< HEAD
-> Nota:
-=======
-> Try the new React documentation for [`findDOMNode`](https://beta.reactjs.org/reference/react-dom/findDOMNode).
+> Experimente a nova documentação do React para [`findDOMNode`](https://beta.reactjs.org/reference/react-dom/findDOMNode).
 >
-> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-> Note:
->>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+> Nota:
 >
 > `findDOMNode` é uma válvula de escape usada para acessar o nó subjacente do DOM. Na maioria dos casos, o uso dessa válvula de escape é desencorajado porque perfura a abstração do componente. [Foi deprecado em `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
