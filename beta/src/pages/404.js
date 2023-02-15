@@ -10,15 +10,15 @@ const {Intro, MaxWidth, p: P, a: A} = MDXComponents;
 
 export default function NotFound() {
   return (
-    <Page toc={[]} meta={{title: 'Not Found'}} routeTree={sidebarLearn}>
+    <Page toc={[]} meta={{title: 'Não encontrada'}} routeTree={sidebarLearn}>
       <MaxWidth>
         <Intro>
-          <P>This page doesn’t exist.</P>
+          <P>Esta página não existe.</P>
           <P>
-            Quite possibly, it hasn’t been written yet. This beta is a{' '}
-            <A href="/#how-much-content-is-ready">work in progress!</A>
+            Muito possivelmente, ainda não foi escrita. Este beta é um{' '}
+            <A href="/#how-much-content-is-ready">trabalho em progresso!</A>
           </P>
-          <P>Please check back later.</P>
+          <P>Por favor, verifique mais tarde.</P>
         </Intro>
       </MaxWidth>
     </Page>
