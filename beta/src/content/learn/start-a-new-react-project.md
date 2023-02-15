@@ -17,7 +17,7 @@ Se você está iniciando um novo projeto, recomendamos usar uma toolchain ou um 
 
 </YouWillLearn>
 
-## Escolha sua própria aventura {/*echoose-your-own-adventure*/}
+## Escolha sua própria aventura {/*choose-your-own-adventure*/}
 
 O React é uma biblioteca que permite que você organize o código da interface do usuário quebrando-o em peças chamadas componentes. O React não cuida da rotação ou gerenciamento de dados. Isso significa que há várias maneiras de iniciar um novo projeto React:
 
