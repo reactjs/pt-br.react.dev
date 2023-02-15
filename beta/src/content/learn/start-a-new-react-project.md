@@ -17,7 +17,7 @@ Se você está iniciando um novo projeto, recomendamos usar uma toolchain ou um 
 
 </YouWillLearn>
 
-## Escolha sua própria aventura {/*escolha-sua-própria-aventura*/}
+## Escolha sua própria aventura {/*echoose-your-own-adventure*/}
 
 O React é uma biblioteca que permite que você organize o código da interface do usuário quebrando-o em peças chamadas componentes. O React não cuida da rotação ou gerenciamento de dados. Isso significa que há várias maneiras de iniciar um novo projeto React:
 
@@ -25,7 +25,7 @@ O React é uma biblioteca que permite que você organize o código da interface 
 * Comece com uma **toolchain mínima,** adicionando mais recursos ao seu projeto conforme avança. (Ótimo para aprender!)
 * Comece com um **framework com opinião** que possua recursos comuns, como busca de dados e roteamento incorporado.
 
-## Começando com uma toolchain mínima {/*começando-com-uma-toolchain-mínima*/}
+## Começando com uma toolchain mínima {/*getting-started-with-a-minimal-toolchain*/}
 
 Se você está **aprendendo React,** recomendamos [Create React App.](https://create-react-app.dev/) É a maneira mais popular de experimentar o React e criar uma nova aplicação de lado do cliente de página única. Ele foi feito para o React, mas não tem opinião sobre roteamento ou busca de dados.
 
@@ -50,24 +50,24 @@ Para obter mais informações, [consulte o guia oficial.](https://create-react-a
 
 > O Create React App não gerencia a lógica do backend ou bancos de dados. Você pode usá-lo com qualquer backend. Quando você constrói um projeto, receberá uma pasta com HTML, CSS e JS estáticos. Como o Create React App não pode aproveitar o servidor, ele não fornece o melhor desempenho. Se você está procurando tempos de carregamento mais rápidos e recursos incorporados, como roteamento e lógica do lado do servidor, recomendamos usar um framework em vez disso.
 
-### Alternativas populares {/*alternativa-de-toolchains-populares*/}
+### Alternativas populares {/*toolkit-popular-alternatives*/}
 
 * [Vite](https://vitejs.dev/guide/)
 * [Parcel](https://parceljs.org/getting-started/webapp/)
 
-## Construindo com um framework com todos os recursos {/*construindo-com-um-framework-com-todos-os-recursos*/}
+## Construindo com um framework com todos os recursos {/*building-with-a-full-featured-framework*/}
 
 Se você está procurando **iniciar um projeto pronto para produção,** [Next.js](https://nextjs.org/) é um ótimo lugar para começar. O Next.js é um framework popular e leve para aplicativos estáticos e renderizados no servidor construídos com React. Ele vem pré-embalado com recursos como roteamento, estilização e renderização no lado do servidor, possibilitando que seu projeto comece a funcionar rapidamente.
 
 O tutorial de [Fundações Next.js](https://nextjs.org/learn/foundations/about-nextjs) é uma ótima introdução à construção com React e Next.js.
 
-### Alternativas populares {/*alternativas-populares-de-frameworks*/}
+### Alternativas populares {/*framework-popular-alternatives*/}
 
 * [Gatsby](https://www.gatsbyjs.org/)
 * [Remix](https://remix.run/)
 * [Razzle](https://razzlejs.org/)
 
-## Toolchains personalizadas {/*toolchains-personalizadas*/}
+## Toolchains personalizadas {/*custom-toolchains*/}
 
 Você pode preferir criar e configurar sua própria toolchain. Uma toolchain geralmente consiste em:
 
