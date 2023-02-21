@@ -89,7 +89,7 @@ O Core Team está monitorando os ***pull requests***. Analisaremos seu envio e f
 3. Se você corrigiu um bug ou um código adicionado que deve ser testado, adicione testes!
 4. Certifique-se de que a suíte de teste passe (`yarn test`). Dica: `yarn test --watch TestName` é útil no desenvolvimento.
 5. Execute `yarn test --prod` para testar no ambiente de produção. Suporta as mesmas opções que `yarn test`.
-6. Se você precisar de um depurador, execute `yarn debug-test --watch TestName`, abra `chrome://inspect`e aperte em "Inspecionar".
+6. Se você precisar de um depurador, execute `yarn test --debug --watch TestName`, abra `chrome://inspect`e aperte em "Inspecionar".
 7. Formate seu código com [prettier](https://github.com/prettier/prettier) (`yarn prettier`).
 8. Certifique-se de que seus códigos foram verificados com linters (`yarn lint`). Dica: `yarn linc` verifica somente os arquivos alterados.
 9. Rode o [Flow](https://flowtype.org/) para typechecks (`yarn flow`).
