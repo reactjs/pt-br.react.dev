@@ -503,11 +503,7 @@ Leia **[Preservando e reinicializando o estado](/learn/preserving-and-resetting-
 
 ## Extraindo a lógica de estado para um redutor {/*extracting-state-logic-into-a-reducer*/}
 
-<<<<<<< HEAD:beta/src/pages/learn/managing-state.md
 Componentes com muitas atualizações de estado espalhados por muitos manipuladores de evento podem apresentar uma complexidade avassaladora. Para estes casos, você pode consolidar toda a lógica de atualização do estado fora de seu componente em uma única função, chamada de "redutor". Os seus manipuladores de eventos tornam-se concisos porque eles especificam apenas as "ações" do usuário. Na parte inferior do arquivo, a função redutor especifica como o estado deve ser atualizado em resposta a cada ação!
-=======
-Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called "reducer". Your event handlers become concise because they only specify the user "actions". At the bottom of the file, the reducer function specifies how the state should update in response to each action!
->>>>>>> upstream/main:beta/src/content/learn/managing-state.md
 
 <Sandpack>
 
