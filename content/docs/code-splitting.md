@@ -80,10 +80,6 @@ Ao usar o [Babel](https://babeljs.io/), você precisa se certificar que o Babel 
 
 ## `React.lazy` {#reactlazy}
 
-> Nota:
->
-> `React.lazy` e Suspense não estão disponíveis para renderização no lado servidor. Se você deseja fazer divisão de código em uma aplicação renderizada no servidor, nós recomendamos o pacote [Loadable Components](https://github.com/gregberge/loadable-components). Ele possui um ótimo [guia para divisão de pacotes com renderização no servidor](https://loadable-components.com/docs/server-side-rendering/).
-
 A função do `React.lazy` é permitir a você renderizar uma importação dinâmica como se fosse um componente comum.
 
 **Antes:**
@@ -141,6 +137,52 @@ function MyComponent() {
   );
 }
 ```
+
+### Evitando fallbacks {#avoiding-fallbacks}
+Qualquer componente pode ser suspenso como resultado da renderização, mesmo componentes que já foram mostrados ao usuário. Para que o conteúdo da tela seja sempre consistente, se um componente já exibido for suspenso, o React deve ocultar sua árvore até o limite `<Suspense>` mais próximo. No entanto, do ponto de vista do usuário, isso pode ser desorientador.
+
+Considere este alternador de guias:
+
+```js
+import React, { Suspense } from 'react';
+import Tabs from './Tabs';
+import Glimmer from './Glimmer';
+
+const Comments = React.lazy(() => import('./Comments'));
+const Photos = React.lazy(() => import('./Photos'));
+
+function MyComponent() {
+  const [tab, setTab] = React.useState('photos');
+  
+  function handleTabSelect(tab) {
+    setTab(tab);
+  };
+
+  return (
+    <div>
+      <Tabs onTabSelect={handleTabSelect} />
+      <Suspense fallback={<Glimmer />}>
+        {tab === 'photos' ? <Photos /> : <Comments />}
+      </Suspense>
+    </div>
+  );
+}
+
+```
+
+Neste exemplo, se a guia for alterada de `'photos'` para `'comments'`, mas `Comments` for suspenso, o usuário verá um vislumbre. Isso faz sentido porque o usuário não quer mais ver `Photos`, o componente `Comments` não está pronto para renderizar nada e o React precisa manter a experiência do usuário consistente, então não tem escolha a não ser mostrar o `Glimmer` acima .
+
+No entanto, às vezes essa experiência do usuário não é desejável. Em particular, às vezes é melhor mostrar a IU "antiga" enquanto a nova IU está sendo preparada. Você pode usar a nova API [`startTransition`](/docs/react-api.html#starttransition) para fazer o React fazer isso:
+
+```js
+function handleTabSelect(tab) {
+  startTransition(() => {
+    setTab(tab);
+  });
+}
+```
+
+Aqui, você diz ao React que configurar a aba para `'comments'` não é uma atualização urgente, mas é uma [transição](/docs/react-api.html#transitions) que pode levar algum tempo. O React manterá a IU antiga no lugar e interativa, e mudará para mostrar `<Comments />` quando estiver pronto. Consulte [Transições](/docs/react-api.html#transitions) para obter mais informações.
 
 ### Error boundaries {#error-boundaries}
 

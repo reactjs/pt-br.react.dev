@@ -14,6 +14,19 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Componentes comuns (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 O React implementa um sistema DOM independente ao navegador visando performance e compatibilidade entre navegadores. Aproveitamos a oportunidade para melhorar algumas implementações do DOM no navegador.
 
 No React, todas as propriedades e atributos (incluindo manipuladores de eventos) devem estar em _camelCase_. Por exemplo, o atributo HTML `tabindex` corresponde ao atributo `tabIndex` no React. As exceções são os atributos `aria-*` e `data-*`, os quais devem estar em _lowercase_. Por exemplo, você pode manter `aria-label` como `aria-label`.
@@ -117,8 +130,7 @@ Normalmente, existe um alerta quando um elemento contém outros elementos que ta
 
 Se você usa a renderização do React no lado do servidor, normalmente existe um alerta para quando o servidor e o lado do cliente renderizam conteúdo de formas diferentes. Entretanto, em alguns casos raros, é muito difícil ou impossível de garantir a correspondência exata. Por exemplo, é esperado que _timestamps_ estejam diferentes no servidor e no cliente. 
 
-
-Se você definir `suppressHydrationWarning` para `true`, o React não lhe avisará sobre incompatibilidades nos atributos e no conteúdo daquele elemento. Isto só funciona dentro de 1 nível de profundidade e destina-se a ser usado como uma saída de emergência. Não use excessivamente. Você pode ler mais sobre _hydration_ na [documentação do `ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
+Se você definir `suppressHydrationWarning` para `true`, o React não lhe avisará sobre incompatibilidades nos atributos e no conteúdo daquele elemento. Isto só funciona dentro de 1 nível de profundidade e destina-se a ser usado como uma saída de emergência. Não use excessivamente. Você pode ler mais sobre _hydration_ na [`ReactDOM.hydrateRoot()` documentation](/docs/react-dom-client.html#hydrateroot).
 
 ### value {#value}
 

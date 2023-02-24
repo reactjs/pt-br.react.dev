@@ -8,6 +8,12 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
+> Experimente a nova documentação do React.
+> 
+> O guia atualizado [Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) ensina o React moderno e inclui exemplos ao vivo.
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 React é, na nossa opinião, o principal modo de se construir aplicações Web grandes e rápidas com JavaScript. Ele tem escalado muito bem para nós no Facebook e Instagram.
 
 Uma das muitas excelentes partes do React é o modo que ele faz você pensar sobre apps enquanto os constrói. Neste documento, nós iremos ensinar o processo mental envolvido na construção de uma tabela de produtos buscáveis utilizando o React.
@@ -70,7 +76,7 @@ Para construir uma versão estática que renderiza seu modelo de dados, você qu
 
 Você pode seguir uma abordagem cima-para-baixo ou baixo-para-cima. Isso significa que você pode começar criando os componentes no topo da hierarquia (i.e. começar com `FilterableProductTable`) ou os da base (`ProductRow`). Em exemplos simples, cima-para-baixo é normalmente mais fácil, enquanto que para projetos maiores o melhor é usar uma estratégia baixo-para-cima e escrever testes à medida que você for avançando.
 
-No final dessa etapa, você terá uma biblioteca de componentes reutilizáveis que renderizam seu modelo de dados. Seus componentes terão apenas o método `render()` uma vez que é apenas uma versão estática do seu app. O componente no topo da hierarquia (`FilterableProductTable`) receberá o modelo de dados como uma prop. Se você fizer alguma alteração no seu modelo de dados e chamar `ReactDOM.render()` novamente, a UI será atualizada. É fácil entender como sua UI é atualizada e onde realizar as alterações. O **fluxo de dados unidirecional** (_one-way data flow_) do React (também chamado de **ligação unidirecional** _ou one-way binding_) mantém tudo rápido e modular.
+Ao final desta etapa, você terá uma biblioteca de componentes reutilizáveis ​​que renderizam seu modelo de dados. Os componentes terão apenas métodos `render()` já que esta é uma versão estática do seu aplicativo. O componente no topo da hierarquia (`FilterableProductTable`) levará seu modelo de dados como suporte. Se você fizer uma alteração em seu modelo de dados subjacente e chamar `root.render()` novamente, a IU será atualizada. Você pode ver como sua interface do usuário é atualizada e onde fazer alterações. O **fluxo de dados unidirecional** do React (também chamado de *ligação unidirecional*) mantém tudo modular e rápido.
 
 Recorra à [documentação do React](/docs/getting-started.html) caso você precise de ajuda para executar esse passo.
 
@@ -143,4 +149,4 @@ Vamos pensar um pouco sobre o que nós queremos que aconteça. Queremos ter cert
 
 ## E É Isso {#and-thats-it}
 
-Com sorte, esse artigo lhe dará uma ideia de como pensar ao se construir aplicações com React. Embora possa ter um pouco mais de digitação do que você esteja acostumado, lembre-se que códigos são lidos muito mais que escritos, e é menos difícil de ler um código explícito e modular. À medida que você começar a criar grandes bibliotecas de componentes, você apreciará essa clareza e modularidade, e com o reuso de código, suas linhas de código começarão a diminuir. :)
+Espero que isso lhe dê uma ideia de como pensar sobre a construção de componentes e aplicativos com o React. Embora possa ser um pouco mais difícil de digitar do que você está acostumado, lembre-se de que o código é lido com muito mais frequência do que escrito e é menos difícil de ler esse código modular e explícito. Ao começar a criar grandes bibliotecas de componentes, você apreciará essa clareza e modularidade e, com a reutilização de código, suas linhas de código começarão a encolher. :)

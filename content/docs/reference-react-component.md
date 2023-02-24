@@ -15,9 +15,11 @@ redirect_from:
   - "tips/use-react-with-other-libraries.html"
 ---
 
+> Experimente a nova documentação do React para [`Component`](https://beta.reactjs.org/reference/react/Component).
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
 Esta página contém uma referência detalhada da API para a definição de classes de componentes React. Nós assumimos que você possui familiaridade com conceitos fundamentais do React, como [Componentes e Props](/docs/components-and-props.html), bem como [Estado e Ciclo de Vida](/docs/state-and-lifecycle.html). Se isto não é familiar para você, leia essas páginas primeiro.
-
 
 ## Visão Geral {#overview}
 
@@ -56,7 +58,7 @@ Estes métodos são chamados na seguinte ordem quando uma instância de um compo
 
 >Nota:
 >
->Estes métodos são considerados legado e você deve [evitá-los](/blog/2018/03/27/update-on-async-rendering.html) em código novo:
+>Este método é considerados legado e você deve [evitá-lo](/blog/2018/03/27/update-on-async-rendering.html) em código novo:
 >
 >- [`UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
 
@@ -128,11 +130,11 @@ Quando chamado, ele examina `this.props` e `this.state` e retorna um dos seguint
 - **Arrays e fragmentos.** Permitem que você retorne múltiplos elementos ao renderizar. Veja a documentação em [fragments](/docs/fragments.html) para mais detalhes.
 - **Portals**. Permitem que você renderize componentes-filhos em uma sub-árvore diferente do DOM. Veja a documentação em [portals](/docs/portals.html) para mais detalhes.
 - **String e números.** Estes são renderizados como nós de texto no DOM.
-- **Booleanos ou `null`**. Não renderizam nada.(A maioria existe para suportar  o padrão `return test && <Child />` , onde `test` é um booleano.)
+- **Booleanos ou `null` ou `undefined`**. Não renderizam nada.(A maioria existe para suportar  o padrão `return test && <Child />` , onde `test` é um booleano).
 
 A função `render()` deve ser pura, o que significa que ela não modifica o state. Pois, ela retorna o mesmo resultado a cada vez que é chamada e isso não interage diretamente com o browser.
-Se você precisar interagir com o browser, faça isto no método `componentDidMount()` ou em outros métodos do ciclo de vida. Manter `render()` puro faz com que os componentes sejam fáceis de se trabalhar.
 
+Se você precisar interagir com o browser, faça isto no método `componentDidMount()` ou em outros métodos do ciclo de vida. Manter `render()` puro faz com que os componentes sejam fáceis de se trabalhar.
 
 > Nota
 >
@@ -508,12 +510,12 @@ Existem apenas dois deles: `setState()` e `forceUpdate()`.
 ### `setState()` {#setstate}
 
 ```javascript
-setState(updater, [callback])
+setState(updater[, callback])
 ```
 
 `setState()` enfileira mudanças ao *state* do componente e diz ao React que este componente e seus componentes filho precisam ser re-renderizados com a atualização do *state*. Este é o principal método que você utiliza para atualizar a UI em resposta a *event handlers* e à resposta de servidores.
 
-Pense em `setState()` como uma *requisição* ao invés de um comando imediato para atualizar o componente. Para uma melhoria na performance, o React pode atrasar a atualização, e então atualizar diversos componentes numa só leva. O React não garante que as mudanças no *state* são aplicadas imediatamente.
+Pense em `setState()` como uma *requisição* ao invés de um comando imediato para atualizar o componente. Para uma melhoria na performance, o React pode atrasar a atualização, e então atualizar diversos componentes numa só leva. No caso raro de você precisar forçar a atualização do DOM a ser aplicada de forma síncrona, você pode envolvê-la em [`flushSync`](/docs/react-dom.html#flushsync), mas isso pode prejudicar o desempenho.
 
 `setState()` nem sempre atualiza o componente imediatamente. Ele pode adiar a atualização para mais tarde. Isto torna a leitura de `this.state` logo após chamar `setState()` uma potencial cilada. Como alternativa, utilize `componentDidUpdate` ou o *callback* de `setState` (`setState(updater, callback)`), ambos possuem a garantia de dispararem após a aplicação da atualização. Se você precisa definir o *state* baseado no *state* anterior, leia sobre o argumento `updater` abaixo.
 

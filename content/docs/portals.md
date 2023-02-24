@@ -4,6 +4,14 @@ title: Portals
 permalink: docs/portals.html
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [`createPortal`](https://beta.reactjs.org/reference/react-dom/createPortal)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Portals fornece uma forma elegante de renderizar um elemento filho dentro de um nó DOM que existe fora da hierarquia do componente pai.
 
 ```js
@@ -45,7 +53,7 @@ Um caso típico do uso de portals é quando um componente pai tem o estilo `over
 >
 > Quando estiver trabalhando com portals, lembre-se que [tratar o evento focus](/docs/accessibility.html#programmatically-managing-focus) se torna muito importante.
 >
-> No caso dos modals, assegure-se que todos possam interagir com eles seguindo as práticas descritas em [WAI-ARIA Modal Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
+> No caso dos modals, assegure-se que todos possam interagir com eles seguindo as práticas descritas em [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/).
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/yzMaBd)
 
@@ -146,7 +154,8 @@ function Child() {
   );
 }
 
-ReactDOM.render(<Parent />, appRoot);
+const root = ReactDOM.createRoot(appRoot);
+root.render(<Parent />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/jGBWpE)

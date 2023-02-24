@@ -4,6 +4,14 @@ title: Reconciliação (Reconciliation)
 permalink: docs/reconciliation.html
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Preservando e redefinindo o estado](https://beta.reactjs.org/learn/preserving-and-resetting-state)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 O React provê uma API declarativa, assim, você não precisa se preocupar em saber exatamente o que mudou em cada atualização. Isso torna mais fácil a criação de aplicações, apesar de não ser óbvia a forma como isso é implementado no React. Este artigo explica as escolhas que fizemos no algoritmo de _diffing_ para que as atualizações nos componentes sejam previsíveis e rápidas o suficiente para aplicações de alta performance.
 
 ## Motivação {#motivation}
@@ -45,7 +53,7 @@ Isso irá destruir o antigo `Counter` e remontar um novo.
 
 >Nota:
 >
->Esses métodos são considerados legados e você deve [evitá-los](/blog/2018/03/27/update-on-async-rendering.html) no novo código:
+>Este método é considerado legado e você deve [evitá-lo](/blog/2018/03/27/update-on-async-rendering.html) em código novo:
 >
 >- `UNSAFE_componentWillMount()`
 

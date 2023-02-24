@@ -16,7 +16,16 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-Componentes permitem você dividir a UI em partes independentes, reutilizáveis e pensar em cada parte isoladamente. Essa página fornece uma introdução à ideia de componentes. Você pode encontrar uma [referência detalhada da API de componente aqui](/docs/react-component.html).
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Seu primeiro componente](https://beta.reactjs.org/learn/your-first-component)
+> - [Passando props para um componente](https://beta.reactjs.org/learn/passing-props-to-a-component)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Os componentes permitem que você divida a interface do usuário em partes independentes e reutilizáveis e pense em cada parte isoladamente. Esta página fornece uma introdução à ideia de componentes. Você pode encontrar uma [referência detalhada da API do componente aqui](/docs/react-component.html).
 
 Conceitualmente, componentes são como funções JavaScript. Eles aceitam entradas arbitrárias (chamadas "props") e retornam elementos React que descrevem o que deve aparecer na tela.
 
@@ -64,23 +73,21 @@ Quando o React vê um elemento representando um componente definido pelo usuári
 
 Por exemplo, esse código renderiza "Olá, Sara" na página:
 
-```js{1,5}
+```js{1,6}
 function Welcome(props) {
   return <h1>Olá, {props.name}</h1>;
 }
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
 const element = <Welcome name="Sara" />;
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+root.render(element);
 ```
 
 **[Experimente no CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Vamos recapitular o que acontece nesse exemplo:
 
-1. Nós chamamos `ReactDOM.render()` com o elemento `<Welcome name="Sara" />`.
+1. Nós chamamos `root.render()` com o elemento `<Welcome name="Sara" />`.
 2. React chama o componente `Welcome` com `{name: 'Sara'}` como props.
 3. Nosso componente `Welcome` retorna um elemento `<h1>Olá, Sara</h1>` como resultado.
 4. React DOM atualiza eficientemente o DOM para corresponder `<h1>Olá, Sara</h1>`.
@@ -111,11 +118,6 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
 **[Experimente no CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**

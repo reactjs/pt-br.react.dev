@@ -8,6 +8,15 @@ redirect_from:
   - "tips/false-in-jsx.html"
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Renderização Condicional](https://beta.reactjs.org/learn/conditional-rendering)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
 Em React, você pode criar componentes distintos que encapsulam o comportamento que você precisa. Então, você pode renderizar apenas alguns dos elementos, dependendo do estado da sua aplicação. 
 
 Renderização condicional em React funciona da mesma forma que condições funcionam em JavaScript. Use operadores de JavaScript  como [`if`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/if...else) ou [operador condicional](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Operador_Condicional) para criar elementos representando o estado atual, e deixe o React atualizar a UI para corresponde-los.
@@ -36,11 +45,9 @@ function Greeting(props) {
   return <GuestGreeting />;
 }
 
-ReactDOM.render(
-  // Try changing to isLoggedIn={true}:
-  <Greeting isLoggedIn={false} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+// Try changing to isLoggedIn={true}:
+root.render(<Greeting isLoggedIn={false} />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
@@ -111,10 +118,8 @@ class LoginControl extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <LoginControl />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<LoginControl />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
@@ -141,10 +146,9 @@ function Mailbox(props) {
 }
 
 const messages = ['React', 'Re: React', 'Re:Re: React'];
-ReactDOM.render(
-  <Mailbox unreadMessages={messages} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<Mailbox unreadMessages={messages} />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
@@ -160,7 +164,7 @@ render() {
   const count = 0;
   return (
     <div>
-      { count && <h1>Messages: {count}</h1>}
+      {count && <h1>Messages: {count}</h1>}
     </div>
   );
 }
@@ -245,10 +249,8 @@ class Page extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Page />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<Page />);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)

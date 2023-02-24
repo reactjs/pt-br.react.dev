@@ -11,6 +11,17 @@ redirect_from:
   - "tips/children-undefined.html"
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Valores de referência com Refs](https://beta.reactjs.org/learn/referencing-values-with-refs)
+> - [Manipulando o DOM com Refs](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
+> - [`useRef`](https://beta.reactjs.org/reference/react/useRef)
+> - [`forwardRef`](https://beta.reactjs.org/reference/react/forwardRef)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Refs fornecem uma forma de acessar os nós do DOM ou elementos React criados no método render.
 
 Em um fluxo de dados típico do React, as [props](/docs/components-and-props.html) são a única forma de componentes pais interagirem com seus filhos. Para modificar um componente filho, você terá que re-renderizá-lo com as novas props. Porém, existem alguns casos onde você precisa modificar imperativamente um componente filho fora do fluxo típico de dados. O componente filho a ser modificado poderia ser uma instância de um componente React, ou ele poderia ser um elemento DOM. Para ambos os casos, o React fornece uma saída.

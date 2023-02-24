@@ -6,6 +6,15 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Escrevendo marcação com JSX](https://beta.reactjs.org/learn/writing-markup-with-jsx)
+> - [JavaScript em JSX com chaves](https://beta.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
 Considere esta declaração de variável:
 
 ```js
@@ -36,11 +45,6 @@ No exemplo abaixo, declaramos uma variável chamada `name` e então a usamos den
 ```js{1,2}
 const name = 'Josh Perez';
 const element = <h1>Hello, {name}</h1>;
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
 Você pode inserir qualquer [expressão JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) válida dentro das chaves em JSX. Por exemplo, `2 + 2`, `user.firstName`, ou `formatName(user)` são todas expressões JavaScript válidas.
@@ -61,11 +65,6 @@ const element = (
   <h1>
     Hello, {formatName(user)}!
   </h1>
-);
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
 );
 ```
 

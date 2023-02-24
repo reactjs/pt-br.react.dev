@@ -8,6 +8,15 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+> Experimente a nova documentação do React.
+>
+> Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
+>
+> - [Respondendo a Eventos](https://beta.reactjs.org/learn/responding-to-events)
+>
+> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
 Manipular eventos em elementos React é muito semelhante a manipular eventos em elementos do DOM. Existem algumas diferenças de sintaxe:
 
 * Eventos em React são nomeados usando camelCase ao invés de letras minúsculas.
@@ -84,11 +93,6 @@ class Toggle extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Toggle />,
-  document.getElementById('root')
-);
 ```
 
 [**Experimente no CodePen**](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
@@ -97,7 +101,7 @@ Você precisa ter cuidado com o significado do `this` nos callbacks do JSX. Em J
 
 Este não é um comportamento específico do React. É uma parte de [como funcionam as funções em JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Geralmente, se você referir a um método sem `()` depois dele, como `onClick={this.handleClick}`, você deve fazer o bind manual deste método.
 
-Se ficar chamando "bind" incomoda você, há duas maneiras de contornar isso. Se você estiver usando a [sintaxe experimental de campos de classe pública](https://babeljs.io/docs/plugins/transform-class-properties/), você pode usar campos de classe para vincular callbacks corretamente:
+Se chamar `bind` incomoda você, há duas maneiras de contornar isso. Você pode usar [sintaxe de campos de classe pública](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields#public_instance_fields), para vincular retornos de chamada corretamente:
 
 ```js{2-6}
 class LoggingButton extends React.Component {
@@ -105,7 +109,7 @@ class LoggingButton extends React.Component {
   // Atenção: essa é uma sintaxe *experimental*.
   handleClick = () => {
     console.log('this is:', this);
-  }
+  };
 
   render() {
     return (
