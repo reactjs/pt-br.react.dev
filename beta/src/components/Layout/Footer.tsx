@@ -21,7 +21,7 @@ export function Footer() {
           <hr className="max-w-7xl mx-auto border-border dark:border-border-dark" />
           <div className="flex flex-col items-center m-4 p-4">
             <p className="font-bold text-primary dark:text-primary-dark text-lg mb-4">
-              How do you like these docs?
+              O que você está achando da documentação?
             </p>
             <div>
               <ButtonLink
@@ -30,7 +30,7 @@ export function Footer() {
                 type="primary"
                 size="md"
                 target="_blank">
-                Take our survey!
+                Participe no nosso questionário
                 <IconNavArrow
                   displayDirection="right"
                   className="inline ml-1"
@@ -86,7 +86,7 @@ export function Footer() {
                     fill="currentColor"
                   />
                 </svg>
-                Open Source
+                Código aberto
               </div>
               <div className="text-xs text-left mt-2 pr-0.5">
                 &copy;{new Date().getFullYear()}
@@ -94,26 +94,26 @@ export function Footer() {
             </ExternalLink>
             <div className="flex flex-col">
               <FooterLink href="/learn" isHeader={true}>
-                Learn React
+                Aprenda React
               </FooterLink>
-              <FooterLink href="/learn/">Quick Start</FooterLink>
-              <FooterLink href="/learn/installation">Installation</FooterLink>
+              <FooterLink href="/learn/">Introdução</FooterLink>
+              <FooterLink href="/learn/installation">Instalação</FooterLink>
               <FooterLink href="/learn/describing-the-ui">
-                Describing the UI
+                Descrevendo a UI
               </FooterLink>
               <FooterLink href="/learn/adding-interactivity">
-                Adding Interactivity
+                Adicionando Interatividade
               </FooterLink>
               <FooterLink href="/learn/managing-state">
-                Managing State
+                Manuseando Estado
               </FooterLink>
               <FooterLink href="/learn/escape-hatches">
-                Escape Hatches
+                Saídas de Emergência
               </FooterLink>
             </div>
             <div className="flex flex-col">
               <FooterLink href="/reference/react" isHeader={true}>
-                API Reference
+                Referência da API
               </FooterLink>
               <FooterLink href="/reference/react">React APIs</FooterLink>
               <FooterLink href="/reference/react-dom">
@@ -122,50 +122,47 @@ export function Footer() {
             </div>
             <div className="flex flex-col sm:col-start-2 xl:col-start-4">
               <FooterLink href="/" isHeader={true}>
-                Community
+                Comunidade
               </FooterLink>
               <FooterLink href="https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md">
-                Code of Conduct
+                Código de Conduta
               </FooterLink>
               <FooterLink href="/community/acknowledgements">
-                Acknowledgements
+                Agradecimentos
               </FooterLink>
               <FooterLink href="/community/docs-contributors">
-                Docs Contributors
+                Contribuidores da Documentação
               </FooterLink>
-              <FooterLink href="/community/team">Meet the Team</FooterLink>
+              <FooterLink href="/community/team">Conheça a Equipe</FooterLink>
               <FooterLink href="https://reactjs.org/blog">Blog</FooterLink>
-              {/* <FooterLink href="/">Community Resources</FooterLink> */}
             </div>
+
             <div className="flex flex-col">
-              <FooterLink isHeader={true}>More</FooterLink>
-              {/* <FooterLink href="/">Tutorial</FooterLink> */}
-              {/* <FooterLink href="/">Blog</FooterLink> */}
-              {/* <FooterLink href="/">Acknowledgements</FooterLink> */}
+              <FooterLink isHeader={true}>Mais</FooterLink>
               <FooterLink href="https://reactnative.dev/">
                 React Native
               </FooterLink>
               <FooterLink href="https://opensource.facebook.com/legal/privacy">
-                Privacy
+                Privacidade
               </FooterLink>
               <FooterLink href="https://opensource.fb.com/legal/terms/">
-                Terms
+                Termos e Condições
               </FooterLink>
               <div className="flex flex-row mt-8 gap-x-2">
                 <ExternalLink
-                  aria-label="React on Facebook"
+                  aria-label="React no Facebook"
                   href="https://www.facebook.com/react"
                   className={socialLinkClasses}>
                   <IconFacebookCircle />
                 </ExternalLink>
                 <ExternalLink
-                  aria-label="React on Twitter"
+                  aria-label="React no Twitter"
                   href="https://twitter.com/reactjs"
                   className={socialLinkClasses}>
                   <IconTwitter />
                 </ExternalLink>
                 <ExternalLink
-                  aria-label="React on Github"
+                  aria-label="React no Github"
                   href="https://github.com/facebook/react"
                   className={socialLinkClasses}>
                   <IconGitHub />
