@@ -32,6 +32,11 @@ Maio de 2023. Salt Lake City, UT
 
 [Website](https://reactsummit.com) - [Twitter](https://twitter.com/reactsummit) - [Facebook](https://www.facebook.com/reactamsterdam) - [Videos](https://youtube.com/c/ReactConferences)
 
+### React Norway 2023 {#react-norway-2023}
+June 16th, 2023. Larvik, Norway
+
+[Website](https://reactnorway.com/) - [Twitter](https://twitter.com/ReactNorway/) - [Facebook](https://www.facebook.com/reactdaynorway/)
+
 ### ReactNext 2023 {#reactnext}
 27 de junho de 2023. Tel Aviv, Israel
 
