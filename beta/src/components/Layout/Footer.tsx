@@ -30,7 +30,7 @@ export function Footer() {
                 type="primary"
                 size="md"
                 target="_blank">
-                Participe no nosso questionário
+                Responda a nossa pesquisa!
                 <IconNavArrow
                   displayDirection="right"
                   className="inline ml-1"
