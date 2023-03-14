@@ -105,7 +105,7 @@ export function Footer() {
                 Adicionando Interatividade
               </FooterLink>
               <FooterLink href="/learn/managing-state">
-                Manuseando Estado
+                Gerenciando Estado
               </FooterLink>
               <FooterLink href="/learn/escape-hatches">
                 Saídas de Emergência
