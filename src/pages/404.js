@@ -16,7 +16,7 @@ export default function NotFound() {
           <P>Esta página não existe.</P>
           <P>
             Se isso é um erro{', '}
-            <A href="https://github.com/reactjs/pt-br.react.dev/issues/new">
+            <A href="https://github.com/reactjs/pt-br.reactjs.org/issues/new">
               nos informe
             </A>
             {', '}e vamos tentar corrigi-lo!
