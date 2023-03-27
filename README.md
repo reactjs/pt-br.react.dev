@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-# pt-br.reactjs.org
+# pt-br.react.dev
 
-This repo contains the source code and documentation powering [pt-br.reactjs.org](https://pt-br.reactjs.org/).
-=======
-# react.dev
-
-This repo contains the source code and documentation powering [react.dev](https://react.dev/).
->>>>>>> e565b43abded279443401b07d170d478c54aabfd
+This repo contains the source code and documentation powering [pt-br.react.dev](https://pt-br.react.dev/).
 
 ## Getting started
 
@@ -16,21 +10,12 @@ This repo contains the source code and documentation powering [react.dev](https:
 1. Node: any 12.x version starting with v12.0.0 or greater
 1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
 1. A fork of the repo (for any contributions)
-<<<<<<< HEAD
-1. A clone of the [pt-br.reactjs.org repo](https://github.com/reactjs/pt-br.reactjs.org) on your local machine
+1. A clone of the [pt-br.react.dev repo](https://github.com/reactjs/pt-br.react.dev) on your local machine
 
 ### Installation
 
-1. `cd pt-br.reactjs.org` to go into the project root
-1. `yarn` to install the website's npm dependencies
-=======
-1. A clone of the [react.dev repo](https://github.com/reactjs/react.dev) on your local machine
-
-### Installation
-
-1. `cd react.dev` to go into the project root
+1. `cd pt-br.react.dev` to go into the project root
 3. `yarn` to install the website's npm dependencies
->>>>>>> e565b43abded279443401b07d170d478c54aabfd
 
 ### Running locally
 
@@ -41,15 +26,11 @@ This repo contains the source code and documentation powering [react.dev](https:
 
 ### Guidelines
 
-The documentation is divided into several sections with a different tone and purpose. If you plan to write more than a few sentences, you might find it helpful to get familiar with the [contributing guidelines](https://github.com/reactjs/react.dev/blob/main/CONTRIBUTING.md#guidelines-for-text) for the appropriate sections.
+The documentation is divided into several sections with a different tone and purpose. If you plan to write more than a few sentences, you might find it helpful to get familiar with the [contributing guidelines](https://github.com/reactjs/pt-br.react.dev/blob/main/CONTRIBUTING.md#guidelines-for-text) for the appropriate sections.
 
 ### Create a branch
 
-<<<<<<< HEAD
-1. `git checkout main` from any folder in your local `pt-br.reactjs.org` repository
-=======
-1. `git checkout main` from any folder in your local `react.dev` repository
->>>>>>> e565b43abded279443401b07d170d478c54aabfd
+1. `git checkout main` from any folder in your local `pt-br.react.dev` repository
 1. `git pull origin main` to ensure you have the latest main code
 1. `git checkout -b the-name-of-my-branch` (replacing `the-name-of-my-branch` with a suitable name) to create a branch
 
@@ -70,23 +51,13 @@ The documentation is divided into several sections with a different tone and pur
 
 1. `git add -A && git commit -m "My message"` (replacing `My message` with a commit message, such as `Fix header logo on Android`) to stage and commit your changes
 1. `git push my-fork-name the-name-of-my-branch`
-1. Go to the [react.dev repo](https://github.com/reactjs/react.dev) and you should see recently pushed branches.
+1. Go to the [pt-br.react.dev repo](https://github.com/reactjs/pt-br.react.dev) and you should see recently pushed branches.
 1. Follow GitHub's instructions.
 1. If possible, include screenshots of visual changes. A preview build is triggered after your changes are pushed to GitHub.
 
 ## Translation
 
-<<<<<<< HEAD
-If you are interested in translating `reactjs.org`, please see the current translation efforts at [translations.reactjs.org](https://translations.reactjs.org/).
-
-If your language does not have a translation and you would like to create one, please follow the instructions at [reactjs.org Translations](https://github.com/reactjs/reactjs.org-translation#translating-reactjsorg).
-
-## Troubleshooting
-
-- `yarn reset` to clear the local cache
-=======
-If you are interested in translating `react.dev`, please see the current translation efforts [here](https://github.com/reactjs/react.dev/issues/4135).
->>>>>>> e565b43abded279443401b07d170d478c54aabfd
+If you are interested in translating `pt-br.react.dev`, please see the current translation efforts [here](https://github.com/reactjs/pt-br.react.dev/issues/555).
 
 ## License
-Content submitted to [react.dev](https://react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/react.dev/blob/master/LICENSE-DOCS.md) file.
+Content submitted to [pt-br.react.dev](https://pt-br.react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/rt-br.react.dev/blob/master/LICENSE-DOCS.md) file.

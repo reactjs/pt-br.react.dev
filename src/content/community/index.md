@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD:beta/src/content/community/index.md
-title: Comunidade
-=======
-title: React Community
->>>>>>> e565b43abded279443401b07d170d478c54aabfd:src/content/community/index.md
+title: Comunidade React
 ---
 
 <Intro>

@@ -36,14 +36,8 @@ function Kbd(props: {children?: React.ReactNode; wide?: boolean}) {
 
   return (
     <kbd
-<<<<<<< HEAD:beta/src/components/Search.tsx
-      className="border border-transparent mr-1 bg-wash dark:bg-wash-dark text-gray-30 align-middle p-0 inline-flex justify-center items-center  text-xs text-center rounded"
-      style={{width: '2.25em', height: '2.25em'}}
-      {...props}
-=======
       className={`${width} h-5 border border-transparent mr-1 bg-wash dark:bg-wash-dark text-gray-30 align-middle p-0 inline-flex justify-center items-center text-xs text-center rounded-md`}
       {...rest}
->>>>>>> e565b43abded279443401b07d170d478c54aabfd:src/components/Search.tsx
     />
   );
 }
