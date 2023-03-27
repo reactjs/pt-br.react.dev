@@ -10,12 +10,12 @@ This repo contains the source code and documentation powering [pt-br.react.dev](
 1. Node: any 12.x version starting with v12.0.0 or greater
 1. Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
 1. A fork of the repo (for any contributions)
-1. A clone of the [pt-br.react.dev repo](https://github.com/reactjs/pt-br.react.dev) on your local machine
+1. A clone of the [pt-br.react.dev repo](https://github.com/reactjs/pt-br.reactjs.org) on your local machine
 
 ### Installation
 
 1. `cd pt-br.react.dev` to go into the project root
-3. `yarn` to install the website's npm dependencies
+2. `yarn` to install the website's npm dependencies
 
 ### Running locally
 
@@ -26,7 +26,7 @@ This repo contains the source code and documentation powering [pt-br.react.dev](
 
 ### Guidelines
 
-The documentation is divided into several sections with a different tone and purpose. If you plan to write more than a few sentences, you might find it helpful to get familiar with the [contributing guidelines](https://github.com/reactjs/pt-br.react.dev/blob/main/CONTRIBUTING.md#guidelines-for-text) for the appropriate sections.
+The documentation is divided into several sections with a different tone and purpose. If you plan to write more than a few sentences, you might find it helpful to get familiar with the [contributing guidelines](https://github.com/reactjs/pt-br.reactjs.org/blob/main/CONTRIBUTING.md#guidelines-for-text) for the appropriate sections.
 
 ### Create a branch
 
@@ -38,9 +38,9 @@ The documentation is divided into several sections with a different tone and pur
 
 1. Follow the ["Running locally"](#running-locally) instructions
 1. Save the files and check in the browser
-  1. Changes to React components in `src` will hot-reload
-  1. Changes to markdown files in `content` will hot-reload
-  1. If working with plugins, you may need to remove the `.cache` directory and restart the server
+1. Changes to React components in `src` will hot-reload
+1. Changes to markdown files in `content` will hot-reload
+1. If working with plugins, you may need to remove the `.cache` directory and restart the server
 
 ### Test the change
 
@@ -51,17 +51,14 @@ The documentation is divided into several sections with a different tone and pur
 
 1. `git add -A && git commit -m "My message"` (replacing `My message` with a commit message, such as `Fix header logo on Android`) to stage and commit your changes
 1. `git push my-fork-name the-name-of-my-branch`
-1. Go to the [pt-br.react.dev repo](https://github.com/reactjs/pt-br.react.dev) and you should see recently pushed branches.
+1. Go to the [pt-br.react.dev repo](https://github.com/reactjs/pt-br.reactjs.org) and you should see recently pushed branches.
 1. Follow GitHub's instructions.
 1. If possible, include screenshots of visual changes. A preview build is triggered after your changes are pushed to GitHub.
 
 ## Translation
 
-If you are interested in translating `pt-br.react.dev`, please see the current translation efforts [here](https://github.com/reactjs/pt-br.react.dev/issues/555).
+If you are interested in translating `pt-br.react.dev`, please see the current translation efforts [here](https://github.com/reactjs/pt-br.reactjs.org/issues/555).
 
 ## License
-<<<<<<< HEAD
-Content submitted to [pt-br.react.dev](https://pt-br.react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/rt-br.react.dev/blob/master/LICENSE-DOCS.md) file.
-=======
-Content submitted to [react.dev](https://react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md) file.
->>>>>>> e5fd79cdbb296b87cab7dff17c3b7feee5dba96b
+
+Content submitted to [pt-br.react.dev](https://pt-br.react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/pt-br.reactjs.org/blob/main/LICENSE-DOCS.md) file.
