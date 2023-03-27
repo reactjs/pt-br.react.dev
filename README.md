@@ -60,4 +60,8 @@ The documentation is divided into several sections with a different tone and pur
 If you are interested in translating `pt-br.react.dev`, please see the current translation efforts [here](https://github.com/reactjs/pt-br.react.dev/issues/555).
 
 ## License
+<<<<<<< HEAD
 Content submitted to [pt-br.react.dev](https://pt-br.react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/rt-br.react.dev/blob/master/LICENSE-DOCS.md) file.
+=======
+Content submitted to [react.dev](https://react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md) file.
+>>>>>>> e5fd79cdbb296b87cab7dff17c3b7feee5dba96b
