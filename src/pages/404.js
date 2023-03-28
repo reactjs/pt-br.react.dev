@@ -1,39 +1,28 @@
-/**
+/*
  * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * @emails react-core
- * @flow
  */
 
-import Container from 'components/Container';
-import Header from 'components/Header';
-import TitleAndMetaTags from 'components/TitleAndMetaTags';
-import Layout from 'components/Layout';
-import React from 'react';
-import {sharedStyles} from 'theme';
+import {Page} from 'components/Layout/Page';
+import {MDXComponents} from 'components/MDX/MDXComponents';
+import sidebarLearn from '../sidebarLearn.json';
 
-type Props = {
-  location: Location,
-};
+const {Intro, MaxWidth, p: P, a: A} = MDXComponents;
 
-const PageNotFound = ({location}: Props) => (
-  <Layout location={location}>
-    <Container>
-      <div css={sharedStyles.articleLayout.container}>
-        <div css={sharedStyles.articleLayout.content}>
-          <Header>Página Não Encontrada</Header>
-          <TitleAndMetaTags title="React - Page Not Found" />
-          <div css={sharedStyles.markdown}>
-            <p>Nós não pudemos encontrar o que você está buscando.</p>
-            <p>
-              Por favor, contate o dono do site que o redirecionou para a URL
-              original e avise-o sobre o link quebrado.
-            </p>
-          </div>
-        </div>
-      </div>
-    </Container>
-  </Layout>
-);
-
-export default PageNotFound;
+export default function NotFound() {
+  return (
+    <Page toc={[]} meta={{title: 'Not Found'}} routeTree={sidebarLearn}>
+      <MaxWidth>
+        <Intro>
+          <P>Esta página não existe.</P>
+          <P>
+            Se isso é um erro{', '}
+            <A href="https://github.com/reactjs/pt-br.reactjs.org/issues/new">
+              nos informe
+            </A>
+            {', '}e vamos tentar corrigi-lo!
+          </P>
+        </Intro>
+      </MaxWidth>
+    </Page>
+  );
+}

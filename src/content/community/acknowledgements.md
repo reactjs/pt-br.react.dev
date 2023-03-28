@@ -1,0 +1,65 @@
+---
+title: Reconhecimentos
+---
+
+<Intro>
+
+O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/blob/main/AUTHORS)
+
+</Intro>
+
+## Colaboradores anteriores {/*past-contributors*/}
+
+Gostaríamos de reconhecer algumas pessoas que fizeram contribuições significativas para o React e sua documentação no passado e ajudaram a mantê-los ao longo dos anos:
+
+* [Almero Steyn](https://github.com/AlmeroSteyn)
+* [Andreas Svensson](https://github.com/syranide)
+* [Alex Krolick](https://github.com/alexkrolick)
+* [Alexey Pyltsyn](https://github.com/lex111)
+* [Brandon Dail](https://github.com/aweary)
+* [Brian Vaughn](https://github.com/bvaughn)
+* [Caleb Meredith](https://github.com/calebmer)
+* [Chang Yan](https://github.com/cyan33)
+* [Cheng Lou](https://github.com/chenglou)
+* [Christoph Nakazawa](https://github.com/cpojer)
+* [Christopher Chedeau](https://github.com/vjeux)
+* [Clement Hoang](https://github.com/clemmy)
+* [Dominic Gannaway](https://github.com/trueadm)
+* [Flarnie Marchan](https://github.com/flarnie)
+* [Jason Quense](https://github.com/jquense)
+* [Jesse Beach](https://github.com/jessebeach)
+* [Jessica Franco](https://github.com/Jessidhia)
+* [Jim Sproch](https://github.com/jimfb)
+* [Josh Duck](https://github.com/joshduck)
+* [Joe Critchley](https://github.com/joecritch)
+* [Jeff Morrison](https://github.com/jeffmo)
+* [Keyan Zhang](https://github.com/keyz)
+* [Marco Salazar](https://github.com/salazarm)
+* [Nat Alison](https://github.com/tesseralis)
+* [Nathan Hunzaker](https://github.com/nhunzaker)
+* [Nicolas Gallagher](https://github.com/necolas)
+* [Paul O'Shannessy](https://github.com/zpao)
+* [Pete Hunt](https://github.com/petehunt)
+* [Philipp Spiess](https://github.com/philipp-spiess)
+* [Rachel Nabors](https://github.com/rachelnabors)
+* [Robert Zhang](https://github.com/robertzhidealx)
+* [Sander Spies](https://github.com/sanderspies)
+* [Sasha Aickin](https://github.com/aickin)
+* [Seth Webster](https://github.com/sethwebster)
+* [Sophia Shoemaker](https://github.com/mrscobbler)
+* [Sunil Pai](https://github.com/threepointone)
+* [Tim Yung](https://github.com/yungsters)
+* [Xuan Huang](https://github.com/huxpro)
+
+Esta lista não é exaustiva.
+
+Gostaríamos de agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Também somos gratos a todos os voluntários que [traduziram o React para outros idiomas.](https://translations.reactjs.org/)
+
+## Agradecimentos Extras {/*additional-thanks*/}
+
+Adicionalmente, somos gratos a:
+
+* [Jeff Barczewski](https://github.com/jeffbski) por nos permitir a usar o nome de pacote `react` no npm
+* [Christopher Aue](https://christopheraue.net/) por nos permitir a usar o domínio reactjs.com e o nome de usuário [@reactjs](https://twitter.com/reactjs) no Twitter
+* [ProjectMoon](https://github.com/ProjectMoon) por nos permitir a usar o nome de pacote [flux](https://www.npmjs.com/package/flux) no npm
+* Shane Anderson por nos permitir a usar a org [react](https://github.com/react) no GitHub
