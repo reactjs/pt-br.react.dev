@@ -1,30 +1,31 @@
 ---
-title: Managing State
+title: Gerenciando o Estado
 ---
 
 <Intro>
 
-As your application grows, it helps to be more intentional about how your state is organized and how the data flows between your components. Redundant or duplicate state is a common source of bugs. In this chapter, you'll learn how to structure your state well, how to keep your state update logic maintainable, and how to share state between distant components.
+À medida que a sua aplicação cresce, ajuda ser mais intencional sobre como o seu estado é organizado e como os dados fluem entre os seus componentes. O estado redundante ou duplicado é uma fonte comum de bugs. Neste capítulo, você aprenderá como estruturar bem o seu estado, como manter a lógica de atualização do seu estado e como compartilhar o estado entre componentes distantes.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [How to think about UI changes as state changes](/learn/reacting-to-input-with-state)
-* [How to structure state well](/learn/choosing-the-state-structure)
-* [How to "lift state up" to share it between components](/learn/sharing-state-between-components)
-* [How to control whether the state gets preserved or reset](/learn/preserving-and-resetting-state)
-* [How to consolidate complex state logic in a function](/learn/extracting-state-logic-into-a-reducer)
-* [How to pass information without "prop drilling"](/learn/passing-data-deeply-with-context)
-* [How to scale state management as your app grows](/learn/scaling-up-with-reducer-and-context)
+* [Como pensar sobre as mudanças de IU como mudanças de estado](/learn/reacting-to-input-with-state)
+* [Como estruturar bem o estado](/learn/choosing-the-state-structure)
+* [Como "levantar estado" para compartilhá-lo entre componentes](/learn/sharing-state-between-components)
+* [Como controlar se o estado é preservado ou reiniciado](/learn/preserving-and-resetting-state)
+* [Como consolidar uma lógica de estado complexa em uma função](/learn/extracting-state-logic-into-a-reducer)
+* [Como passar informação sem "prop drilling"](/learn/passing-data-deeply-with-context)
+* [Como escalar a gestão do estado à medida que o seu aplicativo cresce](/learn/scaling-up-with-reducer-and-context)
 
 </YouWillLearn>
 
-## Reacting to input with state {/*reacting-to-input-with-state*/}
+## Reagindo à inserção de dados com o estado {/*reacting-to-input-with-state*/}
 
-With React, you won't modify the UI from code directly. For example, you won't write commands like "disable the button", "enable the button", "show the success message", etc. Instead, you will describe the UI you want to see for the different visual states of your component ("initial state", "typing state", "success state"), and then trigger the state changes in response to user input. This is similar to how designers think about UI.
+Com React, você não modificará a UI a partir do código diretamente. Por exemplo, você não vai escrever comandos como "desativar o botão", "ativar o botão", "mostrar a mensagem de sucesso", etc. Em vez disso, você descreverá a UI que deseja ver para os diferentes estados visuais de seu componente ("estado inicial", "estado de digitação", "estado de sucesso") e então acionará as mudanças de estado em resposta à inserção de dados do usuário. Isto é semelhante a como os designers pensam sobre a UI.
 
-Here is a quiz form built using React. Note how it uses the `status` state variable to determine whether to enable or disable the submit button, and whether to show the success message instead.
+Aqui está um formulário de questionário construído usando React. Observe como ele utiliza a variável `status` para determinar se deve habilitar ou desabilitar o botão de submeter, e se deve mostrar a mensagem de sucesso no seu lugar.
+
 
 <Sandpack>
 
@@ -108,15 +109,15 @@ function submitForm(answer) {
 
 <LearnMore path="/learn/reacting-to-input-with-state">
 
-Read **[Reacting to Input with State](/learn/reacting-to-input-with-state)** to learn how to approach interactions with a state-driven mindset.
+Leia **[Reagindo à inserção de dados com o estado](/learn/reacting-to-input-with-state)** para aprender como abordar as interações com uma mentalidade orientada ao estado.
 
 </LearnMore>
 
-## Choosing the state structure {/*choosing-the-state-structure*/}
+## Como estruturar bem o estado {/*choosing-the-state-structure*/}
 
-Structuring state well can make a difference between a component that is pleasant to modify and debug, and one that is a constant source of bugs. The most important principle is that state shouldn't contain redundant or duplicated information. If there's unnecessary state, it's easy to forget to update it, and introduce bugs!
+A boa estruturação do estado pode fazer a diferença entre um componente que é agradável de modificar e debugar e um que é uma fonte contínua de bugs. O princípio mais importante é que o estado não deve conter informações redundantes ou duplicadas. Se houver algum estado desnecessário, é fácil esquecer de atualizá-lo e introduzir bugs!
 
-For example, this form has a **redundant** `fullName` state variable:
+Por exemplo, este formulário tem uma variável de estado **redundante** `fullName`:
 
 <Sandpack>
 
@@ -169,7 +170,7 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-You can remove it and simplify the code by calculating `fullName` while the component is rendering:
+Você pode removê-lo e simplificar o código calculando `fullName` enquanto o componente está renderizando:
 
 <Sandpack>
 
@@ -221,19 +222,19 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-This might seem like a small change, but many bugs in React apps are fixed this way.
+Isto pode parecer uma pequena mudança mas muitos bugs em aplicações React são corrigidos desta forma.
 
 <LearnMore path="/learn/choosing-the-state-structure">
 
-Read **[Choosing the State Structure](/learn/choosing-the-state-structure)** to learn how to design the state shape to avoid bugs.
+Leia **[Escolhendo a estrutura do estado](/learn/choosing-the-state-structure)** para aprender como modelar a forma do estado para evitar bugs.
 
 </LearnMore>
 
-## Sharing state between components {/*sharing-state-between-components*/}
+## Compartilhando o estado entre componentes {/*sharing-state-between-components*/}
 
-Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as "lifting state up", and it's one of the most common things you will do writing React code.
+Às vezes, você quer que o estado de dois componentes mude sempre em conjunto. Para fazer isso, remova o estado de ambos, mova-o para seu parente comum mais próximo e depois passe-o para eles por meio de props. Isto é conhecido como "levantar o estado" e é uma das coisas mais comuns que você fará escrevendo código React.
 
-In this example, only one panel should be active at a time. To achieve this, instead of keeping the active state inside each individual panel, the parent component holds the state and specifies the props for its children.
+Neste exemplo, apenas um painel deve estar ativo de cada vez. Para conseguir isto, em vez de manter o estado ativo dentro de cada painel individual, o componente parente possui o estado e especifica os adereços para seus filhos.
 
 <Sandpack>
 
@@ -296,15 +297,15 @@ h3, p { margin: 5px 0px; }
 
 <LearnMore path="/learn/sharing-state-between-components">
 
-Read **[Sharing State Between Components](/learn/sharing-state-between-components)** to learn how to lift state up and keep components in sync.
+Leia **[Compartilhando o estado entre componentes](/learn/sharing-state-between-components)** para aprender como levantar o estado e manter os componentes em sincronia.
 
 </LearnMore>
 
-## Preserving and resetting state {/*preserving-and-resetting-state*/}
+## Preservando e reinicializando o estado {/*preserving-and-resetting-state*/}
 
-When you re-render a component, React needs to decide which parts of the tree to keep (and update), and which parts to discard or re-create from scratch. In most cases, React's automatic behavior works well enough. By default, React preserves the parts of the tree that "match up" with the previously rendered component tree.
+Quando você renderiza novamente um componente, o React precisa decidir quais partes da árvore manter (e atualizar) e quais partes descartar ou recriar do zero. Na maioria dos casos, o comportamento automático do React funciona suficientemente bem. Por padrão, o React preserva as partes da árvore que "combinam" com a árvore de componentes anteriormente renderizada.
 
-However, sometimes this is not what you want. In this chat app, typing a message and then switching the recipient does not reset the input. This can make the user accidentally send a message to the wrong person:
+No entanto, às vezes isso não é o que se deseja. Por exemplo, neste aplicativo, digitar uma mensagem e depois trocar o destinatário não reinicia a caixa de texto. Isto pode fazer com que o usuário acidentalmente envie uma mensagem para a pessoa errada:
 
 <Sandpack>
 
@@ -399,7 +400,7 @@ textarea {
 
 </Sandpack>
 
-React lets you override the default behavior, and *force* a component to reset its state by passing it a different `key`, like `<Chat key={email} />`. This tells React that if the recipient is different, it should be considered a *different* `Chat` component that needs to be re-created from scratch with the new data (and UI like inputs). Now switching between the recipients resets the input field--even though you render the same component.
+React permite que você sobreponha o comportamento padrão e *force* um componente para repor seu estado passando-lhe uma `key` diferente, como `<Chat key={email} />`. Isto diz ao React que se o destinatário for diferente, deve ser considerado um componente `Chat` *diferente* que precisa ser recriado a partir do zero com os novos dados (e UI como campos de entrada). Agora, a troca entre os destinatários sempre redefine o campo de entrada - mesmo que você renderize o mesmo componente.
 
 <Sandpack>
 
@@ -496,13 +497,13 @@ textarea {
 
 <LearnMore path="/learn/preserving-and-resetting-state">
 
-Read **[Preserving and Resetting State](/learn/preserving-and-resetting-state)** to learn the lifetime of state and how to control it.
+Leia **[Preservando e reinicializando o estado](/learn/preserving-and-resetting-state)** para aprender a vida útil do estado e como controlá-lo.
 
 </LearnMore>
 
-## Extracting state logic into a reducer {/*extracting-state-logic-into-a-reducer*/}
+## Extraindo a lógica de estado para um redutor {/*extracting-state-logic-into-a-reducer*/}
 
-Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called "reducer". Your event handlers become concise because they only specify the user "actions". At the bottom of the file, the reducer function specifies how the state should update in response to each action!
+Componentes com muitas atualizações de estado espalhados por muitos manipuladores de evento podem apresentar uma complexidade avassaladora. Para estes casos, você pode consolidar toda a lógica de atualização do estado fora de seu componente em uma única função, chamada de "redutor". Os seus manipuladores de eventos tornam-se concisos porque eles especificam apenas as "ações" do usuário. Na parte inferior do arquivo, a função redutor especifica como o estado deve ser atualizado em resposta a cada ação!
 
 <Sandpack>
 
@@ -693,15 +694,15 @@ ul, li { margin: 0; padding: 0; }
 
 <LearnMore path="/learn/extracting-state-logic-into-a-reducer">
 
-Read **[Extracting State Logic into a Reducer](/learn/extracting-state-logic-into-a-reducer)** to learn how to consolidate logic in the reducer function.
+Leia **[Extraindo a lógica de estado para um redutor](/learn/extracting-state-logic-into-a-reducer)** para aprender como consolidar a lógica numa função redutora.
 
 </LearnMore>
 
-## Passing data deeply with context {/*passing-data-deeply-with-context*/}
+## Passando os dados profundamente com o contexto {/*passing-data-deeply-with-context*/}
 
-Usually, you will pass information from a parent component to a child component via props. But passing props can become inconvenient if you need to pass some prop through many components, or if many components need the same information. Context lets the parent component make some information available to any component in the tree below it—no matter how deep it is—without passing it explicitly through props.
+Normalmente, você passará informações de um componente parente para um componente descendente através de props. Mas a passagem de props pode tornar-se inconveniente se você precisar passar algum prop por muitos componentes ou se muitos componentes precisarem da mesma informação. O contexto permite que o componente parente torne alguma informação disponível para qualquer componente da árvore abaixo dele - não importa quão profundo seja - sem passá-lo explicitamente através de props.
 
-Here, the `Heading` component determines its heading level by "asking" the closest `Section` for its level. Each `Section` tracks its own level by asking the parent `Section` and adding one to it. Every `Section` provides information to all components below it without passing props--it does that through context.
+Aqui, o componente "Heading" determina seu nível de cabeçalho ao "perguntar" à "Seção" mais próxima pelo seu nível. Cada "Section" monitora seu próprio nível, perguntando à "Section" parente e acrescentando-lhe um nível. Cada "Section" fornece informações a todos os componentes abaixo dela sem passar props - faz isso através do contexto.
 
 <Sandpack>
 
@@ -795,15 +796,15 @@ export const LevelContext = createContext(0);
 
 <LearnMore path="/learn/passing-data-deeply-with-context">
 
-Read **[Passing Data Deeply with Context](/learn/passing-data-deeply-with-context)** to learn about using context as an alternative to passing props.
+Leia **[Passando os dados profundamente com o contexto](/learn/passing-data-deeply-with-context)** para aprender sobre o uso do contexto como uma alternativa à passagem de props.
 
 </LearnMore>
 
-## Scaling up with reducer and context {/*scaling-up-with-reducer-and-context*/}
+## Escalonamento com redutor e contexto {/*scaling-up-with-reducer-and-context*/}
 
-Reducers let you consolidate a component’s state update logic. Context lets you pass information deep down to other components. You can combine reducers and context together to manage state of a complex screen.
+Redutores permitem consolidar a lógica de atualização do estado de um componente. O contexto permite que você transmita informações em profundidade para outros componentes. Você pode combinar redutores e contexto juntos para gerenciar o estado de uma tela complexa.
 
-With this approach, a parent component with complex state manages it with a reducer. Other components anywhere deep in the tree can read its state via context. They can also dispatch actions to update that state.
+Com esta abordagem, um componente parente com estado complexo, o gerencia com um redutor. Outros componentes em qualquer parte profunda da árvore podem ler seu estado através do contexto. Eles também podem despachar ações para atualizar esse estado.
 
 <Sandpack>
 
@@ -1006,12 +1007,12 @@ ul, li { margin: 0; padding: 0; }
 
 <LearnMore path="/learn/scaling-up-with-reducer-and-context">
 
-Read **[Scaling Up with Reducer and Context](/learn/scaling-up-with-reducer-and-context)** to learn how state management scales in a growing app.
+Leia **[Escalonamento com redutor e contexto](/learn/scaling-up-with-reducer-and-context)** para aprender como a gestão do estado escala numa aplicação em crescimento.
 
 </LearnMore>
 
-## What's next? {/*whats-next*/}
+## O que vem a seguir? {/*whats-next*/}
 
-Head over to [Reacting to Input with State](/learn/reacting-to-input-with-state) to start reading this chapter page by page!
+Vá até [Reagindo à inserção de dados com o estado](/learn/reacting-to-input-with-state) para começar a ler este capítulo página por página!
 
-Or, if you're already familiar with these topics, why not read about [Escape Hatches](/learn/escape-hatches)?
+Ou, se você já está familiarizado com estes tópicos, por que não ler sobre [Escape Hatches](/learn/escape-hatches)?
