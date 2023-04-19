@@ -4,13 +4,15 @@ title: Reconciliação (Reconciliation)
 permalink: docs/reconciliation.html
 ---
 
-> Experimente a nova documentação do React.
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 >
 > Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
 > - [Preservando e redefinindo o estado](https://beta.reactjs.org/learn/preserving-and-resetting-state)
->
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 O React provê uma API declarativa, assim, você não precisa se preocupar em saber exatamente o que mudou em cada atualização. Isso torna mais fácil a criação de aplicações, apesar de não ser óbvia a forma como isso é implementado no React. Este artigo explica as escolhas que fizemos no algoritmo de _diffing_ para que as atualizações nos componentes sejam previsíveis e rápidas o suficiente para aplicações de alta performance.
 

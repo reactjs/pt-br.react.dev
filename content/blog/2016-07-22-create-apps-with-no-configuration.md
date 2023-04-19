@@ -3,6 +3,12 @@ title: "Crie Apps Sem Configuração"
 author: [gaearon]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 **[Create React App](https://github.com/facebookincubator/create-react-app)** é a nova forma oficialmente suportada para criar aplicativos React de página única. Ele oferece um ambiente moderno sem configurações.
 
 ## Começando {#getting-started}

@@ -3,6 +3,12 @@ title: "Você Provavelmente Não Precisa de Estado Derivado"
 author: [bvaughn]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 O React 16.4 incluiu um [bugfix para getDerivedStateFromProps](/blog/2018/05/23/react-v-16-4.html#bugfix-for-getderivedstatefromprops) que fez com que alguns bugs existentes em componentes do React se reproduzissem de forma mais consistente. Se esta versão expôs um caso em que seu aplicativo estava usando um anti-padrão e passou a não funcionar corretamente, lamentamos os danos. Neste post, vamos explicar alguns anti-padrões comuns com estado derivado e nossas alternativas preferidas.
 
 Por muito tempo, o ciclo de vida `componentWillReceiveProps` era a única maneira de atualizar o estado em resposta a uma mudança nos objetos sem renderização adicional. Na versão 16.3, [introduzimos um ciclo de vida substituto, `getDerivedStateFromProps`](/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes) para resolver os mesmos casos de uso de uma maneira mais segura. Ao mesmo tempo, percebemos que as pessoas têm muitos equívocos sobre como usar os dois métodos e descobrimos que os anti-padrões resultam em bugs sutis e confusos. A correção de bugs `getDerivedStateFromProps` no 16.4 [torna o estado derivado mais previsível](https://github.com/facebook/react/issues/12898), portanto os resultados do uso indevido são mais fáceis de serem notados.
@@ -205,6 +211,12 @@ O componente de formulário pai poderia então [usar um `ref` para chamar este m
 As refs podem ser úteis em certos casos como este, mas geralmente recomendamos que você as use com parcimônia. Mesmo na demonstração, esse método imperativo não é ideal porque dois processamentos ocorrerão em vez de um.
 
 -----
+
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
 
 ### Recapitulação {#recap}
 

@@ -6,6 +6,15 @@ prev: release-channels.html
 next: introducing-jsx.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> See [Quick Start](https://react.dev/learn) for an introduction to React.
+
+</div>
+
 O menor exemplo de React é algo assim:
 
 ```jsx

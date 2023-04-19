@@ -6,6 +6,19 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+>
+> These new documentation pages teach modern React:
+>
+> - [`react-dom`: Components](https://react.dev/reference/react-dom/components)
+> - [`react-dom`: APIs](https://react.dev/reference/react-dom)
+> - [`react-dom`: Client APIs](https://react.dev/reference/react-dom/client)
+> - [`react-dom`: Server APIs](https://react.dev/reference/react-dom/server)
+
+</div>
+
 O pacote `react-dom` fornece métodos específicos do DOM que podem ser usados ​​no nível superior do seu aplicativo e como uma saída de escape para sair do modelo React, se necessário.
 
 ```js
@@ -50,9 +63,13 @@ O React suporta todos os navegadores modernos, embora [alguns polyfills sejam ne
 
 ### `createPortal()` {#createportal}
 
-> Experimente a nova documentação do React para [`createPortal`](https://beta.reactjs.org/reference/react-dom/createPortal).
+<div class="scary">
+
+> This content is out of date.
 >
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Read the new React documentation for [`createPortal`](https://react.dev/reference/react-dom/createPortal).
+
+</div>
 
 ```javascript
 createPortal(child, container)
@@ -62,9 +79,13 @@ Cria um portal. Os portais fornecem uma maneira de [processar filhos em um nó D
 
 ### `flushSync()` {#flushsync}
 
-> Experimente a nova documentação do React para [`flushSync`](https://beta.reactjs.org/reference/react-dom/flushSync).
+<div class="scary">
+
+> This content is out of date.
 >
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Read the new React documentation for [`flushSync`](https://react.dev/reference/react-dom/flushSync).
+
+</div>
 
 ```javascript
 flushSync(callback)
@@ -93,9 +114,13 @@ flushSync(() => {
 ## Referência herdada {#legacy-reference}
 ### `render()` {#render}
 
-> Experimente a nova documentação do React para [`render`](https://beta.reactjs.org/reference/react-dom/render).
+<div class="scary">
+
+> This content is out of date.
 >
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Read the new React documentation for [`render`](https://react.dev/reference/react-dom/render).
+
+</div>
 
 ```javascript
 render(element, container[, callback])
@@ -127,9 +152,13 @@ Se a _callback_ opcional for fornecida, ela será executada depois do componente
 
 ### `hydrate()` {#hydrate}
 
-> Experimente a nova documentação do React para [`hydrate`](https://beta.reactjs.org/reference/react-dom/hydrate).
+<div class="scary">
+
+> This content is out of date.
 >
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Read the new React documentation for [`hydrate`](https://react.dev/reference/react-dom/hydrate).
+
+</div>
 
 ```javascript
 hydrate(element, container[, callback])
@@ -153,9 +182,13 @@ Lembre-se de estar atento à experiência de usuário em conexões lentas. O có
 
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
-> Experimente a nova documentação do React para [`unmountComponentAtNode`](https://beta.reactjs.org/reference/react-dom/unmountComponentAtNode).
+<div class="scary">
+
+> This content is out of date.
 >
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Read the new React documentation for [`unmountComponentAtNode`](https://react.dev/reference/react-dom/unmountComponentAtNode).
+
+</div>
 
 ```javascript
 unmountComponentAtNode(container)
@@ -171,9 +204,13 @@ Remove a mounted React component from the DOM and clean up its event handlers an
 
 ### `findDOMNode()` {#finddomnode}
 
-> Experimente a nova documentação do React para [`findDOMNode`](https://beta.reactjs.org/reference/react-dom/findDOMNode).
+<div class="scary">
+
+> This content is out of date.
 >
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> Read the new React documentation for [`findDOMNode`](https://react.dev/reference/react-dom/findDOMNode).
+
+</div>
 
 > Nota:
 >

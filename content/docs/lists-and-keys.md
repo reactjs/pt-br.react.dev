@@ -6,13 +6,15 @@ prev: conditional-rendering.html
 next: forms.html
 ---
 
-> Experimente a nova documentação do React.
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 >
 > Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
 > - [Listas de renderização](https://beta.reactjs.org/learn/rendering-lists)
->
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 Primeiro, vamos rever como transformamos listas em JavaScript.
 

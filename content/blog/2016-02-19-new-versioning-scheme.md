@@ -3,6 +3,12 @@ title: "Novo Esquema de Versão"
 author: [sebmarkbage]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Hoje anunciamos que estamos mudando para as principais revisões do React. A versão atual é 0.14.7. A próxima release será: **15.0.0**
 
 Na prática, esta mudança não deve afetar a maioria de vocês. A mudança para as principais versões do SemVer simplesmente ajuda a indicar o nosso compromisso para com a estabilidade e nos dá a flexibilidade para adicionar novos recursos em releases menores que sejam compatíveis com as versões anteriores. Isso significa que nós podemos ter menos releases principais e você não precisará esperar tanto tempo para desfrutar das melhorias do React. Além disso, se você é um autor de componente, este esquema de versão te dá a flexibilidade para suportar duas versões principais do React ao mesmo tempo, para que você não precise deixar nada para trás.

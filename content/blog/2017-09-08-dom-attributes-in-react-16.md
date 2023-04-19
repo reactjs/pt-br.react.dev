@@ -3,6 +3,12 @@ title: "Atributos do DOM no React 16"
 author: [gaearon]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 No passado, o React ignorava atributos do DOM desconhecidos. Se você escreveu arquivos JSX com um atributo que o React não reconhece, ele apenas ignoraria. Por exemplo: 
 
 ```js

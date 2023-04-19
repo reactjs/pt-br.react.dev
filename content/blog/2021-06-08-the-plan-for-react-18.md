@@ -3,6 +3,12 @@ title: "O plano para o React 18"
 author: [acdlite, bvaughn, abernathyca, gaearon, rachelnabors, rickhanlonii, sebmarkbage, sethwebster]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 > Atualizado em Nov. 15, 2021
 >
 > O React 18 está agora em beta. Mais informações sobre o status da liberação estão [disponíveis na postagem do React 18 Working Group](https://github.com/reactwg/react-18/discussions/112).

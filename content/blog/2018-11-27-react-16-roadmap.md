@@ -3,6 +3,12 @@ title: "Roteiro do React 16.x"
 author: [gaearon]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Você pode ter ouvido falar sobre funcionalidades como "Hooks", "Suspense", e "Renderização Concorrente" em postagens passadas no blog ou em palestras. Nesta postagem, nós vamos ver como elas se encaixam e a linha do tempo esperada para seus lançamentos em versões estáveis do React.
 
 > Uma Atualização de Agosto de 2019
@@ -197,6 +203,12 @@ Nós começamos uma investigação para [simplificar e modernizar](https://githu
 Nós começamos a projetar um novo renderizador de servidor que suporte Suspense (incluindo espera por dados assíncronos no servidor sem renderização dupla), carregamento progressivo e preenchimento do conteúdo da página em pedaços para um melhor experiência do usuário. Você pode assistir um resumo do protótipo prévio disso [nessa palestra](https://www.youtube.com/watch?v=z-6JC0_cOns). O novo renderizado de servidor será nosso foco principal em 2019, mas é muito cedo para falar qualquer coisa sobre sua programação de lançamento. Seu desenvolvimento, como sempre, [acontecerá no GitHub](https://github.com/facebook/react/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aopen+fizz).
 
 -----
+
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
 
 E é isso! Como você pode ver, tem muito a ocupar-nos, mas nós esperamos bastante progresso nos próximos meses.
 

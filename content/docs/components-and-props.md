@@ -16,7 +16,9 @@ prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
 
-> Experimente a nova documentação do React.
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 >
 > Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
@@ -24,6 +26,8 @@ next: state-and-lifecycle.html
 > - [Passando props para um componente](https://beta.reactjs.org/learn/passing-props-to-a-component)
 >
 > Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 Os componentes permitem que você divida a interface do usuário em partes independentes e reutilizáveis e pense em cada parte isoladamente. Esta página fornece uma introdução à ideia de componentes. Você pode encontrar uma [referência detalhada da API do componente aqui](/docs/react-component.html).
 

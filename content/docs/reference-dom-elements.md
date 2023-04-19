@@ -14,7 +14,9 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
-> Experimente a nova documentação do React.
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 >
 > Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
@@ -24,8 +26,8 @@ redirect_from:
 > - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
 > - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
 > - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
->
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 O React implementa um sistema DOM independente ao navegador visando performance e compatibilidade entre navegadores. Aproveitamos a oportunidade para melhorar algumas implementações do DOM no navegador.
 

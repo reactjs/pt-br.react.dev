@@ -3,6 +3,12 @@ title: "Preparando para o Futuro com as Prereleases React"
 author: [acdlite]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Para compartilhar mudanças que estão por vir com nossos parceiros do ecossistema React, nós estamos criando canais oficiais de prerelease. Nós esperamos que este processo nos ajude a fazer mudanças no React com confiança, e dar aos desenvolvedores a oportunidade de testar recursos experimentais.
 
 > Este documento será mais relevante para desenvolvedores que trabalham em frameworks, bibliotecas, ou ferramentas de desenvolvedor. Os desenvolvedores que usam React principalmente para criar aplicações voltadas para o usuário final não precisam se preocupar com nossos canais de prerelease.

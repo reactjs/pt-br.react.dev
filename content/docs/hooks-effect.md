@@ -6,15 +6,17 @@ next: hooks-rules.html
 prev: hooks-state.html
 ---
 
-> Experimente a nova documentação do React.
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 >
 > Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
 > - [Sincronizando com Efeitos](https://beta.reactjs.org/learn/synchronizing-with-effects)
 > - [Você pode não precisar de um Efeito](https://beta.reactjs.org/learn/you-might-not-need-an-effect)
 > - [`useEffect`](https://beta.reactjs.org/reference/react/useEffect)
->
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 *Hooks* são uma nova adição ao React 16.8. Eles permitem que você use o state e outros recursos do React sem escrever uma classe.
 

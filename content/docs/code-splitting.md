@@ -4,6 +4,17 @@ title: Dividindo o Código (Code-Splitting)
 permalink: docs/code-splitting.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [`lazy`](https://react.dev/reference/react/lazy)
+> - [`<Suspense>`](https://react.dev/reference/react/Suspense)
+
+</div>
+
 ## Empacotamento (Bundling) {#bundling}
 
 A maioria das aplicações React serão "empacotadas" usando ferramentas como [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/) ou [Browserify](http://browserify.org/). Empacotamento (Bundling) é o processo onde vários arquivos importados são unidos em um único arquivo: um "pacote" (bundle). Este pacote pode ser incluído em uma página web para carregar uma aplicação toda de uma vez.

@@ -3,6 +3,12 @@ title: "Create React App 2.0: Babel 7, Sass e Mais"
 author: [timer, gaearon]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Create React App 2.0 foi lançado hoje e traz o equivalente a um ano de melhorias numa única atualização de dependência.
 
 Apesar do React por si só [não precisar de nenhuma dependência para o build](/docs/create-a-new-react-app.html), pode ser desafiador escrever um aplicativo complexo sem um _test runner_ rápido, um minificador para produção e um código fonte modular. Desde do primeiro lançamento, o objetivo do [Create React App](https://github.com/facebook/create-react-app) tem sido ajudar você a focar no que é mais importante -- o código da sua aplicação -- e cuidar da configuração do build e dos testes para você.
