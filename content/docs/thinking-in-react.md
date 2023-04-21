@@ -8,11 +8,13 @@ redirect_from:
 prev: composition-vs-inheritance.html
 ---
 
-> Experimente a nova documentação do React.
-> 
-> O guia atualizado [Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) ensina o React moderno e inclui exemplos ao vivo.
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 >
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+> O guia atualizado [Thinking in React](https://beta.reactjs.org/learn/thinking-in-react) ensina o React moderno e inclui exemplos ao vivo.
+
+</div>
 
 React é, na nossa opinião, o principal modo de se construir aplicações Web grandes e rápidas com JavaScript. Ele tem escalado muito bem para nós no Facebook e Instagram.
 

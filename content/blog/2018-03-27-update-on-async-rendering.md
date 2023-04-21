@@ -3,6 +3,12 @@ title: Atualização em Renderização Assíncrona
 author: [bvaughn]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Por mais de um ano, a equipe do React tem trabalhado para implementar a renderização assíncrona. No mês passado, durante sua palestra no JSConf na Islândia, [Dan revelou algumas das novas possibilidades excitantes que a renderização assíncrona desbloqueia](/blog/2018/03/01/sneak-peek-beyond-react-16.html). Agora, gostaríamos de compartilhar com você algumas das lições que aprendemos ao trabalhar nesses recursos e algumas receitas para ajudar a preparar seus componentes para renderização assíncrona quando ela for lançada.
 
 Uma das maiores lições que aprendemos é que alguns dos nossos ciclos de vida de componentes legados tendem a incentivar práticas de codificação inseguras. Eles são:
@@ -35,6 +41,12 @@ npx react-codemod rename-unsafe-lifecycles
 Saiba mais sobre este codemod no [post da versão 16.9.0.](https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#renaming-unsafe-lifecycle-methods)
 
 ---
+
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
 
 ## Migrando de Ciclos de Vida Legados {#migrating-from-legacy-lifecycles}
 

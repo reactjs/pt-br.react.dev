@@ -8,14 +8,15 @@ redirect_from:
   - "tips/false-in-jsx.html"
 ---
 
-> Experimente a nova documentação do React.
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 >
 > Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
 > - [Renderização Condicional](https://beta.reactjs.org/learn/conditional-rendering)
->
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
+</div>
 
 Em React, você pode criar componentes distintos que encapsulam o comportamento que você precisa. Então, você pode renderizar apenas alguns dos elementos, dependendo do estado da sua aplicação. 
 

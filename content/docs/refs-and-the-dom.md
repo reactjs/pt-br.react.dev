@@ -11,7 +11,9 @@ redirect_from:
   - "tips/children-undefined.html"
 ---
 
-> Experimente a nova documentação do React.
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 >
 > Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >
@@ -19,8 +21,8 @@ redirect_from:
 > - [Manipulando o DOM com Refs](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
 > - [`useRef`](https://beta.reactjs.org/reference/react/useRef)
 > - [`forwardRef`](https://beta.reactjs.org/reference/react/forwardRef)
->
-> Os novos documentos substituirão em breve este site, que será arquivado. [Forneça feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 Refs fornecem uma forma de acessar os nós do DOM ou elementos React criados no método render.
 

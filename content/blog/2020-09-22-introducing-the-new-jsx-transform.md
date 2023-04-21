@@ -3,6 +3,12 @@ title: "Apresentando o novo JSX Transform"
 author: [lunaruan]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Embora o React 17 [não contenha novos recursos](/blog/2020/08/10/react-v17-rc.html), ele fornecerá suporte para uma nova versão do JSX Transform. Neste post, descreveremos o que é e como experimentá-lo.
 
 ## O Que é um JSX Transform? {#whats-a-jsx-transform}

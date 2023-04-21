@@ -3,6 +3,12 @@ title: "Tratamento de Erro no React 16"
 author: [gaearon]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Como a versão 16 do React está próxima, nós gostaríamos de anunciar algumas pequenas mudanças de como o React lida com os erros JavaScript dentro dos componentes. Estas mudanças foram incluidas na versão beta do React 16 e fará parte do React 16.  
 
 **A propósito, [nós acabamos de lançar a primeira versão beta do React 16 para você testar!](https://github.com/facebook/react/issues/10294)**

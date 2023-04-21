@@ -3,6 +3,12 @@ title: "Espiada: Além do React 16"
 author: [sophiebits]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 O [Dan Abramov](https://twitter.com/dan_abramov) do nosso time acabou de palestrar na [JSConf Iceland 2018](https://2018.jsconf.is/) com uma prévia de alguns novos recursos em que estamos trabalhando no React. A palestra começa com uma pergunta: "Com as vastas diferenças em poder de computação e velocidade de rede, como podemos oferecer a melhor experiência de usuário para todos?"
 
 Aqui está o vídeo cortesia da JSConf Iceland:

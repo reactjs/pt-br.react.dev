@@ -3,6 +3,12 @@ title: "Relay: Estado do Estado"
 author: [josephsavona]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Este mês marca um ano desde o lançamento do Relay e gostaríamos de compartilhar uma atualização no projeto e o que vem a seguir.
 
 ## Um Ano Em Revisão {#a-year-in-review}

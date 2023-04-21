@@ -8,6 +8,15 @@ prev: cdn-links.html
 next: hello-world.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> See [Versioning Policy](https://react.dev/community/versioning-policy) to learn about the React release channels.
+
+</div>
+
 React conta com uma próspera comunidade de código aberto para registrar relatórios de bugs, abrir pull requests e [enviar RFCs](https://github.com/reactjs/rfcs). Para incentivar feedback, às vezes compartilhamos builds especiais do React que incluem recursos não lançados.
 
 > Este documento será mais relevante para desenvolvedores que trabalham em frameworks, bibliotecas, ou ferramentas de desenvolvedor. Os desenvolvedores que usam React principalmente para criar aplicações voltadas para o usuário final não precisam se preocupar com nossos canais de prerelease.

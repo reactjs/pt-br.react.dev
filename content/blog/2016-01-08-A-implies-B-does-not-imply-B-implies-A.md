@@ -3,6 +3,12 @@ title: "(A => B) !=> (B => A)"
 author: [jimfb]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 A documentação para `componentWillReceiveProps` diz que `componentWillReceiveProps` será invocado quando as props mudam como resultado de uma re-renderização. Algumas pessoas assumem que isso significa "se `componentWillReceiveProps` é chamado, então as props devem ter mudado", mas essa conclusão é logicamente incorreta.
 
 O princípio orientador é um dos meus favoritos da lógica/matemática formal:

@@ -3,6 +3,12 @@ title: "Apresentando o Sistema de Código de Erro do React"
 author: [keyanzhang]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Construir uma melhor experiência para o desenvolvedor tem sido uma das coisas com as quais o React se preocupa profundamente, e uma parte crucial é detectar possíveis erros antipadrões em potencial e fornecer mensagens de erro úteis quando as coisas (podem) derem errado. No entanto, a maioria deles existem apenas no modo de desenvolvimento; na produção, evitamos ter afirmações extremamente custosas e enviar mensagens de erro completas para reduzir o número de bytes enviados pela conexão.
 
 Antes desta versão, removemos as mensagens de erro no momento da construção e é por isso que você pode ter visto essa mensagem em produção:

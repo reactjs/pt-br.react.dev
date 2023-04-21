@@ -4,6 +4,16 @@ title: Fragmentos
 permalink: docs/fragments.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> These new documentation pages teach modern React:
+>
+> - [`<Fragment>`](https://react.dev/reference/react/Fragment)
+
+</div>
+
 Um padrão comum no React é que um componente pode retornar múltiplos elementos. Os Fragmentos permitem agrupar uma lista de filhos sem adicionar nós extras ao DOM.
 
 ```js

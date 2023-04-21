@@ -4,6 +4,12 @@ title: React sem ES6
 permalink: docs/react-without-es6.html
 ---
 
+<div class="scary">
+
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 Normalmente você definiria um componente React como uma simples classe JavaScript:
 
 ```javascript

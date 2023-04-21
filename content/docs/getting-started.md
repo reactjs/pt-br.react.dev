@@ -18,11 +18,13 @@ redirect_from:
   - "docs/environments.html"
 ---
 
-> Experimente a nova documentação do React
+<div class="scary">
+
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
 > 
 > O novo [Quick Start](https://beta.reactjs.org/learn) ensina React moderno e inclui exemplos ao vivo.
->
-> Os novos documentos substituirão em breve este site que será arquivado. [Forneça nos feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+</div>
 
 Esta página é uma visão geral da documentação do React e dos recursos relacionados.
 

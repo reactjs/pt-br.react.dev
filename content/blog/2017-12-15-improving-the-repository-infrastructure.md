@@ -3,6 +3,12 @@ title: "Nos Bastidores: Melhorando a Infraestrutura do Repositório"
 author: [gaearon, bvaughn]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Enquanto trabalhávamos no [React 16](/blog/2017/09/26/react-v16.0.html), reformulamos a estrutura de pastas e muito do ferramental de construção no repositório React. Entre outras coisas, introduzimos projetos como [Rollup](https://rollupjs.org/), [Prettier](https://prettier.io/), e [Google Closure Compiler](https://developers.google.com/closure/compiler/) em nosso fluxo de trabalho. As pessoas frequentemente nos fazem perguntas sobre como usamos essas ferramentas. Neste post, nós gostaríamos de compartilhar algumas das alterações que fizemos em nossa infraestrura de build e teste em 2017 e o que as motivou.
 
 Enquanto essas mudanças nos ajudaram a fazer o React melhor, elas não afetam a maioria do usuários React diretamente. Contudo, esperamos que os posts sobre eles possam ajudar outros autores de bibliotecas a resolver problemas semelhantes. Nossos colaboradores também podem achar essas anotações úteis!

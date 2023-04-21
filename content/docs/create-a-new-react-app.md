@@ -8,6 +8,15 @@ prev: add-react-to-a-website.html
 next: cdn-links.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> 
+> See [Start a New React Project](https://react.dev/learn/start-a-new-react-project) for the recommended ways to create an app.
+
+</div>
+
 Use uma toolchain integrada para uma melhor experiência de usuário e desenvolvedor.
 
 Esta página descreve algumas toolchains populares com React que ajudam em tarefas como:

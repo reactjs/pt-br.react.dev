@@ -3,6 +3,12 @@ title: "Construindo Ótimas Experiências de Usuário com Modo Concorrente e Sus
 author: [josephsavona]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 Na React Conf 2019 nós anunciamos uma [versão experimental](/docs/concurrent-mode-adoption.html#installation) do React que acrescenta suporte ao Modo Concorrente e Suspense. Nesse artigo nós vamos introduzir as melhores práticas para seu uso que nós identificamos durante o processo de construção [do novo facebook.com](https://twitter.com/facebook/status/1123322299418124289).
 
 > Esse artigo será mais relevante para pessoas que trabalham com as *bibliotecas de obtenção de dados (data fetching)* para React. 

@@ -6,6 +6,13 @@ sectionid: community
 permalink: community/courses.html
 ---
 
+<div class="scary">
+
+>
+> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+
+</div>
+
 ## Cursos Gratuitos {#free-courses}
 
 - [Glitch: React Starter Kit](https://glitch.com/glimmer/post/react-starter-kit) - Um curso em vídeo gratuito de 5 partes com exemplos de código interativos que ajudarão você a aprender React.

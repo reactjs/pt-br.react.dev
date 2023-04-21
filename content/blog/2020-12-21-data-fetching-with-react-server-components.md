@@ -3,6 +3,12 @@ title: "Apresentando Componentes React de tamanho zero no Servidor"
 author: [gaearon,laurentan,josephsavona,sebmarkbage]
 ---
 
+<div class="scary">
+
+> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+
+</div>
+
 2020 foi um longo ano. Como está chegando ao fim, gostaríamos de compartilhar uma atualização especial de feriado em nossa pesquisa sobre **Componentes React de tamanho zero no Servidor**.
 
 Para apresentar Componentes React no Servidor, nós preparamos uma palestra e uma demonstração. Se quiser, você pode conferir durante as férias ou mais tarde, quando o trabalho voltar no ano novo.
