@@ -62,3 +62,4 @@ If you are interested in translating `pt-br.react.dev`, please see the current t
 ## License
 
 Content submitted to [pt-br.react.dev](https://pt-br.react.dev/) is CC-BY-4.0 licensed, as found in the [LICENSE-DOCS.md](https://github.com/reactjs/pt-br.reactjs.org/blob/main/LICENSE-DOCS.md) file.
+
