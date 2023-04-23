@@ -47,7 +47,7 @@ Você pode instalar a [extensão Prettier no VSCode](https://marketplace.visuals
 1. Inicie o VSCode
 2. Abra *Ir para Arquivo...* (pressione Ctrl/Cmd+P)
 3. Cole `ext install esbenp.prettier-vscode`
-4. Pressione Entrar
+4. Pressione Enter
 
 #### Formatando ao salvar {/*formatting-on-save*/}
 
