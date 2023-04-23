@@ -8,14 +8,14 @@ Um editor configurado corretamente pode tornar o código mais claro para ler e m
 
 </Intro>
 
-<VoceVaiAprender>
+<YouWillLearn>
 
 * Quais são os editores mais populares
 * Como formatar seu código automaticamente
 
-</VoceVaiAprender>
+</YouWillLearn>
 
-## Seu editor {/*seu-editor*/}
+## Seu editor {/*your-editor*/}
 
 [VS Code](https://code.visualstudio.com/) é um dos editores mais populares em uso hoje. Possui uma grande variedade de extensões e se integra bem a serviços populares como o GitHub. A maioria dos recursos listados abaixo também podem ser adicionados ao VS Code como extensões, tornando-o altamente configurável!
 
@@ -25,7 +25,7 @@ Outros editores de texto populares usados ​​na comunidade React incluem:
 * [Sublime Text](https://www.sublimetext.com/) tem suporte para JSX e TypeScript, [realce de sintaxes](https://stackoverflow.com/a/70960574/458193) e preenchimento automático embutidos.
 * [Vim](https://www.vim.org/) é um editor de texto altamente configurável construído para tornar a criação e alteração de qualquer tipo de texto muito eficiente. Está incluído como "vi" na maioria dos sistemas UNIX e no Apple OS X.
 
-## Recursos recomendados dos editores de texto {/*recursos-recomendados-dos-editores-de-texto*/}
+## Recursos recomendados dos editores de texto {/*recommended-text-editor-features*/}
 
 Alguns editores vêm com esses recursos integrados, mas outros podem exigir a adição de uma extensão. Verifique o suporte que seu editor de escolha oferece para ter certeza!
 
@@ -38,7 +38,7 @@ Alguns editores vêm com esses recursos integrados, mas outros podem exigir a ad
 
 **Certifique-se de ter ativado as regras [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) para o seu projeto.** Elas são essenciais e detectam os bugs mais severos cedo. A predefinição [`eslint-config-react-app`](https://www.npmjs.com/package/eslint-config-react-app) recomendada já as inclui.
 
-### Formatação {/*formatação*/}
+### Formatação {/*formatting*/}
 
 A última coisa que você quer fazer ao compartilhar seu código com outro colaborador é entrar em uma discussão sobre [tabs versus espaços](https://www.google.com/search?q=tabs+vs+spaces)! Felizmente, [Prettier](https://prettier.io/) limpará seu código reformatando-o para estar em conformidade com regras predefinidas e configuráveis. Execute o Prettier e todas as suas guias serão convertidas em espaços - e seu recuo, aspas, etc. também serão alterados para se adequar à configuração. Na configuração ideal, o Prettier será executado quando você salvar seu arquivo, fazendo essas edições rapidamente para você.
 
@@ -49,7 +49,7 @@ Você pode instalar a [extensão Prettier no VSCode](https://marketplace.visuals
 3. Cole `ext install esbenp.prettier-vscode`
 4. Pressione Entrar
 
-#### Formatando ao salvar {/*formatando-ao-salvar*/}
+#### Formatando ao salvar {/*formatting-on-save*/}
 
 Idealmente, você deve formatar seu código a cada salvamento. O VS Code tem configurações para isso!
 
