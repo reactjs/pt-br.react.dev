@@ -5,6 +5,7 @@ title: Writing Markup with JSX
 <Intro>
 
 *JSX* é uma extensão de sintaxe para JavaScript que permite você escrever códigos com marcações tipo HTML dentro de um arquivo Javascript. Embora existam outras maneiras de se escrever componentes, a maioria dos desenvolvedores React preferem a concisão do JSX e a maioria das bases de código o utiliza.
+
 </Intro>
 
 <YouWillLearn>
