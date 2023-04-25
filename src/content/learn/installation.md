@@ -49,7 +49,7 @@ Caso queira construir uma aplicação ou um site totalmente em React, [inicie um
 
 ## Adicione React a um projeto existente {/*add-react-to-an-existing-project*/}
 
-Caso queira experimentar React em um projeto existente, [adicione React a um projeto existente.](/learn/add-react-to-an-existing-project)
+Caso queira experimentar React em uma aplicação ou site já existentes, [adicione React a um projeto existente.](/learn/add-react-to-an-existing-project)
 
 ## Próximos passos {/*próximos-passos*/}
 
