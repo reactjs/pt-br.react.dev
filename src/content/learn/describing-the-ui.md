@@ -234,7 +234,7 @@ Leia **[JavaScript no JSX utilizando chaves](/learn/javascript-in-jsx-with-curly
 
 ## Passando propriedades para um componente {/*passing-props-to-a-component*/}
 
-Componentes React utilizam *propriedades (props)* para se comunicarem entre si. Cada componente pai pode passar informações para seus componentes filhos por meio de props. Props lembram um pouco os atributos HTML, mas você pode passar uma variável JavaScript por meio delas, incluindo objetos, arrays, funções e até mesmo JSX!
+Componentes React utilizam *propriedades (props)* para se comunicarem entre si. Cada componente pai pode passar informações para seus componentes filhos por meio de props. Props lembram um pouco os atributos HTML, mas você pode passar qualquer valor que seja válido em JavaScript por meio delas, incluindo objetos, arrays, funções e até mesmo JSX!
 
 <Sandpack>
 
