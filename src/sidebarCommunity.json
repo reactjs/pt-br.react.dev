@@ -12,7 +12,7 @@
       "skipBreadcrumb": true,
       "routes": [
         {
-          "title": "Conferencias de React",
+          "title": "Conferências de React",
           "path": "/community/conferences"
         },
         {
@@ -20,7 +20,7 @@
           "path": "/community/meetups"
         },
         {
-          "title": "Videos de React ",
+          "title": "Vídeos de React ",
           "path": "/community/videos"
         },
         {
