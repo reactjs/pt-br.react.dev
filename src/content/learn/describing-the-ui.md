@@ -62,7 +62,7 @@ Leia **[Seu Primeiro Componente](/learn/your-first-component)** para aprender co
 
 ## Importando e exportando componentes {/*importing-and-exporting-components*/}
 
-Você pode declarar vários componentes em um único arquivo, mas arquivos grades podem ser difíceis de navegar. Para resolver isso, você pode *exportar* um componente no seu próprio arquivo, e então *importar* este componente em outro arquivo:
+Você pode declarar vários componentes em um único arquivo, mas arquivos grandes podem ser difíceis de navegar. Para resolver isso, você pode *exportar* um componente para um arquivo separado, e então *importar* este componente em outro arquivo:
 
 
 <Sandpack>
