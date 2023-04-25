@@ -17,13 +17,13 @@ React é uma biblioteca JavaScript para renderizar interfaces de usuário (UI). 
 * [Como configurar componentes utilizando props(propriedades)](/learn/passing-props-to-a-component)
 * [Como renderizar componentes de forma condicional](/learn/conditional-rendering)
 * [Como renderizar múltiplos componentes de uma só vez](/learn/rendering-lists)
-* [Como evitar bugs e confusões mantendo seus componentes puros](/learn/keeping-components-pure)
+* [Como evitar comportamentos inesperados mantendo seus componentes puros](/learn/keeping-components-pure)
 
 </YouWillLearn>
 
 ## Seu Primeiro Componente {/*your-first-component*/}
 
-Aplicações React são construídas a partir de partes isoladas da UI chamadas de *componentes*. Um componente React é uma função JavaScript que você pode adicionar no seu código com tags. Os componentes podem ser tão pequenos quanto um botão ou tão grandes quanto uma página inteira. Abaixo você pode ver um componente `Gallery` renderizando três componentes `Profile`:
+Aplicações React são construídas a partir de partes isoladas da UI chamadas de *componentes*. Um componente React é uma função JavaScript que você pode usar em combinação com tags. Os componentes podem ser tão pequenos quanto um botão ou tão grandes quanto uma página inteira. Abaixo você pode ver um componente `Gallery` renderizando três componentes `Profile`:
 <Sandpack>
 
 ```js
@@ -115,7 +115,7 @@ Leia **[Importando e exportando componentes](/learn/importing-and-exporting-comp
 
 </LearnMore>
 
-## Escrevendo markup com JSX {/*writing-markup-with-jsx*/}
+## Escrevendo tags com JSX {/*writing-markup-with-jsx*/}
 
 Cada componente React é uma função JavaScript que pode conter tags que o React renderiza no navegador. Componentes React utilizam uma extensão de sintaxe chamada JSX para representar essas tags. JSX parece muito com HTML, mas é um pouco mais rígido e pode exibir informações de forma dinâmica.
 
@@ -366,7 +366,7 @@ Leia **[Renderização Condicional](/learn/conditional-rendering)** para aprende
 
 Frequentemente você vai desejar exibir vários componentes similares a partir de uma lista de dados. Você pode utilizar as funções `filter()` e `map()` do JavaScript no React para filtrar e transformar suas listas de dados em listas de componentes.
 
-Para cada item da lista, você precisa especificar uma chave (`key`). Chaves permitem que o React rastreie o local de cada item da lista, mesmo que a lista mude.
+Para cada item da lista, você precisa especificar uma chave (`key`). Normalmente é desejável que você use um ID do seu banco de dados como `key`. Chaves permitem que o React rastreie o local de cada item da lista, mesmo que a lista mude.
 
 
 <Sandpack>
