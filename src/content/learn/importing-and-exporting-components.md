@@ -14,7 +14,6 @@ A magia dos componentes reside na sua reutilização: você pode criar um compon
 * Como importar e exportar um componente
 * Quando usar importações e exportações padrão e nomeada 
 * Como importar e exportar múltiplos componentes em um arquivo 
-* How to split components into multiple files
 * Como separar componentes em múltiplos arquivos
 
 </YouWillLearn>
@@ -38,7 +37,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Cientistas incríveis!</h1>
+      <h1>Cientistas incríveis</h1>
       <Profile />
       <Profile />
       <Profile />
