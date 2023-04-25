@@ -4,7 +4,7 @@ title: Adicionar React a um Projeto Existente
 
 <Intro>
 
-Se você quer adicionar alguma interatividade ao seu projeto existente, você não precisa reescrevê-lo em React. Adicione React à sua pilha existente e renderize componentes React interativos em qualquer lugar.
+Se você quer adicionar alguma interatividade ao seu projeto existente, você não precisa reescrevê-lo em React. Adicione React ao seu projeto existente e renderize componentes React interativos em qualquer lugar.
 
 </Intro>
 
@@ -26,11 +26,11 @@ Veja como recomendamos configurá-lo:
 
 Isso garante que a parte React do seu aplicativo possa [se beneficiar das melhores práticas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) embutidas nesses frameworks.
 
-Muitos frameworks baseados em React são full-stack e permitem que seu aplicativo React aproveite o servidor. No entanto, você pode usar a mesma abordagem mesmo se não puder ou não quiser executar JavaScript no servidor. Nesse caso, sirva a exportação HTML/CSS/JS ([saída `next export`](https://nextjs.org/docs/advanced-features/static-html-export) para o Next.js, padrão para o Gatsby) em `/some-app/` em vez disso.
+Muitos frameworks baseados em React são full-stack e permitem que seu aplicativo React tire proveito do servidor. Muitos frameworks baseados em React são full-stack e permitem que seu aplicativo React tire proveito do servidor ([saída `next export`](https://nextjs.org/docs/advanced-features/static-html-export) para o Next.js, padrão para o Gatsby) em `/some-app/` em vez disso.
 
 ## Usando o React para uma parte da sua página existente {/*using-react-for-a-part-of-your-existing-page*/}
 
-Digamos que você tenha uma página existente construída com outra tecnologia (seja uma de servidor como Rails, ou uma de cliente como Backbone), e deseja renderizar componentes React interativos em algum lugar nessa página. Essa é uma maneira comum de integrar o React - na verdade, é assim que a maioria do uso do React parecia no Meta por muitos anos!
+Digamos que você tenha uma página existente construída com outra tecnologia (seja uma tecnologia do servidor como Rails ou uma do cliente como Backbone) e deseje renderizar componentes React interativos em algum lugar dessa página. Essa é uma forma comum de integrar o React - na verdade, é assim que a maioria dos usos do React parecia na Meta por muitos anos!
 
 Você pode fazer isso em duas etapas:
 
