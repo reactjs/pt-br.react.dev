@@ -35,7 +35,7 @@ export default function App() {
 
 </Sandpack>
 
-Você pode editá-lo diretamente ou abrí-lo em uma nova guia pressionando o botão "Fork" no canto superior direito.
+Você pode editá-lo diretamente ou abri-lo em uma nova guia pressionando o botão "Fork" no canto superior direito.
 
 A Maioria das páginas de documentação do React contém uma Sandbox como esta. Fora da documentação do React, existem muitas Sandbox online que suportam o React: por exemplo, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), ou [CodePen.](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb)
 
