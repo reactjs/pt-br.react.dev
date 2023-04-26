@@ -169,7 +169,7 @@ export default function ChatRoom() {
 
 ```js chat.js
 export function createConnection() {
-  // A real implementation would actually connect to the server
+  // Uma implementação real de fato se conectaria ao servidor
   return {
     connect() {
       console.log('✅ Connecting...');
@@ -211,7 +211,7 @@ function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
 
-  // 🔴 Avoid: redundant state and unnecessary Effect
+  // 🔴 Evite: estado redundante e Effect desnecessário
   const [fullName, setFullName] = useState('');
   useEffect(() => {
     setFullName(firstName + ' ' + lastName);
@@ -226,7 +226,7 @@ Ao invés disso, calculo o quanto puder enquanto estiver renderizando:
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
-  // ✅ Good: calculated during rendering
+  // ✅ Bom: calculado durante a renderização
   const fullName = firstName + ' ' + lastName;
   // ...
 }
@@ -290,7 +290,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real de fato se conectaria ao servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -404,7 +404,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real de fato se conectaria ao servidor
   let connectedCallback;
   let timeout;
   return {
@@ -537,7 +537,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real de fato se conectaria ao servidor
   let connectedCallback;
   let timeout;
   return {
@@ -656,7 +656,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real de fato se conectaria ao servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -730,7 +730,7 @@ export default function App() {
 
 ```js chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real de fato se conectaria ao servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
