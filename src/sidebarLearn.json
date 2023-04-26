@@ -52,7 +52,7 @@
       "path": "/learn/describing-the-ui",
       "routes": [
         {
-          "title": "Seu primeiro Componente",
+          "title": "Seu Primeiro Componente",
           "path": "/learn/your-first-component"
         },
         {
@@ -60,7 +60,7 @@
           "path": "/learn/importing-and-exporting-components"
         },
         {
-          "title": "Escrevendo marcação com JSX",
+          "title": "Escrevendo Tags com JSX",
           "path": "/learn/writing-markup-with-jsx"
         },
         {
@@ -68,7 +68,7 @@
           "path": "/learn/javascript-in-jsx-with-curly-braces"
         },
         {
-          "title": "Passando Props a um Componente",
+          "title": "Passando Props para um Componente",
           "path": "/learn/passing-props-to-a-component"
         },
         {
@@ -80,7 +80,7 @@
           "path": "/learn/rendering-lists"
         },
         {
-          "title": "Mantendo seu Componente Puro",
+          "title": "Mantendo seus Componentes Puros",
           "path": "/learn/keeping-components-pure"
         }
       ]
