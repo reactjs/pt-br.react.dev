@@ -404,7 +404,7 @@ export function HomeContent() {
                 Com React, você pode ser um desenvolvedor web <i>e</i> nativo.
                 Sua equipe pode enviar para várias plataformas sem sacrificar a
                 experiência do usuário. Sua organização pode unir os silos de
-                plataforma e formar equipes que possuem recursos inteiros de
+                plataforma e formar equipes que possuem funcionalidades de
                 ponta a ponta.
               </Para>
               <div className="flex justify-start w-full lg:justify-center">
