@@ -155,13 +155,13 @@ export function HomeContent() {
 
         <Section background="left-card">
           <Center>
-            <Header>Crie interfaces de usuários a partir de componentes</Header>
+            <Header>Crie interfaces de usuário a partir de componentes</Header>
             <Para>
               O React permite que você crie interfaces de usuário a partir de
               peças individuais chamadas de componentes. Crie seus próprios
               componentes React como <Code>Thumbnail</Code>,{' '}
               <Code>LikeButton</Code>, e <Code>Video</Code>. Em seguida,
-              combine-os em telas interas, páginas, e aplicativos.
+              combine-os em telas inteiras, páginas, e aplicativos.
             </Para>
           </Center>
           <FullBleed>
@@ -182,9 +182,9 @@ export function HomeContent() {
             <Header>Escrever componentes com código e marcação</Header>
             <Para>
               Componentes React são funções JavaScript. Quer mostrar alguns
-              conteúdos condicionalmente? Utilize <Code>if</Code>.
-              Exibindo uma lista? Tente um array <Code>map()</Code>. Aprender
-              React é aprender programação.
+              conteúdos condicionalmente? Utilize <Code>if</Code>. Exibindo uma
+              lista? Tente um array <Code>map()</Code>. Aprender React é
+              aprender programação.
             </Para>
           </Center>
           <FullBleed>
@@ -233,7 +233,7 @@ export function HomeContent() {
         <Section background="right-card">
           <Center>
             <Header>
-              Vá full-stack <br className="hidden lg:inline" />
+              Full-stack <br className="hidden lg:inline" />
               com um framework
             </Header>
             <Para>
@@ -404,8 +404,8 @@ export function HomeContent() {
                 Com React, você pode ser um desenvolvedor web <i>e</i> nativo.
                 Sua equipe pode enviar para várias plataformas sem sacrificar a
                 experiência do usuário. Sua organização pode unir os silos de
-                plataforma e formar equipes que possuem funcionalidades de
-                ponta a ponta.
+                plataforma e formar equipes que possuem funcionalidades de ponta
+                a ponta.
               </Para>
               <div className="flex justify-start w-full lg:justify-center">
                 <CTA color="gray" icon="native" href="https://reactnative.dev/">
