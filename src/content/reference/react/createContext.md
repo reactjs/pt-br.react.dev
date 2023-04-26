@@ -114,7 +114,7 @@ const ThemeContext = createContext('light');
 const AuthContext = createContext(null);
 ```
 
-`createContext` retorna <CodeStep step={1}>um objeto de contexto</CodeStep>. Componentes podem consumir esse contexto passando-o para o hook [`useContext()`](/reference/react/useContext):
+`createContext` retorna um <CodeStep step={1}>objeto de contexto</CodeStep>. Componentes podem consumir esse contexto passando-o para o hook [`useContext()`](/reference/react/useContext):
 
 ```js [[1, 2, "ThemeContext"], [1, 7, "AuthContext"]]
 function Button() {
