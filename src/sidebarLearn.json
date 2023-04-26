@@ -68,7 +68,7 @@
           "path": "/learn/javascript-in-jsx-with-curly-braces"
         },
         {
-          "title": "Passando Propriedades a um Componente",
+          "title": "Passando Props a um Componente",
           "path": "/learn/passing-props-to-a-component"
         },
         {
