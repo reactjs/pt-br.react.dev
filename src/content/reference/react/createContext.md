@@ -148,7 +148,7 @@ function App() {
 }
 ```
 
-Agora o componente `Page` e qualquer componente dentro dele, não importa o quão profundo esteja, irão "ver" os valores do contexto passados. Se os valores do contexto mudarem, o React irá re-renderizar os componentes que estão lendo o contexto.
+Agora o componente `Page` e qualquer componente dentro dele, não importa o quão profundo esteja, irão "ver" os valores do contexto passados. Se os valores do contexto mudarem, o React também irá re-renderizar os componentes que estão lendo o contexto.
 
 [Leia mais sobre consumir e providenciar contexto e veja exemplos.](/reference/react/useContext)
 
