@@ -386,7 +386,7 @@ export function HomeContent() {
                           </Link>{' '}
                           e{' '}
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
-                          permitem que você crie aplicativos em React para
+                          permite que você crie aplicativos em React para
                           Android, iOS e muito mais. Eles parecem nativos porque
                           suas interfaces de usuário são realmente nativas. Não
                           é uma visualização da Web. Seus componentes React
