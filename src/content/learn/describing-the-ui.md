@@ -60,7 +60,7 @@ Leia **[Seu Primeiro Componente](/learn/your-first-component)** para aprender co
 
 </LearnMore>
 
-## Importando e exportando componentes {/*importing-and-exporting-components*/}
+## Importando e Exportando Componentes {/*importing-and-exporting-components*/}
 
 Você pode declarar vários componentes em um único arquivo, mas arquivos grandes podem ser difíceis de navegar. Para resolver isso, você pode *exportar* um componente para um arquivo separado, e então *importar* este componente em outro arquivo:
 
@@ -115,7 +115,7 @@ Leia **[Importando e exportando componentes](/learn/importing-and-exporting-comp
 
 </LearnMore>
 
-## Escrevendo tags com JSX {/*writing-markup-with-jsx*/}
+## Escrevendo Tags com JSX {/*writing-markup-with-jsx*/}
 
 Cada componente React é uma função JavaScript que pode conter tags que o React renderiza no navegador. Componentes React utilizam uma extensão de sintaxe chamada JSX para representar essas tags. JSX parece muito com HTML, mas é um pouco mais rígido e pode exibir informações de forma dinâmica.
 
@@ -184,7 +184,7 @@ Leia **[Escrevendo tags com JSX](/learn/writing-markup-with-jsx)** para aprender
 
 </LearnMore>
 
-## JavaScript no JSX utilizando chaves {/*javascript-in-jsx-with-curly-braces*/}
+## JavaScript entre Chaves no JSX {/*javascript-in-jsx-with-curly-braces*/}
 
 JSX permite que você escreva de maneira análoga ao HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo lugar. Em alguns momentos, você pode querer adicionar alguma lógica JavaScript ou uma propriedade dinâmica em uma tag. Neste tipo de situação, você pode utilizar chaves no JSX para "abrir uma janela" que entenda JavaScript: 
 
@@ -232,7 +232,7 @@ Leia **[JavaScript no JSX utilizando chaves](/learn/javascript-in-jsx-with-curly
 
 </LearnMore>
 
-## Passando propriedades para um componente {/*passing-props-to-a-component*/}
+## Passando Props para um Componente {/*passing-props-to-a-component*/}
 
 Componentes React utilizam *propriedades (props)* para se comunicarem entre si. Cada componente pai pode passar informações para seus componentes filhos por meio de props. Props lembram um pouco os atributos HTML, mas você pode passar qualquer valor que seja válido em JavaScript por meio delas, incluindo objetos, arrays, funções e até mesmo JSX!
 
@@ -313,7 +313,7 @@ Leia **[Passando propriedades para um componente](/learn/passing-props-to-a-comp
 
 </LearnMore>
 
-## Conditional rendering {/*conditional-rendering*/}
+## Renderização Condicional {/*conditional-rendering*/}
 
 Frequentemente você vai precisar exibir diferentes conteúdos nos seus componentes de acordo com certas condições. No React, você pode renderizar JSX condicionalmente utilizando uma sintaxe parecida com JavaScript, que usa o comando `if`, e operadores lógicos `&&` e `? :`.
 
@@ -463,7 +463,7 @@ Leia **[Renderizando Listas](/learn/rendering-lists)** para aprender como render
 
 </LearnMore>
 
-## Mantendo seus componentes puros {/*keeping-components-pure*/}
+## Mantendo Seus Componentes Puros {/*keeping-components-pure*/}
 
 Algumas funções JavaScript são *puras*. Uma função pura:
 
