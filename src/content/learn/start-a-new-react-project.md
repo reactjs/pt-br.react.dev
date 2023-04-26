@@ -18,7 +18,7 @@ Se você deseja construir uma nova aplicação ou um novo site totalmente em Rea
 
 ### Next.js {/*nextjs*/}
 
-**[Next.js](https://nextjs.org/) é um *framework* React *full-stack.*** É versátil e permite que você crie aplicações React de qualquer tamanho--desde um blog majoritariamente estático à uma aplicação dinâmica e complexa. Para criar um novo projeto com Next.js, execute no seu terminal:
+**[Next.js](https://nextjs.org/) é um *framework* React *full-stack.*** É versátil e permite que você crie aplicações React de qualquer tamanho--desde um blog majoritariamente estático a uma aplicação dinâmica e complexa. Para criar um novo projeto com Next.js, execute no seu terminal:
 
 <TerminalBlock>
 npx create-next-app
