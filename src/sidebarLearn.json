@@ -134,7 +134,7 @@
           "path": "/learn/choosing-the-state-structure"
         },
         {
-          "title": "Compartilhamento de estado entre componentes",
+          "title": "Compartilhando Estado entre Componentes",
           "path": "/learn/sharing-state-between-components"
         },
         {
