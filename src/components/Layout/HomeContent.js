@@ -670,7 +670,7 @@ const communityImages = [
   },
   {
     src: '/images/home/community/react_india_sunil.webp',
-    alt: 'Sunil Pai falando no React Índia',
+    alt: 'Sunil Pai falando no React India',
   },
   {
     src: '/images/home/community/react_conf_hallway.webp',
