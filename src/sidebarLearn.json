@@ -150,7 +150,7 @@
           "path": "/learn/passing-data-deeply-with-context"
         },
         {
-          "title": "Escalabilidade vertical com redutor e contexto",
+          "title": "Escalando com Reducer e Context",
           "path": "/learn/scaling-up-with-reducer-and-context"
         }
       ]
