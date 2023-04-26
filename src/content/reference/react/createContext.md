@@ -209,4 +209,4 @@ const ThemeContext = createContext('light');
 
 Esse valor nunca muda. React só usa esse valor como um fallback (reserva) se ele não conseguir encontrar um provedor correspondente acima.
 
-Para fazer o valor do contexto mudar com o tempo, [adiciona estado e envolva os componentes em um provedor de contexto (context provider).](/reference/react/useContext#updating-data-passed-via-context)
+Para fazer o valor do contexto mudar com o tempo, [adicione estado e envolva os componentes em um provedor de contexto (context provider).](/reference/react/useContext#updating-data-passed-via-context)
