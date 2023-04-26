@@ -260,7 +260,7 @@ export function HomeContent() {
                 color="gray"
                 icon="framework"
                 href="/learn/start-a-new-react-project">
-                Comece com um framework
+                Inicie com um framework
               </CTA>
             </div>
           </Center>
