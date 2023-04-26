@@ -182,7 +182,7 @@ export function HomeContent() {
             <Header>Escrever componentes com código e marcação</Header>
             <Para>
               Componentes React são funções JavaScript. Quer mostrar alguns
-              conteúdos condicionalmente? Use uma instrução <Code>if</Code>.
+              conteúdos condicionalmente? Utilize <Code>if</Code>.
               Exibindo uma lista? Tente um array <Code>map()</Code>. Aprender
               React é aprender programação.
             </Para>
