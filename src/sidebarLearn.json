@@ -126,7 +126,7 @@
       "tags": ["intermediate"],
       "routes": [
         {
-          "title": "Reagindo à entrada com estado",
+          "title": "Reagindo à Entrada com Estado",
           "path": "/learn/reacting-to-input-with-state"
         },
         {
