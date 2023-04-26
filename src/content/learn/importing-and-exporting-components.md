@@ -253,7 +253,7 @@ Atualmente, `Gallery.js` exporta `Profile` e `Gallery`, o que é um pouco confus
 
 Mova o componente `Profile` para seu próprio `Profile.js` e, em seguida, altere o componente `App` para renderizar `<Profile />` e `<Gallery />` um após o outro.
 
-Você pode usar uma exportação padrão ou nomeada para `Profile`, mas certifique-se de usar a sintaxe de importação correspondente tanto em `App.js` e `Gallery.js`! Você pode consultar a tabela do mergulho profundo abaixo:
+Você pode usar uma exportação padrão ou nomeada para `Profile`, mas certifique-se de usar a sintaxe de importação correspondente tanto em `App.js` e `Gallery.js`! Você pode consultar a tabela abaixo:
 
 | Sintase | Declaração de exportação              | Declaração de importação                |
 | ------- | ------------------------------------- | --------------------------------------- |
