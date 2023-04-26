@@ -20,7 +20,7 @@ const SomeContext = createContext(defaultValue)
 
 ### `createContext(defaultValue)` {/*createcontext*/}
 
-Invoque `createContext` fora que qualquer componente para criar um contexto.
+Invoque `createContext` fora de qualquer componente para criar um contexto.
 
 ```js
 import { createContext } from 'react';
