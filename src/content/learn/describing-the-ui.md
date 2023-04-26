@@ -111,7 +111,7 @@ img { margin: 0 10px 10px 0; }
 
 <LearnMore path="/learn/importing-and-exporting-components">
 
-Leia **[Importando e exportando componentes](/learn/importing-and-exporting-components)** para aprender como separar seus componentes em arquivos próprios.
+Leia **[Importando e Exportando Componentes](/learn/importing-and-exporting-components)** para aprender como separar seus componentes em arquivos próprios.
 
 </LearnMore>
 
@@ -180,7 +180,7 @@ img { height: 90px; }
 
 <LearnMore path="/learn/writing-markup-with-jsx">
 
-Leia **[Escrevendo tags com JSX](/learn/writing-markup-with-jsx)** para aprender como escrever JSX corretamente.
+Leia **[Escrevendo Tags com JSX](/learn/writing-markup-with-jsx)** para aprender como escrever JSX corretamente.
 
 </LearnMore>
 
@@ -228,7 +228,7 @@ body > div > div { padding: 20px; }
 
 <LearnMore path="/learn/javascript-in-jsx-with-curly-braces">
 
-Leia **[JavaScript no JSX utilizando chaves](/learn/javascript-in-jsx-with-curly-braces)** para aprender como acessar dados do seu código JavaScript a partir do JSX.
+Leia **[JavaScript entre Chaves no JSX](/learn/javascript-in-jsx-with-curly-braces)** para aprender como acessar dados do seu código JavaScript a partir do JSX.
 
 </LearnMore>
 
@@ -309,7 +309,7 @@ export function getImageUrl(person, size = 's') {
 
 <LearnMore path="/learn/passing-props-to-a-component">
 
-Leia **[Passando propriedades para um componente](/learn/passing-props-to-a-component)** para aprender como passar e ler props.
+Leia **[Passando Props para um Componente](/learn/passing-props-to-a-component)** para aprender como passar e ler props.
 
 </LearnMore>
 
@@ -521,7 +521,7 @@ export default function TeaSet() {
 
 <LearnMore path="/learn/keeping-components-pure">
 
-Leia **[Mantendo seus componentes puros](/learn/keeping-components-pure)** para aprender como criar componentes puros e funções previsíveis.
+Leia **[Mantendo Seus Componentes Puros](/learn/keeping-components-pure)** para aprender como criar componentes puros e funções previsíveis.
 
 </LearnMore>
 
