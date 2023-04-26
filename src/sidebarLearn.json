@@ -11,7 +11,7 @@
       "path": "/learn",
       "routes": [
         {
-          "title": "Tutorial: Jogo-da-velha",
+          "title": "Tutorial: Jogo-da-Velha",
           "path": "/learn/tutorial-tic-tac-toe"
         },
         {
