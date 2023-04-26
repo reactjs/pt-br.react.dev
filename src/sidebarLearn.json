@@ -161,7 +161,7 @@
       "tags": ["advanced"],
       "routes": [
         {
-          "title": "Valores de referência com Refs",
+          "title": "Referenciando Valores Através de Refs",
           "path": "/learn/referencing-values-with-refs"
         },
         {
