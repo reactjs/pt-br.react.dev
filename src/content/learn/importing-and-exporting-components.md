@@ -1,10 +1,10 @@
 ---
-title: Importando e Exportando componentes
+title: Importando e Exportando Componentes
 ---
 
 <Intro>
 
-A magia dos componentes reside na sua reutilização: você pode criar um componente que é composto por outros componentes. Mas conforme você aninha mais e mais componentes, faz sentido começar a dividi-los em arquivos diferentes. Isso permite que você mantenha seus arquivos fáceis de explorar e reutiliza-los em mais lugares.
+A magia dos componentes reside na sua habilidade de reutilização: você pode criar um componente que é composto por outros componentes. Mas conforme você aninha mais e mais componentes, faz sentido começar a dividi-los em arquivos diferentes. Isso permite que você mantenha seus arquivos fáceis de explorar e reutiliza-los em mais lugares.
 
 </Intro>
 
@@ -12,15 +12,15 @@ A magia dos componentes reside na sua reutilização: você pode criar um compon
 
 * O que é um arquivo de componente raiz
 * Como importar e exportar um componente
-* Quando usar importações e exportações padrão e nomeada 
-* Como importar e exportar múltiplos componentes em um arquivo 
+* Quando usar importações e exportações padrão (`default`) e nomeada
+* Como importar e exportar múltiplos componentes em um arquivo
 * Como separar componentes em múltiplos arquivos
 
 </YouWillLearn>
 
 ## O arquivo de componente raiz {/*the-root-component-file*/}
 
-Em [Seu primeiro componente](/learn/your-first-component), você criou um componente `Profile` e um componente `Gallery` que renderiza:
+Em [Seu Primeiro Componente](/learn/your-first-component), você criou um componente `Profile` e um componente `Gallery` que renderiza:
 
 <Sandpack>
 
@@ -108,10 +108,10 @@ Observe como este exemplo é dividido em dois arquivos de componentes agora:
 
 1. `Gallery.js`:
      - Define o componente `Profile` que é usado apenas dentro do mesmo arquivo e não é exportado.
-     - Exporta o componente `Gallery` como uma **exportação padrão.**
+     - Exporta o componente `Gallery` como uma **(default export).**
 2. `App.js`:
      - Importa `Gallery` como uma **importação padrão** de `Gallery.js`.
-     - Exporta o componente raiz `App` como uma **exportação padrão.**
+     - Exporta o componente raiz `App` como uma **exportação padrão (default export).**
 
 
 <Note>
@@ -143,14 +143,13 @@ A forma como você exporta seu componente determina como você deve importá-lo.
 
 Quando você escreve uma importação _padrão_, você pode colocar o nome que quiser depois de `import`. Por exemplo, você poderia escrever `import Banana from './Button.js'` e ainda forneceria a mesma exportação padrão. Por outro lado, com importações nomeadas, o nome deve corresponder em ambos os lados. É por isso que eles são chamados de importações _nomeadas_!
 
-**Os usuários costumam usar exportações padrão se o arquivo exportar apenas um componente e usar exportações nomeadas se exportar vários componentes e valores.**
-Independentemente de qual estilo de código você preferir, sempre forneça nomes significativos para as funções do componente e os arquivos que os contêm. Componentes sem nomes, como `export default () => {}`, são desencorajados porque dificultam a depuração.
+**Os usuários costumam usar exportações padrão se o arquivo exportar apenas um componente e usar exportações nomeadas se exportar vários componentes e valores.** Independentemente de qual estilo de código você preferir, sempre forneça nomes significativos para as funções do componente e os arquivos que os contêm. Componentes sem nomes, como `export default () => {}`, são desencorajados porque dificultam a depuração.
 
 </DeepDive>
 
 ## Exportando e importando múltiplos componentes no mesmo arquivo {/*exporting-and-importing-multiple-components-from-the-same-file*/}
 
-E se você quiser mostrar apenas um `Profile` em vez de uma galeria? Você também pode exportar o componente `Profile`. Mas `Gallery.js` já tem uma exportação *padrão* e você não pode ter _duas_ exportações padrão. Você pode criar um novo arquivo com uma exportação padrão ou adicionar uma exportação *nomeada* para `Profile`. **Um arquivo pode ter apenas uma exportação padrão, mas pode ter várias exportações nomeadas!**
+E se você quiser mostrar apenas um `Profile` em vez de uma galeria? Você também pode exportar o componente `Profile`. Mas `Gallery.js` já tem uma exportação *padrão* e você não pode ter _duas_ exportações padrão. Você poderia criar um novo arquivo com uma exportação padrão ou adicionar uma exportação *nomeada* para `Profile`. **Um arquivo pode ter apenas uma exportação padrão, mas pode ter várias exportações nomeadas!**
 
 <Note>
 
@@ -239,8 +238,8 @@ Nessa pagina você aprendeu:
 
 * O que é um arquivo de componente raiz
 * Como importar e exportar um componente
-* Quando e como usar importações e exportações padrão e nomeada 
-* Como exportar múltiplos componentes em um arquivo 
+* Quando e como usar importações e exportações padrão e nomeada
+* Como exportar múltiplos componentes em um arquivo
 
 </Recap>
 
