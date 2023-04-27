@@ -22,7 +22,7 @@ Na Web, o HTML nos permite criar documentos estruturados e ricos em conteúdo co
 
 ```html
 <article>
-  <h1>Meu primeiro componente</h1>
+  <h1>Meu Primeiro Componente</h1>
   <ol>
     <li>Componentes: A fundação da UI</li>
     <li>Definindo um componente</li>
