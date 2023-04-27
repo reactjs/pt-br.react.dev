@@ -127,6 +127,7 @@ function Profile() {
   // ...
 }
 ```
+
 Por padrão, os valores que receberão são os <CodeStep step={3}>valores padrão</CodeStep> que você especificou quando criava os contextos. Porém, por si só isso não é útil porque os valores padrão nunca mudam.
 
 Contextos são úteis porque você pode **fornecer outros valores dinâmicos de seus componentes:**
