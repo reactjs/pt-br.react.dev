@@ -50,7 +50,7 @@ Assim como nas tags HTML, você pode compor, ordenar e colocá-lo dentro de outr
   </PageContent>
 </PageLayout>
 ```
-À medida que seu projeto cresce, você notará que muitos de seus designs podem ser compostos através da reutilização de componentes que você já escreveu, acelerando seu desenvolvimento. Nosso índice de conteúdo acima poderia ser usado em qualquer tela usando o componente `<TableOfContents />`! Você pode até mesmo iniciar seu projeto com os milhares de componentes compartilhados pela comunidade open source do React, como [Chakra UI](https://chakra-ui.com/) e [Material UI.](https://material-ui.com/)
+À medida que seu projeto cresce, você notará que muitos de seus designs podem ser compostos através da reutilização de componentes que você já escreveu, acelerando seu desenvolvimento. Nosso índice de conteúdo acima poderia ser usado em qualquer tela usando o componente `<TableOfContents />`! Você pode até mesmo iniciar seu projeto com os milhares de componentes compartilhados pela comunidade de código aberto do React, como [Chakra UI](https://chakra-ui.com/) e [Material UI.](https://material-ui.com/)
 
 ## Definindo um componente {/*defining-a-component*/}
 
