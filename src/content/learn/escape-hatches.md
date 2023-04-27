@@ -199,7 +199,7 @@ Leia **[Sincronizando com Effects](/learn/synchronizing-with-effects)** para apr
 
 Effects são uma saída de emergência do paradigma do React. Eles permitem que você "contorne" o React e sincronize seus componentes com algum sistema externo. Se não houver sistema externo envolvido (por exemplo, se você quiser atualizar o estado de um componente com props ou mudança de estado), você não deveria usar um Effect. Remover Effects desnecessários tornará seu código mais fácil de se entender, mais rápido e menos propenso a erros.
 
-Há dois casos comuns nos quais você nao precisa de Effects:
+Há dois casos comuns nos quais você não precisa de Effects:
 - **Você não precisa de Effects para transformar dados para renderização.**
 - **Você não precisa de Effects para lidar com eventos do usuário.**
 
