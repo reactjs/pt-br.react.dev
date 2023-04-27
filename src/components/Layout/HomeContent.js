@@ -402,7 +402,7 @@ export function HomeContent() {
             <div className="px-5 lg:px-0 max-w-4xl mx-auto lg:text-center text-secondary dark:text-secondary-dark">
               <Para>
                 Com React, você pode ser um desenvolvedor web <i>e</i> nativo.
-                Sua equipe pode enviar para várias plataformas sem sacrificar a
+                Sua equipe pode fazer deploy para várias plataformas sem sacrificar a
                 experiência do usuário. Sua organização pode unir os silos de
                 plataforma e formar equipes que possuem funcionalidades de ponta
                 a ponta.
