@@ -30,7 +30,7 @@ Digamos que você tenha uma lista de conteúdo.
 </ul>
 ```
 
-As únicas diferenças entre os itens da lista são seus conteúdos, seus dados. Você comumente precisará exibir diversas instâncias do mesmo componente usando diferentes dados ao construir interfaces: de listas de comentários a galerias de fotos de perfil. Nessas situações, você pode armazenar esses dados em objetos ou arrays JavaScript e usar métodos como [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) e [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) para renderizar listas de componentes a partir deles.
+As únicas diferenças entre os itens da lista são seus conteúdos, seus dados. Você comumente precisará exibir diversas instâncias do mesmo componente usando diferentes dados ao construir interfaces: de listas de comentários a galerias de fotos de perfil. Nessas situações, você pode armazenar esses dados em objetos ou arrays JavaScript e usar métodos como [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) e [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) para renderizar listas de componentes a partir deles.
 
 Aqui está um breve exemplo de como gerar uma lista de itens a partir de um array:
 
@@ -261,7 +261,7 @@ const listItems = chemists.map(person => { // Chave
 });
 ```
 
-Arrow functions contendo `=> {` são ditas como havendo um ["corpo de bloco".](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) Elas deixam com que você escreva mais de uma linha de código, mas você *precisa* escrever uma declaração `return` você mesmo. Caso esquecida, nada é retornado!
+Arrow functions contendo `=> {` são ditas como havendo um ["corpo de bloco".](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) Elas deixam com que você escreva mais de uma linha de código, mas você *precisa* escrever uma declaração `return` você mesmo. Caso esquecida, nada é retornado!
 
 </Pitfall>
 
@@ -403,7 +403,7 @@ Fragmentos desaparecem da DOM, então isto irá produzir uma lista plana de `<h1
 Diferentes fontes de dados fornecem diferentes fontes de keys:
 
 * **Dados de uma base de dados:** Se seus dados estão vindo de uma base de dados, você pode usar as keys/IDs desta, os quais são únicos por natureza.
-* **Dados gerados localmente:** Se seus dados são gerados e persistidos localmente (ex. anotações em um aplicativo de notas), use um contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) ou um pacote como [`uuid`](https://www.npmjs.com/package/uuid) ao criar itens.
+* **Dados gerados localmente:** Se seus dados são gerados e persistidos localmente (ex. anotações em um aplicativo de notas), use um contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Crypto/randomUUID) ou um pacote como [`uuid`](https://www.npmjs.com/package/uuid) ao criar itens.
 
 ### Regras das keys {/*rules-of-keys*/}
 
