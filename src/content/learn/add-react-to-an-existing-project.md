@@ -152,5 +152,5 @@ Quando você adota o React em um projeto existente, é comum começar com pequen
 
 ## Usando o React Native em um aplicativo móvel nativo existente. {/*using-react-native-in-an-existing-native-mobile-app*/}
 
-[React Native](https://reactnative.dev/) também pode ser integrado incrementalmente em aplicativos nativos existentes. Se você possui um aplicativo nativo existente para Android (Java ou Kotlin) ou iOS (Objective-C ou Swift), [follow this guide](https://reactnative.dev/docs/integration-with-existing-apps) para adicionar uma tela React Native a ele.
+[React Native](https://reactnative.dev/) também pode ser integrado incrementalmente em aplicativos nativos existentes. Se você possui um aplicativo nativo existente para Android (Java ou Kotlin) ou iOS (Objective-C ou Swift), [siga este guia](https://reactnative.dev/docs/integration-with-existing-apps) para adicionar uma tela React Native a ele.
 
