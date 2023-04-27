@@ -28,7 +28,7 @@ O pacote `react-dom` fornece dois pontos de entrada adicionais:
 
 ---
 
-## Deprecated APIs {/*deprecated-apis*/}
+## APIs Descontinuadas {/*deprecated-apis*/}
 
 <Deprecated>
 
