@@ -18,7 +18,7 @@ Os *Componentes* são um dos conceitos centrais do React. Eles são a base das i
 
 ## Componentes: A fundação da UI {/*components-ui-building-blocks*/}
 
-Na Web, o HTML nos permite criar documentos estruturados e ricos em conteúdo com seu conjunto de tags integrado, como `<h1>` e `<li>`:
+Na Web, o HTML nos permite criar documentos estruturados e ricos em conteúdo com seu conjunto de tags nativas, como `<h1>` e `<li>`:
 
 ```html
 <article>
