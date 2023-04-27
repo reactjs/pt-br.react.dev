@@ -232,7 +232,7 @@ function Form() {
 }
 ```
 
-Entretanto, voce *precisa* de Effects para sincronizar com sistemas externos.
+Entretanto, você *precisa* de Effects para sincronizar com sistemas externos.
 
 <LearnMore path="/learn/you-might-not-need-an-effect">
 
