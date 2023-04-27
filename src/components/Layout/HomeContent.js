@@ -240,7 +240,7 @@ export function HomeContent() {
               React é uma biblioteca. Ele permite que você junte componentes,
               mas não prescreve como fazer roteamento e busca de dados. Para
               construir um aplicativo inteiro com React, recomendamos um
-              framework React full-stack como{' '}
+              framework React full stack como{' '}
               <Link href="https://nextjs.org">Next.js</Link> ou{' '}
               <Link href="https://remix.run">Remix</Link>.
             </Para>
