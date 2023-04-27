@@ -107,7 +107,7 @@ Claro, você não quer realmente limpar o conteúdo HTML existente!
 
 Apague este código.
 
-Em vez disso, você provavelmente deseja renderizar seus componentes React em lugares específicos em seu HTML. Abra sua página HTML (ou os modelos do servidor que a geram) e adicione um identificador único [`id`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) a qualquer tag, por exemplo:
+Em vez disso, você provavelmente deseja renderizar seus componentes React em lugares específicos em seu HTML. Abra sua página HTML (ou os modelos do servidor que a geram) e adicione um identificador único [`id`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Global_attributes/id) a qualquer tag, por exemplo:
 
 ```html
 <!-- ... em algum lugar no seu HTML. ... -->
