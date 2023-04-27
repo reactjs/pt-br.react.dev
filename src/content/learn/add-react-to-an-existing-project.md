@@ -62,7 +62,7 @@ Em seguida, adicione estas linhas de código no topo do seu arquivo JavaScript p
 <html>
   <head><title>My app</title></head>
   <body>
-    <!-- O conteúdo da sua página existente (neste exemplo, ele é substituído) -->
+    <!-- O conteúdo existente da sua página (neste exemplo, ele é substituído) -->
   </body>
 </html>
 ```
