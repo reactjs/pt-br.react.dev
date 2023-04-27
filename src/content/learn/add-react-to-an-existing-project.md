@@ -80,7 +80,7 @@ root.render(<h1>Hello, world</h1>);
 
 </Sandpack>
 
-Se todo o conteúdo da sua página foi substituído por um "Hello World!", tudo funcionou! Continue lendo.
+Se todo o conteúdo da sua página foi substituído por um "Hello, world", tudo funcionou! Continue lendo.
 
 <Note>
 
