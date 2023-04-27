@@ -26,7 +26,6 @@ import {IconSearch} from 'components/Icon/IconSearch';
 import {Logo} from 'components/Logo';
 import Link from 'components/MDX/Link';
 import CodeBlock from 'components/MDX/CodeBlock';
-import {IconNavArrow} from 'components/Icon/IconNavArrow';
 import {ExternalLink} from 'components/ExternalLink';
 import sidebarBlog from '../../sidebarBlog.json';
 
@@ -170,9 +169,9 @@ export function HomeContent() {
           <Center>
             <Para>
               Quer você trabalhe sozinho ou com milhares de outros
-              desenvolvedores, é possível usar o React da mesma maneira. Ele foi projetado
-              para permitir que você combine componentes escritos por pessoas,
-              equipes e organizações independentes.
+              desenvolvedores, é possível usar o React da mesma maneira. Ele foi
+              projetado para permitir que você combine componentes escritos por
+              pessoas, equipes e organizações independentes.
             </Para>
           </Center>
         </Section>
@@ -192,10 +191,10 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              Essa sintaxe de tags é chamada de JSX. É uma extensão de
-              sintaxe JavaScript popularizada pelo React. Colocar tags JSX
-              em conjunto com a lógica de renderização relacionada torna os componentes
-              do React fáceis de criar, manter e excluir.
+              Essa sintaxe de tags é chamada de JSX. É uma extensão de sintaxe
+              JavaScript popularizada pelo React. Colocar tags JSX em conjunto
+              com a lógica de renderização relacionada torna os componentes do
+              React fáceis de criar, manter e excluir.
             </Para>
           </Center>
         </Section>
@@ -402,10 +401,10 @@ export function HomeContent() {
             <div className="px-5 lg:px-0 max-w-4xl mx-auto lg:text-center text-secondary dark:text-secondary-dark">
               <Para>
                 Com React, você pode ser um desenvolvedor web <i>e</i> nativo.
-                Sua equipe pode fazer deploy para várias plataformas sem sacrificar a
-                experiência do usuário. Sua organização pode unir os silos de
-                plataforma e formar equipes que possuem funcionalidades de ponta
-                a ponta.
+                Sua equipe pode fazer deploy para várias plataformas sem
+                sacrificar a experiência do usuário. Sua organização pode unir
+                os silos de plataforma e formar equipes que possuem
+                funcionalidades de ponta a ponta.
               </Para>
               <div className="flex justify-start w-full lg:justify-center">
                 <CTA color="gray" icon="native" href="https://reactnative.dev/">
