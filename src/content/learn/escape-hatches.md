@@ -65,7 +65,7 @@ Leia **[Referenciando Valores com Refs](/learn/referencing-values-with-refs)** p
 
 ## Manipulando o DOM com refs {/*manipulating-the-dom-with-refs*/}
 
-O React automaticamente atualiza o DOM para adequá-lo ao resultado de sua renderização, então seus componentes não precisarão manipulá-lo frequentemente. Entretanto, às vezes você precisa acessar elementos do DOM gerenciados pelo React - por exemplo, para focar em um nó, scrollar até ele ou medir seu tamanho e posição. Não há método pronto no React que permita fazer isso, então você precisará de uma referência ao nó do DOM. Neste exemplo: clicar no botão atribuirá foco ao input através de uma ref.
+O React automaticamente atualiza o DOM para adequá-lo ao resultado de sua renderização, então seus componentes não precisarão manipulá-lo frequentemente. Entretanto, às vezes você precisa acessar elementos do DOM gerenciados pelo React - por exemplo, para focar em um nó, realizar a rolagem até ele ou medir seu tamanho e posição. Não há método pronto no React que permita fazer isso, então você precisará de uma referência ao nó do DOM. Neste exemplo: clicar no botão atribuirá foco ao input através de uma ref.
 
 <Sandpack>
 
