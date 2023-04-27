@@ -26,7 +26,7 @@ Veja como recomendamos configurá-lo:
 
 Isso garante que a parte React do seu aplicativo possa [se beneficiar das melhores práticas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) embutidas nesses frameworks.
 
-Muitos frameworks baseados em React são full-stack e permitem que seu aplicativo React tire proveito do servidor. No entanto, você pode usar a mesma abordagem mesmo se não puder ou não quiser executar JavaScript no servidor. Nesse caso, exponha os HTML/CSS/JS exportados ([saída `next export`](https://nextjs.org/docs/advanced-features/static-html-export) para o Next.js, padrão para o Gatsby) em `/some-app/` em vez disso.
+Muitos frameworks baseados em React são full stack e permitem que seu aplicativo React tire proveito do servidor. No entanto, você pode usar a mesma abordagem mesmo se não puder ou não quiser executar JavaScript no servidor. Nesse caso, exponha os HTML/CSS/JS exportados ([saída `next export`](https://nextjs.org/docs/advanced-features/static-html-export) para o Next.js, padrão para o Gatsby) em `/some-app/` em vez disso.
 
 ## Usando o React para uma parte da sua página existente {/*using-react-for-a-part-of-your-existing-page*/}
 
