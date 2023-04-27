@@ -220,7 +220,7 @@ function Form() {
 }
 ```
 
-Ao invés disso, calculo o quanto puder enquanto estiver renderizando:
+Ao invés disso, calcule o quanto puder enquanto estiver renderizando:
 
 ```js {4-5}
 function Form() {
