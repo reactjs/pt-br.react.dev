@@ -146,7 +146,7 @@ root.render(<NavigationBar />);
 
 </Sandpack>
 
-Observe como o conteúdo HTML original de index.html é preservado, mas o seu próprio componente React NavigationBar agora aparece dentro do <nav id="navigation"> do seu HTML. Leia a documentação de uso de [`createRoot` usage documentation](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) para aprender mais sobre como renderizar componentes React dentro de uma página HTML existente.
+Observe como o conteúdo HTML original de index.html é preservado, mas o seu próprio componente React NavigationBar agora aparece dentro do <nav id="navigation" /> do seu HTML. Leia a documentação de uso de [`createRoot` usage documentation](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) para aprender mais sobre como renderizar componentes React dentro de uma página HTML existente.
 
 Quando você adota o React em um projeto existente, é comum começar com pequenos componentes interativos (como botões) e, gradualmente, "subir de nível" até que eventualmente toda a sua página seja construída com React. Se você chegar a esse ponto, recomendamos migrar para [a React framework](/learn/start-a-new-react-project) imediatamente para aproveitar ao máximo o React.
 
