@@ -148,7 +148,7 @@ export function HomeContent() {
               size="lg"
               className="w-full sm:w-auto justify-center"
               label="API Referência">
-              API Referência
+              Referência das APIs
             </ButtonLink>
           </div>
         </div>
