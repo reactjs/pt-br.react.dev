@@ -194,7 +194,7 @@ export function HomeContent() {
             <Para>
               Essa sintaxe de tags é chamada de JSX. É uma extensão de
               sintaxe JavaScript popularizada pelo React. Colocar tags JSX
-              próxima à lógica de renderização relacionada torna os componentes
+              em conjunto com a lógica de renderização relacionada torna os componentes
               do React fáceis de criar, manter e excluir.
             </Para>
           </Center>
