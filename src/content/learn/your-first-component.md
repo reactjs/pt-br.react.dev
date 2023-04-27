@@ -35,7 +35,7 @@ Este trecho de HTML representa um artigo `<article>`, seu título `<h1>`, e um �
 
 O React permite que você combine tags HTML, CSS e JavaScript em "componentes" personalizados, **elementos de UI reutilizáveis para a sua aplicação.** O código do índice de conteúdo que você viu acima pode ser transformado em um componente `<TableOfContents />` que você pode renderizar em cada página. Por trás do código, ele ainda usa as mesmas tags HTML como `<article>`, `<h1>`, etc.
 
-Assim como nas tags HTML, você pode compor, ordenar e coloca-lo dentro de outros componentes para criar páginas inteiras. Por exemplo, a página de documentação que você está lendo é feita de componentes React:
+Assim como nas tags HTML, você pode compor, ordenar e colocá-lo dentro de outros componentes para criar páginas inteiras. Por exemplo, a página de documentação que você está lendo é feita de componentes React:
 
 ```js
 <PageLayout>
