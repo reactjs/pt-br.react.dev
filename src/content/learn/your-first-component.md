@@ -119,7 +119,7 @@ Sem parênteses, qualquer código nas linhas após `return` [será ignorado](htt
 
 ## Usando um componente {/*using-a-component*/}
 
-Agora que você definiu seu componente `Profile`, você pode coloca-lo dentro de outros componentes. Por exemplo, você pode exportar um componente `Gallery` que usa várias vezes o componente `Profile`:
+Agora que você definiu seu componente `Profile`, você pode colocá-lo dentro de outros componentes. Por exemplo, você pode exportar um componente `Gallery` que usa várias vezes o componente `Profile`:
 
 <Sandpack>
 
