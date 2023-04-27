@@ -54,7 +54,7 @@ Assim como nas tags HTML, você pode compor, ordenar e coloca-lo dentro de outro
 
 ## Definindo um componente {/*defining-a-component*/}
 
-Tradicionalmente, na criação de páginas Web, os desenvolvedores web estruturavam o conteúdo utilizando HTML e, em seguida, adicionavam interações acrescentando um pouco de JavaScript. Isso funcionava muito bem quando a interação não era algo essencial na Web. Atualmente, espera-se que muitos sites e aplicações sejam interativos. O React coloca a interatividade em primeiro lugar enquanto ainda usa a mesma tecnologia: **um componente React é uma função JavaScript que permite você _adicionar tags HTML_.** Confira o exemplo abaixo (você pode editar o exemplo abaixo):
+Tradicionalmente, na criação de páginas web, os desenvolvedores web estruturavam o conteúdo utilizando HTML e, em seguida, adicionavam interações acrescentando um pouco de JavaScript. Isso funcionava muito bem quando a interação não era algo essencial na web. Atualmente, espera-se que muitos sites e aplicações sejam interativos. O React coloca a interatividade em primeiro lugar enquanto ainda usa a mesma tecnologia: **um componente React é uma função JavaScript que permite você _adicionar tags HTML_.** Confira o exemplo abaixo (você pode editar o exemplo abaixo):
 
 <Sandpack>
 
