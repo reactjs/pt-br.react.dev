@@ -1,25 +1,25 @@
 ---
-title: Installation
+title: Instalação
 ---
 
 <Intro>
 
-React has been designed from the start for gradual adoption. You can use as little or as much React as you need. Whether you want to get a taste of React, add some interactivity to an HTML page, or start a complex React-powered app, this section will help you get started.
+React foi projetado desde o princípio para adoção gradual. Você pode utilizar o React o quanto for necessário. Seja se você quiser ter um gostinho do React, adicionar alguma interatividade a uma página HTML, ou iniciar uma aplicação complexa baseada em React, esta seção vai ajudá-lo a dar os primeiros passos.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [How to start a new React project](/learn/start-a-new-react-project)
-* [How to add React to an existing project](/learn/add-react-to-an-existing-project)
-* [How to set up your editor](/learn/editor-setup)
-* [How to install React Developer Tools](/learn/react-developer-tools)
+* [Como iniciar um novo projeto em React](/learn/start-a-new-react-project)
+* [Como adicionar React a um projeto existente](/learn/add-react-to-an-existing-project)
+* [Como configurar seu editor](/learn/editor-setup)
+* [Como instalar as Ferramentas de Desenvolvedor React](/learn/react-developer-tools)
 
 </YouWillLearn>
 
-## Try React {/*try-react*/}
+## Experimente React {/*try-react*/}
 
-You don't need to install anything to play with React. Try editing this sandbox!
+Não é necessário que instale nada para mexer com o React. Experimente editar este exemplo de código!
 
 <Sandpack>
 
@@ -35,23 +35,23 @@ export default function App() {
 
 </Sandpack>
 
-You can edit it directly or open it in a new tab by pressing the "Fork" button in the upper right corner.
+Você pode editá-lo diretamente ou abri-lo em uma nova aba pressionando o botão "Fork" no canto superior direito.
 
-Most pages in the React documentation contain sandboxes like this. Outside of the React documentation, there are many online sandboxes that support React: for example, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), or [CodePen.](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb)
+A maioria das páginas nas documentações do React contém exemplos interativos como este. Fora da documentação do React, existem muitos sites *sandboxes* que permitem usar React: por exemplo, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react), ou [CodePen.](https://codepen.io/pen?&editors=0010&layout=left&prefill_data_id=3f4569d1-1b11-4bce-bd46-89090eed5ddb)
 
-### Try React locally {/*try-react-locally*/}
+### Experimente React localmente {/*try-react-locally*/}
 
-To try React locally on your computer, [download this HTML page.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Open it in your editor and in your browser!
+Para experimentar o React localmente na sua máquina, [baixe este arquivo HTML.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Abra-o em seu editor e em seu navegador!
 
-## Start a new React project {/*start-a-new-react-project*/}
+## Inicie um novo projeto em React {/*start-a-new-react-project*/}
 
-If you want to build an app or a website fully with React, [start a new React project.](/learn/start-a-new-react-project)
+Caso queira construir uma aplicação ou um site totalmente em React, [inicie um novo projeto em React.](/learn/start-a-new-react-project)
 
-## Add React to an existing project {/*add-react-to-an-existing-project*/}
+## Adicione React a um projeto existente {/*add-react-to-an-existing-project*/}
 
-If want to try using React in your existing app or a website, [add React to an existing project.](/learn/add-react-to-an-existing-project)
+Caso queira experimentar React em uma aplicação ou site já existentes, [adicione React a um projeto existente.](/learn/add-react-to-an-existing-project)
 
-## Next steps {/*next-steps*/}
+## Próximos passos {/*próximos-passos*/}
 
-Head to the [Quick Start](/learn) guide for a tour of the most important React concepts you will encounter every day.
+Vá para o guia de [Início Rápido](/learn) para um tour pelos conceitos mais importantes de React que você encontrará no dia a dia.
 
