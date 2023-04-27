@@ -24,9 +24,9 @@ Na Web, o HTML nos permite criar documentos estruturados e ricos em conteúdo co
 <article>
   <h1>Meu Primeiro Componente</h1>
   <ol>
-    <li>Componentes: O alicerce da UI</li>
-    <li>Definindo um componente</li>
-    <li>Usando um componente</li>
+    <li>Componentes: O Alicerce da UI</li>
+    <li>Definindo um Componente</li>
+    <li>Usando um Componente</li>
   </ol>
 </article>
 ```
