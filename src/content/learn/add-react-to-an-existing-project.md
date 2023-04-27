@@ -150,7 +150,7 @@ Observe como o conteúdo HTML original de `index.html` é preservado, mas o seu 
 
 Quando você adota o React em um projeto existente, é comum começar com pequenos componentes interativos (como botões) e, gradualmente, "subir de nível" até que eventualmente toda a sua página seja construída com React. Se você chegar a esse ponto, recomendamos migrar para [um framework React](/learn/start-a-new-react-project) imediatamente para aproveitar ao máximo o React.
 
-## Usando o React Native em um aplicativo móvel nativo existente. {/*using-react-native-in-an-existing-native-mobile-app*/}
+## Usando o React Native em um aplicativo móvel nativo existente {/*using-react-native-in-an-existing-native-mobile-app*/}
 
 [React Native](https://reactnative.dev/) também pode ser integrado incrementalmente em aplicativos nativos existentes. Se você possui um aplicativo nativo existente para Android (Java ou Kotlin) ou iOS (Objective-C ou Swift), [siga este guia](https://reactnative.dev/docs/integration-with-existing-apps) para adicionar uma tela React Native a ele.
 
