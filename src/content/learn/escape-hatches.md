@@ -244,7 +244,7 @@ Leia **[Talvez você não precise de um Effect](/learn/you-might-not-need-an-eff
 
 ## Ciclo de vida de Effects reativos {/*lifecycle-of-reactive-effects*/}
 
-Effects têm um ciclo de vida diferente dos componentes. Componentes podem se montar, atualizar ou desmontar. Um Effect só pode fazer duas coisas: começar a sincronizar algo e, mais tarde, parar a sincronização. Esse ciclo pode acontecer múltiplas vezes se seu Effect depender de props e estado que possa mudar ao longo do tempo.
+Effects têm um ciclo de vida diferente dos componentes. Componentes podem se montar, atualizar ou desmontar. Um Effect só pode fazer duas coisas: começar a sincronizar algo e, mais tarde, parar a sincronização. Esse ciclo pode acontecer múltiplas vezes se seu Effect depender de props e estado que possam mudar ao longo do tempo.
 
 Este Effect depende do valor da prop `roomId`. Props são *valores reativos*, o que significa que podem mudar em uma rerrenderização. Note que um Effect *ressincroniza* (e reconecta ao servidor) caso `roomId` seja alterado:
 
