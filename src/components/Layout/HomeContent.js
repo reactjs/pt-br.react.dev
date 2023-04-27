@@ -26,7 +26,6 @@ import {IconSearch} from 'components/Icon/IconSearch';
 import {Logo} from 'components/Logo';
 import Link from 'components/MDX/Link';
 import CodeBlock from 'components/MDX/CodeBlock';
-import {IconNavArrow} from 'components/Icon/IconNavArrow';
 import {ExternalLink} from 'components/ExternalLink';
 import sidebarBlog from '../../sidebarBlog.json';
 
@@ -131,7 +130,7 @@ export function HomeContent() {
             React
           </h1>
           <p className="text-4xl font-display max-w-lg md:max-w-full py-1 text-center text-secondary dark:text-primary-dark leading-snug self-center">
-            The library for web and native user interfaces
+            A biblioteca para web e interfaces de usuário nativas
           </p>
           <div className="mt-5 self-center flex gap-2 w-full sm:w-auto flex-col sm:flex-row">
             <ButtonLink
@@ -139,29 +138,29 @@ export function HomeContent() {
               type="primary"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              label="Learn React">
-              Learn React
+              label="Aprenda React">
+              Aprenda React
             </ButtonLink>
             <ButtonLink
               href={'/reference/react'}
               type="secondary"
               size="lg"
               className="w-full sm:w-auto justify-center"
-              label="API Reference">
-              API Reference
+              label="API Referência">
+              Referência das APIs
             </ButtonLink>
           </div>
         </div>
 
         <Section background="left-card">
           <Center>
-            <Header>Create user interfaces from components</Header>
+            <Header>Crie interfaces de usuário a partir de componentes</Header>
             <Para>
-              React lets you build user interfaces out of individual pieces
-              called components. Create your own React components like{' '}
-              <Code>Thumbnail</Code>, <Code>LikeButton</Code>, and{' '}
-              <Code>Video</Code>. Then combine them into entire screens, pages,
-              and apps.
+              O React permite que você crie interfaces de usuário a partir de
+              peças individuais chamadas de componentes. Crie seus próprios
+              componentes React como <Code>Thumbnail</Code>,{' '}
+              <Code>LikeButton</Code>, e <Code>Video</Code>. Em seguida,
+              combine-os em telas inteiras, páginas, e aplicativos.
             </Para>
           </Center>
           <FullBleed>
@@ -169,22 +168,22 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              Whether you work on your own or with thousands of other
-              developers, using React feels the same. It is designed to let you
-              seamlessly combine components written by independent people,
-              teams, and organizations.
+              Quer você trabalhe sozinho ou com milhares de outros
+              desenvolvedores, é possível usar o React da mesma maneira. Ele foi
+              projetado para permitir que você combine componentes escritos por
+              pessoas, equipes e organizações independentes.
             </Para>
           </Center>
         </Section>
 
         <Section background="right-card">
           <Center>
-            <Header>Write components with code and markup</Header>
+            <Header>Escrever componentes com código e marcação</Header>
             <Para>
-              React components are JavaScript functions. Want to show some
-              content conditionally? Use an <Code>if</Code> statement.
-              Displaying a list? Try array <Code>map()</Code>. Learning React is
-              learning programming.
+              Componentes React são funções JavaScript. Quer mostrar alguns
+              conteúdos condicionalmente? Utilize <Code>if</Code>. Exibindo uma
+              lista? Tente um array <Code>map()</Code>. Aprender React é
+              aprender programação.
             </Para>
           </Center>
           <FullBleed>
@@ -192,22 +191,22 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              This markup syntax is called JSX. It is a JavaScript syntax
-              extension popularized by React. Putting JSX markup close to
-              related rendering logic makes React components easy to create,
-              maintain, and delete.
+              Essa sintaxe de tags é chamada de JSX. É uma extensão de sintaxe
+              JavaScript popularizada pelo React. Colocar tags JSX em conjunto
+              com a lógica de renderização relacionada torna os componentes do
+              React fáceis de criar, manter e excluir.
             </Para>
           </Center>
         </Section>
 
         <Section background="left-card">
           <Center>
-            <Header>Add interactivity wherever you need it</Header>
+            <Header>Adicione interatividade onde você precisar</Header>
             <Para>
-              React components receive data and return what should appear on the
-              screen. You can pass them new data in response to an interaction,
-              like when the user types into an input. React will then update the
-              screen to match the new data.
+              Os componentes do React recebem dados e retornam o que deve
+              aparecer na tela. Você pode passar a eles novos dados em resposta
+              a uma interação, como quando o usuário digita em uma entrada. O
+              React atualizará a tela pra corresponder aos novos dados.
             </Para>
           </Center>
           <FullBleed>
@@ -215,16 +214,16 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              You don’t have to build your whole page in React. Add React to
-              your existing HTML page, and render interactive React components
-              anywhere on it.
+              Você não precisa construir sua página inteira em React. Adicione
+              React à sua página HTML existente e renderize componentes React
+              interativos em qualquer lugar nela.
             </Para>
             <div className="flex justify-start w-full lg:justify-center">
               <CTA
                 color="gray"
                 icon="code"
                 href="/learn/add-react-to-an-existing-project">
-                Add React to your page
+                Adicione o React à sua página
               </CTA>
             </div>
           </Center>
@@ -233,14 +232,15 @@ export function HomeContent() {
         <Section background="right-card">
           <Center>
             <Header>
-              Go full-stack <br className="hidden lg:inline" />
-              with a framework
+              Full-stack <br className="hidden lg:inline" />
+              com um framework
             </Header>
             <Para>
-              React is a library. It lets you put components together, but it
-              doesn’t prescribe how to do routing and data fetching. To build an
-              entire app with React, we recommend a full-stack React framework
-              like <Link href="https://nextjs.org">Next.js</Link> or{' '}
+              React é uma biblioteca. Ele permite que você junte componentes,
+              mas não prescreve como fazer roteamento e busca de dados. Para
+              construir um aplicativo inteiro com React, recomendamos um
+              framework React full stack como{' '}
+              <Link href="https://nextjs.org">Next.js</Link> ou{' '}
               <Link href="https://remix.run">Remix</Link>.
             </Para>
           </Center>
@@ -249,17 +249,17 @@ export function HomeContent() {
           </FullBleed>
           <Center>
             <Para>
-              React is also an architecture. Frameworks that implement it let
-              you fetch data in asynchronous components that run on the server
-              or even during the build. Read data from a file or a database, and
-              pass it down to your interactive components.
+              React também é uma arquitetura. Os frameworks que o implementam
+              permitem buscar dados em componentes assíncronos que rodam no
+              servidor ou até mesmo durante o build. Leia os dados de um arquivo
+              ou banco de dados e passe-os para seus componentes interativos.
             </Para>
             <div className="flex justify-start w-full lg:justify-center">
               <CTA
                 color="gray"
                 icon="framework"
                 href="/learn/start-a-new-react-project">
-                Get started with a framework
+                Inicie com um framework
               </CTA>
             </div>
           </Center>
@@ -267,12 +267,13 @@ export function HomeContent() {
         <Section background="left-card">
           <div className="mx-auto flex flex-col w-full">
             <div className="mx-auto max-w-4xl lg:text-center items-center px-5 flex flex-col">
-              <Header>Use the best from every platform</Header>
+              <Header>Use o melhor de cada plataforma</Header>
               <Para>
-                People love web and native apps for different reasons. React
-                lets you build both web apps and native apps using the same
-                skills. It leans upon each platform’s unique strengths to let
-                your interfaces feel just right on every platform.
+                As pessoas adoram aplicativos da Web e nativos por diferentes
+                motivos. O React permite criar aplicativos da web e aplicativos
+                nativos usando as mesmas habilidades. Ele se baseia nos pontos
+                fortes exclusivos de cada plataforma para permitir que suas
+                interfaces pareçam perfeitas em todas as plataformas.
               </Para>
             </div>
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row mt-16 mb-20 lg:mb-28 px-5 gap-20 lg:gap-5">
@@ -286,15 +287,17 @@ export function HomeContent() {
                     <div className="bg-wash relative h-14 w-full" />
                     <div className="relative flex items-start justify-center flex-col flex-1 pb-16 pt-5 gap-3 px-5 lg:px-10 lg:pt-8">
                       <h4 className="leading-tight text-primary font-semibold text-3xl lg:text-4xl">
-                        Stay true to the web
+                        Mantenha-se fiel à web
                       </h4>
                       <p className="lg:text-xl leading-normal text-secondary">
-                        People expect web app pages to load fast. On the server,
-                        React lets you start streaming HTML while you’re still
-                        fetching data, progressively filling in the remaining
-                        content before any JavaScript code loads. On the client,
-                        React can use standard web APIs to keep your UI
-                        responsive even in the middle of rendering.
+                        As pessoas esperam que as páginas de aplicativos da web
+                        sejam carregadas rapidamente. No servidor, o React
+                        permite iniciar o streaming de HTML enquanto ainda está
+                        buscando dados, preenchendo progressivamente o conteúdo
+                        restante antes que qualquer código JavaScript seja
+                        carregado. No cliente, o React pode usar APIs da Web
+                        padrão para manter sua UI responsiva mesmo no meio da
+                        renderização.
                       </p>
                     </div>
                   </div>
@@ -372,21 +375,22 @@ export function HomeContent() {
                       </div>
                       <div className="flex flex-col items-start justify-center pt-0 gap-3 px-2.5 lg:pt-8 lg:px-8">
                         <h4 className="leading-tight text-primary dark:text-primary-dark font-semibold text-3xl lg:text-4xl">
-                          Go truly native
+                          Torne-se verdadeiramente nativo
                         </h4>
                         <p className="h-full lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-                          People expect native apps to look and feel like their
-                          platform.{' '}
+                          As pessoas esperam que os aplicativos nativos se
+                          pareçam com sua plataforma.{' '}
                           <Link href="https://reactnative.dev">
                             React Native
                           </Link>{' '}
-                          and{' '}
+                          e{' '}
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
-                          let you build apps in React for Android, iOS, and
-                          more. They look and feel native because their UIs{' '}
-                          <i>are</i> truly native. It’s not a web view—your
-                          React components render real Android and iOS views
-                          provided by the platform.
+                          permite que você crie aplicativos em React para
+                          Android, iOS e muito mais. Eles parecem nativos porque
+                          suas interfaces de usuário são realmente nativas. Não
+                          é uma visualização da Web. Seus componentes React
+                          renderizam visualizações reais de Android e iOS
+                          fornecidas pela plataforma.
                         </p>
                       </div>
                     </div>
@@ -396,14 +400,15 @@ export function HomeContent() {
             </div>
             <div className="px-5 lg:px-0 max-w-4xl mx-auto lg:text-center text-secondary dark:text-secondary-dark">
               <Para>
-                With React, you can be a web <i>and</i> a native developer. Your
-                team can ship to many platforms without sacrificing the user
-                experience. Your organization can bridge the platform silos, and
-                form teams that own entire features end-to-end.
+                Com React, você pode ser um desenvolvedor web <i>e</i> nativo.
+                Sua equipe pode fazer deploy para várias plataformas sem
+                sacrificar a experiência do usuário. Sua organização pode unir
+                os silos de plataforma e formar equipes que possuem
+                funcionalidades de ponta a ponta.
               </Para>
               <div className="flex justify-start w-full lg:justify-center">
                 <CTA color="gray" icon="native" href="https://reactnative.dev/">
-                  Build for native platforms
+                  Crie para plataformas nativas
                 </CTA>
               </div>
             </div>
@@ -414,23 +419,24 @@ export function HomeContent() {
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row px-5">
             <div className="max-w-3xl lg:max-w-7xl gap-5 flex flex-col lg:flex-row lg:px-5">
               <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:pl-5 lg:pr-10">
-                <Header>Upgrade when the future is ready</Header>
+                <Header>Atualize quando o futuro estiver pronto</Header>
                 <Para>
-                  React approaches changes with care. Every React commit is
-                  tested on business-critical surfaces with over a billion
-                  users. Over 100,000 React components at Meta help validate
-                  every migration strategy.
+                  React aborda as mudanças com cuidado. Cada commit do React é
+                  testado em superfícies críticas para os negócios com mais de
+                  bilhão de usuários. Mais de 100.000 componentes React na Meta
+                  ajudam a validar todas as estratégias de migração.
                 </Para>
                 <div className="order-last pt-5">
                   <Para>
-                    The React team is always researching how to improve React.
-                    Some research takes years to pay off. React has a high bar
-                    for taking a research idea into production. Only proven
-                    approaches become a part of React.
+                    A equipe do React está sempre pesquisando como melhorar o
+                    React. Algumas pesquisas levam anos para compensar. O React
+                    tem um alto padrão para colocar uma ideia de pesquisa em
+                    produção. Somente abordagens comprovadas se tornam parte do
+                    React.
                   </Para>
                   <div className="hidden lg:flex justify-start w-full">
                     <CTA color="gray" icon="news" href="/blog">
-                      Read more React news
+                      Leia mais notícias do React
                     </CTA>
                   </div>
                 </div>
@@ -438,7 +444,7 @@ export function HomeContent() {
               <div className="w-full lg:w-6/12">
                 <p className="uppercase tracking-wide font-bold text-sm text-tertiary dark:text-tertiary-dark flex flex-row gap-2 items-center mt-5 lg:-mt-2 w-full">
                   <IconChevron />
-                  Latest React News
+                  Últimas notícias do React
                 </p>
                 <div className="flex-col sm:flex-row flex-wrap flex gap-5 text-left my-5">
                   <div className="flex-1 min-w-[40%]">
@@ -456,7 +462,7 @@ export function HomeContent() {
                 </div>
                 <div className="flex lg:hidden justify-start w-full">
                   <CTA color="gray" icon="news" href="/blog">
-                    Read more React news
+                    Leia mais notícias do React
                   </CTA>
                 </div>
               </div>
@@ -469,13 +475,13 @@ export function HomeContent() {
             <div className="mx-auto flex flex-col max-w-4xl">
               <Center>
                 <Header>
-                  Join a community <br className="hidden lg:inline" />
-                  of millions
+                  Junte-se a uma comunidade <br className="hidden lg:inline" />
+                  de milhões
                 </Header>
                 <Para>
-                  You’re not alone. Two million developers from all over the
-                  world visit the React docs every month. React is something
-                  that people and teams can agree on.
+                  Você não está sozinho. Dois milhões de desenvolvedores de todo
+                  o mundo vistam os documentos do React todos os meses. React é
+                  algo em que pessoas e equipes podem concordar.
                 </Para>
               </Center>
             </div>
@@ -483,13 +489,14 @@ export function HomeContent() {
             <div className="mx-auto flex flex-col max-w-4xl">
               <Center>
                 <Para>
-                  This is why React is more than a library, an architecture, or
-                  even an ecosystem. React is a community. It’s a place where
-                  you can ask for help, find opportunities, and meet new
-                  friends. You will meet both developers and designers,
-                  beginners and experts, researchers and artists, teachers and
-                  students. Our backgrounds may be very different, but React
-                  lets us all create user interfaces together.
+                  É por isso que o React é mais do que uma biblioteca, uma
+                  arquitetura, ou mesmo um ecossistema. React é uma comunidade.
+                  É um lugar onde você pode pedir ajuda, encontrar oportunidades
+                  e fazer novos amigos. Você conhecerá desenvolvedores e
+                  designers, iniciantes e especialistas, pesquisadores e
+                  artistas, professores e alunos. Nossas origens podem ser muito
+                  diferentes, mas o React nos permite criar interfaces de
+                  usuário juntos.
                 </Para>
               </Center>
             </div>
@@ -498,15 +505,15 @@ export function HomeContent() {
           <div className="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
             <Logo className="text-link dark:text-link-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
             <Header>
-              Welcome to the <br className="" />
-              React community
+              Bem-vindo à <br className="" />
+              comunidade React
             </Header>
             <ButtonLink
               href={'/learn'}
               type="primary"
               size="lg"
-              label="Take the Tutorial">
-              Get Started
+              label="Faça o tutorial">
+              Iniciar
             </ButtonLink>
           </div>
         </Section>
@@ -658,35 +665,35 @@ const reactConf2019Cover = '/images/home/conf2019/cover.svg';
 const communityImages = [
   {
     src: '/images/home/community/react_conf_fun.webp',
-    alt: 'People singing karaoke at React Conf',
+    alt: 'Pessoas cantando karaokê no React Conf',
   },
   {
     src: '/images/home/community/react_india_sunil.webp',
-    alt: 'Sunil Pai speaking at React India',
+    alt: 'Sunil Pai falando no React India',
   },
   {
     src: '/images/home/community/react_conf_hallway.webp',
-    alt: 'A hallway conversation between two people at React Conf',
+    alt: 'Uma conversa de corredor entre duas pessoas no React Conf',
   },
   {
     src: '/images/home/community/react_india_hallway.webp',
-    alt: 'A hallway conversation at React India',
+    alt: 'Uma conversa de corredor no React India',
   },
   {
     src: '/images/home/community/react_conf_elizabet.webp',
-    alt: 'Elizabet Oliveira speaking at React Conf',
+    alt: 'Elizabet Oliveira falando no React Conf',
   },
   {
     src: '/images/home/community/react_india_selfie.webp',
-    alt: 'People taking a group selfie at React India',
+    alt: 'Pessoas tirando uma selfie em grupo no React India',
   },
   {
     src: '/images/home/community/react_conf_nat.webp',
-    alt: 'Nat Alison speaking at React Conf',
+    alt: 'Nat Alison falando no React Conf',
   },
   {
     src: '/images/home/community/react_india_team.webp',
-    alt: 'Organizers greeting attendees at React India',
+    alt: 'Organizadores cumprimentando os participantes no React India',
   },
 ];
 
@@ -922,8 +929,8 @@ function Example1() {
           <Video
             video={{
               id: 'ex1-0',
-              title: 'My video',
-              description: 'Video description',
+              title: 'Meu vídeo',
+              description: 'Descrição do vídeo',
               image: 'blue',
               url: null,
             }}
@@ -946,20 +953,20 @@ function Example2() {
   const videos = [
     {
       id: 'ex2-0',
-      title: 'First video',
-      description: 'Video description',
+      title: 'Primeiro vídeo',
+      description: 'Descrição do vídeo',
       image: 'blue',
     },
     {
       id: 'ex2-1',
-      title: 'Second video',
-      description: 'Video description',
+      title: 'Segundo vídeo',
+      description: 'Descrição do vídeo',
       image: 'red',
     },
     {
       id: 'ex2-2',
-      title: 'Third video',
-      description: 'Video description',
+      title: 'Terceiro vídeo',
+      description: 'Descrição do vídeo',
       image: 'green',
     },
   ];
@@ -978,7 +985,7 @@ function Example2() {
   const count = videos.length;
   let heading = emptyHeading;
   if (count > 0) {
-    const noun = count > 1 ? 'Videos' : 'Video';
+    const noun = count > 1 ? 'Vídeos' : 'Vídeo';
     heading = count + ' ' + noun;
   }
   return (
@@ -1019,36 +1026,36 @@ function Example3() {
   const videos = [
     {
       id: 'vids-0',
-      title: 'React: The Documentary',
-      description: 'The origin story of React',
+      title: 'React: O Documentário',
+      description: 'A história de origem do React',
       image: '/images/home/videos/documentary.webp',
       url: 'https://www.youtube.com/watch?v=8pDqJVdNa44',
     },
     {
       id: 'vids-1',
-      title: 'Rethinking Best Practices',
+      title: 'Repensando as melhores práticas',
       description: 'Pete Hunt (2013)',
       image: '/images/home/videos/rethinking.jpg',
       url: 'https://www.youtube.com/watch?v=x7cQ3mrcKaY',
     },
     {
       id: 'vids-2',
-      title: 'Introducing React Native',
+      title: 'Apresentando o React Native',
       description: 'Tom Occhino (2015)',
       image: '/images/home/videos/rn.jpg',
       url: 'https://www.youtube.com/watch?v=KVZ-P-ZI6W4',
     },
     {
       id: 'vids-3',
-      title: 'Introducing React Hooks',
-      description: 'Sophie Alpert and Dan Abramov (2018)',
+      title: 'Apresentando React Hooks',
+      description: 'Sophie Alpert e Dan Abramov (2018)',
       image: '/images/home/videos/hooks.jpg',
       url: 'https://www.youtube.com/watch?v=V-QO-KO90iQ',
     },
     {
       id: 'vids-4',
-      title: 'Introducing Server Components',
-      description: 'Dan Abramov and Lauren Tan (2020)',
+      title: 'Apresentando os componentes do servidor',
+      description: 'Dan Abramov e Lauren Tan (2020)',
       image: '/images/home/videos/rsc.jpg',
       url: 'https://www.youtube.com/watch?v=TQQPAU21ZUw',
     },
@@ -1091,10 +1098,10 @@ function SearchableVideoList({ videos }) {
             contentMarginTop="72px"
             height="30rem">
             <h1 className="mx-4 mb-1 font-bold text-3xl text-primary">
-              React Videos
+              React Vídeos
             </h1>
             <p className="mx-4 mb-0 leading-snug text-secondary text-xl">
-              A brief history of React
+              Uma breve história do React
             </p>
             <div className="px-4 pb-4">
               <SearchableVideoList videos={videos} />
@@ -1465,7 +1472,7 @@ function SearchInput({value, onChange}) {
   return (
     <form className="mb-3 py-1" data-hover="SearchInput">
       <label htmlFor={id} className="sr-only">
-        Search
+        Procurar
       </label>
       <div className="relative w-full">
         <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -1475,7 +1482,7 @@ function SearchInput({value, onChange}) {
           type="text"
           id={id}
           className="flex pl-11 py-4 h-10 w-full bg-secondary-button outline-none betterhover:hover:bg-opacity-80 pointer items-center text-left text-primary rounded-full align-middle text-base"
-          placeholder="Search"
+          placeholder="Procurar"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -2384,8 +2391,8 @@ function fetchTalks(confId) {
         resolve([
           {
             id: 'conf-2021-0',
-            title: 'React 18 Keynote',
-            description: 'The React Team',
+            title: 'Palestras React 18',
+            description: 'A Equipe React',
             url: 'https://www.youtube.com/watch?v=FZ0cG47msEk&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=1',
             image: {
               speakers: [
@@ -2398,7 +2405,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-1',
-            title: 'React 18 for App Developers',
+            title: 'React 18 para desenvolvedores de aplicativos',
             description: 'Shruti Kapoor',
             url: 'https://www.youtube.com/watch?v=ytudH8je5ko&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=2',
             image: {
@@ -2407,7 +2414,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-2',
-            title: 'Streaming Server Rendering with Suspense',
+            title: 'Renderização do Servidor de Streaming com Suspense',
             description: 'Shaundai Person',
             url: 'https://www.youtube.com/watch?v=pj5N-Khihgc&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=3',
             image: {
@@ -2416,7 +2423,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-3',
-            title: 'The First React Working Group',
+            title: 'O Grupo de Trabalho First React',
             description: 'Aakansha Doshi',
             url: 'https://www.youtube.com/watch?v=qn7gRClrC9U&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=4',
             image: {
@@ -2425,7 +2432,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-4',
-            title: 'React Developer Tooling',
+            title: 'Ferramentas de desenvolvedor React',
             description: 'Brian Vaughn',
             url: 'https://www.youtube.com/watch?v=oxDfrke8rZg&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=5',
             image: {
@@ -2434,7 +2441,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-5',
-            title: 'React without memo',
+            title: 'React sem memo',
             description: 'Xuan Huang (黄玄)',
             url: 'https://www.youtube.com/watch?v=lGEMwh32soc&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=6',
             image: {
@@ -2443,7 +2450,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-6',
-            title: 'React Docs Keynote',
+            title: 'Palestras React Docs',
             description: 'Rachel Nabors',
             url: 'https://www.youtube.com/watch?v=mneDaMYOKP8&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=7',
             image: {
@@ -2452,7 +2459,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-7',
-            title: 'Things I Learnt from the New React Docs',
+            title: 'Coisas que aprendi com os novos documentos do React',
             description: "Debbie O'Brien",
             url: 'https://www.youtube.com/watch?v=-7odLW_hG7s&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=8',
             image: {
@@ -2461,7 +2468,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-8',
-            title: 'Learning in the Browser',
+            title: 'Aprendendo no navegador',
             description: 'Sarah Rainsberger',
             url: 'https://www.youtube.com/watch?v=5X-WEQflCL0&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=9',
             image: {
@@ -2470,7 +2477,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-9',
-            title: 'The ROI of Designing with React',
+            title: 'O ROI de projetar com React',
             description: 'Linton Ye',
             url: 'https://www.youtube.com/watch?v=7cPWmID5XAk&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=10',
             image: {
@@ -2479,7 +2486,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-10',
-            title: 'Interactive Playgrounds with React',
+            title: 'Playgrounds interativos com React',
             description: 'Delba de Oliveira',
             url: 'https://www.youtube.com/watch?v=zL8cz2W0z34&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=11',
             image: {
@@ -2488,7 +2495,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-11',
-            title: 'Re-introducing Relay',
+            title: 'Reintrodução do Relay',
             description: 'Robert Balicki',
             url: 'https://www.youtube.com/watch?v=lhVGdErZuN4&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=12',
             image: {
@@ -2509,7 +2516,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-13',
-            title: 'On-device Machine Learning for React Native',
+            title: 'Aprendizado de máquina no dispositivo para React Native',
             description: 'Roman Rädle',
             url: 'https://www.youtube.com/watch?v=NLj73vrc2I8&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=14',
             image: {
@@ -2518,7 +2525,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-14',
-            title: 'React 18 for External Store Libraries',
+            title: 'React 18 para bibliotecas de armazenamento externo',
             description: 'Daishi Kato',
             url: 'https://www.youtube.com/watch?v=oPfSC5bQPR8&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=15',
             image: {
@@ -2527,7 +2534,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-15',
-            title: 'Building Accessible Components with React 18',
+            title: 'Construindo componentes acessíveis com React 18',
             description: 'Diego Haz',
             url: 'https://www.youtube.com/watch?v=dcm8fjBfro8&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=16',
             image: {
@@ -2536,7 +2543,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-16',
-            title: 'Accessible Japanese Form Components with React',
+            title: 'Componentes de formulário em japonês acessíveis com React',
             description: 'Tafu Nakazaki',
             url: 'https://www.youtube.com/watch?v=S4a0QlsH0pU&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=17',
             image: {
@@ -2545,7 +2552,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2021-17',
-            title: 'UI Tools for Artists',
+            title: 'Ferramentas de UI para artistas',
             description: 'Lyle Troxell',
             url: 'https://www.youtube.com/watch?v=b3l4WxipFsE&list=PLNG_1j3cPCaZZ7etkzWA7JfdmKWT0pMsa&index=18',
             image: {
@@ -2566,7 +2573,7 @@ function fetchTalks(confId) {
         resolve([
           {
             id: 'conf-2019-0',
-            title: 'Keynote (Part 1)',
+            title: 'Palestra (Part 1)',
             description: 'Tom Occhino',
             url: 'https://www.youtube.com/watch?v=QnZHO7QvjaM&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh',
             image: {
@@ -2575,7 +2582,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-1',
-            title: 'Keynote (Part 2)',
+            title: 'Palestra (Part 2)',
             description: 'Yuzhi Zheng',
             url: 'https://www.youtube.com/watch?v=uXEEL9mrkAQ&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=2',
             image: {
@@ -2584,7 +2591,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-2',
-            title: 'Building The New Facebook With React and Relay (Part 1)',
+            title: 'Construindo o novo Facebook com React e Relay (Part 1)',
             description: 'Frank Yan',
             url: 'https://www.youtube.com/watch?v=9JZHodNR184&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=3',
             image: {
@@ -2593,7 +2600,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-3',
-            title: 'Building The New Facebook With React and Relay (Part 2)',
+            title: 'Construindo o novo Facebook com React e Relay (Part 2)',
             description: 'Ashley Watkins',
             url: 'https://www.youtube.com/watch?v=KT3XKDBZW7M&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=4',
             image: {
@@ -2602,7 +2609,8 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-4',
-            title: 'How Our Team Is Using React Native to Save The World',
+            title:
+              'Como nossa equipe está usando o React Native para salvar o mundo',
             description: 'Tania Papazafeiropoulou',
             url: 'https://www.youtube.com/watch?v=zVHWugBPGBE&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=5',
             image: {
@@ -2612,7 +2620,7 @@ function fetchTalks(confId) {
           {
             id: 'conf-2019-5',
             title:
-              'Using Hooks and Codegen to Bring the Benefits of GraphQL to REST APIs',
+              'Usando Hooks e Codegen para trazer os benefícios do GraphQL para APIs REST',
             description: 'Tejas Kumar',
             url: 'https://www.youtube.com/watch?v=cdsnzfJUqm0&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=6',
             image: {
@@ -2621,7 +2629,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-6',
-            title: 'Building a Custom React Renderer',
+            title: 'Construindo um renderizador React personalizado',
             description: 'Sophie Alpert',
             url: 'https://www.youtube.com/watch?v=CGpMlWVcHok&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=7',
             image: {
@@ -2630,7 +2638,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-7',
-            title: 'Is React Translated Yet?',
+            title: 'O React já está traduzido?',
             description: 'Nat Alison',
             url: 'https://www.youtube.com/watch?v=lLE4Jqaek5k&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=12',
             image: {
@@ -2639,7 +2647,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-8',
-            title: 'Building (And Re-Building) the Airbnb Design System',
+            title: 'Construindo (e Reconstruindo) o Airbnb Design System',
             description: 'Maja Wichrowska and Tae Kim',
             url: 'https://www.youtube.com/watch?v=fHQ1WSx41CA&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=13',
             image: {
@@ -2651,7 +2659,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-9',
-            title: 'Accessibility Is a Marathon, Not a Sprint',
+            title: 'Acessibilidade é uma maratona, não uma corrida',
             description: 'Brittany Feenstra',
             url: 'https://www.youtube.com/watch?v=ONSD-t4gBb8&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=14',
             image: {
@@ -2660,7 +2668,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-10',
-            title: 'The State of React State in 2019',
+            title: 'O Estado do React State em 2019',
             description: 'Becca Bailey',
             url: 'https://www.youtube.com/watch?v=wUMMUyQtMSg&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=15',
             image: {
@@ -2669,7 +2677,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-11',
-            title: 'Let’s Program Like It’s 1999',
+            title: 'Vamos programar como se fosse 1999',
             description: 'Lee Byron',
             url: 'https://www.youtube.com/watch?v=vG8WpLr6y_U&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=16',
             image: {
@@ -2678,7 +2686,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-12',
-            title: 'React Developer Tooling',
+            title: 'Ferramentas de desenvolvedor React',
             description: 'Brian Vaughn',
             url: 'https://www.youtube.com/watch?v=Mjrfb1r3XEM&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=17',
             image: {
@@ -2687,7 +2695,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-13',
-            title: 'Data Fetching With Suspense In Relay',
+            title: 'Busca de dados com Suspense em Relay',
             description: 'Joe Savona',
             url: 'https://www.youtube.com/watch?v=Tl0S7QkxFE4&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=18',
             image: {
@@ -2696,7 +2704,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-14',
-            title: 'Automatic Visualizations of the Frontend',
+            title: 'Visualizações Automáticas do Frontend',
             description: 'Cameron Yick',
             url: 'https://www.youtube.com/watch?v=SbreAPNmZOk&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=19',
             image: {
@@ -2705,7 +2713,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-15',
-            title: 'React Is Fiction',
+            title: 'React é Ficção',
             description: 'Jenn Creighton',
             url: 'https://www.youtube.com/watch?v=kqh4lz2Lkzs&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=20',
             image: {
@@ -2714,7 +2722,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-16',
-            title: 'Progressive Web Animations',
+            title: 'Animações Progressivas da Web',
             description: 'Alexandra Holachek',
             url: 'https://www.youtube.com/watch?v=laPsceJ4tTY&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=21',
             image: {
@@ -2723,8 +2731,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-17',
-            title:
-              'Creating Games, Animations and Interactions with the Wick Editor',
+            title: 'Criando Jogos, Animações e Interações com o Wick Editor',
             description: 'Luca Damasco',
             url: 'https://www.youtube.com/watch?v=laPsceJ4tTY&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=21',
             image: {
@@ -2733,7 +2740,7 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-18',
-            title: 'Building React-Select',
+            title: 'Construindo React-Select',
             description: 'Jed Watson',
             url: 'https://www.youtube.com/watch?v=yS0jUnmBujE&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=25',
             image: {
@@ -2742,7 +2749,8 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-19',
-            title: 'Promoting Transparency in Government Spending with React',
+            title:
+              'Promovendo a transparência nos gastos do governo com o React',
             description: 'Lizzie Salita',
             url: 'https://www.youtube.com/watch?v=CVfXICcNfHE&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=26',
             image: {
@@ -2751,7 +2759,8 @@ function fetchTalks(confId) {
           },
           {
             id: 'conf-2019-20',
-            title: 'Wonder-driven Development: Using React to Make a Spaceship',
+            title:
+              'Desenvolvimento orientado a maravilhas: usando o React para criar uma nave espacial',
             description: 'Alex Anderson',
             url: 'https://www.youtube.com/watch?v=aV0uOPWHKt4&list=PLPxbbTqCLbGHPxZpw4xj_Wwg8-fdNxJRh&index=27',
             image: {
