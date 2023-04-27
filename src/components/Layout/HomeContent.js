@@ -193,7 +193,7 @@ export function HomeContent() {
           <Center>
             <Para>
               Essa sintaxe de tags é chamada de JSX. É uma extensão de
-              sintaxe JavaScript popularizada pelo React. Colocar a marcação JSX
+              sintaxe JavaScript popularizada pelo React. Colocar tags JSX
               próxima à lógica de renderização relacionada torna os componentes
               do React fáceis de criar, manter e excluir.
             </Para>
