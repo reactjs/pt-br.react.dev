@@ -89,7 +89,7 @@ Perceba que a sandbox acima exibe um erro no console:
 
 <ConsoleBlock level="error">
 
-Warning: Each child in a list should have a unique "key" prop.
+Aviso: Cada filho em uma lista deve haver uma prop "key" única.
 
 </ConsoleBlock>
 
@@ -271,7 +271,7 @@ Perceba que todas as sandboxes acima exibem um erro no console:
 
 <ConsoleBlock level="error">
 
-Warning: Each child in a list should have a unique "key" prop.
+Aviso: Cada filho em uma lista deve haver uma prop "key" única.
 
 </ConsoleBlock>
 
