@@ -17,7 +17,7 @@ Alguns de seus componentes podem precisar controlar e se sincronizar com sistema
 * [Como o ciclo de vida de um Effect difere do de um componente](/learn/lifecycle-of-reactive-effects)
 * [Como prevenir alguns valores de executarem Effects novamente](/learn/separating-events-from-effects)
 * [Como diminuir o número de execuções de um Effect](/learn/removing-effect-dependencies)
-* [How to compartilhar lógica entre componentes](/learn/reusing-logic-with-custom-hooks)
+* [Como compartilhar lógica entre componentes](/learn/reusing-logic-with-custom-hooks)
 
 </YouWillLearn>
 
