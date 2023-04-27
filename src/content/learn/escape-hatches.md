@@ -759,7 +759,7 @@ Leia **[Removendo dependências de Effect](/learn/removing-effect-dependencies)*
 
 ## Reutilizando lógica com Hooks customizados {/*reusing-logic-with-custom-hooks*/}
 
-O React vêm com diversos Hooks prontos, como `useState`, `useContext` e `useEffect`. Às vezes, você desejará que houvesse um Hook para um propósito mais específico: por exemplo, buscar dados, observar se um usuário está online, ou para conectar-se a uma sala de chat. Para fazer isso, você pode criar seus próprios Hooks conforme as necessidades da sua aplicação.
+O React vem com diversos Hooks prontos, como `useState`, `useContext` e `useEffect`. Às vezes, você desejará que houvesse um Hook para um propósito mais específico: por exemplo, buscar dados, observar se um usuário está online, ou para conectar-se a uma sala de chat. Para fazer isso, você pode criar seus próprios Hooks conforme as necessidades da sua aplicação.
 
 Neste exemplo, o Hook customizado `usePointerPosition` acompanha a posição do cursor enquanto o outro Hook customizado `useDelayedValue` retorna um valor passado a ele com o atraso de uma quantidade arbitrária de milissegundos. Mova o cursor sobre a àrea de pré-visualização do *sandbox* para ver um rastro de pontinhos acompanhando a trajetória do cursor:
 
