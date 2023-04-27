@@ -333,7 +333,7 @@ img { height: 180px; }
 
 </Sandpack>
 
-Outra opção é envolver a marcação JSX retornada entre parênteses após a declaração `return`: 
+Outra opção é envolver o JSX retornado entre parênteses após a declaração `return`: 
 
 <Sandpack>
 
