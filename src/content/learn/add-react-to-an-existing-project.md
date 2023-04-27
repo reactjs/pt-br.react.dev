@@ -115,7 +115,7 @@ Em vez disso, você provavelmente deseja renderizar seus componentes React em lu
 <!-- ... mais html ... -->
 ```
 
-Isso permite que você encontre aquele elemento HTML com [`document.getElementById`](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById) e o passe para [`createRoot`](/reference/react-dom/client/createRoot) para que você possa renderizar seu próprio componente React dentro dele:
+Isso permite que você encontre aquele elemento HTML com [`document.getElementById`](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/getElementById) e o passe para [`createRoot`](/reference/react-dom/client/createRoot) para que você possa renderizar seu próprio componente React dentro dele:
 
 <Sandpack>
 
