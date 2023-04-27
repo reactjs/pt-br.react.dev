@@ -246,7 +246,7 @@ Leia **[Talvez você não precise de um Effect](/learn/you-might-not-need-an-eff
 
 Effects têm um ciclo de vida diferente dos componentes. Componentes podem se montar, atualizar ou desmontar. Um Effect só pode fazer duas coisas: começar a sincronizar algo e, mais tarde, parar a sincronização. Esse ciclo pode acontecer múltiplas vezes se seu Effect depender de props e estado que possa mudar ao longo do tempo.
 
-Este Effect depende do valor da prop `roomId`. Props são *valores reativos*, o que significa que podem mudar em uma rerenderização. Note que um Effect *ressincroniza* (e reconecta ao servidor) caso `roomId` seja alterado:
+Este Effect depende do valor da prop `roomId`. Props são *valores reativos*, o que significa que podem mudar em uma rerrenderização. Note que um Effect *ressincroniza* (e reconecta ao servidor) caso `roomId` seja alterado:
 
 <Sandpack>
 
@@ -327,7 +327,7 @@ Essa seção descreve uma **API experimental que ainda não foi lançada** em um
 
 _Handlers_ de eventos só são executados novamente caso uma interação ocorra de novo. Diferentemente de _handlers_ de eventos, Effects resincronizam se qualquer valor lido por eles, como props ou estado, mudarem desde a última renderização. Às vezes, você deseja uma mistura dos dois comportamentos: um Effect que é executado novamente em resposta a alguns valores, mas não a outros.
 
-Todo código dentro de Effects é *reativo*. Ele será executado novamente se algum valor reativo lido por ele se alterar por causa de uma rerenderização. Por exemplo, esse Effect irá reconectar ao chat se `roomId` ou `theme` tiverem mudado.
+Todo código dentro de Effects é *reativo*. Ele será executado novamente se algum valor reativo lido por ele se alterar por causa de uma rerrenderização. Por exemplo, esse Effect irá reconectar ao chat se `roomId` ou `theme` tiverem mudado.
 
 <Sandpack>
 
