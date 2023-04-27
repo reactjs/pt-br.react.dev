@@ -34,7 +34,7 @@ Digamos que você tenha uma página existente construída com outra tecnologia (
 
 Você pode fazer isso em duas etapas:
 
-1. **Configure um ambiente JavaScript** que permita o uso da sintaxe [JSX](/learn/writing-markup-with-jsx), divida o seu código em módulos com a sintaxe [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) / [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) e utilize pacotes (por exemplo, React) do registro de pacotes [npm](https://www.npmjs.com/).
+1. **Configure um ambiente JavaScript** que permita o uso da sintaxe [JSX](/learn/writing-markup-with-jsx), divida o seu código em módulos com a sintaxe [`import`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/import) / [`export`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/export) e utilize pacotes (por exemplo, React) do registro de pacotes [npm](https://www.npmjs.com/).
 2. **Renderize seus componentes React** onde você deseja vê-los na página.
 
 A abordagem exata depende da configuração existente da sua página, então vamos examinar alguns detalhes.
