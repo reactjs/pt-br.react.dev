@@ -79,7 +79,7 @@ Agora vamos aprender como construir um componente:
 
 ### Passo 1: Exportar o componente {/*step-1-export-the-component*/}
 
-O prefixo `export default` é uma [sintaxe padrão do JavaScript](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (não específica do React) Ele permite que você marque a função principal em um arquivo para que você possa mais tarde importá-la de outros arquivos. (Mais sobre importação em [Importando e Exportando Componentes](/learn/importing-and-exporting-components)!
+O prefixo `export default` é uma [sintaxe padrão do JavaScript](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (não específica do React). Ele permite que você marque a função principal em um arquivo para que você possa mais tarde importá-la de outros arquivos. (Mais sobre importação em [Importando e Exportando Componentes](/learn/importing-and-exporting-components)!
 
 ### Passo 2: Definir a função {/*step-2-define-the-function*/}
 
