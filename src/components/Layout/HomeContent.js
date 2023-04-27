@@ -170,7 +170,7 @@ export function HomeContent() {
           <Center>
             <Para>
               Quer você trabalhe sozinho ou com milhares de outros
-              desenvolvedores, usar o React parece o mesmo. Ele foi projetado
+              desenvolvedores, é possível usar o React da mesma maneira. Ele foi projetado
               para permitir que você combine componentes escritos por pessoas,
               equipes e organizações independentes.
             </Para>
