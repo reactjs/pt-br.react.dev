@@ -30,7 +30,7 @@ Digamos que você tenha uma lista de conteúdo.
 </ul>
 ```
 
-As únicas diferenças entre os itens da lista são seus conteúdos, seus dados. Você comumente precisará exibir diversas instâncias do mesmo componente usando diferentes dados ao construir interfaces: de listas de comentários a galeiras de fotos de perfil. Nessas situações, você pode armazenar esses dados em objetos ou arrays JavaScript e usar métodos como [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) e [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) para renderizar listas de componentes a partir deles.
+As únicas diferenças entre os itens da lista são seus conteúdos, seus dados. Você comumente precisará exibir diversas instâncias do mesmo componente usando diferentes dados ao construir interfaces: de listas de comentários a galerias de fotos de perfil. Nessas situações, você pode armazenar esses dados em objetos ou arrays JavaScript e usar métodos como [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) e [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) para renderizar listas de componentes a partir deles.
 
 Aqui está um breve exemplo de como gerar uma lista de itens a partir de um array:
 
