@@ -33,7 +33,7 @@ Na Web, o HTML nos permite criar documentos estruturados e ricos em conteúdo co
 
 Este trecho de HTML representa um artigo `<article>`, seu título `<h1>`, e um índice de conteúdo (abreviado) apresentado como uma lista ordenada `<ol>`. Este conjunto de tags, combinado com CSS para estilização e JavaScript para a interatividade, é responsável por cada elemento de UI que você vê na Web — seja uma barra lateral, avatar, modal ou dropdown.
 
-O React permite que você combine tags HTML, CSS e JavaScript em "componentes" personalizados, **elementos de interface do usuário reutilizáveis para a sua aplicação.** O código do índice de conteúdo que você viu acima pode ser transformado em um componente `<TableOfContents />` que você pode renderizar em cada página. Por trás do código, ele ainda usa as mesmas tags HTML como `<article>`, `<h1>`, etc.
+O React permite que você combine tags HTML, CSS e JavaScript em "componentes" personalizados, **elementos de UI reutilizáveis para a sua aplicação.** O código do índice de conteúdo que você viu acima pode ser transformado em um componente `<TableOfContents />` que você pode renderizar em cada página. Por trás do código, ele ainda usa as mesmas tags HTML como `<article>`, `<h1>`, etc.
 
 Assim como nas tags HTML, você pode compor, ordenar e coloca-lo dentro de outros componentes para criar páginas inteiras. Por exemplo, a página de documentação que você está lendo é feita de componentes React:
 
