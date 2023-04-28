@@ -4,7 +4,7 @@ title: Renderizando Listas
 
 <Intro>
 
-Você frequentemente gostará de exibir múltiplos componentes similares a partir de uma coleção de dados. Você pode usar os [métodos de array JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) para manipular um array de dados. Nesta página, você usará [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) e [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) com o React para filtrar e transformar seu array de dados em um array de componentes.
+É comum a necessidade de exibir vários componentes semelhantes a partir de uma coleção de dados. Você pode usar os [métodos de array JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) para manipular um array de dados. Nesta página, você usará [`filter()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) e [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) com o React para filtrar e transformar seu array de dados em um array de componentes.
 
 </Intro>
 
