@@ -19,7 +19,7 @@ Componentes comumente precisam mudar o que está na tela como resultado de uma i
 
 ## Quando uma variável comum não é o suficiente {/*when-a-regular-variable-isnt-enough*/}
 
-Aqui está um componente que renderiza a imagem de uma escultura. Clicando no botão "Next" deveria mostrar a próxima escultura mudando o `index` para `1`, então `2`, e assim por diante. Entretanto, isso **não funcionará** (você pode tentar!):
+Aqui está um componente que renderiza a imagem de uma escultura. Ao clicar no botão "Next" ele deveria mostrar a próxima escultura mudando o `index` para `1`, então `2`, e assim por diante. Entretanto, isso **não funcionará** (você pode tentar!):
 
 <Sandpack>
 
@@ -153,13 +153,13 @@ button {
 
 O manipulador de eventos `handleClick` está atualizando a variável local, `index`. Mas duas coisas previnem essa mudança de ser visível:
 
-1. **Variáveis locais não persistem entre renderizações** Quando o React renderiza esse componente uma segunda vez, ele o renderiza do princípio--sem considerar quaisquer mudanças às variáveis locais.
+1. **Variáveis locais não persistem entre renderizações.** Quando o React renderiza esse componente uma segunda vez, ele o faz do princípio--sem considerar quaisquer mudanças às variáveis locais.
 2. **Mudanças às variáveis locais não acionam renderizações.** O React não percebe que precisa renderizar o componente novamente com os novos dados.
 
 Para atualizar um componente com novos dados, duas coisas precisam acontecer:
 
 1. **Reter** os dados entre renderizações.
-2. **Acionar** o React para renderizar o componente com os novos dados (re-renderização)
+2. **Acionar** o React para renderizar o componente com os novos dados (re-renderização).
 
 O Hook [`useState`](/reference/react/useState) provê essas duas coisas:
 
@@ -188,9 +188,9 @@ const [index, setIndex] = useState(0);
 
 `index` é uma variável de estado e `setIndex` é a função de definição.
 
-> A sintaxe `[` e `]` aqui é chamada de [desestruturação de array](https://javascript.info/destructuring-assignment) e ela permite que você leia valores de um array. O array retornado pelo `useState` sempre tem exatamente dois itens.
+> A sintaxe `[` e `]` aqui é chamada de [desestruturação de array](https://javascript.info/destructuring-assignment) e ela permite que você leia valores de um array. O array retornado pelo `useState` sempre possui exatamente dois itens.
 
-Assim é como eles trabalham juntos em `handleClick`:
+Essa é a maneira como eles trabalham juntos em `handleClick`:
 
 ```js
 function handleClick() {
@@ -337,17 +337,17 @@ No React, `useState`, assim como qualquer outra função iniciada com "`use`", �
 
 *Hooks* são funções especiais que estão disponíveis somente enquanto o React está [renderizando](/learn/render-and-commit#step-1-trigger-a-render) (as quais nós entraremos em mais detalhes na próxima página). Eles permitem que você "se conecte" a diferentes recursos do React.
 
-State é só um desses recursos, mas você irá conhecer os outros Hooks mais tarde.
+State é só um destes recursos, mas você irá conhecer os outros Hooks mais tarde.
 
 <Pitfall>
 
-**Hooks--funções iniciadas com `use`-só podem ser chamadas no nível superior dos seus componentes ou em [seus próprios Hooks.](/learn/reusing-logic-with-custom-hooks)** Você não pode chamar Hooks dentro de condições, loops, ou outras funções aninhadas. Hooks são funções, mas é útil pensar neles como declarações incondicionais sobre as necessidades do seu componente. Você "usa" recursos do React no topo de seu componente similarmente a como você "importa" módulos no topo de seu arquivo.
+**Hooks--funções iniciadas com `use`--só podem ser chamadas no nível superior dos seus componentes ou em [seus próprios Hooks.](/learn/reusing-logic-with-custom-hooks)** Você não pode chamar Hooks dentro de condições, loops, ou outras funções aninhadas. Hooks são funções, mas é útil pensar neles como declarações incondicionais sobre as necessidades do seu componente. Você "usa" recursos do React no topo de seu componente similarmente a como você "importa" módulos no topo de seu arquivo.
 
 </Pitfall>
 
 ### Anatomia do `useState` {/*anatomy-of-usestate*/}
 
-Quando você chama [`useState`](/reference/react/useState), você está dizendo ao React que você quer que esse componente lembre-se de algo:
+Ao chamar [`useState`](/reference/react/useState), você está dizendo ao React que você quer que esse componente lembre-se de algo:
 
 ```js
 const [index, setIndex] = useState(0);
@@ -357,11 +357,11 @@ Nesse caso, você quer que o React lembre-se de `index`.
 
 <Note>
 
-A convenção é nomear esse par como `const [algo, setAlgo]`. Você poderia nomeá-lo de qualquer coisa, mas convenções tornam as coisas mais fáceis de se entender entre projetos.
+A convenção é nomear esse par como `const [algo, setAlgo]`. Você poderia nomeá-lo de qualquer outra coisa, mas convenções tornam as coisas mais fáceis de se entender entre projetos.
 
 </Note>
 
-O único argumento para o `useState` é o **valor inicial** da sua variável de state. Nesse exemplo, o valor inicial do `index` é definido como `0` com `useState(0)`.
+O único argumento para o `useState` é o **valor inicial** da sua variável de state. Nesse exemplo, o valor inicial de `index` é definido como `0` com `useState(0)`.
 
 Toda vez que seu componente é renderizado, `useState` lhe dá um array contendo dois valores:
 
@@ -375,7 +375,7 @@ const [index, setIndex] = useState(0);
 ```
 
 1. **Seu componente renderiza pela primeira vez.** Porque você passou `0` ao `useState` como o valor inicial de `index`, ele retornará `[0, setIndex]`. O React lembra-se de que `0` é o valor de state mais recente.
-2. **Você atualiza o state.** Quando um usuário clica no botão, ele chama `setIndex(index + 1)`. `index` é `0`, então é `setIndex(1)`. Isso diz ao React para se lembrar que `index` é `1` a partir de agora e aciona outra renderização.
+2. **Você atualiza o state.** Quando um usuário clica no botão, ele chama `setIndex(index + 1)`. `index` é `0`, logo `setIndex(1)`. Isto diz ao React para se lembrar que `index` é `1` a partir de agora e aciona outra renderização.
 3. **A segunda renderização do seu componente.** O React ainda vê `useState(0)`, mas porque ele *lembra* que você definiu `index` como `1`, retorna `[1, setIndex]` em vez disto.
 4. E assim por diante!
 
@@ -520,15 +520,15 @@ button {
 
 </Sandpack>
 
-É uma boa ideia ter múltiplas variáveis de state se este não for relacionado, como `index` e `showMore` nesse exemplo. Mas se você perceber que frequentemente altera duas variáveis de estado juntas, pode ser mais fácil combiná-las em uma. Por exemplo, se você tem um formulário com vários campos, é mais conveniente ter uma única variável de state a qual armazena um objeto do que uma variável por campo. Leia [Escolhendo a Estrutura do State](/learn/choosing-the-state-structure) para mais dicas.
+É uma boa ideia ter múltiplas variáveis de state se estas não for relacionadas, como `index` e `showMore` nesse exemplo. Mas se você perceber que frequentemente altera duas variáveis de estado juntas, pode ser mais fácil combiná-las em uma. Por exemplo, se você tem um formulário com vários campos, é mais conveniente ter uma única variável de state a qual armazena um objeto do que uma variável por campo. Leia [Escolhendo a Estrutura do State](/learn/choosing-the-state-structure) para mais dicas.
 
 <DeepDive>
 
 #### Como o React sabe qual state retornar? {/*how-does-react-know-which-state-to-return*/}
 
-Você pode ter notado que a chamada ao `useState` não recebe nenhuma informação sobre *a qual* variável de state ela se refere. Não há um "identificador" que é passado ao `useState`, então como este sabe qual dessas variáveis de state retornar? Depende em alguma magia como analisar suas funções? A resposta é não.
+Você pode ter notado que a chamada ao `useState` não recebe nenhuma informação sobre *a qual* variável de state ela se refere. Não há um "identificador" que é passado ao `useState`, então como este sabe qual dessas variáveis de state retornar? Depende de alguma magia como analisar suas funções? A resposta é não.
 
-Em vez disso, para viabilizar sintaxe concisa, os Hooks **dependem em uma chamada estável em toda renderização do mesmo componente.** Isso funciona bem na prática porque se você seguir a regra acima ("só chamar Hooks no nível do topo"), os Hooks sempre serão chamados na mesma ordem. Adicionalmente, um [plugin de linter](https://www.npmjs.com/package/eslint-plugin-react-hooks) pega a maioria dos erros.
+Em vez disso, para viabilizar sintaxe concisa, os Hooks **dependem em uma chamada estável feita em toda renderização do mesmo componente.** Isso funciona bem na prática porque se você seguir a regra acima ("só chamar Hooks no nível do topo"), os Hooks sempre serão chamados na mesma ordem. Adicionalmente, um [plugin de *linter*](https://www.npmjs.com/package/eslint-plugin-react-hooks) pega a maioria dos erros.
 
 Internamente, o React armazena um array de pares de state para cada componente. Ele também mantêm o índice do par atual, o qual é definido como `0` antes da renderização. A cada vez que você chama `useState`, o React lhe dá o próximo par de state e incrementa o índice. Você pode ler mais sobre esse mecanismo em [React Hooks: Não é Mágica, Apenas Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 
@@ -893,7 +893,7 @@ button {
 
 Isto é o que faz do state diferente de variáveis comuns que você pode declarar no topo de seu módulo. State não é atrelado a uma chamada de função em particular ou a um lugar no código, mas sim é "local" a um lugar específico na tela. Você renderizou dois componentes `<Gallery />`, então seus states são armazenados separadamente.
 
-Perceba também como o componente `Page` não "sabe" nada sobre o state de `Gallery` ou se até ele tem algum. Diferentemente das props, **o state é completamente privado ao componente declarando-o.** O componente pai não pode alterá-lo. Isso permite que você adicione sate a qualquer componente ou remova-o sem impactar o restante dos componentes.
+Perceba também como o componente `Page` não "sabe" nada sobre o state de `Gallery` ou se até ele tem algum. Diferentemente das props, **o state é completamente privado ao componente que o declara.** O componente pai não pode alterá-lo. Isso permite que você adicione state a qualquer componente ou remova-o sem impactar o restante dos componentes.
 
 E se você quisesse que ambas as galerias mantivessem seus states sincronizados? A maneira correta de fazer isso em React se dá por meio da *remoção* do state dos componentes filhos e armazenando-o no componente pai comum mais próximo a eles. As próximas páginas focarão na organização do state de um único componente, mas nós iremos voltar a este assunto em [Compartilhando State Entre Componentes.](/learn/sharing-state-between-components)
 
@@ -901,10 +901,10 @@ E se você quisesse que ambas as galerias mantivessem seus states sincronizados?
 
 * Use uma variável de state quando um componente precisa "lembrar" de alguma informação entre renderizações.
 * Variáveis de state são declaradas chamando o Hook `useState`.
-* Hooks são funções especiais que começas com `use`. Eles permitem que você "se conecte" a recursos do React como state.
+* Hooks são funções especiais que começam com `use`. Eles permitem que você "se conecte" a recursos do React como o state.
 * Hooks podem lembrá-lo de importações: eles precisam se chamados incondicionalmente. Chamar Hooks, incluindo `useState`, só é válido no nível do topo de um componente ou em outro Hook.
-* O Hook `useState` retorna um par de valores: o state atual e a função para o atualizar.
-* Você pode ter mais de uma variáveis de state. Internamente, o React as combina por sua ordem.
+* O Hook `useState` retorna um par de valores: o state atual e a função para atualizá-lo.
+* Você pode ter mais de uma variável de state. Internamente, o React as combina por sua ordem.
 * State é privado ao componente. Se você o renderizar em dois lugares, cada cópia recebe seu próprio state.
 
 </Recap>
@@ -1225,7 +1225,7 @@ Note como `hasPrev` e `hasNext` são usados para *ambos* a JSX retornada e dentr
 
 #### Corrigir entradas de formulário travadas {/*fix-stuck-form-inputs*/}
 
-Quando você digita nos campos de entrada, nada aparece. É como se os valores de entrada estivessem "presos" com strings vazias. O `value` do primeiro `<input>` é definido para sempre corresponder à variável `lastName`. Isso está correto. Ambas as entradas possuem manipuladores de evento `onChange`, os quais tentam atualizar as variáveis baseados na entrada de usuário mais recente (`e.target.value`). Entretanto, as variáveis não parecem se "lembrar" de seus valores entre re-renderizações. Conserte isso usando variáveis de state como alternativa.
+Quando você digita nos campos de entrada, nada aparece. É como se os valores de entrada estivessem "presos" com strings vazias. O `value` do primeiro `<input>` é definido para sempre corresponder à variável `lastName`. Isso está correto. Ambas as entradas possuem manipuladores de evento `onChange`, os quais tentam atualizar as variáveis baseados na entrada mais recente do usuário (`e.target.value`). Entretanto, as variáveis não parecem se "lembrar" de seus valores entre re-renderizações. Conserte isso usando variáveis de state como alternativa.
 
 <Sandpack>
 
@@ -1274,7 +1274,7 @@ h1 { margin-top: 10px; }
 
 <Solution>
 
-Primeiramente, importe `useState` a partir do React. Então substitua `firstName` e `lastName` com variáveis de state declaradas chamando `useState`. Por fim, substitua todas as atribuições `firstName = ...` com `setFirstName(...)`, e faça o mesmo para `lastName`. Não se esqueça de atualizar `handleReset` também para que o botão de redefinição (Reset) funcione.
+Primeiramente, importe `useState` a partir do React. Então substitua `firstName` e `lastName` com variáveis de state declaradas chamando `useState`. Por fim, substitua todas as atribuições `firstName = ...` com `setFirstName(...)`, e faça o mesmo para `lastName`. Não se esqueça de também atualizar `handleReset` para que o botão de redefinição (Reset) funcione.
 
 <Sandpack>
 
@@ -1331,7 +1331,7 @@ Aqui está um pequeno formulário o qual supostamente deve permitir que o usuár
 
 <Hint>
 
-Existem quaisquer limitações sobre _onde_ Hooks podem ser chamados? Esse componente quebra alguma das regras? Cheque se existem quaisquer comentários desabilitando checagens do linter--é aqui que bugs geralmente se escondem!
+Existem quaisquer limitações sobre _onde_ Hooks podem ser chamados? Esse componente quebra alguma das regras? Cheque se existem quaisquer comentários desabilitando checagens do *linter*--é aqui que bugs geralmente se escondem!
 
 </Hint>
 
@@ -1446,13 +1446,13 @@ export default function FeedbackForm() {
 
 Tente mover a segunda chamada `useState` depois da condição `if` e note como isto quebra novamente.
 
-Se seu linter está [configurado para React](/learn/editor-setup#linting), você deve ver um erro de lint quando faz um erro como esse. Se você não vê um erro quando tenta código falho localmente, você precisa configurar linting para o seu projeto.
+Se seu *linter* está [configurado para React](/learn/editor-setup#linting), você deve ver um erro de *lint* quando faz um erro como esse. Se você não vê um erro quando tenta código falho localmente, você precisa configurar *linting* para o seu projeto.
 
 </Solution>
 
 #### Remova state desnecessário {/*remove-unnecessary-state*/}
 
-Quando o botão é clicado, esse exemplo deve perguntar pelo nome do usuário e então exibir um alerta cumprimentando-o. Você tentou usa state para manter o nome, mas por alguma razão ele sempre mostra "Hello, !".
+Quando o botão é clicado, esse exemplo deve perguntar pelo nome do usuário e então exibir um alerta cumprimentando-o. Você tentou usar state para manter o nome, mas por alguma razão ele sempre mostra "Hello, !".
 
 Para consertar esse código, remova a variável de state desnecessária. (Nós discutiremos sobre [por que isso não funcionou](/learn/state-as-a-snapshot) mais tarde.)
 
