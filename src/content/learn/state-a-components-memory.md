@@ -1370,7 +1370,7 @@ export default function FeedbackForm() {
 
 <Solution>
 
-Hooks só podem ser chamados no nível do topo de uma função de componente. Aqui, a primeira definição `isSente` segue esta regra, mas a definição de `message` é aninhada em uma condição.
+Hooks só podem ser chamados no nível do topo de uma função de componente. Aqui, a primeira definição `isSent` segue esta regra, mas a definição de `message` é aninhada em uma condição.
 
 Mova-a para fora da condição para consertar o problema:
 
