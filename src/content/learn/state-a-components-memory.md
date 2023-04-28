@@ -159,7 +159,7 @@ O manipulador de eventos `handleClick` está atualizando a variável local, `ind
 Para atualizar um componente com novos dados, duas coisas precisam acontecer:
 
 1. **Reter** os dados entre renderizações.
-2. **Acionar** o React para renderizar o componente com os novos dados (re-renderização).
+2. **Acionar** o React para renderizar o componente com os novos dados (rerrenderização).
 
 O Hook [`useState`](/reference/react/useState) provê essas duas coisas:
 
@@ -1225,7 +1225,7 @@ Note como `hasPrev` e `hasNext` são usados para *ambos* a JSX retornada e dentr
 
 #### Corrigir entradas de formulário travadas {/*fix-stuck-form-inputs*/}
 
-Quando você digita nos campos de entrada, nada aparece. É como se os valores de entrada estivessem "presos" com strings vazias. O `value` do primeiro `<input>` é definido para sempre corresponder à variável `lastName`. Isso está correto. Ambas as entradas possuem manipuladores de evento `onChange`, os quais tentam atualizar as variáveis baseados na entrada mais recente do usuário (`e.target.value`). Entretanto, as variáveis não parecem se "lembrar" de seus valores entre re-renderizações. Conserte isso usando variáveis de state como alternativa.
+Quando você digita nos campos de entrada, nada aparece. É como se os valores de entrada estivessem "presos" com strings vazias. O `value` do primeiro `<input>` é definido para sempre corresponder à variável `lastName`. Isso está correto. Ambas as entradas possuem manipuladores de evento `onChange`, os quais tentam atualizar as variáveis baseados na entrada mais recente do usuário (`e.target.value`). Entretanto, as variáveis não parecem se "lembrar" de seus valores entre rerrenderizações. Conserte isso usando variáveis de state como alternativa.
 
 <Sandpack>
 
@@ -1506,7 +1506,7 @@ export default function FeedbackForm() {
 
 </Sandpack>
 
-A variável de state só é necessária para manter informação entre re-renderizações de um componente. Dentre um único manipulador de evento, uma variável comum cairá bem. Não introduza variáveis de state quando uma variável comum funciona perfeitamente.
+A variável de state só é necessária para manter informação entre rerrenderizações de um componente. Dentre um único manipulador de evento, uma variável comum cairá bem. Não introduza variáveis de state quando uma variável comum funciona perfeitamente.
 
 </Solution>
 
