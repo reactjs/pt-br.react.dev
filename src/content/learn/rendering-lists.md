@@ -93,7 +93,7 @@ Aviso: Cada filho em uma lista deve haver uma prop "key" única.
 
 </ConsoleBlock>
 
-Você aprenderá como consertar este erro mais tarde nessa página.
+Mais tarde nesta página, você aprenderá como corrigir este erro.
 Antes de chegarmos nisto, vamos adicionar alguma estrutura aos seus dados.
 
 ## Filtrando arrays de itens {/*filtering-arrays-of-items*/}
