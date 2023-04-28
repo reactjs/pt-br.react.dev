@@ -915,7 +915,7 @@ E se você quisesse que ambas as galerias mantivessem seus states sincronizados?
 
 #### Complete a galeria {/*complete-the-gallery*/}
 
-Quando você pressionar "Next" na última escultura, o código falha. Conserte a lógica para prevenir a falha. Você pode fazer isso adicionado lógico extra ao manipulador de eventos ou desabilitando o botão quando a ação não é possível.
+Quando você pressionar "Next" na última escultura, o código falha. Conserte a lógica para prevenir a falha. Você pode fazer isso adicionado lógica extra ao manipulador de eventos ou desabilitando o botão quando a ação não é possível.
 
 Após consertar a falha, adicione um botão "Previous" que mostra a escultura anterior. Ele não deve falhar na primeira escultura.
 
