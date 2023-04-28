@@ -4,7 +4,7 @@ title: Renderizando Listas
 
 <Intro>
 
-É comum a necessidade de exibir vários componentes semelhantes a partir de uma coleção de dados. Você pode usar os [métodos de array JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) para manipular um array de dados. Nesta página, você usará [`filter()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) e [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) com o React para filtrar e transformar seu array de dados em um array de componentes.
+É comum a necessidade de se exibir vários componentes semelhantes a partir de uma coleção de dados. Você pode usar os [métodos de array JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) para manipular um array de dados. Nessa página, você usará [`filter()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) e [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) com o React para filtrar e transformar seu array de dados em um array de componentes.
 
 </Intro>
 
@@ -12,13 +12,13 @@ title: Renderizando Listas
 
 * Como renderizar componentes a partir de um array usando `map()` do JavaScript
 * Como renderizar apenas componentes específicos usando `filter()` do JavaScript
-* Quando e porque usar as keys do React
+* Quando e por que usar as keys do React
 
 </YouWillLearn>
 
 ## Renderizando dados de arrays {/*rendering-data-from-arrays*/}
 
-Digamos que você tenha uma lista de conteúdo.
+Digamos que você tenha uma lista de informações.
 
 ```js
 <ul>
@@ -30,7 +30,7 @@ Digamos que você tenha uma lista de conteúdo.
 </ul>
 ```
 
-As únicas diferenças entre os itens da lista são seus conteúdos, seus dados. Você comumente precisará exibir diversas instâncias do mesmo componente usando diferentes dados ao construir interfaces: de listas de comentários a galerias de fotos de perfil. Nessas situações, você pode armazenar esses dados em objetos ou arrays JavaScript e usar métodos como [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) e [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) para renderizar listas de componentes a partir deles.
+As únicas diferenças entre os itens da lista são seus conteúdos, seus dados. Você comumente precisará exibir diversas instâncias do mesmo componente usando dados diferentes ao construir interfaces: de listas de comentários a galerias de fotos de perfil. Nestas situações, você pode armazenar esses dados em objetos ou arrays JavaScript e usar métodos como [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) e [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) para renderizar listas de componentes a partir deles.
 
 Aqui está um breve exemplo de como gerar uma lista de itens a partir de um array:
 
@@ -58,7 +58,7 @@ const listItems = people.map(person => <li>{person}</li>);
 return <ul>{listItems}</ul>;
 ```
 
-Aqui está o resultado:
+Esse é o resultado:
 
 <Sandpack>
 
@@ -85,7 +85,7 @@ li { margin-bottom: 10px; }
 
 </Sandpack>
 
-Perceba que a sandbox acima exibe um erro no console:
+Perceba que a *sandbox* acima exibe um erro no *console*:
 
 <ConsoleBlock level="error">
 
@@ -93,8 +93,8 @@ Aviso: Cada filho em uma lista deve haver uma prop "key" única.
 
 </ConsoleBlock>
 
-Mais tarde nesta página, você aprenderá como corrigir este erro.
-Antes de chegarmos nisto, vamos adicionar alguma estrutura aos seus dados.
+Mais tarde nessa página, você aprenderá como corrigir este erro.
+Antes de chegarmos nisto, vamos estruturar os seus dados um pouco mais.
 
 ## Filtrando arrays de itens {/*filtering-arrays-of-items*/}
 
@@ -122,11 +122,11 @@ const people = [{
 }];
 ```
 
-Digamos que você queira exibir somente as pessoas cuja profissão é `'chemist'`. Você pode usar o método `filter()` do JavaScript para retornar apenas essas pessoas. Esse método recebe um array de itens, que são submetidos a um “teste” (uma função que retorna `true` ou `false`), e retorna um novo array contendo apenas aqueles itens os quais passaram no teste (retornaram `true`).
+Vamos supor que você queira exibir somente as pessoas cuja profissão seja `'chemist'`. Neste caso, voce pode usar o método `filter()` do JavaScript para retornar apenas essas pessoas. Este método recebe um array de itens, os quais são submetidos a um “teste” (uma função que retorna `true` ou `false`), e retorna um novo array contendo apenas aqueles itens os quais passaram no teste (retornaram `true`).
 
-Você quer apenas os itens onde `profession` seja `'chemist'`. A função "teste" para isso se parece com `(person) => person.profession === 'chemist'`. Aqui está como juntar tudo isso:
+Você quer apenas os itens onde `profession` seja `'chemist'`. A função "teste" para isto ficaria assim `(person) => person.profession === 'chemist'`. Veja como juntar tudo isso:
 
-1. **Crie** um novo array de apenas pessoas “chemist”, `chemists`, chamando `filter()` em `people` e filtrando por `person.profession === 'chemist'`:
+1. **Crie** um novo array contendo apenas pessoas cuja profissão é “chemist”, `chemists`, chamando `filter()` em `people` e filtrando por `person.profession === 'chemist'`:
 
 ```js
 const chemists = people.filter(person =>
@@ -261,21 +261,21 @@ const listItems = chemists.map(person => { // Chave
 });
 ```
 
-Arrow functions contendo `=> {` são ditas como havendo um ["corpo de bloco".](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) Elas deixam com que você escreva mais de uma linha de código, mas você *precisa* escrever uma declaração `return` você mesmo. Caso esquecida, nada é retornado!
+Nos referimos a arrow functions que contenham `=> {` em seu início como possuindo um ["corpo em bloco".](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) Elas deixam com que você escreva mais de uma linha de código, mas você *precisa* incluir uma declaração `return` manualmente. Caso esquecida, nada é retornado!
 
 </Pitfall>
 
 ## Mantendo itens em ordem com `key` {/*keeping-list-items-in-order-with-key*/}
 
-Perceba que todas as sandboxes acima exibem um erro no console:
+Perceba que todas as *sandboxes* acima exibem um erro no *console*:
 
 <ConsoleBlock level="error">
 
-Aviso: Cada filho em uma lista deve haver uma prop "key" única.
+Aviso: Cada filho em uma lista deve ter uma prop "key" única.
 
 </ConsoleBlock>
 
-Você precisa dar a cada item do array uma `key` -- uma string ou um número o qual o identifica unicamente dentre os demais itens naquele array:
+Você precisa dar a cada item do array uma `key` -- uma string ou um número que o identifique unicamente dentre os demais itens naquele array:
 
 ```js
 <li key={person.id}>...</li>
@@ -283,13 +283,13 @@ Você precisa dar a cada item do array uma `key` -- uma string ou um número o q
 
 <Note>
 
-Elementos JSX diretamente dentro de um chamado `map()` sempre precisam de keys!
+Elementos JSX retornados por um chamado `map()` sempre precisam de keys!
 
 </Note>
 
-Keys dizem ao React a qual item do array cada componente corresponde, para que ele possa combiná-los mais tarde. Isso se torna importante se os itens do seu array podem se mover (ex. por ser ordenado), serem inseridos, ou serem removidos. Uma `key` bem escolhida ajuda o React a inferir o que exatamente aconteceu, e fazer as atualizações corretas à árvore da DOM.
+Keys dizem ao React a qual item do array cada componente corresponde, para que ele possa combiná-los mais tarde. Isso se torna importante se os itens do seu array podem se mover (por exemplo, ao ser ordenado), serem inseridos, ou serem removidos. Uma `key` bem escolhida ajuda o React a inferir o que exatamente aconteceu, e fazer as atualizações corretas à árvore da DOM.
 
-Ao invés de gerar keys em tempo real, você deve incluí-las em seus dados:
+Em vez de gerar keys em tempo real, você deve incluí-las em seus dados:
 
 <Sandpack>
 
@@ -379,7 +379,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 O que fazer quando cada item precisa renderizar não um, mas múltiplos nós da DOM?
 
-O atalho de sintaxe [`<>...</>` Fragment](/reference/react/Fragment) não deixará com que você passe uma key, então você precisa agrupá-los em uma única `<div>`, ou então usar a levemente mais longa e [mais explícita sintaxe `<Fragment>`:](/reference/react/Fragment#rendering-a-list-of-fragments)
+A sintaxe abreviada [`<>...</>` Fragment](/reference/react/Fragment) não deixará com que você passe uma key, por conta disto você precisa agrupá-los em uma única `<div>`, ou então usar a um pouco mais longa e [mais explícita sintaxe `<Fragment>`:](/reference/react/Fragment#rendering-a-list-of-fragments)
 
 ```js
 import { Fragment } from 'react';
@@ -400,27 +400,27 @@ Fragmentos desaparecem da DOM, então isto irá produzir uma lista plana de `<h1
 
 ### Onde conseguir sua `key` {/*where-to-get-your-key*/}
 
-Diferentes fontes de dados fornecem diferentes fontes de keys:
+As chaves podem vir de diferentes fontes de dados:
 
 * **Dados de uma base de dados:** Se seus dados estão vindo de uma base de dados, você pode usar as keys/IDs desta, os quais são únicos por natureza.
-* **Dados gerados localmente:** Se seus dados são gerados e persistidos localmente (ex. anotações em um aplicativo de notas), use um contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Crypto/randomUUID) ou um pacote como [`uuid`](https://www.npmjs.com/package/uuid) ao criar itens.
+* **Dados gerados localmente:** Se seus dados são gerados e persistidos localmente (por exemplo, anotações em um aplicativo de notas), use um contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Crypto/randomUUID) ou um pacote como [`uuid`](https://www.npmjs.com/package/uuid) ao criar itens.
 
 ### Regras das keys {/*rules-of-keys*/}
 
-* **Keys devem ser únicas dentre suas irmãs.** Entretanto, é tranquilo usar a mesma keys para nós JS em arrays *diferentes*.
-* **Keys não devem mudar** ou isso derrota seu propósito! Não as gere durante a renderização. 
+* **Keys devem ser únicas entre suas irmãs.** Entretanto, é tranquilo usar as mesmas chaves para nós JSX em arrays *diferentes*.
+* **Keys não devem mudar** caso contrário, isso vai contra o seu propósito! Não as gere durante a renderização. 
 
 ### Por que o React precisa de keys? {/*why-does-react-need-keys*/}
 
-Imagine que os arquivos em sua área de trabalho não tivessem nomes. Em vez disso, você se referiria a eles por meio de sua ordem -- o primeiro arquivo, o segundo arquivo, e assim por diante. Você poderia se acostumar com isto, porém uma vez que você exclua um arquivo, isto iria ficar confuso. O segundo arquivo se tornaria o primeiro, o terceiro arquivo se tornaria o segundo e assim por diante.
+Imagine que os arquivos em sua área de trabalho não tivessem nomes. Em vez disso, você teria que se referir a eles pela sua ordem -- o primeiro arquivo, o segundo arquivo, e assim por diante. Isto poderia funcionar em um primeiro momento, porém uma vez que você exclua um arquivo, as coisas iriam ficar confusas. O segundo arquivo se tornaria o primeiro, o terceiro arquivo se tornaria o segundo e assim por diante.
 
-Nomes de arquivo em uma pasta e keys JSX em um array servem um propósito similar. Eles deixam com que nós identifiquemos unicamente um item entre seus irmãos. Um chave bem escolhida fornece mais informação que a posição dentro do array. Mesmo que a *posição* mude por conta de uma reordenação, a `key` permite que o React identifique o item durante seu ciclo de vida.
+Nomes de arquivo em uma pasta e keys JSX em um array servem um propósito similar. Eles permitem com que nós identifiquemos unicamente um item entre seus irmãos. Uma key bem escolhida fornece mais informação que uma posição dentro do array. Mesmo que a *posição* mude por conta de uma reordenação, a `key` permite que o React identifique o item durante seu ciclo de vida.
 
 <Pitfall>
 
-Você pode estar tentado a usar o índice de um item no array como sua key. De fato, isto é o que o React irá utilizar caso você não especifique uma `key`. Entretanto, a ordem em que você renderiza os itens irá mudar conforme o tempo caso um item seja inserido, excluído, ou se o array for reordenado. Usar índice como key por muitas vezes leva a bugs sutis e confusos.
+Você pode ser tentado a usar o índice de um item no array como sua key. De fato, isto é o que o React irá utilizar caso você não especifique uma `key`. Entretanto, a ordem em que você renderiza os itens irá mudar conforme o tempo caso um item seja inserido, excluído, ou se o array for reordenado. Usar índices como key por muitas vezes leva a bugs sutis e confusos.
 
-Similarmente, não gere keys em tempo real, por exemplo com `key={Math.random()}`. Isso fará com que as keys nunca sejam iguais entre renderizações, ocasionando com que todos os seus componentes e DOM sejam recriados a cada vez. Isso não somente é lento, mas além disso perde qualquer entrada do usuário dentro dos elementos da lista. Em vez disso, use um ID estável baseado em dados.
+Da mesma forma, não gere keys em tempo real, por exemplo com `key={Math.random()}`. Isso fará com que as keys nunca sejam iguais nas renderizações subsequentes, ocasionando com que todos os seus componentes e DOM sejam recriados a cada vez. Isso não somente é lento, mas também perde qualquer entrada do usuário dentro dos elementos da lista. Em vez disso, use um ID estável baseado em dados.
 
 Note que os seus componentes não receberão `key` como uma prop. Esta só é usada como uma dica pelo próprio React. Se o seu componente precisa de um ID, você deve passá-lo como uma prop separada: `<Profile key={id} userId={id} />`.
 
@@ -443,7 +443,7 @@ Nessa página você aprendeu:
 
 Esse exemplo mostra uma lista de todas as pessoas.
 
-Altere-o para exibir duas listas separadas uma após a outra: **Químicos*** e **Qualquer Outro.** Como antes, você pode determinar se uma pessoa é química checando se `person.profession === 'chemist'`.
+Altere-o para exibir duas listas separadas uma após a outra: **Químicos*** e **Outras Profissões.** Como antes, você pode determinar se uma pessoa tem "químico" como profissão checando se `person.profession === 'chemist'`.
 
 <Sandpack>
 
@@ -647,7 +647,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-Nesta solução, as chamadas `map` são postas diretamente em linha nos elementos `<ul>` pai, mas você pode introduzir variáveis para elas se você considerar isso mais legível.
+Nesta solução, as chamadas `map` são colocadas diretamente em linha nos elementos `<ul>` pai, mas você pode introduzir variáveis para elas se você considerar isso mais legível.
 
 Ainda há um pouco de duplicação entre as listas renderizadas. Você pode ir além e extrair as partes repetitivas em um componente `<ListSection>`:
 
@@ -761,7 +761,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-Um leitor atencioso pode notas que com duas chamadas ao `filter`, nós checamos a profissão de cada pessoa duas vezes. Checar uma propriedade é muito rápido, então nesse exemplo não há problema. Se sua lógica for mais cara que isso, você pode substituir as chamadas ao `filter` por um loop o qual manualmente constrói os arrays e checa cada pessoa uma vez.
+Um leitor atencioso pode notar que com duas chamadas de `filter`, nós checamos a profissão de cada pessoa duas vezes. Checar uma propriedade é muito rápido, então nesse exemplo não há problema. Se sua lógica for mais complexa que isso, você pode substituir as chamadas de `filter` por um loop o qual constrói manualmente os arrays e checa cada pessoa uma vez.
 
 De fato, se `people` nunca mudar, você pode mover esse código para fora de seu componente. Da perspectiva do React, tudo o que importa é que você o dê um array de nós JSX no fim das contas. Ele não se importa sobre como você produziu esse array:
 
@@ -887,7 +887,7 @@ Faça uma lista de receitas a partir desse array! Para cada receita no array, ex
 
 <Hint>
 
-Isto irá requerir que você aninhe duas chamadas ao `map`. 
+Para fazer isto, você precisará realizar duas chamadas ao `map` aninhadas. 
 
 </Hint>
 
@@ -925,7 +925,7 @@ export const recipes = [{
 
 <Solution>
 
-Aqui está um caminho que você poderia seguir:
+Você poderia seguir esse caminho:
 
 <Sandpack>
 
@@ -971,13 +971,13 @@ export const recipes = [{
 
 </Sandpack>
 
-Cada uma das `recipes` já inclui um campo `id`, então é isso que o loop exterior usa como sua `key`. Não ha ID que você possa usar para iterar sobre os ingredientes. Entretanto, é razoável assumir que o mesmo ingrediente são será listado duas vezes na mesma receita, então seu nome pode servir como uma `key`. Alternativamente, você pode mudar a estrutura dos dados para adicionar IDs, ou usar o índice como uma `key` (com a exceção de que você não pode seguramente reordenar ingredientes).
+Cada uma das `recipes` já inclui um campo `id`, então é isso que o loop externo usa como sua `key`. Não ha ID que você possa usar para iterar sobre os ingredientes. Entretanto, podemos assumir que o mesmo ingrediente são será listado duas vezes na mesma receita, então seu nome pode servir como uma `key`. Alternativamente, você pode mudar a estrutura dos dados para adicionar IDs, ou usar o índice como uma `key` (com a exceção de que você não pode seguramente reordenar ingredientes).
 
 </Solution>
 
 #### Extraindo um componente de uma lista de items {/*extracting-a-list-item-component*/}
 
-Esse componente `RecipeList` contêm duas chamadas ao `map` aninhadas. Simplificando, extraia um componente `Recipe` dele o qual irá aceitar as props `id`, `name`, e `ingredients`. Onde você põe a `key` mais externa e por que?
+Esse componente `RecipeList` contêm duas chamadas ao `map` aninhadas. Simplificando, extraia um componente `Recipe` dele o qual irá aceitar as props `id`, `name`, e `ingredients`. Onde você coloca a `key` externa e por que?
 
 <Sandpack>
 
@@ -1077,7 +1077,7 @@ export const recipes = [{
 
 </Sandpack>
 
-Aqui, `<Recipe {...recipe} key={recipe.id} />` é um atalho de sintaxe dizendo "passe todas as propriedades do objeto `recipe` como props para o componente `Recipe`". Você também pode escrever para prop explicitamente: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
+Aqui, `<Recipe {...recipe} key={recipe.id} />` é um atalho de sintaxe dizendo "passe todas as propriedades do objeto `recipe` como props para o componente `Recipe`". Você também pode escrever cada prop explicitamente: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
 
 **Note que a `key` é especificada no `<Recipe>` propriamente dito ao invés de na `div` raiz retornada por `Recipe`.** Isso se deve ao fato de que essa `key` é diretamente necessária dentro do contexto do array circundante. Anteriormente, você tinha um array de `<div>`s então cada uma delas precisava de uma `key`, mas agora você tem um array de `<Recipe>`s. Em outras palavras, quando você extrai um componente, não se esqueça de deixar a `key` fora da JSX que você copia e cola.
 
