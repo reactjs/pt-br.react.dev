@@ -186,7 +186,7 @@ com
 const [index, setIndex] = useState(0);
 ```
 
-`index`é uma variável de estado e `setIndex` é a função de definição.
+`index` é uma variável de estado e `setIndex` é a função de definição.
 
 > A sintaxe `[` e `]` aqui é chamada de [desestruturação de array](https://javascript.info/destructuring-assignment) e ela permite com que você leia valores de um array. O array retornado pelo `useState` sempre tem exatamente dois itens.
 
