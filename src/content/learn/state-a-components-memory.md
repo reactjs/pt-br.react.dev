@@ -4,7 +4,7 @@ title: "State: A Memória de um Componente"
 
 <Intro>
 
-Componentes comumente precisam mudar o que está na tela como resultado de uma interação. Digitar em um formulário deve atualizar o campo de entrada, clicar em "próximo" em um carrossel de imagens deve mudar qual imagem é exibida, clicas em "comprar" deve colocar um produto no carrinho. Componentes precisam "lembrar" de coisas: o valor de entrada atual, a imagem atual, o carrinho de comprar. Em React, esse tipo de memória componente-específica é chamado de *state*.
+Componentes comumente precisam mudar o que está na tela como resultado de uma interação. Digitar em um formulário deve atualizar o campo de entrada, clicar em "próximo" em um carrossel de imagens deve mudar qual imagem é exibida, clicar em "comprar" deve colocar um produto no carrinho. Componentes precisam "lembrar" de coisas: o valor de entrada atual, a imagem atual, o carrinho de compras. Em React, esse tipo de memória componente-específica é chamado de *state*.
 
 </Intro>
 
