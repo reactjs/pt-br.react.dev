@@ -11,7 +11,7 @@ Componentes comumente precisam mudar o que está na tela como resultado de uma i
 <YouWillLearn>
 
 * Como adicionar uma variável de state com o Hook [`useState`](/reference/react/useState)
-* Que par de valores o Hook `useState` retorna
+* Qual o par de valores retornado pelo Hook `useState`
 * Como adicionar mais de uma variável de state
 * Por que o state é chamado de local
 
