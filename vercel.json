@@ -12,7 +12,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev",
+      "destination": "https://pt-br.react.dev",
       "permanent": true
     },
     {
@@ -23,7 +23,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/learn/add-react-to-an-existing-project",
+      "destination": "https://pt-br.react.dev/learn/add-react-to-an-existing-project",
       "permanent": true
     },
     {
@@ -34,7 +34,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/learn/start-a-new-react-project",
+      "destination": "https://pt-br.react.dev/learn/start-a-new-react-project",
       "permanent": true
     },
     {
@@ -45,7 +45,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/community/versioning-policy",
+      "destination": "https://pt-br.react.dev/community/versioning-policy",
       "permanent": true
     },
     {
@@ -56,7 +56,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/learn/thinking-in-react",
+      "destination": "https://pt-br.react.dev/learn/thinking-in-react",
       "permanent": true
     },
     {
@@ -67,7 +67,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/learn/tutorial-tic-tac-toe",
+      "destination": "https://pt-br.react.dev/learn/tutorial-tic-tac-toe",
       "permanent": true
     },
     {
@@ -78,7 +78,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/community",
+      "destination": "https://pt-br.react.dev/community",
       "permanent": true
     },
     {
@@ -89,7 +89,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/community/conferences",
+      "destination": "https://pt-br.react.dev/community/conferences",
       "permanent": true
     },
     {
@@ -100,7 +100,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/community/meetups",
+      "destination": "https://pt-br.react.dev/community/meetups",
       "permanent": true
     },
     {
@@ -111,7 +111,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/community/team",
+      "destination": "https://pt-br.react.dev/community/team",
       "permanent": true
     },
     {
@@ -122,7 +122,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/community/videos",
+      "destination": "https://pt-br.react.dev/community/videos",
       "permanent": true
     },
     {
@@ -133,7 +133,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022",
+      "destination": "https://pt-br.react.dev/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022",
       "permanent": true
     },
     {
@@ -144,7 +144,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/blog/2022/03/29/react-v18",
+      "destination": "https://pt-br.react.dev/blog/2022/03/29/react-v18",
       "permanent": true
     },
     {
@@ -155,7 +155,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/blog/2022/03/08/react-18-upgrade-guide",
+      "destination": "https://pt-br.react.dev/blog/2022/03/08/react-18-upgrade-guide",
       "permanent": true
     },
     {
@@ -166,7 +166,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/blog/2021/12/17/react-conf-2021-recap",
+      "destination": "https://pt-br.react.dev/blog/2021/12/17/react-conf-2021-recap",
       "permanent": true
     },
     {
@@ -177,7 +177,7 @@
           "value": "reactjs.org"
         }
       ],
-      "destination": "https://react.dev/blog/2021/06/08/the-plan-for-react-18",
+      "destination": "https://pt-br.react.dev/blog/2021/06/08/the-plan-for-react-18",
       "permanent": true
     },
     {
@@ -193,32 +193,32 @@
     },
     {
       "source": "/tips/controlled-input-null-value.html",
-      "destination": "https://react.dev/reference/react-dom/components/input#im-getting-an-error-a-component-is-changing-an-uncontrolled-input-to-be-controlled",
+      "destination": "https://pt-br.react.dev/reference/react-dom/components/input#im-getting-an-error-a-component-is-changing-an-uncontrolled-input-to-be-controlled",
       "permanent": false
     },
     {
       "source": "/link/switch-to-createroot",
-      "destination": "https://react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis",
+      "destination": "https://pt-br.react.dev/blog/2022/03/08/react-18-upgrade-guide#updates-to-client-rendering-apis",
       "permanent": false
     },
     {
       "source": "/server-components",
-      "destination": "https://react.dev/blog/2020/12/21/data-fetching-with-react-server-components",
+      "destination": "https://pt-br.react.dev/blog/2020/12/21/data-fetching-with-react-server-components",
       "permanent": true
     },
     {
       "source": "/concurrent",
-      "destination": "https://react.dev/blog/2022/03/29/react-v18",
+      "destination": "https://pt-br.react.dev/blog/2022/03/29/react-v18",
       "permanent": true
     },
     {
       "source": "/hooks",
-      "destination": "https://react.dev/reference/react",
+      "destination": "https://pt-br.react.dev/reference/react",
       "permanent": true
     },
     {
       "source": "/tutorial",
-      "destination": "https://react.dev/learn/tutorial-tic-tac-toe",
+      "destination": "https://pt-br.react.dev/learn/tutorial-tic-tac-toe",
       "permanent": true
     },
     {
@@ -238,7 +238,7 @@
     },
     {
       "source": "/link/controlled-components",
-      "destination": "https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable",
+      "destination": "https://pt-br.react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable",
       "permanent": false
     },
     {
@@ -248,7 +248,7 @@
     },
     {
       "source": "/link/dangerously-set-inner-html",
-      "destination": "https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html",
+      "destination": "https://pt-br.react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html",
       "permanent": false
     },
     {
@@ -258,27 +258,27 @@
     },
     {
       "source": "/link/error-boundaries",
-      "destination": "https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary",
+      "destination": "https://pt-br.react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary",
       "permanent": false
     },
     {
       "source": "/link/event-pooling",
-      "destination": "https://react.dev/reference/react/useEffect#fetching-data-with-effects",
+      "destination": "https://pt-br.react.dev/reference/react/useEffect#fetching-data-with-effects",
       "permanent": false
     },
     {
       "source": "/link/hooks-data-fetching",
-      "destination": "https://react.dev/reference/react/useEffect#fetching-data-with-effects",
+      "destination": "https://pt-br.react.dev/reference/react/useEffect#fetching-data-with-effects",
       "permanent": false
     },
     {
       "source": "/link/invalid-aria-props",
-      "destination": "https://react.dev/warnings/invalid-aria-prop",
+      "destination": "https://pt-br.react.dev/warnings/invalid-aria-prop",
       "permanent": false
     },
     {
       "source": "/link/invalid-hook-call",
-      "destination": "https://react.dev/warnings/invalid-hook-call-warning",
+      "destination": "https://pt-br.react.dev/warnings/invalid-hook-call-warning",
       "permanent": false
     },
     {
@@ -303,7 +303,7 @@
     },
     {
       "source": "/link/react-devtools",
-      "destination": "https://react.dev/learn/react-developer-tools",
+      "destination": "https://pt-br.react.dev/learn/react-developer-tools",
       "permanent": false
     },
     {
@@ -318,17 +318,17 @@
     },
     {
       "source": "/link/rules-of-hooks",
-      "destination": "https://react.dev/warnings/invalid-hook-call-warning",
+      "destination": "https://pt-br.react.dev/warnings/invalid-hook-call-warning",
       "permanent": false
     },
     {
       "source": "/link/special-props",
-      "destination": "https://react.dev/warnings/special-props",
+      "destination": "https://pt-br.react.dev/warnings/special-props",
       "permanent": false
     },
     {
       "source": "/link/strict-mode-find-node",
-      "destination": "https://react.dev/reference/react-dom/findDOMNode#alternatives",
+      "destination": "https://pt-br.react.dev/reference/react-dom/findDOMNode#alternatives",
       "permanent": false
     },
     {
@@ -343,7 +343,7 @@
     },
     {
       "source": "/link/warning-keys",
-      "destination": "https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key",
+      "destination": "https://pt-br.react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key",
       "permanent": false
     },
     {

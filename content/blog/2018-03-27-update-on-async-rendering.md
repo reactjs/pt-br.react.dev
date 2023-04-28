@@ -5,7 +5,7 @@ author: [bvaughn]
 
 <div class="scary">
 
-> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+> This blog site has been archived. Go to [react.dev/blog](https://pt-br.react.dev/blog) to see the recent posts.
 
 </div>
 
@@ -44,7 +44,7 @@ Saiba mais sobre este codemod no [post da versão 16.9.0.](https://reactjs.org/b
 
 <div class="scary">
 
-> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+> This blog site has been archived. Go to [react.dev/blog](https://pt-br.react.dev/blog) to see the recent posts.
 
 </div>
 

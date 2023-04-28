@@ -9,9 +9,9 @@ next: introducing-jsx.html
 <div class="scary">
 
 >
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 > 
-> See [Quick Start](https://react.dev/learn) for an introduction to React.
+> See [Quick Start](https://pt-br.react.dev/learn) for an introduction to React.
 
 </div>
 

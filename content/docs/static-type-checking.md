@@ -6,7 +6,7 @@ permalink: docs/static-type-checking.html
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
 > Check out [React TypeScript cheatsheet](https://react-typescript-cheatsheet.netlify.app/) for how to use React with TypeScript.
 

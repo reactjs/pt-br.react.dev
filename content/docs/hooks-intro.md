@@ -7,13 +7,13 @@ next: hooks-overview.html
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
 > These new documentation pages teach React with Hooks:
 >
-> - [Quick Start](https://react.dev/learn)
-> - [Tutorial](https://react.dev/learn/tutorial-tic-tac-toe)
-> - [`react`: Hooks](https://react.dev/reference/react)
+> - [Quick Start](https://pt-br.react.dev/learn)
+> - [Tutorial](https://pt-br.react.dev/learn/tutorial-tic-tac-toe)
+> - [`react`: Hooks](https://pt-br.react.dev/reference/react)
 
 </div>
 

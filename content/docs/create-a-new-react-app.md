@@ -11,9 +11,9 @@ next: cdn-links.html
 <div class="scary">
 
 >
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 > 
-> See [Start a New React Project](https://react.dev/learn/start-a-new-react-project) for the recommended ways to create an app.
+> See [Start a New React Project](https://pt-br.react.dev/learn/start-a-new-react-project) for the recommended ways to create an app.
 
 </div>
 

@@ -6,14 +6,14 @@ permalink: docs/integrating-with-other-libraries.html
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 > 
 > These new documentation pages teach modern React:
 >
 > - [`useSyncExternalStore`: Subscribing to an external store 
-](https://react.dev/reference/react/useSyncExternalStore#subscribing-to-an-external-store)
+](https://pt-br.react.dev/reference/react/useSyncExternalStore#subscribing-to-an-external-store)
 > - [`createPortal`: Rendering React components into non-React DOM nodes 
-](https://react.dev/reference/react-dom/createPortal#rendering-react-components-into-non-react-dom-nodes)
+](https://pt-br.react.dev/reference/react-dom/createPortal#rendering-react-components-into-non-react-dom-nodes)
 
 </div>
 

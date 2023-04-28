@@ -8,9 +8,9 @@ redirect_from:
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
-> See [Custom HTML elements](https://react.dev/reference/react-dom/components#custom-html-elements) in the new docs.
+> See [Custom HTML elements](https://pt-br.react.dev/reference/react-dom/components#custom-html-elements) in the new docs.
 >
 </div>
 

@@ -8,11 +8,11 @@ permalink: docs/profiler.html
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 > 
 > These new documentation pages teach modern React:
 >
-> - [`<Profiler>`](https://react.dev/reference/react/Profiler)
+> - [`<Profiler>`](https://pt-br.react.dev/reference/react/Profiler)
 
 </div>
 

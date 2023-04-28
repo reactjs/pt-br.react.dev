@@ -17,11 +17,11 @@ redirect_from:
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
 > These new documentation pages teach modern React:
 >
-> - [`React.Component`](https://react.dev/reference/react/Component)
+> - [`React.Component`](https://pt-br.react.dev/reference/react/Component)
 
 </div>
 

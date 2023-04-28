@@ -6,7 +6,7 @@ permalink: docs/strict-mode.html
 
 <div class="scary">
 
-> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://pt-br.react.dev/) para os novos documentos do React.
 >
 > Estas novas páginas de documentação ensinam React moderno e incluem exemplos ao vivo:
 >

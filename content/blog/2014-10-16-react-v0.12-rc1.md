@@ -5,7 +5,7 @@ author: [sebmarkbage]
 
 <div class="scary">
 
-> This blog site has been archived. Go to [react.dev/blog](https://react.dev/blog) to see the recent posts.
+> This blog site has been archived. Go to [react.dev/blog](https://pt-br.react.dev/blog) to see the recent posts.
 
 </div>
 

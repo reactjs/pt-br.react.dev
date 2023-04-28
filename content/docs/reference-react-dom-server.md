@@ -8,11 +8,11 @@ permalink: docs/react-dom-server.html
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
 > These new documentation pages teach modern React:
 >
-> - [`react-dom`: Server APIs](https://react.dev/reference/react-dom/server)
+> - [`react-dom`: Server APIs](https://pt-br.react.dev/reference/react-dom/server)
 
 </div>
 
@@ -50,7 +50,7 @@ Os métodos a seguir podem ser usados tanto em ambiente de servidor como de nave
 
 > This content is out of date.
 >
-> Read the new React documentation for [`renderToPipeableStream`](https://react.dev/reference/react-dom/server/renderToPipeableStream).
+> Read the new React documentation for [`renderToPipeableStream`](https://pt-br.react.dev/reference/react-dom/server/renderToPipeableStream).
 
 </div>
 
@@ -113,7 +113,7 @@ Veja a [lista completa de opções](https://github.com/facebook/react/blob/14c2b
 
 > This content is out of date.
 >
-> Read the new React documentation for [`renderToReadableStream`](https://react.dev/reference/react-dom/server/renderToReadableStream).
+> Read the new React documentation for [`renderToReadableStream`](https://pt-br.react.dev/reference/react-dom/server/renderToReadableStream).
 
 </div>
 
@@ -178,7 +178,7 @@ See the [full list of options](https://github.com/facebook/react/blob/14c2be8dac
 
 > This content is out of date.
 >
-> Read the new React documentation for [`renderToNodeStream`](https://react.dev/reference/react-dom/server/renderToNodeStream).
+> Read the new React documentation for [`renderToNodeStream`](https://pt-br.react.dev/reference/react-dom/server/renderToNodeStream).
 
 </div>
 
@@ -204,7 +204,7 @@ Se você chamar [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydratero
 
 > This content is out of date.
 >
-> Read the new React documentation for [`renderToStaticNodeStream`](https://react.dev/reference/react-dom/server/renderToStaticNodeStream).
+> Read the new React documentation for [`renderToStaticNodeStream`](https://pt-br.react.dev/reference/react-dom/server/renderToStaticNodeStream).
 
 </div>
 
@@ -232,7 +232,7 @@ If you plan to use React on the client to make the markup interactive, do not us
 
 > This content is out of date.
 >
-> Read the new React documentation for [`renderToString`](https://react.dev/reference/react-dom/server/renderToString).
+> Read the new React documentation for [`renderToString`](https://pt-br.react.dev/reference/react-dom/server/renderToString).
 
 </div>
 
@@ -258,7 +258,7 @@ Se você chamar [`ReactDOM.hydrateRoot()`](/docs/react-dom-client.html#hydratero
 
 > This content is out of date.
 >
-> Read the new React documentation for [`renderToStaticMarkup`](https://react.dev/reference/react-dom/server/renderToStaticMarkup).
+> Read the new React documentation for [`renderToStaticMarkup`](https://pt-br.react.dev/reference/react-dom/server/renderToStaticMarkup).
 
 </div>
 

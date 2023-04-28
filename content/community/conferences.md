@@ -10,9 +10,9 @@ redirect_from:
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
-> See the [Conferences](https://react.dev/community/conferences) page on the new site.
+> See the [Conferences](https://pt-br.react.dev/community/conferences) page on the new site.
 >
 </div>
 

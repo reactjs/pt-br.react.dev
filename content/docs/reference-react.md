@@ -15,14 +15,14 @@ redirect_from:
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
 > These new documentation pages teach modern React:
 >
-> - [`react`: Components](https://react.dev/reference/react/components)
-> - [`react`: Hooks](https://react.dev/reference/react/)
-> - [`react`: APIs](https://react.dev/reference/react/apis)
-> - [`react`: Legacy APIs](https://react.dev/reference/react/legacy)
+> - [`react`: Components](https://pt-br.react.dev/reference/react/components)
+> - [`react`: Hooks](https://pt-br.react.dev/reference/react/)
+> - [`react`: APIs](https://pt-br.react.dev/reference/react/apis)
+> - [`react`: Legacy APIs](https://pt-br.react.dev/reference/react/legacy)
 
 </div>
 
@@ -118,7 +118,7 @@ Os *Hooks* são uma novidade no React 16.8. Eles permitem que você utilize o es
 
 > This content is out of date.
 >
-> Read the new React documentation for [`Component`](https://react.dev/reference/react/Component).
+> Read the new React documentation for [`Component`](https://pt-br.react.dev/reference/react/Component).
 
 </div>
 
@@ -142,7 +142,7 @@ Consulte a [referência da *API* para React.Component](/docs/react-component.htm
 
 > This content is out of date.
 >
-> Read the new React documentation for [`PureComponent`](https://react.dev/reference/react/PureComponent).
+> Read the new React documentation for [`PureComponent`](https://pt-br.react.dev/reference/react/PureComponent).
 
 </div>
 
@@ -164,7 +164,7 @@ Se o método `render()` do seu componente React renderiza o mesmo resultado dado
 
 > This content is out of date.
 >
-> Read the new React documentation for [`memo`](https://react.dev/reference/react/memo).
+> Read the new React documentation for [`memo`](https://pt-br.react.dev/reference/react/memo).
 
 </div>
 
@@ -210,7 +210,7 @@ Este método existe somente como uma **[otimização de performance](/docs/optim
 
 > This content is out of date.
 >
-> Read the new React documentation for [`createElement`](https://react.dev/reference/react/createElement).
+> Read the new React documentation for [`createElement`](https://pt-br.react.dev/reference/react/createElement).
 
 </div>
 
@@ -234,7 +234,7 @@ Código escrito utilizando [JSX](/docs/introducing-jsx.html) será convertido pa
 
 > This content is out of date.
 >
-> Read the new React documentation for [`cloneElement`](https://react.dev/reference/react/cloneElement).
+> Read the new React documentation for [`cloneElement`](https://pt-br.react.dev/reference/react/cloneElement).
 
 </div>
 
@@ -266,7 +266,7 @@ Esta *API* foi introduzida como uma reposição ao `React.addons.cloneWithProps(
 
 > This content is out of date.
 >
-> Read the new React documentation for [`createFactory`](https://react.dev/reference/react/createFactory).
+> Read the new React documentation for [`createFactory`](https://pt-br.react.dev/reference/react/createFactory).
 
 </div>
 
@@ -288,7 +288,7 @@ Em geral você não invocará `React.createFactory()` diretamente se estiver uti
 
 > This content is out of date.
 >
-> Read the new React documentation for [`isValidElement`](https://react.dev/reference/react/isValidElement).
+> Read the new React documentation for [`isValidElement`](https://pt-br.react.dev/reference/react/isValidElement).
 
 </div>
 
@@ -306,7 +306,7 @@ Verifica se o objeto é um elemento React. Retorna `true` ou `false`.
 
 > This content is out of date.
 >
-> Read the new React documentation for [`Children`](https://react.dev/reference/react/Children).
+> Read the new React documentation for [`Children`](https://pt-br.react.dev/reference/react/Children).
 
 </div>
 
@@ -372,7 +372,7 @@ Retorna a estrutura de dados opaca `children` como um *flat array* com as chaves
 
 > This content is out of date.
 >
-> Read the new React documentation for [`Fragment`](https://react.dev/reference/react/Fragment).
+> Read the new React documentation for [`Fragment`](https://pt-br.react.dev/reference/react/Fragment).
 
 </div>
 
@@ -398,7 +398,7 @@ Você também pode usar ele com a forma abreviada `<></>`. Para mais informaçõ
 
 > This content is out of date.
 >
-> Read the new React documentation for [`createRef`](https://react.dev/reference/react/createRef).
+> Read the new React documentation for [`createRef`](https://pt-br.react.dev/reference/react/createRef).
 
 </div>
 
@@ -412,7 +412,7 @@ Você também pode usar ele com a forma abreviada `<></>`. Para mais informaçõ
 
 > This content is out of date.
 >
-> Read the new React documentation for [`forwardRef`](https://react.dev/reference/react/forwardRef).
+> Read the new React documentation for [`forwardRef`](https://pt-br.react.dev/reference/react/forwardRef).
 
 </div>
 
@@ -437,7 +437,7 @@ Para mais informações, veja [encaminhando *refs*](/docs/forwarding-refs.html).
 
 > This content is out of date.
 >
-> Read the new React documentation for [`lazy`](https://react.dev/reference/react/lazy).
+> Read the new React documentation for [`lazy`](https://pt-br.react.dev/reference/react/lazy).
 
 </div>
 
@@ -458,7 +458,7 @@ Note que renderizar componentes `lazy` requer que exista um componente `<React.S
 
 > This content is out of date.
 >
-> Read the new React documentation for [`Suspense`](https://react.dev/reference/react/Suspense).
+> Read the new React documentation for [`Suspense`](https://pt-br.react.dev/reference/react/Suspense).
 
 </div>
 
@@ -501,7 +501,7 @@ Os limites suspensos dependem de seus limites pais serem hidratados antes que po
 
 > This content is out of date.
 >
-> Read the new React documentation for [`startTransition`](https://react.dev/reference/react/startTransition).
+> Read the new React documentation for [`startTransition`](https://pt-br.react.dev/reference/react/startTransition).
 
 </div>
 

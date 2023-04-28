@@ -6,11 +6,11 @@ permalink: docs/error-boundaries.html
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 > 
 > These new documentation pages teach modern React:
 >
-> - [`React.Component`: Catching rendering errors with an error boundary](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
+> - [`React.Component`: Catching rendering errors with an error boundary](https://pt-br.react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
 
 </div>
 

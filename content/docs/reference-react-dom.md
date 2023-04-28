@@ -8,14 +8,14 @@ permalink: docs/react-dom.html
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
 > These new documentation pages teach modern React:
 >
-> - [`react-dom`: Components](https://react.dev/reference/react-dom/components)
-> - [`react-dom`: APIs](https://react.dev/reference/react-dom)
-> - [`react-dom`: Client APIs](https://react.dev/reference/react-dom/client)
-> - [`react-dom`: Server APIs](https://react.dev/reference/react-dom/server)
+> - [`react-dom`: Components](https://pt-br.react.dev/reference/react-dom/components)
+> - [`react-dom`: APIs](https://pt-br.react.dev/reference/react-dom)
+> - [`react-dom`: Client APIs](https://pt-br.react.dev/reference/react-dom/client)
+> - [`react-dom`: Server APIs](https://pt-br.react.dev/reference/react-dom/server)
 
 </div>
 
@@ -67,7 +67,7 @@ O React suporta todos os navegadores modernos, embora [alguns polyfills sejam ne
 
 > This content is out of date.
 >
-> Read the new React documentation for [`createPortal`](https://react.dev/reference/react-dom/createPortal).
+> Read the new React documentation for [`createPortal`](https://pt-br.react.dev/reference/react-dom/createPortal).
 
 </div>
 
@@ -83,7 +83,7 @@ Cria um portal. Os portais fornecem uma maneira de [processar filhos em um nó D
 
 > This content is out of date.
 >
-> Read the new React documentation for [`flushSync`](https://react.dev/reference/react-dom/flushSync).
+> Read the new React documentation for [`flushSync`](https://pt-br.react.dev/reference/react-dom/flushSync).
 
 </div>
 
@@ -118,7 +118,7 @@ flushSync(() => {
 
 > This content is out of date.
 >
-> Read the new React documentation for [`render`](https://react.dev/reference/react-dom/render).
+> Read the new React documentation for [`render`](https://pt-br.react.dev/reference/react-dom/render).
 
 </div>
 
@@ -156,7 +156,7 @@ Se a _callback_ opcional for fornecida, ela será executada depois do componente
 
 > This content is out of date.
 >
-> Read the new React documentation for [`hydrate`](https://react.dev/reference/react-dom/hydrate).
+> Read the new React documentation for [`hydrate`](https://pt-br.react.dev/reference/react-dom/hydrate).
 
 </div>
 
@@ -186,7 +186,7 @@ Lembre-se de estar atento à experiência de usuário em conexões lentas. O có
 
 > This content is out of date.
 >
-> Read the new React documentation for [`unmountComponentAtNode`](https://react.dev/reference/react-dom/unmountComponentAtNode).
+> Read the new React documentation for [`unmountComponentAtNode`](https://pt-br.react.dev/reference/react-dom/unmountComponentAtNode).
 
 </div>
 
@@ -208,7 +208,7 @@ Remove a mounted React component from the DOM and clean up its event handlers an
 
 > This content is out of date.
 >
-> Read the new React documentation for [`findDOMNode`](https://react.dev/reference/react-dom/findDOMNode).
+> Read the new React documentation for [`findDOMNode`](https://pt-br.react.dev/reference/react-dom/findDOMNode).
 
 </div>
 

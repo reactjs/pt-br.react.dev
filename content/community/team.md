@@ -9,9 +9,9 @@ permalink: community/team.html
 <div class="scary">
 
 >
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 > 
-> See the [Team](https://react.dev/community/team) page on the new site.
+> See the [Team](https://pt-br.react.dev/community/team) page on the new site.
 
 </div>
 

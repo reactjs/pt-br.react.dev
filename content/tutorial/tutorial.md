@@ -14,7 +14,7 @@ redirect_from:
 
 <div class="scary">
 
-> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://react.dev/) para os novos documentos do React.
+> Esses documentos são antigos e não serão atualizados. Vá para [react.dev](https://pt-br.react.dev/) para os novos documentos do React.
 >
 > O [Tutorial](https://beta.reactjs.org/learn/tutorial-tic-tac-toe) atualizado ensina React moderno e inclui exemplos ao vivo.
 

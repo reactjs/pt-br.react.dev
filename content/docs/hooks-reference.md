@@ -8,11 +8,11 @@ next: hooks-faq.html
 
 <div class="scary">
 
-> These docs are old and won't be updated. Go to [react.dev](https://react.dev/) for the new React docs.
+> These docs are old and won't be updated. Go to [react.dev](https://pt-br.react.dev/) for the new React docs.
 >
 > These new documentation pages teach modern React:
 >
-> - [`react`: Hooks](https://react.dev/reference/react)
+> - [`react`: Hooks](https://pt-br.react.dev/reference/react)
 
 </div>
 
@@ -49,7 +49,7 @@ Se Hooks é novidade pra você, talvez você queira primeiro ter uma [visão ger
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useState`](https://react.dev/reference/react/useState).
+> Read the new React documentation for [`useState`](https://pt-br.react.dev/reference/react/useState).
 
 </div>
 
@@ -139,7 +139,7 @@ In the rare case that you need to force the DOM update to be applied synchronous
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useEffect`](https://react.dev/reference/react/useEffect).
+> Read the new React documentation for [`useEffect`](https://pt-br.react.dev/reference/react/useEffect).
 
 </div>
 
@@ -226,7 +226,7 @@ O array de dependências não é passada como argumentos para a função de efei
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useContext`](https://react.dev/reference/react/useContext).
+> Read the new React documentation for [`useContext`](https://pt-br.react.dev/reference/react/useContext).
 
 </div>
 
@@ -307,7 +307,7 @@ Os próximos Hooks são variações dos princípios básicos da seção anterior
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useReducer`](https://react.dev/reference/react/useReducer).
+> Read the new React documentation for [`useReducer`](https://pt-br.react.dev/reference/react/useReducer).
 
 </div>
 
@@ -421,7 +421,7 @@ Note que o React ainda pode precisar renderizar aquele componente específico no
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useCallback`](https://react.dev/reference/react/useCallback).
+> Read the new React documentation for [`useCallback`](https://pt-br.react.dev/reference/react/useCallback).
 
 </div>
 
@@ -452,7 +452,7 @@ Recebe como argumentos, um callback e um array. `useCallback` retornará uma ver
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useMemo`](https://react.dev/reference/react/useMemo).
+> Read the new React documentation for [`useMemo`](https://pt-br.react.dev/reference/react/useMemo).
 
 </div>
 
@@ -483,7 +483,7 @@ Se nenhum array for fornecido, um novo valor será calculado em cada renderizaç
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useRef`](https://react.dev/reference/react/useRef).
+> Read the new React documentation for [`useRef`](https://pt-br.react.dev/reference/react/useRef).
 
 </div>
 
@@ -528,7 +528,7 @@ Tenha em mente que o `useRef` *não* avisa quando o conteúdo é alterado. Mover
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useImperativeHandle`](https://react.dev/reference/react/useImperativeHandle).
+> Read the new React documentation for [`useImperativeHandle`](https://pt-br.react.dev/reference/react/useImperativeHandle).
 
 </div>
 
@@ -560,7 +560,7 @@ Neste exemplo, um componente pai que renderiza `<FancyInput ref={inputRef} />` s
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useLayoutEffect`](https://react.dev/reference/react/useLayoutEffect).
+> Read the new React documentation for [`useLayoutEffect`](https://pt-br.react.dev/reference/react/useLayoutEffect).
 
 </div>
 
@@ -582,7 +582,7 @@ Prefira o padrão `useEffect` quando possível, para evitar bloquear atualizaç�
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useDebugValue`](https://react.dev/reference/react/useDebugValue).
+> Read the new React documentation for [`useDebugValue`](https://pt-br.react.dev/reference/react/useDebugValue).
 
 </div>
 
@@ -631,7 +631,7 @@ useDebugValue(date, date => date.toDateString());
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useDeferredValue`](https://react.dev/reference/react/useDeferredValue).
+> Read the new React documentation for [`useDeferredValue`](https://pt-br.react.dev/reference/react/useDeferredValue).
 
 </div>
 
@@ -678,7 +678,7 @@ Memorizar os filhos diz ao React que ele só precisa renderizá-los novamente qu
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useTransition`](https://react.dev/reference/react/useTransition).
+> Read the new React documentation for [`useTransition`](https://pt-br.react.dev/reference/react/useTransition).
 
 </div>
 
@@ -731,7 +731,7 @@ function App() {
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useId`](https://react.dev/reference/react/useId).
+> Read the new React documentation for [`useId`](https://pt-br.react.dev/reference/react/useId).
 
 </div>
 
@@ -796,7 +796,7 @@ Os Hooks a seguir são fornecidos para autores de bibliotecas para integrar bibl
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useSyncExternalStore`](https://react.dev/reference/react/useSyncExternalStore).
+> Read the new React documentation for [`useSyncExternalStore`](https://pt-br.react.dev/reference/react/useSyncExternalStore).
 
 </div>
 
@@ -851,7 +851,7 @@ const selectedField = useSyncExternalStore(
 
 > This content is out of date.
 >
-> Read the new React documentation for [`useInsertionEffect`](https://react.dev/reference/react/useInsertionEffect).
+> Read the new React documentation for [`useInsertionEffect`](https://pt-br.react.dev/reference/react/useInsertionEffect).
 
 </div>
 
