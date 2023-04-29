@@ -10,7 +10,7 @@ title: Compartilhando State Entre Componentes
 
 <YouWillLearn>
 
-- Como compartilhar o state entre componentes, elevando-o
+- Como compartilhar state entre componentes por sua elevação
 - O que são componentes controlados e não controlados
 
 </YouWillLearn>
