@@ -313,7 +313,7 @@ Para ver como isso funciona na prática com mais alguns componentes, leia  [Pens
 <Recap>
 
 * Quando você quiser coordenar dois componentes, mova o state deles para o pai comum.
-* Em seguida, passe as informações por meio de props de seu pai comum.
+* Em seguida, passe as informações por meio de props vindas de seu pai comum.
 * Por fim, passe os manipuladores de eventos para que os filhos possam alterar o state do pai.
 * É útil considerar os componentes como "controlados" (acionados por props) ou "não controlados" (acionados pelo state).
 
