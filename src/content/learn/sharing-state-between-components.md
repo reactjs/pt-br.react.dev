@@ -437,7 +437,7 @@ Observe que o `filterItems` já está implementado e importado, portanto, você 
 
 <Hint>
 
-Você deverá remover o state`query` e o manipulador `handleChange` da `SearchBar` e movê-los para a `FilterableList`. Em seguida, passe-os para a `SearchBar` como props `query` e `onChange`.
+Você deverá remover o state `query` e o manipulador `handleChange` da `SearchBar` e movê-los para a `FilterableList`. Em seguida, passe-os para a `SearchBar` como props `query` e `onChange`.
 
 </Hint>
 
