@@ -174,7 +174,7 @@ h3, p { margin: 5px 0px; }
 
 Tente editar os valores estáticos `isActive` no componente `Accordion` e veja o resultado na tela.
 
-### Etapa 3: Adicionar state à matriz comum {/*step-3-add-state-to-the-common-parent*/}
+### Etapa 3: Adicionar state ao pai comum {/*step-3-add-state-to-the-common-parent*/}
 
 Elevar o state muitas vezes muda a natureza do que você está armazenando como state.
 
