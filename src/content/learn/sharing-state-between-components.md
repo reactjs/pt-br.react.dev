@@ -302,7 +302,7 @@ Ao escrever um componente, considere quais informações nele devem ser controla
 
 ## Uma única fonte de verdade para cada state {/*a-single-source-of-truth-for-each-state*/}
 
-Em um aplicativo React, muitos componentes terão seu próprio state. Alguns states podem "viver" perto dos componentes de folha (componentes na parte inferior da árvore), como entradas. Outro state pode "viver" mais perto do topo do aplicativo. Por exemplo, até mesmo as bibliotecas de roteamento do lado do cliente geralmente são implementadas armazenando a rota atual no state do React e passando-a para baixo por meio de props!
+Em um aplicativo React, muitos componentes terão seu próprio state. Alguns states podem "residir" perto dos componentes de folha (componentes na parte inferior da árvore), como entradas. Outro state pode "residir" mais perto do topo do aplicativo. Por exemplo, até mesmo as bibliotecas de roteamento do lado do cliente geralmente são implementadas armazenando a rota atual no state do React e passando-a para baixo por meio de props!
 
 **Para cada parte exclusiva do state, você escolherá o componente que o "possui".** Esse princípio também é conhecido como ter uma ["única fonte de verdade".](https://en.wikipedia.org/wiki/Single_source_of_truth) Isso não significa que todo o state esteja em um único lugar, mas que, para cada parte do state, há um componente específico que contém essa parte da informação. Em vez de duplicar o state compartilhado entre os componentes, *levante-o* para o pai compartilhado comum e *passe-o* para os filhos que precisam dele.
 
