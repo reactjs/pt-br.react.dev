@@ -25,7 +25,7 @@ Neste exemplo, um componente `Accordion` pai renderiza dois painéis (`Panel`) s
 
 Cada componente `Panel` tem um state booleano `isActive` que determina se o seu conteúdo está visível.
 
-Pressione o botão Exibir para ambos os painéis:
+Pressione o botão "Show" de ambos os painéis:
 
 <Sandpack>
 
