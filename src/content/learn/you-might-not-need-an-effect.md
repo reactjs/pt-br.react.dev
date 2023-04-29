@@ -26,7 +26,7 @@ Existem dois casos comuns em que você não precisa de Effects:
 * **Você não precisa de Effects para manipular seus dados para renderização.** Por exemplo, digamos que você queira filtrar uma lista antes de exibi-la. Você pode ficar tentado a escrever um Effect que atualiza uma variável de estado quando a lista for alterada. No entanto, isso é ineficiente. Quando você atualizar o estado, o React primeiro executará as funções dos componentes para calcular o que deve estar em tela. Em seguida, o React ["aplica"](/learn/render-and-commit) essas alterações no DOM, atualizando a tela. Depois, o React executará seus Effects. Se seu Effect *também* atualizar o estado imediatamente, todo o processo será reiniciado do zero! Para evitar renderizações desnecessárias, transforme todos os dados no top level de seus componentes. Esse código será reexecutado automaticamente sempre que suas props ou estado forem alterados.
 * **Você não precisa de Effects para lidar com eventos do usuário.** Por exemplo, digamos que você queira enviar uma requisição POST para `/api/buy` e mostrar uma notificação quando o usuário comprar um produto. No event handler de click do botão Comprar, você sabe exatamente o que aconteceu. Quando um Effect é executado, você não sabe *o que* o usuário fez (por exemplo, em qual botão foi clicado). É por isso que você normalmente tratará os eventos do usuário nos event handlers correspondentes.
 
-Você precisa *realmente* de Effects para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) com sistemas externos. Por exemplo, você pode escrever um Effect que mantenha um widget jQuery sincronizado com o estado do React. Também é possível buscar dados com Effects: por exemplo, você pode sincronizar os resultados da pesquisa com o termo que você pesquisou. Lembre-se de que [frameworks](/learn/start-a-new-react-project#production-grade-react-frameworks) modernos oferecem mecanismos internos de data fetching mais eficientes do que escrever Effects diretamente em seus componentes.
+Você precisa *realmente* de Effects para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) com sistemas externos. Por exemplo, você pode escrever um Effect que mantenha um widget jQuery sincronizado com o estado do React. Também é possível buscar dados com Effects: por exemplo, você pode sincronizar os resultados da pesquisa com o termo que você pesquisou. Lembre-se de que [frameworks](/leaxrn/start-a-new-react-project#production-grade-react-frameworks) modernos oferecem mecanismos internos de data fetching mais eficientes do que escrever Effects diretamente em seus componentes.
 
 Para ajudá-lo a adquirir a intuição correta, vamos dar uma olhada em alguns exemplos concretos comuns!
 
@@ -129,7 +129,7 @@ A função envolvida no [`useMemo`](/reference/react/useMemo) executa durante a 
 
 #### Como dizer se um cálculo é custoso? {/*how-to-tell-if-a-calculation-is-expensive*/}
 
-Em geral, a menos que você esteja criando ou fazendo looping em milhares de objetos, provavelmente não é uma operação custosa. Se quiser ter mais confiança, você pode adicionar um console log para medir o tempo gasto em um trecho de código:
+Em geral, a menos que você esteja criando ou pecorrendo em milhares de objetos, provavelmente não é uma operação custosa. Se quiser ter mais confiança, você pode adicionar um console log para medir o tempo gasto em um trecho de código:
 
 ```js {1,3}
 console.time('filter array');
@@ -253,7 +253,7 @@ function List({ items }) {
 
 Agora não há necessidade de "ajustar" o estado. Se o item com o ID selecionado estiver na lista, ele permanecerá selecionado. Se não estiver, a `selection` calculada durante a renderização será `null` porque nenhum item correspondente foi encontrado. Esse comportamento é diferente, mas indiscutivelmente melhor porque a maioria das alterações nos `items` preserva a seleção.
 
-### Compartilhamento de lógica entre manipuladores de eventos {/*sharing-logic-between-event-handlers*/}
+### Compartilhamento de lógica entre event handlers {/*sharing-logic-between-event-handlers*/}
 
 Digamos que você tenha uma página de produto com dois botões (Buy e Checkout) que permitem que você compre o produto. Você deseja exibir uma notificação sempre que o usuário colocar o produto no carrinho. Chamar `showNotification()` nos handlers de cliques dos dois botões parece repetitivo, portanto, você pode se sentir tentado a colocar essa lógica em um Effect:
 
@@ -280,7 +280,7 @@ function ProductPage({ product, addToCart }) {
 
 Esse Effect é desnecessário. Ele também provavelmente causará bugs. Por exemplo, digamos que seu aplicativo "lembre" o carrinho de compras entre os recarregamentos da página. Se você adicionar um produto ao carrinho uma vez e atualizar a página, a notificação aparecerá novamente. Ela continuará aparecendo toda vez que você atualizar a página desse produto. Isso ocorre porque `product.isInCart` já será `true` no carregamento da página, de modo que o Effect acima chamará `showNotification()`.
 
-**Quando não tiver certeza se algum código deve estar em um Effect ou em um manipulador de eventos, pergunte a si mesmo *por que* esse código precisa ser executado. Use Effects somente para códigos que devem ser executados *porque* o componente foi exibido ao usuário.** Neste exemplo, a notificação deve aparecer porque o usuário *pressionou o botão*, não porque a página foi exibida! Exclua o Effect e coloque a lógica compartilhada em uma função chamada de ambos os manipuladores de eventos:
+**Quando não tiver certeza se algum código deve estar em um Effect ou em um manipulador de eventos, pergunte a si mesmo *por que* esse código precisa ser executado. Use Effects somente para códigos que devem ser executados *porque* o componente foi exibido ao usuário.** Neste exemplo, a notificação deve aparecer porque o usuário *pressionou o botão*, não porque a página foi exibida! Exclua o Effect e coloque a lógica compartilhada em uma função chamada de ambos os event handlers:
 
 ```js {2-6,9,13}
 function ProductPage({ product, addToCart }) {
@@ -447,7 +447,7 @@ function Game() {
   // ...
 ```
 
-Isso é muito mais eficiente. Além disso, se você implementar uma maneira de visualizar o histórico do jogo, agora poderá definir cada variável de estado para um movimento do passado sem acionar a cadeia de Effects que ajusta todos os outros valores. Se precisar reutilizar a lógica entre vários manipuladores de eventos, você poderá [extrair uma função](#sharing-logic-between-event-handlers) e chamá-la a partir desses manipuladores.
+Isso é muito mais eficiente. Além disso, se você implementar uma maneira de visualizar o histórico do jogo, agora poderá definir cada variável de estado para um movimento do passado sem acionar a cadeia de Effects que ajusta todos os outros valores. Se precisar reutilizar a lógica entre vários event handlers, você poderá [extrair uma função](#sharing-logic-between-event-handlers) e chamá-la a partir desses manipuladores.
 
 Lembre-se de que, dentro dos event handlers, [o estado se comporta como uma snapshot](/learn/state-as-a-snapshot). Por exemplo, mesmo depois de chamar `setRound(round + 1)`, a variável `round` refletirá o valor no momento em que o usuário clicou no botão. Se você precisar usar o próximo valor para cálculos, defina-o manualmente como `const nextRound = round + 1`.
 
