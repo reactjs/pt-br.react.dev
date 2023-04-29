@@ -4,7 +4,7 @@ title: JavaScript in JSX with Curly Braces
 
 <Intro>
 
-O JSX permite a você escrever marcações semelhantes a HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo local. Às vezes, você desejará adicionar um pouco de lógica JavaScript ou fazer referência a uma propriedade dinâmica dentro dessa marcação. Nessa situação, você pode usar chaves em seu JSX para abrir uma janela para o JavaScript.
+JSX permite a você escrever tags como faria no HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo local. Às vezes, você pode querer adicionar um pouco de lógica JavaScript ou fazer referência a uma propriedade dinâmica dentro desse bloco de tags. Nessa situação, você pode usar chaves em seu JSX para abrir uma janela para o JavaScript.
 
 </Intro>
 
@@ -67,11 +67,11 @@ export default function Avatar() {
 
 </Sandpack>
 
-Note a diferença entre `className="avatar"`, que especifica um nome de classe CSS `"avatar"` para tornar a imagem redonda, e `src={avatar}`, que lê o valor da variável JavaScript chamada `avatar`. Isso ocorre porque as chaves permitem que você trabalhe com JavaScript diretamente na sua marcação!
+Note a diferença entre `className="avatar"`, que especifica um nome de classe CSS `"avatar"` para tornar a imagem redonda, e `src={avatar}`, que lê o valor da variável JavaScript chamada `avatar`. Isso ocorre porque as chaves permitem que você trabalhe com JavaScript diretamente em seu bloco de tags!
 
 ## Usando chaves: Uma janela para o mundo do JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
-JSX é uma forma especial de escrever JavaScript. Isso significa que é possível usar JavaScript dentro dele - com chaves `{ }`. O exemplo abaixo primeiro declara um nome para o cientista, `name`, e depois o insere com chaves dentro do `<h1>`:
+JSX é uma forma especial de escrever JavaScript. Isso significa que é possível usar JavaScript dentro dele - com chaves `{ }`. O exemplo abaixo primeiro declara um nome para o cientista, `name`, e depois insere o nome dentro do `<h1>` com chaves:
 
 <Sandpack>
 
@@ -86,7 +86,7 @@ export default function TodoList() {
 
 </Sandpack>
 
-Tente mudar o valor do `name` de `'Gregorio Y. Zara'` para `'Hedy Lamarr'`. Está vendo como o título da lista muda?
+Tente trocar o valor do `name` de `'Gregorio Y. Zara'` para `'Hedy Lamarr'`. Está vendo como o título da lista muda?
 
 Qualquer expressão JavaScript funcionará entre chaves, incluindo chamadas de função como `formatDate()`:
 
@@ -150,7 +150,7 @@ ul { padding: 20px 20px 20px 40px; margin: 0; }
 
 Tente alterar os valores de `backgroundColor` e `color`.
 
-Você pode ver bem o objeto JavaScript dentro das chaves quando o escreve dessa forma:
+Você pode ver claramente o objeto JavaScript dentro das chaves quando o escreve dessa forma:
 
 ```js {2-5}
 <ul style={
@@ -171,7 +171,7 @@ As propriedades de inline `style` são escritas em camelCase. Por exemplo, o HTM
 
 ## Mais diversão com objetos JavaScript e chaves {/*more-fun-with-javascript-objects-and-curly-braces*/}
 
-Você pode mover várias expressões em um objeto e referenciá-las em seu JSX dentro de chaves:
+Você pode colocar várias expressões dentro de um objeto e referenciá-las em seu JSX dentro de chaves:
 
 <Sandpack>
 
@@ -230,14 +230,14 @@ O componente pode usar os valores de `person` da seguinte forma:
   <h1>{person.name}'s Todos</h1>
 ```
 
-O JSX é uma linguagem de modelagem mínima, pois permite que você organize dados e lógica usando JavaScript.
+JSX é uma linguagem de tags mínima, pois permite que você organize dados e lógica usando JavaScript.
 
 <Recap>
 
 Agora você sabe quase tudo sobre JSX:
 
 * Os atributos JSX entre aspas são passados como strings.
-* As chaves permitem que você inclua a lógica e as variáveis do JavaScript em sua marcação.
+* As chaves permitem que você inclua a lógica e as variáveis do JavaScript em seu bloco de tags.
 * Elas funcionam dentro do conteúdo da tag JSX ou imediatamente após `=` nos atributos.
 * `{{` e `}}` não é uma sintaxe especial: é um objeto JavaScript colocado entre chaves JSX.
 
@@ -293,7 +293,7 @@ Você consegue identificar o problema?
 
 <Solution>
 
-Isso está acontecendo porque esse exemplo renderiza *um objeto* na marcação em vez de uma string: `<h1>{person}'s Todos</h1>` está tentando renderizar o objeto `person` inteiro! A inclusão de objetos brutos como conteúdo de texto gera um erro porque o React não sabe como você deseja exibi-los.
+Isso está acontecendo porque esse exemplo renderiza *um objeto* no bloco de tags em vez de uma string: `<h1>{person}'s Todos</h1>` está tentando renderizar o objeto `person` inteiro! A inclusão de objetos diretamente como conteúdo de texto gera um erro porque o React não sabe como você deseja exibi-los.
 
 Para corrigi-lo, substitua `<h1>{person}'s Todos</h1>` por `<h1>{person.name}'s Todos</h1>`:
 
@@ -428,7 +428,7 @@ body > div > div { padding: 20px; }
 
 No objeto abaixo, o URL completo da imagem é dividido em quatro partes: URL base, `imageId`, `imageSize` e extensão do arquivo.
 
-Queremos que o URL da imagem combine estes atributos: URL base (sempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`) e extensão de arquivo (sempre `'.jpg'`). Entretanto, há algo errado com a forma como a marca `<img>` especifica sua `src`.
+Queremos que o URL da imagem combine estes atributos: URL base (sempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`) e extensão de arquivo (sempre `'.jpg'`). Entretanto, há algo errado com a forma como a tag `<img>` especifica sua `src`.
 
 Você pode consertá-lo?
 
@@ -580,7 +580,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Variáveis e funções podem ajudá-lo a manter a marcação simples!
+Variáveis e funções podem ajudá-lo a manter o bloco de tags simples!
 
 </Solution>
 
