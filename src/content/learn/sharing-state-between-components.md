@@ -186,7 +186,7 @@ const [activeIndex, setActiveIndex] = useState(0);
 
 Quando o `activeIndex` é `0`, o primeiro painel está ativo, e quando é `1`, é o segundo.
 
-Clicar no botão " Exibir" em um dos "Painéis" precisa alterar o índice ativo no "Accordion". Um `Panel` não pode definir o state`activeIndex` diretamente porque ele é definido dentro do `Accordion`. O componente `Accordion` precisa *permitir explicitamente* que o componente `Panel` altere seu state, [passando um manipulador de eventos como uma propriedade](/learn/responding-to-events#passing-event-handlers-as-props):
+Clicar no botão "Exibir" em um dos "Painéis" precisa alterar o índice ativo no "Accordion". Um `Panel` não pode definir o state `activeIndex` diretamente porque ele é definido dentro do `Accordion`. O componente `Accordion` precisa *permitir explicitamente* que o componente `Panel` altere seu state, [passando um manipulador de eventos como uma prop](/learn/responding-to-events#passing-event-handlers-as-props):
 
 ```js
 <>
