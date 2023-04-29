@@ -1,5 +1,5 @@
 ---
-title: Compartilhamento do State Entre Componentes
+title: Compartilhando State Entre Componentes
 ---
 
 <Intro>
