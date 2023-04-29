@@ -429,7 +429,7 @@ label { display: block; }
 
 #### Filtrando uma lista {/*filtering-a-list*/}
 
-Neste exemplo, a `SearchBar` tem seu próprio state`query` que controla a entrada de texto. Seu componente pai `FilterableList` exibe uma `List` de itens, mas não leva em conta a consulta de pesquisa.
+Neste exemplo, a `SearchBar` tem seu próprio state `query` que controla a entrada de texto. Seu componente pai `FilterableList` exibe uma `List` de itens, mas não leva em conta a consulta de pesquisa.
 
 Use a função `filterItems(foods, query)` para filtrar a lista de acordo com a consulta de pesquisa. Para testar suas alterações, verifique se digitar "s" na entrada filtra a lista para "Sushi", "Shish kebab" e "Dim sum".
 
