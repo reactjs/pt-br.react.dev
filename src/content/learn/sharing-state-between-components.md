@@ -374,7 +374,7 @@ label { display: block; }
 
 <Solution>
 
-Mova a variável do state`text` para o componente pai juntamente com o manipulador `handleChange`. Em seguida, passe-os como props para ambos os componentes `Input`. Isso os manterá em sincronia.
+Mova a variável do state `text` para o componente pai juntamente com o manipulador `handleChange`. Em seguida, passe-os como props para ambos os componentes `Input`. Isso os manterá em sincronia.
 
 <Sandpack>
 
