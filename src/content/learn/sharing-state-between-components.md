@@ -308,7 +308,7 @@ Em um aplicativo React, muitos componentes terão seu próprio state. Alguns sta
 
 Seu aplicativo mudará à medida que você trabalhar nele. É comum que você mova o state para baixo ou para cima enquanto ainda está descobrindo onde cada parte do state  "mora". Tudo isso faz parte do processo!
 
-Para ver como isso funciona na prática com mais alguns componentes, leia  [Pensando em React.](/learn/thinking-in-react)
+Para ver como isso funciona na prática com mais alguns componentes, leia [Pensando em React.](/learn/thinking-in-react)
 
 <Recap>
 
