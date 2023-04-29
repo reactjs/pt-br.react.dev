@@ -196,7 +196,6 @@ Normalmente, o React preserva o estado quando o mesmo componente é renderizado 
 
 Observe que, neste exemplo, somente o componente externo `ProfilePage` é exportado e visível para outros arquivos do projeto. Os componentes que renderizam o `ProfilePage` não precisam passar a chave para ele: eles passam o `userId` como uma propriedade normal. O fato de `ProfilePage` passar a chave para o componente `Profile` interno é um detalhe de implementação.
 
-
 ### Ajustando algum estado quando uma prop é alterada {/*adjusting-some-state-when-a-prop-changes*/}
 
 Às vezes, você pode querer redefinir ou ajustar uma parte do estado em uma alteração de prop, mas não todo ele.
