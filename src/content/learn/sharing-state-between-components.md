@@ -97,7 +97,7 @@ Para coordenar esses dois painéis, você precisa "elevar o state deles" para um
 
 1. **Remover** o state dos componentes filhos.
 2. **Passar** dados estáticos do pai comum.
-3. **Adicione** o state ao pai comum e passe-o para baixo junto com os manipuladores de eventos.
+3. **Adicionar** o state ao pai comum e passá-lo para baixo junto com os manipuladores de eventos.
 
 Isso permitirá que o componente `Accordion` coordene ambos os `Paneis` e expanda apenas um de cada vez.
 
