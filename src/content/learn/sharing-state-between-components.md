@@ -15,7 +15,7 @@ title: Compartilhando State Entre Componentes
 
 </YouWillLearn>
 
-## Elevar o state por meio do exemplo {/*lifting-state-up-by-example*/}
+## Exemplificando a elevação de state {/*lifting-state-up-by-example*/}
 
 Neste exemplo, um componente `Accordion` pai renderiza dois `Painéis` separados:
 
