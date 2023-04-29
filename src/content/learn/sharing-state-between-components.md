@@ -266,7 +266,7 @@ h3, p { margin: 5px 0px; }
 
 </Sandpack>
 
-Isso completa a elevação do state! Mover o state para o componente pai comum permitiu que você coordenasse os dois painéis. Usar o índice ativo em vez de dois sinalizadores "is shown" garantiu que apenas um painel estivesse ativo em um determinado momento. E passar o manipulador de eventos para o filho permitiu que o filho alterasse o state do pai.
+Isso completa a elevação do state! Mover o state para o componente pai comum permitiu que você coordenasse os dois painéis. Usar o índice ativo em vez de dois sinalizadores "é exibido" garantiu que apenas um painel estivesse ativo em um determinado momento. E passar o manipulador de eventos para o filho permitiu que ele alterasse o state do pai.
 
 <DiagramGroup>
 
