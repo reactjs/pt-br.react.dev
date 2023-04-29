@@ -427,7 +427,7 @@ label { display: block; }
 
 </Solution>
 
-#### Filtrar uma lista {/*filtering-a-list*/}
+#### Filtrando uma lista {/*filtering-a-list*/}
 
 Neste exemplo, a `SearchBar` tem seu próprio state`query` que controla a entrada de texto. Seu componente pai `FilterableList` exibe uma `List` de itens, mas não leva em conta a consulta de pesquisa.
 
