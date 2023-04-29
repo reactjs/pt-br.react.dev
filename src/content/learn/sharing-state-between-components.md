@@ -4,7 +4,7 @@ title: Compartilhando State Entre Componentes
 
 <Intro>
 
-Às vezes, você deseja que o state de dois componentes seja sempre alterado em conjunto. Para fazer isso, remova o state de ambos, mova-o para o pai comum mais próximo e, em seguida, passe-o para eles por meio de props. Isso é conhecido como *elevação de state* e é uma das coisas mais comuns que você fará ao escrever código React.
+Às vezes, você deseja que o state de dois componentes seja sempre alterado em conjunto. Para fazer isso, remova o state de ambos, mova-os para o pai comum mais próximo e, em seguida, passe-os aos componentes por meio de props. Isto é conhecido como *elevação de state* e é uma das coisas mais comuns que você fará ao escrever código React.
 
 </Intro>
 
