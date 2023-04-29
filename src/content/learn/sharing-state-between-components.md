@@ -306,7 +306,7 @@ Em um aplicativo React, muitos componentes terão seu próprio state. Alguns sta
 
 **Para cada parte exclusiva do state, você escolherá o componente que o "possui".** Esse princípio também é conhecido como ter uma ["única fonte de verdade".](https://en.wikipedia.org/wiki/Single_source_of_truth) Isso não significa que todo o state esteja em um único lugar, mas que, para cada parte do state, há um componente específico que contém essa parte da informação. Em vez de duplicar o state compartilhado entre os componentes, *levante-o* para o pai compartilhado comum e *passe-o* para os filhos que precisam dele.
 
-Seu aplicativo mudará à medida que você trabalhar nele. É comum que você mova o state para baixo ou para cima enquanto ainda está descobrindo onde cada parte do state  "mora". Tudo isso faz parte do processo!
+Seu aplicativo mudará à medida que você trabalhar nele. É comum que você mova o state para baixo ou para cima enquanto ainda está descobrindo onde cada parte do state  "reside". Tudo isso faz parte do processo!
 
 Para ver como isso funciona na prática com mais alguns componentes, leia [Pensando em React.](/learn/thinking-in-react)
 
