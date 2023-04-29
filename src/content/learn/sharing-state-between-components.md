@@ -115,7 +115,7 @@ Em vez disso, adicione `isActive` à lista de props do `Panel`:
 function Panel({ title, children, isActive }) {
 ```
 
-Agora, o componente pai do `Panel` pode *controlar* o `isActive` por meio de [transmitindo-o como uma prop.](/learn/passing-props-to-a-component) Por outro lado, o componente `Panel` agora não tem *nenhum controle* sobre o valor de `isActive`; isso agora depende do componente pai!
+Agora, o componente pai do `Panel` pode *controlar* o `isActive` [transmitindo-o como uma prop.](/learn/passing-props-to-a-component) Por outro lado, o componente `Panel` agora não tem *nenhum controle* sobre o valor de `isActive`; isso agora depende do componente pai!
 
 ### Etapa 2: passar dados estáticos do pai comum {/*step-2-pass-hardcoded-data-from-the-common-parent*/}
 
