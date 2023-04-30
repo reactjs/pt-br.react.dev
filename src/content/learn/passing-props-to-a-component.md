@@ -416,11 +416,12 @@ Entretanto, as props são [imutáveis](https://pt.wikipedia.org/wiki/Objeto_imut
 <Recap>
 
 * Para passar props, adicione-as à JSX, assim como você faria com atributos HTML.
-* Você pode ler props, para isto, use a sintaxe de desestruturação `function Avatar({ person, size })`.
+* Para ler props, use a sintaxe de desestruturação `function Avatar({ person, size })`.
 * Você pode especificar um valor padrão como `size = 100`, o qual é usado para props inexistentes ou `undefined`.
 * Você pode encaminhar todas as props com a sintaxe de espalhamento JSX `<Avatar {...props} />`, mas não a utilize exaustivamente.
 * JSX aninhada como `<Card><Avatar /></Card>` aparecerá como a prop `children` do componente `Card`.
 * Props podem somente ser lidas e representam um momento específico no tempo: toda renderização recebe uma nova versão de props.
+* Props são imutáveis. Quando você precisar de interatividade, defina state.
 
 </Recap>
 
