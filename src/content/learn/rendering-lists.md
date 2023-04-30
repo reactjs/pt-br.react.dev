@@ -93,8 +93,7 @@ Aviso: Cada filho em uma lista deve haver uma prop "key" única.
 
 </ConsoleBlock>
 
-Mais tarde nessa página, você aprenderá como corrigir este erro.
-Antes de chegarmos nisto, vamos estruturar os seus dados um pouco mais.
+Mais tarde nessa página, você aprenderá como corrigir este erro. Mas antes, vamos estruturar os seus dados um pouco mais.
 
 ## Filtrando arrays de itens {/*filtering-arrays-of-items*/}
 
@@ -287,7 +286,7 @@ Elementos JSX retornados por um chamado `map()` sempre precisam de keys!
 
 </Note>
 
-Keys dizem ao React a qual item do array cada componente corresponde, para que ele possa combiná-los mais tarde. Isso se torna importante se os itens do seu array podem se mover (por exemplo, ao ser ordenado), serem inseridos, ou serem removidos. Uma `key` bem escolhida ajuda o React a inferir o que exatamente aconteceu, e fazer as atualizações corretas à árvore da DOM.
+Keys dizem ao React a qual item do array cada componente corresponde, para que ele possa combiná-los mais tarde. Isso se torna importante se os itens do seu array podem se mover (por exemplo, ao ser ordenado), serem inseridos, ou serem removidos. Uma `key` bem escolhida ajuda o React a identificar o que exatamente aconteceu, e fazer as atualizações corretas à árvore da DOM.
 
 Em vez de gerar keys em tempo real, você deve incluí-las em seus dados:
 
@@ -403,7 +402,7 @@ Fragmentos desaparecem da DOM, então isto irá produzir uma lista plana de `<h1
 As chaves podem vir de diferentes fontes de dados:
 
 * **Dados de uma base de dados:** Se seus dados estão vindo de uma base de dados, você pode usar as keys/IDs desta, os quais são únicos por natureza.
-* **Dados gerados localmente:** Se seus dados são gerados e persistidos localmente (por exemplo, anotações em um aplicativo de notas), use um contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Crypto/randomUUID) ou um pacote como [`uuid`](https://www.npmjs.com/package/uuid) ao criar itens.
+* **Dados gerados localmente:** Se seus dados são gerados e persistidos localmente (por exemplo, anotações em um aplicativo de notas), use um contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Crypto/randomUUID) ou um biblioteca como a [`uuid`](https://www.npmjs.com/package/uuid) ao criar itens.
 
 ### Regras das keys {/*rules-of-keys*/}
 
@@ -420,7 +419,7 @@ Nomes de arquivo em uma pasta e keys JSX em um array servem um propósito simila
 
 Você pode ser tentado a usar o índice de um item no array como sua key. De fato, isto é o que o React irá utilizar caso você não especifique uma `key`. Entretanto, a ordem em que você renderiza os itens irá mudar conforme o tempo caso um item seja inserido, excluído, ou se o array for reordenado. Usar índices como key por muitas vezes leva a bugs sutis e confusos.
 
-Da mesma forma, não gere keys em tempo real, por exemplo com `key={Math.random()}`. Isso fará com que as keys nunca sejam iguais nas renderizações subsequentes, ocasionando com que todos os seus componentes e DOM sejam recriados a cada vez. Isso não somente é lento, mas também perde qualquer entrada do usuário dentro dos elementos da lista. Em vez disso, use um ID estável baseado em dados.
+Da mesma forma, não gere keys em tempo real, por exemplo com `key={Math.random()}`. Isso fará com que as keys nunca sejam iguais nas renderizações subsequentes, ocasionando com que todos os seus componentes e DOM sejam recriados a cada vez. Isso não somente é lento, mas também perde qualquer dado de entrada do usuário dentro dos elementos da lista. Em vez disso, use um ID estável baseado nos dados.
 
 Note que os seus componentes não receberão `key` como uma prop. Esta só é usada como uma dica pelo próprio React. Se o seu componente precisa de um ID, você deve passá-lo como uma prop separada: `<Profile key={id} userId={id} />`.
 
@@ -443,7 +442,7 @@ Nessa página você aprendeu:
 
 Esse exemplo mostra uma lista de todas as pessoas.
 
-Altere-o para exibir duas listas separadas uma após a outra: **Químicos*** e **Outras Profissões.** Como antes, você pode determinar se uma pessoa tem "químico" como profissão checando se `person.profession === 'chemist'`.
+Altere-o para exibir duas listas separadas uma após a outra: **Químicos** e **Outras Profissões.** Como antes, você pode determinar se uma pessoa é um "químico" checando se `person.profession === 'chemist'`.
 
 <Sandpack>
 
@@ -1079,7 +1078,7 @@ export const recipes = [{
 
 Aqui, `<Recipe {...recipe} key={recipe.id} />` é um atalho de sintaxe dizendo "passe todas as propriedades do objeto `recipe` como props para o componente `Recipe`". Você também pode escrever cada prop explicitamente: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
 
-**Note que a `key` é especificada no `<Recipe>` propriamente dito ao invés de na `div` raiz retornada por `Recipe`.** Isso se deve ao fato de que essa `key` é diretamente necessária dentro do contexto do array circundante. Anteriormente, você tinha um array de `<div>`s então cada uma delas precisava de uma `key`, mas agora você tem um array de `<Recipe>`s. Em outras palavras, quando você extrai um componente, não se esqueça de deixar a `key` fora da JSX que você copia e cola.
+**Note que a `key` é especificada no `<Recipe>` propriamente dito ao invés de na `div` raiz retornada por `Recipe`.** Isso se deve ao fato de que essa `key` é diretamente necessária dentro do contexto do array em que o componente está sendo renderizado. Anteriormente, você tinha um array de `<div>`s então cada uma delas precisava de uma `key`, mas agora você tem um array de `<Recipe>`s. Em outras palavras, quando você extrai um componente, não se esqueça de deixar a `key` fora da JSX que você copia e cola.
 
 </Solution>
 
