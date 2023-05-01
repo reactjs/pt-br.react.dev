@@ -731,11 +731,11 @@ Mesmo que a sintaxe seja levemente diferente porque você está descrevendo as p
 
 </Solution>
 
-#### Ajuste o tamanho da imagem com base um uma prop {/*adjust-the-image-size-based-on-a-prop*/}
+#### Ajuste o tamanho da imagem com base em uma prop {/*adjust-the-image-size-based-on-a-prop*/}
 
-Neste exemplo, `Avatar` recebe uma prop numérica `size` a qual determina a largura e a altura da `<img>`. A prop `size` é igual a `40` neste exemplo. No entanto, se você abri-la em uma nova aba, perceberá que a imagem em si é maior (`160` pixels). O tamanho real da imagem é determinado por qual miniatura você está requisitando.
+Neste exemplo, `Avatar` recebe uma prop numérica `size` a qual determina a largura e a altura da `<img>`. A prop `size` é igual a `40` neste exemplo. No entanto, se você abrir a imagem em uma nova aba, perceberá que ela em si é maior (`160` pixels). O tamanho real da imagem é determinado pelo tamanho da miniatura que você está solicitando.
 
-Altere o componente `Avatar` para requisitar o tamanho mais próximo da imagem com base na prop `size`. Mais especificamente, se `size` for menor que `90`, passe `'s'` ("small") em vez de `'b'` ("big") à função `getImageUrl`. Verifique se suas mudanças funcionam renderizando avatares com diferentes valores da prop `size` e abrindo as imagens em uma nova aba.
+Altere o componente `Avatar` para solicitar o tamanho mais próximo da imagem com base na prop `size`. Especificamente, se `size` for menor que `90`, passe `'s'` ("small") em vez de `'b'` ("big") à função `getImageUrl`. Verifique se suas mudanças funcionam renderizando avatares com diferentes valores da prop `size` e abrindo as imagens em uma nova aba.
 
 <Sandpack>
 
@@ -919,7 +919,7 @@ export function getImageUrl(person, size) {
 
 </Sandpack>
 
-Props permitem o encapsulamento de lógica, como a interna ao componente `Avatar` (e altere-a depois caso necessário), para que todos possam usar `<Avatar>` sem pensar sobre como as imagens são requisitadas e redimensionadas.
+Props permitem encapsular a lógica como esta dentro do componente `Avatar`, (e alterá-la depois caso necessário), para que todos possam usar o componente `<Avatar>` sem pensar sobre como as imagens são solicitadas e redimensionadas.
 
 </Solution>
 
@@ -983,7 +983,7 @@ h1 {
 
 <Hint>
 
-Qualquer JSX que você inserir dentro da tag do componente será passada como a prop `children` desse.
+Qualquer JSX que você colocar dentro da tag do componente será passada como prop `children` para o mesmo.
 
 </Hint>
 
