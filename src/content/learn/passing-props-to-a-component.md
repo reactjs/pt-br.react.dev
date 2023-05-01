@@ -431,7 +431,7 @@ Entretanto, as props são [imutáveis](https://pt.wikipedia.org/wiki/Objeto_imut
 
 #### Extraia um componente {/*extract-a-component*/}
 
-Este componente `Gallery` contém marcação bastante similar para os dois perfis. Extraia um componente `Profile` a partir dele para reduzir a duplicação de código. Você precisará escolher quais props o passar.
+Este componente `Gallery` contém marcação bastante similar para os dois perfis. Extraia um componente `Profile` a partir dele para reduzir a duplicação de código. Você precisará escolher quais props passar para ele.
 
 <Sandpack>
 
