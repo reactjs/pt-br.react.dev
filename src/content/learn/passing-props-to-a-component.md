@@ -253,7 +253,7 @@ Isso encaminha todas as props de `Profile` ao `Avatar` sem listar cada um de seu
 
 **Use a sintaxe de espalhamento com cuidado.** Se você está a utilizando em quase todos os componentes, algo está errado. Muitas vezes, isso indica que você deveria dividir seus componentes e passar filhos como JSX. Mais sobre isso a seguir!
 
-## Passando JSX como filhos {/*passing-jsx-as-children*/}
+## Passando JSX como `children` {/*passing-jsx-as-children*/}
 
 É comum aninhar tags embutidas no navegador:
 
