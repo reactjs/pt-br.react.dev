@@ -55,7 +55,7 @@ As props que você pode passar a uma tag `<img>` são predefinidas (A ReactDOM c
 
 ## Passando props para um componente {/*passing-props-to-a-component*/}
 
-Neste código, o componente `Profile` não está passando nenhuma prop aos seus componente filhos, `Avatar`:
+Neste código, o componente `Profile` não está passando nenhuma prop ao seu componente filho, `Avatar`:
 
 ```js
 export default function Profile() {
@@ -67,7 +67,7 @@ export default function Profile() {
 
 Você pode atribuir algumas props ao `Avatar` em dois passos.
 
-### Passo 1: Passe props aos componentes filhos {/*step-1-pass-props-to-the-child-component*/}
+### Passo 1: Passe props ao componente filho {/*step-1-pass-props-to-the-child-component*/}
 
 Primeiro, passe algumas props ao `Avatar`. Por exemplo, vamos passar duas props: `person` (um objeto), e `size` (um número):
 
@@ -92,7 +92,7 @@ Agora você pode ler essas props dentro do componente `Avatar`.
 
 ### Passo 2: Leia props dentro de um componente filho {/*step-2-read-props-inside-the-child-component*/}
 
-Você pode ler estas propriedades listando seus nomes `person, size` separados por vírgulas diretamente dentro de `({` e `})` depois de `function Avatar`. Isso permite que você as use dentro do código de `Avatar`, assim como você faria com uma variável.
+Você pode ler estas props listando seus nomes `person, size` separados por vírgulas dentro de `({` e `})` diretamente depois de `function Avatar`. Isso permite que você as use dentro do código de `Avatar`, assim como você faria com uma variável.
 
 ```js
 function Avatar({ person, size }) {
@@ -168,9 +168,9 @@ body { min-height: 120px; }
 
 </Sandpack>
 
-Props permitem que você pense sobre os componentes pai e filho independentemente. Por exemplo, você pode mudar as props `person` e `size` dentro de `Profile` sem ter que pensar sobre como `Avatar` as usa. Similarmente, você é livre para mudar como `Avatar` usa essas props, sem checar o `Profile`.
+Props permitem que você pense sobre os componentes pai e filho independentemente. Por exemplo, você pode mudar as props `person` ou `size` dentro de `Profile` sem ter que pensar sobre como `Avatar` as usa. Similarmente, você é livre para mudar como `Avatar` usa essas props, sem checar o `Profile`.
 
-Você pode pensar nas props como "controles" os quais você pode ajustar. Elas desempenham o mesmo papel que os argumentos para funções--de fato, props _são_ o único argumento para o seu componente! Os componente funcionais do React aceitam apenas um argumento, um objeto `props`:
+Você pode pensar nas props como "controles" os quais você pode ajustar. Elas desempenham o mesmo papel que os argumentos para funções-de fato, props _são_ o único argumento para o seu componente! Os componente funcionais do React aceitam apenas um argumento, um objeto `props`:
 
 ```js
 function Avatar(props) {
@@ -184,7 +184,7 @@ Normalmente você não precisa de todo o objeto `props` em si, então você pode
 
 <Pitfall>
 
-**Não esqueça o par `{` e `}`** dentro de `(` e `)` ao declarar props:
+**Não esqueça o par de `{` e `}` chaves** dentro de `(` e `)` ao declarar props:
 
 ```js
 function Avatar({ person, size }) {
@@ -192,7 +192,7 @@ function Avatar({ person, size }) {
 }
 ```
 
-Essa sintaxe é chamada de ["desestruturação"](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter) e é equivalente a ler propriedades de um parâmetro de função:
+Esta sintaxe é chamada de ["desestruturação"](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter) e é equivalente a ler propriedades de um parâmetro de função:
 
 ```js
 function Avatar(props) {
@@ -204,9 +204,9 @@ function Avatar(props) {
 
 </Pitfall>
 
-## Especificando um valor padrão a uma prop {/*specifying-a-default-value-for-a-prop*/}
+## Especificando um valor padrão para uma prop {/*specifying-a-default-value-for-a-prop*/}
 
-Se você quer dar a uma prop um valor padrão para usar quando nenhum for especificado, pode fazer isso com a desestruturação colocando `=` e um valor padrão logo depois do parâmetro:
+Se você quer dar a uma prop um valor padrão para usar quando nenhum valor for especificado, pode fazer isso com a desestruturação colocando `=` e o valor padrão logo depois do parâmetro:
 
 ```js
 function Avatar({ person, size = 100 }) {
@@ -214,9 +214,9 @@ function Avatar({ person, size = 100 }) {
 }
 ```
 
-Agora, se `<Avatar person={...} />` for renderizado sem uma prop `size`, `size` será igual a `100`.
+Agora, se `<Avatar person={...} />` for renderizado sem a prop `size`, `size` será igual a `100`.
 
-O valor padrão só é utilizado se a prop `size` não for especificada ou se você passar `size={undefined}`. Mas caso você passe `size={null}` ou `size={0}`, o valor padrão **não** será usado.
+O valor padrão é apenas utilizado se a prop `size` não for especificada ou se você passar `size={undefined}`. Mas caso você passe `size={null}` ou `size={0}`, o valor padrão **não** será usado.
 
 ## Encaminhando props com a sintaxe de espalhamento JSX {/*forwarding-props-with-the-jsx-spread-syntax*/}
 
@@ -237,7 +237,7 @@ function Profile({ person, size, isSepia, thickBorder }) {
 }
 ```
 
-Não há nada de errado com o código repetitivo--ele pode ser mais legível. Mas por vezes você pode valorizar concisão. Alguns componentes encaminham todas as suas props aos seus filhos, como `Profile` faz com `Avatar`. Como ele não usa nenhuma de suas props diretamente, pode fazer sentido o uso da mais sucinta sintaxe de espalhamento:
+Não há nada de errado com código repetitivo-ele pode ser mais legível. Mas às vezes você pode valorizar concisão. Alguns componentes encaminham todas as suas props aos seus filhos, como `Profile` faz com `Avatar`. Como eles não usam nenhuma de suas props diretamente, pode fazer sentido usar uma sintaxe de espalhamento mais concisa:
 
 ```js
 function Profile(props) {
@@ -251,7 +251,7 @@ function Profile(props) {
 
 Isso encaminha todas as props de `Profile` ao `Avatar` sem listar cada um de seus nomes.
 
-**Use a sintaxe de espalhamento com cuidado.** Se você está a utilizando em quase todos os componentes, algo está errado. Geralmente, isso indica que você deveria separar seus componentes e passar filhos como JSX. Falaremos mais sobre isso agora!
+**Use a sintaxe de espalhamento com cuidado.** Se você está a utilizando em quase todos os componentes, algo está errado. Muitas vezes, isso indica que você deveria dividir seus componentes e passar filhos como JSX. Mais sobre isso a seguir!
 
 ## Passando JSX como filhos {/*passing-jsx-as-children*/}
 
@@ -263,7 +263,7 @@ Isso encaminha todas as props de `Profile` ao `Avatar` sem listar cada um de seu
 </div>
 ```
 
-Às vezes será interessante aninhar seus componentes da mesma forma:
+Às vezes você desejará aninhar seus próprios componentes da mesma forma:
 
 ```js
 <Card>
@@ -989,7 +989,7 @@ Qualquer JSX que você inserir dentro da tag do componente será passada como a 
 
 <Solution>
 
-Esta é a maneira com que você pode usar o componente `Card` em ambos os lugares:
+Esta é a maneira que você pode usar o componente `Card` em ambos os lugares:
 
 <Sandpack>
 
