@@ -421,7 +421,7 @@ Entretanto, as props são [imutáveis](https://pt.wikipedia.org/wiki/Objeto_imut
 * Você pode encaminhar todas as props com a sintaxe de espalhamento JSX `<Avatar {...props} />`, mas não abuse!
 * JSX aninhada como `<Card><Avatar /></Card>` aparecerá como a prop `children` do componente `Card`.
 * Props podem somente ser lidas e representam um momento específico no tempo: toda renderização recebe uma nova versão de props.
-* Props são imutáveis. Quando você precisar de interatividade, defina state.
+* Você não pode mudar as props. Quando você precisar de interatividade, precisará definir state.
 
 </Recap>
 
