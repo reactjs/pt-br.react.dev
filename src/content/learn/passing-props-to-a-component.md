@@ -355,7 +355,7 @@ Tente substituir o `<Avatar>` dentro de `<Card>` com algum texto para ver como o
 
 ## Como props mudam com o passar do tempo {/*how-props-change-over-time*/}
 
-O componente `Clock` abaixo recebe duas props de seu componente pai: `color` e `time`. (O código deste componente pai está omitido porque usa [state](/learn/state-a-components-memory), conceito o qual nós ainda não abordamos.)
+O componente `Clock` abaixo recebe duas props de seu componente pai: `color` e `time`. (O código deste componente pai está omitido porque usa [state](/learn/state-a-components-memory), conceito o qual nós não vamos nos aprofundar ainda.)
 
 Tente mudar a cor na caixa de seleção abaixo:
 
@@ -409,16 +409,16 @@ export default function App() {
 
 Este exemplo ilustra que **um componente pode receber props diferentes com o passar o tempo.** Props não são sempre estáticas! Aqui, a prop `time` muda a cada segundo, e a prop `color` muda quando você seleciona outra cor. As props refletem os dados de um componente a qualquer instante, não apenas num primeiro momento.
 
-Entretanto, as props são [imutáveis](https://pt.wikipedia.org/wiki/Objeto_imut%C3%A1vel)--um termo da ciência da computação o qual significa "inalterável". Quando um componente precisa mudar suas props (por exemplo, em resposta à interação do usuário ou a novos dados), ele terá que "pedir" ao componente pai que passe _props diferentes_-- um novo objeto! Essas props antigas serão então deixadas de lado, e eventualmente o motor do JavaScript irá recuperar a memória ocupada por elas.
+Entretanto, as props são [imutáveis](https://pt.wikipedia.org/wiki/Objeto_imut%C3%A1vel)-um termo da ciência da computação o qual significa "inalterável". Quando um componente precisa mudar suas props (por exemplo, em resposta à interação do usuário ou a novos dados), ele terá que "pedir" ao componente pai que passe _props diferentes_- um novo objeto! Suas props antigas serão então deixadas de lado, e eventualmente o motor do JavaScript irá recuperar a memória ocupada por elas.
 
-**Não tente "alterar props".** Quando você precisa responder a interações do usuário (como trocar a cor selecionada), você terá que "definir state", sobre o qual você pode aprender sobre em [State: A Memória de um Componente.](/learn/state-a-components-memory)
+**Não tente "alterar props".** Quando você precisa responder a interações do usuário (como trocar a cor selecionada), você terá que "definir state", sobre o qual você pode aprender em [State: A Memória de um Componente.](/learn/state-a-components-memory)
 
 <Recap>
 
 * Para passar props, adicione-as à JSX, assim como você faria com atributos HTML.
 * Para ler props, use a sintaxe de desestruturação `function Avatar({ person, size })`.
 * Você pode especificar um valor padrão como `size = 100`, o qual é usado para props inexistentes ou `undefined`.
-* Você pode encaminhar todas as props com a sintaxe de espalhamento JSX `<Avatar {...props} />`, mas não a utilize exaustivamente.
+* Você pode encaminhar todas as props com a sintaxe de espalhamento JSX `<Avatar {...props} />`, mas não abuse!
 * JSX aninhada como `<Card><Avatar /></Card>` aparecerá como a prop `children` do componente `Card`.
 * Props podem somente ser lidas e representam um momento específico no tempo: toda renderização recebe uma nova versão de props.
 * Props são imutáveis. Quando você precisar de interatividade, defina state.
