@@ -84,7 +84,7 @@ export default function Profile() {
 
 <Note>
 
-Se as chaves duplas depois de `person=` lhe confundem, lembre-se [que elas são meramente um objeto](/learn/javascript-in-jsx-with-curly-braces#using-double-curlies-css-and-other-objects-in-jsx) na sintaxe JSX.
+Se as chaves duplas depois de `person=` confundirem você, lembre-se [que elas são meramente um objeto](/learn/javascript-in-jsx-with-curly-braces#using-double-curlies-css-and-other-objects-in-jsx) dentro das chaves da JSX.
 
 </Note>
 
