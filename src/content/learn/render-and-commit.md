@@ -4,14 +4,14 @@ title: Renderizar e Confirmar
 
 <Intro>
 
-Antes de seus componentes serem exibidos em tela, eles devem ser renderizados pelo React. Entender as etapas desse processo irão te ajudar a pensar sobre como seu código é executado e a explicar seu comportamento.
+Antes de seus componentes serem exibidos em tela, eles devem ser renderizados pelo React. Entender as etapas desse processo irá te ajudar a pensar sobre como seu código é executado e a explicar seu comportamento.
 
 </Intro>
 
 <YouWillLearn>
 
 * O que significa renderização no React
-* Quando e por que o React renderiza um componente
+* Quando e porque o React renderiza um componente
 * As etapas envolvidas na exibição de um componente na tela
 * Por que a renderização nem sempre produz uma atualização no DOM
 
@@ -20,8 +20,8 @@ Antes de seus componentes serem exibidos em tela, eles devem ser renderizados pe
 Imagine que seus componentes são cozinheiros na cozinha, preparando pratos saborosos com ingredientes. Nesse cenário, o React é o garçom que faz as solicitações dos clientes e traz seus pedidos. Esse processo de solicitação e veiculação da interface do usuário tem três etapas:
 
 1. **Acionando** uma renderização (entregar o pedido do cliente na cozinha)
-2. **Renderizando** o componente (preparando o pedido na cozinha)
-3. **Confirmar** com o DOM (colocando o pedido na mesa)
+2. **Renderizando** o componente (preparar o pedido na cozinha)
+3. **Confirmar** com o DOM (colocar o pedido na mesa)
 
 <IllustrationBlock sequential>
   <Illustration caption="Acionando" alt="Como um servidor React em um restaurante, buscando pedidos dos usuários e entregando-os na Cozinha de Componentes." src="/images/docs/illustrations/i_render-and-commit1.png" />
@@ -38,7 +38,7 @@ Há duas razões para um componente ser renderizado
 
 ### Renderização inicial {/*initial-render*/}
 
-Quando seu app é iniciado, você precisa acionar uma renderização inicial. Às vezes, Frameworks e sandboxes ocultam esse código, mas é feito chamando [`createRoot`](/reference/react-dom/client/createRoot) com o alvo de nó DOM, e em seguida, chamando seu método `render` com seu componente:
+Quando seu app é iniciado, você precisa acionar uma renderização inicial. Às vezes, Frameworks e sandboxes ocultam esse código, mas isso é feito chamando [`createRoot`](/reference/react-dom/client/createRoot) com o alvo de nó DOM, e em seguida, chamando seu método `render` com seu componente:
 
 <Sandpack>
 
@@ -65,7 +65,7 @@ export default function Image() {
 
 Tente comentar a chamada `root.render()` e veja o componente desaparecer!
 
-### Re-renderizar quando o estado é atualizado {/*re-renders-when-state-updates*/}
+### Rerrenderizar quando o estado é atualizado {/*re-renders-when-state-updates*/}
 
 Uma vez que o componente foi renderizado inicialmente, você pode acionar outras renderizações atualizando seu estado com a função [`set`](/reference/react/useState#setstate). A atualização do estado do seu componente enfileira automaticamente uma renderização. (Você pode imaginá-los como um cliente de restaurante pedindo chá, sobremesa e todo tipo de coisas depois de fazer o primeiro pedido, dependendo do estado de sede ou fome.)
 
@@ -125,7 +125,7 @@ img { margin: 0 10px 10px 0; }
 </Sandpack>
 
 * **Durante a renderização inicial,** o React [criará os nós DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) para `<section>`, `<h1>`, e três tags `<img>`.
-* **Durante uma re-renderização,** o React calculará quais de suas propriedades, se houver, foram alterados desde a renderização anterior. Ele não fará nada com essa informação até a próxima etapa, a fase de confirmação.
+* **Durante uma rerrenderização,** o React calculará quais de suas propriedades, se houver, foram alterados desde a renderização anterior. Ele não fará nada com essa informação até a próxima etapa, a fase de confirmação.
 
 <Pitfall>
 
@@ -151,7 +151,7 @@ O comportamento padrão de renderizar todos os componentes aninhados no componen
 Depois de renderizar (chamar) seus componentes, o React modificará o DOM.
 
 * **Para a renderização inicial,** o React usará a API DOM [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) para colocar todos os nós DOM criados na tela. 
-* **Para re-renderizações,** o React aplicará as operações mínimas necessárias (calculadas durante a renderização!) Para fazer o DOM corresponder à última saída de renderização.
+* **Para rerrenderizações,** o React aplicará as operações mínimas necessárias (calculadas durante a renderização!) Para fazer o DOM corresponder à última saída de renderização.
 
 **O React apenas altera os nós do DOM se houver uma diferença entre as renderizações.** Por exemplo, aqui está um componente que renderiza novamente com props diferentes passados de seu pai a cada segundo. Observe como você pode adicionar algum texto no `<input>`, atualizando seu `valor`, mas o texto não desaparece quando o componente renderiza novamente:
 
