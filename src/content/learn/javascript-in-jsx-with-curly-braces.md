@@ -165,7 +165,7 @@ Da próxima vez que você encontrar `{{` e `}}` em JSX, saiba que isso é nada m
 
 <Pitfall>
 
-As propriedades de inline `style` são escritas em camelCase. Por exemplo, o HTML `<ul style="background-color: black"`> seria escrito como `<ul style={{ backgroundColor: 'black' }}>` em seu componente.
+As propriedades de `style` em linha são escritas em camelCase. Por exemplo, o HTML `<ul style="background-color: black"`> seria escrito como `<ul style={{ backgroundColor: 'black' }}>` em seu componente.
 
 </Pitfall>
 
