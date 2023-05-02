@@ -4,7 +4,7 @@ title: "<progress>"
 
 <Intro>
 
-O  [componente `<progress>` nativo do browser](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) permite que você renderize um indicador de progresso.
+O [componente `<progress>` nativo do browser](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) permite que você renderize um indicador de progresso.
 
 ```js
 <progress value={0.5} />
