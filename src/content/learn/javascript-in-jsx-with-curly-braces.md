@@ -247,7 +247,7 @@ Agora você sabe quase tudo sobre JSX:
 
 #### Corrija o erro {/*fix-the-mistake*/}
 
-Esse código é interrompido com um erro que diz `Objects are not valid as a React child`:
+Este código é interrompido com um erro dizendo `Objetos não são válidos como um filho React`:
 
 <Sandpack>
 
