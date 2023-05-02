@@ -161,7 +161,7 @@ Você pode ver claramente o objeto JavaScript dentro das chaves quando o escreve
 }>
 ```
 
-Da próxima vez que você vir `{{` e `}}` em JSX, saiba que isso é nada mais do que um objeto dentro das chaves de JSX!
+Da próxima vez que você encontrar `{{` e `}}` em JSX, saiba que isso é nada mais do que um objeto dentro das chaves da JSX!
 
 <Pitfall>
 
