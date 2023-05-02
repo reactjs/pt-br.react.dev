@@ -19,7 +19,7 @@ A sintaxe JSX permite que você escreva tags similares ao HTML dentro de um arqu
 
 ## Passando strings com aspas {/*passing-strings-with-quotes*/}
 
-Quando quiser passar um atributo de string para o JSX, coloque-o entre aspas simples ou duplas:
+Quando você quiser passar um atributo de string para a JSX, coloque-o entre aspas simples ou duplas:
 
 <Sandpack>
 
