@@ -238,7 +238,7 @@ Agora você sabe quase tudo sobre JSX:
 
 * Os atributos JSX entre aspas são passados como strings.
 * As chaves permitem que você inclua a lógica e as variáveis do JavaScript em seu bloco de tags.
-* Elas funcionam dentro do conteúdo da tag JSX ou imediatamente após `=` nos atributos.
+* Elas funcionam dentro do conteúdo da tag JSX ou imediatamente após `=` em atributos.
 * `{{` e `}}` não é uma sintaxe especial: é um objeto JavaScript colocado entre chaves JSX.
 
 </Recap>
