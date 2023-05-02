@@ -71,7 +71,7 @@ Perceba a diferença entre `className="avatar"`, que especifica um nome de class
 
 ## Usando chaves: Uma janela para o mundo do JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
-JSX é uma forma especial de escrever JavaScript. Isso significa que é possível usar JavaScript dentro dele - com chaves `{ }`. O exemplo abaixo primeiro declara um nome para o cientista, `name`, e depois insere o nome dentro do `<h1>` com chaves:
+JSX é uma forma especial de escrever JavaScript. Isso significa que é possível usar JavaScript dentro dela - com chaves `{ }`. O exemplo abaixo primeiro declara um nome para o cientista, `name`, e depois o insere o dentro do `<h1>` com chaves:
 
 <Sandpack>
 
