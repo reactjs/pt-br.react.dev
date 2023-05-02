@@ -1,25 +1,25 @@
 ---
-title: JavaScript in JSX with Curly Braces
+title: JavaScript em JSX com chaves
 ---
 
 <Intro>
 
-JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to open a window to JavaScript.
+A sintaxe JSX permite que você escreva tags similares ao HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo local. Às vezes, você pode querer adicionar um pouco de lógica JavaScript ou referenciar uma propriedade dinâmica dentro deste bloco de tags. Nessa situação, você pode usar chaves em seu JSX para abrir uma janela para o JavaScript.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to pass strings with quotes
-* How to reference a JavaScript variable inside JSX with curly braces
-* How to call a JavaScript function inside JSX with curly braces
-* How to use a JavaScript object inside JSX with curly braces
+* Como passar strings com aspas
+* Como fazer referência a uma variável JavaScript dentro do JSX usando chaves
+* Como chamar uma função JavaScript dentro da JSX com chaves
+* Como usar um objeto JavaScript dentro da JSX com chaves
 
 </YouWillLearn>
 
-## Passing strings with quotes {/*passing-strings-with-quotes*/}
+## Passando strings com aspas {/*passing-strings-with-quotes*/}
 
-When you want to pass a string attribute to JSX, you put it in single or double quotes:
+Quando você quiser passar um atributo de string para a JSX, coloque-o entre aspas simples ou duplas:
 
 <Sandpack>
 
@@ -41,9 +41,9 @@ export default function Avatar() {
 
 </Sandpack>
 
-Here, `"https://i.imgur.com/7vQD0fPs.jpg"` and `"Gregorio Y. Zara"` are being passed as strings.
+Neste caso, `"https://i.imgur.com/7vQD0fPs.jpg"` e `"Gregorio Y. Zara"` estão sendo passados como strings.
 
-But what if you want to dynamically specify the `src` or `alt` text? You could **use a value from JavaScript by replacing `"` and `"` with `{` and `}`**:
+Mas e se você quiser especificar dinamicamente o atributo `src` ou `alt`? Você poderia **usar um valor do JavaScript substituindo `"` e `"` por `{` e `}`**:
 
 <Sandpack>
 
@@ -67,11 +67,11 @@ export default function Avatar() {
 
 </Sandpack>
 
-Notice the difference between `className="avatar"`, which specifies an `"avatar"` CSS class name that makes the image round, and `src={avatar}` that reads the value of the JavaScript variable called `avatar`. That's because curly braces let you work with JavaScript right there in your markup!
+Perceba a diferença entre `className="avatar"`, que especifica um nome de classe CSS `"avatar"` para tornar a imagem redonda, e `src={avatar}`, que lê o valor da variável JavaScript chamada `avatar`. Isso ocorre porque as chaves permitem que você trabalhe com JavaScript diretamente em seu bloco de tags!
 
-## Using curly braces: A window into the JavaScript world {/*using-curly-braces-a-window-into-the-javascript-world*/}
+## Usando chaves: Uma janela para o mundo do JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
-JSX is a special way of writing JavaScript. That means it’s possible to use JavaScript inside it—with curly braces `{ }`. The example below first declares a name for the scientist, `name`, then embeds it with curly braces inside the `<h1>`:
+JSX é uma forma especial de escrever JavaScript. Isso significa que é possível usar JavaScript dentro dela - com chaves `{ }`. O exemplo abaixo primeiro declara um nome para o cientista, `name`, e depois o insere o dentro do `<h1>` com chaves:
 
 <Sandpack>
 
@@ -86,9 +86,9 @@ export default function TodoList() {
 
 </Sandpack>
 
-Try changing the `name`'s value from `'Gregorio Y. Zara'` to `'Hedy Lamarr'`. See how the list title changes?
+Tente trocar o valor do `name` de `'Gregorio Y. Zara'` para `'Hedy Lamarr'`. Está vendo como o título da lista muda?
 
-Any JavaScript expression will work between curly braces, including function calls like `formatDate()`:
+Qualquer expressão JavaScript funcionará entre chaves, incluindo chamadas de função como `formatDate()`:
 
 <Sandpack>
 
@@ -111,18 +111,18 @@ export default function TodoList() {
 
 </Sandpack>
 
-### Where to use curly braces {/*where-to-use-curly-braces*/}
+### Onde usar chaves {/*where-to-use-curly-braces*/}
 
-You can only use curly braces in two ways inside JSX:
+Você só pode usar chaves de duas maneiras dentro da JSX:
 
-1. **As text** directly inside a JSX tag: `<h1>{name}'s To Do List</h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List</{tag}>`  will not.
-2. **As attributes** immediately following the `=` sign: `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string `"{avatar}"`.
+1. **Como texto** diretamente dentro de uma tag JSX: `<h1>{nome}'s To Do List</h1>` funciona, porém `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` não funcionará.
+2. **Como atributos** imediatamente após o sinal `=`: `src={avatar}` lerá a variável `avatar`, mas `src="{avatar}"` passará a string `"{avatar}"`.
 
-## Using "double curlies": CSS and other objects in JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
+## Uso de "chaves duplas": CSS e outros objetos em JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
 
-In addition to strings, numbers, and other JavaScript expressions, you can even pass objects in JSX. Objects are also denoted with curly braces, like `{ name: "Hedy Lamarr", inventions: 5 }`. Therefore, to pass a JS object in JSX, you must wrap the object in another pair of curly braces: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
+Além de strings, números e outras expressões JavaScript, você pode até passar objetos em JSX. Os objetos também são denotados por chaves, como `{ name: "Hedy Lamarr", inventions: 5 }`. Portanto, para passar um objeto JS em JSX, você deve envolver o objeto em outro par de chaves: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
 
-You may see this with inline CSS styles in JSX. React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the `style` attribute:
+Você pode ver isso com estilos CSS em linha na JSX. O React não exige que você use estilos inline (as classes CSS funcionam muito bem na maioria dos casos). Mas quando você precisa de um estilo inline, você passa um objeto para o atributo `style`:
 
 <Sandpack>
 
@@ -148,9 +148,9 @@ ul { padding: 20px 20px 20px 40px; margin: 0; }
 
 </Sandpack>
 
-Try changing the values of `backgroundColor` and `color`.
+Tente alterar os valores de `backgroundColor` e `color`.
 
-You can really see the JavaScript object inside the curly braces when you write it like this:
+Você pode ver claramente o objeto JavaScript dentro das chaves quando o escreve dessa forma:
 
 ```js {2-5}
 <ul style={
@@ -161,17 +161,17 @@ You can really see the JavaScript object inside the curly braces when you write 
 }>
 ```
 
-The next time you see `{{` and `}}` in JSX, know that it's nothing more than an object inside the JSX curlies!
+Da próxima vez que você encontrar `{{` e `}}` em JSX, saiba que isso é nada mais do que um objeto dentro das chaves da JSX!
 
 <Pitfall>
 
-Inline `style` properties are written in camelCase. For example, HTML `<ul style="background-color: black"`> would be written as `<ul style={{ backgroundColor: 'black' }}>`  in your component.
+As propriedades de `style` em linha são escritas em camelCase. Por exemplo, o HTML `<ul style="background-color: black"`> seria escrito como `<ul style={{ backgroundColor: 'black' }}>` em seu componente.
 
 </Pitfall>
 
-## More fun with JavaScript objects and curly braces {/*more-fun-with-javascript-objects-and-curly-braces*/}
+## Mais diversão com objetos JavaScript e chaves {/*more-fun-with-javascript-objects-and-curly-braces*/}
 
-You can move several expressions into one object, and reference them in your JSX inside curly braces:
+Você pode colocar várias expressões dentro de um objeto e referenciá-las em seu JSX dentro de chaves:
 
 <Sandpack>
 
@@ -211,7 +211,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-In this example, the `person` JavaScript object contains a `name` string and a `theme` object:
+Neste exemplo, o objeto JavaScript `person` contém uma string `name` e um objeto `theme`:
 
 ```js
 const person = {
@@ -223,31 +223,31 @@ const person = {
 };
 ```
 
-The component can use these values from `person` like so:
+O componente pode usar os valores de `person` da seguinte forma:
 
 ```js
 <div style={person.theme}>
   <h1>{person.name}'s Todos</h1>
 ```
 
-JSX is very minimal as a templating language because it lets you organize data and logic using JavaScript.
+JSX é uma linguagem de modelação mínima, pois permite que você organize dados e lógica usando JavaScript.
 
 <Recap>
 
-Now you know almost everything about JSX:
+Agora você sabe quase tudo sobre JSX:
 
-* JSX attributes inside quotes are passed as strings.
-* Curly braces let you bring JavaScript logic and variables into your markup.
-* They work inside the JSX tag content or immediately after `=` in attributes.
-* `{{` and `}}` is not special syntax: it's a JavaScript object tucked inside JSX curly braces.
+* Os atributos JSX entre aspas são passados como strings.
+* As chaves permitem que você inclua a lógica e as variáveis do JavaScript em seu bloco de tags.
+* Elas funcionam dentro do conteúdo da tag JSX ou imediatamente após `=` em atributos.
+* `{{` e `}}` não é uma sintaxe especial: é um objeto JavaScript colocado entre chaves JSX.
 
 </Recap>
 
 <Challenges>
 
-#### Fix the mistake {/*fix-the-mistake*/}
+#### Corrija o erro {/*fix-the-mistake*/}
 
-This code crashes with an error saying `Objects are not valid as a React child`:
+Este código é interrompido com um erro dizendo `Objetos não são válidos como um filho React`:
 
 <Sandpack>
 
@@ -287,15 +287,15 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Can you find the problem?
+Você consegue identificar o problema?
 
-<Hint>Look for what's inside the curly braces. Are we putting the right thing there?</Hint>
+<Hint>Observe o que está dentro das chaves. Estamos colocando a coisa certa lá?</Hint>
 
 <Solution>
 
-This is happening because this example renders *an object itself* into the markup rather than a string: `<h1>{person}'s Todos</h1>` is trying to render the entire `person` object! Including raw objects as text content throws an error because React doesn't know how you want to display them.
+Isso está acontecendo porque esse exemplo renderiza *um objeto* no bloco de tags em vez de uma string: `<h1>{person}'s Todos</h1>` está tentando renderizar o objeto `person` inteiro! A inclusão de objetos diretamente como conteúdo de texto gera um erro porque o React não sabe como você deseja exibi-los.
 
-To fix it, replace `<h1>{person}'s Todos</h1>` with `<h1>{person.name}'s Todos</h1>`:
+Para corrigi-lo, substitua `<h1>{person}'s Todos</h1>` por `<h1>{person.name}'s Todos</h1>`:
 
 <Sandpack>
 
@@ -337,9 +337,9 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-#### Extract information into an object {/*extract-information-into-an-object*/}
+#### Extraia informações para um objeto {/*extract-information-into-an-object*/}
 
-Extract the image URL into the `person` object.
+Extraia o URL da imagem para o objeto `person`.
 
 <Sandpack>
 
@@ -381,7 +381,7 @@ body > div > div { padding: 20px; }
 
 <Solution>
 
-Move the image URL into a property called `person.imageUrl` and read it from the `<img>` tag using the curlies:
+Mova o URL da imagem para uma propriedade chamada `person.imageUrl` e leia-o a partir da tag `<img>` usando chaves:
 
 <Sandpack>
 
@@ -424,13 +424,13 @@ body > div > div { padding: 20px; }
 
 </Solution>
 
-#### Write an expression inside JSX curly braces {/*write-an-expression-inside-jsx-curly-braces*/}
+#### Escreva uma expressão entre chaves JSX {/*write-an-expression-inside-jsx-curly-braces*/}
 
-In the object below, the full image URL is split into four parts: base URL, `imageId`, `imageSize`, and file extension.
+No objeto abaixo, o URL completo da imagem é dividido em quatro partes: URL base, `imageId`, `imageSize` e extensão do arquivo.
 
-We want the image URL to combine these attributes together: base URL (always `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`), and file extension (always `'.jpg'`). However, something is wrong with how the `<img>` tag specifies its `src`.
+Queremos que o URL da imagem combine estes atributos: URL base (sempre `'https://i.imgur.com/'`), `imageId` (`'7vQD0fP'`), `imageSize` (`'s'`) e extensão de arquivo (sempre `'.jpg'`). Entretanto, há algo errado com a forma como a tag `<img>` especifica sua `src`.
 
-Can you fix it?
+Você pode consertá-lo?
 
 <Sandpack>
 
@@ -474,15 +474,15 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-To check that your fix worked, try changing the value of `imageSize` to `'b'`. The image should resize after your edit.
+Para verificar se sua correção funcionou, tente alterar o valor de `imageSize` para `'b'`. A imagem deverá ser redimensionada após sua edição.
 
 <Solution>
 
-You can write it as `src={baseUrl + person.imageId + person.imageSize + '.jpg'}`.
+Você pode escrevê-lo como `src={baseUrl + person.imageId + person.imageSize + '.jpg'}`.
 
-1. `{` opens the JavaScript expression
-2. `baseUrl + person.imageId + person.imageSize + '.jpg'` produces the correct URL string
-3. `}` closes the JavaScript expression
+1. `{` abre a expressão JavaScript
+2. `baseUrl + person.imageId + person.imageSize + '.jpg'` produz a string de URL correta
+3. `}` fecha a expressão JavaScript
 
 <Sandpack>
 
@@ -525,7 +525,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-You can also move this expression into a separate function like `getImageUrl` below:
+Você também pode mover essa expressão para uma função separada, como `getImageUrl` abaixo:
 
 <Sandpack>
 
@@ -580,7 +580,7 @@ body > div > div { padding: 20px; }
 
 </Sandpack>
 
-Variables and functions can help you keep the markup simple!
+Variáveis e funções podem ajudá-lo a manter o bloco de tags simples!
 
 </Solution>
 
