@@ -11,7 +11,7 @@ A sintaxe JSX permite que você escreva tags similares ao HTML dentro de um arqu
 <YouWillLearn>
 
 * Como passar strings com aspas
-* Como fazer referência a uma variável JavaScript dentro do JSX com chaves
+* Como fazer referência a uma variável JavaScript dentro do JSX usando chaves
 * Como chamar uma função JavaScript dentro do JSX com chaves
 * Como usar um objeto JavaScript dentro do JSX com chaves
 
