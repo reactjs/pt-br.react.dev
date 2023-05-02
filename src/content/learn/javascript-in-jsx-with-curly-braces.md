@@ -115,7 +115,7 @@ export default function TodoList() {
 
 Você só pode usar chaves de duas maneiras dentro da JSX:
 
-1. **Como texto** diretamente dentro de uma tag JSX: `<h1>{nome}'s To Do List</h1>` funciona, mas `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` não.
+1. **Como texto** diretamente dentro de uma tag JSX: `<h1>{nome}'s To Do List</h1>` funciona, porém `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` não funcionará.
 2. **Como atributos** imediatamente após o sinal `=`: `src={avatar}` vai ler a variável `avatar`, mas `src="{avatar}"` vai passar a string `"{avatar}"`.
 
 ## Uso de "chaves duplas": CSS e outros objetos em JSX {/*using-double-curlies-css-and-other-objects-in-jsx*/}
