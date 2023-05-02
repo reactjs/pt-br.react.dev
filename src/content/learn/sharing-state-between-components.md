@@ -1,31 +1,31 @@
 ---
-title: Sharing State Between Components
+title: Compartilhando State Entre Componentes
 ---
 
 <Intro>
 
-Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as *lifting state up,* and it's one of the most common things you will do writing React code.
+Às vezes, você deseja que o state de dois componentes seja sempre alterado em conjunto. Para fazer isso, remova o state de ambos, mova-os para o pai comum mais próximo e, em seguida, passe-os aos componentes por meio de props. Isto é conhecido como *elevação de state* e é uma das coisas mais comuns que você fará ao escrever código React.
 
 </Intro>
 
 <YouWillLearn>
 
-- How to share state between components by lifting it up
-- What are controlled and uncontrolled components
+- Como compartilhar state entre componentes por sua elevação
+- O que são componentes controlados e não controlados
 
 </YouWillLearn>
 
-## Lifting state up by example {/*lifting-state-up-by-example*/}
+## Exemplificando a elevação de state {/*lifting-state-up-by-example*/}
 
-In this example, a parent `Accordion` component renders two separate `Panel`s:
+Neste exemplo, um componente `Accordion` pai renderiza dois componentes `Panel` separados:
 
 * `Accordion`
   - `Panel`
   - `Panel`
 
-Each `Panel` component has a boolean `isActive` state that determines whether its content is visible.
+Cada componente `Panel` tem um state booleano `isActive` que determina se o seu conteúdo está visível.
 
-Press the Show button for both panels:
+Pressione o botão "Show" de ambos os painéis:
 
 <Sandpack>
 
@@ -51,12 +51,12 @@ function Panel({ title, children }) {
 export default function Accordion() {
   return (
     <>
-      <h2>Almaty, Kazakhstan</h2>
-      <Panel title="About">
-        With a population of about 2 million, Almaty is Kazakhstan's largest city. From 1929 to 1997, it was its capital city.
+      <h2>Almaty, Cazaquistão</h2>
+      <Panel title="Sobre">
+        Com uma população de cerca de 2 milhões de habitantes, Almaty é a maior cidade do Cazaquistão. De 1929 a 1997, foi sua capital.
       </Panel>
-      <Panel title="Etymology">
-        The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for "apple" and is often translated as "full of apples". In fact, the region surrounding Almaty is thought to be the ancestral home of the apple, and the wild <i lang="la">Malus sieversii</i> is considered a likely candidate for the ancestor of the modern domestic apple.
+      <Panel title="Etimologia">
+        O nome vem de <span lang="kk-KZ">алма</span>, a palavra cazaque para "maçã", e é frequentemente traduzido como "cheio de maçãs". De fato, acredita-se que a região em torno de Almaty seja o lar ancestral da maçã, e o <i lang="la">Malus sieversii</i> selvagem é considerado um provável candidato a ancestral da maçã doméstica moderna.
       </Panel>
     </>
   );
@@ -73,59 +73,59 @@ h3, p { margin: 5px 0px; }
 
 </Sandpack>
 
-Notice how pressing one panel's button does not affect the other panel--they are independent.
+Observe como o fato de pressionar o botão de um painel não afeta o outro painel--eles são independentes.
 
 <DiagramGroup>
 
-<Diagram name="sharing_state_child" height={367} width={477} alt="Diagram showing a tree of three components, one parent labeled Accordion and two children labeled Panel. Both Panel components contain isActive with value false.">
+<Diagram name="sharing_state_child" height={367} width={477} alt="Diagrama mostrando uma árvore de três componentes, um componente principal denominado Accordion e dois componentes secundários denominados Painel. Ambos os componentes Paneil contêm isActive com valor falso.">
 
-Initially, each `Panel`'s `isActive` state is `false`, so they both appear collapsed
+Inicialmente, o state `isActive` de cada `Panel` é falso, de modo que ambos aparecem recolhidos
 
 </Diagram>
 
-<Diagram name="sharing_state_child_clicked" height={367} width={480} alt="The same diagram as the previous, with the isActive of the first child Panel component highlighted indicating a click with the isActive value set to true. The second Panel component still contains value false." >
+<Diagram name="sharing_state_child_clicked" height={367} width={480} alt="O mesmo diagrama que o anterior, com o isActive do primeiro componente filho do Painel destacado, indicando um clique com o valor isActive definido como verdadeiro. O segundo componente Painel ainda contém o valor falso." >
 
-Clicking either `Panel`'s button will only update that `Panel`'s `isActive` state alone
+Clicar em um dos botões do `Panel` somente atualizará o state `isActive` desse `Panel`.
 
 </Diagram>
 
 </DiagramGroup>
 
-**But now let's say you want to change it so that only one panel is expanded at any given time.** With that design, expanding the second panel should collapse the first one. How would you do that?
+**Mas agora digamos que você queira alterá-lo para que apenas um painel seja expandido por vez.** Com esse design, expandir o segundo painel deve recolher o primeiro. Como você faria isso?
 
-To coordinate these two panels, you need to "lift their state up" to a parent component in three steps:
+Para coordenar esses dois painéis, você precisa "elevar o state deles" para um componente pai em três etapas:
 
-1. **Remove** state from the child components.
-2. **Pass** hardcoded data from the common parent.
-3. **Add** state to the common parent and pass it down together with the event handlers.
+1. **Remover** o state dos componentes filhos.
+2. **Passar** dados estáticos do pai comum.
+3. **Adicionar** o state ao pai comum e passá-lo para baixo junto com os manipuladores de eventos.
 
-This will allow the `Accordion` component to coordinate both `Panel`s and only expand one at a time.
+Isso permitirá que o componente `Accordion` coordene ambos os `Panel`s e expanda apenas um de cada vez.
 
-### Step 1: Remove state from the child components {/*step-1-remove-state-from-the-child-components*/}
+### Etapa 1: Remover o state dos componentes filhos {/*step-1-remove-state-from-the-child-components*/}
 
-You will give control of the `Panel`'s `isActive` to its parent component. This means that the parent component will pass `isActive` to `Panel` as a prop instead. Start by **removing this line** from the `Panel` component:
+Você dará o controle do `isActive` do `Panel` ao seu componente pai. Isso significa que o componente pai passará o `isActive` para o `Panel` como uma propriedade. Comece **removendo essa linha** do componente `Panel`:
 
 ```js
 const [isActive, setIsActive] = useState(false);
 ```
 
-And instead, add `isActive` to the `Panel`'s list of props:
+Em vez disso, adicione `isActive` à lista de props do `Panel`:
 
 ```js
 function Panel({ title, children, isActive }) {
 ```
 
-Now the `Panel`'s parent component can *control* `isActive` by [passing it down as a prop.](/learn/passing-props-to-a-component) Conversely, the `Panel` component now has *no control* over the value of `isActive`--it's now up to the parent component!
+Agora, o componente pai do `Panel` pode *controlar* o `isActive` [transmitindo-o como uma prop.](/learn/passing-props-to-a-component) Por outro lado, o componente `Panel` agora não tem *nenhum controle* sobre o valor de `isActive`; isso agora depende do componente pai!
 
-### Step 2: Pass hardcoded data from the common parent {/*step-2-pass-hardcoded-data-from-the-common-parent*/}
+### Etapa 2: passar dados estáticos do pai comum {/*step-2-pass-hardcoded-data-from-the-common-parent*/}
 
-To lift state up, you must locate the closest common parent component of *both* of the child components that you want to coordinate:
+Para elevar o state, você deve localizar o componente pai comum mais próximo de *ambos* os componentes filhos que deseja coordenar:
 
-* `Accordion` *(closest common parent)*
+* `Accordion` *(pai comum mais próximo)*
   - `Panel`
   - `Panel`
 
-In this example, it's the `Accordion` component. Since it's above both panels and can control their props, it will become the "source of truth" for which panel is currently active. Make the `Accordion` component pass a hardcoded value of `isActive` (for example, `true`) to both panels:
+Neste exemplo, é o componente `Accordion`. Como ele está acima de ambos os painéis e pode controlar suas props, ele se tornará a "fonte da verdade" para saber qual painel está ativo no momento. Faça com que o componente `Accordion` passe um valor estático de `isActive` (por exemplo, `true`) para ambos os painéis:
 
 <Sandpack>
 
@@ -135,12 +135,12 @@ import { useState } from 'react';
 export default function Accordion() {
   return (
     <>
-      <h2>Almaty, Kazakhstan</h2>
-      <Panel title="About" isActive={true}>
-        With a population of about 2 million, Almaty is Kazakhstan's largest city. From 1929 to 1997, it was its capital city.
+      <h2>Almaty, Cazaquistão</h2>
+      <Panel title="Sobre" isActive={true}>
+        Com uma população de cerca de 2 milhões de habitantes, Almaty é a maior cidade do Cazaquistão. De 1929 a 1997, foi sua capital.
       </Panel>
-      <Panel title="Etymology" isActive={true}>
-        The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for "apple" and is often translated as "full of apples". In fact, the region surrounding Almaty is thought to be the ancestral home of the apple, and the wild <i lang="la">Malus sieversii</i> is considered a likely candidate for the ancestor of the modern domestic apple.
+      <Panel title="Etmologia" isActive={true}>
+        O nome vem de <span lang="kk-KZ">алма</span>, a palavra cazaque para "maçã", e é frequentemente traduzido como "cheio de maçãs". De fato, acredita-se que a região em torno de Almaty seja o lar ancestral da maçã, e o<i lang="la"> Malus sieversii</i> selvagem é considerado um provável candidato a ancestral da maçã doméstica moderna.
       </Panel>
     </>
   );
@@ -154,7 +154,7 @@ function Panel({ title, children, isActive }) {
         <p>{children}</p>
       ) : (
         <button onClick={() => setIsActive(true)}>
-          Show
+          Exibir
         </button>
       )}
     </section>
@@ -172,21 +172,21 @@ h3, p { margin: 5px 0px; }
 
 </Sandpack>
 
-Try editing the hardcoded `isActive` values in the `Accordion` component and see the result on the screen.
+Tente editar os valores estáticos `isActive` no componente `Accordion` e veja o resultado na tela.
 
-### Step 3: Add state to the common parent {/*step-3-add-state-to-the-common-parent*/}
+### Etapa 3: Adicionar state ao pai comum {/*step-3-add-state-to-the-common-parent*/}
 
-Lifting state up often changes the nature of what you're storing as state.
+Elevar o state muitas vezes muda a natureza do que você está armazenando como state.
 
-In this case, only one panel should be active at a time. This means that the `Accordion` common parent component needs to keep track of *which* panel is the active one. Instead of a `boolean` value, it could use a number as the index of the active `Panel` for the state variable:
+Nesse caso, apenas um painel deve estar ativo por vez. Isso significa que o componente pai comum `Accordion` precisa manter o controle de *qual* painel está ativo. Em vez de um valor `booleano`, ele poderia usar um número como índice do `Panel` ativo para a variável do state:
 
 ```js
 const [activeIndex, setActiveIndex] = useState(0);
 ```
 
-When the `activeIndex` is `0`, the first panel is active, and when it's `1`, it's the second one.
+Quando o `activeIndex` é `0`, o primeiro painel está ativo, e quando é `1`, é o segundo.
 
-Clicking the "Show" button in either `Panel` needs to change the active index in `Accordion`. A `Panel` can't set the `activeIndex` state directly because it's defined inside the `Accordion`. The `Accordion` component needs to *explicitly allow* the `Panel` component to change its state by [passing an event handler down as a prop](/learn/responding-to-events#passing-event-handlers-as-props):
+Clicar no botão "Exibir" em um dos "Painéis" precisa alterar o índice ativo no "Accordion". Um `Panel` não pode definir o state `activeIndex` diretamente porque ele é definido dentro do `Accordion`. O componente `Accordion` precisa *permitir explicitamente* que o componente `Panel` altere seu state, [passando um manipulador de eventos como uma prop](/learn/responding-to-events#passing-event-handlers-as-props):
 
 ```js
 <>
@@ -205,7 +205,7 @@ Clicking the "Show" button in either `Panel` needs to change the active index in
 </>
 ```
 
-The `<button>` inside the `Panel` will now use the `onShow` prop as its click event handler:
+O `<button>` dentro do `Panel` agora usará a propriedade `onShow` como seu manipulador de eventos de clique:
 
 <Sandpack>
 
@@ -216,20 +216,20 @@ export default function Accordion() {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <>
-      <h2>Almaty, Kazakhstan</h2>
+      <h2>Almaty, Cazaquistão</h2>
       <Panel
-        title="About"
+        title="Sobre"
         isActive={activeIndex === 0}
         onShow={() => setActiveIndex(0)}
       >
-        With a population of about 2 million, Almaty is Kazakhstan's largest city. From 1929 to 1997, it was its capital city.
+        Com uma população de cerca de 2 milhões de habitantes, Almaty é a maior cidade do Cazaquistão. De 1929 a 1997, foi sua capital.
       </Panel>
       <Panel
-        title="Etymology"
+        title="Etmologia"
         isActive={activeIndex === 1}
         onShow={() => setActiveIndex(1)}
       >
-        The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for "apple" and is often translated as "full of apples". In fact, the region surrounding Almaty is thought to be the ancestral home of the apple, and the wild <i lang="la">Malus sieversii</i> is considered a likely candidate for the ancestor of the modern domestic apple.
+        O nome vem de <span lang="kk-KZ">алма</span>, a palavra cazaque para "maçã", e é frequentemente traduzido como "cheio de maçãs". De fato, acredita-se que a região em torno de Almaty seja o lar ancestral da maçã, e o<i lang="la"> Malus sieversii</i> selvagem é considerado um provável candidato a ancestral da maçã doméstica moderna.
       </Panel>
     </>
   );
@@ -248,7 +248,7 @@ function Panel({
         <p>{children}</p>
       ) : (
         <button onClick={onShow}>
-          Show
+          Exibir
         </button>
       )}
     </section>
@@ -266,19 +266,19 @@ h3, p { margin: 5px 0px; }
 
 </Sandpack>
 
-This completes lifting state up! Moving state into the common parent component allowed you to coordinate the two panels. Using the active index instead of two "is shown" flags ensured that only one panel is active at a given time. And passing down the event handler to the child allowed the child to change the parent's state.
+Isso completa a elevação do state! Mover o state para o componente pai comum permitiu que você coordenasse os dois painéis. Usar o índice ativo em vez de dois sinalizadores "é exibido" garantiu que apenas um painel estivesse ativo em um determinado momento. E passar o manipulador de eventos para o filho permitiu que ele alterasse o state do pai.
 
 <DiagramGroup>
 
-<Diagram name="sharing_state_parent" height={385} width={487} alt="Diagram showing a tree of three components, one parent labeled Accordion and two children labeled Panel. Accordion contains an activeIndex value of zero which turns into isActive value of true passed to the first Panel, and isActive value of false passed to the second Panel." >
+<Diagram name="sharing_state_parent" height={385} width={487} alt="Diagrama que mostra uma árvore de três componentes, um pai denominado Accordion e dois filhos denominados Panel. O Accordion contém um valor activeIndex igual a zero, que se transforma em um valor isActive verdadeiro passado para o primeiro Panel, e um valor isActive falso passado para o segundo Panel." >
 
-Initially, `Accordion`'s `activeIndex` is `0`, so the first `Panel` receives `isActive = true`
+Inicialmente, o `activeIndex` do `Accordion` é `0`, portanto o primeiro `Panel` recebe `isActive = true`
 
 </Diagram>
 
-<Diagram name="sharing_state_parent_clicked" height={385} width={521} alt="The same diagram as the previous, with the activeIndex value of the parent Accordion component highlighted indicating a click with the value changed to one. The flow to both of the children Panel components is also highlighted, and the isActive value passed to each child is set to the opposite: false for the first Panel and true for the second one." >
+<Diagram name="sharing_state_parent_clicked" height={385} width={521} alt="O mesmo diagrama que o anterior, com o valor activeIndex do componente Accordion pai destacado, indicando um clique com o valor alterado para um. O fluxo para ambos os componentes Panel filhos também é destacado, e o valor isActive passado para cada filho é definido como o oposto: false para o primeiro Panel e true para o segundo." >
 
-When `Accordion`'s `activeIndex` state changes to `1`, the second `Panel` receives `isActive = true` instead
+Quando o state `activeIndex` do `Accordion` muda para `1`, o segundo `Panel` recebe `isActive = true` em seu lugar
 
 </Diagram>
 
@@ -286,48 +286,48 @@ When `Accordion`'s `activeIndex` state changes to `1`, the second `Panel` receiv
 
 <DeepDive>
 
-#### Controlled and uncontrolled components {/*controlled-and-uncontrolled-components*/}
+#### Componentes controlados e não controlados {/*controlled-and-uncontrolled-components*/}
 
-It is common to call a component with some local state "uncontrolled". For example, the original `Panel` component with an `isActive` state variable is uncontrolled because its parent cannot influence whether the panel is active or not.
+É comum chamar um componente com algum state local de "não controlado". Por exemplo, o componente `Panel` original com uma variável de state `isActive` não é controlado porque seu pai não pode influenciar se o painel está ativo ou não.
 
-In contrast, you might say a component is "controlled" when the important information in it is driven by props rather than its own local state. This lets the parent component fully specify its behavior. The final `Panel` component with the `isActive` prop is controlled by the `Accordion` component.
+Por outro lado, pode-se dizer que um componente é "controlado" quando as informações importantes nele contidas são orientadas por props em vez de seu próprio state local. Isso permite que o componente pai especifique totalmente seu comportamento. O componente final `Panel` com a prop `isActive` é controlado pelo componente `Accordion`.
 
-Uncontrolled components are easier to use within their parents because they require less configuration. But they're less flexible when you want to coordinate them together. Controlled components are maximally flexible, but they require the parent components to fully configure them with props.
+Os componentes não controlados são mais fáceis de usar dentro de seus pais porque exigem menos configuração. Mas são menos flexíveis quando você deseja coordená-los entre si. Os componentes controlados são extremamente flexíveis, mas exigem que os componentes principais os configurem totalmente com props.
 
-In practice, "controlled" and "uncontrolled" aren't strict technical terms--each component usually has some mix of both local state and props. However, this is a useful way to talk about how components are designed and what capabilities they offer.
+Na prática, "controlado" e "não controlado" não são termos técnicos rigorosos - cada componente geralmente tem uma mistura de state local e props. No entanto, essa é uma maneira útil de falar sobre como os componentes são projetados e quais recursos eles oferecem.
 
-When writing a component, consider which information in it should be controlled (via props), and which information should be uncontrolled (via state). But you can always change your mind and refactor later.
+Ao escrever um componente, considere quais informações nele devem ser controladas (por meio de props) e quais informações não devem ser controladas (por meio de state). Mas você sempre pode mudar de ideia e refatorar mais tarde.
 
 </DeepDive>
 
-## A single source of truth for each state {/*a-single-source-of-truth-for-each-state*/}
+## Uma única fonte de verdade para cada state {/*a-single-source-of-truth-for-each-state*/}
 
-In a React application, many components will have their own state. Some state may "live" close to the leaf components (components at the bottom of the tree) like inputs. Other state may "live" closer to the top of the app. For example, even client-side routing libraries are usually implemented by storing the current route in the React state, and passing it down by props!
+Em um aplicativo React, muitos componentes terão seu próprio state. Alguns states podem "residir" perto dos componentes de folha (componentes na parte inferior da árvore), como entradas. Outro state pode "residir" mais perto do topo do aplicativo. Por exemplo, até mesmo as bibliotecas de roteamento do lado do cliente geralmente são implementadas armazenando a rota atual no state do React e passando-a para baixo por meio de props!
 
-**For each unique piece of state, you will choose the component that "owns" it.** This principle is also known as having a ["single source of truth".](https://en.wikipedia.org/wiki/Single_source_of_truth) It doesn't mean that all state lives in one place--but that for _each_ piece of state, there is a _specific_ component that holds that piece of information. Instead of duplicating shared state between components, *lift it up* to their common shared parent, and *pass it down* to the children that need it.
+**Para cada parte exclusiva do state, você escolherá o componente que o "possui".** Esse princípio também é conhecido como ter uma ["única fonte de verdade".](https://en.wikipedia.org/wiki/Single_source_of_truth) Isso não significa que todo o state esteja em um único lugar, mas que, para cada parte do state, há um componente específico que contém essa parte da informação. Em vez de duplicar o state compartilhado entre os componentes, *levante-o* para o pai compartilhado comum e *passe-o* para os filhos que precisam dele.
 
-Your app will change as you work on it. It is common that you will move state down or back up while you're still figuring out where each piece of the state "lives". This is all part of the process!
+Seu aplicativo mudará à medida que você trabalhar nele. É comum que você mova o state para baixo ou para cima enquanto ainda está descobrindo onde cada parte do state  "reside". Tudo isso faz parte do processo!
 
-To see what this feels like in practice with a few more components, read [Thinking in React.](/learn/thinking-in-react)
+Para ver como isso funciona na prática com mais alguns componentes, leia [Pensando em React.](/learn/thinking-in-react)
 
 <Recap>
 
-* When you want to coordinate two components, move their state to their common parent.
-* Then pass the information down through props from their common parent.
-* Finally, pass the event handlers down so that the children can change the parent's state.
-* It's useful to consider components as "controlled" (driven by props) or "uncontrolled" (driven by state).
+* Quando você quiser coordenar dois componentes, mova o state deles para o pai comum.
+* Em seguida, passe as informações por meio de props vindas de seu pai comum.
+* Por fim, passe os manipuladores de eventos para que os filhos possam alterar o state do pai.
+* É útil considerar os componentes como "controlados" (acionados por props) ou "não controlados" (acionados pelo state).
 
 </Recap>
 
 <Challenges>
 
-#### Synced inputs {/*synced-inputs*/}
+#### Entradas sincronizadas {/*synced-inputs*/}
 
-These two inputs are independent. Make them stay in sync: editing one input should update the other input with the same text, and vice versa. 
+Essas duas entradas são independentes. Faça com que elas fiquem sincronizadas: a edição de uma entrada deve atualizar a outra entrada com o mesmo texto e vice-versa.
 
 <Hint>
 
-You'll need to lift their state up into the parent component.
+Você precisará elevar o state deles para o componente principal.
 
 </Hint>
 
@@ -374,7 +374,7 @@ label { display: block; }
 
 <Solution>
 
-Move the `text` state variable into the parent component along with the `handleChange` handler. Then pass them down as props to both of the `Input` components. This will keep them in sync.
+Mova a variável do state `text` para o componente pai juntamente com o manipulador `handleChange`. Em seguida, passe-os como props para ambos os componentes `Input`. Isso os manterá em sincronia.
 
 <Sandpack>
 
@@ -391,12 +391,12 @@ export default function SyncedInputs() {
   return (
     <>
       <Input
-        label="First input"
+        label="Primeira entrada"
         value={text}
         onChange={handleChange}
       />
       <Input
-        label="Second input"
+        label="Segunda entrada"
         value={text}
         onChange={handleChange}
       />
@@ -427,17 +427,17 @@ label { display: block; }
 
 </Solution>
 
-#### Filtering a list {/*filtering-a-list*/}
+#### Filtrando uma lista {/*filtering-a-list*/}
 
-In this example, the `SearchBar` has its own `query` state that controls the text input. Its parent `FilterableList` component displays a `List` of items, but it doesn't take the search query into account.
+Neste exemplo, a `SearchBar` tem seu próprio state `query` que controla a entrada de texto. Seu componente pai `FilterableList` exibe uma `List` de itens, mas não leva em conta a consulta de pesquisa.
 
-Use the `filterItems(foods, query)` function to filter the list according to the search query. To test your changes, verify that typing "s" into the input filters down the list to "Sushi", "Shish kebab", and "Dim sum".
+Use a função `filterItems(foods, query)` para filtrar a lista de acordo com a consulta de pesquisa. Para testar suas alterações, verifique se digitar "s" na entrada filtra a lista para "Sushi", "Shish kebab" e "Dim sum".
 
-Note that `filterItems` is already implemented and imported so you don't need to write it yourself!
+Observe que o `filterItems` já está implementado e importado, portanto, você não precisa escrevê-lo!
 
 <Hint>
 
-You will want to remove the `query` state and the `handleChange` handler from the `SearchBar`, and move them to the `FilterableList`. Then pass them down to `SearchBar` as `query` and `onChange` props.
+Você deverá remover o state `query` e o manipulador `handleChange` da `SearchBar` e movê-los para a `FilterableList`. Em seguida, passe-os para a `SearchBar` como props `query` e `onChange`.
 
 </Hint>
 
@@ -466,7 +466,7 @@ function SearchBar() {
 
   return (
     <label>
-      Search:{' '}
+      Buscar:{' '}
       <input
         value={query}
         onChange={handleChange}
@@ -504,23 +504,23 @@ export function filterItems(items, query) {
 export const foods = [{
   id: 0,
   name: 'Sushi',
-  description: 'Sushi is a traditional Japanese dish of prepared vinegared rice'
+  description: 'Sushi é um prato tradicional japonês de arroz preparado com vinagre'
 }, {
   id: 1,
   name: 'Dal',
-  description: 'The most common way of preparing dal is in the form of a soup to which onions, tomatoes and various spices may be added'
+  description: 'A maneira mais comum de preparar o dal é na forma de uma sopa à qual podem ser adicionados cebola, tomate e vários temperos'
 }, {
   id: 2,
   name: 'Pierogi',
-  description: 'Pierogi are filled dumplings made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water'
+  description: 'Pierogi são bolinhos recheados feitos com massa sem fermento em volta de um recheio salgado ou doce e cozidos em água fervente'
 }, {
   id: 3,
   name: 'Shish kebab',
-  description: 'Shish kebab is a popular meal of skewered and grilled cubes of meat.'
+  description: 'O shish kebab é uma refeição popular com cubos de carne grelhados e espetados.'
 }, {
   id: 4,
   name: 'Dim sum',
-  description: 'Dim sum is a large range of small dishes that Cantonese people traditionally enjoy in restaurants for breakfast and lunch'
+  description: 'Dim sum é uma grande variedade de pequenos pratos que os cantoneses tradicionalmente apreciam em restaurantes no café da manhã e no almoço'
 }];
 ```
 
@@ -528,7 +528,7 @@ export const foods = [{
 
 <Solution>
 
-Lift the `query` state up into the `FilterableList` component. Call `filterItems(foods, query)` to get the filtered list and pass it down to the `List`. Now changing the query input is reflected in the list:
+Transfira o state `query` para o componente `FilterableList`. Chame `filterItems(foods, query)` para obter a lista filtrada e passe-a para o `List`. Agora, a alteração da entrada da consulta é refletida na lista:
 
 <Sandpack>
 
@@ -559,7 +559,7 @@ export default function FilterableList() {
 function SearchBar({ query, onChange }) {
   return (
     <label>
-      Search:{' '}
+      Buscar:{' '}
       <input
         value={query}
         onChange={onChange}
@@ -597,23 +597,23 @@ export function filterItems(items, query) {
 export const foods = [{
   id: 0,
   name: 'Sushi',
-  description: 'Sushi is a traditional Japanese dish of prepared vinegared rice'
+  description: 'Sushi é um prato tradicional japonês de arroz preparado com vinagre'
 }, {
   id: 1,
   name: 'Dal',
-  description: 'The most common way of preparing dal is in the form of a soup to which onions, tomatoes and various spices may be added'
+  description: 'A maneira mais comum de preparar o dal é na forma de uma sopa à qual podem ser adicionados cebola, tomate e vários temperos'
 }, {
   id: 2,
   name: 'Pierogi',
-  description: 'Pierogi are filled dumplings made by wrapping unleavened dough around a savoury or sweet filling and cooking in boiling water'
+  description: 'Pierogi são bolinhos recheados feitos com massa sem fermento em volta de um recheio salgado ou doce e cozidos em água fervente'
 }, {
   id: 3,
   name: 'Shish kebab',
-  description: 'Shish kebab is a popular meal of skewered and grilled cubes of meat.'
+  description: 'O shish kebab é uma refeição popular com cubos de carne grelhados e espetados.'
 }, {
   id: 4,
   name: 'Dim sum',
-  description: 'Dim sum is a large range of small dishes that Cantonese people traditionally enjoy in restaurants for breakfast and lunch'
+  description: 'Dim sum é uma grande variedade de pequenos pratos que os cantoneses tradicionalmente apreciam em restaurantes no café da manhã e no almoço'
 }];
 ```
 
