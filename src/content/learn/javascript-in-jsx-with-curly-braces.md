@@ -122,7 +122,7 @@ Você só pode usar chaves de duas maneiras dentro da JSX:
 
 Além de strings, números e outras expressões JavaScript, você pode até passar objetos em JSX. Os objetos também são denotados por chaves, como `{ name: "Hedy Lamarr", inventions: 5 }`. Portanto, para passar um objeto JS em JSX, você deve envolver o objeto em outro par de chaves: `person={{ name: "Hedy Lamarr", inventions: 5 }}`.
 
-Você pode ver isso com estilos CSS inline no JSX. O React não exige que você use estilos inline (as classes CSS funcionam muito bem na maioria dos casos). Mas quando você precisa de um estilo inline, você passa um objeto para o atributo `style`:
+Você pode ver isso com estilos CSS em linha na JSX. O React não exige que você use estilos inline (as classes CSS funcionam muito bem na maioria dos casos). Mas quando você precisa de um estilo inline, você passa um objeto para o atributo `style`:
 
 <Sandpack>
 
