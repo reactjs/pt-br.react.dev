@@ -4,7 +4,7 @@ title: JavaScript in JSX with Curly Braces
 
 <Intro>
 
-JSX permite a você escrever tags como faria no HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo local. Às vezes, você pode querer adicionar um pouco de lógica JavaScript ou fazer referência a uma propriedade dinâmica dentro desse bloco de tags. Nessa situação, você pode usar chaves em seu JSX para abrir uma janela para o JavaScript.
+A sintaxe JSX permite que você escreva tags similares ao HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo local. Às vezes, você pode querer adicionar um pouco de lógica JavaScript ou referenciar uma propriedade dinâmica dentro deste bloco de tags. Nessa situação, você pode usar chaves em seu JSX para abrir uma janela para o JavaScript.
 
 </Intro>
 
