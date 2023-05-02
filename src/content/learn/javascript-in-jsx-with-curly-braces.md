@@ -113,7 +113,7 @@ export default function TodoList() {
 
 ### Onde usar chaves {/*where-to-use-curly-braces*/}
 
-Você só pode usar chaves de duas maneiras dentro do JSX:
+Você só pode usar chaves de duas maneiras dentro da JSX:
 
 1. **Como texto** diretamente dentro de uma tag JSX: `<h1>{nome}'s To Do List</h1>` funciona, mas `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` não.
 2. **Como atributos** imediatamente após o sinal `=`: `src={avatar}` vai ler a variável `avatar`, mas `src="{avatar}"` vai passar a string `"{avatar}"`.
