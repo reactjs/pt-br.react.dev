@@ -230,7 +230,7 @@ O componente pode usar os valores de `person` da seguinte forma:
   <h1>{person.name}'s Todos</h1>
 ```
 
-JSX é uma linguagem de tags mínima, pois permite que você organize dados e lógica usando JavaScript.
+JSX é uma linguagem de modelação mínima, pois permite que você organize dados e lógica usando JavaScript.
 
 <Recap>
 
