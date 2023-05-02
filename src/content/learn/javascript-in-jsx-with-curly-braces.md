@@ -67,7 +67,7 @@ export default function Avatar() {
 
 </Sandpack>
 
-Note a diferença entre `className="avatar"`, que especifica um nome de classe CSS `"avatar"` para tornar a imagem redonda, e `src={avatar}`, que lê o valor da variável JavaScript chamada `avatar`. Isso ocorre porque as chaves permitem que você trabalhe com JavaScript diretamente em seu bloco de tags!
+Perceba a diferença entre `className="avatar"`, que especifica um nome de classe CSS `"avatar"` para tornar a imagem redonda, e `src={avatar}`, que lê o valor da variável JavaScript chamada `avatar`. Isso ocorre porque as chaves permitem que você trabalhe com JavaScript diretamente em seu bloco de tags!
 
 ## Usando chaves: Uma janela para o mundo do JavaScript {/*using-curly-braces-a-window-into-the-javascript-world*/}
 
