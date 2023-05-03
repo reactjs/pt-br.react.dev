@@ -20,7 +20,7 @@ O [componente `<progress>` nativo do navegador](https://developer.mozilla.org/pt
 
 ### `<progress>` {/*progress*/}
 
-Para exibir um indicador de progresso, renderize o componente [`<progress>` nativo do browser](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/progress).
+Para exibir um indicador de progresso, renderize o componente [`<progress>` nativo do navegador](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/progress).
 
 ```js
 <progress value={0.5} />
