@@ -4,7 +4,7 @@ title: <Fragment> (<>...</>)
 
 <Intro>
 
-`<Fragment>`,  frequentemente usado por meio da sintaxe `<>...</>`,  permite agrupar elementos sem um nó de encapsulamento. 
+`<Fragment>`, frequentemente usado por meio da sintaxe `<>...</>`,  permite agrupar elementos sem um nó de encapsulamento. 
 
 ```js
 <>
@@ -140,7 +140,7 @@ function CloseDialog() {
 
 ### Agrupando elementos com texto {/*grouping-elements-with-text*/}
 
-Você pode usar `Fragment` para agrupar texto juntamente com componentes: 
+Você pode usar `Fragment` para agrupar textos juntamente com componentes: 
 
 ```js
 function DateRangePicker({ start, end }) {
@@ -157,7 +157,7 @@ function DateRangePicker({ start, end }) {
 
 ---
 
-### Renderizando uma lista de Fragmentos {/*rendering-a-list-of-fragments*/}
+### Renderizando uma lista de Fragments {/*rendering-a-list-of-fragments*/}
 
 Aqui está uma situação em que você precisa escrever `Fragment` explicitamente em vez de usar a sintaxe `<></>`. Quando você [renderiza vários elementos em um loop](https://pt-br.react.dev/learn/rendering-lists), é necessário atribuir uma `key` a cada elemento. Se os elementos dentro do loop forem Fragments, você precisará usar a sintaxe normal de elementos JSX para fornecer o atributo `key`: 
 
