@@ -198,7 +198,7 @@ Perceba que, neste exemplo, somente o componente externo `ProfilePage` é export
 
 ### Ajustando algum state quando uma prop é alterada {/*adjusting-some-state-when-a-prop-changes*/}
 
-Às vezes, você pode querer redefinir ou ajustar uma parte do estado em uma alteração de prop, mas não todo ele.
+Às vezes, você pode querer redefinir ou ajustar algum state específico, sem afetar outros, quando uma prop for alterada.
 
 Este componente `List` recebe uma lista de `items` como uma prop e mantém o item selecionado na variável de estado `selection`. Você deseja redefinir a `selection` para `null` sempre que a prop `items` receber um array diferente:
 
@@ -277,7 +277,7 @@ function ProductPage({ product, addToCart }) {
 }
 ```
 
-Esse Effect é desnecessário. Ele também provavelmente causará bugs. Por exemplo, digamos que seu aplicativo "lembre" o carrinho de compras entre os recarregamentos da página. Se você adicionar um produto ao carrinho uma vez e atualizar a página, a notificação aparecerá novamente. Ela continuará aparecendo toda vez que você atualizar a página desse produto. Isso ocorre porque `product.isInCart` já será `true` no carregamento da página, de modo que o Effect acima chamará `showNotification()`.
+Esse Effect é desnecessário. Ele também provavelmente causará bugs. Por exemplo, digamos que sua aplicação "lembre" o carrinho de compras entre os recarregamentos da página. Se você adicionar um produto ao carrinho uma vez e atualizar a página, a notificação aparecerá novamente. Ela continuará aparecendo toda vez que você atualizar a página desse produto. Isso ocorre porque `product.isInCart` já será `true` no carregamento da página, de modo que o Effect acima chamará `showNotification()`.
 
 **Quando não tiver certeza se algum código deve estar em um Effect ou em um manipulador de eventos, pergunte a si mesmo *por que* esse código precisa ser executado. Use Effects somente para códigos que devem ser executados *porque* o componente foi exibido ao usuário.** Neste exemplo, a notificação deve aparecer porque o usuário *pressionou o botão*, não porque a página foi exibida! Exclua o Effect e coloque a lógica compartilhada em uma função chamada de ambos os manipuladores de evento:
 
@@ -305,7 +305,7 @@ Isso remove o Effect desnecessário e corrige o bug.
 
 ### Enviando uma solicitação POST {/*sending-a-post-request*/}
 
-Esse componente `Form` envia dois tipos de solicitações POST. Ele envia um evento de analytics quando é montado. Quando você preencher o formulário e clicar no botão Submit, ele enviará uma solicitação POST para o endpoint `/api/register`:
+Este componente `Form` envia dois tipos de solicitações POST. Ele envia um evento de analytics quando é montado. Quando você preencher o formulário e clicar no botão Submit, ele enviará uma requisição POST ao endpoint `/api/register`:
 
 ```js {5-8,10-16}
 function Form() {
@@ -362,7 +362,7 @@ Ao decidir se deve colocar alguma lógica em um manipulador de evento ou em um E
 
 ### Cadeias de processamentos {/*chains-of-computations*/}
 
-Às vezes, você pode se sentir tentado a encadear Effects que ajustam uma parte do estado com base em outro estado:
+Às vezes, você pode se sentir tentado a encadear Effects que ajustam um state com base em outro state:
 
 ```js {7-29}
 function Game() {
@@ -452,7 +452,7 @@ Lembre-se de que, dentro dos manipuladores de evento, [o estado se comporta como
 
 Em alguns casos, você *não pode* calcular o próximo state diretamente no manipulador de evento. Por exemplo, imagine um formulário com vários menus suspensos em que as opções do próximo menu dependem do valor selecionado do menu anterior. Nesse caso, uma cadeia de Effects é apropriada porque você está sincronizando com a rede.
 
-### Inicialização do aplicativo {/*initializing-the-application*/}
+### Inicialização da aplicação {/*initializing-the-application*/}
 
 Algumas lógicas devem ser executadas apenas uma vez quando o aplicativo for carregado.
 
@@ -471,7 +471,7 @@ function App() {
 
 No entanto, você descobrirá rapidamente que ele [é executado duas vezes no desenvolvimento.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development) Isso pode causar problemas - por exemplo, talvez ele invalide o token de autenticação porque a função não foi projetada para ser chamada duas vezes. Em geral, seus componentes devem ser resistentes à remontagem. Isso inclui seu componente `App` de nível superior.
 
-Embora talvez ele nunca seja remontado na prática em produção, seguir as mesmas restrições em todos os componentes facilita a movimentação e a reutilização do código. Se alguma lógica precisar ser executada *uma vez por carregamento de aplicativo* em vez de *uma vez por montagem de componente*, adicione uma variável no nível mais alto para registrar se ela já foi executada:
+Embora talvez ele nunca seja remontado na prática em produção, seguir as mesmas restrições em todos os componentes facilita a movimentação e a reutilização do código. Se alguma lógica precisar ser executada *uma vez por carregamento da aplicação* em vez de *uma vez por montagem de componente*, adicione uma variável no nível mais alto para registrar se ela já foi executada:
 
 ```js {1,5-6,10}
 let didInit = false;
@@ -480,7 +480,7 @@ function App() {
   useEffect(() => {
     if (!didInit) {
       didInit = true;
-      // ✅ Só é executado uma vez por execução do aplicativo
+      // ✅ Só é executado uma vez por execução da aplicação
       loadDataFromLocalStorage();
       checkAuthToken();
     }
@@ -489,11 +489,11 @@ function App() {
 }
 ```
 
-Você também pode executá-lo durante a inicialização do módulo e antes de o aplicativo ser renderizado:
+Você também pode executá-lo durante a inicialização do módulo e antes de a aplicação ser renderizada:
 
 ```js {1,5}
 if (typeof window !== 'undefined') { // Verifica se estamos executando no navegador.
-   // ✅ Só é executado uma vez por execução do aplicativo
+   // ✅ Só é executado uma vez por execução da aplicação
   checkAuthToken();
   loadDataFromLocalStorage();
 }
@@ -503,7 +503,7 @@ function App() {
 }
 ```
 
-O código no nível mais alto é executado uma vez quando o componente é importado, mesmo que ele não seja renderizado. Para evitar lentidão ou comportamento inesperado ao importar componentes arbitrários, não use esse padrão em excesso. Mantenha a lógica de inicialização de todo o aplicativo em módulos de componentes raiz como `App.js` ou no ponto de entrada do aplicativo.
+O código no nível mais alto é executado uma vez quando o componente é importado, mesmo que ele não seja renderizado. Para evitar lentidão ou comportamento inesperado ao importar componentes arbitrários, não use esse padrão em excesso. Mantenha a lógica de inicialização de toda a aplicação em módulos de componentes raiz como `App.js` ou no ponto de entrada da aplicação.
 
 ### Notificar componentes pai sobre alterações de estado {/*notifying-parent-components-about-state-changes*/}
 
@@ -693,7 +693,7 @@ Essa abordagem é menos propensa a erros do que a sincronização manual de dado
 
 ### Buscando dados {/*fetching-data*/}
 
-Muitos aplicativos usam o Effects para iniciar a busca de dados. É bastante comum escrever um Effect de busca de dados como este:
+Muitas aplicações usam o Effects para iniciar a busca de dados. É bastante comum escrever um Effect de busca de dados como este:
 
 ```js {5-10}
 function SearchResults({ query }) {
@@ -788,7 +788,7 @@ function useData(url) {
 
 Provavelmente, você também desejará adicionar alguma lógica para tratamento de erros e para verificar se o conteúdo está sendo carregado. Você mesmo pode criar um Hook como esse ou usar uma das muitas soluções já disponíveis no ecossistema React. **Embora isso, por si só, não seja tão eficiente quanto usar o mecanismo de busca de dados integrado de um framework, mover a lógica de busca de dados para um Hook personalizado facilitará a adoção de uma estratégia eficiente de busca de dados posteriormente.**
 
-Em geral, sempre que tiver que recorrer à criação de Effects, fique atento para quando puder extrair uma parte da funcionalidade em um Hook personalizado com uma API mais declarativa e específica, como o `useData` acima. Quanto menos chamadas `useEffect` brutas você tiver em seus componentes, mais fácil será manter seu aplicativo.
+Em geral, sempre que tiver que recorrer à criação de Effects, fique atento para quando puder extrair uma parte da funcionalidade em um Hook personalizado com uma API mais declarativa e específica, como o `useData` acima. Quanto menos chamadas `useEffect` brutas você tiver em seus componentes, mais fácil será manter sua aplicação.
 
 <Recap>
 
