@@ -109,6 +109,7 @@ Sugestões de palavras e termos:
 | browser                | navegador                              |
 | bubbling               | propagar                               |
 | bug                    | erro                                   |
+| caveats                | ressalvas                              |
 | class component        | componente de classe                   |
 | class                  | classe                                 |
 | client                 | cliente                                |
