@@ -4,7 +4,7 @@ title: 'Talvez você não precise de um Effect'
 
 <Intro>
 
-Effects são um escape do paradigma do React. Eles te permitem "dar um passo para fora" do React e sincronizar seus componentes com algum serviço externo, como um widget não React, a rede ou o DOM do navegador. Se não houver nenhum sistema externo envolvido (por exemplo, se você quiser atualizar o estado de um componente quando algumas props ou state mudarem), você não deveria precisar de um Effect. Remover Effects desnecessários tornará seu código mais compreensível, mais rápido de executar e menos propenso a erros.
+Effects são um escape do paradigma do React. Eles te permitem "dar um passo para fora" do React e sincronizar seus componentes com algum serviço externo, como um _widget_ não React, a rede ou o DOM do navegador. Se não houver nenhum sistema externo envolvido (por exemplo, se você quiser atualizar o state de um componente quando algumas props ou state mudarem), você não deveria precisar de um Effect. Remover Effects desnecessários tornará seu código mais compreensível, mais rápido de executar e menos propenso a erros.
 
 </Intro>
 
@@ -12,7 +12,7 @@ Effects são um escape do paradigma do React. Eles te permitem "dar um passo par
 
 * Por que e como remover Effects desnecessários dos seus componentes
 * Como fazer cache de operações custosas sem Effects
-* Como redefinir e ajustar o estado de um componente sem Effects
+* Como redefinir e ajustar o state de um componente sem Effects
 * Como compartilhar lógica entre manipuladores de evento
 * Qual lógica deve ser movida para manipuladores de evento
 * Como notificar componentes pais sobre mudanças
@@ -23,23 +23,23 @@ Effects são um escape do paradigma do React. Eles te permitem "dar um passo par
 
 Existem dois casos comuns em que você não precisa de Effects:
 
-* **Você não precisa de Effects para manipular seus dados para renderização.** Por exemplo, digamos que você queira filtrar uma lista antes de exibi-la. Você pode ficar tentado a escrever um Effect que atualiza uma variável de estado quando a lista for alterada. No entanto, isso é ineficiente. Quando você atualizar o estado, o React primeiro executará as funções dos componentes para calcular o que deve estar em tela. Em seguida, o React ["aplica"](/learn/render-and-commit) essas alterações no DOM, atualizando a tela. Depois, o React executará seus Effects. Se seu Effect *também* atualizar o estado imediatamente, todo o processo será reiniciado do zero! Para evitar renderizações desnecessárias, transforme todos os dados na raiz de seus componentes. Esse código será reexecutado automaticamente sempre que suas props ou estado forem alterados.
+* **Você não precisa de Effects para manipular seus dados para renderização.** Por exemplo, digamos que você queira filtrar uma lista antes de exibi-la. Você pode ficar tentado a escrever um Effect que atualiza um state quando a lista for alterada. No entanto, isso é ineficiente. Quando você atualizar o state, o React primeiro executará as funções dos componentes para calcular o que deve estar em tela. Em seguida, o React ["aplica"](/learn/render-and-commit) essas alterações no DOM, atualizando a tela. Depois, o React executará seus Effects. Se seu Effect *também* atualizar o state imediatamente, todo o processo será reiniciado do zero! Para evitar renderizações desnecessárias, transforme todos os dados na raiz de seus componentes. Esse código será reexecutado automaticamente sempre que suas props ou state forem alterados.
 * **Você não precisa de Effects para lidar com eventos do usuário.** Por exemplo, digamos que você queira enviar uma requisição POST para `/api/buy` e mostrar uma notificação quando o usuário comprar um produto. No manipulador de evento de clique do botão Comprar, você sabe exatamente o que aconteceu. Quando um Effect é executado, você não sabe *o que* o usuário fez (por exemplo, qual botão foi clicado). É por isso que você normalmente tratará os eventos do usuário nos manipuladores de evento correspondentes.
 
-Você *precisa* de Effects para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) com sistemas externos. Por exemplo, você pode escrever um Effect que mantenha um _widget_ jQuery sincronizado com o estado do React. Também é possível buscar dados com Effects: por exemplo, você pode sincronizar os resultados da pesquisa com o termo que você pesquisou. Lembre-se de que [frameworks](/leaxrn/start-a-new-react-project#production-grade-react-frameworks) modernos oferecem mecanismos internos de busca de dados mais eficientes do que escrever Effects diretamente em seus componentes.
+Você *precisa* de Effects para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) com sistemas externos. Por exemplo, você pode escrever um Effect que mantenha um _widget_ jQuery sincronizado com o state do React. Também é possível buscar dados com Effects: por exemplo, você pode sincronizar os resultados da pesquisa com o termo que você pesquisou. Lembre-se de que [frameworks](/leaxrn/start-a-new-react-project#production-grade-react-frameworks) modernos oferecem mecanismos internos de busca de dados mais eficientes do que escrever Effects diretamente em seus componentes.
 
 Para ajudá-lo a adquirir a intuição correta, vamos dar uma olhada em alguns exemplos concretos comuns!
 
-### Atualizar o estado baseado em props ou state {/*updating-state-based-on-props-or-state*/}
+### Atualizar o state baseado em props ou outro state {/*updating-state-based-on-props-or-state*/}
 
-Suponha que você tenha um componente com duas variáveis de estado: `firstName` e `lastName`. Você quer calcular o `fullName` concatenando os dois. Além disso, você gostaria que o `fullName` atualizasse sempre que o `firstName` ou `lastName` mudassem. Seu primeiro instinto pode ser adicionar uma variável de estado `fullName` e atualizá-la num Effect:
+Suponha que você tenha um componente com dois states: `firstName` e `lastName`. Você quer calcular o `fullName` concatenando os dois. Além disso, você gostaria que o `fullName` atualizasse sempre que o `firstName` ou `lastName` mudassem. Seu primeiro instinto pode ser adicionar um state `fullName` e atualizá-la num Effect:
 
 ```js {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
 
-  // 🔴 Evitar: estado redundante e Effect desnecessário
+  // 🔴 Evitar: state redundante e Effect desnecessário
   const [fullName, setFullName] = useState('');
   useEffect(() => {
     setFullName(firstName + ' ' + lastName);
@@ -48,7 +48,7 @@ function Form() {
 }
 ```
 
-Isso é mais complicado que o necessário. É ineficente também: isso faz uma renderização inteira com um valor desatualizado de `fullName`, e depois imediatamente re-renderiza com o valor atualizado. Remova a variável de estado e o Effect:
+Isso é mais complicado que o necessário. É ineficente também: isso faz uma renderização inteira com um valor desatualizado de `fullName`, e depois imediatamente re-renderiza com o valor atualizado. Remova o state e o Effect:
 
 ```js {4-5}
 function Form() {
@@ -60,7 +60,7 @@ function Form() {
 }
 ```
 
-**Quando algo pode ser calculado a partir de props ou state, [não o coloque em um state.](/learn/choosing-the-state-structure#avoid-redundant-state) Em vez disso, calcule durante a renderização.**  Isso torna seu código mais rápido (você evita "cascatear" atualizações extras), simples (você remove código), e menos propenso a erros (você evita bugs causados por diferentes variáveis de estado ficando desatualizadas entre si). Se essa abordagem parece nova para você, [Pensando em React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) explica o que deve ser considerado state.
+**Quando algo pode ser calculado a partir de props ou state, [não o coloque em um state.](/learn/choosing-the-state-structure#avoid-redundant-state) Em vez disso, calcule durante a renderização.**  Isso torna seu código mais rápido (você evita "cascatear" atualizações extras), simples (você remove código), e menos propenso a erros (você evita bugs causados por diferentes states ficando desatualizadas entre si). Se essa abordagem parece nova para você, [Pensando em React](/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state) explica o que deve ser considerado state.
 
 ### Fazer cache de cálculos custosos {/*caching-expensive-calculations*/}
 
@@ -70,7 +70,7 @@ Este componente calcula `visibleTodos` pegando os `todos` que recebe via props e
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
 
-  // 🔴 Evitar: estado redundante e Effect desnecessário
+  // 🔴 Evitar: state redundante e Effect desnecessário
   const [visibleTodos, setVisibleTodos] = useState([]);
   useEffect(() => {
     setVisibleTodos(getFilteredTodos(todos, filter));
@@ -91,7 +91,7 @@ function TodoList({ todos, filter }) {
 }
 ```
 
-Geralmente, esse código está bom! Mas talvez `getFilteredTodos()` seja lento ou você tenha muitos `todos`.  Neste caso, você não quer recalcular `getFilteredTodos()` se alguma variável de state não relacionada como `newTodo` mudou.
+Geralmente, esse código é o suficiente! Mas talvez `getFilteredTodos()` seja lento ou você tenha muitos `todos`.  Neste caso, você não quer recalcular `getFilteredTodos()` se alguma variável de state não relacionada, como `newTodo`, mudou.
 
 Você pode fazer cache (ou ["memoizar"](https://en.wikipedia.org/wiki/Memoization)) um cálculo custoso envolvendo-o num Hook [`useMemo`](/reference/react/useMemo):
 
@@ -157,13 +157,13 @@ Observe também que medir o desempenho no desenvolvimento não fornecerá os res
 
 ### Redefinir todos os states quando uma prop é modificada {/*resetting-all-state-when-a-prop-changes*/}
 
-Esse componente `ProfilePage` recebe uma propriedade `userId`. A página contém um input de comentário e você usa uma variável de estado `comment` para manter seu valor. Um dia, você percebeu um problema: quando você navega de um perfil para outro, o estado `comment` não é redefinido. Como resultado, é fácil publicar acidentalmente um comentário no perfil de um usuário errado. Para corrigir o problema, você deseja limpar a variável de estado `comment` sempre que o `userId` for alterado:
+Esse componente `ProfilePage` recebe uma propriedade `userId`. A página contém um input de comentário e você usa um state `comment` para manter seu valor. Um dia, você percebeu um problema: quando você navega de um perfil para outro, o state `comment` não é redefinido. Como resultado, é fácil publicar acidentalmente um comentário no perfil de um usuário errado. Para corrigir o problema, você deseja limpar o state `comment` sempre que o `userId` for alterado:
 
 ```js {4-7}
 export default function ProfilePage({ userId }) {
   const [comment, setComment] = useState('');
 
-  // 🔴 Evitar: Redefinir o estado na mudança de prop em um Effect
+  // 🔴 Evitar: Redefinir o state na mudança de prop em um Effect
   useEffect(() => {
     setComment('');
   }, [userId]);
@@ -171,7 +171,7 @@ export default function ProfilePage({ userId }) {
 }
 ```
 
-Isto é ineficiente porque a `ProfilePage` e seus filhos serão renderizados primeiro com o valor desatualizado e, em seguida, renderizados novamente. Também é complicado porque você precisaria fazer isso em *todos* os componentes que têm algum estado dentro de `ProfilePage`. Por exemplo, se a interface do usuário de comentários estiver aninhada, você também deverá limpar o state dos comentários aninhados.
+Isto é ineficiente porque a `ProfilePage` e seus filhos serão renderizados primeiro com o valor desatualizado e, em seguida, renderizados novamente. Também é complicado porque você precisaria fazer isso em *todos* os componentes que têm algum state dentro de `ProfilePage`. Por exemplo, se a interface do usuário de comentários estiver aninhada, você também deverá limpar o state dos comentários aninhados.
 
 Em vez disso, você pode dizer ao React que o perfil de cada usuário é conceitualmente um perfil _diferente_, fornecendo a ele uma chave explícita. Divida seu componente em dois e passe um atributo `key` do componente externo para o interno:
 
@@ -186,13 +186,13 @@ export default function ProfilePage({ userId }) {
 }
 
 function Profile({ userId }) {
-  // ✅ Este e qualquer outro estado abaixo serão redefinidos automaticamente na mudança de chave
+  // ✅ Este e qualquer outro state abaixo serão redefinidos automaticamente na mudança de chave
   const [comment, setComment] = useState('');
   // ...
 }
 ```
 
-Normalmente, o React preserva o estado quando o mesmo componente é renderizado no mesmo local. **Ao passar `userId` como `key` para o componente `Profile`, você está pedindo ao React para tratar dois componentes `Profile` com `userId` diferentes como dois componentes diferentes que não devem compartilhar nenhum state.** Sempre que a chave (que você definiu como `userId`) mudar, o React irá recriar o DOM e [redefinir o state](/learn/preserving-and-resetting-state#option-2-resetting-state-with-a-key) do componente `Profile` e todos os seus filhos. Agora o campo `comment` será apagado automaticamente ao navegar entre os perfis.
+Normalmente, o React preserva o state quando o mesmo componente é renderizado no mesmo local. **Ao passar `userId` como `key` para o componente `Profile`, você está pedindo ao React para tratar dois componentes `Profile` com `userId` diferentes como dois componentes diferentes que não devem compartilhar nenhum state.** Sempre que a chave (que você definiu como `userId`) mudar, o React irá recriar o DOM e [redefinir o state](/learn/preserving-and-resetting-state#option-2-resetting-state-with-a-key) do componente `Profile` e todos os seus filhos. Agora o campo `comment` será apagado automaticamente ao navegar entre os perfis.
 
 Perceba que, neste exemplo, somente o componente externo `ProfilePage` é exportado e visível para outros arquivos do projeto. Os componentes que renderizam o `ProfilePage` não precisam passar a chave para ele: eles passam o `userId` como uma propriedade normal. O fato de `ProfilePage` passar a chave para o componente `Profile` interno é um detalhe de implementação.
 
@@ -200,14 +200,14 @@ Perceba que, neste exemplo, somente o componente externo `ProfilePage` é export
 
 Às vezes, você pode querer redefinir ou ajustar algum state específico, sem afetar outros, quando uma prop for alterada.
 
-Este componente `List` recebe uma lista de `items` como uma prop e mantém o item selecionado na variável de estado `selection`. Você deseja redefinir a `selection` para `null` sempre que a prop `items` receber um array diferente:
+Este componente `List` recebe uma lista de `items` como uma prop e mantém o item selecionado no state `selection`. Você deseja redefinir a `selection` para `null` sempre que a prop `items` receber um array diferente:
 
 ```js {5-8}
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
 
-  // 🔴 Evite: Ajustar o estado na mudança de prop em um Effect
+  // 🔴 Evite: Ajustar um state na mudança de prop em um Effect
   useEffect(() => {
     setSelection(null);
   }, [items]);
@@ -238,7 +238,7 @@ function List({ items }) {
 
 Quando você atualiza um componente durante a renderização, o React descarta o JSX retornado e imediatamente reinicia a renderização. Para evitar repetições em cascata muito lentas, o React só permite que você atualize o state do *mesmo* componente durante uma renderização. Se você atualizar o state de outro componente durante uma renderização, verá um erro. Uma condição como `items !== prevItems` é necessária para evitar loops. Você pode ajustar o state dessa forma, mas quaisquer outros efeitos colaterais (como alterar o DOM ou definir timeouts) devem ficar em manipuladores de evento ou Effects para [manter os componentes puros](/learn/keeping-components-pure).
 
-**Embora esse padrão seja mais eficiente do que um Effect, a maioria dos componentes também não deve precisar dele.** Não importa como você o faça, o ajuste do state com base em props ou outro state torna o fluxo de dados mais difícil de entender e depurar. Sempre verifique se, em vez disso, você pode [redefinir todo o estado com uma chave](#resetting-all-state-when-a-prop-changes) ou [calcular tudo durante a renderização](#updating-state-based-on-props-or-state). Por exemplo, em vez de armazenar (e redefinir) o *item* selecionado, você pode armazenar o *ID do item selecionado:*
+**Embora esse padrão seja mais eficiente do que um Effect, a maioria dos componentes também não deve precisar dele.** Não importa como você o faça, o ajuste do state com base em props ou outro state torna o fluxo de dados mais difícil de entender e depurar. Sempre verifique se, em vez disso, você pode [redefinir todos os states com uma chave](#resetting-all-state-when-a-prop-changes) ou [calcular tudo durante a renderização](#updating-state-based-on-props-or-state). Por exemplo, em vez de armazenar (e redefinir) o *item* selecionado, você pode armazenar o *ID do item selecionado:*
 
 ```js {3-5}
 function List({ items }) {
@@ -410,7 +410,7 @@ Há dois problemas com esse código.
 
 Um problema é que ele é muito ineficiente: o componente (e seus filhos) precisa ser renderizado novamente entre cada chamada `set` na cadeia. No exemplo acima, na pior das hipóteses (`setCard` → render → `setGoldCardCount` → render → `setRound` → render → `setIsGameOver` → render), há três re-renderizações desnecessárias da árvore abaixo.
 
-Mesmo que isso não fosse lento, à medida que seu código evolui, você se depara com casos em que a "cadeia" que você escreveu não atende aos novos requisitos. Imagine que você esteja adicionando uma maneira de percorrer o histórico dos movimentos do jogo. Você faria isso atualizando cada variável de estado para um valor do passado. Entretanto, definir o estado `card` como um valor do passado acionaria a cadeia de Effects novamente e alteraria os dados que você está mostrando. Esse tipo de código costuma ser rígido e frágil.
+Mesmo que isso não fosse lento, à medida que seu código evolui, você se depara com casos em que a "cadeia" que você escreveu não atende aos novos requisitos. Imagine que você esteja adicionando uma maneira de percorrer o histórico dos movimentos do jogo. Você faria isso atualizando cada state para um valor do passado. Entretanto, definir o state `card` como um valor do passado acionaria a cadeia de Effects novamente e alteraria os dados que você está mostrando. Esse tipo de código costuma ser rígido e frágil.
 
 Neste caso, é melhor calcular o que for possível durante a renderização e ajustar o state no manipulador de evento:
 
@@ -448,7 +448,7 @@ function Game() {
 
 Isso é muito mais eficiente. Além disso, se você implementar uma maneira de visualizar o histórico do jogo, agora poderá definir cada variável de state para um movimento do passado sem acionar a cadeia de Effects que ajusta todos os outros valores. Se precisar reutilizar a lógica entre vários manipuladores de evento, você poderá [extrair uma função](#sharing-logic-between-event-handlers) e chamá-la a partir desses manipuladores.
 
-Lembre-se de que, dentro dos manipuladores de evento, [o estado se comporta como uma snapshot](/learn/state-as-a-snapshot). Por exemplo, mesmo depois de chamar `setRound(round + 1)`, a variável `round` refletirá o valor no momento em que o usuário clicou no botão. Se você precisar usar o próximo valor para cálculos, defina-o manualmente como `const nextRound = round + 1`.
+Lembre-se de que, dentro dos manipuladores de evento, [o state se comporta como uma snapshot](/learn/state-as-a-snapshot). Por exemplo, mesmo depois de chamar `setRound(round + 1)`, a variável `round` refletirá o valor no momento em que o usuário clicou no botão. Se você precisar usar o próximo valor para cálculos, defina-o manualmente como `const nextRound = round + 1`.
 
 Em alguns casos, você *não pode* calcular o próximo state diretamente no manipulador de evento. Por exemplo, imagine um formulário com vários menus suspensos em que as opções do próximo menu dependem do valor selecionado do menu anterior. Nesse caso, uma cadeia de Effects é apropriada porque você está sincronizando com a rede.
 
@@ -505,9 +505,9 @@ function App() {
 
 O código no nível mais alto é executado uma vez quando o componente é importado, mesmo que ele não seja renderizado. Para evitar lentidão ou comportamento inesperado ao importar componentes arbitrários, não use esse padrão em excesso. Mantenha a lógica de inicialização de toda a aplicação em módulos de componentes raiz como `App.js` ou no ponto de entrada da aplicação.
 
-### Notificar componentes pai sobre alterações de estado {/*notifying-parent-components-about-state-changes*/}
+### Notificar componentes pai sobre alterações de state {/*notifying-parent-components-about-state-changes*/}
 
-Digamos que você esteja escrevendo um componente `Toggle` com um state interno `isOn` que pode ser `true` ou `false`. Há algumas maneiras diferentes de alterná-lo (clicando ou arrastando). Você deseja notificar o componente pai sempre que o estado interno do `Toggle` for alterado, portanto, você expõe um evento `onChange` e o chama a partir de um Effect:
+Digamos que você esteja escrevendo um componente `Toggle` com um state interno `isOn` que pode ser `true` ou `false`. Há algumas maneiras diferentes de alterná-lo (clicando ou arrastando). Você deseja notificar o componente pai sempre que o state interno do `Toggle` for alterado, portanto, você expõe um evento `onChange` e o chama a partir de um Effect:
 
 ```js {4-7}
 function Toggle({ onChange }) {
@@ -589,7 +589,7 @@ function Toggle({ isOn, onChange }) {
 
 ["Elevar o state"](/learn/sharing-state-between-components) permite que o componente pai controle totalmente o `Toggle` alternando o state do próprio componente pai. Isso significa que o componente pai terá que conter mais lógica, mas haverá menos state geral com o qual se preocupar. Sempre que você tentar manter duas variáveis de state diferentes sincronizadas, tente elevar o state em vez disso!
 
-### Passando dados para o pai {/*passing-data-to-the-parent*/}
+### Passando dados para o componente pai {/*passing-data-to-the-parent*/}
 
 Esse componente `Child` obtém alguns dados e os passa para o componente `Parent` em um Effect:
 
@@ -660,7 +660,7 @@ function ChatIndicator() {
 }
 ```
 
-Aqui, o componente se inscreve em um armazenamento de dados externo (nesse caso, a API `navigator.onLine` do navegador). Como essa API não existe no servidor (portanto, não pode ser usada para o HTML inicial), inicialmente o state é definido como `true`. Sempre que o valor desse armazenamento de dados for alterado no navegador, o componente atualizará seu estado.
+Aqui, o componente se inscreve em um armazenamento de dados externo (nesse caso, a API `navigator.onLine` do navegador). Como essa API não existe no servidor (portanto, não pode ser usada para o HTML inicial), inicialmente o state é definido como `true`. Sempre que o valor desse armazenamento de dados for alterado no navegador, o componente atualizará seu state.
 
 Embora seja comum usar Effects para isso, o React tem um Hook criado especificamente para assinar um armazenamento externo que é preferível. Remova o Effect e substitua-o por uma chamada para [`useSyncExternalStore`](/reference/react/useSyncExternalStore):
 
@@ -716,7 +716,7 @@ function SearchResults({ query }) {
 
 Você *não* precisa mover essa busca para um manipulador de evento.
 
-Isso pode parecer uma contradição com os exemplos anteriores, nos quais você precisava colocar a lógica nos manipuladores de evento! Entretanto, considere que não é *o evento de digitação* que é o principal motivo para buscar. As entradas de pesquisa geralmente são preenchidas previamente a partir do URL, e o usuário pode navegar para trás e para frente sem tocar na entrada.
+Isso pode parecer uma contradição com os exemplos anteriores, nos quais você precisava colocar a lógica nos manipuladores de evento! Entretanto, considere que não é *o evento de digitação* que é o principal motivo para buscar. Os campos de pesquisa geralmente são preenchidos inicialmente a partir da URL, e o usuário pode navegar para trás e para frente sem tocar no campo.
 
 Não importa de onde vêm `page` e `query`. Enquanto esse componente estiver visível, você deseja manter o `results` [sincronizado](/learn/synchronizing-with-effects) com os dados da rede para a `page` e a `query` atuais. É por isso que se trata de um Effect.
 
@@ -915,7 +915,7 @@ Se você puder calcular algo durante a renderização, não precisará de state 
 
 <Solution>
 
-Há apenas duas partes essenciais de estado neste exemplo: a lista de `todos` e a variável de state `showActive` que representa se a caixa de seleção está marcada. Todas as outras variáveis de state são [redundantes](/learn/choosing-the-state-structure#avoid-redundant-state) e podem ser calculadas durante a renderização. Isso inclui o `footer`, que você pode mover diretamente para a JSX circundante.
+Há apenas dois states essenciais neste exemplo: a lista de `todos` e a variável de state `showActive` que representa se a caixa de seleção está marcada. Todas as outras variáveis de state são [redundantes](/learn/choosing-the-state-structure#avoid-redundant-state) e podem ser calculadas durante a renderização. Isso inclui o `footer`, que você pode mover diretamente para a JSX circundante.
 
 Seu resultado deve ser semelhante a este:
 
@@ -1006,7 +1006,7 @@ input { margin-top: 10px; }
 
 Neste exemplo, a filtragem dos *todos* foi extraída em uma função separada chamada `getVisibleTodos()`. Essa função contém uma chamada `console.log()` dentro dela, o que o ajuda a perceber quando está sendo chamada. Alterne a opção "Show only active todos" e perceba que isso faz com que a função `getVisibleTodos()` seja executada novamente. Isso é esperado porque os *todos* visíveis mudam quando você alterna quais devem ser exibidos.
 
-Sua tarefa é remover o Effect que recomputa a lista `visibleTodos` no componente `TodoList`. No entanto, é necessário certificar-se de que o `getVisibleTodos()` não seja executado novamente (e, portanto, não imprima nenhum registro) quando você digitar na entrada.
+Sua tarefa é remover o Effect que recomputa a lista `visibleTodos` no componente `TodoList`. No entanto, é necessário certificar-se de que o `getVisibleTodos()` não seja executado novamente (e, portanto, não imprima nenhum registro) quando você digitar no campo.
 
 <Hint>
 
@@ -1177,9 +1177,9 @@ input { margin-top: 10px; }
 
 </Sandpack>
 
-Com essa alteração, a função `getVisibleTodos()` será chamada somente se `todos` ou `showActive` forem alterados. A digitação na entrada altera apenas a variável de state `text`, portanto, não aciona uma chamada para `getVisibleTodos()`.
+Com essa alteração, a função `getVisibleTodos()` será chamada somente se `todos` ou `showActive` forem alterados. A digitação no campo altera apenas a variável de state `text`, portanto, não aciona uma chamada para `getVisibleTodos()`.
 
-Há também outra solução que não precisa do `useMemo`. Como a variável de estado `text` não pode afetar a lista de todos, você pode extrair o formulário `NewTodo` em um componente separado e mover a variável de estado `text` para dentro dele:
+Há também outra solução que não precisa do `useMemo`. Como o state `text` não pode afetar a lista de todos, você pode extrair o formulário `NewTodo` em um componente separado e mover o state `text` para dentro dele:
 
 <Sandpack>
 
@@ -1266,7 +1266,7 @@ input { margin-top: 10px; }
 
 </Sandpack>
 
-Essa abordagem também satisfaz os requisitos. Quando você digita na entrada, apenas a variável de estado `text` é atualizada. Como a variável de estado `text` está no componente filho `NewTodo`, o componente pai `TodoList` não será renderizado novamente. É por isso que a função `getVisibleTodos()` não é chamada quando você digita. (Ele ainda seria chamado se o `TodoList` fosse renderizado novamente por outro motivo).
+Essa abordagem também satisfaz os requisitos. Quando você digita no campo, apenas o state `text` é atualizada. Como o state `text` está no componente filho `NewTodo`, o componente pai `TodoList` não será renderizado novamente. É por isso que a função `getVisibleTodos()` não é chamada quando você digita. (Ele ainda seria chamado se o `TodoList` fosse renderizado novamente por outro motivo).
 
 </Solution>
 
@@ -1602,9 +1602,9 @@ button {
 
 #### Enviar um formulário sem Effects {/*submit-a-form-without-effects*/}
 
-Esse componente `Form` permite que você envie uma mensagem a um amigo. Quando você envia o formulário, a variável de estado `showForm` é definida como `false`. Isso aciona um Effect chamando `sendMessage(message)`, que envia a mensagem (você pode vê-la no console). Depois que a mensagem é enviada, você vê uma caixa de diálogo "Thank you" (Obrigado) com um botão "Open chat" (Abrir bate-papo) que permite que você volte ao formulário.
+Esse componente `Form` permite que você envie uma mensagem a um amigo. Quando você envia o formulário, o state `showForm` é definida como `false`. Isso aciona um Effect chamando `sendMessage(message)`, que envia a mensagem (você pode vê-la no console). Depois que a mensagem é enviada, você vê uma caixa de diálogo "Thank you" (Obrigado) com um botão "Open chat" (Abrir bate-papo) que permite que você volte ao formulário.
 
-Os usuários do seu aplicativo estão enviando muitas mensagens. Para tornar o bate-papo um pouco mais difícil, você decidiu mostrar a caixa de diálogo "Thank you" *primeiro* em vez do formulário. Altere a variável de estado `showForm` para inicializar com `false` em vez de `true`. Assim que fizer essa alteração, o console mostrará que uma mensagem vazia foi enviada. Alguma coisa nessa lógica está errada!
+Os usuários do seu aplicativo estão enviando muitas mensagens. Para tornar o bate-papo um pouco mais difícil, você decidiu mostrar a caixa de diálogo "Thank you" *primeiro* em vez do formulário. Altere o state `showForm` para inicializar com `false` em vez de `true`. Assim que fizer essa alteração, o console mostrará que uma mensagem vazia foi enviada. Alguma coisa nessa lógica está errada!
 
 Qual é a causa principal desse problema? E como você pode corrigi-lo?
 
