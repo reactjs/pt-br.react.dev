@@ -417,7 +417,7 @@ Ao usar `e.stopPropagation()`, agora somente um alerta (da tag `<button>`) é ex
 
 #### Capturar eventos de cada fase {/*capture-phase-events*/}
 
-Em casos raros, pode ser necessário capturar todos os eventos em elementos filho, *mesmo que eles tenham interrompido a propagação*. Por exemplo, talvez você queira coletar cada clique para um sistema de análise, independentemente da lógica de propagação. Você pode fazer isso adicionando `Capture` no final do nome do evento:
+Em casos raros, pode ser necessário capturar todos os eventos em elementos filhos, *mesmo que eles tenham interrompido a propagação*. Por exemplo, talvez você queira coletar cada clique para coleta de dados, independentemente da lógica de propagação. Você pode fazer isso adicionando `Capture` no final do nome do evento:
 
 ```js
 <div onClickCapture={() => { /* Essa função é executada primeiro */ }}>
