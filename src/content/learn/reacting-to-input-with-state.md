@@ -25,9 +25,9 @@ Ao projetar interações de UI, você provavelmente pensa em como a UI *muda* em
 * Se a solicitação de rede for bem-sucedida, o formulário ficará oculto e a mensagem "Obrigado" aparecerá.
 * Se a solicitação de rede falhar, uma mensagem de erro **aparecerá** e o formulário **ficará habilitado** novamente.
 
-Na **programação imperativa**, o que foi dito acima corresponde diretamente a como você implementa a interação. Você precisa escrever as instruções exatas para manipular a interface do usuário, dependendo do que acabou de acontecer. Eis outra maneira de pensar sobre isso: imagine estar ao lado de alguém em um carro e dizer a essa pessoa, curva a curva, para onde ir.
+Na **programação imperativa**, o que foi dito acima corresponde diretamente a como você implementa a interação. Você precisa escrever as instruções exatas para manipular a interface do usuário, dependendo do que acabou de acontecer. Eis outra maneira de pensar sobre isso: imagine estar ao lado de alguém em um carro e dizer a essa pessoa, curva à curva, para onde ir.
 
-<Illustration src="/images/docs/illustrations/i_imperative-ui-programming.png"  alt="Em um carro dirigido por uma pessoa de aparência ansiosa que representa o JavaScript, um passageiro ordena que o motorista execute uma sequência de complicadas navegações curva a curva." />
+<Illustration src="/images/docs/illustrations/i_imperative-ui-programming.png"  alt="Em um carro dirigido por uma pessoa de aparência ansiosa que representa o JavaScript, um passageiro ordena que o motorista execute uma sequência de complicadas navegações curva à curva." />
 
 Ele não sabe para onde você quer ir, apenas segue os seus comandos. (E se você errar as instruções, acabará no lugar errado!) É chamada de *imperativa* porque você precisa "comandar" cada elemento, desde o loader até o botão, dizendo ao computador *como* atualizar a interface do usuário.
 
@@ -151,7 +151,7 @@ Você viu acima como implementar um formulário de forma imperativa. Para entend
 
 ### Etapa 1: Identificar os diferentes estados visuais do seu componente {/*step-1-identify-your-components-different-visual-states*/}
 
-Na ciência da computação, você pode ouvir falar que uma ["máquina de estado"](https://en.wikipedia.org/wiki/Finite-state_machine) está em um de vários "estados". Se você trabalha com um designer, pode ter visto modelos de diferentes "estados visuais". O React está na interseção do design e da ciência da computação, portanto, essas duas ideias são fontes de inspiração.
+Na ciência da computação, você pode ouvir falar que uma ["máquina de estado"](https://pt.wikipedia.org/wiki/M%C3%A1quina_de_estados_finita) está em um de vários "estados". Se você trabalha com um designer, pode ter visto modelos de diferentes "estados visuais". O React está na interseção do design e da ciência da computação, portanto, essas duas ideias são fontes de inspiração.
 
 Primeiro, você precisa visualizar todos os diferentes "estados" da UI que o usuário poderá ver:
 
