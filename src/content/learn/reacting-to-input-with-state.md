@@ -4,21 +4,21 @@ title: Reagindo à entrada de dados com state
 
 <Intro>
 
-React oferece uma maneira declarativa de manipular a interface do usuário. Em vez de manipular diretamente partes individuais da IU, você descreve os diferentes estados em que seu componente pode estar e alterna entre eles em resposta à entrada do usuário. Isso é semelhante ao modo como os designers pensam sobre a IU.
+React oferece uma maneira declarativa de manipular a interface do usuário. Em vez de manipular diretamente partes individuais da UI, você descreve os diferentes estados em que seu componente pode estar e alterna entre eles em resposta à entrada do usuário. Isso é semelhante ao modo como os designers pensam sobre a UI.
 
 </Intro>
 
 <YouWillLearn>
 
-* Como programação da IU difere entre declarativa e imperativa
+* Como programação da UI difere entre declarativa e imperativa
 * Como enumerar os diferentes estados visuais em que seu componente pode estar
 * Como acionar as alterações entre os diferentes estados visuais a partir do código
 
 </YouWillLearn>
 
-## Como a IU declarativa se compara à imperativa {/*how-declarative-ui-compares-to-imperative*/}
+## Como a UI declarativa se compara à imperativa {/*how-declarative-ui-compares-to-imperative*/}
 
-Ao projetar interações de IU, você provavelmente pensa em como a IU *muda* em resposta às ações do usuário. Considere um formulário que permite que o usuário envie uma resposta:
+Ao projetar interações de UI, você provavelmente pensa em como a UI *muda* em resposta às ações do usuário. Considere um formulário que permite que o usuário envie uma resposta:
 
 * Quando você digita algo no formulário, o botão "Enviar" **fica habilitado**.
 * Quando você pressiona "Enviar", tanto o formulário quanto o botão ficam desativados e um loader aparece.
@@ -29,9 +29,9 @@ Na **programação imperativa**, o que foi dito acima corresponde diretamente a 
 
 <Illustration src="/images/docs/illustrations/i_imperative-ui-programming.png"  alt="Em um carro dirigido por uma pessoa de aparência ansiosa que representa o JavaScript, um passageiro ordena que o motorista execute uma sequência de complicadas navegações curva a curva." />
 
-Ele não sabem para onde você quer ir, apenas segue os seus comandos. (E se você errar as instruções, acabará no lugar errado!) É chamada de *imperativa* porque você precisa "comandar" cada elemento, desde o loader até o botão, dizendo ao computador *como* atualizar a interface do usuário.
+Ele não sabe para onde você quer ir, apenas segue os seus comandos. (E se você errar as instruções, acabará no lugar errado!) É chamada de *imperativa* porque você precisa "comandar" cada elemento, desde o loader até o botão, dizendo ao computador *como* atualizar a interface do usuário.
 
-Neste exemplo de programação imperativa de IU, o formulário é criado *sem* o React. Ele usa apenas o [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) do navegador:
+Neste exemplo de programação imperativa de UI, o formulário é criado *sem* o React. Ele usa apenas o [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) do navegador:
 
 <Sandpack>
 
@@ -131,15 +131,15 @@ body { font-family: sans-serif; margin: 20px; padding: 0; }
 
 </Sandpack>
 
-Manipular a IU de forma imperativa funciona bem em exemplos isolados, mas fica exponencialmente mais difícil de gerenciar em sistemas mais complexos. Imagine atualizar uma página cheia de formulários diferentes como este. Adicionar um novo elemento de UI ou uma nova interação exigiria a verificação cuidadosa de todo o código existente para garantir que você não tenha introduzido um bug (por exemplo, esquecer de mostrar ou ocultar algo).
+Manipular a UI de forma imperativa funciona bem em exemplos isolados, mas fica exponencialmente mais difícil de gerenciar em sistemas mais complexos. Imagine atualizar uma página cheia de formulários diferentes como este. Adicionar um novo elemento de UI ou uma nova interação exigiria a verificação cuidadosa de todo o código existente para garantir que você não tenha introduzido um bug (por exemplo, esquecer de mostrar ou ocultar algo).
 
 React foi criado para resolver esse problema.
 
-Em React, você não manipula diretamente a IU, ou seja, você não ativa, desativa, mostra ou oculta componentes diretamente. Em vez disso, você **declara o que deseja mostrar** e React trata de como atualizar a IU. Pense em entrar em um táxi e dizer ao motorista para onde você quer ir, ao invés de dizer a ele exatamente onde virar. O trabalho do motorista é levá-lo até lá, e ele pode até conhecer alguns atalhos que você não considerou!
+Em React, você não manipula diretamente a UI, ou seja, você não ativa, desativa, mostra ou oculta componentes diretamente. Em vez disso, você **declara o que deseja mostrar** e React trata de como atualizar a UI. Pense em entrar em um táxi e dizer ao motorista para onde você quer ir, ao invés de dizer a ele exatamente onde virar. O trabalho do motorista é levá-lo até lá, e ele pode até conhecer alguns atalhos que você não considerou!
 
 <Illustration src="/images/docs/illustrations/i_declarative-ui-programming.png" alt="Em um carro dirigido pelo React, um passageiro pede para ser levado a um local específico no mapa. React trata de como fazer isso." />
 
-## Pensando na IU de forma declarativa {/*thinking-about-ui-declaratively*/}
+## Pensando na UI de forma declarativa {/*thinking-about-ui-declaratively*/}
 
 Você viu acima como implementar um formulário de forma imperativa. Para entender melhor como pensar em React, você verá a seguir como reimplementar essa interface do usuário usando React:
 
@@ -153,7 +153,7 @@ Você viu acima como implementar um formulário de forma imperativa. Para entend
 
 Na ciência da computação, você pode ouvir falar que uma ["máquina de estado"](https://en.wikipedia.org/wiki/Finite-state_machine) está em um de vários "estados". Se você trabalha com um designer, pode ter visto modelos de diferentes "estados visuais". O React está na interseção do design e da ciência da computação, portanto, essas duas ideias são fontes de inspiração.
 
-Primeiro, você precisa visualizar todos os diferentes "estados" da IU que o usuário poderá ver:
+Primeiro, você precisa visualizar todos os diferentes "estados" da UI que o usuário poderá ver:
 
 * **Empty (vazio)**: O formulário tem um botão "Enviar" desativado.
 * **Typing (digitando)**: O formulário tem um botão "Enviar" ativado.
@@ -323,7 +323,7 @@ Você pode acionar atualizações de estado em resposta a dois tipos de entradas
   <Illustration caption="Entradas de computador" alt="Uns e zeros" src="/images/docs/illustrations/i_inputs2.png" />
 </IllustrationBlock>
 
-Em ambos os casos, **você deve definir [variáveis de state](/learn/state-a-components-memory#anatomy-of-usestate) para atualizar a IU.** Para o formulário que você está desenvolvendo, será necessário alterar o `state` em resposta a algumas entradas diferentes:
+Em ambos os casos, **você deve definir [variáveis de state](/learn/state-a-components-memory#anatomy-of-usestate) para atualizar a UI.** Para o formulário que você está desenvolvendo, será necessário alterar o `state` em resposta a algumas entradas diferentes:
 
 * **Alterar a entrada de texto** (humano) deve mudá-la do `state` *Empty* (vazio) para o `state` *Typing* (digitando) ou vice-versa, dependendo do fato de a caixa de texto estar vazia ou não.
 * **Clicar no botão Enviar** (humano) deve mudar para o `state` *Submitting* (enviando).
@@ -375,7 +375,7 @@ Sua primeira ideia provavelmente não será a melhor, mas tudo bem: refatorar o 
 
 ### Etapa 4: Remover todas as variáveis não essenciais do `state` {/*step-4-remove-any-non-essential-state-variables*/}
 
-Você quer evitar a duplicação no conteúdo do `state` para rastrear apenas o que é essencial. Gastar um pouco de tempo refatorando sua estrutura de `state` tornará seus componentes mais fáceis de entender, reduzirá a duplicação e evitará significados não intencionais. Seu objetivo é **prevenir os casos em que o `state` na memória não representa nenhuma IU válida que você gostaria que o usuário visse.** (Por exemplo, você nunca quer mostrar uma mensagem de erro e desativar a entrada ao mesmo tempo, ou o usuário não conseguirá corrigir o erro!)
+Você quer evitar a duplicação no conteúdo do `state` para rastrear apenas o que é essencial. Gastar um pouco de tempo refatorando sua estrutura de `state` tornará seus componentes mais fáceis de entender, reduzirá a duplicação e evitará significados não intencionais. Seu objetivo é **prevenir os casos em que o `state` na memória não representa nenhuma UI válida que você gostaria que o usuário visse.** (Por exemplo, você nunca quer mostrar uma mensagem de erro e desativar a entrada ao mesmo tempo, ou o usuário não conseguirá corrigir o erro!)
 
 Aqui estão algumas perguntas que você pode fazer sobre suas variáveis de `state`:
 
@@ -489,7 +489,7 @@ Embora esse código seja mais longo do que o exemplo imperativo original, ele é
 
 <Recap>
 
-* Programação declarativa significa descrever a IU para cada estado visual em vez de microgerenciá-la (imperativa).
+* Programação declarativa significa descrever a UI para cada estado visual em vez de microgerenciá-la (imperativa).
 * Ao desenvolver um componente:
   1. Identifique todos os seus estados visuais.
   2. Determine os acionadores humanos e computacionais para as mudanças de estado.
@@ -561,7 +561,7 @@ Esse componente tem dois estados visuais: quando a imagem está ativa e quando a
 * Quando a imagem está ativa, as classes CSS são `background` e `picture picture--active`.
 * Quando a imagem está inativa, as classes CSS são `background background--active` e `picture`.
 
-Uma única variável de `state` booleana é suficiente para lembrar se a imagem está ativa. A tarefa original era remover ou adicionar classes CSS. No entanto, em React, você precisa *descrever* o que deseja ver em vez de *manipular* os elementos da IU. Portanto, você precisa calcular as duas classes CSS com base no estado atual. Você também precisa [interromper a propagação](/learn/responding-to-events#stopping-propagation) para que o clique na imagem não seja registrado como um clique no plano de fundo.
+Uma única variável de `state` booleana é suficiente para lembrar se a imagem está ativa. A tarefa original era remover ou adicionar classes CSS. No entanto, em React, você precisa *descrever* o que deseja ver em vez de *manipular* os elementos da UI. Portanto, você precisa calcular as duas classes CSS com base no estado atual. Você também precisa [interromper a propagação](/learn/responding-to-events#stopping-propagation) para que o clique na imagem não seja registrado como um clique no plano de fundo.
 
 Verifique se essa versão funciona clicando na imagem e depois fora dela:
 
@@ -630,7 +630,7 @@ body { margin: 0; padding: 0; height: 250px; }
 
 </Sandpack>
 
-Como alternativa, você poderia retornar dois blocos separados de JSX:
+Alternativamente, você poderia retornar dois blocos separados de JSX:
 
 <Sandpack>
 
@@ -697,7 +697,7 @@ body { margin: 0; padding: 0; height: 250px; }
 
 </Sandpack>
 
-Lembre-se de que, se dois blocos JSX diferentes descreverem a mesma árvore, o aninhamento deles (primeiro `<div>` → primeiro `<img>`) deverá estar alinhado. Caso contrário, a ativação de `isActive` recriaria toda a árvore abaixo e [redefiniria seu estado](/learn/preserving-and-resetting-state). É por isso que, se uma árvore JSX semelhante for retornada em ambos os casos, é melhor escrevê-la como uma única parte do JSX.
+Lembre-se de que, se dois blocos JSX diferentes descreverem a mesma árvore, os aninhamentos deles (primeira `<div>` → primeira `<img>`) devem ser correspondentes. Caso contrário, a ativação de `isActive` recriaria toda a árvore abaixo e [redefiniria seu estado](/learn/preserving-and-resetting-state). É por isso que, se uma árvore JSX semelhante for retornada em ambos os casos, é melhor escrevê-la como uma única parte do JSX.
 
 </Solution>
 
@@ -1228,7 +1228,7 @@ label { display: block; margin-bottom: 20px; }
 
 </Sandpack>
 
-A função `updateDOM` que você escreveu mostra o que React faz nos bastidores quando você define o `state`. (No entanto, React também evita tocar no DOM para propriedades que não foram alteradas desde a última vez em que foram definidas).
+A função `updateDOM` que você escreveu mostra o que React faz nos bastidores quando você define o `state`. (No entanto, React também evita modificar o DOM para propriedades que não foram alteradas desde a última vez em que foram definidas).
 
 </Solution>
 
