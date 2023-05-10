@@ -28,6 +28,7 @@ Encapsule elementos em `<Fragment>` para agrupá-los juntos em situações em qu
 #### Props {/*props*/}
 
 - **opcional** `key`: Fragments declarados com a sintaxe explícita `<Fragment>` podem ter [keys.](https://pt-br.react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key). 
+
 #### Cuidados {/*caveats*/}
 
 - Se você quiser passar uma `key` para um Fragment, não pode usar a sintaxe `<>...</>`. Você precisa importar explicitamente o `Fragment` de `'react'` e renderizar `<Fragment key={suaChave}>...</Fragment>`. 
