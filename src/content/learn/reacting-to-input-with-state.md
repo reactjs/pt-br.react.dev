@@ -29,9 +29,9 @@ Na **programação imperativa**, o que foi dito acima corresponde diretamente a 
 
 <Illustration src="/images/docs/illustrations/i_imperative-ui-programming.png"  alt="Em um carro dirigido por uma pessoa de aparência ansiosa que representa o JavaScript, um passageiro ordena que o motorista execute uma sequência de complicadas navegações curva à curva." />
 
-Ele não sabe para onde você quer ir, apenas segue os seus comandos. (E se você errar as instruções, acabará no lugar errado!) É chamada de *imperativa* porque você precisa "comandar" cada elemento, desde o loader até o botão, dizendo ao computador *como* atualizar a interface do usuário.
+Essa pessoa não sabe para onde você quer ir, apenas segue os seus comandos. (E se você errar as instruções, acabará no lugar errado!) É chamada de *imperativa* porque você precisa "comandar" cada elemento, desde o loader até o botão, dizendo ao computador *como* atualizar a interface do usuário.
 
-Neste exemplo de programação imperativa de UI, o formulário é criado *sem* o React. Ele usa apenas o [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) do navegador:
+Neste exemplo de programação imperativa de UI, o formulário é criado *sem* o React. Ele usa apenas o [DOM](https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model) do navegador:
 
 <Sandpack>
 
@@ -131,7 +131,7 @@ body { font-family: sans-serif; margin: 20px; padding: 0; }
 
 </Sandpack>
 
-Manipular a UI de forma imperativa funciona bem em exemplos isolados, mas fica exponencialmente mais difícil de gerenciar em sistemas mais complexos. Imagine atualizar uma página cheia de formulários diferentes como este. Adicionar um novo elemento de UI ou uma nova interação exigiria a verificação cuidadosa de todo o código existente para garantir que você não tenha introduzido um bug (por exemplo, esquecer de mostrar ou ocultar algo).
+Manipular a UI de forma imperativa funciona bem em exemplos isolados, mas fica exponencialmente mais difícil de gerenciar em sistemas mais complexos. Imagine atualizar uma página cheia de formulários diferentes como esse. Adicionar um novo elemento de UI ou uma nova interação exigiria a verificação cuidadosa de todo o código existente para garantir que você não tenha introduzido um bug (por exemplo, esquecer de mostrar ou ocultar algo).
 
 React foi criado para resolver esse problema.
 
@@ -307,7 +307,7 @@ body { margin: 0; }
 
 </Sandpack>
 
-Páginas como essa são geralmente chamadas de *living styleguides* ou *storybooks*.
+Páginas como essa são geralmente chamadas de "guias de estilo vivos" ou "*storybooks*".
 
 </DeepDive>
 
@@ -350,16 +350,16 @@ Estados do formulário
 
 ### Etapa 3: Representar o `state` na memória com `useState` {/*step-3-represent-the-state-in-memory-with-usestate*/}
 
-Em seguida, você precisará representar os estados visuais do seu componente na memória com [`useState`.](/reference/react/useState) A simplicidade é fundamental: cada parte do `state` é uma "peça móvel", e **você quer o menor número possível de "peças móveis".** Maior complexidade leva a mais bugs!
+Em seguida, você precisará representar os estados visuais do seu componente na memória com [`useState`.](/reference/react/useState) A simplicidade é fundamental: cada `state` é uma "peça móvel", e **você quer o menor número possível de "peças móveis".** Maior complexidade leva a mais bugs!
 
-Comece com o `state` que *absolutamente* precisa estar lá. Por exemplo, você precisará armazenar a `resposta` para a entrada e o `erro` (se existir) para armazenar o último erro:
+Comece com o `state` que *absolutamente* precisa estar lá. Por exemplo, você precisará armazenar `answer` para a entrada e `error` (se existir) para armazenar o último erro:
 
 ```js
 const [answer, setAnswer] = useState('');
 const [error, setError] = useState(null);
 ```
 
-Em seguida, você precisará de uma variável de `state` que represente qual dos estados visuais você deseja exibir. Geralmente, há mais de uma maneira de representar isso na memória, portanto, você precisará fazer experiências.
+Em seguida, você precisará de uma variável de `state` que represente qual dos estados visuais você deseja exibir. Geralmente, há mais de uma maneira de representar isso na memória, portanto, você precisará experimentar.
 
 Se tiver dificuldade para pensar na melhor maneira imediatamente, comece adicionando um número suficiente de `state` para ter certeza absoluta de que todos os estados visuais possíveis estão incluídos:
 
@@ -380,7 +380,7 @@ Você quer evitar a duplicação no conteúdo do `state` para rastrear apenas o 
 Aqui estão algumas perguntas que você pode fazer sobre suas variáveis de `state`:
 
 * **Por exemplo**, `isTyping` (está digitando) e `isSubmitting` (está enviando) não podem ser ambos `true`. Um paradoxo geralmente significa que o `state` não é suficientemente restrito. Há quatro combinações possíveis de dois booleanos, mas apenas três correspondem a `state` válidos. Para remover o `state` "impossível", você pode combiná-los em um `status` que deve ser um dos três valores: `'typing'` (digitando), `'submitting'` (enviando) ou `'success'` (sucesso).
-* **A mesma informação já está disponível em outra variável de `state`**? Outro paradoxo: `isEmpty` (está vazio) e `isTyping` (está digitando) não podem ser `true` ao mesmo tempo. Ao torná-las variáveis de `state` separadas, você corre o risco de que elas fiquem fora de sincronia e causem bugs. Felizmente, você pode remover `isEmpty` (está vazio) e, em vez disso, verificar `answer.length === 0`.
+* **A mesma informação já está disponível em outra variável de `state`**? Outro paradoxo: `isEmpty` (está vazio) e `isTyping` (está digitando) não podem ser `true` ao mesmo tempo. Ao torná-las variáveis de `state` separadas, você corre o risco de que elas fiquem dessincronizadas e causem bugs. Felizmente, você pode remover `isEmpty` (está vazio) e, em vez disso, verificar `answer.length === 0`.
 * **Você pode obter as mesmas informações do inverso de outra variável de `state`**? O `isError` (é erro) não é necessário porque você pode verificar `error !== null` em vez disso.
 
 Após essa remoção, você fica com 3 (antes eram 7!) variáveis de `state` *essenciais*:
