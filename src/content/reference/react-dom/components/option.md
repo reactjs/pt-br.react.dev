@@ -4,7 +4,7 @@ title: "<option>"
 
 <Intro>
 
-The [built-in browser `<option>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) lets you render an option inside a [`<select>`](/reference/react-dom/components/select) box.
+O [componente `<option>` nativo do navegador](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/option) permite que você renderize uma opção dentro de uma caixa de seleção [`<select>`](/reference/react-dom/components/select).
 
 ```js
 <select>
@@ -19,11 +19,11 @@ The [built-in browser `<option>` component](https://developer.mozilla.org/en-US/
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<option>` {/*option*/}
 
-The [built-in browser `<option>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) lets you render an option inside a [`<select>`](/reference/react-dom/components/select) box.
+O [componente `<option>` nativo do navegador](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select) permite que você renderize uma opção dentro de uma caixa de seleção [`<select>`](/reference/react-dom/components/select).
 
 ```js
 <select>
@@ -32,31 +32,31 @@ The [built-in browser `<option>` component](https://developer.mozilla.org/en-US/
 </select>
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Props {/*props*/}
 
-`<option>` supports all [common element props.](/reference/react-dom/components/common#props)
+`<option>` suporta todas as [props comuns dos elementos.](/reference/react-dom/components/common#props)
 
-Additionally, `<option>` supports these props:
+Além disso, `<option>` suporta as seguintes props:
 
-* [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#disabled): A boolean. If `true`, the option will not be selectable and will appear dimmed.
-* [`label`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#label): A string. Specifies the meaning of the option. If not specified, the text inside the option is used.
-* [`value`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option#value): The value to be used [when submitting the parent `<select>` in a form](/reference/react-dom/components/select#reading-the-select-box-value-when-submitting-a-form) if this option is selected.
+* [`disabled`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/option#disabled): Um booleano. Se `true`, a opção não será selecionável e aparecerá escurecida.
+* [`label`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/option#label): Uma string. Especifica o significado da opção. Caso não seja especificado, o texto dentro da opção será utilizado.
+* [`value`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/option#value): O valor a ser utilizado [quando um elemento pai `<select>` é submetido em um formulário](/reference/react-dom/components/select#reading-the-select-box-value-when-submitting-a-form) se esta opção for selecionada.
 
-#### Caveats {/*caveats*/}
+#### Observações {/*caveats*/}
 
-* React does not support the `selected` attribute on `<option>`. Instead, pass this option's `value` to the parent [`<select defaultValue>`](/reference/react-dom/components/select#providing-an-initially-selected-option) for an uncontrolled select box, or [`<select value>`](/reference/react-dom/components/select#controlling-a-select-box-with-a-state-variable) for a controlled select.
+* O React não suporta o atributo `selected` em `<option>`. Em vez disso, passe o `value` da opção ao componente pai [`<select defaultValue>`](/reference/react-dom/components/select#providing-an-initially-selected-option) para uma caixa de seleção não controlada, ou [`<select value>`](/reference/react-dom/components/select#controlling-a-select-box-with-a-state-variable) para uma caixa de seleção controlada.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Displaying a select box with options {/*displaying-a-select-box-with-options*/}
+### Exibindo uma caixa de seleção com opções {/*displaying-a-select-box-with-options*/}
 
-Render a `<select>` with a list of `<option>` components inside to display a select box. Give each `<option>` a `value` representing the data to be submitted with the form.
+Renderize um `<select>` com uma lista de componentes `<option>` dentro para exibir uma caixa de seleção. Atribua a cada `<option>` um `<value>` representando os dados a serem submetidos com o formulário.
 
-[Read more about displaying a `<select>` with a list of `<option>` components.](/reference/react-dom/components/select)
+[Leia mais sobre a exibição de um `<select>` com uma lista de componentes `<option>`.](/reference/react-dom/components/select)
 
 <Sandpack>
 
@@ -79,5 +79,4 @@ export default function FruitPicker() {
 select { margin: 5px; }
 ```
 
-</Sandpack>  
-
+</Sandpack>
