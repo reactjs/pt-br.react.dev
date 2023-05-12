@@ -797,7 +797,7 @@ function Square() {
 }
 ```
 
-Ao chamar essa função `set` a partir de um manipulador `onClick`, você está dizendo ao React para re-renderizar aquele `Square` sempre que o seu `<button>` for clicado. Depois da atualização, o `value` de `Square` será `'X'`, então você verá o "X" no tabuleiro do jogo. Clique em qualquer Square, e "X" deve aparecer:
+Ao chamar essa função `set` a partir de um manipulador `onClick`, você está dizendo ao React para rerrenderizar aquele `Square` sempre que o seu `<button>` for clicado. Depois da atualização, o `value` de `Square` será `'X'`, então você verá o "X" no tabuleiro do jogo. Clique em qualquer Square, e "X" deve aparecer:
 
 ![adicionando x ao tabuleiro](../images/tutorial/tictac-adding-x-s.gif)
 
@@ -1129,7 +1129,7 @@ export default function Board() {
 
 A função `handleClick` cria uma cópia do array `squares` (`nextSquares`) com o método de Array JavaScript `slice()`. Então, `handleClick` atualiza o array `nextSquares` para adicionar `X` ao primeiro (índice `[0]`) quadrado.
 
-Chamar a função `setSquares` permite que o React saiba que o state do componente mudou. Isso irá acionar uma re-renderização dos componentes que usa o state `squares` (`Board`) bem como seus componentes filhos (os componentes `Square` que fazem parte do tabuleiro).
+Chamar a função `setSquares` permite que o React saiba que o state do componente mudou. Isso irá acionar uma rerrenderização dos componentes que usa o state `squares` (`Board`) bem como seus componentes filhos (os componentes `Square` que fazem parte do tabuleiro).
 
 <Note>
 
@@ -1161,11 +1161,11 @@ A seguir, você precisará passar aquele `i` a `handleClick`. Você pode tentar 
 <Square value={squares[0]} onSquareClick={handleClick(0)} />
 ```
 
-Aqui está o razão pela qual isso não funciona. A chamada `handleClick(0)` será parte da renderização do componente do tabuleiro. Como `handleClick(0)` altera o state do componente do tabuleiro ao chamar `setSquares`, seu componente de tabuleiro todo será re-renderizado novamente. Mas isso executa `handleClick(0)` de novo, levando a um um loop infinito:
+Aqui está o razão pela qual isso não funciona. A chamada `handleClick(0)` será parte da renderização do componente do tabuleiro. Como `handleClick(0)` altera o state do componente do tabuleiro ao chamar `setSquares`, seu componente de tabuleiro todo será rerrenderizado novamente. Mas isso executa `handleClick(0)` de novo, levando a um um loop infinito:
 
 <ConsoleBlock level="error">
 
-Muitas re-renderizações. O React limita o número de renderizações para previnir um loop infinito.
+Muitas rerrenderizações. O React limita o número de renderizações para previnir um loop infinito.
 
 </ConsoleBlock>
 
@@ -1317,13 +1317,13 @@ body {
 
 </Sandpack>
 
-Agora que sua manipulação de state está no componente `Board`, o componente pai `Board` passa props aos componentes filhos `Square` para que eles possam ser exibidos corretamente. Ao clicar em um `Square`, o componente filho `Square` agora pede ao componente pai `Board` que atualize o state do tabuleiro. Quando o state de `Board` muda, ambos o componente `Board` e cada filho `Square` re-renderizam automaticamente. Manter o state de todos os quadrados no componente `Board` o permitirá determinar o vencedor no futuro.
+Agora que sua manipulação de state está no componente `Board`, o componente pai `Board` passa props aos componentes filhos `Square` para que eles possam ser exibidos corretamente. Ao clicar em um `Square`, o componente filho `Square` agora pede ao componente pai `Board` que atualize o state do tabuleiro. Quando o state de `Board` muda, ambos o componente `Board` e cada filho `Square` rerrenderizam automaticamente. Manter o state de todos os quadrados no componente `Board` o permitirá determinar o vencedor no futuro.
 
 Vamos recapitular o que acontece quando um usuário clica no quadrado superior esquerdo em seu tabuleiro para adicionar um `X` a ele:
 
 1. Clicar no quadrado superior esquerdo executra a função que `button` recebeu como sua prop `onClick` de `Square`. O componente `Square` receber aquela função como sua prop `onSquareClick` de `Board`. O componente `Board` definiu aquela função diretamente na JSX. Ela chama `handleClick`com um argumento de `0`.
 1. `handleClick` usa o argumento (`0`) para atualizar o primeiro elemento do array `squares` de `null` para `X`.
-1. O state `square` do componente `Board` foi atualizado, então `Board` e todos os seus filhos re-renderizam. Isso faz com que a prop `value` do componente `Square` de índice `0` mude de `null` para `X`.
+1. O state `square` do componente `Board` foi atualizado, então `Board` e todos os seus filhos rerrenderizam. Isso faz com que a prop `value` do componente `Square` de índice `0` mude de `null` para `X`.
 
 No final o usuário vê que o quadrado superior esquerdo mudou de vazio para ter um `X` depois de clicar nele.
 
@@ -1357,7 +1357,7 @@ O resultado é o mesmo mas ao não mutar (alterar os dados subjacentes) diretame
 
 Imutabilidade torna recursos complexos muito mais fáceis de se implementar. Mais tarde neste tutorial, você implementará uma função de "viagem no tempo" a qual permite que você avalie o histórico do jogo e "pule de volta" a movimentos passados. Essa funcionalidade não é específica aos jogos--a habilidade de desfazer e refazer certas ações é um requerimento comum para aplicativos. Evitar a mutação direta de dados permite que você mantenha versões prévias dos dados intactas e as reutilize mais tarde.
 
-Há também outro benefício da imutabilidade. Por padrão, todos os componentes filhos re-renderizam automaticamente quando o state de um componente pai muda. Isso inclui até os componentes filhos que não foram afetados pela mudança. Mesmo que a re-renderização em si não seja perceptível ao usuário (você não deveria ativamente tentar evitá-la), você pode querer pular a re-renderização de uma parte da árvore que claramente não foi afetada por razões de performance. Imutabilidade torna muito barato para os componentes compararem se seus dados foram alterados ou não. Você pode aprender mais sobre como o React escolhe quando re-renderizar um componente na [referência da API `memo`](/reference/react/memo).
+Há também outro benefício da imutabilidade. Por padrão, todos os componentes filhos rerrenderizam automaticamente quando o state de um componente pai muda. Isso inclui até os componentes filhos que não foram afetados pela mudança. Mesmo que a rerrenderização em si não seja perceptível ao usuário (você não deveria ativamente tentar evitá-la), você pode querer pular a rerrenderização de uma parte da árvore que claramente não foi afetada por razões de performance. Imutabilidade torna muito barato para os componentes compararem se seus dados foram alterados ou não. Você pode aprender mais sobre como o React escolhe quando rerrenderizar um componente na [referência da API `memo`](/reference/react/memo).
 
 ### Revezando {/*taking-turns*/}
 
@@ -1849,9 +1849,9 @@ function Board({ xIsNext, squares, onPlay }) {
 
 O componente `Board` é completamente controlado pelas props passadas a ele pelo componente `Game`. Você precisará implementar a função `handlePlay` no componente `Game` para fazer com que o jogo funcione novamente.
 
-O que `handlePlay` deveria fazer quando chamada? Lembre-se que Board costumava chamar `setSquares`com um array atualizado; agora ele passa o array `squares` atualizado a `onPlay`.
+O que `handlePlay` deveria fazer quando chamada? Lembre-se que Board costumava chamar `setSquares` com um array atualizado; agora ele passa o array `squares` atualizado a `onPlay`.
 
-A função `handlePlay` precisa atualizar o state de `Game` para acionar uma re-renderização, mas você não tem mais uma função `setSquares`  que você possa chamar--você agora está usando a variável de state `history` para armazenar esta informação. Você gostará de atualizar `history` anexando o array atualizado `squares` como uma nova entrada no histórico. Você também gostará de alternar `xIsNext`, assim como Board costumava fazer:
+A função `handlePlay` precisa atualizar o state de `Game` para acionar uma rerrenderização, mas você não tem mais uma função `setSquares` a qual possa chamar--agora você está usando a variável de state `history` para armazenar essa informação. Você vai querer atualizar `history` anexando o array atualizado `squares` como uma nova entrada no histórico. Você também gostará de alternar `xIsNext`, assim como Board costumava fazer:
 
 ```js {4-5}
 export default function Game() {
@@ -2274,13 +2274,13 @@ Em adição às contagens atualizadas, um humano lendo isso provavelmente diria 
 </li>
 ```
 
-Quando uma lista é re-renderizada, o React usa a key de cada item da lista e procura nos itens da lista anterior por uma chave que combine. Se a lista atual possui uma key que não existia antes, o React cria um componente. Se na lista atual está faltando uma chave que existia na lista anterior, o React destrói o componente anterior. Se duas chaves são iguais, o componente correspondente é movido.
+Quando uma lista é rerrenderizada, o React usa a key de cada item da lista e procura nos itens da lista anterior por uma chave que combine. Se a lista atual possui uma key que não existia antes, o React cria um componente. Se na lista atual está faltando uma chave que existia na lista anterior, o React destrói o componente anterior. Se duas chaves são iguais, o componente correspondente é movido.
 
-Keys dizem ao React sobre a identidade de cada componente, o que permite ao React manter o state entre re-renderizações. Se a key de um componente muda, o componente será destruído e re-criado com um novo state.
+Keys dizem ao React sobre a identidade de cada componente, o que permite ao React manter o state entre rerrenderizações. Se a key de um componente muda, o componente será destruído e recriado com um novo state.
 
 `key` é uma propriedade especial e reservada em React. Quando um elemento é criado, o React extrai a propriedade `key` e a salva diretamente no elemento retornado. Mesmo que a `key` possa parecer como se fosse passada como uma prop, o React automaticamente usa `key` para decidir quais componente a atualizar. Não há maneira para que um componente peça qual `key` seu pai especificou.
 
-**É fortemente recomendado que você designe keys apropriadas sempre que construindo listas dinâmicas.** Se você não tiver uma key apropriada, você pode considerar a reestruturação de seus dados para que você tenha.
+**É fortemente recomendado que você designe keys apropriadas sempre que estiver construindo listas dinâmicas.** Se você não tiver uma key apropriada, você pode considerar a reestruturação de seus dados para que você tenha.
 
 Se nenhuma key é especificada, o React irá reportar um erro e usará o índice do array como key por padrão. Usar o índice do array como key é problemático ao tentar re-ordenar os items de uma lista ou inserindo/removendo items da lista. Passar explicitamente `key={i}` silencia esses erros mas tem os mesmo problemas que índices de array e não é recomendado na maioria dos casos.
 
@@ -2288,7 +2288,7 @@ Keys não precisam ser globalmente únicas; elas só precisam ser únicas entre 
 
 ### Implementando viagem no tempo {/*implementing-time-travel*/}
 
-No histórico do jogo da velha, cada movimento passado possui um ID único associado com ele: é o número sequential do movimento. Movimentos nunca serão re-ordenador, excluídos, ou inseridos no meio, então é seguro usar o índice do movimento como key.
+No histórico do jogo da velha, cada movimento passado possui um ID único associado com ele: é o número sequencial do movimento. Movimentos nunca serão reordenados, excluídos, ou inseridos no meio, então é seguro usar o índice do movimento como key.
 
 Na função `Game`, você pode adicionar a key como `<li key={move}>`, e se você recarregar o jogo renderizado, o erro de "key" do React deveria desaparecer:
 
@@ -2695,7 +2695,7 @@ body {
 
 ### Limpeza final {/*final-cleanup*/}
 
-Se você olhar para o código bastante atenção, você pode perceber que `xIsNext === true` quando `currentMove` é par e `xIsNext === false` quando `currentMove` é ímpar. Em outras palavras, se você sabe o valor de `currentMove`, então você sempre pode descobrir o que `xIsNext` deveria ser.
+Se você olhar para o código bastante atenção, pode perceber que `xIsNext === true` quando `currentMove` é par e `xIsNext === false` quando `currentMove` é ímpar. Em outras palavras, se você sabe o valor de `currentMove`, então você sempre pode descobrir o que `xIsNext` deveria ser.
 
 Não há razão para armazenar ambos em state. De fato, sempre tente evitar state redundante. A simplificação do que você armazena em state reduz bugs e faz do seu código mais fácil de entender. Mude `Game` para que ele não armazene mais `xIsNext` como uma variável de state separada e em vez disso a descubra com base em `currentMove`:
 
@@ -2901,7 +2901,7 @@ body {
 
 </Sandpack>
 
-Se você tem tempo extra ou quer praticar suas novas habilidades de React, aqui estão algumas ideias de melhorias que você poderia fazer ao jogo da velha, listadas em ordem de dificuldade incremental:
+Se você tem tempo extra ou quer praticar suas novas habilidades de React, aqui estão algumas ideias de melhorias que você poderia fazer ao jogo da velha, listadas em ordem de dificuldade crescente:
 
 1. Apenas para o movimento atual, mostre "Você está no movimento #..." em vez de um botão.
 1. Reescreva `Board` para que use dois loops que façam quadrados em vez de codificá-los.
@@ -2909,4 +2909,4 @@ Se você tem tempo extra ou quer praticar suas novas habilidades de React, aqui 
 1. Quando alguém ganhar, sublinhe os três quadrados que causaram a vitória (e quando ninguém ganhar, exiba uma mensagem sobre o resultado ter sido um empate).
 1. Exiba a localização de cada movimento no formato (linha, coluna) e mova a lista do histórico.
 
-Ao longo desse tutorial, você entrou em contato com conceitos do React incluindo elementos, componentes, props e state. Agora que você viu como esses conceitos funcionam quando construindo um jogo, veja [Pensando em React](/learn/thinking-in-react) para ver como os mesmos conceitos do React funcionam ao construir a UI de um aplicativo.
+Ao longo desse tutorial, você entrou em contato com conceitos do React incluindo elementos, componentes, props e state. Agora que você viu como esses conceitos funcionam construindo um jogo, veja [Pensando em React](/learn/thinking-in-react) para entender como os mesmos conceitos do React funcionam ao construir a UI de um aplicativo.
