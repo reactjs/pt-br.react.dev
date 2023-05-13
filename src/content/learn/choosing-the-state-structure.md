@@ -2530,7 +2530,7 @@ Altere a estrutura do estado para que seleção múltipla seja possível. (Como 
 
 <Hint>
 
-Ao invés de um único ID selecionado, você pode querer manter um array ou um [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) de IDs selecionados no estado.
+Ao invés de um único ID selecionado, você pode querer manter um array ou um [Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set) de IDs selecionados no estado.
 
 </Hint>
 
@@ -2737,7 +2737,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 </Sandpack>
 
-Uma pequena desvantagem de usar um array é que, para cada item, você está chamando `selectedIds.includes(letter.id)` para verificar se ele está selecionado. Se o array for muito grande, isso pode se tornar um problema de desempenho porque a pesquisa de array com [`includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) leva tempo linear, e você está fazendo essa pesquisa para cada item individual.
+Uma pequena desvantagem de usar um array é que, para cada item, você está chamando `selectedIds.includes(letter.id)` para verificar se ele está selecionado. Se o array for muito grande, isso pode se tornar um problema de desempenho porque a pesquisa de array com [`includes()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) leva tempo linear, e você está fazendo essa pesquisa para cada item individual.
 
 <Sandpack>
 
