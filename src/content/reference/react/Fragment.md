@@ -4,7 +4,7 @@ title: <Fragment> (<>...</>)
 
 <Intro>
 
-`<Fragment>`, frequentemente usado por meio da sintaxe `<>...</>`,  permite agrupar elementos sem um nó de encapsulamento. 
+`<Fragment>`, frequentemente usado por meio da sintaxe `<>...</>`, permite agrupar elementos sem um nó de encapsulamento. 
 
 ```js
 <>
