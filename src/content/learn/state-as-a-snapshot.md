@@ -4,22 +4,22 @@ title: State como uma Foto Instantânea
 
 <Intro>
 
-Variáveis de *state* podem parecer variáveis JavaScript regulares das quais você pode ler e escrever. No entanto, *state* se comporta mais como uma foto instantânea. Modificá-lo não altera a variável de *state* que você já tem, mas sim dispara uma nova renderização.
+Variáveis de estado podem parecer variáveis JavaScript regulares das quais você pode ler e escrever. No entanto, estado se comporta mais como uma foto instantânea. Modificá-lo não altera a variável de estado que você já tem, mas sim dispara uma nova renderização.
 
 </Intro>
 
 <YouWillLearn>
 
-* Como manipulações de *state* disparam novas renderizações
-* Quando e como atualizar o *state*
-* Por que o *state* não é atualizado imediatamente após você modificá-lo
-* Como os manipuladores de eventos acessam uma "foto instantânea" do *state*
+* Como manipulações de estado disparam novas renderizações
+* Quando e como atualizar o estado
+* Por que o estado não é atualizado imediatamente após você modificá-lo
+* Como os manipuladores de eventos acessam uma "foto instantânea" do estado
 
 </YouWillLearn>
 
-## Manipulações de *state* disparam novas renderizações {/*setting-state-triggers-renders*/}
+## Manipulações de estado disparam novas renderizações {/*setting-state-triggers-renders*/}
 
-Você pode pensar que sua interface do usuário muda diretamente em resposta ao evento do usuário, como um clique. No React, isso funciona de forma um pouco diferente deste modelo mental. Na página anterior, você viu que [manipular o *state* solicita uma nova renderização](/learn/render-and-commit#step-1-trigger-a-render) do React. Isso significa que, para uma interface reagir ao evento, você precisa *atualizar o state*.
+Você pode pensar que sua interface do usuário muda diretamente em resposta ao evento do usuário, como um clique. No React, isso funciona de forma um pouco diferente deste modelo mental. Na página anterior, você viu que [manipular o estado solicita uma nova renderização](/learn/render-and-commit#step-1-trigger-a-render) do React. Isso significa que, para uma interface reagir ao evento, você precisa *atualizar o state*.
 
 Neste exemplo, quando você pressiona "enviar", `setIsSent(true)` diz ao React para renderizar novamente a interface:
 
@@ -67,11 +67,11 @@ Veja o que acontece quando você clica no botão:
 2. `setIsSent(true)` define `isSent` como `true` e enfileira uma nova renderização.
 3. O React rerrenderiza o componente de acordo com o novo valor de `isSent`.
 
-Vamos dar uma olhada mais de perto na relação entre *state* e renderização.
+Vamos dar uma olhada mais de perto na relação entre estado e renderização.
 
 ## Renderização tira uma foto instantânea {/*rendering-takes-a-snapshot-in-time*/}
 
-["Renderizar"](/learn/render-and-commit#step-2-react-renders-your-components) significa que o React está chamando seu componente, que é uma função. O JSX que você retorna dessa função é como uma foto instantânea da interface do usuário em um determinado momento. Suas *props*, manipuladores de eventos e variáveis locais foram todas calculadas **usando seu *state* no momento da renderização.**
+["Renderizar"](/learn/render-and-commit#step-2-react-renders-your-components) significa que o React está chamando seu componente, que é uma função. O JSX que você retorna dessa função é como uma foto instantânea da interface do usuário em um determinado momento. Suas *props*, manipuladores de eventos e variáveis locais foram todas calculadas **usando seu estado no momento da renderização.**
 
 Ao contrário de uma fotografia ou um *frame* de um filme, a foto instantânea da interface do usuário que você retorna é interativa. Ela inclui lógica como manipuladores de eventos que especificam o que acontece em resposta às entradas. O React atualiza a tela para corresponder a essa foto instantânea e conecta os manipuladores de eventos. Como resultado, pressionar um botão acionará o manipulador de clique do seu JSX.
 
@@ -87,7 +87,7 @@ Quando o React rerrenderiza um componente:
     <Illustration caption="Atualizando a árvore DOM" src="/images/docs/illustrations/i_render3.png" />
 </IllustrationBlock>
 
-Assim como a memória de um componente, o *state* não é como uma variável regular que desaparece após a função retornar. O *state* realmente "vive" no React, fora da sua função. Quando o React chama seu componente, ele lhe dá uma foto instantânea do *state* para aquela renderização específica. Seu componente retorna uma foto instantânea da interface do usuário com um novo conjunto de *props* e manipuladores de eventos em seu JSX, todos calculados **usando os valores do *state* daquela renderização!**
+Assim como a memória de um componente, o estado não é como uma variável regular que desaparece após a função retornar. O estado realmente "vive" no React, fora da sua função. Quando o React chama seu componente, ele lhe dá uma foto instantânea do estado para aquela renderização específica. Seu componente retorna uma foto instantânea da interface do usuário com um novo conjunto de *props* e manipuladores de eventos em seu JSX, todos calculados **usando os valores do estado daquela renderização!**
 
 <IllustrationBlock sequential>
   <Illustration caption="Você diz ao React para atualizar o state" src="/images/docs/illustrations/i_state-snapshot1.png" />
@@ -127,7 +127,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 Observe que `number` só incrementa uma vez por clique!
 
-**Manipular o *state* o altera apenas para a *próxima* renderização.** Durante a primeira renderização, `number` era `0`. É por isso que, no manipulador de `onClick` *daquela renderização*, o valor de `number` ainda é `0` mesmo depois de `setNumber(number + 1)` ter sido chamado:
+**Manipular o estado o altera apenas para a *próxima* renderização.** Durante a primeira renderização, `number` era `0`. É por isso que, no manipulador de `onClick` *daquela renderização*, o valor de `number` ainda é `0` mesmo depois de `setNumber(number + 1)` ter sido chamado:
 
 ```js
 <button onClick={() => {
@@ -146,9 +146,9 @@ Aqui está o que o manipulador de `onClick` deste botão diz ao React para fazer
 3. `setNumber(number + 1)`: `number` is `0` so `setNumber(0 + 1)`.
     - O React se prepara para mudar `number` para `1` na próxima renderização.
 
-Mesmo que você tenha chamado `setNumber(number + 1)` três vezes, no manipulador de eventos *daquela renderização* `number` é sempre `0`, então você definiu o *state* para `1` três vezes. É por isso que, depois que o manipulador de eventos termina, o React rerrenderiza o componente com `number` igual a `1` em vez de `3`.
+Mesmo que você tenha chamado `setNumber(number + 1)` três vezes, no manipulador de eventos *daquela renderização* `number` é sempre `0`, então você definiu o estado para `1` três vezes. É por isso que, depois que o manipulador de eventos termina, o React rerrenderiza o componente com `number` igual a `1` em vez de `3`.
 
-Você também pode visualizar isso substituindo mentalmente as variáveis de *state* por seus valores no seu código. Como a variável de *state* `number` é `0` para *essa renderização*, seu manipulador de eventos se parece com isto:
+Você também pode visualizar isso substituindo mentalmente as variáveis de estado por seus valores no seu código. Como a variável de estado `number` é `0` para *essa renderização*, seu manipulador de eventos se parece com isto:
 
 ```js
 <button onClick={() => {
@@ -170,7 +170,7 @@ Para a próxima renderização, `number` é `1`, então o manipulador de eventos
 
 É por isso que clicar no botão novamente definirá o contador para `2`, depois para `3` no próximo clique e assim por diante.
 
-## *State* ao longo do tempo {/*state-over-time*/}
+## Estado ao longo do tempo {/*state-over-time*/}
 
 Bem, isso foi divertido. Tente adivinhar o que clicar neste botão irá alertar:
 
@@ -239,7 +239,7 @@ h1 { display: inline-block; margin: 10px; width: 30px; text-align: center; }
 
 </Sandpack>
 
-Surpreso? Se você usar o método de substituição, você pode ver a "instantânea" do *state* passado para o alerta.
+Surpreso? Se você usar o método de substituição, você pode ver a "instantânea" do estado passado para o alerta.
 
 ```js
 setNumber(0 + 5);
@@ -248,9 +248,9 @@ setTimeout(() => {
 }, 3000);
 ```
 
-O *state* armazenado no React pode ter mudado no momento em que o alerta é executado, mas ele foi agendado usando uma "instantânea" do *state* no momento em que o usuário interagiu com ele!
+O estado armazenado no React pode ter mudado no momento em que o alerta é executado, mas ele foi agendado usando uma "instantânea" do estado no momento em que o usuário interagiu com ele!
 
-**O valor de uma variável de *state* nunca muda dentro de uma renderização,** mesmo que o código do manipulador de eventos seja assíncrono. Dentro do `onClick` *daquela renderização*, o valor de `number` continua sendo `0` mesmo depois que `setNumber(number + 5)` foi chamado. Seu valor foi "fixado" quando o React "tirou a foto" da UI chamando seu componente.
+**O valor de uma variável de estado nunca muda dentro de uma renderização,** mesmo que o código do manipulador de eventos seja assíncrono. Dentro do `onClick` *daquela renderização*, o valor de `number` continua sendo `0` mesmo depois que `setNumber(number + 5)` foi chamado. Seu valor foi "fixado" quando o React "tirou a foto" da UI chamando seu componente.
 
 Aqui está um exemplo de como isso torna seus manipuladores de eventos menos propensos a erros de sincronização. Abaixo está um formulário que envia uma mensagem com um atraso de cinco segundos. Imagine este cenário:
 
@@ -303,19 +303,19 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-O React mantém os valores do *state* "fixos" dentro dos manipuladores de eventos de uma renderização. Você não precisa se preocupar se o *state* mudou enquanto o código está sendo executado.
+O React mantém os valores do estado "fixos" dentro dos manipuladores de eventos de uma renderização. Você não precisa se preocupar se o estado mudou enquanto o código está sendo executado.
 
-Mas e se você quiser ler o *state* mais recente antes de uma rerrenderização? Você vai querer usar uma [função de atualização de *state*](/learn/queueing-a-series-of-state-updates), abordado na próxima página!
+Mas e se você quiser ler o estado mais recente antes de uma rerrenderização? Você vai querer usar uma [função de atualização de estado](/learn/queueing-a-series-of-state-updates), abordado na próxima página!
 
 <Recap>
 
-* Manipular o *state* solicita uma nova renderização.
-* O React armazena o *state* fora do seu componente, como se estivesse em uma prateleira.
-* Quando você chama `useState`, o React te dá uma "instantânea" do *state* *daquela renderização*.
+* Manipular o estado solicita uma nova renderização.
+* O React armazena o estado fora do seu componente, como se estivesse em uma prateleira.
+* Quando você chama `useState`, o React te dá uma "instantânea" do estado *daquela renderização*.
 * Variáveis e manipuladores de eventos não "sobrevivem" às rerrenderizações. Cada renderização tem seus próprios manipuladores de eventos.
-* Cada renderização (e funções dentro dela) sempre "vê" a "instantânea" do *state* que o React deu para *aquela* renderização.
-* Você pode substituir mentalmente o *state* nos manipuladores de eventos, de forma semelhante à forma como você pensa sobre o JSX renderizado.
-* Manipuladores de eventos criados no passado têm os valores do *state* da renderização em que foram criados.
+* Cada renderização (e funções dentro dela) sempre "vê" a "instantânea" do estado que o React deu para *aquela* renderização.
+* Você pode substituir mentalmente o estado nos manipuladores de eventos, de forma semelhante à forma como você pensa sobre o JSX renderizado.
+* Manipuladores de eventos criados no passado têm os valores do estado da renderização em que foram criados.
 
 </Recap>
 
