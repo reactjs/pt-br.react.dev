@@ -1,38 +1,38 @@
 ---
-title: Escolhendo a Estrutura do State
+title: Escolhendo a Estrutura do Estado
 ---
 
 <Intro>
 
-Estruturar bem o *state* pode fazer a diferença entre um componente que é agradável de modificar e depurar, e um que é uma fonte constante de erros. Aqui estão algumas dicas que você deve considerar ao estruturar estados.
+Estruturar bem o estado pode fazer a diferença entre um componente que é agradável de modificar e depurar, e um que é uma fonte constante de erros. Aqui estão algumas dicas que você deve considerar ao estruturar estados.
 
 </Intro>
 
 <YouWillLearn>
 
-* Quando usar uma única variável de *state* versus várias
+* Quando usar uma única variável de estado versus várias
 * O que evitar ao organizar estados
-* Como corrigir problemas comuns na estrutura do *state*
+* Como corrigir problemas comuns na estrutura do estado
 
 </YouWillLearn>
 
 ## Princípios para estruturar estados {/*principles-for-structuring-state*/}
 
-Quando você escreve um componente que mantém algum *state*, você terá que fazer escolhas sobre quantas variáveis de *state* usar e qual deve ser a forma dos dados. Embora seja possível escrever programas corretos mesmo com uma estrutura de *state* subótima, existem alguns princípios que podem orientá-lo a fazer escolhas melhores:
+Quando você escreve um componente que mantém algum estado, você terá que fazer escolhas sobre quantas variáveis de estado usar e qual deve ser a forma dos dados. Embora seja possível escrever programas corretos mesmo com uma estrutura de estado subótima, existem alguns princípios que podem orientá-lo a fazer escolhas melhores:
 
-1. **Agrupe estados relacionados.** Se você sempre atualiza duas ou mais variáveis de *state* ao mesmo tempo, considere uni-las em uma única variável de *state*.
-2. **Evite contradições no *state*.** Quando o *state* é estruturado de forma que várias partes do *state* possam se contradizer e "discordar" umas das outras, você deixa espaço para erros. Tente evitar isso.
-3. **Evite estados redundantes.** Se você puder calcular algumas informações das *props* do componente ou de suas variáveis de *state* existentes durante a renderização, não coloque essas informações no *state* desse componente.
-4. **Evite duplicação no *state*.** Quando os mesmos dados são duplicados entre várias variáveis de *state*, ou dentro de objetos aninhados, é difícil mantê-los sincronizados. Reduza a duplicação quando puder.
-5. **Evite estados muito aninhados.** Um *state* muito hierárquico não é muito conveniente para atualizar. Quando possível, prefira estruturar o *state* de forma plana.
+1. **Agrupe estados relacionados.** Se você sempre atualiza duas ou mais variáveis de estado ao mesmo tempo, considere uni-las em uma única variável de estado.
+2. **Evite contradições no estado.** Quando o estado é estruturado de forma que várias partes do estado possam se contradizer e "discordar" umas das outras, você deixa espaço para erros. Tente evitar isso.
+3. **Evite estados redundantes.** Se você puder calcular algumas informações das *props* do componente ou de suas variáveis de estado existentes durante a renderização, não coloque essas informações no estado desse componente.
+4. **Evite duplicação no estado.** Quando os mesmos dados são duplicados entre várias variáveis de estado, ou dentro de objetos aninhados, é difícil mantê-los sincronizados. Reduza a duplicação quando puder.
+5. **Evite estados muito aninhados.** Um estado muito hierárquico não é muito conveniente para atualizar. Quando possível, prefira estruturar o estado de forma plana.
 
-O objetivo por trás destes princípios é *tornar o *state* fácil de atualizar sem introduzir erros*. Remover dados redundantes e duplicados do *state* ajuda a garantir que todas as suas partes permaneçam sincronizadas. Isso é semelhante a como um engenheiro de banco de dados pode querer ["normalizar" a estrutura do banco de dados](https://docs.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description) para reduzir a chance de erros. Parafraseando Albert Einstein, **"Faça seu *state* o mais simples possível - mas não simples demais."**
+O objetivo por trás destes princípios é *tornar o estado fácil de atualizar sem introduzir erros*. Remover dados redundantes e duplicados do estado ajuda a garantir que todas as suas partes permaneçam sincronizadas. Isso é semelhante a como um engenheiro de banco de dados pode querer ["normalizar" a estrutura do banco de dados](https://docs.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description) para reduzir a chance de erros. Parafraseando Albert Einstein, **"Faça seu estado o mais simples possível - mas não simples demais."**
 
 Agora vamos ver como estes princípios se aplicam na prática.
 
 ## Agrupe estados relacionados {/*group-related-state*/}
 
-As vezes você pode ficar em dúvida entre usar uma única variável de *state*, ou várias.
+As vezes você pode ficar em dúvida entre usar uma única variável de estado, ou várias.
 
 Você deveria fazer isto?
 
@@ -47,7 +47,7 @@ Ou isto?
 const [position, setPosition] = useState({ x: 0, y: 0 });
 ```
 
-Tecnicamente, você pode usar qualquer uma dessas abordagens. Mas **se duas variáveis de *state* sempre mudam juntas, pode ser uma boa ideia uní-las em uma única variável de *state*.** Assim você não esquecerá de sempre mantê-las sincronizadas, como neste exemplo onde mover o cursor atualiza ambas as coordenadas do ponto vermelho:
+Tecnicamente, você pode usar qualquer uma dessas abordagens. Mas **se duas variáveis de estado sempre mudam juntas, pode ser uma boa ideia uní-las em uma única variável de estado.** Assim você não esquecerá de sempre mantê-las sincronizadas, como neste exemplo onde mover o cursor atualiza ambas as coordenadas do ponto vermelho:
 
 <Sandpack>
 
@@ -93,17 +93,17 @@ body { margin: 0; padding: 0; height: 250px; }
 
 </Sandpack>
 
-Outro caso em que você agrupará dados em um objeto ou em um *array* é quando você não sabe quantas variáveis de *state* vai precisar. Por exemplo, é útil quando você tem um formulário onde o usuário pode adicionar campos personalizados.
+Outro caso em que você agrupará dados em um objeto ou em um *array* é quando você não sabe quantas variáveis de estado vai precisar. Por exemplo, é útil quando você tem um formulário onde o usuário pode adicionar campos personalizados.
 
 <Pitfall>
 
-Se sua variável de *state* é um objeto, lembre-se de que [você não pode atualizar apenas um campo nele](/learn/updating-objects-in-state) sem explicitamente copiar os outros campos. Por exemplo, você não pode fazer `setPosition({ x: 100 })` no exemplo acima porque ele não teria a propriedade `y`! Em vez disso, se você quisesse definir apenas `x`, faria `setPosition({ ...position, x: 100 })`, ou dividiria em duas variáveis de *state* e faria `setX(100)`.
+Se sua variável de estado é um objeto, lembre-se de que [você não pode atualizar apenas um campo nele](/learn/updating-objects-in-state) sem explicitamente copiar os outros campos. Por exemplo, você não pode fazer `setPosition({ x: 100 })` no exemplo acima porque ele não teria a propriedade `y`! Em vez disso, se você quisesse definir apenas `x`, faria `setPosition({ ...position, x: 100 })`, ou dividiria em duas variáveis de estado e faria `setX(100)`.
 
 </Pitfall>
 
-## Evite contradições no *state* {/*avoid-contradictions-in-state*/}
+## Evite contradições no estado {/*avoid-contradictions-in-state*/}
 
-Aqui está um formulário de feedback do hotel com as variáveis de *state* `isSending` e `isSent`:
+Aqui está um formulário de feedback do hotel com as variáveis de estado `isSending` e `isSent`:
 
 <Sandpack>
 
@@ -159,7 +159,7 @@ function sendMessage(text) {
 
 Embora este código funcione, ele deixa a porta aberta para estados "impossíveis". Por exemplo, se você esquecer de chamar `setIsSent` e `setIsSending` juntos, você pode acabar em uma situação onde tanto `isSending` quanto `isSent` são `true` ao mesmo tempo. Quão mais complexo for o seu componente, mais difícil será entender o que aconteceu.
 
-**Como `isSending` e `isSent` nunca devem ser `true` ao mesmo tempo, é melhor substituí-los por uma variável de *state* `status` que pode assumir um de *três* estados válidos:** `'typing'` (inicial), `'sending'` e `'sent'`:
+**Como `isSending` e `isSent` nunca devem ser `true` ao mesmo tempo, é melhor substituí-los por uma variável de estado `status` que pode assumir um de *três* estados válidos:** `'typing'` (inicial), `'sending'` e `'sent'`:
 
 <Sandpack>
 
@@ -221,13 +221,13 @@ const isSending = status === 'sending';
 const isSent = status === 'sent';
 ```
 
-Mas elas não são variáveis de *state*, então você não precisa se preocupar com elas ficando fora de sincronia uma com a outra.
+Mas elas não são variáveis de estado, então você não precisa se preocupar com elas ficando fora de sincronia uma com a outra.
 
 ## Evite estados redundantes {/*avoid-redundant-state*/}
 
-Se você pode calcular algumas informações das *props* do componente ou de suas variáveis de *state* existentes durante a renderização, você **não deveria** colocar essas informações no *state* desse componente.
+Se você pode calcular algumas informações das *props* do componente ou de suas variáveis de estado existentes durante a renderização, você **não deveria** colocar essas informações no estado desse componente.
 
-Por exemplo, neste formulário. Ele funciona, mas você consegue encontrar algum *state* redundante nele?
+Por exemplo, neste formulário. Ele funciona, mas você consegue encontrar algum estado redundante nele?
 
 <Sandpack>
 
@@ -280,7 +280,7 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-Este formulário tem três variáveis de *state*: `firstName`, `lastName` e `fullName`. No entanto, `fullName` é redundante. **Você sempre pode calcular `fullName` a partir de `firstName` e `lastName` durante a renderização, então remova-o do *state*.**
+Este formulário tem três variáveis de estado: `firstName`, `lastName` e `fullName`. No entanto, `fullName` é redundante. **Você sempre pode calcular `fullName` a partir de `firstName` e `lastName` durante a renderização, então remova-o do estado.**
 
 Você pode fazer desta forma:
 
@@ -334,7 +334,7 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-Aqui, `fullName` *não* é uma variável de *state*. Em vez disso, ela é calculada durante a renderização:
+Aqui, `fullName` *não* é uma variável de estado. Em vez disso, ela é calculada durante a renderização:
 
 ```js
 const fullName = firstName + ' ' + lastName;
@@ -344,18 +344,18 @@ Como resultado, os manipuladores de mudança não precisam fazer nada de especia
 
 <DeepDive>
 
-#### Não espelhe *props* no *state* {/*don-t-mirror-props-in-state*/}
+#### Não espelhe *props* no estado {/*don-t-mirror-props-in-state*/}
 
-Um exemplo comum de *state* redundante são códigos como este:
+Um exemplo comum de estado redundante são códigos como este:
 
 ```js
 function Message({ messageColor }) {
   const [color, setColor] = useState(messageColor);
 ```
 
-Aqui, uma variável de *state* `color` é inicializada com a prop `messageColor`. O problema é que **se o componente pai passar um valor diferente para `messageColor` depois (por exemplo, `'red'` ao invés de `'blue'`), a *variável de *state** `color` não seria atualizada!** O *state* é inicializado apenas durante a primeira renderização.
+Aqui, uma variável de estado `color` é inicializada com a prop `messageColor`. O problema é que **se o componente pai passar um valor diferente para `messageColor` depois (por exemplo, `'red'` ao invés de `'blue'`), a *variável de estado* `color` não seria atualizada!** O estado é inicializado apenas durante a primeira renderização.
 
-É por isso que "espelhar" alguma *prop* em uma variável de *state* pode levar a confusão. Em vez disso, use a *prop* `messageColor` diretamente no seu código. Se você quiser dar um nome mais curto para ela, use uma constante:
+É por isso que "espelhar" alguma *prop* em uma variável de estado pode levar a confusão. Em vez disso, use a *prop* `messageColor` diretamente no seu código. Se você quiser dar um nome mais curto para ela, use uma constante:
 
 ```js
 function Message({ messageColor }) {
@@ -364,18 +364,18 @@ function Message({ messageColor }) {
 
 Desta forma, ela não ficará fora de sincronia com a *prop* passada pelo componente pai.
 
-"Espelhar" *props* no *state* só faz sentido quando você *quer* ignorar todas as atualizações para uma *prop* específica. Por convenção, comece o nome da *prop* com `initial` ou `default` para deixar claro que seus novos valores são ignorados:
+"Espelhar" *props* no estado só faz sentido quando você *quer* ignorar todas as atualizações para uma *prop* específica. Por convenção, comece o nome da *prop* com `initial` ou `default` para deixar claro que seus novos valores são ignorados:
 
 ```js
 function Message({ initialColor }) {
-  // A variável de *state* `color` guarda o *primeiro* valor de `initialColor`.
+  // A variável de estado `color` guarda o *primeiro* valor de `initialColor`.
   // Mudanças posteriores na *prop* `initialColor` são ignoradas.
   const [color, setColor] = useState(initialColor); */
 ```
 
 </DeepDive>
 
-## Evite duplicação no *state* {/*avoid-duplication-in-state*/}
+## Evite duplicação no estado {/*avoid-duplication-in-state*/}
 
 Este componente de lista de menus permite que você escolha um único lanche de viagem dentre vários:
 
@@ -422,7 +422,7 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-No momento, ele armazena o item selecionado como um objeto na variável de *state* `selectedItem`. No entanto, isso não é bom: **o conteúdo de `selectedItem` é o mesmo objeto que um dos itens dentro da lista `items`.** Isso significa que as informações sobre o item em si estão duplicadas em dois lugares.
+No momento, ele armazena o item selecionado como um objeto na variável de estado `selectedItem`. No entanto, isso não é bom: **o conteúdo de `selectedItem` é o mesmo objeto que um dos itens dentro da lista `items`.** Isso significa que as informações sobre o item em si estão duplicadas em dois lugares.
 
 Por que isso é um problema? Vamos tornar cada item editável:
 
@@ -487,9 +487,9 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-Observe como se você clicar primeiro em "Escolha" em um item e *depois* editá-lo, **a entrada é atualizada, mas o rótulo na parte inferior não reflete as edições.** Isso ocorre porque você duplicou o *state* e esqueceu de atualizar `selectedItem`.
+Observe como se você clicar primeiro em "Escolha" em um item e *depois* editá-lo, **a entrada é atualizada, mas o rótulo na parte inferior não reflete as edições.** Isso ocorre porque você duplicou o estado e esqueceu de atualizar `selectedItem`.
 
-Embora você pudesse atualizar `selectedItem` também, uma correção mais fácil é remover a duplicação. Neste exemplo, em vez de um objeto `selectedItem` (que cria uma duplicação com objetos dentro de `items`), você mantém o `selectedId` no *state* e *depois* obtém o `selectedItem` pesquisando o array `items` por um item com esse ID:
+Embora você pudesse atualizar `selectedItem` também, uma correção mais fácil é remover a duplicação. Neste exemplo, em vez de um objeto `selectedItem` (que cria uma duplicação com objetos dentro de `items`), você mantém o `selectedId` no estado e *depois* obtém o `selectedItem` pesquisando o array `items` por um item com esse ID:
 
 <Sandpack>
 
@@ -555,9 +555,9 @@ button { margin-top: 10px; }
 </Sandpack>
 
 
-(Alternativamente, você pode manter o índice selecionado no *state*.)
+(Alternativamente, você pode manter o índice selecionado no estado.)
 
-O *state* costumava ser duplicado assim:
+O estado costumava ser duplicado assim:
 
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
 * `selectedItem = {id: 0, title: 'pretzels'}`
@@ -567,13 +567,13 @@ Mas depois da mudança, é assim:
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
 * `selectedId = 0`
 
-A duplicação desapareceu, e você mantém apenas o *state* essencial!
+A duplicação desapareceu, e você mantém apenas o estado essencial!
 
-Agora, se você editar o item *selecionado*, a mensagem abaixo será atualizada imediatamente. Isso ocorre porque `setItems` dispara uma nova renderização, e `items.find(...)` encontraria o item com o título atualizado. Você não precisava manter *o item selecionado* no *state*, porque apenas o *ID selecionado* é essencial. O resto poderia ser calculado durante a renderização.
+Agora, se você editar o item *selecionado*, a mensagem abaixo será atualizada imediatamente. Isso ocorre porque `setItems` dispara uma nova renderização, e `items.find(...)` encontraria o item com o título atualizado. Você não precisava manter *o item selecionado* no estado, porque apenas o *ID selecionado* é essencial. O resto poderia ser calculado durante a renderização.
 
 ## Evite estados muito aninhados {/*avoid-deeply-nested-state*/}
 
-Imagine um plano de viagem consistindo de planetas, continentes e países. Você pode ser tentado estruturar seu *state* usando objetos e arrays aninhados, como neste exemplo:
+Imagine um plano de viagem consistindo de planetas, continentes e países. Você pode ser tentado estruturar seu estado usando objetos e arrays aninhados, como neste exemplo:
 
 <Sandpack>
 
@@ -821,7 +821,7 @@ export const initialTravelPlan = {
 
 Agora, digamos que você queira adicionar um botão para excluir um lugar que você já visitou. Como você faria isso? [Atualizar estados aninhados](/learn/updating-objects-in-state#updating-a-nested-object) envolve fazer cópias de objetos desde a parte que mudou. Excluir um lugar profundamente aninhado envolveria copiar toda a cadeia de lugares pai. Esse código pode ser muito verboso.
 
-**Se o *state* for muito aninhado para ser atualizado facilmente, considere torná-lo "plano".** Aqui está uma maneira de você reestruturar esses dados. Em vez de uma estrutura em forma de árvore em que cada `place` tem um array de *seus lugares filhos*, você pode fazer com que cada lugar mantenha um array de *IDs dos seus lugares filhos*. Em seguida, armazene um mapeamento de cada ID de lugar para o lugar correspondente.
+**Se o estado for muito aninhado para ser atualizado facilmente, considere torná-lo "plano".** Aqui está uma maneira de você reestruturar esses dados. Em vez de uma estrutura em forma de árvore em que cada `place` tem um array de *seus lugares filhos*, você pode fazer com que cada lugar mantenha um array de *IDs dos seus lugares filhos*. Em seguida, armazene um mapeamento de cada ID de lugar para o lugar correspondente.
 
 Essa reestruturação de dados pode lembrá-lo de ver uma tabela de banco de dados:
 
@@ -1130,9 +1130,9 @@ export const initialTravelPlan = {
 
 </Sandpack>
 
-Agora que o *state* está "plano" (também conhecido como "normalizado"), atualizar itens aninhados fica mais fácil.
+Agora que o estado está "plano" (também conhecido como "normalizado"), atualizar itens aninhados fica mais fácil.
 
-Para remover um lugar agora, você só precisa atualizar dois níveis de *state*:
+Para remover um lugar agora, você só precisa atualizar dois níveis de estado:
 
 - A versão atualizada de seu lugar *pai* deve excluir o ID removido de seu array `childIds`.
 - A versão atualizada do objeto "tabela" raiz deve incluir a versão atualizada do lugar pai.
@@ -1157,7 +1157,7 @@ export default function TravelPlan() {
       childIds: parent.childIds
         .filter(id => id !== childId)
     };
-    // Atualiza o objeto de *state* raiz...
+    // Atualiza o objeto de estado raiz...
     setPlan({
       ...plan,
       // ...para que tenha o pai atualizado.
@@ -1475,7 +1475,7 @@ button { margin: 10px; }
 
 </Sandpack>
 
-Você pode aninhar o *state* o quanto quiser, mas torná-lo "plano" pode resolver inúmeros problemas. Isso torna o *state* mais fácil de atualizar, e ajuda a garantir que você não tenha duplicação em diferentes partes de um objeto aninhado.
+Você pode aninhar o estado o quanto quiser, mas torná-lo "plano" pode resolver inúmeros problemas. Isso torna o estado mais fácil de atualizar, e ajuda a garantir que você não tenha duplicação em diferentes partes de um objeto aninhado.
 
 <DeepDive>
 
@@ -1839,17 +1839,17 @@ button { margin: 10px; }
 
 </DeepDive>
 
-Por vezes, você também pode reduzir o aninhamento do *state* movendo parte do *state* aninhado para os componentes filhos. Isso funciona bem para o *state* de UI efêmero que não precisa ser armazenado, como saber se o mouse está passando sobre um item.
+Por vezes, você também pode reduzir o aninhamento do estado movendo parte do estado aninhado para os componentes filhos. Isso funciona bem para o estado de UI efêmero que não precisa ser armazenado, como saber se o mouse está passando sobre um item.
 
 <Recap>
 
-* Se duas variáveis de *state* sempre são atualizadas juntas, considere uní-las em uma.
-* Escolha suas variáveis de *state* cuidadosamente para evitar criar estados "impossíveis".
-* Estruture seu *state* de uma maneira que reduza as chances de você cometer um erro ao atualizá-lo.
+* Se duas variáveis de estado sempre são atualizadas juntas, considere uní-las em uma.
+* Escolha suas variáveis de estado cuidadosamente para evitar criar estados "impossíveis".
+* Estruture seu estado de uma maneira que reduza as chances de você cometer um erro ao atualizá-lo.
 * Evite estados redundantes e duplicados para que você não precise mantê-los sincronizados.
 * Não coloque *props* *dentro de* estados a menos que você queira especificamente impedir atualizações.
-* Para padrões de UI como seleção, mantenha o ID ou o índice no *state* em vez do objeto em si.
-* Se atualizar o *state* profundamente aninhado for complicado, tente achatá-lo.
+* Para padrões de UI como seleção, mantenha o ID ou o índice no estado em vez do objeto em si.
+* Se atualizar o estado profundamente aninhado for complicado, tente achatá-lo.
 
 </Recap>
 
@@ -1912,7 +1912,7 @@ export default function App() {
 
 <Solution>
 
-O problema é que este componente tem o *state* `color` inicializado com o valor inicial da *prop* `color`. Mas quando a *prop* `color` muda, isso não afeta a variável de *state*! Então elas ficam fora de sincronia. Para corrigir esse problema, remova a variável de *state* por completo e use a *prop* `color` diretamente.
+O problema é que este componente tem o estado `color` inicializado com o valor inicial da *prop* `color`. Mas quando a *prop* `color` muda, isso não afeta a variável de estado! Então elas ficam fora de sincronia. Para corrigir esse problema, remova a variável de estado por completo e use a *prop* `color` diretamente.
 
 <Sandpack>
 
@@ -2024,7 +2024,7 @@ Esta lista de itens tem um rodapé que mostra quantos itens estão empacotados e
 
 <Hint>
 
-Algum *state* neste exemplo é redundante?
+Algum estado neste exemplo é redundante?
 
 </Hint>
 
@@ -2165,7 +2165,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-Apesar de você poder alterar cuidadosamente cada manipulador de eventos para atualizar os contadores `total` e `packed` corretamente, o problema raiz é que essas variáveis de *state* sequer existem. Eles são redundantes porque você sempre pode calcular o número de itens (empacotados ou totais) a partir do próprio array `items`. Remova o *state* redundante para corrigir o erro:
+Apesar de você poder alterar cuidadosamente cada manipulador de eventos para atualizar os contadores `total` e `packed` corretamente, o problema raiz é que essas variáveis de estado sequer existem. Eles são redundantes porque você sempre pode calcular o número de itens (empacotados ou totais) a partir do próprio array `items`. Remova o estado redundante para corrigir o erro:
 
 <Sandpack>
 
@@ -2304,7 +2304,7 @@ Observe como os manipuladores de eventos estão apenas preocupados em chamar `se
 
 #### Corrija a seleção que desaparece {/*fix-the-disappearing-selection*/}
 
-Existe uma lista de `letters` no *state*. Quando você passa o mouse ou foca em uma determinada letra, ela é destacada. A letra destacada atual é armazenada na variável de *state* `highlightedLetter`. Você pode "marcar" e "desmarcar" letras individuais, o que atualiza o array `letters` no *state*.
+Existe uma lista de `letters` no estado. Quando você passa o mouse ou foca em uma determinada letra, ela é destacada. A letra destacada atual é armazenada na variável de estado `highlightedLetter`. Você pode "marcar" e "desmarcar" letras individuais, o que atualiza o array `letters` no estado.
 
 Este código funciona, mas há um pequeno problema de UI. Quando você pressiona "Marcar" ou "Desmarcar", o destaque desaparece por um momento. No entanto, ele reaparece assim que você move o ponteiro ou muda para outra letra com o teclado. Por que isso está acontecendo? Corrija para que o destaque não desapareça após o clique no botão.
 
@@ -2413,9 +2413,9 @@ li { border-radius: 5px; }
 
 <Solution>
 
-O problema é que você está mantendo o objeto de letras em `highlightedLetter`. Mas você também está mantendo as mesmas informações no array `letters`. Então seu *state* tem duplicação! Quando você atualiza o array `letters` após o clique no botão, você cria um novo objeto de letras que é diferente de `highlightedLetter`. É por isso que `highlightedLetter === letter` verifica se torna `false` e o destaque desaparece. Ele reaparece na próxima vez que você chamar `setHighlightedLetter` quando o ponteiro se move.
+O problema é que você está mantendo o objeto de letras em `highlightedLetter`. Mas você também está mantendo as mesmas informações no array `letters`. Então seu estado tem duplicação! Quando você atualiza o array `letters` após o clique no botão, você cria um novo objeto de letras que é diferente de `highlightedLetter`. É por isso que `highlightedLetter === letter` verifica se torna `false` e o destaque desaparece. Ele reaparece na próxima vez que você chamar `setHighlightedLetter` quando o ponteiro se move.
 
-Para corrigir o problema, remova a duplicação do *state*. Em vez de armazenar *a própria letra* em dois lugares, armazene o `highlightedId` em vez disso. Então você pode verificar `isHighlighted` para cada letra com `letter.id === highlightedId`, o que funcionará mesmo se o objeto `letter` tiver mudado desde a última renderização.
+Para corrigir o problema, remova a duplicação do estado. Em vez de armazenar *a própria letra* em dois lugares, armazene o `highlightedId` em vez disso. Então você pode verificar `isHighlighted` para cada letra com `letter.id === highlightedId`, o que funcionará mesmo se o objeto `letter` tiver mudado desde a última renderização.
 
 <Sandpack>
 
@@ -2524,13 +2524,13 @@ li { border-radius: 5px; }
 
 #### Implemente seleção múltipla {/*implemente-selecao-multipla*/}
 
-Neste exemplo, cada `Letter` tem uma *prop* `isSelected` e um manipulador `onToggle` que a marca como selecionada. Isso funciona, mas o *state* é armazenado como um `selectedId` (ou `null` ou um ID), então apenas uma letra pode ser selecionada em um determinado momento.
+Neste exemplo, cada `Letter` tem uma *prop* `isSelected` e um manipulador `onToggle` que a marca como selecionada. Isso funciona, mas o estado é armazenado como um `selectedId` (ou `null` ou um ID), então apenas uma letra pode ser selecionada em um determinado momento.
 
-Altere a estrutura do *state* para que seleção múltipla seja possível. (Como você estruturaria isso? Pense nisso antes de escrever o código.) Cada caixa de seleção deve se tornar independente das outras. Clicar em uma letra selecionada deve desmarcá-la. Por último, o rodapé deve mostrar o número correto de itens selecionados.
+Altere a estrutura do estado para que seleção múltipla seja possível. (Como você estruturaria isso? Pense nisso antes de escrever o código.) Cada caixa de seleção deve se tornar independente das outras. Clicar em uma letra selecionada deve desmarcá-la. Por último, o rodapé deve mostrar o número correto de itens selecionados.
 
 <Hint>
 
-Ao invés de um único ID selecionado, você pode querer manter um array ou um [Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set) de IDs selecionados no *state*.
+Ao invés de um único ID selecionado, você pode querer manter um array ou um [Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set) de IDs selecionados no estado.
 
 </Hint>
 
@@ -2631,7 +2631,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 <Solution>
 
-Ao invés de um único `selectedId`, mantenha um *array* `selectedIds` no *state*. Por exemplo, se você selecionar a primeira e a última carta, ele conteria `[0, 2]`. Quando nada estiver selecionado, seria um array vazio `[]`:
+Ao invés de um único `selectedId`, mantenha um *array* `selectedIds` no estado. Por exemplo, se você selecionar a primeira e a última carta, ele conteria `[0, 2]`. Quando nada estiver selecionado, seria um array vazio `[]`:
 
 <Sandpack>
 
@@ -2842,7 +2842,7 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 Agora cada item faz uma verificação `selectedIds.has(letter.id)`, que é muito rápida.
 
-Lembre-se de que você [não deve mutar objetos no *state*](/learn/updating-objects-in-state), e isso também inclui Sets. É por isso que a função `handleToggle` cria uma *cópia* do Set primeiro e, em seguida, atualiza essa cópia.
+Lembre-se de que você [não deve mutar objetos no estado](/learn/updating-objects-in-state), e isso também inclui Sets. É por isso que a função `handleToggle` cria uma *cópia* do Set primeiro e, em seguida, atualiza essa cópia.
 
 </Solution>
 
