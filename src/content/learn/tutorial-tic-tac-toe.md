@@ -551,7 +551,7 @@ export default function Board() {
 }
 ```
 
-Perceba como diferente das `div`s do navegador, os componentes `Board` e `Square` pertencem a você e devem começar com uma letra maiúscula.
+Perceba como diferentes das `div`s do navegador, os componentes `Board` e `Square` pertencem a você e devem começar com uma letra maiúscula.
 
 Vamos dar uma olhada:
 
@@ -915,7 +915,7 @@ Para desenvolvimento local, as DevTools do React estão disponíveis como extens
 
 ## Completando o jogo {/*completing-the-game*/}
 
-A esse ponto, você já tem todos os blocos de construção básicos para o seu jogo da velha. Para completar o jogo, você agora precisa alternar a colocação de "X"s e "O"s no tabuleiro, e você precisa de uma maneira de determinar um vencedor.
+Até aqui, você já tem todos os blocos de construção básicos para o seu jogo da velha. Para completar o jogo, você agora precisa alternar a colocação de "X"s e "O"s no tabuleiro, e você precisa de uma maneira de determinar um vencedor.
 
 ### Elevando o state {/*lifting-state-up*/}
 
@@ -980,7 +980,7 @@ function Square({value}) {
 }
 ```
 
-A esse ponto você deve ver um tabuleiro vazio de jogo da velha:
+Nesta altura você deve ver um tabuleiro vazio de jogo da velha:
 
 ![tabuleiro vazio](../images/tutorial/empty-board.png)
 
@@ -1133,7 +1133,7 @@ Chamar a função `setSquares` permite que o React saiba que o state do componen
 
 <Note>
 
-O JavaScript suporta [closures](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures) o que significa que uma função interna (por exemplo, `handleClick`) tem acesso às variáveis e funções definidas em uma função externa (por exemplo, `Board`). A função `handleClick` pode ler o state `squares` e chamar o método `setSquares` porque eles são ambos definidos dentro da função `Board`.
+O JavaScript possui suporte a [closures](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures) o que significa que uma função interna (por exemplo, `handleClick`) tem acesso às variáveis e funções definidas em uma função externa (por exemplo, `Board`). A função `handleClick` pode ler o state `squares` e chamar o método `setSquares` porque eles são ambos definidos dentro da função `Board`.
 
 </Note>
 
@@ -1868,7 +1868,7 @@ Aqui, `[...history, nextSquares]` cria um novo array que contêm todos os items 
 
 Por exemplo, se `history` é `[[null,null,null], ["X",null,null]]` e `nextSquares` é `["X",null,"O"]` então o novo array `[...history, nextSquares]` será `[[null,null,null], ["X",null,null], ["X",null,"O"]]`.
 
-A esse ponto, você moveu o state para viver no componente `Game`, e a UI deve estar funcionando por completo, assim como estava antes da refatoração. Veja com o que o seu código deve se parecer a esse ponto:
+Até agora, você moveu o state para viver no componente `Game`, e a UI deve estar funcionando por completo, assim como estava antes da refatoração. Veja com o que o seu código deve se parecer a esse ponto:
 
 <Sandpack>
 
