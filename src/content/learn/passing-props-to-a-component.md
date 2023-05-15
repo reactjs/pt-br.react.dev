@@ -349,7 +349,7 @@ export function getImageUrl(person, size = 's') {
 
 Tente substituir o `<Avatar>` dentro de `<Card>` com algum texto para ver como o componente `Card` pode encapsular conteúdo aninhado. Ele não precisa "saber" o que está sendo renderizado dentro dele. Você encontrará esse padrão flexível em muitos lugares.
 
-É possível pensar sobre um componente com a prop `children` como se ele tivesse um "buraco" o qual pode ser "preenchido" por seus componente pais com JSX arbitrária. Você frequentemente usará a prop `children` para encapsuladores visuais: painéis, grids, etc.
+É possível pensar sobre um componente com a prop `children` como se ele tivesse um "buraco" o qual pode ser "preenchido" por seus componente pais com JSX arbitrária. Você frequentemente usará a prop `children` para wrappers visuais: painéis, grids, etc.
 
 <Illustration src="/images/docs/illustrations/i_children-prop.png" alt='A puzzle-like Card tile with a slot for "children" pieces like text and Avatar' />
 
