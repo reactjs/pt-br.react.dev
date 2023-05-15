@@ -271,7 +271,7 @@ Isso encaminha todas as props de `Profile` ao `Avatar` sem listar cada um de seu
 </Card>
 ```
 
-Quando você aninha conteúdo dentro de uma tag JSX, o componente pai irá recebê esse conteúdo em uma prop chamada `children`. Por exemplo, o componente `Card` abaixo receberá a prop `children` definida como `<Avatar />` e o renderizará em uma div a qual o encapsula:
+Quando você aninha conteúdo dentro de uma tag JSX, o componente pai irá receber esse conteúdo em uma prop chamada `children`. Por exemplo, o componente `Card` abaixo receberá a prop `children` definida como `<Avatar />` e o renderizará em uma wrapper div:
 
 <Sandpack>
 
