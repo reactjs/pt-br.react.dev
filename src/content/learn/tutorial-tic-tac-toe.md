@@ -17,7 +17,7 @@ Este tutorial foi criado para pessoas as quais preferem **aprender na prática**
 O tutorial é dividido em diversas seções:
 
 - [Preparação para o tutorial](#setup-for-the-tutorial) dará **um ponto de partida** para seguir o tutorial.
-- [Visão geral](#overview) ensinará os **fundamentos** do React: componentes, props, e state.
+- [Visão geral](#overview) ensinará os **fundamentos** do React: componentes, *props*, e *state*.
 - [Completando o jogo](#completing-the-game) ensinará a você **as técnicas mais comuns** no desenvolvimento React.
 - [Adicionando viagem no tempo](#adding-time-travel) dará **uma visão aprofundada** sobre os pontos fortes únicos do React.
 
@@ -508,7 +508,7 @@ Pssss... Isso é bastante para se digitar! É OK copiar e colar código desta p�
 
 </Note>
 
-### Passando dados através de props {/*passing-data-through-props*/}
+### Passando dados através de *props* {/*passing-data-through-props*/}
 
 Após isso, você gostará de mudar o valor de um quadrado de vazio para "X" quando o usuário clicar no quadrado. Com a maneira em que você construiu o tabuleiro até agora você teria que copiar e colar o código que atualiza o quadrado nove vezes (uma para cada quadrado que você tem)! Ao invés de copiar e colar, a arquitetura de componentes do React permite que você crie um componente reutilizável para evitar código bagunçado e duplicado.
 
@@ -559,7 +559,7 @@ Vamos dar uma olhada:
 
 Ah não! Você perdeu os quadrados numerados que tinha antes. Agora cada quadrado diz "1". Para consertar isso, você usará *props* para passar o valor que cada quadrado deve ter a partir de seu componente pai (`Board`) para seus filhos (`Square`).
 
-Atualize o componente `Square` para ler a prop `value` que você irá passar a partir de `Board`:
+Atualize o componente `Square` para ler a *prop* `value` que você irá passar a partir de `Board`:
 
 ```js {1}
 function Square({ value }) {
@@ -567,7 +567,7 @@ function Square({ value }) {
 }
 ```
 
-`function Square({ value })` indica que o componente Square aceita receber uma prop chamada `value`.
+`function Square({ value })` indica que o componente Square aceita receber uma *prop* chamada `value`.
 
 Agora você quer exibir aquele `value` ao invés de `1` dentro de cada quadrado. Tente fazer isso desta forma:
 
@@ -593,7 +593,7 @@ Por enquanto, você deve ver um tabuleiro vazio:
 
 ![tabuleiro vazio](../images/tutorial/empty-board.png)
 
-Isso é porque o componente `Board` não passou a prop `value` a cada componente `Square` que ele renderiza ainda. Para consertar isso você adicionará a prop `value` a cada componente `Square` renderizado pelo componente `Board`:
+Isso é porque o componente `Board` não passou a *prop* `value` a cada componente `Square` que ele renderiza ainda. Para consertar isso você adicionará a *prop* `value` a cada componente `Square` renderizado pelo componente `Board`:
 
 ```js {5-7,10-12,15-17}
 export default function Board() {
@@ -704,7 +704,7 @@ body {
 
 ### Fazendo um componente interativo {/*making-an-interactive-component*/}
 
-Vamos preencher o componente `Square` com um `X` quando você o clicar. Declare uma função chamada `handleClick` dentro de `Square`. Então, adicione `onClick` às props do elemento JSX `button` retornado de `Square`:
+Vamos preencher o componente `Square` com um `X` quando você o clicar. Declare uma função chamada `handleClick` dentro de `Square`. Então, adicione `onClick` às *props* do elemento JSX `button` retornado de `Square`:
 
 ```js {2-4,9}
 function Square({ value }) {
@@ -733,9 +733,9 @@ Se você está seguindo este tutorial usando o seu ambiente de desenvolvimento l
 
 Como um próximo passo, você quer que o componente Square "lembre-se" de que ele foi clicado, e preenchê-lo com uma marca de "X". Para "lembrar-se" de coisas, componentes usam *state*.
 
-O React fornece uma função especial chamada `useState` a qual você pode chamar a partir de seu componente para permitir que ele "lembre-se" de coisas. Vamos armazenar o valor atual do `Square` em state, e mudá-lo quando o `Square` for clicado.
+O React fornece uma função especial chamada `useState` a qual você pode chamar a partir de seu componente para permitir que ele "lembre-se" de coisas. Vamos armazenar o valor atual do `Square` em *state*, e mudá-lo quando o `Square` for clicado.
 
-Importe `useState` no topo do arquivo. Remova a prop `value` do componente `Square`. Em vez disso, adicione uma nova linha no começo de `Square` que chame `useState`. Faça com que ela retorne uma variável de state chamada `value`:
+Importe `useState` no topo do arquivo. Remova a *prop* `value` do componente `Square`. Em vez disso, adicione uma nova linha no começo de `Square` que chame `useState`. Faça com que ela retorne uma variável de *state* chamada `value`:
 
 ```js {1,3,4}
 import { useState } from 'react';
@@ -747,9 +747,9 @@ function Square() {
     //...
 ```
 
-`value` salva o valor e `setValue` é a função que pode ser usada para mudar esse valor. O `null` passado para `useState` é usado como o valor inicial desta variável de state, então aqui `value` começa sendo igual a `null`.
+`value` salva o valor e `setValue` é a função que pode ser usada para mudar esse valor. O `null` passado para `useState` é usado como o valor inicial desta variável de *state*, então aqui `value` começa sendo igual a `null`.
 
-Já que o componente `Square` não mais aceita props, você irá remover a prop `value` de todos os nove componentes Square criados pelo componente Board:
+Já que o componente `Square` não mais aceita *props*, você irá remover a *prop* `value` de todos os nove componentes Square criados pelo componente Board:
 
 ```js {6-8,11-13,16-18}
 // ...
@@ -801,7 +801,7 @@ Ao chamar essa função `set` a partir de um manipulador `onClick`, você está 
 
 ![adicionando x ao tabuleiro](../images/tutorial/tictac-adding-x-s.gif)
 
-Cada Square tem seu próprio state: o `value` armazenado em cada Square é completamente independente dos outros. Quando você chama a função `set` em um componente, o React automaticamente atualiza os componentes filhos dentro dele também.
+Cada Square tem seu próprio *state*: o `value` armazenado em cada Square é completamente independente dos outros. Quando você chama a função `set` em um componente, o React automaticamente atualiza os componentes filhos dentro dele também.
 
 Após ter feito as mudanças acima, seu código deve se parecer com isto:
 
@@ -899,7 +899,7 @@ body {
 
 ### Ferramentas do Desenvolvedor React {/*react-developer-tools*/}
 
-As DevTools do React permitem que você cheque as props e o state de seus componentes React. Você pode encontrar a aba de DevTools do React na parte inferior da seção *navegador* no CodeSandbox:
+As DevTools do React permitem que você cheque as *props* e o *state* de seus componentes React. Você pode encontrar a aba de DevTools do React na parte inferior da seção *navegador* no CodeSandbox:
 
 ![React DevTools no CodeSandbox](../images/tutorial/codesandbox-devtools.png)
 
@@ -917,17 +917,17 @@ Para desenvolvimento local, as DevTools do React estão disponíveis como extens
 
 Até aqui, você já tem todos os blocos de construção básicos para o seu jogo da velha. Para completar o jogo, você agora precisa alternar a colocação de "X"s e "O"s no tabuleiro, e você precisa de uma maneira de determinar um vencedor.
 
-### Elevando o state {/*lifting-state-up*/}
+### Elevando o *state* {/*lifting-state-up*/}
 
-Atualmente, cada componente `Square` mantém uma parte do state do jogo. Para checar por um vencedor em um jogo da velha, o `Board` precisaria de alguma maneira de conhecer o state de cada um dos 9 componentes `Square`.
+Atualmente, cada componente `Square` mantém uma parte do *state* do jogo. Para checar por um vencedor em um jogo da velha, o `Board` precisaria de alguma maneira de conhecer o *state* de cada um dos 9 componentes `Square`.
 
-Como você abordaria isso? Em um primeiro momento, você pode imaginar que o `Board` precisa "pedir" para cada `Square` pelo state daquele `Square`. Por mais que essa abordagem seja tecnicamente possível em React, nós a desencorajamos porque o código se torna difícil de entender, susceptível a bugs, e difícil de refatorar. Em vez disso, a melhor abordagem é armazenar o state do jogo no componente pai `Board` ao invés de em cada `Square`. O componente `Board` pode dizer a cada `Square` o que exibir passando uma prop, como você fez quando passou um número para cada Square.
+Como você abordaria isso? Em um primeiro momento, você pode imaginar que o `Board` precisa "pedir" para cada `Square` pelo *state* daquele `Square`. Por mais que essa abordagem seja tecnicamente possível em React, nós a desencorajamos porque o código se torna difícil de entender, susceptível a bugs, e difícil de refatorar. Em vez disso, a melhor abordagem é armazenar o *state* do jogo no componente pai `Board` ao invés de em cada `Square`. O componente `Board` pode dizer a cada `Square` o que exibir passando uma *prop*, como você fez quando passou um número para cada Square.
 
-**Para coletar dados de múltiplos filhos, ou fazer com que dois componentes filhos comuniquem-se entre si, em vez disso declare state compartilhado no componente pai. O componente pai pode passar esse state de volta aos filhos via props. Isso mantém os componentes filhos sincronizados um com o outro e com seu pai.**
+**Para coletar dados de múltiplos filhos, ou fazer com que dois componentes filhos comuniquem-se entre si, em vez disso declare *state* compartilhado no componente pai. O componente pai pode passar esse *state* de volta aos filhos via *props*. Isso mantém os componentes filhos sincronizados um com o outro e com seu pai.**
 
-Elevar state em um componente pai é comum quando componentes React são refatorados.
+Elevar *state* em um componente pai é comum quando componentes React são refatorados.
 
-Vamos aproveitar esta oportunidade para tentar fazer isso. Edite o componente `Board` para que ele declare uma variável de state denominada `squares` a qual possua um array com 9 nulls por padrão correspondendo aos 9 quadrados:
+Vamos aproveitar esta oportunidade para tentar fazer isso. Edite o componente `Board` para que ele declare uma variável de *state* denominada `squares` a qual possua um array com 9 nulls por padrão correspondendo aos 9 quadrados:
 
 ```js {3}
 // ...
@@ -939,13 +939,13 @@ export default function Board() {
 }
 ```
 
-`Array(9).fill(null)` cria um array com nove elementos e define cada um deles como `null`. A chamada `useState()` ao redor dele declara uma variável de state `squares` a qual é inicialmente definida àquele array. Cada valor no array corresponde ao valor de um quadrado. Quando você preencher o tabuleiro mais tarde, o array `squares` se parecerá com isto:
+`Array(9).fill(null)` cria um array com nove elementos e define cada um deles como `null`. A chamada `useState()` ao redor dele declara uma variável de *state* `squares` a qual é inicialmente definida àquele array. Cada valor no array corresponde ao valor de um quadrado. Quando você preencher o tabuleiro mais tarde, o array `squares` se parecerá com isto:
 
 ```jsx
 ['O', null, 'X', 'X', 'X', 'O', 'O', null, null]
 ```
 
-Agora o componente `Board` precisa passar a prop `value` para cada `Square` que renderiza:
+Agora o componente `Board` precisa passar a *prop* `value` para cada `Square` que renderiza:
 
 ```js {6-8,11-13,16-18}
 export default function Board() {
@@ -972,7 +972,7 @@ export default function Board() {
 }
 ```
 
-A seguir, você editará o componente `Square` para que receba a prop `value` do componente Board. Isso precisará da remoção do próprio monitoramento sobre `value` do componente Square e a prop `onClick` do botão:
+A seguir, você editará o componente `Square` para que receba a *prop* `value` do componente Board. Isso precisará da remoção do próprio monitoramento sobre `value` do componente Square e a *prop* `onClick` do botão:
 
 ```js {1,2}
 function Square({value}) {
@@ -1066,9 +1066,9 @@ body {
 
 </Sandpack>
 
-Cada Square agora irá receber uma prop `value` a qual será `'X'`, `'O'`, ou `null` para quadrados vazios.
+Cada Square agora irá receber uma *prop* `value` a qual será `'X'`, `'O'`, ou `null` para quadrados vazios.
 
-A seguir, você precisará mudar o que acontece quando um `Square` é clicado. O componente `Board` agora mantêm quais dos quadrados estão preenchidos. Você precisará criar uma maneira para que o `Square` atualize o state de `Board`. Já que o state é privado ao componente que o define, você não pode atualizar o state de `Board` diretamente de `Square`.
+A seguir, você precisará mudar o que acontece quando um `Square` é clicado. O componente `Board` agora mantêm quais dos quadrados estão preenchidos. Você precisará criar uma maneira para que o `Square` atualize o *state* de `Board`. Já que o *state* é privado ao componente que o define, você não pode atualizar o *state* de `Board` diretamente de `Square`.
 
 Em vez disso, você passará uma função do componente `Board` ao componente `Square`, e você fará com que `Square` chame essa função quando um quadrado for clicado. Você começará com a função que o componente `Square` chamará quando for clicado. Você chamará a função `onSquareClick`:
 
@@ -1082,7 +1082,7 @@ function Square({ value }) {
 }
 ```
 
-A seguir, você adicionará a função `onSquareClick` às props do componente `Square`:
+A seguir, você adicionará a função `onSquareClick` às *props* do componente `Square`:
 
 ```js {1}
 function Square({ value, onSquareClick }) {
@@ -1094,7 +1094,7 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
-Agora você conectará a prop `onSquareClick` a uma função no componente `Board` que você chamará de `handleClick`. Para conectar a prop `onSquareClick` a `handleClick` você passará a função à prop `onSquareClick` do primeiro componente `Square`:
+Agora você conectará a *prop* `onSquareClick` a uma função no componente `Board` que você chamará de `handleClick`. Para conectar a *prop* `onSquareClick` a `handleClick` você passará a função à *prop* `onSquareClick` do primeiro componente `Square`:
 
 ```js {7}
 export default function Board() {
@@ -1109,7 +1109,7 @@ export default function Board() {
 }
 ```
 
-Por fim, você irá definir a função `handleClick` dentro do componente Board para atualizar o array `squares` o qual armazena o state de seu tabuleiro:
+Por fim, você irá definir a função `handleClick` dentro do componente Board para atualizar o array `squares` o qual armazena o *state* de seu tabuleiro:
 
 ```js {4-8}
 export default function Board() {
@@ -1129,11 +1129,11 @@ export default function Board() {
 
 A função `handleClick` cria uma cópia do array `squares` (`nextSquares`) com o método de Array JavaScript `slice()`. Então, `handleClick` atualiza o array `nextSquares` para adicionar `X` ao primeiro (índice `[0]`) quadrado.
 
-Chamar a função `setSquares` permite que o React saiba que o state do componente mudou. Isso irá acionar uma rerrenderização dos componentes que usa o state `squares` (`Board`) bem como seus componentes filhos (os componentes `Square` que fazem parte do tabuleiro).
+Chamar a função `setSquares` permite que o React saiba que o *state* do componente mudou. Isso irá acionar uma rerrenderização dos componentes que usa o *state* `squares` (`Board`) bem como seus componentes filhos (os componentes `Square` que fazem parte do tabuleiro).
 
 <Note>
 
-O JavaScript possui suporte a [closures](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures) o que significa que uma função interna (por exemplo, `handleClick`) tem acesso às variáveis e funções definidas em uma função externa (por exemplo, `Board`). A função `handleClick` pode ler o state `squares` e chamar o método `setSquares` porque eles são ambos definidos dentro da função `Board`.
+O JavaScript possui suporte a [closures](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures) o que significa que uma função interna (por exemplo, `handleClick`) tem acesso às variáveis e funções definidas em uma função externa (por exemplo, `Board`). A função `handleClick` pode ler o *state* `squares` e chamar o método `setSquares` porque eles são ambos definidos dentro da função `Board`.
 
 </Note>
 
@@ -1155,13 +1155,13 @@ export default function Board() {
 }
 ```
 
-A seguir, você precisará passar aquele `i` a `handleClick`. Você pode tentar definir a prop `onSquareClick` de cada quadrado para `handleClick(0)` diretamente na JSX desta forma, mas isto não funcionará:
+A seguir, você precisará passar aquele `i` a `handleClick`. Você pode tentar definir a *prop* `onSquareClick` de cada quadrado para `handleClick(0)` diretamente na JSX desta forma, mas isto não funcionará:
 
 ```jsx
 <Square value={squares[0]} onSquareClick={handleClick(0)} />
 ```
 
-Aqui está o razão pela qual isso não funciona. A chamada `handleClick(0)` será parte da renderização do componente do tabuleiro. Como `handleClick(0)` altera o state do componente do tabuleiro ao chamar `setSquares`, seu componente de tabuleiro todo será rerrenderizado novamente. Mas isso executa `handleClick(0)` de novo, levando a um um loop infinito:
+Aqui está o razão pela qual isso não funciona. A chamada `handleClick(0)` será parte da renderização do componente do tabuleiro. Como `handleClick(0)` altera o *state* do componente do tabuleiro ao chamar `setSquares`, seu componente de tabuleiro todo será rerrenderizado novamente. Mas isso executa `handleClick(0)` de novo, levando a um um loop infinito:
 
 <ConsoleBlock level="error">
 
@@ -1171,9 +1171,9 @@ Muitas rerrenderizações. O React limita o número de renderizações para prev
 
 Por que esse problema não aconteceu antes?
 
-Quando você estava passando `onSquareClick={handleClick}`, você passava a função `handleClick` como uma prop. Você não a chamava! Mas agora você está *chamando* aquela função imediatamente--perceba os parênteses em `handleClick(0)`--e é por isso que ela é executada muito cedo. Você não *quer* chamar `handleClick` até que o usuário clique!
+Quando você estava passando `onSquareClick={handleClick}`, você passava a função `handleClick` como uma *prop*. Você não a chamava! Mas agora você está *chamando* aquela função imediatamente--perceba os parênteses em `handleClick(0)`--e é por isso que ela é executada muito cedo. Você não *quer* chamar `handleClick` até que o usuário clique!
 
-Você poderia consertar isso criando uma função como `handleFirstSquareClick` que chama `handleClick(0)`, um função como `handleSecondSquareClick` que chama `handleClick(1)`, e assim por diante. Você passaria (ao invés de chamar) essas funções como props assim: `onSquareClick={handleFirstSquareClick}`. Isso resolveria o loop infinito.
+Você poderia consertar isso criando uma função como `handleFirstSquareClick` que chama `handleClick(0)`, um função como `handleSecondSquareClick` que chama `handleClick(1)`, e assim por diante. Você passaria (ao invés de chamar) essas funções como *props* assim: `onSquareClick={handleFirstSquareClick}`. Isso resolveria o loop infinito.
 
 Entretanto, definir nove funções diferentes e dar um nome a cada uma delas é muito verboso. Em vez disso, vamos fazer isto:
 
@@ -1222,7 +1222,7 @@ Agora você pode novamente adicionar X's a qualquer quadrado do tabuleiro os cli
 
 ![preenchendo o tabuleiro com X](../images/tutorial/tictac-adding-x-s.gif)
 
-Mas desta vez toda a manipulação de state é feita pelo componente `Board`!
+Mas desta vez toda a manipulação de *state* é feita pelo componente `Board`!
 
 Seu código deve se parecer com isto:
 
@@ -1317,19 +1317,19 @@ body {
 
 </Sandpack>
 
-Agora que sua manipulação de state está no componente `Board`, o componente pai `Board` passa props aos componentes filhos `Square` para que eles possam ser exibidos corretamente. Ao clicar em um `Square`, o componente filho `Square` agora pede ao componente pai `Board` que atualize o state do tabuleiro. Quando o state de `Board` muda, ambos o componente `Board` e cada filho `Square` rerrenderizam automaticamente. Manter o state de todos os quadrados no componente `Board` o permitirá determinar o vencedor no futuro.
+Agora que sua manipulação de *state* está no componente `Board`, o componente pai `Board` passa*props* aos componentes filhos `Square` para que eles possam ser exibidos corretamente. Ao clicar em um `Square`, o componente filho `Square` agora pede ao componente pai `Board` que atualize o *state* do tabuleiro. Quando o *state* de `Board` muda, ambos o componente `Board` e cada filho `Square` rerrenderizam automaticamente. Manter o *state* de todos os quadrados no componente `Board` o permitirá determinar o vencedor no futuro.
 
 Vamos recapitular o que acontece quando um usuário clica no quadrado superior esquerdo em seu tabuleiro para adicionar um `X` a ele:
 
-1. Clicar no quadrado superior esquerdo executra a função que `button` recebeu como sua prop `onClick` de `Square`. O componente `Square` receber aquela função como sua prop `onSquareClick` de `Board`. O componente `Board` definiu aquela função diretamente na JSX. Ela chama `handleClick`com um argumento de `0`.
+1. Clicar no quadrado superior esquerdo executra a função que `button` recebeu como sua *prop* `onClick` de `Square`. O componente `Square` receber aquela função como sua *prop* `onSquareClick` de `Board`. O componente `Board` definiu aquela função diretamente na JSX. Ela chama `handleClick`com um argumento de `0`.
 1. `handleClick` usa o argumento (`0`) para atualizar o primeiro elemento do array `squares` de `null` para `X`.
-1. O state `square` do componente `Board` foi atualizado, então `Board` e todos os seus filhos rerrenderizam. Isso faz com que a prop `value` do componente `Square` de índice `0` mude de `null` para `X`.
+1. O *state* `square` do componente `Board` foi atualizado, então `Board` e todos os seus filhos rerrenderizam. Isso faz com que a *prop* `value` do componente `Square` de índice `0` mude de `null` para `X`.
 
 No final o usuário vê que o quadrado superior esquerdo mudou de vazio para ter um `X` depois de clicar nele.
 
 <Note>
 
-O atributo `onClick` do elemento do DOM `<button>` tem um significado especial ao React porque ele é um componente embutido. Para componentes customizados como Square, a nomeação depende de você. Você poderia dar qualquer nome à prop `onSquareClick` de `Square` ou à função `handleClick` de `Board`, e o código funcionaria da mesma forma. No React, é convenção o uso de nomes `onAlgo` para props as quais representam eventos e `handleAlgo` para definições de funções as quais manipulam tais eventos.
+O atributo `onClick` do elemento do DOM `<button>` tem um significado especial ao React porque ele é um componente embutido. Para componentes customizados como Square, a nomeação depende de você. Você poderia dar qualquer nome à *prop* `onSquareClick` de `Square` ou à função `handleClick` de `Board`, e o código funcionaria da mesma forma. No React, é convenção o uso de nomes `onAlgo` para *props* as quais representam eventos e `handleAlgo` para definições de funções as quais manipulam tais eventos.
 
 </Note>
 
@@ -1357,13 +1357,13 @@ O resultado é o mesmo mas ao não mutar (alterar os dados subjacentes) diretame
 
 Imutabilidade torna recursos complexos muito mais fáceis de se implementar. Mais tarde neste tutorial, você implementará uma função de "viagem no tempo" a qual permite que você avalie o histórico do jogo e "pule de volta" a movimentos passados. Essa funcionalidade não é específica aos jogos--a habilidade de desfazer e refazer certas ações é um requerimento comum para aplicativos. Evitar a mutação direta de dados permite que você mantenha versões prévias dos dados intactas e as reutilize mais tarde.
 
-Há também outro benefício da imutabilidade. Por padrão, todos os componentes filhos rerrenderizam automaticamente quando o state de um componente pai muda. Isso inclui até os componentes filhos que não foram afetados pela mudança. Mesmo que a rerrenderização em si não seja perceptível ao usuário (você não deveria ativamente tentar evitá-la), você pode querer pular a rerrenderização de uma parte da árvore que claramente não foi afetada por razões de performance. Imutabilidade torna muito barato para os componentes compararem se seus dados foram alterados ou não. Você pode aprender mais sobre como o React escolhe quando rerrenderizar um componente na [referência da API `memo`](/reference/react/memo).
+Há também outro benefício da imutabilidade. Por padrão, todos os componentes filhos rerrenderizam automaticamente quando o *state* de um componente pai muda. Isso inclui até os componentes filhos que não foram afetados pela mudança. Mesmo que a rerrenderização em si não seja perceptível ao usuário (você não deveria ativamente tentar evitá-la), você pode querer pular a rerrenderização de uma parte da árvore que claramente não foi afetada por razões de performance. Imutabilidade torna muito barato para os componentes compararem se seus dados foram alterados ou não. Você pode aprender mais sobre como o React escolhe quando rerrenderizar um componente na [referência da API `memo`](/reference/react/memo).
 
 ### Revezando {/*taking-turns*/}
 
 Agora é hora de consertarmos um grande defeito neste jogo da velha: os "O"s não podem ser marcados no tabuleiro.
 
-Você definirá o primeiro movimento como "X" por padrão. Vamos acompanhar isso adicionando outra peça de state ao componente Board:
+Você definirá o primeiro movimento como "X" por padrão. Vamos acompanhar isso adicionando outra peça de *state* ao componente Board:
 
 ```js {2}
 function Board() {
@@ -1374,7 +1374,7 @@ function Board() {
 }
 ```
 
-A cada vez que um jogador fizer um movimento, `xIsNext` (um booleano) será invertido para determinar qual o próximo jogador e o state do jogo será salvo. Você atualizará a função `handleClick` de `Board` para inverter o valor de `xIsNext`:
+A cada vez que um jogador fizer um movimento, `xIsNext` (um booleano) será invertido para determinar qual o próximo jogador e o *state* do jogo será salvo. Você atualizará a função `handleClick` de `Board` para inverter o valor de `xIsNext`:
 
 ```js {7,8,9,10,11,13}
 export default function Board() {
@@ -1406,7 +1406,7 @@ Mas calma, há um problema. Tente clicar no mesmo quadrado múltiplas vezes:
 
 O `X` é sobrescrito por um `O`! À medida que isso adicionaria uma reviravolta interessante ao jogo, nós vamos nos limitar às regras originais por enquanto.
 
-Quando você marca um quadrado com um `X` ou um `O` você não está primeiro checando se o quadrado já possui um valor `X` ou `O`. Você pode consertar isso *retornando cedo*. Você checará se um quadrado já possui `X` ou `O`. Se o quadrado já estiver preenchido, você chamará `return` na função `handleClick` cedo--antes que ela tente atualizar o state do tabuleiro.
+Quando você marca um quadrado com um `X` ou um `O` você não está primeiro checando se o quadrado já possui um valor `X` ou `O`. Você pode consertar isso *retornando cedo*. Você checará se um quadrado já possui `X` ou `O`. Se o quadrado já estiver preenchido, você chamará `return` na função `handleClick` cedo--antes que ela tente atualizar o *state* do tabuleiro.
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -1731,7 +1731,7 @@ Se você tivesse mutado o array `squares`, implementar viagem no tempo seria mui
 
 Entretanto, você usou `slice()` para criar uma nova cópia do array de `squares` depois de cada movimento, e o tratou como imutável. Isso permitirá que você armazene cada versão passada do array `squares` e navegue entre os turnos que já aconteceram.
 
-Você armazenará os arrays `squares` antigos em outro array chamado `history`, o qual você armazenará como uma nova variável de state. O array de `history` representa todos os states do tabuleiro, do primeiro ao último movimento, e possui uma forma parecida com isto:
+Você armazenará os arrays `squares` antigos em outro array chamado `history`, o qual você armazenará como uma nova variável de *state*. O array de `history` representa todos os *states* do tabuleiro, do primeiro ao último movimento, e possui uma forma parecida com isto:
 
 ```jsx
 [
@@ -1745,11 +1745,11 @@ Você armazenará os arrays `squares` antigos em outro array chamado `history`, 
 ]
 ```
 
-### Elevando state, novamente {/*lifting-state-up-again*/}
+### Elevando *state*, novamente {/*lifting-state-up-again*/}
 
-Agora você irá escrever um novo componente de nível do topo `Game` para exibir uma lista de movimentos passados. É ali que você colocará o state `history` contendo todo o histórico do jogo.
+Agora você irá escrever um novo componente de nível do topo `Game` para exibir uma lista de movimentos passados. É ali que você colocará o *state* `history` contendo todo o histórico do jogo.
 
-Colocar o state `history` no componente `Game` permitirá que você remova o state `squares` de seu componente filho `Board`. Assim como você "elevou state" do componente `Square` ao componente `Board`, você agora o elevará de `Board` ao componente de nível superior `Game`. Isso dá ao componente `Game` controle total sobre os dados de `Board` e permite-o instruir `Board` a renderizar turnos anteriores a partir de `history`.
+Colocar o *state* `history` no componente `Game` permitirá que você remova o *state* `squares` de seu componente filho `Board`. Assim como você "elevou *state*" do componente `Square` ao componente `Board`, você agora o elevará de `Board` ao componente de nível superior `Game`. Isso dá ao componente `Game` controle total sobre os dados de `Board` e permite-o instruir `Board` a renderizar turnos anteriores a partir de `history`.
 
 Primeiro, adicione um componente `Game` com `export default`. Faça-o renderizar o componente `Board` e alguma marcação HTML:
 
@@ -1774,7 +1774,7 @@ export default function Game() {
 
 Perceba que você está removendo as palavras-chave `export default` antes da declaração `function Board() {` e adicionando-as antes da declaração `function Game() {`. Isso diz ao seu arquivo `index.js` para usar o componente `Game` como o componente do nível do topo ao invés do componente `Board`. As `div`s adicionais retornadas pelo componente `Game` estão fazendo espaço para a informação de jogo que você adicionará ao tabuleiro mais tarde.
 
-Adicione algum state ao componente `Game` para acompanhar qual é o próximo jogador e o histórico de movimentos:
+Adicione algum *state* ao componente `Game` para acompanhar qual é o próximo jogador e o histórico de movimentos:
 
 ```js {2-3}
 export default function Game() {
@@ -1795,7 +1795,7 @@ export default function Game() {
   // ...
 ```
 
-A seguir, crie uma função `handlePlay` dentro do componente `Game` a qual será chamada pelo componente `Board` para atualizar o jogo. Passe `xIsNext`, `currentSquares` e `handlePlay` como props ao componente `Board`:
+A seguir, crie uma função `handlePlay` dentro do componente `Game` a qual será chamada pelo componente `Board` para atualizar o jogo. Passe `xIsNext`, `currentSquares` e `handlePlay` como *props* ao componente `Board`:
 
 ```js {6-8,13}
 export default function Game() {
@@ -1816,7 +1816,7 @@ export default function Game() {
 }
 ```
 
-Vamos tornar o componente `Board` completamente controlado pelas props que recebe. Mude o componente `Board` para que receba três props: `xIsNext`, `squares`, e a nova função `onPlay` que `Board` pode chamar com os quadrados atualizados quando um jogador fizer um movimento. A seguir, remova as duas primeiras linhas da função `Board` que chamam `useState`:
+Vamos tornar o componente `Board` completamente controlado pelas *props* que recebe. Mude o componente `Board` para que receba três *props*: `xIsNext`, `squares`, e a nova função `onPlay` que `Board` pode chamar com os quadrados atualizados quando um jogador fizer um movimento. A seguir, remova as duas primeiras linhas da função `Board` que chamam `useState`:
 
 ```js {1}
 function Board({ xIsNext, squares, onPlay }) {
@@ -1847,11 +1847,11 @@ function Board({ xIsNext, squares, onPlay }) {
 }
 ```
 
-O componente `Board` é completamente controlado pelas props passadas a ele pelo componente `Game`. Você precisará implementar a função `handlePlay` no componente `Game` para fazer com que o jogo funcione novamente.
+O componente `Board` é completamente controlado pelas *props* passadas a ele pelo componente `Game`. Você precisará implementar a função `handlePlay` no componente `Game` para fazer com que o jogo funcione novamente.
 
 O que `handlePlay` deveria fazer quando chamada? Lembre-se que Board costumava chamar `setSquares` com um array atualizado; agora ele passa o array `squares` atualizado a `onPlay`.
 
-A função `handlePlay` precisa atualizar o state de `Game` para acionar uma rerrenderização, mas você não tem mais uma função `setSquares` a qual possa chamar--agora você está usando a variável de state `history` para armazenar essa informação. Você vai querer atualizar `history` anexando o array atualizado `squares` como uma nova entrada no histórico. Você também gostará de alternar `xIsNext`, assim como Board costumava fazer:
+A função `handlePlay` precisa atualizar o *state* de `Game` para acionar uma rerrenderização, mas você não tem mais uma função `setSquares` a qual possa chamar--agora você está usando a variável de *state* `history` para armazenar essa informação. Você vai querer atualizar `history` anexando o array atualizado `squares` como uma nova entrada no histórico. Você também gostará de alternar `xIsNext`, assim como Board costumava fazer:
 
 ```js {4-5}
 export default function Game() {
@@ -1868,7 +1868,7 @@ Aqui, `[...history, nextSquares]` cria um novo array que contêm todos os items 
 
 Por exemplo, se `history` é `[[null,null,null], ["X",null,null]]` e `nextSquares` é `["X",null,"O"]` então o novo array `[...history, nextSquares]` será `[[null,null,null], ["X",null,null], ["X",null,"O"]]`.
 
-Até agora, você moveu o state para viver no componente `Game`, e a UI deve estar funcionando por completo, assim como estava antes da refatoração. Veja com o que o seu código deve se parecer a esse ponto:
+Até agora, você moveu o *state* para viver no componente `Game`, e a UI deve estar funcionando por completo, assim como estava antes da refatoração. Veja com o que o seu código deve se parecer a esse ponto:
 
 <Sandpack>
 
@@ -2023,7 +2023,7 @@ Já que você está gravando o histórico do jogo da velha, você agora pode exi
 
 Elementos React como `<button>` são objetos comuns do JavaScript; você pode movê-los dentro de sua aplicação. Para renderizar múltiplos items em React, você pode usar um array de elementos React.
 
-Você já tem um array de movimentos `history` no state, então agora você precisa transformá-lo em um array de elementos React. Em JavaScript, para transformar um array em outro, você pode usar o [método de array `map`:](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+Você já tem um array de movimentos `history` no *state*, então agora você precisa transformá-lo em um array de elementos React. Em JavaScript, para transformar um array em outro, você pode usar o [método de array `map`:](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
 ```jsx
 [1, 2, 3].map((x) => x * 2) // [2, 4, 6]
@@ -2073,7 +2073,7 @@ export default function Game() {
 }
 ```
 
-Você pode ver como seu código deve se parecer abaixo. Perceba que você deve ver um erro em seu console nas ferramentas de desenvolvedor que diz: ``Aviso: Cada filho em um array ou iterador deve ter uma prop "key" única. Cheque o método render de `Game`.`` Você consertará esse erro na próxima seção.
+Você pode ver como seu código deve se parecer abaixo. Perceba que você deve ver um erro em seu console nas ferramentas de desenvolvedor que diz: ``Aviso: Cada filho em um array ou iterador deve ter uma *prop* "key" única. Cheque o método render de `Game`.`` Você consertará esse erro na próxima seção.
 
 <Sandpack>
 
@@ -2276,9 +2276,9 @@ Em adição às contagens atualizadas, um humano lendo isso provavelmente diria 
 
 Quando uma lista é rerrenderizada, o React usa a key de cada item da lista e procura nos itens da lista anterior por uma chave que combine. Se a lista atual possui uma key que não existia antes, o React cria um componente. Se na lista atual está faltando uma chave que existia na lista anterior, o React destrói o componente anterior. Se duas chaves são iguais, o componente correspondente é movido.
 
-Keys dizem ao React sobre a identidade de cada componente, o que permite ao React manter o state entre rerrenderizações. Se a key de um componente muda, o componente será destruído e recriado com um novo state.
+Keys dizem ao React sobre a identidade de cada componente, o que permite ao React manter o *state* entre rerrenderizações. Se a key de um componente muda, o componente será destruído e recriado com um novo *state*.
 
-`key` é uma propriedade especial e reservada em React. Quando um elemento é criado, o React extrai a propriedade `key` e a salva diretamente no elemento retornado. Mesmo que a `key` possa parecer como se fosse passada como uma prop, o React automaticamente usa `key` para decidir quais componente a atualizar. Não há maneira para que um componente peça qual `key` seu pai especificou.
+`key` é uma propriedade especial e reservada em React. Quando um elemento é criado, o React extrai a propriedade `key` e a salva diretamente no elemento retornado. Mesmo que a `key` possa parecer como se fosse passada como uma *prop*, o React automaticamente usa `key` para decidir quais componente a atualizar. Não há maneira para que um componente peça qual `key` seu pai especificou.
 
 **É fortemente recomendado que você designe keys apropriadas sempre que estiver construindo listas dinâmicas.** Se você não tiver uma key apropriada, você pode considerar a reestruturação de seus dados para que você tenha.
 
@@ -2470,7 +2470,7 @@ body {
 
 </Sandpack>
 
-Antes que você possa implementar `jumpTo`, você precisa que o componente `Game` acompanhe qual passo o usuário está vendo atualmente. Para fazer isso, defina uma nova variável de state chamada `currentMove`, definida por padrão como `0`:
+Antes que você possa implementar `jumpTo`, você precisa que o componente `Game` acompanhe qual passo o usuário está vendo atualmente. Para fazer isso, defina uma nova variável de *state* chamada `currentMove`, definida por padrão como `0`:
 
 ```js {4}
 export default function Game() {
@@ -2697,7 +2697,7 @@ body {
 
 Se você olhar para o código bastante atenção, pode perceber que `xIsNext === true` quando `currentMove` é par e `xIsNext === false` quando `currentMove` é ímpar. Em outras palavras, se você sabe o valor de `currentMove`, então você sempre pode descobrir o que `xIsNext` deveria ser.
 
-Não há razão para armazenar ambos em state. De fato, sempre tente evitar state redundante. A simplificação do que você armazena em state reduz bugs e faz do seu código mais fácil de entender. Mude `Game` para que ele não armazene mais `xIsNext` como uma variável de state separada e em vez disso a descubra com base em `currentMove`:
+Não há razão para armazenar ambos em *state*. De fato, sempre tente evitar *state* redundante. A simplificação do que você armazena em *state* reduz bugs e faz do seu código mais fácil de entender. Mude `Game` para que ele não armazene mais `xIsNext` como uma variável de *state* separada e em vez disso a descubra com base em `currentMove`:
 
 ```js {4,11,15}
 export default function Game() {
@@ -2719,7 +2719,7 @@ export default function Game() {
 }
 ```
 
-Você não mais precisa da declaração de state `xIsNext` ou as chamadas de `setXIsNext`. Agora, não há chance de que `xIsNext` dessincronize com `currentMove`, mesmo se vocẽ fizer um erro enquanto programa os componentes.
+Você não mais precisa da declaração de *state* `xIsNext` ou as chamadas de `setXIsNext`. Agora, não há chance de que `xIsNext` dessincronize com `currentMove`, mesmo se vocẽ fizer um erro enquanto programa os componentes.
 
 ### Concluindo {/*wrapping-up*/}
 
@@ -2909,4 +2909,4 @@ Se você tem tempo extra ou quer praticar suas novas habilidades de React, aqui 
 1. Quando alguém ganhar, sublinhe os três quadrados que causaram a vitória (e quando ninguém ganhar, exiba uma mensagem sobre o resultado ter sido um empate).
 1. Exiba a localização de cada movimento no formato (linha, coluna) e mova a lista do histórico.
 
-Ao longo desse tutorial, você entrou em contato com conceitos do React incluindo elementos, componentes, props e state. Agora que você viu como esses conceitos funcionam construindo um jogo, veja [Pensando em React](/learn/thinking-in-react) para entender como os mesmos conceitos do React funcionam ao construir a UI de um aplicativo.
+Ao longo desse tutorial, você entrou em contato com conceitos do React incluindo elementos, componentes, *props* e *state*. Agora que você viu como esses conceitos funcionam construindo um jogo, veja [Pensando em React](/learn/thinking-in-react) para entender como os mesmos conceitos do React funcionam ao construir a UI de um aplicativo.
