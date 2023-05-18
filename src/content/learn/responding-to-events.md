@@ -65,7 +65,7 @@ button { margin-right: 10px; }
 Você definiu a função `handleClick` e depois [a passou como prop](/learn/passing-props-to-a-component) para o elmento `<button>`. O `handleClick` é um **manipulador de eventos.** As funções de manipulador de eventos geralmente:
 
 * São definidas *dentro* de seus componentes.
-* Tem nomes que começam com `handle`, seguido do nome do evento.
+* Tem nomes que começam com a palavra `handle`, seguida do nome do evento.
 
 Por convenção, é comum nomear manipuladores de eventos como `handle` seguido do nome do evento. Você verá frequentemente nomes como `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, e assim por diante.
 
