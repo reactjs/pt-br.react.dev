@@ -168,7 +168,7 @@ Isso permite que esses dois botões exibam mensagens diferentes. Tente alterar a
 
 ### Passando manipuladores de eventos como props {/*passing-event-handlers-as-props*/}
 
-É comum que o componente pai especifique o manipulador de eventos de um componente filho. Por exemplo, considere os botões: dependendo do contexto em que o componente `Button` é usado, pode ser necessário executar funções diferentes, talvez um reproduza um filme e outro faça o upload de uma imagem.
+É comum que o componente pai defina o manipulador de eventos de um componente filho. Por exemplo, considere os botões: dependendo do contexto em que o componente `Button` é usado, pode ser necessário executar funções diferentes, talvez um reproduza um filme e outro faça o upload de uma imagem.
 
 Para fazer isso, passe uma prop que o componente recebe de seu pai como o manipulador de eventos da seguinte forma:
 
