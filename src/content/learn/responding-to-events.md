@@ -232,7 +232,7 @@ Se você usa um [design system](https://uxdesign.cc/everything-you-need-to-know-
 
 Os componentes nativos, como `<button>` e `<div>`, suportam apenas [os nomes de eventos do navegador](/reference/react-dom/components/common#common-props), tais como `onClick`. No entanto, quando você está criando seus próprios componentes, você pode nomear os manipuladores de eventos da forma que preferir.
 
-Por convenção, as props dos manipuladores de eventos devem começar com `on`, seguido por uma letra maiúscula.
+Por convenção, as props dos manipuladores de eventos devem começar com o termo `on`, seguido por uma letra maiúscula.
 
 Por exemplo, a prop `onClick` do componente `Button` poderia ter sido chamada de `onSmash`:
 
