@@ -4,7 +4,7 @@ title: Respondendo a Eventos
 
 <Intro>
 
-O React permite você adicionar *manipuladores de eventos* (event handler) ao seu JSX. Os manipuladores de eventos são funções independentes que são acionadas em resposta a interações como clicar com o mouse, passar o cursor do mouse sobre um certo elemento, focar em campos de formulário, entre outros.
+O React permite você adicionar *manipuladores de eventos* (event handlers) ao seu JSX. Os manipuladores de eventos são funções independentes que são acionadas em resposta a interações como clicar com o mouse, passar o cursor do mouse sobre um certo elemento, focar em campos de formulário, entre outros.
 
 </Intro>
 
