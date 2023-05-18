@@ -50,7 +50,7 @@ export default function Button() {
 
   return (
     <button onClick={handleClick}>
-      Clique nesse botão
+      Clique neste botão
     </button>
   );
 }
