@@ -62,7 +62,7 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
-Você definiu a função `handleClick` e depois [a passou como prop](/learn/passing-props-to-a-component) para a tag `<button>`. O `handleClick` é um **manipulador de eventos.** As funções de manipulador de eventos geralmente:
+Você definiu a função `handleClick` e depois [a passou como prop](/learn/passing-props-to-a-component) para o elmento `<button>`. O `handleClick` é um **manipulador de eventos.** As funções de manipulador de eventos geralmente:
 
 * São definidas *dentro* de seus componentes.
 * Tem nomes que começam com `handle`, seguido do nome do evento.
