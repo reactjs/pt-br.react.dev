@@ -11,7 +11,7 @@ O React permite você adicionar *manipuladores de eventos* (event handlers) ao s
 <YouWillLearn>
 
 * Diferentes maneiras de escrever um manipulador de eventos
-* Como passar a lógica de manipulação de eventos a partir de um componente pai
+* Como herdar a lógica de manipulação de eventos de um componente pai
 * Como os eventos se propagam e como pará-los
 
 </YouWillLearn>
