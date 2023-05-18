@@ -224,7 +224,7 @@ Aqui, o componente `Toolbar` renderiza o componente `PlayButton` e o componente`
 - O `PlayButton` passa o `handlePlayClick` como prop `onClick` para o `Button` dentro dele.
 - O `UploadButton` passa `() => alert('Enviando!')` como a prop `onClick` para o `Button` dentro.
 
-Por fim, seu componente `Button` aceita uma prop chamada `onClick`. Ele passa essa prop diretamente para a tag `<button>` nativa do navegador usando `onClick={onClick}`. Isso diz ao React para chamar a função quando o botão for clicado.
+Por fim, seu componente `Button` aceita uma prop chamada `onClick`. Ele passa essa prop diretamente para o elemento `<button>` nativo do navegador usando `onClick={onClick}`. Isso diz ao React para chamar a função quando o botão for clicado.
 
 Se você usa um [design system](https://uxdesign.cc/everything-you-need-to-know-about-design-systems-54b109851969), é comum que componentes, como botões, contenham estilo mas não especifiquem o comportamento. Em vez disso, componentes como `PlayButton` e `UploadButton` passarão os manipuladores de eventos para baixo.
 
