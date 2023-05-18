@@ -26,7 +26,7 @@ Para adicionar um manipulador de eventos, primeiro defina uma função e depois 
 export default function Button() {
   return (
     <button>
-      Esse botão não faz nada
+      Este botão não faz nada
     </button>
   );
 }
