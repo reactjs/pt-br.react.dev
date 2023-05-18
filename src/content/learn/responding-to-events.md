@@ -164,7 +164,7 @@ button { margin-right: 10px; }
 
 </Sandpack>
 
-Isso permite que esses dois botões exibem mensagens diferentes. Tente alterar as mensagens passadas para eles.
+Isso permite que esses dois botões exibam mensagens diferentes. Tente alterar as mensagens passadas para eles.
 
 ### Passando manipuladores de eventos como props {/*passing-event-handlers-as-props*/}
 
