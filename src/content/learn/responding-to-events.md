@@ -67,7 +67,7 @@ Você definiu a função `handleClick` e depois [a passou como prop](/learn/pass
 * São definidas *dentro* de seus componentes.
 * Tem nomes que começam com a palavra `handle`, seguida do nome do evento.
 
-Por convenção, é comum nomear manipuladores de eventos como `handle` seguido do nome do evento. Você verá frequentemente nomes como `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, e assim por diante.
+Por convenção, é comum nomear manipuladores de eventos com a palavra `handle` seguida do nome do evento. Você verá frequentemente nomes como `onClick={handleClick}`, `onMouseEnter={handleMouseEnter}`, e assim por diante.
 
 Uma alternativa é você definir um manipulador de eventos diretamente na prop da tag JSX:
 
