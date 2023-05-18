@@ -38,7 +38,7 @@ Seguindo esses três passos, você poderá fazer com que uma mensagem seja exibi
 
 1. Declare uma função chamada `handleClick` *dentro* do seu componente `Button`.
 2. Implemente a lógica dentro dessa função (utilize o método `alert` para exibir a mensagem).
-3. Adicione `onClick={handleClick}` ao JSX da tag`<button>`.
+3. Adicione `onClick={handleClick}` ao JSX do elemento `<button>`.
 
 <Sandpack>
 
