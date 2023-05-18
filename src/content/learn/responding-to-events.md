@@ -18,7 +18,7 @@ O React permite você adicionar *manipuladores de eventos* (event handlers) ao s
 
 ## Adicionando manipuladores de eventos {/*adding-event-handlers*/}
 
-Para adicionar um manipulador de eventos, primeiro define uma função e depois [passa-o como uma prop](/learn/passing-props-to-a-component) para a tag JSX apropriada. Por exemplo, aqui temos um botão que ainda não faz nada:
+Para adicionar um manipulador de eventos, primeiro defina uma função e depois [passe-a como uma prop](/learn/passing-props-to-a-component) para o elemento JSX desejado. Por exemplo, aqui temos um botão que ainda não faz nada:
 
 <Sandpack>
 
