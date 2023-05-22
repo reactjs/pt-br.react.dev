@@ -105,9 +105,11 @@ Sugestões de palavras e termos:
 | Palavra/Termo original | Sugestão                               |
 | ---------------------- | -------------------------------------- |
 | assertion              | asserção                               |
+| at the top level       | na raiz                                |
 | browser                | navegador                              |
 | bubbling               | propagar                               |
 | bug                    | erro                                   |
+| caveats                | ressalvas                              |
 | class component        | componente de classe                   |
 | class                  | classe                                 |
 | client                 | cliente                                |
@@ -136,6 +138,7 @@ Sugestões de palavras e termos:
 | stateful logic         | lógica com estado                      |
 | to assert              | afirmar                                |
 | to wrap                | encapsular                             |
+| troubleshooting        | solução de problemas                   |
 | uncontrolled component | componente não controlado              |
 | uppercase              | maiúscula(s) / caixa alta              |
 
