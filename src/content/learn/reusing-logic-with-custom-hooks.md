@@ -1097,7 +1097,7 @@ Observe como agora você não precisa mais saber *como* `useChatRoom` funciona p
 
 Você não precisa extrair um Hook personalizado para cada pequeno trecho de código duplicado. Alguma duplicação é aceitável. Por exemplo, extrair um Hook `useFormInput` para envolver uma única chamada `useState` como feito anteriormente provavelmente é desnecessário.
 
-No entanto, sempre que você escrever um Efeito, considere se seria mais claro encapsulá-lo também em um Hook personalizado. [Você não deve precisar de Efeitos com muita frequência,](/learn/you-might-not-need-an-effect) então, se você estiver escrevendo um, significa que precisa "sair do mundo React" para sincronizar com algum sistema externo ou fazer algo para o qual o React não tenha uma API embutida. encapsular o Efeito em um Hook personalizado permite que você comunique claramente sua intenção e como os dados fluem por ele.
+No entanto, sempre que você escrever um Efeito, considere se seria mais claro encapsulá-lo também em um Hook personalizado. [Você não deve precisar de efeitos com muita frequência,](/learn/you-might-not-need-an-effect) então, se você estiver escrevendo um, significa que precisa "sair do mundo React" para sincronizar com algum sistema externo ou fazer algo para o qual o React não tenha uma API embutida. encapsular o Efeito em um Hook personalizado permite que você comunique claramente sua intenção e como os dados fluem por ele.
 
 Por exemplo, considere um componente `ShippingForm` que exibe dois dropdowns: um mostra a lista de cidades e outro mostra a lista de áreas na cidade selecionada. Você pode começar com um código que se parece com isso:
 
@@ -1880,7 +1880,7 @@ html, body { min-height: 300px; }
 - É possível passar valores reativos de um Hook para outro, e eles se mantêm atualizados.
 - Todos os Hooks são executados novamente sempre que o componente é renderizado novamente.
 - O código dos seus Hooks personalizados deve ser puro, assim como o código do seu componente.
-- Encapsular manipuladores de eventos recebidos por Hooks personalizados em Effects de Evento.
+- Encapsular manipuladores de eventos recebidos por Hooks personalizados em efeitos de Evento.
 - Não crie Hooks personalizados como `useMount`. Mantenha o propósito deles específico.
 - Cabe a você escolher como e onde definir os limites do seu código.
 
@@ -2175,7 +2175,7 @@ Por algum motivo, o callback que atualiza o fundo da página nunca é executado.
   }, [onTick, delay]);
 ```
 
-Os logs correspondem ao que você espera que aconteça? Se alguns de seus Effects parecem ser ressincronizados desnecessariamente, você consegue adivinhar qual dependência está causando isso? Existe alguma maneira de [remover essa dependência](/learn/removing-effect-dependencies) do seu efeito?
+Os logs correspondem ao que você espera que aconteça? Se alguns de seus efeitos parecem ser ressincronizados desnecessariamente, você consegue adivinhar qual dependência está causando isso? Existe alguma maneira de [remover essa dependência](/learn/removing-effect-dependencies) do seu efeito?
 
 Depois de corrigir o problema, você deve esperar que o fundo da página seja atualizado a cada dois segundos.
 
