@@ -228,7 +228,7 @@ Essa convenção garante que você sempre possa olhar para um componente e saber
 
 <Note>
 
-Se o seu linter estiver [configurado para o React,](/learn/editor-setup#linting) ele irá impor essa convenção de nomenclatura. Role para cima até a área de sandbox acima e renomeie `useOnlineStatus` para `getOnlineStatus`. Observe que o linter não permitirá mais que você chame `useState` ou `useEffect` dentro dele. Apenas Hooks e componentes podem chamar outros Hooks!
+Se o seu linter estiver [configurado para o React,](/learn/editor-setup#linting) ele irá impor essa convenção de nomenclatura. Role para cima até o sandbox e renomeie `useOnlineStatus` para `getOnlineStatus`. Observe que o linter não permitirá mais que você chame `useState` ou `useEffect` dentro dele. Apenas Hooks e componentes podem chamar outros Hooks!
 
 </Note>
 
@@ -441,7 +441,7 @@ function Form() {
 
 É por isso que funciona como se estivéssemos declarando duas variáveis de estado separadas!
 
-**Os Hooks personalizados permitem compartilhar *lógica com estado* e não *o próprio estado*. Cada chamada a um Hook é completamente independente de qualquer outra chamada ao mesmo Hook.** É por isso que as duas áreas de teste acima são completamente equivalentes. Se desejar, role para cima e compare-as. O comportamento antes e depois de extrair um Hook personalizado é idêntico.
+**Os Hooks personalizados permitem compartilhar *lógica com estado* e não *o próprio estado*. Cada chamada a um Hook é completamente independente de qualquer outra chamada ao mesmo Hook.** É por isso que as duas sandboxes acima são completamente equivalentes. Se desejar, role para cima e compare-as. O comportamento antes e depois de extrair um Hook personalizado é idêntico.
 
 Quando você precisa compartilhar o próprio estado entre vários componentes, [eleve-o e passe-o como propriedade](/learn/sharing-state-between-components) em vez disso.
 
@@ -1813,7 +1813,7 @@ html, body { min-height: 300px; }
 
 </Sandpack>
 
-Os efeitos permitem conectar o React a sistemas externos. Quanto mais coordenação entre efeitos for necessária (por exemplo, para encadear várias animações), mais faz sentido extrair essa lógica *completamente* dos efeitos e hooks, como no exemplo do código anterior. Em seguida, o código que você extraiu se torna *o sistema externo*. Isso permite que seus efeitos permaneçam simples, pois eles só precisam enviar mensagens para o sistema que você moveu para fora do React.
+Os efeitos permitem conectar o React a sistemas externos. Quanto mais coordenação entre efeitos for necessária (por exemplo, para encadear várias animações), mais faz sentido extrair essa lógica *completamente* dos efeitos e hooks, como no sandbox anterior. Em seguida, o código que você extraiu se torna *o sistema externo*. Isso permite que seus efeitos permaneçam simples, pois eles só precisam enviar mensagens para o sistema que você moveu para fora do React.
 
 Os exemplos acima pressupõem que a lógica do fade-in precisa ser escrita em JavaScript. No entanto, essa animação específica de fade-in é mais simples e muito mais eficiente de ser implementada com uma simples [Animação CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations).
 
