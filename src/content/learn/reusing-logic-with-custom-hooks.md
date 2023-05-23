@@ -1,5 +1,5 @@
 ---
-title: 'Reusing Logic with Custom Hooks'
+title: 'Reutilizando lógica com Hooks personalizados'
 ---
 
 <Intro>
