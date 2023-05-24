@@ -4,7 +4,7 @@ title: 'Reutilizando lógica com Hooks personalizados'
 
 <Intro>
 
-O React vem com vários Hooks embutidos como `useState`, `useContext`, and `useEffect`. Às vezes, você desejará que houvesse um Hook para algum propósito mais específico: Por exemplo, para buscar dados, para acompanhar se o usuário está online, ou para se conectar a uma sala de bate-papo. Você pode não encontrar esses Hooks no React, mas pode criar seus próprios Hooks para as necessidades do seu aplicativo
+O React vem com vários Hooks embutidos como `useState`, `useContext`, e `useEffect`. Às vezes, você desejará que houvesse um Hook para algum propósito mais específico: Por exemplo, para buscar dados, para acompanhar se o usuário está online, ou para se conectar a uma sala de bate-papo. Você pode não encontrar esses Hooks no React, mas pode criar seus próprios Hooks para as necessidades do seu aplicativo
 
 </Intro>
 
