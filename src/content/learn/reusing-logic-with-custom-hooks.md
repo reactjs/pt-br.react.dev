@@ -349,14 +349,14 @@ export default function Form() {
   return (
     <>
       <label>
-        First name:
+        Primeiro nome:
         <input value={firstName} onChange={handleFirstNameChange} />
       </label>
       <label>
-        Last name:
+        Último nome:
         <input value={lastName} onChange={handleLastNameChange} />
       </label>
-      <p><b>Good morning, {firstName} {lastName}.</b></p>
+      <p><b>Bom dia, {firstName} {lastName}.</b></p>
     </>
   );
 }
@@ -389,14 +389,14 @@ export default function Form() {
   return (
     <>
       <label>
-        First name:
+        Primeiro nome:
         <input {...firstNameProps} />
       </label>
       <label>
-        Last name:
+        Último nome:
         <input {...lastNameProps} />
       </label>
-      <p><b>Good morning, {firstNameProps.value} {lastNameProps.value}.</b></p>
+      <p><b>Bom dia, {firstNameProps.value} {lastNameProps.value}.</b></p>
     </>
   );
 }
@@ -458,18 +458,18 @@ import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('geral');
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="geral">geral</option>
+          <option value="viagem">viagem</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -505,10 +505,10 @@ export default function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        Server URL:
+        URL do servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Bem vindo(a) à sala {roomId}</h1>
     </>
   );
 }
@@ -518,10 +518,10 @@ export default function ChatRoom({ roomId }) {
 export function createConnection({ serverUrl, roomId }) {
   // Uma implementação real conectaria de fato ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Espera-se que serverUrl seja uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Espera-se que roomId seja uma string. Recebido: ' + roomId);
   }
   let intervalId;
   let messageCallback;
@@ -546,10 +546,10 @@ export function createConnection({ serverUrl, roomId }) {
     },
     on(event, callback) {
       if (messageCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('Não é possível adicionar o manipulador duas vezes.');
       }
       if (event !== 'message') {
-        throw Error('Only "message" event is supported.');
+        throw Error('Apenas o evento "message" é suportado.');
       }
       messageCallback = callback;
     },
@@ -634,10 +634,10 @@ export default function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        Server URL:
+        URL do servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Bem vindo(a) à sala {roomId}</h1>
     </>
   );
 }
@@ -654,18 +654,18 @@ import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('geral');
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="geral">geral</option>
+          <option value="viagem">viagem</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -692,10 +692,10 @@ export default function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        Server URL:
+        URL do servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Bem vindo(a) à sala {roomId}</h1>
     </>
   );
 }
@@ -726,10 +726,10 @@ export function useChatRoom({ serverUrl, roomId }) {
 export function createConnection({ serverUrl, roomId }) {
   // Uma implementação real conectaria de fato ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Espera-se que serverUrl seja uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Espera-se que roomId seja uma string. Recebido: ' + roomId);
   }
   let intervalId;
   let messageCallback;
@@ -754,10 +754,10 @@ export function createConnection({ serverUrl, roomId }) {
     },
     on(event, callback) {
       if (messageCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('Não é possível adicionar o manipulador duas vezes.');
       }
       if (event !== 'message') {
-        throw Error('Only "message" event is supported.');
+        throw Error('Apenas o evento "message" é suportado.');
       }
       messageCallback = callback;
     },
@@ -932,18 +932,18 @@ import { useState } from 'react';
 import ChatRoom from './ChatRoom.js';
 
 export default function App() {
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('geral');
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="geral">geral</option>
+          <option value="viagem">viagem</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -974,10 +974,10 @@ export default function ChatRoom({ roomId }) {
   return (
     <>
       <label>
-        Server URL:
+        URL do servidor:
         <input value={serverUrl} onChange={e => setServerUrl(e.target.value)} />
       </label>
-      <h1>Welcome to the {roomId} room!</h1>
+      <h1>Bem vindo(a) à sala {roomId}</h1>
     </>
   );
 }
@@ -1010,10 +1010,10 @@ export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
 export function createConnection({ serverUrl, roomId }) {
   // Uma implementação real conectaria de fato ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Espera-se que serverUrl seja uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Espera-se que roomId seja uma string. Recebido: ' + roomId);
   }
   let intervalId;
   let messageCallback;
@@ -1038,10 +1038,10 @@ export function createConnection({ serverUrl, roomId }) {
     },
     on(event, callback) {
       if (messageCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('Não é possível adicionar o manipulador duas vezes.');
       }
       if (event !== 'message') {
-        throw Error('Only "message" event is supported.');
+        throw Error('Apenas o evento "message" é suportado.');
       }
       messageCallback = callback;
     },
@@ -1486,7 +1486,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Welcome
+      Bem vindo(a)
     </h1>
   );
 }
@@ -1496,7 +1496,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1535,7 +1535,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Welcome
+      Bem vindo(a)
     </h1>
   );
 }
@@ -1545,7 +1545,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1626,7 +1626,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Welcome
+      Bem vindo(a)
     </h1>
   );
 }
@@ -1636,7 +1636,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1730,7 +1730,7 @@ function Welcome() {
 
   return (
     <h1 className="welcome" ref={ref}>
-      Welcome
+      Bem vindo(a)
     </h1>
   );
 }
@@ -1740,7 +1740,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1826,7 +1826,7 @@ import './welcome.css';
 function Welcome() {
   return (
     <h1 className="welcome">
-      Welcome
+      Bem vindo(a)
     </h1>
   );
 }
@@ -1836,7 +1836,7 @@ export default function App() {
   return (
     <>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome />}
@@ -1895,7 +1895,7 @@ Este componente usa uma variável de estado e um efeito para exibir um número q
 ```js
 export default function Counter() {
   const count = useCounter();
-  return <h1>Seconds passed: {count}</h1>;
+  return <h1>Segundos que se passaram: {count}</h1>;
 }
 ```
 
@@ -1914,7 +1914,7 @@ export default function Counter() {
     }, 1000);
     return () => clearInterval(id);
   }, []);
-  return <h1>Seconds passed: {count}</h1>;
+  return <h1>Segundos que se passaram: {count}</h1>;
 }
 ```
 
@@ -1935,7 +1935,7 @@ import { useCounter } from './useCounter.js';
 
 export default function Counter() {
   const count = useCounter();
-  return <h1>Seconds passed: {count}</h1>;
+  return <h1>Segundos que se passaram: {count}</h1>;
 }
 ```
 
@@ -1976,7 +1976,7 @@ export default function Counter() {
   return (
     <>
       <label>
-        Tick duration: {delay} ms
+        duração do Tick: {delay} ms
         <br />
         <input
           type="range"
@@ -2026,7 +2026,7 @@ export default function Counter() {
   return (
     <>
       <label>
-        Tick duration: {delay} ms
+        duração do Tick: {delay} ms
         <br />
         <input
           type="range"
@@ -2086,7 +2086,7 @@ import { useCounter } from './useCounter.js';
 
 export default function Counter() {
   const count = useCounter(1000);
-  return <h1>Seconds passed: {count}</h1>;
+  return <h1>Segundos que se passaram: {count}</h1>;
 }
 ```
 
@@ -2122,7 +2122,7 @@ import { useCounter } from './useCounter.js';
 
 export default function Counter() {
   const count = useCounter(1000);
-  return <h1>Seconds passed: {count}</h1>;
+  return <h1>Segundos que se passaram: {count}</h1>;
 }
 ```
 
@@ -2215,7 +2215,7 @@ export default function Counter() {
     document.body.style.backgroundColor = randomColor;
   }, 2000);
 
-  return <h1>Seconds passed: {count}</h1>;
+  return <h1>Segundos que se passaram: {count}</h1>;
 }
 ```
 
@@ -2287,7 +2287,7 @@ export default function Counter() {
     document.body.style.backgroundColor = randomColor;
   }, 2000);
 
-  return <h1>Seconds passed: {count}</h1>;
+  return <h1>Segundos que se passaram: {count}</h1>;
 }
 ```
 
