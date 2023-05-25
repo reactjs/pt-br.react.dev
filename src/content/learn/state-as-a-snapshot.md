@@ -97,6 +97,8 @@ Assim como a memória de um componente, o estado não é como uma variável regu
 
 Aqui está um pequeno experimento para mostrar como isso funciona. Neste exemplo, você pode esperar que clicar no botão "+3" incremente o contador três vezes porque ele chama `setNumber(number + 1)` três vezes.
 
+Veja o que acontece quando você clica no botão "+3":
+
 <Sandpack>
 
 ```js
