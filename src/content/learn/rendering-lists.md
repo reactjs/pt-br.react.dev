@@ -1,24 +1,24 @@
 ---
-title: Rendering Lists
+title: Renderizando Listas
 ---
 
 <Intro>
 
-You will often want to display multiple similar components from a collection of data. You can use the [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) to manipulate an array of data. On this page, you'll use [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) and [`map()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/map) with React to filter and transform your array of data into an array of components.
+É comum a necessidade de se exibir vários componentes semelhantes a partir de uma coleção de dados. Você pode usar os [métodos de array JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) para manipular um array de dados. Nessa página, você usará [`filter()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) e [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) com o React para filtrar e transformar seu array de dados em um array de componentes.
 
 </Intro>
 
 <YouWillLearn>
 
-* How to render components from an array using JavaScript's `map()`
-* How to render only specific components using JavaScript's `filter()`
-* When and why to use React keys
+* Como renderizar componentes a partir de um array usando `map()` do JavaScript
+* Como renderizar apenas componentes específicos usando `filter()` do JavaScript
+* Quando e por que usar as keys do React
 
 </YouWillLearn>
 
-## Rendering data from arrays {/*rendering-data-from-arrays*/}
+## Renderizando dados de arrays {/*rendering-data-from-arrays*/}
 
-Say that you have a list of content.
+Digamos que você tenha uma lista de informações.
 
 ```js
 <ul>
@@ -30,11 +30,11 @@ Say that you have a list of content.
 </ul>
 ```
 
-The only difference among those list items is their contents, their data. You will often need to show several instances of the same component using different data when building interfaces: from lists of comments to galleries of profile images. In these situations, you can store that data in JavaScript objects and arrays and use methods like [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to render lists of components from them.
+As únicas diferenças entre os itens da lista são seus conteúdos, seus dados. Você comumente precisará exibir diversas instâncias do mesmo componente usando dados diferentes ao construir interfaces: de listas de comentários a galerias de fotos de perfil. Nestas situações, você pode armazenar esses dados em objetos ou arrays JavaScript e usar métodos como [`map()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) e [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) para renderizar listas de componentes a partir deles.
 
-Here’s a short example of how to generate a list of items from an array:
+Aqui está um breve exemplo de como gerar uma lista de itens a partir de um array:
 
-1. **Move** the data into an array:
+1. **Mova** os dados para um array:
 
 ```js
 const people = [
@@ -46,19 +46,19 @@ const people = [
 ];
 ```
 
-2. **Map** the `people` members into a new array of JSX nodes, `listItems`:
+2. **Mapeie** os membros de `people` a um novo array de nós JSX, `listItems`:
 
 ```js
 const listItems = people.map(person => <li>{person}</li>);
 ```
 
-3. **Return** `listItems` from your component wrapped in a `<ul>`:
+3. **Retorne** `listItems` do seu componente dentro de uma `<ul>`:
 
 ```js
 return <ul>{listItems}</ul>;
 ```
 
-Here is the result:
+Esse é o resultado:
 
 <Sandpack>
 
@@ -85,19 +85,19 @@ li { margin-bottom: 10px; }
 
 </Sandpack>
 
-Notice the sandbox above displays a console error:
+Perceba que a *sandbox* acima exibe um erro no *console*:
 
 <ConsoleBlock level="error">
 
-Warning: Each child in a list should have a unique "key" prop.
+Aviso: Cada filho em uma lista deve haver uma prop "key" única.
 
 </ConsoleBlock>
 
-You'll learn how to fix this error later on this page. Before we get to that, let's add some structure to your data.
+Mais tarde nessa página, você aprenderá como corrigir este erro. Mas antes, vamos estruturar os seus dados um pouco mais.
 
-## Filtering arrays of items {/*filtering-arrays-of-items*/}
+## Filtrando arrays de itens {/*filtering-arrays-of-items*/}
 
-This data can be structured even more.
+Esses dados podem ser estruturados ainda mais.
 
 ```js
 const people = [{
@@ -121,11 +121,11 @@ const people = [{
 }];
 ```
 
-Let's say you want a way to only show people whose profession is `'chemist'`. You can use JavaScript's `filter()` method to return just those people. This method takes an array of items, passes them through a “test” (a function that returns `true` or `false`), and returns a new array of only those items that passed the test (returned `true`).
+Vamos supor que você queira exibir somente as pessoas cuja profissão seja `'chemist'`. Neste caso, voce pode usar o método `filter()` do JavaScript para retornar apenas essas pessoas. Este método recebe um array de itens, os quais são submetidos a um “teste” (uma função que retorna `true` ou `false`), e retorna um novo array contendo apenas aqueles itens os quais passaram no teste (retornaram `true`).
 
-You only want the items where `profession` is `'chemist'`. The "test" function for this looks like `(person) => person.profession === 'chemist'`. Here's how to put it together:
+Você quer apenas os itens onde `profession` seja `'chemist'`. A função "teste" para isto ficaria assim `(person) => person.profession === 'chemist'`. Veja como juntar tudo isso:
 
-1. **Create** a new array of just “chemist” people, `chemists`, by calling `filter()` on the `people` filtering by `person.profession === 'chemist'`:
+1. **Crie** um novo array contendo apenas pessoas cuja profissão é “chemist”, `chemists`, chamando `filter()` em `people` e filtrando por `person.profession === 'chemist'`:
 
 ```js
 const chemists = people.filter(person =>
@@ -133,7 +133,7 @@ const chemists = people.filter(person =>
 );
 ```
 
-2. Now **map** over `chemists`:
+2. Agora **mapeie** sobre `chemists`:
 
 ```js {1,13}
 const listItems = chemists.map(person =>
@@ -151,7 +151,7 @@ const listItems = chemists.map(person =>
 );
 ```
 
-3. Lastly, **return** the `listItems` from your component:
+3. Por fim, **retorne** `listItems` em seu componente:
 
 ```js
 return <ul>{listItems}</ul>;
@@ -244,37 +244,37 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Pitfall>
 
-Arrow functions implicitly return the expression right after `=>`, so you didn't need a `return` statement:
+Arrow functions retornam implicitamente a expressão logo após `=>`, então você não precisa de uma declaração `return`:
 
 ```js
 const listItems = chemists.map(person =>
-  <li>...</li> // Implicit return!
+  <li>...</li> // Retorno implícito!
 );
 ```
 
-However, **you must write `return` explicitly if your `=>` is followed by a `{` curly brace!**
+Entretanto, **você deve escrever `return` explicitamente se seu `=>` é seguido de uma chave `{`!**
 
 ```js
-const listItems = chemists.map(person => { // Curly brace
+const listItems = chemists.map(person => { // Chave
   return <li>...</li>;
 });
 ```
 
-Arrow functions containing `=> {` are said to have a ["block body".](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) They let you write more than a single line of code, but you *have to* write a `return` statement yourself. If you forget it, nothing gets returned!
+Nos referimos a arrow functions que contenham `=> {` em seu início como possuindo um ["corpo em bloco".](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) Elas deixam com que você escreva mais de uma linha de código, mas você *precisa* incluir uma declaração `return` manualmente. Caso esquecida, nada é retornado!
 
 </Pitfall>
 
-## Keeping list items in order with `key` {/*keeping-list-items-in-order-with-key*/}
+## Mantendo itens em ordem com `key` {/*keeping-list-items-in-order-with-key*/}
 
-Notice that all the sandboxes above show an error in the console:
+Perceba que todas as *sandboxes* acima exibem um erro no *console*:
 
 <ConsoleBlock level="error">
 
-Warning: Each child in a list should have a unique "key" prop.
+Aviso: Cada filho em uma lista deve ter uma prop "key" única.
 
 </ConsoleBlock>
 
-You need to give each array item a `key` -- a string or a number that uniquely identifies it among other items in that array:
+Você precisa dar a cada item do array uma `key` -- uma string ou um número que o identifique unicamente dentre os demais itens naquele array:
 
 ```js
 <li key={person.id}>...</li>
@@ -282,13 +282,13 @@ You need to give each array item a `key` -- a string or a number that uniquely i
 
 <Note>
 
-JSX elements directly inside a `map()` call always need keys!
+Elementos JSX retornados por um chamado `map()` sempre precisam de keys!
 
 </Note>
 
-Keys tell React which array item each component corresponds to, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen `key` helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+Keys dizem ao React a qual item do array cada componente corresponde, para que ele possa combiná-los mais tarde. Isso se torna importante se os itens do seu array podem se mover (por exemplo, ao ser ordenado), serem inseridos, ou serem removidos. Uma `key` bem escolhida ajuda o React a identificar o que exatamente aconteceu, e fazer as atualizações corretas à árvore da DOM.
 
-Rather than generating keys on the fly, you should include them in your data:
+Em vez de gerar keys em tempo real, você deve incluí-las em seus dados:
 
 <Sandpack>
 
@@ -316,31 +316,31 @@ export default function List() {
 
 ```js data.js active
 export const people = [{
-  id: 0, // Used in JSX as a key
+  id: 0, // Usado no JSX como key
   name: 'Creola Katherine Johnson',
   profession: 'mathematician',
   accomplishment: 'spaceflight calculations',
   imageId: 'MK3eW3A'
 }, {
-  id: 1, // Used in JSX as a key
+  id: 1, // Usado no JSX como key
   name: 'Mario José Molina-Pasquel Henríquez',
   profession: 'chemist',
   accomplishment: 'discovery of Arctic ozone hole',
   imageId: 'mynHUSa'
 }, {
-  id: 2, // Used in JSX as a key
+  id: 2, // Usado no JSX como key
   name: 'Mohammad Abdus Salam',
   profession: 'physicist',
   accomplishment: 'electromagnetism theory',
   imageId: 'bE7W1ji'
 }, {
-  id: 3, // Used in JSX as a key
+  id: 3, // Usado no JSX como key
   name: 'Percy Lavon Julian',
   profession: 'chemist',
   accomplishment: 'pioneering cortisone drugs, steroids and birth control pills',
   imageId: 'IOjWm71'
 }, {
-  id: 4, // Used in JSX as a key
+  id: 4, // Usado no JSX como key
   name: 'Subrahmanyan Chandrasekhar',
   profession: 'astrophysicist',
   accomplishment: 'white dwarf star mass calculations',
@@ -374,11 +374,11 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <DeepDive>
 
-#### Displaying several DOM nodes for each list item {/*displaying-several-dom-nodes-for-each-list-item*/}
+#### Exibindo múltiplos nós da DOM para cada item da lista {/*displaying-several-dom-nodes-for-each-list-item*/}
 
-What do you do when each item needs to render not one, but several DOM nodes?
+O que fazer quando cada item precisa renderizar não um, mas múltiplos nós da DOM?
 
-The short [`<>...</>` Fragment](/reference/react/Fragment) syntax won't let you pass a key, so you need to either group them into a single `<div>`, or use the slightly longer and [more explicit `<Fragment>` syntax:](/reference/react/Fragment#rendering-a-list-of-fragments)
+A sintaxe abreviada [`<>...</>` Fragment](/reference/react/Fragment) não deixará com que você passe uma key, por conta disto você precisa agrupá-los em uma única `<div>`, ou então usar a um pouco mais longa e [mais explícita sintaxe `<Fragment>`:](/reference/react/Fragment#rendering-a-list-of-fragments)
 
 ```js
 import { Fragment } from 'react';
@@ -393,58 +393,56 @@ const listItems = people.map(person =>
 );
 ```
 
-Fragments disappear from the DOM, so this will produce a flat list of `<h1>`, `<p>`, `<h1>`, `<p>`, and so on.
+Fragmentos desaparecem da DOM, então isto irá produzir uma lista plana de `<h1>`, `<p>`, `<h1>`, `<p>`, e assim por diante.
 
 </DeepDive>
 
-### Where to get your `key` {/*where-to-get-your-key*/}
+### Onde conseguir sua `key` {/*where-to-get-your-key*/}
 
-Different sources of data provide different sources of keys:
+As chaves podem vir de diferentes fontes de dados:
 
-* **Data from a database:** If your data is coming from a database, you can use the database keys/IDs, which are unique by nature.
-* **Locally generated data:** If your data is generated and persisted locally (e.g. notes in a note-taking app), use an incrementing counter, [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID) or a package like [`uuid`](https://www.npmjs.com/package/uuid) when creating items.
+* **Dados de uma base de dados:** Se seus dados estão vindo de uma base de dados, você pode usar as keys/IDs desta, os quais são únicos por natureza.
+* **Dados gerados localmente:** Se seus dados são gerados e persistidos localmente (por exemplo, anotações em um aplicativo de notas), use um contador incremental, [`crypto.randomUUID()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Crypto/randomUUID) ou um biblioteca como a [`uuid`](https://www.npmjs.com/package/uuid) ao criar itens.
 
-### Rules of keys {/*rules-of-keys*/}
+### Regras das keys {/*rules-of-keys*/}
 
-* **Keys must be unique among siblings.** However, it’s okay to use the same keys for JSX nodes in _different_ arrays.
-* **Keys must not change** or that defeats their purpose! Don't generate them while rendering.
+* **Keys devem ser únicas entre suas irmãs.** Entretanto, é tranquilo usar as mesmas chaves para nós JSX em arrays *diferentes*.
+* **Keys não devem mudar** caso contrário, isso vai contra o seu propósito! Não as gere durante a renderização. 
 
-### Why does React need keys? {/*why-does-react-need-keys*/}
+### Por que o React precisa de keys? {/*why-does-react-need-keys*/}
 
-Imagine that files on your desktop didn't have names. Instead, you'd refer to them by their order -- the first file, the second file, and so on. You could get used to it, but once you delete a file, it would get confusing. The second file would become the first file, the third file would be the second file, and so on.
+Imagine que os arquivos em sua área de trabalho não tivessem nomes. Em vez disso, você teria que se referir a eles pela sua ordem -- o primeiro arquivo, o segundo arquivo, e assim por diante. Isto poderia funcionar em um primeiro momento, porém uma vez que você exclua um arquivo, as coisas iriam ficar confusas. O segundo arquivo se tornaria o primeiro, o terceiro arquivo se tornaria o segundo e assim por diante.
 
-File names in a folder and JSX keys in an array serve a similar purpose. They let us uniquely identify an item between its siblings. A well-chosen key provides more information than the position within the array. Even if the _position_ changes due to reordering, the `key` lets React identify the item througout its lifetime.
+Nomes de arquivo em uma pasta e keys JSX em um array servem um propósito similar. Eles permitem com que nós identifiquemos unicamente um item entre seus irmãos. Uma key bem escolhida fornece mais informação que uma posição dentro do array. Mesmo que a *posição* mude por conta de uma reordenação, a `key` permite que o React identifique o item durante seu ciclo de vida.
 
 <Pitfall>
 
-You might be tempted to use an item's index in the array as its key. In fact, that's what React will use if you don't specify a `key` at all. But the order in which you render items will change over time if an item is inserted, deleted, or if the array gets reordered. Index as a key often leads to subtle and confusing bugs.
+Você pode ser tentado a usar o índice de um item no array como sua key. De fato, isto é o que o React irá utilizar caso você não especifique uma `key`. Entretanto, a ordem em que você renderiza os itens irá mudar conforme o tempo caso um item seja inserido, excluído, ou se o array for reordenado. Usar índices como key por muitas vezes leva a bugs sutis e confusos.
 
-Similarly, do not generate keys on the fly, e.g. with `key={Math.random()}`. This will cause keys to never match up between renders, leading to all your components and DOM being recreated every time. Not only is this slow, but it will also lose any user input inside the list items. Instead, use a stable ID based on the data.
+Da mesma forma, não gere keys em tempo real, por exemplo com `key={Math.random()}`. Isso fará com que as keys nunca sejam iguais nas renderizações subsequentes, ocasionando com que todos os seus componentes e DOM sejam recriados a cada vez. Isso não somente é lento, mas também perde qualquer dado de entrada do usuário dentro dos elementos da lista. Em vez disso, use um ID estável baseado nos dados.
 
-Note that your components won't receive `key` as a prop. It's only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: `<Profile key={id} userId={id} />`.
+Note que os seus componentes não receberão `key` como uma prop. Esta só é usada como uma dica pelo próprio React. Se o seu componente precisa de um ID, você deve passá-lo como uma prop separada: `<Profile key={id} userId={id} />`.
 
 </Pitfall>
 
 <Recap>
 
-On this page you learned:
+Nessa página você aprendeu:
 
-* How to move data out of components and into data structures like arrays and objects.
-* How to generate sets of similar components with JavaScript's `map()`.
-* How to create arrays of filtered items with JavaScript's `filter()`.
-* Why and how to set `key` on each component in a collection so React can keep track of each of them even if their position or data changes.
+* Como mover dados para fora de componentes e para dentro de estruturas como arrays ou objetos.
+* Como gerar conjuntos de componentes similares com o `map()` do JavaScript.
+* Como criar arrays de itens filtrados com o `filter()` do JavaScript.
+* Porquê e como definir `key` em cada componente dentre uma coleção para que o React possa acompanhar cada um deles mesmo se sua posição ou dados mudem.
 
 </Recap>
 
-
-
 <Challenges>
 
-#### Splitting a list in two {/*splitting-a-list-in-two*/}
+#### Separando uma lista em duas {/*splitting-a-list-in-two*/}
 
-This example shows a list of all people.
+Esse exemplo mostra uma lista de todas as pessoas.
 
-Change it to show two separate lists one after another: **Chemists** and **Everyone Else.** Like previously, you can determine whether a person is a chemist by checking if `person.profession === 'chemist'`.
+Altere-o para exibir duas listas separadas uma após a outra: **Químicos** e **Outras Profissões.** Como antes, você pode determinar se uma pessoa é um "químico" checando se `person.profession === 'chemist'`.
 
 <Sandpack>
 
@@ -535,7 +533,7 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 <Solution>
 
-You could use `filter()` twice, creating two separate arrays, and then `map` over both of them:
+Você pode usar `filter()` duas vezes, criando dois arrays separados, e então chamando `map` em ambos:
 
 <Sandpack>
 
@@ -648,9 +646,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-In this solution, the `map` calls are placed directly inline into the parent `<ul>` elements, but you could introduce variables for them if you find that more readable.
+Nesta solução, as chamadas `map` são colocadas diretamente em linha nos elementos `<ul>` pai, mas você pode introduzir variáveis para elas se você considerar isso mais legível.
 
-There is still a bit duplication between the rendered lists. You can go further and extract the repetitive parts into a `<ListSection>` component:
+Ainda há um pouco de duplicação entre as listas renderizadas. Você pode ir além e extrair as partes repetitivas em um componente `<ListSection>`:
 
 <Sandpack>
 
@@ -762,9 +760,9 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Sandpack>
 
-A very attentive reader might notice that with two `filter` calls, we check each person's profession twice. Checking a property is very fast, so in this example it's fine. If your logic was more expensive than that, you could replace the `filter` calls with a loop that manually constructs the arrays and checks each person once.
+Um leitor atencioso pode notar que com duas chamadas de `filter`, nós checamos a profissão de cada pessoa duas vezes. Checar uma propriedade é muito rápido, então nesse exemplo não há problema. Se sua lógica for mais complexa que isso, você pode substituir as chamadas de `filter` por um loop o qual constrói manualmente os arrays e checa cada pessoa uma vez.
 
-In fact, if `people` never change, you could move this code out of your component. From React's perspective, all that matters is that you give it an array of JSX nodes in the end. It doesn't care how you produce that array:
+De fato, se `people` nunca mudar, você pode mover esse código para fora de seu componente. Da perspectiva do React, tudo o que importa é que você o dê um array de nós JSX no fim das contas. Ele não se importa sobre como você produziu esse array:
 
 <Sandpack>
 
@@ -882,13 +880,13 @@ img { width: 100px; height: 100px; border-radius: 50%; }
 
 </Solution>
 
-#### Nested lists in one component {/*nested-lists-in-one-component*/}
+#### Listas aninhadas em um componente {/*nested-lists-in-one-component*/}
 
-Make a list of recipes from this array! For each recipe in the array, display its name as an `<h2>` and list its ingredients in a `<ul>`.
+Faça uma lista de receitas a partir desse array! Para cada receita no array, exiba seu nome como um `<h2>` e liste seus ingredientes em uma `<ul>`.
 
 <Hint>
 
-This will require nesting two different `map` calls.
+Para fazer isto, você precisará realizar duas chamadas ao `map` aninhadas. 
 
 </Hint>
 
@@ -926,7 +924,7 @@ export const recipes = [{
 
 <Solution>
 
-Here is one way you could go about it:
+Você poderia seguir esse caminho:
 
 <Sandpack>
 
@@ -972,13 +970,13 @@ export const recipes = [{
 
 </Sandpack>
 
-Each of the `recipes` already includes an `id` field, so that's what the outer loop uses for its `key`. There is no ID you could use to loop over ingredients. However, it's reasonable to assume that the same ingredient won't be listed twice within the same recipe, so its name can serve as a `key`. Alternatively, you could change the data structure to add IDs, or use index as a `key` (with the caveat that you can't safely reorder ingredients).
+Cada uma das `recipes` já inclui um campo `id`, então é isso que o loop externo usa como sua `key`. Não ha ID que você possa usar para iterar sobre os ingredientes. Entretanto, podemos assumir que o mesmo ingrediente são será listado duas vezes na mesma receita, então seu nome pode servir como uma `key`. Alternativamente, você pode mudar a estrutura dos dados para adicionar IDs, ou usar o índice como uma `key` (com a exceção de que você não pode seguramente reordenar ingredientes).
 
 </Solution>
 
-#### Extracting a list item component {/*extracting-a-list-item-component*/}
+#### Extraindo um componente de uma lista de items {/*extracting-a-list-item-component*/}
 
-This `RecipeList` component contains two nested `map` calls. To simplify it, extract a `Recipe` component from it which will accept `id`, `name`, and `ingredients` props. Where do you place the outer `key` and why?
+Esse componente `RecipeList` contêm duas chamadas ao `map` aninhadas. Simplificando, extraia um componente `Recipe` dele o qual irá aceitar as props `id`, `name`, e `ingredients`. Onde você coloca a `key` externa e por que?
 
 <Sandpack>
 
@@ -1026,7 +1024,7 @@ export const recipes = [{
 
 <Solution>
 
-You can copy-paste the JSX from the outer `map` into a new `Recipe` component and return that JSX. Then you can change `recipe.name` to `name`, `recipe.id` to `id`, and so on, and pass them as props to the `Recipe`:
+Você pode copiar e colar o JSX de um `map` externo em um novo componente `Recipe` e retornar esse JSX. Então, você pode mudar `recipe.name` para `name`, `recipe.id` para `id`, e assim por diante, posteriormente passando-os como props para a `Recipe`:
 
 <Sandpack>
 
@@ -1078,15 +1076,15 @@ export const recipes = [{
 
 </Sandpack>
 
-Here, `<Recipe {...recipe} key={recipe.id} />` is a syntax shortcut saying "pass all properties of the `recipe` object as props to the `Recipe` component". You could also write each prop explicitly: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
+Aqui, `<Recipe {...recipe} key={recipe.id} />` é um atalho de sintaxe dizendo "passe todas as propriedades do objeto `recipe` como props para o componente `Recipe`". Você também pode escrever cada prop explicitamente: `<Recipe id={recipe.id} name={recipe.name} ingredients={recipe.ingredients} key={recipe.id} />`.
 
-**Note that the `key` is specified on the `<Recipe>` itself rather than on the root `<div>` returned from `Recipe`.** This is because this `key` is needed directly within the context of the surrounding array. Previously, you had an array of `<div>`s so each of them needed a `key`, but now you have an array of `<Recipe>`s. In other words, when you extract a component, don't forget to leave the `key` outside the JSX you copy and paste.
+**Note que a `key` é especificada no `<Recipe>` propriamente dito ao invés de na `div` raiz retornada por `Recipe`.** Isso se deve ao fato de que essa `key` é diretamente necessária dentro do contexto do array em que o componente está sendo renderizado. Anteriormente, você tinha um array de `<div>`s então cada uma delas precisava de uma `key`, mas agora você tem um array de `<Recipe>`s. Em outras palavras, quando você extrai um componente, não se esqueça de deixar a `key` fora da JSX que você copia e cola.
 
 </Solution>
 
-#### List with a separator {/*list-with-a-separator*/}
+#### Lista com um separador {/*list-with-a-separator*/}
 
-This example renders a famous haiku by Katsushika Hokusai, with each line wrapped in a `<p>` tag. Your job is to insert an `<hr />` separator between each paragraph. Your resulting structure should look like this:
+Esse exemplo renderiza um famoso haiku por Katsushika Hokusai, com cada linha envolta em uma tag `<p>`. Seu trabalho é inserir um separador `<hr />` entre cada parágrafo. Sua estrutura resultante deve se parecer com isso:
 
 ```js
 <article>
@@ -1098,7 +1096,7 @@ This example renders a famous haiku by Katsushika Hokusai, with each line wrappe
 </article>
 ```
 
-A haiku only contains three lines, but your solution should work with any number of lines. Note that `<hr />` elements only appear *between* the `<p>` elements, not in the beginning or the end!
+Um haiku contêm apenas três linhas, mas a solução deve funcionar com qualquer número de linhas. Note que elementos `<hr />` apenas aparecem *entre* os elementos `<p>`, não no começo ou fim!
 
 <Sandpack>
 
@@ -1141,17 +1139,17 @@ hr {
 
 </Sandpack>
 
-(This is a rare case where index as a key is acceptable because a poem's lines will never reorder.)
+(Esse é um caso raro onde o uso do índice como key é aceitável porque as linhas do poema nunca serão reordenadas.)
 
 <Hint>
 
-You'll either need to convert `map` to a manual loop, or use a fragment.
+Você precisará converter `map` para um loop manual, ou então usar um fragment.
 
 </Hint>
 
 <Solution>
 
-You can write a manual loop, inserting `<hr />` and `<p>...</p>` into the output array as you go:
+Você pode escrever um loop manual, inserindo `<hr />` e `<p>...</p>` na saída do array conforme você vai:
 
 <Sandpack>
 
@@ -1167,7 +1165,7 @@ const poem = {
 export default function Poem() {
   let output = [];
 
-  // Fill the output array
+  // Preencher o array output
   poem.lines.forEach((line, i) => {
     output.push(
       <hr key={i + '-separator'} />
@@ -1178,7 +1176,7 @@ export default function Poem() {
       </p>
     );
   });
-  // Remove the first <hr />
+  // Remove o primeiro <hr />
   output.shift();
 
   return (
@@ -1206,9 +1204,9 @@ hr {
 
 </Sandpack>
 
-Using the original line index as a `key` doesn't work anymore because each separator and paragraph are now in the same array. However, you can give each of them a distinct key using a suffix, e.g. `key={i + '-text'}`.
+Usando o índice original da linha como `key` não funciona mais porque cada separador e parágrafo estão agora no mesmo array. Entretanto, você pode dar a cada uma delas uma key distinta usando um sufixo, por exemplo `key={i + '-text'}`.
 
-Alternatively, you could render a collection of fragments which contain `<hr />` and `<p>...</p>`. However, the `<>...</>` shorthand syntax doesn't support passing keys, so you'd have to write `<Fragment>` explicitly:
+Alternativamente, você pode renderizar uma coleção de fragmentos a qual contêm `<hr />` e `<p>...</p>`. Entretanto, o atalho de sintaxe `<>...</>` não suporta a passagem de keys, então você teria que escrever `<Fragment>` explicitamente:
 
 <Sandpack>
 
@@ -1254,7 +1252,7 @@ hr {
 
 </Sandpack>
 
-Remember, fragments (often written as `<> </>`) let you group JSX nodes without adding extra `<div>`s!
+Lembre-se, fragmentos (comumente escritos como `<> </>`) deixam com que você agrupe nós JSX sem adicionar `<div>`s extras!
 
 </Solution>
 

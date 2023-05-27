@@ -1,47 +1,47 @@
 ---
-title: Your First Component
+title: Seu Primeiro Componente
 ---
 
 <Intro>
 
-*Components* are one of the core concepts of React. They are the foundation upon which you build user interfaces (UI), which makes them the perfect place to start your React journey!
+Os *Componentes* são um dos conceitos centrais do React. Eles são a base das interfaces de usuário (UI), o que os torna o lugar perfeito para começar sua jornada com React!
 
 </Intro>
 
 <YouWillLearn>
 
-* What a component is
-* What role components play in a React application
-* How to write your first React component
+* O que é um componente
+* Que papel desempenham os componentes em uma aplicação React
+* Como escrever o seu primeiro componente React
 
 </YouWillLearn>
 
-## Components: UI building blocks {/*components-ui-building-blocks*/}
+## Componentes: O Alicerce da UI {/*components-ui-building-blocks*/}
 
-On the Web, HTML lets us create rich structured documents with its built-in set of tags like `<h1>` and `<li>`:
+Na Web, o HTML nos permite criar documentos estruturados e ricos em conteúdo com seu conjunto de tags nativas, como `<h1>` e `<li>`:
 
 ```html
 <article>
-  <h1>My First Component</h1>
+  <h1>Meu Primeiro Componente</h1>
   <ol>
-    <li>Components: UI Building Blocks</li>
-    <li>Defining a Component</li>
-    <li>Using a Component</li>
+    <li>Componentes: O Alicerce da UI</li>
+    <li>Definindo um Componente</li>
+    <li>Usando um Componente</li>
   </ol>
 </article>
 ```
 
-This markup represents this article `<article>`, its heading `<h1>`, and an (abbreviated) table of contents as an ordered list `<ol>`. Markup like this, combined with CSS for style, and JavaScript for interactivity, lies behind every sidebar, avatar, modal, dropdown—every piece of UI you see on the Web.
+Este trecho de HTML representa um artigo `<article>`, seu título `<h1>`, e um índice de conteúdo (abreviado) apresentado como uma lista ordenada `<ol>`. Este conjunto de tags, combinado com CSS para estilização e JavaScript para a interatividade, é responsável por cada elemento de UI que você vê na Web — seja uma barra lateral, avatar, modal ou dropdown.
 
-React lets you combine your markup, CSS, and JavaScript into custom "components", **reusable UI elements for your app.** The table of contents code you saw above could be turned into a `<TableOfContents />` component you could render on every page. Under the hood, it still uses the same HTML tags like `<article>`, `<h1>`, etc.
+O React permite que você combine tags HTML, CSS e JavaScript em "componentes" personalizados, **elementos de UI reutilizáveis para a sua aplicação.** O código do índice de conteúdo que você viu acima pode ser transformado em um componente `<TableOfContents />` que você pode renderizar em cada página. Por trás do código, ele ainda usa as mesmas tags HTML como `<article>`, `<h1>`, etc.
 
-Just like with HTML tags, you can compose, order and nest components to design whole pages. For example, the documentation page you're reading is made out of React components:
+Assim como nas tags HTML, você pode compor, ordenar e colocá-lo dentro de outros componentes para criar páginas inteiras. Por exemplo, a página de documentação que você está lendo é feita de componentes React:
 
 ```js
 <PageLayout>
   <NavigationHeader>
     <SearchBar />
-    <Link to="/docs">Docs</Link>
+    <Link to="/docs">Documentação</Link>
   </NavigationHeader>
   <Sidebar />
   <PageContent>
@@ -50,12 +50,11 @@ Just like with HTML tags, you can compose, order and nest components to design w
   </PageContent>
 </PageLayout>
 ```
+À medida que seu projeto cresce, você notará que muitos de seus designs podem ser compostos através da reutilização de componentes que você já escreveu, acelerando seu desenvolvimento. Nosso índice de conteúdo acima poderia ser usado em qualquer tela usando o componente `<TableOfContents />`! Você pode até mesmo iniciar seu projeto com os milhares de componentes compartilhados pela comunidade de código aberto do React, como [Chakra UI](https://chakra-ui.com/) e [Material UI.](https://material-ui.com/)
 
-As your project grows, you will notice that many of your designs can be composed by reusing components you already wrote, speeding up your development. Our table of contents above could be added to any screen with `<TableOfContents />`! You can even jumpstart your project with the thousands of components shared by the React open source community like [Chakra UI](https://chakra-ui.com/) and [Material UI.](https://material-ui.com/)
+## Definindo um componente {/*defining-a-component*/}
 
-## Defining a component {/*defining-a-component*/}
-
-Traditionally when creating web pages, web developers marked up their content and then added interaction by sprinkling on some JavaScript. This worked great when interaction was a nice-to-have on the web. Now it is expected for many sites and all apps. React puts interactivity first while still using the same technology: **a React component is a JavaScript function that you can _sprinkle with markup_.** Here's what that looks like (you can edit the example below):
+Tradicionalmente, na criação de páginas web, os desenvolvedores web estruturavam o conteúdo utilizando HTML e, em seguida, adicionavam interações acrescentando um pouco de JavaScript. Isso funcionava muito bem quando a interação não era algo essencial na web. Atualmente, espera-se que muitos sites e aplicações sejam interativos. O React coloca a interatividade em primeiro lugar enquanto ainda usa a mesma tecnologia: **um componente React é uma função JavaScript que permite você _adicionar tags HTML_.** Confira o exemplo abaixo (você pode editar o exemplo abaixo):
 
 <Sandpack>
 
@@ -76,33 +75,33 @@ img { height: 200px; }
 
 </Sandpack>
 
-And here's how to build a component:
+Agora vamos aprender como construir um componente:
 
-### Step 1: Export the component {/*step-1-export-the-component*/}
+### Passo 1: Exportar o componente {/*step-1-export-the-component*/}
 
-The `export default` prefix is a [standard JavaScript syntax](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (not specific to React). It lets you mark the main function in a file so that you can later import it from other files. (More on importing in [Importing and Exporting Components](/learn/importing-and-exporting-components)!)
+O prefixo `export default` é uma [sintaxe padrão do JavaScript](https://developer.mozilla.org/docs/web/javascript/reference/statements/export) (não específica do React). Ele permite que você marque a função principal em um arquivo para que você possa mais tarde importá-la de outros arquivos. (Mais sobre importação em [Importando e Exportando Componentes](/learn/importing-and-exporting-components)!
 
-### Step 2: Define the function {/*step-2-define-the-function*/}
+### Passo 2: Definir a função {/*step-2-define-the-function*/}
 
-With `function Profile() { }` you define a JavaScript function with the name `Profile`.
+Com a sintaxe `function Profile() { }` você está definindo uma função JavaScript chamada `Profile`.
 
 <Pitfall>
 
-React components are regular JavaScript functions, but **their names must start with a capital letter** or they won't work!
+Os componentes do React são funções comuns do JavaScript, mas **seus nomes devem começar com letra maiúscula** ou não funcionarão!
 
 </Pitfall>
 
-### Step 3: Add markup {/*step-3-add-markup*/}
+### Passo 3: Adicionar HTML {/*step-3-add-markup*/}
 
-The component returns an `<img />` tag with `src` and `alt` attributes. `<img />` is written like HTML, but it is actually JavaScript under the hood! This syntax is called [JSX](/learn/writing-markup-with-jsx), and it lets you embed markup inside JavaScript.
+O componente retorna uma tag `<img />` com os atributos `src` e `alt`. O `<img />` é escrito como HTML, mas na verdade, é o JavaScript que está por trás! Essa sintaxe é chamada [JSX](/learn/writing-markup-with-jsx) e permite usar tags HTML dentro do JavaScript.
 
-Return statements can be written all on one line, as in this component:
+As instruções de retorno podem ser escritas todas em uma linha, como neste componente:
 
 ```js
 return <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />;
 ```
 
-But if your markup isn't all on the same line as the `return` keyword, you must wrap it in a pair of parentheses:
+Mas se seu HTML não estiver na mesma linha que a declaração `return`, você deve colocá-la entre parênteses:
 
 ```js
 return (
@@ -114,13 +113,13 @@ return (
 
 <Pitfall>
 
-Without parentheses, any code on the lines after `return` [will be ignored](https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)!
+Sem parênteses, qualquer código nas linhas após `return` [será ignorado](https://stackoverflow.com/questions/2846283/what-are-the-rules-for-javascripts-automatic-semicolon-insertion-asi)!
 
 </Pitfall>
 
-## Using a component {/*using-a-component*/}
+## Usando um componente {/*using-a-component*/}
 
-Now that you've defined your `Profile` component, you can nest it inside other components. For example, you can export a `Gallery` component that uses multiple `Profile` components:
+Agora que você definiu seu componente `Profile`, você pode colocá-lo dentro de outros componentes. Por exemplo, você pode exportar um componente `Gallery` que usa várias vezes o componente `Profile`:
 
 <Sandpack>
 
@@ -137,7 +136,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Cientistas incríveis</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -152,37 +151,37 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-### What the browser sees {/*what-the-browser-sees*/}
+### O que o navegador vê {/*what-the-browser-sees*/}
 
-Notice the difference in casing:
+Observe a diferença entre caixa alta e caixa baixa no nome dos componentes:
 
-* `<section>` is lowercase, so React knows we refer to an HTML tag.
-* `<Profile />` starts with a capital `P`, so React knows that we want to use our component called `Profile`.
+* `<section>` é minúscula, então o React sabe que nos referimos a uma tag HTML.
+* `<Profile />` começa com a letra `P` maiúsculo, então o React sabe que queremos usar nosso componente chamado `Profile`.
 
-And `Profile` contains even more HTML: `<img />`. In the end, this is what the browser sees:
+E o componente `Profile` contém ainda mais HTML, como a tag `<img />`. No final, é isso que o navegador vê:
 
 ```html
 <section>
-  <h1>Amazing scientists</h1>
+  <h1>Cientistas incríveis</h1>
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
 </section>
 ```
 
-### Nesting and organizing components {/*nesting-and-organizing-components*/}
+### Agrupando e organizando componentes {/*nesting-and-organizing-components*/}
 
-Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other. If this file gets crowded, you can always move `Profile` to a separate file. You will learn how to do this shortly on the [page about imports.](/learn/importing-and-exporting-components)
+Os componentes são funções comuns do JavaScript, portanto, você pode manter vários componentes no mesmo arquivo. Isso é conveniente quando os componentes são relativamente pequenos ou relacionados entre si. Caso o arquivo comece a ficar muito extenso, você pode sempre mover `Profile` para um arquivo separado. Você aprenderá como fazer isso em breve na [página sobre importações.](/learn/importing-and-exporting-components)
 
-Because the `Profile` components are rendered inside `Gallery`—even several times!—we can say that `Gallery` is a **parent component,** rendering each `Profile` as a "child". This is part of the magic of React: you can define a component once, and then use it in as many places and as many times as you like.
+Como os componentes `Profile` são renderizados dentro da `Gallery`—mesmo várias vezes—, podemos dizer que `Gallery` é um **componente pai**, tornando cada `Profile` como um componente "filho". Essa é parte da magia do React: você pode definir um componente uma vez e usá-lo em quantos lugares e quantas vezes quiser.
 
 <Pitfall>
 
-Components can render other components, but **you must never nest their definitions:**
+Componentes podem renderizar outros componentes, mas **você nunca deve definir um componente dentro de outro componente:**
 
 ```js {2-5}
 export default function Gallery() {
-  // 🔴 Never define a component inside another component!
+  // 🔴 Nunca defina um componente dentro de outro componente!
   function Profile() {
     // ...
   }
@@ -190,47 +189,47 @@ export default function Gallery() {
 }
 ```
 
-The snippet above is [very slow and causes bugs.](/learn/preserving-and-resetting-state#different-components-at-the-same-position-reset-state) Instead, define every component at the top level:
+O trecho acima é [muito lento e causa erros.](/learn/preserving-and-resetting-state#different-components-at-the-same-position-reset-state) Em vez disso, defina todos os componentes no nível superior:
 
 ```js {5-8}
 export default function Gallery() {
   // ...
 }
 
-// ✅ Declare components at the top level
+// ✅ Declare componentes no nível superior
 function Profile() {
   // ...
 }
 ```
 
-When a child component needs some data from a parent, [pass it by props](/learn/passing-props-to-a-component) instead of nesting definitions.
+Quando um componente filho precisa de alguns dados de um pai, [passe-os por props](/learn/passing-props-to-a-component) em vez de definições de aninhamento.
 
 </Pitfall>
 
 <DeepDive>
 
-#### Components all the way down {/*components-all-the-way-down*/}
+#### Componentes em todos os níveis {/*components-all-the-way-down*/}
 
-Your React application begins at a "root" component. Usually, it is created automatically when you start a new project. For example, if you use [CodeSandbox](https://codesandbox.io/) or [Create React App](https://create-react-app.dev/), the root component is defined in `src/App.js`. If you use the framework [Next.js](https://nextjs.org/), the root component is defined in `pages/index.js`. In these examples, you've been exporting root components.
+Sua aplicação React começa em um componente "raiz". Normalmente, ele é criado automaticamente quando você inicia um novo projeto. Por exemplo, se você usar [CodeSandbox](https://codesandbox.io/) ou [Create React App](https://create-react-app.dev/), o componente raiz é definido em `src/App.js`. Se você usar o framework [Next.js](https://nextjs.org/), o componente raiz é definido em `pages/index.js`. Nesses exemplos, você exportou componentes raiz.
 
-Most React apps use components all the way down. This means that you won't only use components for reusable pieces like buttons, but also for larger pieces like sidebars, lists, and ultimately, complete pages! Components are a handy way to organize UI code and markup, even if some of them are only used once.
+A maioria das aplicações React usa componentes em todos os níveis. Isso significa que você não usará componentes apenas para partes reutilizáveis, como botões, mas também para partes maiores, como barras laterais, listas e até em páginas inteiras! Os componentes são uma maneira prática de organizar o código e o HTML da UI, mesmo que alguns deles sejam usados apenas uma vez.
 
-[React-based frameworks](/learn/start-a-new-react-project) take this a step further. Instead of using an empty HTML file and letting React "take over" managing the page with JavaScript, they *also* generate the HTML automatically from your React components. This allows your app to show some content before the JavaScript code loads.
+Os [Frameworks React](/learn/start-a-new-react-project) levam isso um passo adiante. Em vez de usar um arquivo HTML vazio e deixar o React "assumir" o gerenciamento da página com JavaScript, eles *também* geram o HTML automaticamente a partir de seus componentes React. Isso permite que seu aplicativo mostre algum conteúdo antes que o código JavaScript seja carregado.
 
-Still, many websites only use React to [add interactivity to existing HTML pages.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) They have many root components instead of a single one for the entire page. You can use as much—or as little—React as you need.
+Ainda assim, muitos sites usam o React apenas para [adicionar interatividade às páginas HTML existentes.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) Eles têm muitos componentes raiz em vez de um único para toda a página. Você pode usar o React na medida certa para atender as suas necessidades.
 
 </DeepDive>
 
 <Recap>
 
-You've just gotten your first taste of React! Let's recap some key points.
+Você acabou de ter um gostinho do React! Vamos recapitular alguns pontos importantes.
 
-* React lets you create components, **reusable UI elements for your app.**
-* In a React app, every piece of UI is a component.
-* React components are regular JavaScript functions except:
+* O React permite que você crie componentes, **elementos de UI reutilizáveis para sua aplicação.**
+* Em uma aplicação React, cada parte da UI é um componente.
+* Os componentes do React são funções comuns do JavaScript, mas com duas diferenças importantes:
 
-  1. Their names always begin with a capital letter.
-  2. They return JSX markup.
+  1. Seus nomes sempre começam com letra maiúscula.
+  2. Eles retornam JSX.
 
 </Recap>
 
@@ -238,9 +237,9 @@ You've just gotten your first taste of React! Let's recap some key points.
 
 <Challenges>
 
-#### Export the component {/*export-the-component*/}
+#### Exportar o componente {/*export-the-component*/}
 
-This sandbox doesn't work because the root component is not exported:
+Este sandbox não funciona porque o componente raiz não é exportado:
 
 <Sandpack>
 
@@ -261,11 +260,11 @@ img { height: 181px; }
 
 </Sandpack>
 
-Try to fix it yourself before looking at the solution!
+Tente resolver o problema antes de ver a solução!
 
 <Solution>
 
-Add `export default` before the function definition like so:
+Adicione o prefixo `export default` antes da definição da função, da seguinte forma:
 
 <Sandpack>
 
@@ -286,17 +285,17 @@ img { height: 181px; }
 
 </Sandpack>
 
-You might be wondering why writing `export` alone is not enough to fix this example. You can learn the difference between `export` and `export default` in [Importing and Exporting Components.](/learn/importing-and-exporting-components)
+Você pode estar se perguntando por que escrever `export` sozinho não é o suficiente para corrigir este exemplo. Você pode aprender a diferença entre `export` e `export default` em [Importando e Exportando Componentes.](/learn/importing-and-exporting-components)
 
 </Solution>
 
-#### Fix the return statement {/*fix-the-return-statement*/}
+#### Corrija a declaração de retorno {/*fix-the-return-statement*/}
 
-Something isn't right about this `return` statement. Can you fix it?
+Há algo errado na declaração `return`. Você consegue corrigir?
 
 <Hint>
 
-You may get an "Unexpected token" error while trying to fix this. In that case, check that the semicolon appears *after* the closing parenthesis. Leaving a semicolon inside `return ( )` will cause an error.
+Você pode receber um erro "Unexpected token" ao tentar corrigir isso. Nesse caso, verifique se o ponto e vírgula aparece *depois* do parêntese de fechamento. Deixar um ponto-e-vírgula dentro de `return ( )` causará um erro.
 
 </Hint>
 
@@ -318,7 +317,7 @@ img { height: 180px; }
 
 <Solution>
 
-You can fix this component by moving the return statement to one line like so:
+Você pode corrigir esse componente movendo a instrução de retorno para uma linha da seguinte forma:
 
 <Sandpack>
 
@@ -334,7 +333,7 @@ img { height: 180px; }
 
 </Sandpack>
 
-Or by wrapping the returned JSX markup in parentheses that open right after `return`:
+Outra opção é envolver o JSX retornado entre parênteses após a declaração `return`: 
 
 <Sandpack>
 
@@ -357,9 +356,9 @@ img { height: 180px; }
 
 </Solution>
 
-#### Spot the mistake {/*spot-the-mistake*/}
+#### Identifique o erro {/*spot-the-mistake*/}
 
-Something's wrong with how the `Profile` component is declared and used. Can you spot the mistake? (Try to remember how React distinguishes components from the regular HTML tags!)
+Algo está errado com a forma como o componente `Profile` é declarado e usado. Você consegue identificar o erro? (Tente lembrar como o React distingue os componentes das tags HTML!)
 
 <Sandpack>
 
@@ -376,7 +375,7 @@ function profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Cientistas incríveis</h1>
       <profile />
       <profile />
       <profile />
@@ -393,9 +392,9 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 <Solution>
 
-React component names must start with a capital letter.
+Os nomes dos componentes React devem começar com uma letra maiúscula.
 
-Change `function profile()` to `function Profile()`, and then change every `<profile />` to `<Profile />`:
+Altere `function profile()` para `function Profile()` e, em seguida, altere cada `<profile />` para `<Profile />`:
 
 <Sandpack>
 
@@ -412,7 +411,7 @@ function Profile() {
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing scientists</h1>
+      <h1>Cientistas incríveis</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -429,15 +428,14 @@ img { margin: 0 10px 10px 0; }
 
 </Solution>
 
-#### Your own component {/*your-own-component*/}
+#### Seu próprio componente {/*your-own-component*/}
 
-Write a component from scratch. You can give it any valid name and return any markup. If you're out of ideas, you can write a `Congratulations` component that shows `<h1>Good job!</h1>`. Don't forget to export it!
+Escreva um componente do zero. Você pode dar a ele qualquer nome válido e retornar qualquer JSX. Se você está sem ideias, você pode escrever um componente `Congratulations` que mostre `<h1>Bom trabalho!</h1>`. Não se esqueça de exportá-lo!
 
 <Sandpack>
 
 ```js
-// Write your component below!
-
+// Escreva seu componente abaixo!
 ```
 
 </Sandpack>
@@ -449,7 +447,7 @@ Write a component from scratch. You can give it any valid name and return any ma
 ```js
 export default function Congratulations() {
   return (
-    <h1>Good job!</h1>
+    <h1>Bom trabalho!</h1>
   );
 }
 ```

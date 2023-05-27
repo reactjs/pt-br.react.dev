@@ -312,6 +312,12 @@ button { margin-right: 10px; }
 </Sandpack>
 
 Note como o componente `App` não precisa saber *o que* o componente `Toolbar` fará com o `onPlayMovie` ou `onUploadImage`. Isso é um detalhe de implementação da `Toolbar`. Aqui, a `Toolbar` os passa como manipuladores `onClick` para seus componentes `Button`, mas posteriormente pode acioná-los também em um atalho de teclado. Nomear as props com base em interações específicas da aplicação, como `onPlayMovie`, oferece a flexibilidade para alterar como elas são usadas no futuro.
+                                
+<Note>
+
+É importante utilizar as tags HTML apropriadas para seus manipuladores de eventos. Por exemplo, para lidar com cliques, use [`<button onClick={handleClick}>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/button) em vez de `<div onClick={handleClick}>`. Ao utilizar a tag `<button>`, você se beneficia dos comportamentos nativos do navegador, como a navegação pelo teclado. Se você não gosta do comportamento padrão do navegador de um botão e deseja torná-lo mais parecido com um link ou um elemento diferente, você pode alcançar isso com CSS. [Saiba mais sobre como escrever marcação acessível.](https://developer.mozilla.org/pt-BR/docs/Learn/Accessibility/HTML)
+  
+</Note>
 
 ## Propagação de eventos {/*event-propagation*/}
 
