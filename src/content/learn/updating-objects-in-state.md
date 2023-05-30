@@ -798,7 +798,7 @@ Existem alguns motivos:
 * **Otimizações:** As [estratégias de otimização](/reference/react/memo) comuns do React dependem de pular o trabalho se as props ou o state anteriores forem os mesmos que os próximos. Se você nunca altera o estado, é muito rápido verificar se houve alguma alteração. Se `prevObj === obj`, você pode ter certeza de que nada pode ter sido alterado dentro dele.
 * **Novas Funcionalidades:** As novas funcionalidades do React que estamos criando dependem de o estado ser [tratado como um snapshot](/learn/state-as-a-snapshot). Se você estiver mutando versões anteriores do estado, isso poderá impedi-lo de usar as novas funcionalidades.
 * **Mudanças de Requisitos:** Algumas funcionalidades de aplicações, como a implementação de Desfazer/Refazer, a exibição de um histórico de alterações ou a possibilidade de o usuário retornar um formulário para valores anteriores, são mais fáceis de fazer quando nada é mutado. Isso ocorre porque você pode manter cópias anteriores do estado na memória e reutilizá-las quando for apropriado. Se você começar com uma abordagem de mutação, pode ser difícil adicionar funcionalidades como essas no futuro.
-* **Implementação Mais Simples:** Como o React não depende de mutação, ele não precisa fazer nada de especial com seus objetos. Ele não precisa sequestrar suas propriedades, sempre envolvê-las em Proxies ou fazer outro trabalho na inicialização, como fazem muitas soluções "reativas". É também por isso que o React permite que você coloque qualquer objeto no state -- independentemente do tamanho -- sem armadilhas adicionais de desempenho ou corretude.
+* **Implementação Mais Simples:** Como o React não depende de mutação, ele não precisa fazer nada de especial com seus objetos. Ele não precisa sequestrar suas propriedades, sempre envolvê-las em Proxies ou fazer outro trabalho na inicialização, como fazem muitas soluções "reativas". É também por isso que o React permite que você coloque qualquer objeto no state -- independentemente do tamanho -- sem problemas adicionais de desempenho ou correção.
 
 Na prática, muitas vezes é possível "sair ileso" ao fazer mutação de state no React, mas recomendamos enfaticamente que você não faça isso para que possa usar as novas funcionalidades do React desenvolvidas com essa abordagem em mente. Os futuros colaboradores e talvez até mesmo seu futuro eu lhe agradecerão!
 
@@ -1283,7 +1283,7 @@ select { margin-bottom: 10px; }
 
 </Solution>
 
-#### Atualize um objeto com Immerr {/*update-an-object-with-immer*/}
+#### Atualize um objeto com Immer {/*update-an-object-with-immer*/}
 
 Este é o mesmo exemplo com erros do desafio anterior. Desta vez, corrija a mutação usando Immer. Para sua conveniência, o `useImmer` já está importado, portanto, você precisa alterar a variável `shape` do state para usá-lo.
 
