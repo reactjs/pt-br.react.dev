@@ -26,7 +26,7 @@ useLayoutEffect(setup, dependencies?)
 
 ### `useLayoutEffect(setup, dependencies?)` {/*useinsertioneffect*/}
 
-Chame `useLayoutEffect` para executar as medidas de layout antes que o navegador exiba a tela:
+Chame o `useLayoutEffect` para executar as medidas de layout antes do navegador exibir a tela:
 
 ```js
 import { useState, useRef, useLayoutEffect } from 'react';
@@ -47,9 +47,9 @@ function Tooltip() {
 
 #### Parâmetros {/*parameters*/}
 
-* `setup`: A função com a lógica do seu efeito (*Effect*). Sua função de configuração também pode opcionalmente retornar uma função de limpeza (*cleanup*). Antes que o seu componente seja adicionado ao DOM, o React executará a sua função de configuração. Após cada re-renderização com dependências alteradas, o React primeiro executará a função de limpeza (se fornecida) com os valores antigos e, em seguida, executará a sua função de configuração com os novos valores. Antes que o seu componente seja removido do DOM, o React executará a sua função de limpeza.
+* `setup`: A função com a lógica do seu *Effect* (efeito). Sua função de configuração também pode opcionalmente retornar uma função de limpeza (*cleanup*). Antes que o seu componente seja adicionado ao DOM, o React executará a sua função de configuração. Após cada re-renderização por meio das dependências alteradas, o React primeiro executará a função de limpeza (se fornecida) com os valores antigos e, em seguida, executará a sua função de configuração com os novos valores. Antes que o seu componente seja removido do DOM, o React executará a sua função de limpeza.
  
-* **opcional** `dependencies`: A lista de todos os valores reativos referenciados dentro do código de `setup`. Valores reativos incluem *props*, *states* e todas as variáveis e funções declaradas diretamente no *body* do seu componente. Se o seu linter estiver [configurado para o React](/learn/editor-setup#linting), ele verificará se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita inline, como por exemplo: `[dep1, dep2, dep3]`. O React fará uma comparação de cada dependência com seu valor anterior usando o [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se você omitir esse argumento, seu efeito (*Effect*) será executado novamente após cada nova re-renderização do componente.
+* **opcional** `dependencies`: A lista de todos os valores reativos referenciados dentro do código de `setup`. Valores reativos incluem *props*, *states* e todas as variáveis e funções declaradas diretamente no *body* do seu componente. Se o seu linter estiver [configurado para o React](/learn/editor-setup#linting), ele verificará se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita inline, como por exemplo: `[dep1, dep2, dep3]`. O React fará uma comparação de cada dependência com seu valor anterior usando o [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se você omitir esse argumento, seu *Effect* (efeito) será executado novamente após cada nova re-renderização do componente.
 
 #### Retorno {/*returns*/}
 
@@ -57,33 +57,34 @@ function Tooltip() {
 
 #### Observações {/*caveats*/}
 
-* `useLayoutEffect` é um Hook, então você só pode chamá-lo **no nível superior do seu componente** ou nos seus próprios Hooks. Não é possível chamá-lo dentro de loops ou condições. Se você precisar fazer isso, crie um componente e mova seu efeito (*Effect*) para lá.
+* `useLayoutEffect` é um Hook, então você só pode chamá-lo **no nível superior do seu componente** ou nos seus próprios Hooks. Não é possível chamá-lo dentro de loops ou condições. Se você precisar fazer isso, crie um componente e mova seu *Effect* (efeito) para lá.
 
-* Quando o Modo Estrito (*Strict Mode*) está ativado, o React **executará um ciclo extra de configuração+limpeza (*setup+cleanup*) exclusivamente para modo de desenvolvimento** antes do primeiro ciclo de configuração real. Isso é um teste de estresse que garante que sua lógica de limpeza "espelhe" sua lógica de configuração e que ela interrompa ou desfaça qualquer coisa que a configuração esteja fazendo. Se isso lhe causar um problema, [implemente a função de limpeza.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+* Quando o *Strict Mode* (Modo Estrito) está ativado, o React **executará um ciclo extra de setup+cleanup (*configuração+limpeza*) exclusivamente para modo de desenvolvimento** antes do primeiro ciclo de configuração real. Isso é um teste de estresse que garante que sua lógica de *cleanup* (limpeza) "espelhe" sua lógica de *setup* (configuração) e que ela interrompa ou desfaça qualquer coisa que o *setup* (configuração) esteja fazendo. Se isso lhe causar um problema, [implemente a função de *cleanup* (limpeza).](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
-* Se algumas de suas dependências são objetos ou funções definidas dentro do componente, há o risco de que elas **façam o efeito (*Effect*) ser executado mais vezes do que o necessário**. Para corrigir isso, remova as dependências com [objetos](/reference/react/useEffect#removing-unnecessary-object-dependencies) e [funções](/reference/react/useEffect#removing-unnecessary-function-dependencies) desnecessárias. Você também pode [extrair as atualizações de estado (*state*)](/reference/react/useEffect#updating-state-based-on-previous-state-from-an-effect) e sua [lógica não reativa](/reference/react/useEffect#reading-the-latest-props-and-state-from-an-effect) para fora do seu efeito (*Effect*).
+* Se algumas de suas dependências são objetos ou funções definidas dentro do componente, há o risco de que elas **façam o *Effect* (efeito) ser executado mais vezes do que o necessário**. Para corrigir isso, remova as dependências com [objetos](/reference/react/useEffect#removing-unnecessary-object-dependencies) e [funções](/reference/react/useEffect#removing-unnecessary-function-dependencies) desnecessárias. Você também pode [extrair as atualizações de *state* (estado)](/reference/react/useEffect#updating-state-based-on-previous-state-from-an-effect) e sua [lógica não reativa](/reference/react/useEffect#reading-the-latest-props-and-state-from-an-effect) para fora do seu *Effect* (efeito).
 
-* Os efeitos (*Effects*) **só são executados no cliente.** Eles não são executados durante a renderização no servidor.
+* Os *Effects* (efeitos) **só são executados no lado do cliente.** Eles não são executados durante a renderização no lado do servidor.
 
-* O código executado dentro do `useLayoutEffect` e todas as atualizações de estado (*state*) agendadas a partir dele **bloqueiam o navegador de redesenhar a tela**. Quando usado em excesso, acaba tornando sua aplicação lenta. Sempre que possível, prefira o [`useEffect`.](/reference/react/useEffect)
+* O código executado dentro do `useLayoutEffect` e todas as atualizações de *state* (estado) agendadas a partir dele **bloqueiam o navegador de exibir a tela**. Quando usado em excesso, acaba tornando sua aplicação lenta. Sempre que possível, prefira usar o [`useEffect`.](/reference/react/useEffect)
 
 ---
 
 ## Uso {/*usage*/}
 
-### Measuring layout before the browser repaints the screen {/*measuring-layout-before-the-browser-repaints-the-screen*/}
+### Medindo o layout antes do navegador exibir a tela {/*measuring-layout-before-the-browser-repaints-the-screen*/}
 
-Most components don't need to know their position and size on the screen to decide what to render. They only return some JSX. Then the browser calculates their *layout* (position and size) and repaints the screen.
+A maioria dos componentes não precisa saber sua posição e tamanho na tela para decidir o que renderizar. Eles apenas retornam algum JSX. Em seguida, o navegador calcula o *layout* deles (posição e tamanho) e exibe a tela.
 
-Sometimes, that's not enough. Imagine a tooltip that appears next to some element on hover. If there's enough space, the tooltip should appear above the element, but if it doesn't fit, it should appear below. In order to render the tooltip at the right final position, you need to know its height (i.e. whether it fits at the top).
+Às vezes, somente isso não é suficiente. Imagine uma ferramenta de dica que aparece ao lado de algum elemento quando o mouse está sobre ele. Se houver espaço suficiente, a ferramenta de dica deve aparecer acima do elemento, mas se não couber, ela deve aparecer abaixo. Para renderizar a ferramenta de dica na posição final correta, você precisa saber a altura dela (ou seja, se ela se encaixa na parte superior).
 
-To do this, you need to render in two passes:
+Para fazer isso, é necessário renderizar duas vezes:
 
-1. Render the tooltip anywhere (even with a wrong position).
-2. Measure its height and decide where to place the tooltip.
-3. Render the tooltip *again* in the correct place.
+1. Renderize a ferramenta de dica em qualquer lugar (mesmo com uma posição incorreta).
+2. Meça sua altura e decida onde colocar a ferramenta de dica.
+3. Renderize a ferramenta de dica *novamente* no local correto.
 
-**All of this needs to happen before the browser repaints the screen.** You don't want the user to see the tooltip moving. Call `useLayoutEffect` to perform the layout measurements before the browser repaints the screen:
+**Tudo isso precisa acontecer antes do navegador exibir a tela.** Você não quer que o usuário veja a ferramenta de dica se movendo. Chame o `useLayoutEffect` para realizar as medições de layout antes do navegador exibir a tela:
+
 
 ```js {5-8}
 function Tooltip() {
