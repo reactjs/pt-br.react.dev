@@ -36,8 +36,15 @@ Essas APIs serão removidas em uma versão principal futura do React.
 
 </Deprecated>
 
+<<<<<<< HEAD
 * [`findDOMNode`](/reference/react-dom/findDOMNode) encontra o nó DOM mais próximo correspondente a uma instância de componente de classe.
 * [`hydrate`](/reference/react-dom/hydrate) monta uma árvore no DOM criada a partir do HTML do servidor. Obsoleta em favor de [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).
 * [`render`](/reference/react-dom/render) monta uma árvore no DOM. Obsoleta em favor de [`createRoot`](/reference/react-dom/client/createRoot).
 * [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode) desmonta uma árvore do DOM. Obsoleta em favor de [`root.unmount()`.](/reference/react-dom/client/createRoot#root-unmount)
+=======
+* [`findDOMNode`](/reference/react-dom/findDOMNode) finds the closest DOM node corresponding to a class component instance.
+* [`hydrate`](/reference/react-dom/hydrate) mounts a tree into the DOM created from server HTML. Deprecated in favor of [`hydrateRoot`](/reference/react-dom/client/hydrateRoot).
+* [`render`](/reference/react-dom/render) mounts a tree into the DOM. Deprecated in favor of [`createRoot`](/reference/react-dom/client/createRoot).
+* [`unmountComponentAtNode`](/reference/react-dom/unmountComponentAtNode) unmounts a tree from the DOM. Deprecated in favor of [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount).
+>>>>>>> a472775b7c15f41b21865db1698113ca49ca95c4
 
