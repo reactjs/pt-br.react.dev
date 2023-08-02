@@ -281,15 +281,15 @@ export default function TopNav({
             <div className="text-base justify-center items-center gap-1.5 flex 3xl:flex-1 flex-row 3xl:justify-end">
               <div className="mx-2.5 gap-1.5 hidden lg:flex">
                 <NavItem isActive={section === 'learn'} url="/learn">
-                  Learn
+                  Aprenda
                 </NavItem>
                 <NavItem
                   isActive={section === 'reference'}
                   url="/reference/react">
-                  Reference
+                  Referência
                 </NavItem>
                 <NavItem isActive={section === 'community'} url="/community">
-                  Community
+                  Comunidade
                 </NavItem>
                 <NavItem isActive={section === 'blog'} url="/blog">
                   Blog
