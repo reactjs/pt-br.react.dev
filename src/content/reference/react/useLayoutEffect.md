@@ -89,26 +89,26 @@ Para fazer isso, é necessário renderizar duas vezes:
 ```js {5-8}
 function Tooltip() {
   const ref = useRef(null);
-  const [tooltipHeight, setTooltipHeight] = useState(0); // You don't know real height yet
+  const [tooltipHeight, setTooltipHeight] = useState(0); // Você ainda não sabe qual a altura real
 
   useLayoutEffect(() => {
     const { height } = ref.current.getBoundingClientRect();
-    setTooltipHeight(height); // Re-render now that you know the real height
+    setTooltipHeight(height); // Re-renderize novamente agora já que você conhece a altura real
   }, []);
 
-  // ...use tooltipHeight in the rendering logic below...
+  // ...use o tooltipHeight na lógica de renderização em seguida...
 }
 ```
 
-Here's how this works step by step:
+Aqui está a explicação de como o código acima funciona passo a passo:
 
-1. `Tooltip` renders with the initial `tooltipHeight = 0`  (so the tooltip may be wrongly positioned).
-2. React places it in the DOM and runs the code in `useLayoutEffect`.
-3. Your `useLayoutEffect` [measures the height](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) of the tooltip content and triggers an immediate re-render.
-4. `Tooltip` renders again with the real `tooltipHeight` (so the tooltip is correctly positioned).
-5. React updates it in the DOM, and the browser finally displays the tooltip.
+1. O `Tooltip` renderiza com o valor inicial do *state* (estado) `tooltipHeight = 0` (portanto, a ferramenta de dica pode estar posicionada incorretamente).
+2. O React o adiciona no DOM e executa o código do `useLayoutEffect`.
+3. Seu `useLayoutEffect` [mede a altura](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) do conteúdo da ferramenta de dica e altera o valor do *state*, desencadeando uma nova renderização imediatamente.
+4. O `Tooltip` renderiza novamente com o *state* (estado) `tooltipHeight` contendo o valor correto da altura (então a ferramenta de dica é posicionada corretamente).
+5. O React a atualiza o DOM e finalmente o navegador exibe a ferramenta de dica.
 
-Hover over the buttons below and see how the tooltip adjusts its position depending on whether it fits:
+Passe o mouse sobre os botões abaixo e observe como a ferramenta de dica ajusta a sua posição conforme a disponibilidade de espaço:
 
 <Sandpack>
 
@@ -121,29 +121,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Esta ferramenta de dica não cabe acima do botão.
             <br />
-            This is why it's displayed below instead!
+            Por isso, ela é exibida abaixo!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Passe o mouse sobre mim (ferramenta de dica abaixo)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Esta ferramenta de dica cabe acima do botão</div>
         }
       >
-        Hover over me (tooltip below)
+        Passe o mouse sobre mim (ferramenta de dica acima)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Esta ferramenta de dica cabe acima do botão</div>
         }
       >
-        Hover over me (tooltip below)
+        Passe o mouse sobre mim (ferramenta de dica acima)
       </ButtonWithTooltip>
     </div>
   );
@@ -198,7 +198,7 @@ export default function Tooltip({ children, targetRect }) {
   useLayoutEffect(() => {
     const { height } = ref.current.getBoundingClientRect();
     setTooltipHeight(height);
-    console.log('Measured tooltip height: ' + height);
+    console.log('Medida da altura da ferramenta de dica: ' + height);
   }, []);
 
   let tooltipX = 0;
@@ -207,7 +207,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // Não cabe acima, então coloque abaixo.
       tooltipY = targetRect.bottom;
     }
   }
