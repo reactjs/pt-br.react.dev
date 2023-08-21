@@ -379,20 +379,12 @@ export function HomeContent() {
                           </Link>{' '}
                           e{' '}
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
-<<<<<<< HEAD
                           permite que você crie aplicativos em React para
                           Android, iOS e muito mais. Eles parecem nativos porque
-                          suas interfaces de usuário são realmente nativas. Não
-                          é uma visualização da Web. Seus componentes React
-                          renderizam visualizações reais de Android e iOS
-                          fornecidas pela plataforma.
-=======
-                          let you build apps in React for Android, iOS, and
-                          more. They look and feel native because their UIs{' '}
-                          <i>are</i> truly native. It’s not a web view—your
-                          React components render real Android and iOS views
-                          provided by the platform.
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+                          suas interfaces de usuário <i>são</i> realmente
+                          nativas. Não é uma visualização da Web. Seus
+                          componentes React renderizam visualizações reais de
+                          Android e iOS fornecidas pela plataforma.
                         </p>
                       </div>
                     </div>
@@ -420,13 +412,8 @@ export function HomeContent() {
         <Section background="right-card">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row px-5">
             <div className="max-w-3xl lg:max-w-7xl gap-5 flex flex-col lg:flex-row lg:px-5">
-<<<<<<< HEAD
-              <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:pl-5 lg:pr-10">
-                <Header>Atualize quando o futuro estiver pronto</Header>
-=======
               <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:ps-5 lg:pe-10">
-                <Header>Upgrade when the future is ready</Header>
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+                <Header>Atualize quando o futuro estiver pronto</Header>
                 <Para>
                   React aborda as mudanças com cuidado. Cada commit do React é
                   testado em superfícies críticas para os negócios com mais de
@@ -512,13 +499,8 @@ export function HomeContent() {
           <div className="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
             <Logo className="text-link dark:text-link-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
             <Header>
-<<<<<<< HEAD
-              Bem-vindo à <br className="" />
+              Bem-vindo à <br className="hidden lg:inline" />
               comunidade React
-=======
-              Welcome to the <br className="hidden lg:inline" />
-              React community
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
             </Header>
             <ButtonLink
               href={'/learn'}
@@ -1496,13 +1478,8 @@ function SearchInput({value, onChange}) {
         <input
           type="text"
           id={id}
-<<<<<<< HEAD
-          className="flex pl-11 py-4 h-10 w-full bg-secondary-button outline-none betterhover:hover:bg-opacity-80 pointer items-center text-left text-primary rounded-full align-middle text-base"
-          placeholder="Procurar"
-=======
           className="flex ps-11 py-4 h-10 w-full text-start bg-secondary-button outline-none betterhover:hover:bg-opacity-80 pointer items-center text-primary rounded-full align-middle text-base"
-          placeholder="Search"
->>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
+          placeholder="Procurar"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
