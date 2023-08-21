@@ -210,7 +210,11 @@ Quando um componente filho precisa de alguns dados de um pai, [passe-os por prop
 
 #### Componentes em todos os níveis {/*components-all-the-way-down*/}
 
+<<<<<<< HEAD
 Sua aplicação React começa em um componente "raiz". Normalmente, ele é criado automaticamente quando você inicia um novo projeto. Por exemplo, se você usar [CodeSandbox](https://codesandbox.io/) ou [Create React App](https://create-react-app.dev/), o componente raiz é definido em `src/App.js`. Se você usar o framework [Next.js](https://nextjs.org/), o componente raiz é definido em `pages/index.js`. Nesses exemplos, você exportou componentes raiz.
+=======
+Your React application begins at a "root" component. Usually, it is created automatically when you start a new project. For example, if you use [CodeSandbox](https://codesandbox.io/) or if you use the framework [Next.js](https://nextjs.org/), the root component is defined in `pages/index.js`. In these examples, you've been exporting root components.
+>>>>>>> 842c24c9aefaa60b7ae9b46b002bd1b3cf4d31f3
 
 A maioria das aplicações React usa componentes em todos os níveis. Isso significa que você não usará componentes apenas para partes reutilizáveis, como botões, mas também para partes maiores, como barras laterais, listas e até em páginas inteiras! Os componentes são uma maneira prática de organizar o código e o HTML da UI, mesmo que alguns deles sejam usados apenas uma vez.
 
