@@ -37,6 +37,10 @@
           "path": "/learn/editor-setup"
         },
         {
+          "title": "Usando TypeScript",
+          "path": "/learn/typescript"
+        },
+        {
           "title": "Ferramentas do Desenvolvedor React",
           "path": "/learn/react-developer-tools"
         }

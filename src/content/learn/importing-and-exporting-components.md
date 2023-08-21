@@ -52,7 +52,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-Atualmente, eles residem em um **arquivo de componente raiz,** chamado `App.js` nesse exemplo. Em [Criar Aplicação React](https://create-react-app.dev/), seu app reside em `src/App.js`. Dependendo da sua configuração, seu componente raiz pode estar em outro arquivo. Se você usar um framework com roteamento baseado em arquivo, como o Next.js, seu componente raiz será diferente para cada página.
+Atualmente, eles residem em um **arquivo de componente raiz,** chamado `App.js` nesse exemplo. Dependendo da sua configuração, seu componente raiz pode estar em outro arquivo. Se você usar um framework com roteamento baseado em arquivo, como o Next.js, seu componente raiz será diferente para cada página.
 
 ## Exportando e importando um componente {/*exporting-and-importing-a-component*/}
 
