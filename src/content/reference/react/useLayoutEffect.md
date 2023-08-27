@@ -252,13 +252,13 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-Notice that even though the `Tooltip` component has to render in two passes (first, with `tooltipHeight` initialized to `0` and then with the real measured height), you only see the final result. This is why you need `useLayoutEffect` instead of [`useEffect`](/reference/react/useEffect) for this example. Let's look at the difference in detail below.
+Observe que, mesmo o componente `Tooltip` precisando ser renderizado em duas etapas (primeiro, com o `tooltipHeight` inicializado com o valor `0` e em seguida, com a medida da altura real), você só visualiza o resultado final. Isso é o por que precisamos usar `useLayoutEffect` ao invés de [`useEffect`](/reference/react/useEffect) para este cenário de exemplo. Vamos visualizar as diferenças com mais detalhes abaixo.
 
 <Recipes titleText="useLayoutEffect vs useEffect" titleId="examples">
 
-#### `useLayoutEffect` blocks the browser from repainting {/*uselayouteffect-blocks-the-browser-from-repainting*/}
+#### `useLayoutEffect` impede o navegador de exibir a tela {/*uselayouteffect-blocks-the-browser-from-repainting*/}
 
-React guarantees that the code inside `useLayoutEffect` and any state updates scheduled inside it will be processed **before the browser repaints the screen.** This lets you render the tooltip, measure it, and re-render the tooltip again without the user noticing the first extra render. In other words, `useLayoutEffect` blocks the browser from painting.
+O React garante que o código dentro de `useLayoutEffect` e quaisquer atualizações de *state* (estado) agendadas dentro dele serão processados **antes do navegador exibir a tela**. Isso permite que você renderize a ferramenta de dica, tire sua medida e renderize novamente sem que o usuário perceba a primeira renderização extra. Em outras palavras, o `useLayoutEffect` bloqueia o navegador de realizar a construção da tela.
 
 <Sandpack>
 
@@ -271,29 +271,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Esta ferramenta de dica não cabe acima do botão.
             <br />
-            This is why it's displayed below instead!
+            Por isso, ela é exibida abaixo!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Passe o mouse sobre mim (ferramenta de dica abaixo)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Esta ferramenta de dica cabe acima do botão</div>
         }
       >
-        Hover over me (tooltip below)
+        Passe o mouse sobre mim (ferramenta de dica acima)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Esta ferramenta de dica cabe acima do botão</div>
         }
       >
-        Hover over me (tooltip below)
+        Passe o mouse sobre mim (ferramenta de dica acima)
       </ButtonWithTooltip>
     </div>
   );
@@ -356,7 +356,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // Não cabe acima, então coloque abaixo.
       tooltipY = targetRect.bottom;
     }
   }
