@@ -403,9 +403,9 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 <Solution />
 
-#### `useEffect` does not block the browser {/*useeffect-does-not-block-the-browser*/}
+#### `useEffect` não bloqueia o navegador {/*useeffect-does-not-block-the-browser*/}
 
-Here is the same example, but with [`useEffect`](/reference/react/useEffect) instead of `useLayoutEffect`. If you're on a slower device, you might notice that sometimes the tooltip "flickers" and you briefly see its initial position before the corrected position.
+Aqui está o mesmo exemplo, mas com [`useEffect`](/reference/react/useEffect) ao invés de `useLayoutEffect`. Se estiver em um dispositivo mais lento, talvez você perceba que às vezes a ferramenta de dica "pisca" e durante um instante você vê sua posição inicial antes da correção de posição ser aplicada.
 
 <Sandpack>
 
@@ -418,29 +418,29 @@ export default function App() {
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Esta ferramenta de dica não cabe acima do botão.
             <br />
-            This is why it's displayed below instead!
+            Por isso, ela é exibida abaixo!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Passe o mouse sobre mim (ferramenta de dica abaixo)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Esta ferramenta de dica cabe acima do botão</div>
         }
       >
-        Hover over me (tooltip below)
+        Passe o mouse sobre mim (ferramenta de dica acima)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Esta ferramenta de dica cabe acima do botão</div>
         }
       >
-        Hover over me (tooltip below)
+        Passe o mouse sobre mim (ferramenta de dica acima)
       </ButtonWithTooltip>
     </div>
   );
@@ -503,7 +503,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // Não cabe acima, então coloque abaixo.
       tooltipY = targetRect.bottom;
     }
   }
@@ -548,7 +548,7 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-To make the bug easier to reproduce, this version adds an artificial delay during rendering. React will let the browser paint the screen before it processes the state update inside `useEffect`. As a result, the tooltip flickers:
+Para tornar o bug mais fácil de reproduzir, esta versão adiciona um atraso artificial durante a renderização. O React permitirá que o navegador construa a tela antes de processar a atualização do *state* (estado) dentro do `useEffect`. Como resultado, a dica de ferramenta piscará:
 
 <Sandpack>
 
@@ -557,33 +557,33 @@ import ButtonWithTooltip from './ButtonWithTooltip.js';
 
 export default function App() {
   return (
-    <div>
+     <div>
       <ButtonWithTooltip
         tooltipContent={
           <div>
-            This tooltip does not fit above the button.
+            Esta ferramenta de dica não cabe acima do botão.
             <br />
-            This is why it's displayed below instead!
+            Por isso, ela é exibida abaixo!
           </div>
         }
       >
-        Hover over me (tooltip above)
+        Passe o mouse sobre mim (ferramenta de dica abaixo)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Esta ferramenta de dica cabe acima do botão</div>
         }
       >
-        Hover over me (tooltip below)
+        Passe o mouse sobre mim (ferramenta de dica acima)
       </ButtonWithTooltip>
       <div style={{ height: 50 }} />
       <ButtonWithTooltip
         tooltipContent={
-          <div>This tooltip fits above the button</div>
+          <div>Esta ferramenta de dica cabe acima do botão</div>
         }
       >
-        Hover over me (tooltip below)
+        Passe o mouse sobre mim (ferramenta de dica acima)
       </ButtonWithTooltip>
     </div>
   );
@@ -635,10 +635,10 @@ export default function Tooltip({ children, targetRect }) {
   const ref = useRef(null);
   const [tooltipHeight, setTooltipHeight] = useState(0);
 
-  // This artificially slows down rendering
+  // Isso artificialmente retarda a renderização
   let now = performance.now();
   while (performance.now() - now < 100) {
-    // Do nothing for a bit...
+    // Não faça nada por um tempo...
   }
 
   useEffect(() => {
@@ -652,7 +652,7 @@ export default function Tooltip({ children, targetRect }) {
     tooltipX = targetRect.left;
     tooltipY = targetRect.top - tooltipHeight;
     if (tooltipY < 0) {
-      // It doesn't fit above, so place below.
+      // Não cabe acima, então coloque abaixo.
       tooltipY = targetRect.bottom;
     }
   }
