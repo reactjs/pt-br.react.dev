@@ -697,7 +697,7 @@ export default function TooltipContainer({ children, x, y, contentRef }) {
 
 </Sandpack>
 
-Edit this example to `useLayoutEffect` and observe that it blocks the paint even if rendering is slowed down.
+Edite esse exemplo usando `useLayoutEffect` e veja que ele bloqueia a construção mesmo se a renderização for retardada.
 
 <Solution />
 
@@ -705,36 +705,36 @@ Edit this example to `useLayoutEffect` and observe that it blocks the paint even
 
 <Note>
 
-Rendering in two passes and blocking the browser hurts performance. Try to avoid this when you can.
+Renderizar em duas etapas bloqueando o navegador prejudica o desempenho. Tente evitar isso sempre que for possível.
 
 </Note>
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I'm getting an error: "`useLayoutEffect` does nothing on the server" {/*im-getting-an-error-uselayouteffect-does-nothing-on-the-server*/}
+### Estou recebendo o erro: "`useLayoutEffect` does nothing on the server" {/*im-getting-an-error-uselayouteffect-does-nothing-on-the-server*/}
 
-The purpose of `useLayoutEffect` is to let your component [use layout information for rendering:](#measuring-layout-before-the-browser-repaints-the-screen)
+O propósito do `useLayoutEffect` é permitir que seu componente [use informações de layout para a renderização:](#measuring-layout-before-the-browser-repaints-the-screen)
 
-1. Render the initial content.
-2. Measure the layout *before the browser repaints the screen.*
-3. Render the final content using the layout information you've read.
+1. Renderize o conteúdo inicial.
+2. Meça o layout *antes do navegador exibir a tela*.
+3. Renderize o conteúdo final usando as informações de layout que você recebeu.
 
-When you or your framework uses [server rendering](/reference/react-dom/server), your React app renders to HTML on the server for the initial render. This lets you show the initial HTML before the JavaScript code loads.
+Quando você ou seu framework utilizam a [renderização no lado do servidor](/reference/react-dom/server), sua aplicação React gera o HTML no servidor para a renderização inicial. Isso permite que você exiba o HTML inicial antes que o código JavaScript seja carregado.
 
-The problem is that on the server, there is no layout information.
+O problema é que no lado do servidor não há informações de layout disponíveis.
 
-In the [earlier example](#measuring-layout-before-the-browser-repaints-the-screen), the `useLayoutEffect` call in the `Tooltip` component lets it position itself correctly (either above or below content) depending on the content height. If you tried to render `Tooltip` as a part of the initial server HTML, this would be impossible to determine. On the server, there is no layout yet! So, even if you rendered it on the server, its position would "jump" on the client after the JavaScript loads and runs.
+No [exemplo anterior](#measuring-layout-before-the-browser-repaints-the-screen), a chamada do `useLayoutEffect` no componente `Tooltip` permite que ele se posicione corretamente (acima ou abaixo do conteúdo) dependendo da altura do conteúdo. Se você tentasse renderizar o `Tooltip` como parte do HTML inicial do servidor, isso seria impossível de determinar. No servidor, ainda não há layout! Portanto, mesmo que você o renderizasse no lado do servidor, sua posição "pularia" no lado do cliente após o carregamento e execução do JavaScript.
 
-Usually, components that rely on layout information don't need to render on the server anyway. For example, it probably doesn't make sense to show a `Tooltip` during the initial render. It is triggered by a client interaction.
+Normalmente, componentes que dependem de informações de layout não precisam ser renderizados no lado do servidor. Por exemplo, é provável que não se faça muito sentido mostrar um `Tooltip` durante a renderização inicial, pois ele é acionado por meio de uma interação do usuário no lado do cliente.
 
-However, if you're running into this problem, you have a few different options:
+No entanto, se encontrar esse problema, você possui essas opções:
 
-- Replace `useLayoutEffect` with [`useEffect`.](/reference/react/useEffect) This tells React that it's okay to display the initial render result without blocking the paint (because the original HTML will become visible before your Effect runs).
+- Substituir o `useLayoutEffect` pelo [`useEffect`.](/reference/react/useEffect) Isso informa ao React que é aceitável exibir o resultado da renderização inicial sem bloquear a construção (porque o HTML original ficará visível antes de seu *Effect* (efeito) ser executado).
 
-- Alternatively, [mark your component as client-only.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content) This tells React to replace its content up to the closest [`<Suspense>`](/reference/react/Suspense) boundary with a loading fallback (for example, a spinner or a glimmer) during server rendering.
+- [Marque seu componente como exclusivo para o cliente.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content) Isso diz ao React para substituir seu conteúdo até o limite mais próximo de [`<Suspense>`](/reference/react/Suspense) por uma carga de fallback (por exemplo, um *spinner* ou um *glimmer*) durante a renderização no lado do servidor.
 
-- Alternatively, you can render a component with `useLayoutEffect` only after hydration. Keep a boolean `isMounted` state that's initialized to `false`, and set it to `true` inside a `useEffect` call. Your rendering logic can then be like `return isMounted ? <RealContent /> : <FallbackContent />`. On the server and during the hydration, the user will see `FallbackContent` which should not call `useLayoutEffect`. Then React will replace it with `RealContent` which runs on the client only and can include `useLayoutEffect` calls.
+- Você também pode renderizar um componente com `useLayoutEffect` somente após a hidratação. Mantenha um *state* (estado) booleano `isMounted` que é iniciado como `false`, e defina-o como `true` dentro de uma chamada de `useEffect`. Sua lógica de renderização pode ser algo semelhante a isso: `return isMounted ? <RealContent /> : <FallbackContent />`. No lado servidor e durante a hidratação, o usuário verá `FallbackContent` que não deve chamar o `useLayoutEffect`.  Então, o React substituirá isso por `RealContent`  que é executado apenas no lado do cliente e pode incluir chamadas de `useLayoutEffect`.
 
-- If you synchronize your component with an external data store and rely on `useLayoutEffect` for different reasons than measuring layout, consider [`useSyncExternalStore`](/reference/react/useSyncExternalStore) instead which [supports server rendering.](/reference/react/useSyncExternalStore#adding-support-for-server-rendering)
+- Se você sincronizar seu componente com uma loja de dados externa e depender de `useLayoutEffect` por razões diferentes da medição de layout, considere usar [`useSyncExternalStore`](/reference/react/useSyncExternalStore) que oferece [suporte a renderização no lado servidor.](/reference/react/useSyncExternalStore#adding-support-for-server-rendering)
