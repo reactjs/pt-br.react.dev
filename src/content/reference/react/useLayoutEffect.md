@@ -55,7 +55,7 @@ function Tooltip() {
 
 `useLayoutEffect` retorna `undefined`.
 
-#### Observações {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
 * `useLayoutEffect` é um Hook, então você só pode chamá-lo **no nível superior do seu componente** ou nos seus próprios Hooks. Não é possível chamá-lo dentro de loops ou condições. Se você precisar fazer isso, crie um componente e mova seu *Effect* (efeito) para lá.
 
