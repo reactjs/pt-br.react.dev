@@ -1488,8 +1488,6 @@ Aqui está uma verão consertada que usa uma variável normal `name` declarada n
 <Sandpack>
 
 ```js
-import { useState } from 'react';
-
 export default function FeedbackForm() {
   function handleClick() {
     const name = prompt('What is your name?');
