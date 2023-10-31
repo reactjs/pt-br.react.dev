@@ -1438,7 +1438,7 @@ Seria bom se houvesse uma maneira de dizer ao React que quando `savedContact.id`
 
 <Solution>
 
-Divida o componente `EditContact` em dois. Mova todo o state do formulário para o componente `EditForm` interno. Exporte o componente externo `EditContact` e faça com que ele passe `savedContact.id` como a `chave` para o componente interno `EditContact`. Como resultado, o componente interno `EditForm` redefine todo o state do formulário e recria o DOM sempre que você seleciona um contato diferente.
+Divida o componente `EditContact` em dois. Mova todo o state do formulário para o componente `EditForm` interno. Exporte o componente externo `EditContact` e faça com que ele passe `savedContact.id` como a `chave` para o componente interno `EditForm`. Como resultado, o componente interno `EditForm` redefine todo o state do formulário e recria o DOM sempre que você seleciona um contato diferente.
 
 <Sandpack>
 

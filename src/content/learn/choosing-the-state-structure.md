@@ -697,119 +697,115 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 21,
-        title: 'Hong Kong',
-        childPlaces: []
-      }, {
-        id: 22,
         title: 'Índia',
         childPlaces: []
       }, {
-        id: 23,
+        id: 22,
         title: 'Singapura',
         childPlaces: []
       }, {
-        id: 24,
+        id: 23,
         title: 'Coreia do Sul',
         childPlaces: []
       }, {
-        id: 25,
+        id: 24,
         title: 'Tailândia',
         childPlaces: []
       }, {
-        id: 26,
+        id: 25,
         title: 'Vietnã',
         childPlaces: []
       }]
     }, {
-      id: 27,
+      id: 26,
       title: 'Europa',
       childPlaces: [{
-        id: 28,
+        id: 27,
         title: 'Croácia',
         childPlaces: [],
       }, {
-        id: 29,
+        id: 28,
         title: 'França',
         childPlaces: [],
       }, {
-        id: 30,
+        id: 29,
         title: 'Alemanha',
         childPlaces: [],
       }, {
-        id: 31,
+        id: 30,
         title: 'Itália',
         childPlaces: [],
       }, {
-        id: 32,
+        id: 31,
         title: 'Portugal',
         childPlaces: [],
       }, {
-        id: 33,
+        id: 32,
         title: 'Espanha',
         childPlaces: [],
       }, {
-        id: 34,
+        id: 33,
         title: 'Turquia',
         childPlaces: [],
       }]
     }, {
-      id: 35,
+      id: 34,
       title: 'Oceania',
       childPlaces: [{
-        id: 36,
+        id: 35,
         title: 'Austrália',
         childPlaces: [],
       }, {
-        id: 37,
+        id: 36,
         title: 'Bora Bora (Polinésia Francesa)',
         childPlaces: [],
       }, {
-        id: 38,
+        id: 37,
         title: 'Ilha da Páscoa (Chile)',
         childPlaces: [],
       }, {
-        id: 39,
+        id: 38,
         title: 'Fiji',
         childPlaces: [],
       }, {
-        id: 40,
+        id: 39,
         title: 'Hawaii (EUA)',
         childPlaces: [],
       }, {
-        id: 41,
+        id: 40,
         title: 'Nova Zelândia',
         childPlaces: [],
       }, {
-        id: 42,
+        id: 41,
         title: 'Vanuatu',
         childPlaces: [],
       }]
     }]
   }, {
-    id: 43,
+    id: 42,
     title: 'Lua',
     childPlaces: [{
-      id: 44,
+      id: 43,
       title: 'Rheita',
       childPlaces: []
     }, {
-      id: 45,
+      id: 44,
       title: 'Piccolomini',
       childPlaces: []
     }, {
-      id: 46,
+      id: 45,
       title: 'Tycho',
       childPlaces: []
     }]
   }, {
-    id: 47,
+    id: 46,
     title: 'Marte',
     childPlaces: [{
-      id: 48,
+      id: 47,
       title: 'Cidade do Milho',
       childPlaces: []
     }, {
-      id: 49,
+      id: 48,
       title: 'Monte Verde',
       childPlaces: []      
     }]
@@ -878,7 +874,7 @@ export const initialTravelPlan = {
   0: {
     id: 0,
     title: '(Root)',
-    childIds: [1, 43, 47],
+    childIds: [1, 42, 46],
   },
   1: {
     id: 1,
@@ -982,7 +978,7 @@ export const initialTravelPlan = {
   },
   21: {
     id: 21,
-    title: 'Hong Kong',
+    title: 'India',
     childIds: []
   },
   22: {
@@ -1037,7 +1033,7 @@ export const initialTravelPlan = {
   },
   32: {
     id: 32,
-    title: 'Portugal',
+    title: 'Spain',
     childIds: []
   },
   33: {
@@ -1052,8 +1048,8 @@ export const initialTravelPlan = {
   },
   35: {
     id: 35,
-    title: 'Oceania',
-    childIds: [36, 37, 38, 39, 40, 41, 42],   
+    title: 'Australia',
+    childIds: []
   },
   36: {
     id: 36,
@@ -1071,8 +1067,8 @@ export const initialTravelPlan = {
     childIds: []
   },
   39: {
-    id: 39,
-    title: 'Fiji',
+    id: 40,
+    title: 'Hawaii (the USA)',
     childIds: []
   },
   40: {
@@ -1087,8 +1083,8 @@ export const initialTravelPlan = {
   },
   42: {
     id: 42,
-    title: 'Vanuatu',
-    childIds: []
+    title: 'Moon',
+    childIds: [43, 44, 45]
   },
   43: {
     id: 43,
@@ -1097,18 +1093,18 @@ export const initialTravelPlan = {
   },
   44: {
     id: 44,
-    title: 'Rheita',
+    title: 'Piccolomini',
     childIds: []
   },
   45: {
     id: 45,
-    title: 'Piccolomini',
+    title: 'Tycho',
     childIds: []
   },
   46: {
     id: 46,
-    title: 'Tycho',
-    childIds: []
+    title: 'Mars',
+    childIds: [47, 48]
   },
   47: {
     id: 47,
@@ -1219,7 +1215,7 @@ export const initialTravelPlan = {
   0: {
     id: 0,
     title: '(Root)',
-    childIds: [1, 43, 47],
+    childIds: [1, 42, 46],
   },
   1: {
     id: 1,
@@ -1323,7 +1319,7 @@ export const initialTravelPlan = {
   },
   21: {
     id: 21,
-    title: 'Hong Kong',
+    title: 'India',
     childIds: []
   },
   22: {
@@ -1378,7 +1374,7 @@ export const initialTravelPlan = {
   },
   32: {
     id: 32,
-    title: 'Portugal',
+    title: 'Spain',
     childIds: []
   },
   33: {
@@ -1413,7 +1409,7 @@ export const initialTravelPlan = {
   },
   39: {
     id: 39,
-    title: 'Fiji',
+    title: 'Hawaii (the USA)',
     childIds: []
   },
   40: {
@@ -1428,8 +1424,8 @@ export const initialTravelPlan = {
   },
   42: {
     id: 42,
-    title: 'Vanuatu',
-    childIds: []
+    title: 'Moon',
+    childIds: [43, 44, 45]
   },
   43: {
     id: 43,
@@ -1438,18 +1434,18 @@ export const initialTravelPlan = {
   },
   44: {
     id: 44,
-    title: 'Rheita',
+    title: 'Piccolomini',
     childIds: []
   },
   45: {
     id: 45,
-    title: 'Piccolomini',
+    title: 'Tycho',
     childIds: []
   },
   46: {
     id: 46,
-    title: 'Tycho',
-    childIds: []
+    title: 'Mars',
+    childIds: [47, 48]
   },
   47: {
     id: 47,
@@ -1563,7 +1559,7 @@ export const initialTravelPlan = {
   0: {
     id: 0,
     title: '(Root)',
-    childIds: [1, 43, 47],
+    childIds: [1, 42, 46],
   },
   1: {
     id: 1,
@@ -1667,7 +1663,7 @@ export const initialTravelPlan = {
   },
   21: {
     id: 21,
-    title: 'Hong Kong',
+    title: 'India',
     childIds: []
   },
   22: {
@@ -1722,7 +1718,7 @@ export const initialTravelPlan = {
   },
   32: {
     id: 32,
-    title: 'Portugal',
+    title: 'Spain',
     childIds: []
   },
   33: {
@@ -1757,7 +1753,7 @@ export const initialTravelPlan = {
   },
   39: {
     id: 39,
-    title: 'Fiji',
+    title: 'Hawaii (the USA)',
     childIds: []
   },
   40: {
@@ -1772,8 +1768,8 @@ export const initialTravelPlan = {
   },
   42: {
     id: 42,
-    title: 'Vanuatu',
-    childIds: []
+    title: 'Moon',
+    childIds: [43, 44, 45]
   },
   43: {
     id: 43,
@@ -1782,18 +1778,18 @@ export const initialTravelPlan = {
   },
   44: {
     id: 44,
-    title: 'Rheita',
+    title: 'Piccolomini',
     childIds: []
   },
   45: {
     id: 45,
-    title: 'Piccolomini',
+    title: 'Tycho',
     childIds: []
   },
   46: {
     id: 46,
-    title: 'Tycho',
-    childIds: []
+    title: 'Mars',
+    childIds: [47, 48]
   },
   47: {
     id: 47,
