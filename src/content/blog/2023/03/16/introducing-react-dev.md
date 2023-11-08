@@ -28,7 +28,7 @@ Para celebrar o lançamento da nova documentação e, mais importante ainda, par
 
 A antiga documentação do React agora está arquivada em [legacy.reactjs.org](https://legacy.reactjs.org). Todos os links existentes para o conteúdo antigo serão redirecionados automaticamente para lá, a fim de evitar "quebrar a web", mas o site legado não receberá muitas mais atualizações.
 
-Acredite ou não, o React vai fazer dez anos de idade em breve. Em anos de JavaScript, é como se fosse um século inteiro! Atualizamos a [página inicial do React](https://react.dev) para refletir por que achamos que o React é uma ótima maneira de criar interfaces de usuário hoje e atualizamos os guias de introdução para mencionar com mais destaque os frameworks modernos baseados em React.
+Acredite ou não, o React vai fazer dez anos de idade em breve. Em anos de JavaScript, é como se fosse um século inteiro! Atualizamos a [página inicial do React](https://react.dev) para refletir o porquê achamos que o React é uma ótima maneira de criar interfaces de usuário atualmente e atualizamos os guias de introdução para mencionar com mais destaque os frameworks modernos baseados em React.
 
 Se ainda não viu a nova página inicial, veja!
 
