@@ -51,7 +51,7 @@ Ainda existem alguns casos raros de uso de componentes de classe que ainda não 
 
 ## Início rápido {/*quick-start*/}
 
-A seção Aprender começa com a página [Ínicio Rápido](/learn). É um pequeno tour introdutório do React. Ele introduz a sintaxe para conceitos como componentes, props e state, mas não entra em muitos detalhes sobre como usá-los.
+A seção Aprender começa com a página [Início Rápido](/learn). É um pequeno tour introdutório do React. Ele introduz a sintaxe para conceitos como componentes, props (propriedades) e state (estado), mas não entra em muitos detalhes sobre como usá-los.
 
 Se você gosta de aprender fazendo, recomendamos que confira o [Tutorial: Jogo da Velha](/learn/tutorial-tic-tac-toe) a seguir. Ele o orienta na construção de um pequeno jogo com React, enquanto ensina as habilidades que você usará todos os dias. Aqui está o que você vai construir:
 
