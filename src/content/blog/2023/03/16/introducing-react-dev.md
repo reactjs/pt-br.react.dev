@@ -39,7 +39,7 @@ Quando lançamos o React Hooks em 2018, os documentos do Hooks assumiram que o l
 **A nova documentação ensina React com Hooks desde o início.** A documentação está dividida em duas seções principais:
 
 * **[Aprenda React](/learn)** é um curso individualizado que ensina React do zero.
-* **[API de Referência](/reference)** fornece os detalhes e exemplos de uso para cada API React.
+* **[Referências de API](/reference)** fornece os detalhes e exemplos de uso para cada API React.
 
 Vamos ver mais detalhadamente o que pode encontrar em cada seção.
 
