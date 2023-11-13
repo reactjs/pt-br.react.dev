@@ -1084,7 +1084,11 @@ Aqui, `<Recipe {...recipe} key={recipe.id} />` é um atalho de sintaxe dizendo "
 
 #### Lista com um separador {/*list-with-a-separator*/}
 
+<<<<<<< HEAD
 Esse exemplo renderiza um famoso haiku por Katsushika Hokusai, com cada linha envolta em uma tag `<p>`. Seu trabalho é inserir um separador `<hr />` entre cada parágrafo. Sua estrutura resultante deve se parecer com isso:
+=======
+This example renders a famous haiku by Tachibana Hokushi, with each line wrapped in a `<p>` tag. Your job is to insert an `<hr />` separator between each paragraph. Your resulting structure should look like this:
+>>>>>>> fcd00068bd1bdd4eb37e3e0ab0488a9d093670bc
 
 ```js
 <article>
