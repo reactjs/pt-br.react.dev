@@ -20,7 +20,7 @@ const [isPending, startTransition] = useTransition()
 
 ### `useTransition()` {/*usetransition*/}
 
-Chame `useTransition` no começo do seu componente para acionar as transições do state.
+Chame `useTransition` no início do seu componente para marcar algumas mudanças de estado como transições.
 ```js
 import { useTransition } from 'react';
 
