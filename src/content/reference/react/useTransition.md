@@ -36,7 +36,7 @@ function TabContainer() {
 
 `useTransition` não recebe parâmetros.
 
-#### Devoluções {/*returns*/}
+#### Retornos {/*returns*/}
 
 `useTransition` retorna um array com exatamente dois itens:
 
