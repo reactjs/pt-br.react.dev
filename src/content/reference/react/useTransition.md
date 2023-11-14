@@ -4,7 +4,7 @@ title: useTransition
 
 <Intro>
 
-`useTransition` é um Hook do React que permite você atualizar o state(estado) sem bloquear a UI.
+`useTransition` é um Hook do React que permite você atualizar o state (estado) sem bloquear a UI.
 
 ```js
 const [isPending, startTransition] = useTransition()
