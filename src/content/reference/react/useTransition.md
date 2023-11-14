@@ -38,7 +38,7 @@ function TabContainer() {
 
 #### Devoluções {/*returns*/}
 
-`useTransition` deve retornar um array com exatamente dois itens:
+`useTransition` retorna um array com exatamente dois itens:
 
 1. O atributo `isPending` que informa se há uma transição pendente
 2. A função [`startTransition`](#starttransition) que permite você marcar o state como uma transição.
