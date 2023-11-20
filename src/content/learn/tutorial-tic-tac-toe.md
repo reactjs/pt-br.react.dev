@@ -362,11 +362,19 @@ Você receberá este erro:
 
 <ConsoleBlock level="error">
 
+<<<<<<< HEAD
 /src/App.js: Elementos JSX adjacentes devem ser envolvidos em uma tag externa. Você queria um fragment JSX `<>...</>`?
 
 </ConsoleBlock>
 
 Componentes do React precisam retornar um único elemento JSX e não múltiplos elementos JSX adjacentes como dois botões. Para consertar isso você pode usar *fragments* (`<>` e `</>`) para envolver múltiplos elementos JSX adjacentes desta forma:
+=======
+/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX Fragment `<>...</>`?
+
+</ConsoleBlock>
+
+React components need to return a single JSX element and not multiple adjacent JSX elements like two buttons. To fix this you can use *Fragments* (`<>` and `</>`) to wrap multiple adjacent JSX elements like this:
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
 
 ```js {3-6}
 export default function Square() {
@@ -2073,7 +2081,17 @@ export default function Game() {
 }
 ```
 
+<<<<<<< HEAD
 Você pode ver como seu código deve se parecer abaixo. Perceba que você deve ver um erro em seu console nas ferramentas de desenvolvedor que diz: ``Aviso: Cada filho em um array ou iterador deve ter uma *prop* "key" única. Cheque o método render de `Game`.`` Você consertará esse erro na próxima seção.
+=======
+You can see what your code should look like below. Note that you should see an error in the developer tools console that says: 
+
+<ConsoleBlock level="warning">
+Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
+</ConsoleBlock>
+  
+You'll fix this error in the next section.
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
 
 <Sandpack>
 
@@ -2266,7 +2284,11 @@ para
 <li>Alexa: 5 tarefas restantes</li>
 ```
 
+<<<<<<< HEAD
 Em adição às contagens atualizadas, um humano lendo isso provavelmente diria que você trocou a ordem de Alexa e Ben e inseriu Claudia entre Alexa e Ben. Entretanto, o React é um programa de computador e não pode saber quais as suas intenções, então você precisa especificar uma propriedade *key* para cada item da lista para diferenciar cada item da lista de seus irmãos. Se seus dados vêm de uma base de dados, os IDs de Alexa, Ben e Claudia vindos da base de dados podem ser usadas como keys.
+=======
+In addition to the updated counts, a human reading this would probably say that you swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what you intended, so you need to specify a _key_ property for each list item to differentiate each list item from its siblings. If your data was from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
 
 ```js {1}
 <li key={user.id}>

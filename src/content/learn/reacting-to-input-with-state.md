@@ -84,7 +84,11 @@ function submitForm(answer) {
    // Simula que está acessando a rede. 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+<<<<<<< HEAD
       if (answer.toLowerCase() == 'istambul') {
+=======
+      if (answer.toLowerCase() === 'istanbul') {
+>>>>>>> 4f9e9a56611c7a56b9506cf0a7ca84ab409824bc
         resolve();
       } else {
         reject(new Error('Bom palpite, mas resposta errada. Tente novamente!'));
