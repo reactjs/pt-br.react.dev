@@ -179,7 +179,11 @@ Você pode estar se perguntando por que `useId` é melhor do que incrementar uma
 
 O principal benefício do `useId` é que o React garante que funcione com a [renderização do servidor.](/reference/react-dom/server) Durante a renderização do servidor, seus componentes geram saídas HTML. Posteriormente, no cliente, a [hidratação](/reference/react-dom/client/hydrateRoot) anexa seus manipuladores de eventos ao HTML gerado. Para que a hidratação funcione, a saída do cliente deve corresponder ao HTML do servidor.
 
+<<<<<<< HEAD
 Isso é muito difícil de garantir com um contador de incremento porque a ordem na qual os componentes do cliente são hidratados pode não corresponder à ordem na qual o HTML do servidor foi emitido. Ao chamar `useId`, você garante que a hidratação funcionará e a saída corresponderá entre o servidor e o cliente.
+=======
+This is very difficult to guarantee with an incrementing counter because the order in which the Client Components are hydrated may not match the order in which the server HTML was emitted. By calling `useId`, you ensure that hydration will work, and the output will match between the server and the client.
+>>>>>>> 943e3ce4e52be56bcd75b679448847302f557da1
 
 Dentro do React, `useId` é gerado a partir do "caminho pai" do componente chamado. É por isso que, se o cliente e a árvore do servidor forem iguais, o "caminho pai" corresponderá, independentemente da ordem de renderização.
 
@@ -302,4 +306,3 @@ input { margin: 5px; }
 ```
 
 </Sandpack>
-
