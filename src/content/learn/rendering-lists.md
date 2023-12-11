@@ -1084,7 +1084,11 @@ Aqui, `<Recipe {...recipe} key={recipe.id} />` é um atalho de sintaxe dizendo "
 
 #### Lista com um separador {/*list-with-a-separator*/}
 
+<<<<<<< HEAD
 Esse exemplo renderiza um famoso haiku por Katsushika Hokusai, com cada linha envolta em uma tag `<p>`. Seu trabalho é inserir um separador `<hr />` entre cada parágrafo. Sua estrutura resultante deve se parecer com isso:
+=======
+This example renders a famous haiku by Tachibana Hokushi, with each line wrapped in a `<p>` tag. Your job is to insert an `<hr />` separator between each paragraph. Your resulting structure should look like this:
+>>>>>>> af54fc873819892f6050340df236f33a18ba5fb8
 
 ```js
 <article>
@@ -1143,7 +1147,11 @@ hr {
 
 <Hint>
 
+<<<<<<< HEAD
 Você precisará converter `map` para um loop manual, ou então usar um fragment.
+=======
+You'll either need to convert `map` to a manual loop, or use a Fragment.
+>>>>>>> af54fc873819892f6050340df236f33a18ba5fb8
 
 </Hint>
 
@@ -1206,7 +1214,11 @@ hr {
 
 Usando o índice original da linha como `key` não funciona mais porque cada separador e parágrafo estão agora no mesmo array. Entretanto, você pode dar a cada uma delas uma key distinta usando um sufixo, por exemplo `key={i + '-text'}`.
 
+<<<<<<< HEAD
 Alternativamente, você pode renderizar uma coleção de fragmentos a qual contêm `<hr />` e `<p>...</p>`. Entretanto, o atalho de sintaxe `<>...</>` não suporta a passagem de keys, então você teria que escrever `<Fragment>` explicitamente:
+=======
+Alternatively, you could render a collection of Fragments which contain `<hr />` and `<p>...</p>`. However, the `<>...</>` shorthand syntax doesn't support passing keys, so you'd have to write `<Fragment>` explicitly:
+>>>>>>> af54fc873819892f6050340df236f33a18ba5fb8
 
 <Sandpack>
 
@@ -1252,7 +1264,11 @@ hr {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Lembre-se, fragmentos (comumente escritos como `<> </>`) deixam com que você agrupe nós JSX sem adicionar `<div>`s extras!
+=======
+Remember, Fragments (often written as `<> </>`) let you group JSX nodes without adding extra `<div>`s!
+>>>>>>> af54fc873819892f6050340df236f33a18ba5fb8
 
 </Solution>
 
