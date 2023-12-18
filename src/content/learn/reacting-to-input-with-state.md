@@ -35,7 +35,7 @@ Neste exemplo de programação imperativa de UI, o formulário é criado *sem* o
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 async function handleFormSubmit(e) {
   e.preventDefault();
   disable(textarea);
@@ -84,7 +84,11 @@ function submitForm(answer) {
    // Simula que está acessando a rede. 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+<<<<<<< HEAD
       if (answer.toLowerCase() == 'istambul') {
+=======
+      if (answer.toLowerCase() === 'istanbul') {
+>>>>>>> 303ecae3dd4c7b570cf18e0115b94188f6aad5a1
         resolve();
       } else {
         reject(new Error('Bom palpite, mas resposta errada. Tente novamente!'));
@@ -246,7 +250,7 @@ Se um componente tiver muitos estados visuais, pode ser conveniente mostrar todo
 
 <Sandpack>
 
-```js App.js active
+```js src/App.js active
 import Form from './Form.js';
 
 let statuses = [
@@ -271,7 +275,7 @@ export default function App() {
 }
 ```
 
-```js Form.js
+```js src/Form.js
 export default function Form({ status }) {
   if (status === 'success') {
     return <h1>É isso mesmo!</h1>
@@ -707,7 +711,7 @@ Aqui está um pequeno formulário implementado com JavaScript simples e DOM. Alt
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 function handleFormSubmit(e) {
   e.preventDefault();
   if (editButton.textContent === 'Editar Perfil') {
@@ -909,7 +913,7 @@ Aqui está o sandbox original do desafio anterior, escrito imperativamente sem o
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 function handleFormSubmit(e) {
   e.preventDefault();
   if (editButton.textContent === 'Editar Perfil') {
@@ -1008,7 +1012,7 @@ Se estiver com dificuldades para pensar por onde começar, o esboço abaixo já 
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 let firstName = 'Jane';
 let lastName = 'Jacobs';
 let isEditing = false;
@@ -1115,7 +1119,7 @@ A lógica faltante incluía alternar a exibição entre entradas e conteúdo, al
 
 <Sandpack>
 
-```js index.js active
+```js src/index.js active
 let firstName = 'Jane';
 let lastName = 'Jacobs';
 let isEditing = false;
