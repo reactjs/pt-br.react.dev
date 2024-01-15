@@ -11,7 +11,7 @@ import {CodeDiagram} from './CodeDiagram';
 import ConsoleBlock from './ConsoleBlock';
 import ExpandableCallout from './ExpandableCallout';
 import ExpandableExample from './ExpandableExample';
-import {H1, H2, H3, H4} from './Heading';
+import {H1, H2, H3, H4, H5} from './Heading';
 import InlineCode from './InlineCode';
 import Intro from './Intro';
 import BlogCard from './BlogCard';
@@ -30,6 +30,8 @@ import ButtonLink from 'components/ButtonLink';
 import {TocContext} from './TocContext';
 import type {Toc, TocItem} from './TocContext';
 import {TeamMember} from './TeamMember';
+
+import ErrorDecoder from './ErrorDecoder';
 
 function CodeStep({children, step}: {children: any; step: number}) {
   return (
@@ -243,7 +245,7 @@ function Illustration({
           src={src}
           alt={alt}
           style={{maxHeight: 300}}
-          className="bg-white rounded-lg"
+          className="rounded-lg"
         />
         {caption ? (
           <figcaption className="text-center leading-tight mt-4">
@@ -275,7 +277,12 @@ function IllustrationBlock({
   const images = imageInfos.map((info, index) => (
     <figure key={index}>
       <div className="bg-white rounded-lg p-4 flex-1 flex xl:p-6 justify-center items-center my-4">
-        <img src={info.src} alt={info.alt} height={info.height} />
+        <img
+          className="text-primary"
+          src={info.src}
+          alt={info.alt}
+          height={info.height}
+        />
       </div>
       {info.caption ? (
         <figcaption className="text-secondary dark:text-secondary-dark text-center leading-tight mt-4">
@@ -388,6 +395,7 @@ export const MDXComponents = {
   h2: H2,
   h3: H3,
   h4: H4,
+  h5: H5,
   hr: Divider,
   a: Link,
   img: Image,
@@ -435,6 +443,7 @@ export const MDXComponents = {
   Solution,
   CodeStep,
   YouTubeIframe,
+  ErrorDecoder,
 };
 
 for (let key in MDXComponents) {
