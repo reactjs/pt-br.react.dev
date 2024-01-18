@@ -31,7 +31,7 @@ Envolva uma árvore de componentes em um `<Profiler>` para medir seu desempenho 
 
 #### Props {/*props*/}
 
-* `id`: Uma String que identifica a parte da interface do usuário que está sendo medida..
+* `id`: Uma String que identifica a parte da IU que está sendo medida..
 * `onRender`: Um [`onRender` callback](#onrender-callback) O React chama o useEffect toda vez que os componentes dentro da árvore com perfil são atualizados. Ele recebe informações sobre o que foi renderizado e quanto tempo levou.
 
   
@@ -53,7 +53,7 @@ function onRender(id, phase, actualDuration, baseDuration, startTime, commitTime
 #### Parâmetros {/*onrender-parameters*/}
 
 * `id`: A string `id` prop da árvore `<Profiler>` que acabou de ser confirmada. Isso permite identificar qual parte da árvore foi confirmada se você estiver utilizando múltiplos profilers.
-* `phase`: `"mount"`, `"update"` ou `"nested-update"`. Isso permite que você saiba se a árvore foi montada pela primeira vez ou se foi renderizada novamente devido a uma alteração nos props, states ou hooks.
+* `phase`: `"mount"`, `"update"` ou `"nested-update"`. Isso permite que você saiba se a árvore foi montada pela primeira vez ou se foi renderizada novamente devido a uma alteração nos props, state ou hooks.
 * `actualDuration`: O número de milissegundos gastos para renderizar o `<Profiler>` e seus descendentes para a atualização atual. Isso indica o quão bem a subárvore faz uso da memoização (e.g. [`memo`](/reference/react/memo) e [`useMemo`](/reference/react/useMemo)). Preferêncialmente, este valor deve diminuir consideravelmente após a montagem inicial, uma vez que muitos dos descendentes só precisarão ser renderizados novamente se seus adereços específicos mudarem.
 * `baseDuration`: O número de milissegundos que estima quanto tempo levaria para renderizar novamente toda a subárvore `<Profiler>` sem nenhuma otimização. É calculado pela soma das durações de renderização mais recentes de cada componente da árvore. Este valor estima o pior caso de custo de renderização (por exemplo, a montagem inicial ou uma árvore sem memoização). Compare `actualDuration` com este valor para ver se a memoização está funcionando.
 * `startTime`: Um carimbo de data/hora numérico para quando o React começou a renderizar a atualização atual.
