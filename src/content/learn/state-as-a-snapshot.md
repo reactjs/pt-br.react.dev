@@ -77,9 +77,15 @@ Ao contrário de uma fotografia ou um *frame* de um filme, a foto instantânea d
 
 Quando o React rerrenderiza um componente:
 
+<<<<<<< HEAD
 1. O React chama sua função novamente.
 2. Sua função retorna uma nova foto instantânea do JSX.
 3. O React, então, atualiza a tela para corresponder à foto instantânea que você retornou.
+=======
+1. React calls your function again.
+2. Your function returns a new JSX snapshot.
+3. React then updates the screen to match the snapshot your function returned.
+>>>>>>> 5d2f7105bd6374e465b8bdce8efceaeb8f01c937
 
 <IllustrationBlock sequential>
     <Illustration caption="React executando a função" src="/images/docs/illustrations/i_render1.png" />

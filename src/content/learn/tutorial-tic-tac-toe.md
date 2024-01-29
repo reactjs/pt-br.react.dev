@@ -29,7 +29,7 @@ Você pode ver com o que ele se parecerá quando você tiver terminado aqui:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -147,7 +147,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -206,13 +206,13 @@ No editor de código abaixo, clique em **Fork** no canto superior direito para a
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 export default function Square() {
   return <button className="square">X</button>;
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -337,7 +337,11 @@ import './styles.css';
 import App from './App';
 ```
 
+<<<<<<< HEAD
 As linhas 1-5 juntam todas as peças necessárias:
+=======
+Lines 1-5 bring all the necessary pieces together: 
+>>>>>>> 5d2f7105bd6374e465b8bdce8efceaeb8f01c937
 
 - React
 - a biblioteca do React para conversar com navegadores de internet (React DOM)
@@ -362,11 +366,19 @@ Você receberá este erro:
 
 <ConsoleBlock level="error">
 
+<<<<<<< HEAD
 /src/App.js: Elementos JSX adjacentes devem ser envolvidos em uma tag externa. Você queria um fragment JSX `<>...</>`?
 
 </ConsoleBlock>
 
 Componentes do React precisam retornar um único elemento JSX e não múltiplos elementos JSX adjacentes como dois botões. Para consertar isso você pode usar *fragments* (`<>` e `</>`) para envolver múltiplos elementos JSX adjacentes desta forma:
+=======
+/src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX Fragment `<>...</>`?
+
+</ConsoleBlock>
+
+React components need to return a single JSX element and not multiple adjacent JSX elements like two buttons. To fix this you can use *Fragments* (`<>` and `</>`) to wrap multiple adjacent JSX elements like this:
+>>>>>>> 5d2f7105bd6374e465b8bdce8efceaeb8f01c937
 
 ```js {3-6}
 export default function Square() {
@@ -455,7 +467,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -627,7 +639,7 @@ O seu código atualizado deve se parecer com isto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 function Square({ value }) {
   return <button className="square">{value}</button>;
 }
@@ -655,7 +667,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -807,7 +819,7 @@ Após ter feito as mudanças acima, seu código deve se parecer com isto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square() {
@@ -850,7 +862,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -988,7 +1000,7 @@ E seu código deve se parecer com isto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value }) {
@@ -1019,7 +1031,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -1228,7 +1240,7 @@ Seu código deve se parecer com isto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -1270,7 +1282,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -1422,7 +1434,7 @@ Agora você pode apenas adicionar `X`'s ou `O`'s a quadrados vazios! Veja como o
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({value, onSquareClick}) {
@@ -1473,7 +1485,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -1524,7 +1536,7 @@ body {
 
 Agora que os jogadores podem trocar de vez, você vai querer exibir quando o jogo for vencido e não existam mais turnos a fazer. Para fazer isso você adicionará uma função ajudante chamada `calculateWinner` a qual recebe um array de 9 quadrados, checa por um vencedor e retorna `'X'`, `'O'`, ou `null` apropriadamente. Não se preocupe muito com a função `calculateWinner`; ela não é específica ao React:
 
-```js App.js
+```js src/App.js
 export default function Board() {
   //...
 }
@@ -1594,7 +1606,7 @@ Parabéns! Você agora tem um jogo da velha funcional. E você também acabou de
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({value, onSquareClick}) {
@@ -1674,7 +1686,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -1872,7 +1884,7 @@ Até agora, você moveu o *state* para viver no componente `Game`, e a UI deve e
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -1970,7 +1982,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -2073,11 +2085,21 @@ export default function Game() {
 }
 ```
 
+<<<<<<< HEAD
 Você pode ver como seu código deve se parecer abaixo. Perceba que você deve ver um erro em seu console nas ferramentas de desenvolvedor que diz: ``Aviso: Cada filho em um array ou iterador deve ter uma *prop* "key" única. Cheque o método render de `Game`.`` Você consertará esse erro na próxima seção.
+=======
+You can see what your code should look like below. Note that you should see an error in the developer tools console that says: 
+
+<ConsoleBlock level="warning">
+Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of &#96;Game&#96;.
+</ConsoleBlock>
+  
+You'll fix this error in the next section.
+>>>>>>> 5d2f7105bd6374e465b8bdce8efceaeb8f01c937
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -2193,7 +2215,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -2266,7 +2288,11 @@ para
 <li>Alexa: 5 tarefas restantes</li>
 ```
 
+<<<<<<< HEAD
 Em adição às contagens atualizadas, um humano lendo isso provavelmente diria que você trocou a ordem de Alexa e Ben e inseriu Claudia entre Alexa e Ben. Entretanto, o React é um programa de computador e não pode saber quais as suas intenções, então você precisa especificar uma propriedade *key* para cada item da lista para diferenciar cada item da lista de seus irmãos. Se seus dados vêm de uma base de dados, os IDs de Alexa, Ben e Claudia vindos da base de dados podem ser usadas como keys.
+=======
+In addition to the updated counts, a human reading this would probably say that you swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what you intended, so you need to specify a _key_ property for each list item to differentiate each list item from its siblings. If your data was from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
+>>>>>>> 5d2f7105bd6374e465b8bdce8efceaeb8f01c937
 
 ```js {1}
 <li key={user.id}>
@@ -2305,7 +2331,7 @@ const moves = history.map((squares, move) => {
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -2422,7 +2448,7 @@ function calculateWinner(squares) {
 
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -2526,7 +2552,7 @@ Se você clicar em qualquer passo no histórico do jogo, o tabuleiro de jogo da 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({value, onSquareClick}) {
@@ -2646,7 +2672,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -2736,7 +2762,7 @@ Cheque o resultado final aqui:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -2854,7 +2880,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
