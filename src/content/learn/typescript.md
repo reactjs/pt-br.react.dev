@@ -89,9 +89,9 @@ Esta sintaxe em uma mesma linha é a forma mais simples de fornecer tipos para u
 
 ```tsx App.tsx active
 interface MyButtonProps {
-  /** O texto exibido dentro do botão */
+  /** O texto à ser exibido dentro do botão */
   title: string;
-  /** Se há interação com o botão */
+  /** Se poderá haver interação com o botão */
   disabled: boolean;
 }
 
@@ -151,7 +151,7 @@ type Status = "ocioso" | "carregando" | "sucesso" | "erro";
 const [status, setStatus] = useState<Status>("ocioso");
 ```
 
-Ou, como recomendado em [Principles for structuring state](/learn/choosing-the-state-structure#principles-for-structuring-state), você pode agrupar estados relacionados em um objeto descrevendo suas diferentes possibilidades através de tipos objetos:
+Ou, como recomendado em [Princípios para estruturação de estado](/learn/choosing-the-state-structure#principles-for-structuring-state), você pode agrupar estados relacionados em um objeto descrevendo suas diferentes possibilidades através de tipos objetos:
 
 ```ts
 type RequestState =
