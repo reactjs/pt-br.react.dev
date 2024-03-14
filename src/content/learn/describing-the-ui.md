@@ -10,26 +10,15 @@ React é uma biblioteca JavaScript para renderizar interfaces de usuário (UI). 
 
 <YouWillLearn isChapter={true}>
 
-<<<<<<< HEAD
 * [Como criar seu primeiro componente React](/learn/your-first-component)
-* [Quando e como criar múltiplos componentes](/learn/importing-and-exporting-components)
+* [Quando e como criar arquivos multicomponentes](/learn/importing-and-exporting-components)
 * [Como escrever tags dentro do JavaScript usando JSX](/learn/writing-markup-with-jsx)
-* [Como utilizar chaves no JSX para utilizar funcões JavaScript nos seus componentes](/learn/javascript-in-jsx-with-curly-braces)
-* [Como configurar componentes utilizando props(propriedades)](/learn/passing-props-to-a-component)
-* [Como renderizar componentes de forma condicional](/learn/conditional-rendering)
-* [Como renderizar múltiplos componentes de uma só vez](/learn/rendering-lists)
-* [Como evitar comportamentos inesperados mantendo seus componentes puros](/learn/keeping-components-pure)
-=======
-* [How to write your first React component](/learn/your-first-component)
-* [When and how to create multi-component files](/learn/importing-and-exporting-components)
-* [How to add markup to JavaScript with JSX](/learn/writing-markup-with-jsx)
-* [How to use curly braces with JSX to access JavaScript functionality from your components](/learn/javascript-in-jsx-with-curly-braces)
-* [How to configure components with props](/learn/passing-props-to-a-component)
-* [How to conditionally render components](/learn/conditional-rendering)
-* [How to render multiple components at a time](/learn/rendering-lists)
-* [How to avoid confusing bugs by keeping components pure](/learn/keeping-components-pure)
-* [Why understanding your UI as trees is useful](/learn/understanding-your-ui-as-a-tree)
->>>>>>> 5de85198a3c575d94a395138e3f471cc7172a51c
+* [Como usar chaves com JSX para acessar a funcionalidade JavaScript de seus componentes](/learn/javascript-in-jsx-with-curly-braces)
+* [Como configurar componentes com props](/learn/passing-props-to-a-component)
+* [Como renderizar componentes condicionalmente](/learn/conditional-rendering)
+* [Como renderizar vários componentes por vez](/learn/rendering-lists)
+* [Como evitar erros confusos mantendo os componentes puros](/learn/keeping-components-pure)
+* [Por que entender sua UI como árvores é útil](/learn/understanding-your-ui-as-a-tree)
 
 </YouWillLearn>
 
@@ -537,9 +526,6 @@ Leia **[Mantendo Seus Componentes Puros](/learn/keeping-components-pure)** para 
 
 </LearnMore>
 
-<<<<<<< HEAD
-## O que vem depois? {/*whats-next*/}
-=======
 ## Your UI as a tree {/*your-ui-as-a-tree*/}
 
 React uses trees to model the relationships between components and modules. 
@@ -571,8 +557,7 @@ Read **[Your UI as a Tree](/learn/understanding-your-ui-as-a-tree)** to learn ho
 </LearnMore>
 
 
-## What's next? {/*whats-next*/}
->>>>>>> 5de85198a3c575d94a395138e3f471cc7172a51c
+## O que vem depois? {/*whats-next*/}
 
 Navegue para a página [Seu Primeiro Componente](/learn/your-first-component) para começar a ler esse capítulo página por página!
 

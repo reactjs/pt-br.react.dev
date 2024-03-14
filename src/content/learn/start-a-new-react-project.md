@@ -4,20 +4,12 @@ title: Inicie um Novo Projeto em React
 
 <Intro>
 
-<<<<<<< HEAD
-Se você deseja construir uma nova aplicação ou um novo site totalmente em React, recomendamos escolher um dos *frameworks* baseados em React populares na comunidade. *Frameworks* fornecem recursos que a maioria das aplicações e sites eventualmente precisam, incluindo roteamento, busca de dados e geração de HTML.
-=======
-If you want to build a new app or a new website fully with React, we recommend picking one of the React-powered frameworks popular in the community.
->>>>>>> 5de85198a3c575d94a395138e3f471cc7172a51c
+Se você deseja construir um novo aplicativo ou site totalmente com React, recomendamos escolher uma das estruturas populares na comunidade com tecnologia React.
 
 </Intro>
 
 
-<<<<<<< HEAD
-**Você precisa instalar o [Node.js](https://nodejs.org/en/) para desenvolver localmente.** Você *também* pode escolher usar o Node.js em produção, mas não precisa. Vários *frameworks*  baseados em React permitem a exportação para uma pasta estática de HTML/CSS/JS.
-=======
-You can use React without a framework, however we’ve found that most apps and sites eventually build solutions to common problems such as code-splitting, routing, data fetching, and generating HTML. These problems are common to all UI libraries, not just React.
->>>>>>> 5de85198a3c575d94a395138e3f471cc7172a51c
+Você pode usar o React sem uma estrutura, mas descobrimos que a maioria dos aplicativos e sites eventualmente criam soluções para problemas comuns, como divisão de código, roteamento, busca de dados e geração de HTML. Esses problemas são comuns a todas as bibliotecas de UI, não apenas ao React.
 
 By starting with a framework, you can get started with React quickly, and avoid essentially building your own framework later.
 
@@ -43,27 +35,17 @@ If your app has unusual constraints not served well by these frameworks, or you 
 
 These frameworks support all the features you need to deploy and scale your app in production and are working towards supporting our [full-stack architecture vision](#which-features-make-up-the-react-teams-full-stack-architecture-vision). All of the frameworks we recommend are open source with active communities for support, and can be deployed to your own server or a hosting provider. If you’re a framework author interested in being included on this list, [please let us know](https://github.com/reactjs/react.dev/issues/new?assignees=&labels=type%3A+framework&projects=&template=3-framework.yml&title=%5BFramework%5D%3A+).
 
-<<<<<<< HEAD
-**[Next.js](https://nextjs.org/) é um *framework* React *full-stack.*** É versátil e permite que você crie aplicações React de qualquer tamanho--desde um blog majoritariamente estático a uma aplicação dinâmica e complexa. Para criar um novo projeto com Next.js, execute no seu terminal:
-=======
 ### Next.js {/*nextjs-pages-router*/}
 
-**[Next.js' Pages Router](https://nextjs.org/) is a full-stack React framework.** It's versatile and lets you create React apps of any size--from a mostly static blog to a complex dynamic application. To create a new Next.js project, run in your terminal:
->>>>>>> 5de85198a3c575d94a395138e3f471cc7172a51c
+**[Next.js' Pages Router](https://nextjs.org/) é um *framework* React *full-stack.*** É versátil e permite criar aplicativos React de qualquer tamanho – desde um blog quase todo estático até um aplicativo dinâmico complexo. Para criar um novo projeto Next.js, execute em seu terminal:
 
 <TerminalBlock>
 npx create-next-app@latest
 </TerminalBlock>
 
-<<<<<<< HEAD
-Caso você seja novo ao Next.js, confira o [tutorial de Next.js](https://nextjs.org/learn/foundations/about-nextjs).
+Se você é novo no Next.js, confira o [aprender curso Next.js.](https://nextjs.org/learn)
 
-Next.js é mantido pela [Vercel](https://vercel.com/). Você pode [implantar uma aplicação Next.js](https://nextjs.org/docs/deployment) em qualquer hospedagem Node.js ou *serverless*, ou em seu próprio servidor. [Aplicações Next.js totalmente estáticas](https://nextjs.org/docs/advanced-features/static-html-export) podem ser implantadas em qualquer hospedagem de conteúdo estático.
-=======
-If you're new to Next.js, check out the [learn Next.js course.](https://nextjs.org/learn)
-
-Next.js is maintained by [Vercel](https://vercel.com/). You can [deploy a Next.js app](https://nextjs.org/docs/app/building-your-application/deploying) to any Node.js or serverless hosting, or to your own server. Next.js also supports a [static export](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) which doesn't require a server.
->>>>>>> 5de85198a3c575d94a395138e3f471cc7172a51c
+Next.js é mantido por [Vercel](https://vercel.com/). Você pode [implantar um aplicativo Next.js](https://nextjs.org/docs/app/building-your-application/deploying) em qualquer Node.js ou hospedagem sem servidor, ou em seu próprio servidor. Next.js também suporta uma [exportação estática](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) que não requer um servidor.
 
 ### Remix {/*remix*/}
 
@@ -99,28 +81,7 @@ Caso você seja novo ao Expo, confira o [tutorial de Expo](https://docs.expo.dev
 
 Expo é mantido pela [Expo (a empresa)](https://expo.dev/about). Construir aplicações com Expo é gratuito, e você pode submetê-las para as lojas de aplicativos do Google e da Apple sem restrições. Adicionalmente, Expo fornece serviços em nuvem pagos opcionais.
 
-<<<<<<< HEAD
-<DeepDive>
-
-#### Posso usar React sem um *framework*? {/*can-i-use-react-without-a-framework*/}
-
-Você definitivamente pode usar React sem um *framework*--é assim que você [usaria React para uma seção da sua página.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) **Contudo, se você está construindo uma nova aplicação ou um novo site totalmente em React, recomendamos usar um *framework*.**
-
-E aqui está o porquê.
-
-Mesmo que você não precise de roteamento ou busca de dados no início, você provavelmente vai querer adicionar algumas bibliotecas para eles. Conforme seu pacote JavaScript cresce com cada nova funcionalidade, você talvez tenha que descobrir como dividir o código para cada rota individualmente. Conforme suas necessidades de busca de dados ficam mais complexas, é provável que vá encontrar cascatas de comunicação servidor-cliente que fazem sua aplicação parecer muito lenta. Conforme seu público passe a incluir mais usuários com condições de rede ruins e dispositivos de baixo desempenho, você pode precisar gerar HTML a partir de seus componentes para exibir conteúdo cedo--seja no servidor, ou durante o tempo de construção (*build*). Mudar sua configuração para executar parte do seu código no servidor ou durante a construção pode ser bem complicado.
-
-**Esses problemas não são específicos ao React. É por isso que Svelte tem SvelteKit, Vue tem Nuxt, e assim por diante.** Para resolver esses problemas por conta própria, você precisará integrar seu *bundler* com seu roteador e com sua biblioteca de busca de dados. Não é difícil fazer uma configuração inicial funcionar, mas há muitas sutilezas envolvidas em fazer uma aplicação que carrega rapidamente mesmo enquanto cresce ao longo do tempo. Você vai querer enviar a menor quantidade de código da aplicação, mas fazer isso em uma única ida e volta entre cliente-servidor, em paralelo com qualquer dado necessário para a página. Você provavelmente vai querer que a página seja interativa antes mesmo de seu código JavaScript ser executado, para suportar o aprimoramento progressivo. Você pode querer gerar uma pasta de arquivos HTML totalmente estáticos para suas páginas de marketing que podem ser hospedadas em qualquer lugar e ainda funcionar com JavaScript desabilitado. Construir essas capacidades por conta própria requer trabalho de verdade.
-
-**Os *Frameworks* React nesta página resolvem problemas como esses por padrão, sem trabalho extra de sua parte.** Eles permitem que você comece bem enxuto e então escale sua aplicação a partir das suas necessidades. Cada *framework* React tem uma comunidade, então encontrar respostas para perguntas e atualizar ferramentas é mais fácil. *Frameworks* também dão estrutura para seu código, ajudando você e outros a reter contextos e habilidades entre diferentes projetos. Por outro lado, com uma configuração personalizada é mais fácil ficar preso em versões de dependências não suportadas, e você essencialmente acabará criando seu próprio *framework*--embora um sem comunidade ou trajetória de atualizações (e se for algo como os que fizemos no passado, projetado de forma descuidada). 
-
-Caso você ainda não esteja convencido, ou sua aplicação tenha restrições incomuns que não são bem atendidas por esses *frameworks* e você gostaria de criar sua própria configuração personalizada, nós não podemos te impedir--vá em frente! Pegue `react` e `react-dom` do npm, configure seu processo de construção personalizado com um *bundler* como [Vite](https://vitejs.dev/) ou [Parcel](https://parceljs.org/), e adicione outras ferramentas conforme você precisar para roteamento, geração estática ou renderização no servidor, e etc.
-</DeepDive>
-
 ## *Frameworks* React de ponta {/*bleeding-edge-react-frameworks*/}
-=======
-## Bleeding-edge React frameworks {/*bleeding-edge-react-frameworks*/}
->>>>>>> 5de85198a3c575d94a395138e3f471cc7172a51c
 
 Conforme exploramos como continuar melhorando o React, percebemos que integrar o React mais de perto com *frameworks* (especificamente com roteamento, *bundling* e tecnologias de servidor) é a nossa maior oportunidade de ajudar usuários do React a construir aplicações melhores. A equipe Next.js concordou em colaborar conosco em pesquisar, desenvolver, integrar e testar recursos de ponta do React que são agnósticos a *frameworks*, como [Componentes de Servidor do React.](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components)
 
@@ -128,19 +89,9 @@ Esses recursos estão mais próximos de estarem prontos para produção dia apó
 
 ### Next.js *(App Router)* {/*nextjs-app-router*/}
 
-<<<<<<< HEAD
-**[O *App Router* do Next.js](https://beta.nextjs.org/docs/getting-started) é uma reformulação das APIs do Next.js com o objetivo de cumprir com a visão de arquitetura *full-stack* da equipe React.** Ele permite que você busque dados em componentes assíncronos que rodam no servidor ou até mesmo durante a construção (*build*).
+**[O *App Router* do Next.js](https://nextjs.org/docs) é uma reformulação das APIs Next.js com o objetivo de cumprir a visão de arquitetura full-stack da equipe React.** Ele permite buscar dados em componentes assíncronos que são executados no servidor ou mesmo durante a construção.
 
-Next.js é mantido pela [Vercel](https://vercel.com/). Você pode [implantar uma aplicação Next.js](https://nextjs.org/docs/deployment) em qualquer hospedagem Node.js ou *serverless*, ou em seu próprio servidor. Next.js também possui suporte para [exportação estática](https://beta.nextjs.org/docs/configuring/static-export), que não requer um servidor.
-<Pitfall>
-
-O *App Router* do Next.js está **atualmente em beta e ainda não é recomendado para produção** (nesta data, Março 2023). Para experimentá-lo em um projeto Next.js existente, [siga este guia de migração progressiva](https://beta.nextjs.org/docs/upgrade-guide#migrating-from-pages-to-app).
-</Pitfall>
-=======
-**[Next.js's App Router](https://nextjs.org/docs) is a redesign of the Next.js APIs aiming to fulfill the React team’s full-stack architecture vision.** It lets you fetch data in asynchronous components that run on the server or even during the build.
-
-Next.js is maintained by [Vercel](https://vercel.com/). You can [deploy a Next.js app](https://nextjs.org/docs/app/building-your-application/deploying) to any Node.js or serverless hosting, or to your own server. Next.js also supports [static export](https://nextjs.org/docs/app/building-your-application/deploying/static-exports) which doesn't require a server.
->>>>>>> 5de85198a3c575d94a395138e3f471cc7172a51c
+Next.js é mantido pela [Vercel](https://vercel.com/). Você pode [implantar uma aplicação Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para qualquer Node.js ou hospedagem sem servidor, ou para seu próprio servidor. Next.js também suporta [exportação estática](https://nextjs.org/docs/app/building-your-application/deploying/static-exports) que não requer um servidor.
 
 <DeepDive>
 
