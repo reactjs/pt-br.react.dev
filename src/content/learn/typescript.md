@@ -20,9 +20,9 @@ TypeScript é uma forma popular de adicionar definições de tipos à bases de c
 
 ## Instalação {/*installation*/}
 
-Todos os [frameworks React em produção](https://react-dev-git-fork-orta-typescriptpage-fbopensource.vercel.app/learn/start-a-new-react-project#production-grade-react-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
+Todos os [frameworks React em produção](/learn/start-a-new-react-project#production-grade-react-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
 
-- [Next.js](https://nextjs.org/docs/pages/building-your-application/configuring/typescript)
+- [Next.js](https://nextjs.org/docs/app/building-your-application/configuring/typescript)
 - [Remix](https://remix.run/docs/en/1.19.2/guides/typescript)
 - [Gatsby](https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/)
 - [Expo](https://docs.expo.dev/guides/typescript/)
@@ -54,7 +54,7 @@ Utilizando o [componente `MyButton`](/learn#components) do Guia de [Quick Start]
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 function MyButton({ title }: { title: string }) {
   return (
     <button>{title}</button>
@@ -71,7 +71,7 @@ export default function MyApp() {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
@@ -87,7 +87,7 @@ Esta sintaxe em uma mesma linha é a forma mais simples de fornecer tipos para u
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 interface MyButtonProps {
   /** O texto à ser exibido dentro do botão */
   title: string;
@@ -111,7 +111,7 @@ export default function MyApp() {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
@@ -169,7 +169,7 @@ O [hook `useReducer`](/reference/react/useReducer) é um hook mais complexo que 
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 import {useReducer} from 'react';
 
 interface State {
@@ -212,7 +212,7 @@ export default function App() {
 
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
@@ -240,13 +240,13 @@ export default function App() {
 
 ### `useContext` {/*typing-usecontext*/}
 
-o [hook `useContext`](/reference/react/useContext) é uma técnica de transmissão de dados pela árvore de componentes sem a necessidade de passar _props_ entre componentes. É utilizado criando um componente _provider_ e um hook que consome o valor em um componente filho.
+o [hook `useContext`](/reference/react/useContext) utiliza uma técnica de transmissão de dados pela árvore de componentes sem a necessidade de passar _props_ entre componentes. É utilizado criando um componente _provider_ e um hook que consome o valor em um componente filho.
 
 O tipo do valor informado pelo contexto é inferido a partir do valor passado durante a chamada da função `createContext`:
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 import { createContext, useContext, useState } from 'react';
 
 type Theme = "claro" | "escuro" | "sistema";
@@ -275,7 +275,7 @@ function MyComponent() {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
@@ -334,7 +334,6 @@ O [hook `useMemo`](/reference/react/useMemo) criam/reacessam um valor memoizado 
 const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
 ```
 
-
 ### `useCallback` {/*typing-usecallback*/}
 
 O [`useCallback`](/reference/react/useCallback) fornece uma referência estável à uma função, desde que as dependências passadas no segundo parâmetro sejam as mesmas. Assim como o `useMemo`, o tipo da função é inferido a partir do valor de retorno da função do primeiro parâmetro, e você pode ser mais explícito fornecendo um tipo como argumento ao hook.
@@ -379,7 +378,7 @@ Ao trabalhar com eventos do DOM no React, o tipo do evento geralmente pode ser i
 
 <Sandpack>
 
-```tsx App.tsx active
+```tsx src/App.tsx active
 import { useState } from 'react';
 
 export default function Form() {
@@ -398,7 +397,7 @@ export default function Form() {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import AppTSX from "./App.tsx";
 export default App = AppTSX;
 ```
