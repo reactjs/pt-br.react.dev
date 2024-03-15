@@ -159,7 +159,7 @@ return <ul>{listItems}</ul>;
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -184,7 +184,7 @@ export default function List() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -218,7 +218,7 @@ export const people = [{
 }];
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -292,7 +292,7 @@ Em vez de gerar keys em tempo real, você deve incluí-las em seus dados:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -314,7 +314,7 @@ export default function List() {
 }
 ```
 
-```js data.js active
+```js src/data.js active
 export const people = [{
   id: 0, // Usado no JSX como key
   name: 'Creola Katherine Johnson',
@@ -348,7 +348,7 @@ export const people = [{
 }];
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -446,7 +446,7 @@ Altere-o para exibir duas listas separadas uma após a outra: **Químicos** e **
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -473,7 +473,7 @@ export default function List() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -507,7 +507,7 @@ export const people = [{
 }];
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -537,7 +537,7 @@ Você pode usar `filter()` duas vezes, criando dois arrays separados, e então c
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -588,7 +588,7 @@ export default function List() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -622,7 +622,7 @@ export const people = [{
 }];
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -652,7 +652,7 @@ Ainda há um pouco de duplicação entre as listas renderizadas. Você pode ir a
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -702,7 +702,7 @@ export default function List() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -736,7 +736,7 @@ export const people = [{
 }];
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -766,7 +766,7 @@ De fato, se `people` nunca mudar, você pode mover esse código para fora de seu
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -820,7 +820,7 @@ export default function List() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -854,7 +854,7 @@ export const people = [{
 }];
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -892,7 +892,7 @@ Para fazer isto, você precisará realizar duas chamadas ao `map` aninhadas.
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { recipes } from './data.js';
 
 export default function RecipeList() {
@@ -904,7 +904,7 @@ export default function RecipeList() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const recipes = [{
   id: 'greek-salad',
   name: 'Greek Salad',
@@ -928,7 +928,7 @@ Você poderia seguir esse caminho:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { recipes } from './data.js';
 
 export default function RecipeList() {
@@ -952,7 +952,7 @@ export default function RecipeList() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const recipes = [{
   id: 'greek-salad',
   name: 'Greek Salad',
@@ -980,7 +980,7 @@ Esse componente `RecipeList` contêm duas chamadas ao `map` aninhadas. Simplific
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { recipes } from './data.js';
 
 export default function RecipeList() {
@@ -1004,7 +1004,7 @@ export default function RecipeList() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const recipes = [{
   id: 'greek-salad',
   name: 'Greek Salad',
@@ -1058,7 +1058,7 @@ export default function RecipeList() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const recipes = [{
   id: 'greek-salad',
   name: 'Greek Salad',
@@ -1084,7 +1084,7 @@ Aqui, `<Recipe {...recipe} key={recipe.id} />` é um atalho de sintaxe dizendo "
 
 #### Lista com um separador {/*list-with-a-separator*/}
 
-Esse exemplo renderiza um famoso haiku por Katsushika Hokusai, com cada linha envolta em uma tag `<p>`. Seu trabalho é inserir um separador `<hr />` entre cada parágrafo. Sua estrutura resultante deve se parecer com isso:
+This example renders a famous haiku by Tachibana Hokushi, with each line wrapped in a `<p>` tag. Your job is to insert an `<hr />` separator between each paragraph. Your resulting structure should look like this:
 
 ```js
 <article>
@@ -1143,7 +1143,7 @@ hr {
 
 <Hint>
 
-Você precisará converter `map` para um loop manual, ou então usar um fragment.
+Você precisará converter `map` em um loop manual ou usar um Fragment.
 
 </Hint>
 
@@ -1206,7 +1206,7 @@ hr {
 
 Usando o índice original da linha como `key` não funciona mais porque cada separador e parágrafo estão agora no mesmo array. Entretanto, você pode dar a cada uma delas uma key distinta usando um sufixo, por exemplo `key={i + '-text'}`.
 
-Alternativamente, você pode renderizar uma coleção de fragmentos a qual contêm `<hr />` e `<p>...</p>`. Entretanto, o atalho de sintaxe `<>...</>` não suporta a passagem de keys, então você teria que escrever `<Fragment>` explicitamente:
+Alternativamente, você pode renderizar uma coleção de fragmentos que contém `<hr />` e `<p>...</p>`. No entanto, a sintaxe abreviada `<>...</>` não suporta a passagem de chaves, então você teria que escrever `<Fragment>` explicitamente:
 
 <Sandpack>
 
@@ -1252,7 +1252,7 @@ hr {
 
 </Sandpack>
 
-Lembre-se, fragmentos (comumente escritos como `<> </>`) deixam com que você agrupe nós JSX sem adicionar `<div>`s extras!
+Lembre-se, Fragmentos (geralmente escritos como `<> </>`) permitem agrupar nós JSX sem adicionar `<div>`s extras!
 
 </Solution>
 

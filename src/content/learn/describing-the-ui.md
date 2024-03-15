@@ -11,13 +11,14 @@ React é uma biblioteca JavaScript para renderizar interfaces de usuário (UI). 
 <YouWillLearn isChapter={true}>
 
 * [Como criar seu primeiro componente React](/learn/your-first-component)
-* [Quando e como criar múltiplos componentes](/learn/importing-and-exporting-components)
+* [Quando e como criar arquivos multicomponentes](/learn/importing-and-exporting-components)
 * [Como escrever tags dentro do JavaScript usando JSX](/learn/writing-markup-with-jsx)
-* [Como utilizar chaves no JSX para utilizar funcões JavaScript nos seus componentes](/learn/javascript-in-jsx-with-curly-braces)
-* [Como configurar componentes utilizando props(propriedades)](/learn/passing-props-to-a-component)
-* [Como renderizar componentes de forma condicional](/learn/conditional-rendering)
-* [Como renderizar múltiplos componentes de uma só vez](/learn/rendering-lists)
-* [Como evitar comportamentos inesperados mantendo seus componentes puros](/learn/keeping-components-pure)
+* [Como usar chaves com JSX para acessar a funcionalidade JavaScript de seus componentes](/learn/javascript-in-jsx-with-curly-braces)
+* [Como configurar componentes com props](/learn/passing-props-to-a-component)
+* [Como renderizar componentes condicionalmente](/learn/conditional-rendering)
+* [Como renderizar vários componentes por vez](/learn/rendering-lists)
+* [Como evitar erros confusos mantendo os componentes puros](/learn/keeping-components-pure)
+* [Por que entender sua UI como árvores é útil](/learn/understanding-your-ui-as-a-tree)
 
 </YouWillLearn>
 
@@ -67,7 +68,7 @@ Você pode declarar vários componentes em um único arquivo, mas arquivos grand
 
 <Sandpack>
 
-```js App.js hidden
+```js src/App.js hidden
 import Gallery from './Gallery.js';
 
 export default function App() {
@@ -77,7 +78,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js active
+```js src/Gallery.js active
 import Profile from './Profile.js';
 
 export default function Gallery() {
@@ -92,7 +93,7 @@ export default function Gallery() {
 }
 ```
 
-```js Profile.js
+```js src/Profile.js
 export default function Profile() {
   return (
     <img
@@ -277,7 +278,7 @@ function Card({ children }) {
 
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return (
     'https://i.imgur.com/' +
@@ -371,7 +372,7 @@ Para cada item da lista, você precisa especificar uma chave (`key`). Normalment
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
@@ -398,7 +399,7 @@ export default function List() {
 }
 ```
 
-```js data.js
+```js src/data.js
 export const people = [{
   id: 0,
   name: 'Creola Katherine Johnson',
@@ -432,7 +433,7 @@ export const people = [{
 }];
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +
@@ -524,6 +525,37 @@ export default function TeaSet() {
 Leia **[Mantendo Seus Componentes Puros](/learn/keeping-components-pure)** para aprender como criar componentes puros e funções previsíveis.
 
 </LearnMore>
+
+## Your UI as a tree {/*your-ui-as-a-tree*/}
+
+React uses trees to model the relationships between components and modules. 
+
+A React render tree is a representation of the parent and child relationship between components. 
+
+<Diagram name="generic_render_tree" height={250} width={500} alt="A tree graph with five nodes, with each node representing a component. The root node is located at the top the tree graph and is labelled 'Root Component'. It has two arrows extending down to two nodes labelled 'Component A' and 'Component C'. Each of the arrows is labelled with 'renders'. 'Component A' has a single 'renders' arrow to a node labelled 'Component B'. 'Component C' has a single 'renders' arrow to a node labelled 'Component D'.">
+
+An example React render tree.
+
+</Diagram>
+
+Components near the top of the tree, near the root component, are considered top-level components. Components with no child components are leaf components. This categorization of components is useful for understanding data flow and rendering performance.
+
+Modelling the relationship between JavaScript modules is another useful way to understand your app. We refer to it as a module dependency tree. 
+
+<Diagram name="generic_dependency_tree" height={250} width={500} alt="A tree graph with five nodes. Each node represents a JavaScript module. The top-most node is labelled 'RootModule.js'. It has three arrows extending to the nodes: 'ModuleA.js', 'ModuleB.js', and 'ModuleC.js'. Each arrow is labelled as 'imports'. 'ModuleC.js' node has a single 'imports' arrow that points to a node labelled 'ModuleD.js'.">
+
+An example module dependency tree.
+
+</Diagram>
+
+A dependency tree is often used by build tools to bundle all the relevant JavaScript code for the client to download and render. A large bundle size regresses user experience for React apps. Understanding the module dependency tree is helpful to debug such issues. 
+
+<LearnMore path="/learn/understanding-your-ui-as-a-tree">
+
+Read **[Your UI as a Tree](/learn/understanding-your-ui-as-a-tree)** to learn how to create a render and module dependency trees for a React app and how they're useful mental models for improving user experience and performance.
+
+</LearnMore>
+
 
 ## O que vem depois? {/*whats-next*/}
 
