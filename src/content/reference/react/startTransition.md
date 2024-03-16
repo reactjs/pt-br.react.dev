@@ -4,7 +4,7 @@ título: startTransition
 
 <Intro>
 
- `startTransition` permite que você atualize o estado sem bloquear a interface do usuário.
+ `startTransition` permite que você atualize o state sem bloquear a UI
 
 ```js
 startTransition(scope)
@@ -20,7 +20,7 @@ startTransition(scope)
 
 ### `startTransition(scope)` {/*starttransitionscope*/}
 
-A função startTransition permite que você marque uma atualização de state como uma transição.
+A função `startTransition` permite que você marque uma atualização de state como uma transição.
 
 ```js {7,9}
 import { startTransition } from 'react';
@@ -37,28 +37,29 @@ function TabContainer() {
 }
 ```
 
-[Ver mais exemplos abaixo](#uso)
+[Veja mais exemplos abaixo](#uso)
 
 #### Parâmetros {/*parameters*/}
 
-* `scope`: Uma função que atualiza algum estado chamando uma ou mais funções [`set`](/reference/react/useState#setstate) O React imediatamente chama `scope` sem parâmetros e marca todas as atualizações de state agendadas sincronizadamente durante a chamada da função `scope` como transições. Elas serão [sem bloqueio](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) e [não exibirão indicadores de carregamento indesejados](/reference/react/useTransition#preventing-unwanted-loading-indicators)
+* `scope`: É uma função que atualiza algum estado chamando uma ou mais [`set` functions.](/reference/react/useState#setstate) O React imediatamente chama `scope` sem parâmetros e marca todas as atualizações de state agendadas sincronizadamente durante a chamada da função `scope` como transições. Elas serão [sem bloqueio](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) e [não exibirão indicadores de carregamento indesejados](/reference/react/useTransition#preventing-unwanted-loading-indicators)
+  
 #### Retornos {/*returns*/}
 
 `startTransition` não retorna nada.
 
 #### Ressalvas {/*caveats*/}
 
-* O `startTransition` não fornece uma forma de verificar se uma transição está pendente. Para mostrar um indicador pendente enquanto a transição está em curso, é necessário [`useTransition`](/reference/react/useTransition) instead.
+* O `startTransition` não fornece uma forma de verificar se uma transição está pendente. Para mostrar um indicador pendente enquanto a transição está em curso, é necessário usar [`useTransition`](/reference/react/useTransition).
 
-Você só pode envolver uma atualização em uma transição se tiver acesso à função `set` desse estado. Se desejar iniciar uma transição em resposta a alguma propriedade ou a um valor de retorno personalizado do Hook, tente [`useDeferredValue`](/reference/react/useDeferredValue) .
+Só é possivel envolver uma atualização em uma transição se você tiver acesso à função `set` desse state. Se desejar iniciar uma transição em resposta a alguma prop ou a um valor de retorno de Hook personalizado, tente [`useDeferredValue`](/reference/react/useDeferredValue) .
 
 * A função que você passa para `startTransition` deve ser síncrona. O React executa imediatamente essa função, marcando todas as atualizações de state que acontecem enquanto ela é executada como transições. Se você tentar executar mais atualizações de state depois (por exemplo, em um timeout), elas não serão marcadas como transições.
 
-* Uma atualização de estado marcada como uma transição será interrompida por outras atualizações de estado. Por exemplo, se você atualizar um componente de gráfico dentro de uma transição, mas depois começar a digitar em uma entrada enquanto o gráfico estiver no meio de uma nova renderização, o React reiniciará o trabalho de renderização no componente de gráfico depois de lidar com a atualização do estado da entrada.
+* Uma atualização de state marcada como uma transição será interrompida por outras atualizações de state. Por exemplo, se você atualizar um componente de gráfico dentro de uma transição, mas depois começar a digitar em uma entrada enquanto o gráfico estiver no meio de uma nova renderização, o React reiniciará o trabalho de renderização no componente de gráfico depois de lidar com a atualização de state da entrada.
 
-* Transition updates can't be used to control text inputs.
+* As atualizações de transição não podem ser utilizadas para controlar entradas de texto.
 
-* If there are multiple ongoing transitions, React currently batches them together. This is a limitation that will likely be removed in a future release.
+* Se houver várias transições em andamento, o React atualmente as agrupa em lotes. Essa limitação provavelmente será removida em uma versão futura.
 
 ---
 
@@ -83,13 +84,13 @@ function TabContainer() {
 }
 ```
 
-As transições permitem manter a responsividade das atualizações da interface do usuário, mesmo em dispositivos lentos.
+As transições ajudam a manter a interface do usuário responsiva, mesmo em dispositivos mais lentos.
 
-Com uma transição, a sua IU permanece responsiva durante uma nova apresentação. Por exemplo, se o usuário clicar em uma aba e depois mudar de ideia e clicar em outra, ele pode fazer isso sem esperar que a primeira nova apresentação termine.
+Com uma transição, a sua UI permanece responsiva durante uma nova renderização. Por exemplo, se o usuário clicar em uma guia e depois mudar de ideia e clicar em outra, ele poderá fazê-lo sem precisar esperar que a primeira nova renderização termine.
 
 <Note>
 
-`startTransition` é muito semelhante à [`useTransition`](/reference/react/useTransition), exceto que não fornece a flag `isPending` para rastrear se uma transição está em andamento. Você pode chamar `startTransition` quando `useTransition` não está disponível. Por exemplo, `startTransition` funciona com componentes externos, por exemplo, a partir de uma biblioteca de dados.
+`startTransition` é muito semelhante à [`useTransition`](/reference/react/useTransition), exceto que não fornece a flag `isPending` para monitorar se uma transição está em andamento. Você pode chamar `startTransition` quando `useTransition` não está disponível. Por exemplo, `startTransition` funciona com componentes externos, como por exemplo, a partir de uma biblioteca de dados.
 
 [Saiba mais sobre as transições e veja exemplos na `useTransition` page.](/reference/react/useTransition)
 
