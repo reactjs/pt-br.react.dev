@@ -554,9 +554,6 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-
-(Alternativamente, você pode manter o índice selecionado no estado.)
-
 O estado costumava ser duplicado assim:
 
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
@@ -613,7 +610,7 @@ export default function TravelPlan() {
 }
 ```
 
-```js places.js active
+```js src/places.js active
 export const initialTravelPlan = {
   id: 0,
   title: '(Root)',
@@ -869,7 +866,7 @@ export default function TravelPlan() {
 }
 ```
 
-```js places.js active
+```js src/places.js active
 export const initialTravelPlan = {
   0: {
     id: 0,
@@ -1205,7 +1202,7 @@ function PlaceTree({ id, parentId, placesById, onComplete }) {
 }
 ```
 
-```js places.js
+```js src/places.js
 export const initialTravelPlan = {
   0: {
     id: 0,
@@ -1539,7 +1536,7 @@ function PlaceTree({ id, parentId, placesById, onComplete }) {
 }
 ```
 
-```js places.js
+```js src/places.js
 export const initialTravelPlan = {
   0: {
     id: 0,
@@ -1837,7 +1834,7 @@ Este componente `Clock` recebe duas *props*: `color` e `time`. Quando você sele
 
 <Sandpack>
 
-```js Clock.js active
+```js src/Clock.js active
 import { useState } from 'react';
 
 export default function Clock(props) {
@@ -1850,7 +1847,7 @@ export default function Clock(props) {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 
@@ -1892,7 +1889,7 @@ O problema é que este componente tem o estado `color` inicializado com o valor 
 
 <Sandpack>
 
-```js Clock.js active
+```js src/Clock.js active
 import { useState } from 'react';
 
 export default function Clock(props) {
@@ -1904,7 +1901,7 @@ export default function Clock(props) {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 
@@ -1944,7 +1941,7 @@ Ou, usando a sintaxe de desestruturação:
 
 <Sandpack>
 
-```js Clock.js active
+```js src/Clock.js active
 import { useState } from 'react';
 
 export default function Clock({ color, time }) {
@@ -1956,7 +1953,7 @@ export default function Clock({ color, time }) {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 
@@ -2006,7 +2003,7 @@ Algum estado neste exemplo é redundante?
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AddItem from './AddItem.js';
 import PackingList from './PackingList.js';
@@ -2074,7 +2071,7 @@ export default function TravelPlan() {
 }
 ```
 
-```js AddItem.js hidden
+```js src/AddItem.js hidden
 import { useState } from 'react';
 
 export default function AddItem({ onAddItem }) {
@@ -2095,7 +2092,7 @@ export default function AddItem({ onAddItem }) {
 }
 ```
 
-```js PackingList.js hidden
+```js src/PackingList.js hidden
 import { useState } from 'react';
 
 export default function PackingList({
@@ -2145,7 +2142,7 @@ Apesar de você poder alterar cuidadosamente cada manipulador de eventos para at
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AddItem from './AddItem.js';
 import PackingList from './PackingList.js';
@@ -2209,7 +2206,7 @@ export default function TravelPlan() {
 }
 ```
 
-```js AddItem.js hidden
+```js src/AddItem.js hidden
 import { useState } from 'react';
 
 export default function AddItem({ onAddItem }) {
@@ -2230,7 +2227,7 @@ export default function AddItem({ onAddItem }) {
 }
 ```
 
-```js PackingList.js hidden
+```js src/PackingList.js hidden
 import { useState } from 'react';
 
 export default function PackingList({
@@ -2286,7 +2283,7 @@ Este código funciona, mas há um pequeno problema de UI. Quando você pressiona
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { initialLetters } from './data.js';
 import Letter from './Letter.js';
@@ -2333,7 +2330,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   isHighlighted,
@@ -2363,7 +2360,7 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const initialLetters = [{
   id: 0,
   subject: 'Pronto para a aventura?',
@@ -2395,7 +2392,7 @@ Para corrigir o problema, remova a duplicação do estado. Em vez de armazenar *
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { initialLetters } from './data.js';
 import Letter from './Letter.js';
@@ -2442,7 +2439,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   isHighlighted,
@@ -2472,7 +2469,7 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const initialLetters = [{
   id: 0,
   subject: 'Pronto para a aventura?',
@@ -2512,7 +2509,7 @@ Ao invés de um único ID selecionado, você pode querer manter um array ou um [
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { letters } from './data.js';
 import Letter from './Letter.js';
@@ -2555,7 +2552,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   onToggle,
@@ -2580,7 +2577,7 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const letters = [{
   id: 0,
   subject: 'Pronto para a aventura?',
@@ -2611,7 +2608,7 @@ Ao invés de um único `selectedId`, mantenha um *array* `selectedIds` no estado
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { letters } from './data.js';
 import Letter from './Letter.js';
@@ -2663,7 +2660,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   onToggle,
@@ -2688,7 +2685,7 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const letters = [{
   id: 0,
   subject: 'Pronto para a aventura?',
@@ -2717,7 +2714,7 @@ Uma pequena desvantagem de usar um array é que, para cada item, você está cha
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { letters } from './data.js';
 import Letter from './Letter.js';
@@ -2766,7 +2763,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   onToggle,
@@ -2791,7 +2788,7 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const letters = [{
   id: 0,
   subject: 'Pronto para a aventura?',
