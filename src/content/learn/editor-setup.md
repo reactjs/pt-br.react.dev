@@ -40,7 +40,11 @@ Alguns editores vêm com esses recursos integrados, mas outros podem exigir a ad
 
 ### Formatação {/*formatting*/}
 
+<<<<<<< HEAD
 A última coisa que você quer fazer ao compartilhar seu código com outro colaborador é entrar em uma discussão sobre [tabs versus espaços](https://www.google.com/search?q=tabs+vs+spaces)! Felizmente, [Prettier](https://prettier.io/) limpará seu código reformatando-o para estar em conformidade com regras predefinidas e configuráveis. Execute o Prettier e todas as suas guias serão convertidas em espaços - e seu recuo, aspas, etc. também serão alterados para se adequar à configuração. Na configuração ideal, o Prettier será executado quando você salvar seu arquivo, fazendo essas edições rapidamente para você.
+=======
+The last thing you want to do when sharing your code with another contributor is get into a discussion about [tabs vs spaces](https://www.google.com/search?q=tabs+vs+spaces)! Fortunately, [Prettier](https://prettier.io/) will clean up your code by reformatting it to conform to preset, configurable rules. Run Prettier, and all your tabs will be converted to spaces—and your indentation, quotes, etc will also all be changed to conform to the configuration. In the ideal setup, Prettier will run when you save your file, quickly making these edits for you.
+>>>>>>> 97489434323b0c4cce78588cd0f48e3808e0eba4
 
 Você pode instalar a [extensão Prettier no VSCode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) seguindo estas etapas:
 
