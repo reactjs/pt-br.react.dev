@@ -1,54 +1,54 @@
 ---
-title: Quick Start
+title: Início rápido
 ---
 
 <Intro>
 
-Welcome to the React documentation! This page will give you an introduction to the 80% of React concepts that you will use on a daily basis.
+Bem-vindo à documentação do React! Esta página fornecerá uma introdução aos 80% dos conceitos do React que você utilizará no seu dia a dia.
 
 </Intro>
 
 <YouWillLearn>
 
-- How to create and nest components
-- How to add markup and styles
-- How to display data
-- How to render conditions and lists
-- How to respond to events and update the screen
-- How to share data between components
+- Como criar e aninhar componentes
+- Como adicionar marcações e estilos
+- Como exibir dados
+- Como renderizar elementos condicionalmente e listas
+- Como responder a eventos e atualizar a tela
+- Como compartilhar dados entre componentes
 
 </YouWillLearn>
 
-## Creating and nesting components {/*components*/}
+## Criando e aninhando componentes {/*components*/}
 
-React apps are made out of *components*. A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.
+ 
+As aplicações React são compostas por *componentes*. Um componente é uma parte da IU (interface do usuário) que possui sua própria lógica e aparência. Um componente pode ser tão pequeno quanto um botão, ou tão grande quanto uma página inteira.
 
-React components are JavaScript functions that return markup:
+Componentes do React são funções JavaScript que retornam marcação (markup):
 
 ```js
 function MyButton() {
   return (
-    <button>I'm a button</button>
+    <button>Eu sou um botão</button>
   );
 }
 ```
-
-Now that you've declared `MyButton`, you can nest it into another component:
+Agora que você declarou `MyButton`, você pode aninhá-lo em outro componente:
 
 ```js {5}
 export default function MyApp() {
   return (
     <div>
-      <h1>Welcome to my app</h1>
+      <h1>Bem-vindo ao meu aplicativo</h1>
       <MyButton />
     </div>
   );
 }
 ```
 
-Notice that `<MyButton />` starts with a capital letter. That's how you know it's a React component. React component names must always start with a capital letter, while HTML tags must be lowercase.
+Repare que `<MyButton />` começa com letra maiúscula. É dessa forma que você identifica um componente React. Os nomes dos componentes React sempre devem começar com letra maiúscula, enquanto as tags HTML devem ser em minúsculas.
 
-Have a look at the result:
+Veja o resultado:
 
 <Sandpack>
 
@@ -56,7 +56,7 @@ Have a look at the result:
 function MyButton() {
   return (
     <button>
-      I'm a button
+      Eu sou um botão
     </button>
   );
 }
@@ -64,7 +64,7 @@ function MyButton() {
 export default function MyApp() {
   return (
     <div>
-      <h1>Welcome to my app</h1>
+      <h1>Bem-vindo ao meu aplicativo</h1>
       <MyButton />
     </div>
   );
@@ -73,49 +73,49 @@ export default function MyApp() {
 
 </Sandpack>
 
-The `export default` keywords specify the main component in the file. If you're not familiar with some piece of JavaScript syntax, [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [javascript.info](https://javascript.info/import-export) have great references.
+A palavra-chave `export default` especifica o componente principal no arquivo. Se você não estiver familiarizado com algum aspecto da sintaxe do JavaScript, o [MDN](https://developer.mozilla.org/pt-BR/docs/web/javascript/reference/statements/export) e o [javascript.info](https://javascript.info/import-export) têm ótimas referências.
 
-## Writing markup with JSX {/*writing-markup-with-jsx*/}
+## Escrevendo marcações (markup) com JSX {/*writing-markup-with-jsx*/}
 
-The markup syntax you've seen above is called *JSX*. It is optional, but most React projects use JSX for its convenience. All of the [tools we recommend for local development](/learn/installation) support JSX out of the box.
+A sintaxe de marcação que você viu acima é chamada de *JSX*. Ela é opcional, mas a maioria dos projetos React utiliza JSX pela sua conveniência. Todas as [todas as ferramentas de desenvolvimento que recomendamos](/learn/installation) suportam JSX prontamente.
 
-JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper:
+JSX é mais rigoroso do que HTML. Você precisa fechar as tags, como `<br />`. Além disso, Seu componente não pode retornar várias tags JSX separadas. Você precisa envolvê-las em um elemento pai compartilhado, como um `<div>...</div>` ou um `<>...</>` vazio:
 
 ```js {3,6}
 function AboutPage() {
   return (
     <>
-      <h1>About</h1>
-      <p>Hello there.<br />How do you do?</p>
+      <h1>Sobre</h1>
+      <p>Olá.<br />Como vai?</p>
     </>
   );
 }
 ```
+Se você tiver muito HTML para converter para JSX, você pode usar um [conversor online.](https://transform.tools/html-to-jsx)
 
-If you have a lot of HTML to port to JSX, you can use an [online converter.](https://transform.tools/html-to-jsx)
+## Adicionando estilos {/*adding-styles*/}
 
-## Adding styles {/*adding-styles*/}
 
-In React, you specify a CSS class with `className`. It works the same way as the HTML [`class`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class) attribute:
+No React, você define uma classe CSS usando `className`, que funciona da mesma forma que o atributo HTML [`class`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Global_attributes/class):
 
 ```js
 <img className="avatar" />
 ```
 
-Then you write the CSS rules for it in a separate CSS file:
+Depois, você escreve o CSS para esse elemento em um arquivo CSS separado:
 
 ```css
-/* In your CSS */
+/* No seu arquivo CSS */
 .avatar {
   border-radius: 50%;
 }
 ```
 
-React does not prescribe how you add CSS files. In the simplest case, you'll add a [`<link>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) tag to your HTML. If you use a build tool or a framework, consult its documentation to learn how to add a CSS file to your project.
+O React não especifica como você adiciona arquivos CSS. No caso mais simples, você adicionará uma tag [`<link>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/link) ao seu HTML. Se você estiver usando uma ferramenta de construção ou um framework, consulte sua documentação para aprender como adicionar um arquivo CSS ao seu projeto.
 
-## Displaying data {/*displaying-data*/}
+## Exibindo dados {/*displaying-data*/}
 
-JSX lets you put markup into JavaScript. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. For example, this will display `user.name`:
+JSX permite que você coloque marcação dentro do JavaScript. As chaves permitem que você insira expressões JavaScript. Isso é útil para incorporar variáveis do seu código e exibi-las para o usuário. Por exemplo, isso irá exibir `user.name`:
 
 ```js {3}
 return (
@@ -125,7 +125,7 @@ return (
 );
 ```
 
-You can also "escape into JavaScript" from JSX attributes, but you have to use curly braces *instead of* quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
+Você também pode incorporar expressões JavaScript a partir de atributos JSX, mas você deve usar chaves *em vez* de aspas. Por exemplo, `className="avatar"` passa a string `"avatar"` como a classe CSS, mas `src={user.imageUrl}` lê o valor da variável JavaScript `user.imageUrl`, e então passa esse valor como o atributo `src`:
 
 ```js {3,4}
 return (
@@ -136,7 +136,7 @@ return (
 );
 ```
 
-You can put more complex expressions inside the JSX curly braces too, for example, [string concatenation](https://javascript.info/operators#string-concatenation-with-binary):
+Você também pode colocar expressões mais complexas dentro das chaves do JSX, por exemplo, [concatenação de strings](https://javascript.info/operators#string-concatenation-with-binary):
 
 <Sandpack>
 
@@ -154,7 +154,7 @@ export default function Profile() {
       <img
         className="avatar"
         src={user.imageUrl}
-        alt={'Photo of ' + user.name}
+        alt={'Foto de ' + user.name}
         style={{
           width: user.imageSize,
           height: user.imageSize
@@ -177,11 +177,11 @@ export default function Profile() {
 
 </Sandpack>
 
-In the above example, `style={{}}` is not a special syntax, but a regular `{}` object inside the `style={ }` JSX curly braces. You can use the `style` attribute when your styles depend on JavaScript variables.
+No exemplo acima, `style={{}}` não é uma sintaxe especial, mas sim um objeto normal `{}` dentro das chaves do JSX `style={ }`. Você pode usar o atributo `style` quando seus estilos dependem de variáveis JavaScript.
 
-## Conditional rendering {/*conditional-rendering*/}
+## Renderização condicional {/*conditional-rendering*/}
 
-In React, there is no special syntax for writing conditions. Instead, you'll use the same techniques as you use when writing regular JavaScript code. For example, you can use an [`if`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement to conditionally include JSX:
+No React, não existe uma sintaxe especial para escrever condições. Você usará as mesmas técnicas que utiliza ao escrever código JavaScript convencional. Por exemplo, você pode usar uma instrução [`if`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/if...else) para incluir JSX condicionalmente:
 
 ```js
 let content;
@@ -197,7 +197,8 @@ return (
 );
 ```
 
-If you prefer more compact code, you can use the [conditional `?` operator.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) Unlike `if`, it works inside JSX:
+Se preferir um código mais compacto, você pode utilizar o [operador condicional `?`.](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) Ao contrário do `if`, ele funciona dentro do JSX:
+
 
 ```js
 <div>
@@ -209,7 +210,7 @@ If you prefer more compact code, you can use the [conditional `?` operator.](htt
 </div>
 ```
 
-When you don't need the `else` branch, you can also use a shorter [logical `&&` syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation):
+Quando você não precisa do caso `else`, você pode usar uma sintaxe mais curta com o [operador lógico `&&`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Logical_AND#short-circuit_evaluation):
 
 ```js
 <div>
@@ -217,23 +218,23 @@ When you don't need the `else` branch, you can also use a shorter [logical `&&` 
 </div>
 ```
 
-All of these approaches also work for conditionally specifying attributes. If you're unfamiliar with some of this JavaScript syntax, you can start by always using `if...else`.
+Todas essas abordagens também funcionam para especificar atributos condicionalmente. Se você não estiver familiarizado com algumas dessas sintaxes JavaScript, pode começar sempre usando `if...else`.
 
-## Rendering lists {/*rendering-lists*/}
+## Renderizando listas {/*rendering-lists*/}
 
-You will rely on JavaScript features like [`for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) and the [array `map()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to render lists of components.
+Você irá depender de recursos do JavaScript como o [loop `for`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/for) e a [função `map()` de arrays](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
-For example, let's say you have an array of products:
+Por exemplo, suponha que você tenha um array de produtos:
 
 ```js
 const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
+  { title: 'Repolho', id: 1 },
+  { title: 'Alho', id: 2 },
+  { title: 'Maçã', id: 3 },
 ];
 ```
 
-Inside your component, use the `map()` function to transform an array of products into an array of `<li>` items:
+Dentro do seu componente, use a função `map()` para transformar um array de produtos em um array de itens `<li>`:
 
 ```js
 const listItems = products.map(product =>
@@ -247,15 +248,15 @@ return (
 );
 ```
 
-Notice how `<li>` has a `key` attribute. For each item in a list, you should pass a string or a number that uniquely identifies that item among its siblings. Usually, a key should be coming from your data, such as a database ID. React uses your keys to know what happened if you later insert, delete, or reorder the items.
+Note como `<li>` possui um atributo `key`. Para cada item em uma lista, você deve passar uma string ou um número que identifica unicamente esse item entre seus irmãos. Normalmente, uma chave deve vir dos seus dados, como um ID de banco de dados. O React utiliza essas chaves para entender as mudanças que ocorrem se você posteriormente inserir, excluir ou reordenar os itens.
 
 <Sandpack>
 
 ```js
 const products = [
-  { title: 'Cabbage', isFruit: false, id: 1 },
-  { title: 'Garlic', isFruit: false, id: 2 },
-  { title: 'Apple', isFruit: true, id: 3 },
+  { title: 'Repolho', isFruit: false, id: 1 },
+  { title: 'Alho', isFruit: false, id: 2 },
+  { title: 'Maçã', isFruit: true, id: 3 },
 ];
 
 export default function ShoppingList() {
@@ -278,37 +279,37 @@ export default function ShoppingList() {
 
 </Sandpack>
 
-## Responding to events {/*responding-to-events*/}
+## Respondendo a eventos {/*responding-to-events*/}
 
-You can respond to events by declaring *event handler* functions inside your components:
+Você pode responder a eventos declarando funções de *event handler* dentro dos seus componentes:
 
 ```js {2-4,7}
 function MyButton() {
   function handleClick() {
-    alert('You clicked me!');
+    alert('Você clicou no botão!');
   }
 
   return (
     <button onClick={handleClick}>
-      Click me
+      Clique aqui
     </button>
   );
 }
 ```
 
-Notice how `onClick={handleClick}` has no parentheses at the end! Do not _call_ the event handler function: you only need to *pass it down*. React will call your event handler when the user clicks the button.
+Note como `onClick={handleClick}` não tem parênteses no final! Não _chame_ a função de manipulador de evento: você só precisa passá-la. O React chamará seu manipulador de evento quando o usuário clicar no botão.
 
-## Updating the screen {/*updating-the-screen*/}
+## Atualizando a tela {/*updating-the-screen*/}
 
-Often, you'll want your component to "remember" some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add *state* to your component.
+Normalmente, você vai querer que seu componente "lembre" algumas informações e as exiba. Por exemplo, talvez você queira contar o número de vezes que um botão é clicado. Para fazer isso, adicione *estados* ao seu componente.
 
-First, import [`useState`](/reference/react/useState) from React:
+Primeiro, importe [`useState`](/reference/react/useState) do React:
 
 ```js
 import { useState } from 'react';
 ```
 
-Now you can declare a *state variable* inside your component:
+Agora você pode declarar uma *variável de estado* dentro do seu componente:
 
 ```js
 function MyButton() {
@@ -316,9 +317,9 @@ function MyButton() {
   // ...
 ```
 
-You’ll get two things from `useState`: the current state (`count`), and the function that lets you update it (`setCount`). You can give them any names, but the convention is to write `[something, setSomething]`.
+Ao usar `useState`, você receberá duas coisas: o estado atual (`count`) e a função que permite atualizá-lo (`setCount`). Você pode dar a elas qualquer nome, mas a convenção é escrever `[algo, setAlgo]`.
 
-The first time the button is displayed, `count` will be `0` because you passed `0` to `useState()`. When you want to change state, call `setCount()` and pass the new value to it. Clicking this button will increment the counter:
+Na primeira vez que o botão é exibido, `count` será `0` porque você passou `0` para `useState()`. Quando você quiser alterar o estado, chame `setCount()` e passe o novo valor para ele. Clicar neste botão irá incrementar o contador:
 
 ```js {5}
 function MyButton() {
@@ -330,15 +331,15 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Clicked {count} times
+      Clicado {count} vezes
     </button>
   );
 }
 ```
 
-React will call your component function again. This time, `count` will be `1`. Then it will be `2`. And so on.
+O React chamará novamente a função do seu componente. Desta vez, `count` será `1`. Depois será `2`. E assim por diante.
 
-If you render the same component multiple times, each will get its own state. Click each button separately:
+Se você renderizar o mesmo componente várias vezes, cada um terá seu próprio estado. Clique em cada botão separadamente:
 
 <Sandpack>
 
@@ -348,7 +349,7 @@ import { useState } from 'react';
 export default function MyApp() {
   return (
     <div>
-      <h1>Counters that update separately</h1>
+      <h1>Contadores que atualiza separadamente</h1>
       <MyButton />
       <MyButton />
     </div>
@@ -364,7 +365,7 @@ function MyButton() {
 
   return (
     <button onClick={handleClick}>
-      Clicked {count} times
+      Clicado {count} vezes
     </button>
   );
 }
@@ -379,59 +380,60 @@ button {
 
 </Sandpack>
 
-Notice how each button "remembers" its own `count` state and doesn't affect other buttons.
+Note como cada botão "lembra" seu próprio estado `count` e não afeta os outros botões.
 
-## Using Hooks {/*using-hooks*/}
+## Usando Hooks {/*using-hooks*/}
 
-Functions starting with `use` are called *Hooks*. `useState` is a built-in Hook provided by React. You can find other built-in Hooks in the [API reference.](/reference/react) You can also write your own Hooks by combining the existing ones.
+Funções que começam com `use` são chamadas de Hooks. `useState` é um Hook integrado fornecido pelo React. Você pode encontrar outros Hooks integrados na [referência da API.](/reference/react). Você também pode escrever seus próprios Hooks combinando com os existentes.
 
-Hooks are more restrictive than other functions. You can only call Hooks *at the top* of your components (or other Hooks). If you want to use `useState` in a condition or a loop, extract a new component and put it there.
+Hooks são mais restritivos do que outras funções. Você só pode chamar Hooks *no topo* dos seus componentes (ou de outros Hooks). Se você quiser usar `useState` em uma condição ou um loop, extraia um novo componente e coloque-o lá.
 
-## Sharing data between components {/*sharing-data-between-components*/}
+## Compartilhando dados entre componentes {/*sharing-data-between-components*/}
 
-In the previous example, each `MyButton` had its own independent `count`, and when each button was clicked, only the `count` for the button clicked changed:
+No exemplo anterior, cada `MyButton` tinha seu próprio `count` independente, e quando cada botão era clicado, apenas o `count` do botão clicado mudava:
 
 <DiagramGroup>
 
-<Diagram name="sharing_data_child" height={367} width={407} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. Both MyButton components contain a count with value zero.">
+<Diagram name="sharing_data_child" height={367} width={407} alt="Diagrama mostrando uma árvore de três componentes, um pai denominado MyApp e dois filhos denominados MyButton. Ambos os componentes MyButton contêm uma contagem com valor zero.">
 
-Initially, each `MyButton`'s `count` state is `0`
+Inicialmente, o estado `count` de cada `MyButton` é `0`.
 
 </Diagram>
 
-<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="The same diagram as the previous, with the count of the first child MyButton component highlighted indicating a click with the count value incremented to one. The second MyButton component still contains value zero." >
+<Diagram name="sharing_data_child_clicked" height={367} width={407} alt="O mesmo diagrama que o anterior, com a contagem do primeiro componente filho MyButton destacada indicando um clique com o valor da contagem incrementado para um. O segundo componente MyButton ainda contém o valor zero.">
 
-The first `MyButton` updates its `count` to `1`
+O primeiro `MyButton` atualiza seu `count` para `1`.
 
 </Diagram>
 
 </DiagramGroup>
 
-However, often you'll need components to *share data and always update together*.
+No entanto, normalment você vai precisar que componentes *compartilhem dados e sempre sejam atualizados juntos*.
 
-To make both `MyButton` components display the same `count` and update together, you need to move the state from the individual buttons "upwards" to the closest component containing all of them.
+Para fazer com que ambos os componentes `MyButton` exibam o mesmo `count` e sejam atualizados juntos, você precisa mover o estado dos botões individuais "para cima", para o componente mais próximo que contenha todos eles.
 
-In this example, it is `MyApp`:
+Neste exemplo, é o `MyApp`:
 
 <DiagramGroup>
 
-<Diagram name="sharing_data_parent" height={385} width={410} alt="Diagram showing a tree of three components, one parent labeled MyApp and two children labeled MyButton. MyApp contains a count value of zero which is passed down to both of the MyButton components, which also show value zero." >
+<Diagram name="sharing_data_parent" height={385} width={410} alt="Diagrama mostrando uma árvore de três componentes, um pai denominado MyApp e dois filhos denominados MyButton. MyApp contém um valor de contagem de zero que é passado para os dois componentes MyButton, que também mostram o valor zero." >
 
-Initially, `MyApp`'s `count` state is `0` and is passed down to both children
+Inicialmente, o estado `count` do `MyApp` é `0` e é passado para ambos os filhos.
 
 </Diagram>
 
-<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="The same diagram as the previous, with the count of the parent MyApp component highlighted indicating a click with the value incremented to one. The flow to both of the children MyButton components is also highlighted, and the count value in each child is set to one indicating the value was passed down." >
+<Diagram name="sharing_data_parent_clicked" height={385} width={410} alt="O mesmo diagrama que o anterior, com a contagem do componente MyApp pai destacada, indicando um clique com o valor incrementado para um. O fluxo para ambos os componentes filhos MyButton também está destacado, e o valor da contagem em cada filho está definido como um, indicando que o valor foi passado para baixo." >
 
-On click, `MyApp` updates its `count` state to `1` and passes it down to both children
+Ao clicar, o `MyApp` atualiza seu estado `count` para `1` e o passa para ambos os filhos.
 
 </Diagram>
 
 </DiagramGroup>
 
-Now when you click either button, the `count` in `MyApp` will change, which will change both of the counts in `MyButton`. Here's how you can express this in code.
+Agora, quando você clicar em qualquer botão, o estado `count` em `MyApp` será atualizado, e essa alteração será refletida em ambos os botões em `MyButton`. Você pode expressar isso em código dessa forma.
 
-First, *move the state up* from `MyButton` into `MyApp`:
+
+Primeiro, *mova o estado* de `MyButton` para `MyApp`:
 
 ```js {2-6,18}
 export default function MyApp() {
@@ -443,7 +445,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update separately</h1>
+      <h1>Contadores que atualiza separadamente</h1>
       <MyButton />
       <MyButton />
     </div>
@@ -451,12 +453,12 @@ export default function MyApp() {
 }
 
 function MyButton() {
-  // ... we're moving code from here ...
+  // ... Estamos movendo o código daqui ...
 }
 
 ```
 
-Then, *pass the state down* from `MyApp` to each `MyButton`, together with the shared click handler. You can pass information to `MyButton` using the JSX curly braces, just like you previously did with built-in tags like `<img>`:
+Então, *passe o estado de `MyApp` para cada `MyButton`*, juntamente com o manipulador de cliques compartilhado. Você pode passar informações para `MyButton` usando as chaves JSX, assim como fez anteriormente com tags incorporadas como `<img>`:
 
 ```js {11-12}
 export default function MyApp() {
@@ -468,7 +470,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update together</h1>
+      <h1>Contadores que são atualizados juntos</h1>
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
@@ -476,21 +478,21 @@ export default function MyApp() {
 }
 ```
 
-The information you pass down like this is called _props_. Now the `MyApp` component contains the `count` state and the `handleClick` event handler, and *passes both of them down as props* to each of the buttons.
+A informação que você passa dessa forma é chamada de _props_. Agora, o componente `MyApp` contém o estado `count` e o manipulador de eventos `handleClick`, e *passa ambos como props* para cada um dos botões.
 
-Finally, change `MyButton` to *read* the props you have passed from its parent component:
+Por fim, altere `MyButton` para *ler* as props que você passou do seu componente pai:
 
 ```js {1,3}
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
-      Clicked {count} times
+      Clicado {count} vezes
     </button>
   );
 }
 ```
 
-When you click the button, the `onClick` handler fires. Each button's `onClick` prop was set to the `handleClick` function inside `MyApp`, so the code inside of it runs. That code calls `setCount(count + 1)`, incrementing the `count` state variable. The new `count` value is passed as a prop to each button, so they all show the new value. This is called "lifting state up". By moving state up, you've shared it between components.
+Quando você clica no botão, o evento `onClick` é disparado. O `onClick` de cada botão foi definido como a função `handleClick` dentro de `MyApp`, então o código dentro dela é executado. Esse código chama `setCount(count + 1)`, incrementando a variável de estado `count`. O novo valor de `count` é passado como uma prop para cada botão, então todos mostram o novo valor. Isso é chamado de "elevar o estado". Ao mover o estado para cima, você o compartilhou entre os componentes.
 
 <Sandpack>
 
@@ -506,7 +508,7 @@ export default function MyApp() {
 
   return (
     <div>
-      <h1>Counters that update together</h1>
+      <h1>Contadores que são atualizados juntos</h1>
       <MyButton count={count} onClick={handleClick} />
       <MyButton count={count} onClick={handleClick} />
     </div>
@@ -516,7 +518,7 @@ export default function MyApp() {
 function MyButton({ count, onClick }) {
   return (
     <button onClick={onClick}>
-      Clicked {count} times
+      Clicado {count} vezes
     </button>
   );
 }
@@ -531,8 +533,8 @@ button {
 
 </Sandpack>
 
-## Next Steps {/*next-steps*/}
+## Próximo passos {/*next-steps*/}
 
-By now, you know the basics of how to write React code!
+Até agora, você aprendeu os fundamentos de como escrever código em React!
 
-Check out the [Tutorial](/learn/tutorial-tic-tac-toe) to put them into practice and build your first mini-app with React.
+Confira o [Tutorial](/learn/tutorial-tic-tac-toe) para colocá-los em prática e construir seu primeiro mini-aplicativo com React.
