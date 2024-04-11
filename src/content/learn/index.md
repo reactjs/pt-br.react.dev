@@ -21,7 +21,6 @@ Bem-vindo à documentação do React! Esta página fornecerá uma introdução a
 
 ## Criando e aninhando componentes {/*components*/}
 
- 
 As aplicações React são compostas por *componentes*. Um componente é uma parte da IU (interface do usuário) que possui sua própria lógica e aparência. Um componente pode ser tão pequeno quanto um botão, ou tão grande quanto uma página inteira.
 
 Componentes do React são funções JavaScript que retornam marcação (markup):
