@@ -57,7 +57,7 @@ Se você gosta de aprender fazendo, recomendamos que confira o [Tutorial: Jogo d
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -175,7 +175,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -428,7 +428,7 @@ export default function PackingList() {
 
 Observe que você deve escrever `importance > 0 && ...` ao invés de `importance && ...` para que, se `importance` for `0`, `0` não seja renderizado como resultado!
 
-Nessa solução, duas condições separadas são usadas para inserir um espaço entre o nome e a etiqueta de relevância. Alternativamente, você pode usar um fragmento com um espaço inicial:  `importance > 0 && <> <i>...</i></>` ou adicionar um espaço imediatamente dentro do `<i>`:  `importance > 0 && <i> ...</i>`.
+Nessa solução, duas condições separadas são usadas para inserir um espaço entre o nome e a etiqueta de relevância. Alternativamente, você pode usar um fragmento com um espaço inicial: `<i>`:  `importance > 0 && <i> ...</i>`.
 
 </Solution>
 
@@ -642,5 +642,4 @@ Na frente de desenvolvimento, obrigado a [Jared Palmer](https://twitter.com/jare
 
 Agradecemos imensamente às pessoas que ofereceram seu tempo para participar do programa de testes alfa e beta. Seu entusiasmo e seu inestimável feedback nos ajudaram a moldar esses documentos. Um agradecimento especial à nossa beta tester, [Debbie O'Brien](https://twitter.com/debs_obrien), que deu uma palestra sobre sua experiência usando os documentos do React na React Conf 2021.
 
-Por fim, agradecemos à comunidade React por ser a inspiração por trás desse esforço. É por sua causa que fazemos isso, e esperamos que os novos documentos ajudem você a usar o React para criar qualquer interface de usuário que desejar.
-
+Finalmente, obrigado à comunidade React por ser a inspiração por trás deste esforço. Você é a razão de fazermos isso e esperamos que os novos documentos o ajudem a usar o React para construir qualquer interface de usuário que desejar.
