@@ -20,7 +20,8 @@ const [isPending, startTransition] = useTransition()
 
 ### `useTransition()` {/*usetransition*/}
 
-Chame `useTransition` no início do seu componente para marcar algumas mudanças de estado como transições.
+Chame `useTransition` no nível superior do seu componente para marcar algumas atualizações de estado como Transições.
+
 ```js
 import { useTransition } from 'react';
 
@@ -40,14 +41,14 @@ function TabContainer() {
 
 `useTransition` retorna um array com exatamente dois itens:
 
-1. O atributo `isPending` que informa se há uma transição pendente
-2. A função [`startTransition`](#starttransition) que permite você marcar o state como uma transição.
+1. O atributo `isPending` que informa se há uma Transição pendente
+2. A função [`startTransition`](#starttransition) que permite marcar uma atualização de estado como uma Transição.
 
 ---
 
 ### `startTransition()` {/*starttransition*/}
 
-A função `startTransition` retornado pelo hook `useTransition` permite você marcar o state como uma transição.
+A função `startTransition` retornado pelo hook `useTransition` permite marcar uma atualização de estado como uma Transição.
 
 ```js {6,8}
 function TabContainer() {
@@ -65,7 +66,7 @@ function TabContainer() {
 
 #### Parâmetros {/*starttransition-parameters*/}
 
-* `scope`: Uma função que atualiza o state chamando uma ou mais [funções](/reference/react/useState#setstate)  O React executa imediatamente essa função `scope` sem parâmetros e marca todas as atualizações de state agendadas de forma síncrona durante a chamada da função `scope` como transições.  Essas transições nâo são [obrigatórias](#marking-a-state-update-as-a-non-blocking-transition) e [indicadores de carregamento indesejados.](#preventing-unwanted-loading-indicators)
+* `scope`: Uma função que atualiza o state chamando uma ou mais [funções `set`](/reference/react/useState#setstate)  O React executa imediatamente essa função `scope` sem parâmetros e marca todas as atualizações de state agendadas de forma síncrona durante a chamada da função `scope` como transições.  Essas transições nâo são [obrigatórias](#marking-a-state-update-as-a-non-blocking-transition) e [indicadores de carregamento indesejados.](#preventing-unwanted-loading-indicators)
 
 #### Retorno {/*starttransition-returns*/}
 
@@ -89,10 +90,9 @@ function TabContainer() {
 
 ## Uso {/*usage*/}
 
-### Marcando uma atualização de state como uma transição não bloqueante
-{/*marking-a-state-update-as-a-non-blocking-transition*/}
+### Marcando uma atualização de state como uma transição não bloqueante {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
-Chame `useTransition` o nível superior do seu componente para marcar as atualizações de state como *transições*  sem bloqueio.
+Chame `useTransition` o nível superior do seu componente para marcar as atualizações de state como *Transições* sem bloqueio.
 
 ```js [[1, 4, "isPending"], [2, 4, "startTransition"]]
 import { useState, useTransition } from 'react';
@@ -106,7 +106,7 @@ function TabContainer() {
 `useTransition` retorna um array com exatamente dois itens:
 
 1. O sinalizador <CodeStep step={1}>`isPending`</CodeStep> que indica se existe uma transição pendente.
-2.  O sinalizador <CodeStep step={2}>`startTransition()`</CodeStep> que permite que você marque uma atualização de state como uma transição.
+2.  O sinalizador <CodeStep step={2}>`startTransition` function</CodeStep> que permite que você marque uma atualização de state como uma transição.
 
 Pode então marcar uma atualização de state como uma transição desta forma:
 
@@ -151,7 +151,7 @@ export default function TabContainer() {
 
   function selectTab(nextTab) {
     startTransition(() => {
-      setTab(nextTab);      
+      setTab(nextTab);
     });
   }
 
@@ -184,7 +184,7 @@ export default function TabContainer() {
 }
 ```
 
-```js TabButton.js
+```js src/TabButton.js
 import { useTransition } from 'react';
 
 export default function TabButton({ children, isActive, onClick }) {
@@ -202,7 +202,7 @@ export default function TabButton({ children, isActive, onClick }) {
 
 ```
 
-```js AboutTab.js
+```js src/AboutTab.js
 export default function AboutTab() {
   return (
     <p>Bem-vindos ao meu perfil!</p>
@@ -210,7 +210,7 @@ export default function AboutTab() {
 }
 ```
 
-```js PostsTab.js
+```js src/PostsTab.js
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
@@ -244,7 +244,7 @@ function SlowPost({ index }) {
 export default PostsTab;
 ```
 
-```js ContactTab.js
+```js src/ContactTab.js
 export default function ContactTab() {
   return (
     <>
@@ -320,7 +320,7 @@ export default function TabContainer() {
 }
 ```
 
-```js TabButton.js
+```js src/TabButton.js
 import { useTransition } from 'react';
 
 export default function TabButton({ children, isActive, onClick }) {
@@ -338,7 +338,7 @@ export default function TabButton({ children, isActive, onClick }) {
 
 ```
 
-```js AboutTab.js
+```js src/AboutTab.js
 export default function AboutTab() {
   return (
     <p>Bem vindo ao meu Perfil!</p>
@@ -346,7 +346,7 @@ export default function AboutTab() {
 }
 ```
 
-```js PostsTab.js
+```js src/PostsTab.js
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
@@ -380,7 +380,7 @@ function SlowPost({ index }) {
 export default PostsTab;
 ```
 
-```js ContactTab.js
+```js src/ContactTab.js
 export default function ContactTab() {
   return (
     <>
@@ -472,7 +472,7 @@ export default function TabContainer() {
 }
 ```
 
-```js TabButton.js active
+```js src/TabButton.js active
 import { useTransition } from 'react';
 
 export default function TabButton({ children, isActive, onClick }) {
@@ -492,7 +492,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-```js AboutTab.js
+```js src/AboutTab.js
 export default function AboutTab() {
   return (
     <p>Bem vindo ao meu Perfil!</p>
@@ -500,7 +500,7 @@ export default function AboutTab() {
 }
 ```
 
-```js PostsTab.js
+```js src/PostsTab.js
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
@@ -534,7 +534,7 @@ function SlowPost({ index }) {
 export default PostsTab;
 ```
 
-```js ContactTab.js
+```js src/ContactTab.js
 export default function ContactTab() {
   return (
     <>
@@ -615,7 +615,7 @@ export default function TabContainer() {
 }
 ```
 
-```js TabButton.js active
+```js src/TabButton.js active
 import { useTransition } from 'react';
 
 export default function TabButton({ children, isActive, onClick }) {
@@ -638,7 +638,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-```js AboutTab.js
+```js src/AboutTab.js
 export default function AboutTab() {
   return (
     <p>Bem-vindo ao meu perfil!</p>
@@ -646,7 +646,7 @@ export default function AboutTab() {
 }
 ```
 
-```js PostsTab.js
+```js src/PostsTab.js
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
@@ -680,7 +680,7 @@ function SlowPost({ index }) {
 export default PostsTab;
 ```
 
-```js ContactTab.js
+```js src/ContactTab.js
 export default function ContactTab() {
   return (
     <>
@@ -750,7 +750,7 @@ export default function TabContainer() {
 }
 ```
 
-```js TabButton.js
+```js src/TabButton.js
 export default function TabButton({ children, isActive, onClick }) {
   if (isActive) {
     return <b>{children}</b>
@@ -765,7 +765,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-```js AboutTab.js hidden
+```js src/AboutTab.js hidden
 export default function AboutTab() {
   return (
     <p>Bem-vindo ao meu perfil!</p>
@@ -773,7 +773,7 @@ export default function AboutTab() {
 }
 ```
 
-```js PostsTab.js hidden
+```js src/PostsTab.js hidden
 import { fetchData } from './data.js';
 
 
@@ -823,14 +823,14 @@ function use(promise) {
       reason => {
         promise.status = 'rejected';
         promise.reason = reason;
-      },      
+      },
     );
     throw promise;
   }
 }
 ```
 
-```js ContactTab.js hidden
+```js src/ContactTab.js hidden
 export default function ContactTab() {
   return (
     <>
@@ -846,11 +846,10 @@ export default function ContactTab() {
 }
 ```
 
-
 ```js data.js hidden
 // Observação: a forma como você realiza a busca de dados depende do 
 // framework que você utiliza em conjunto com o Suspense.
- // Normalmente, a lógica de cache estaria dentro de um framework.
+// Normalmente, a lógica de cache estaria dentro de um framework.
 
 let cache = new Map();
 
@@ -937,7 +936,7 @@ export default function TabContainer() {
 }
 ```
 
-```js TabButton.js active
+```js src/TabButton.js active
 import { useTransition } from 'react';
 
 export default function TabButton({ children, isActive, onClick }) {
@@ -960,7 +959,7 @@ export default function TabButton({ children, isActive, onClick }) {
 }
 ```
 
-```js AboutTab.js hidden
+```js src/AboutTab.js hidden
 export default function AboutTab() {
   return (
     <p>Bem-vindo ao meu perfil!</p>
@@ -968,7 +967,7 @@ export default function AboutTab() {
 }
 ```
 
-```js PostsTab.js hidden
+```js src/PostsTab.js hidden
 import { fetchData } from './data.js';
 
 // Observação: este componente é escrito usando uma API experimental 
@@ -1016,14 +1015,14 @@ function use(promise) {
       reason => {
         promise.status = 'rejected';
         promise.reason = reason;
-      },      
+      },
     );
     throw promise;
   }
 }
 ```
 
-```js ContactTab.js hidden
+```js src/ContactTab.js hidden
 export default function ContactTab() {
   return (
     <>
@@ -1038,7 +1037,6 @@ export default function ContactTab() {
   );
 }
 ```
-
 
 ```js data.js hidden
 // Nota: a maneira como você  faz a busca de dados depende
@@ -1086,7 +1084,7 @@ b { display: inline-block; margin-right: 10px; }
 
 </Sandpack>
 
-[Read more about using transitions with Suspense.](/reference/react/Suspense#preventing-already-revealed-content-from-hiding)
+[Read more about using Transitions with Suspense.](/reference/react/Suspense#preventing-already-revealed-content-from-hiding)
 
 <Note>
 
@@ -1137,7 +1135,7 @@ Aqui está um pequeno exemplo simplificado de um router que utiliza transições
 }
 ```
 
-```js App.js
+```js src/App.js
 import { Suspense, useState, useTransition } from 'react';
 import IndexPage from './IndexPage.js';
 import ArtistPage from './ArtistPage.js';
@@ -1188,7 +1186,7 @@ function BigSpinner() {
 }
 ```
 
-```js Layout.js
+```js src/Layout.js
 export default function Layout({ children, isPending }) {
   return (
     <div className="layout">
@@ -1205,7 +1203,7 @@ export default function Layout({ children, isPending }) {
 }
 ```
 
-```js IndexPage.js
+```js src/IndexPage.js
 export default function IndexPage({ navigate }) {
   return (
     <button onClick={() => navigate('/the-beatles')}>
@@ -1215,7 +1213,7 @@ export default function IndexPage({ navigate }) {
 }
 ```
 
-```js ArtistPage.js
+```js src/ArtistPage.js
 import { Suspense } from 'react';
 import Albums from './Albums.js';
 import Biography from './Biography.js';
@@ -1246,7 +1244,7 @@ function AlbumsGlimmer() {
 }
 ```
 
-```js Albums.js hidden
+```js src/Albums.js hidden
 import { fetchData } from './data.js';
 
 // Nota: este componente foi escrito usando uma API experimental
@@ -1287,14 +1285,14 @@ function use(promise) {
       reason => {
         promise.status = 'rejected';
         promise.reason = reason;
-      },      
+      },
     );
     throw promise;
   }
 }
 ```
 
-```js Biography.js hidden
+```js src/Biography.js hidden
 import { fetchData } from './data.js';
 
 // Nota: este componente está escrito usando uma API experimental
@@ -1330,14 +1328,14 @@ function use(promise) {
       reason => {
         promise.status = 'rejected';
         promise.reason = reason;
-      },      
+      },
     );
     throw promise;
   }
 }
 ```
 
-```js Panel.js hidden
+```js src/Panel.js hidden
 export default function Panel({ children }) {
   return (
     <section className="panel">
@@ -1377,11 +1375,14 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles foram uma banda de rock inglesa, formada em Liverpool em 1960, que era composta por John Lennon, Paul McCartney, George Harrison e Ringo Starr.`;
+  return `The Beatles foram uma banda de rock inglesa,
+    formada em Liverpool em 1960, que era composta por
+    John Lennon, Paul McCartney, George Harrison
+    e Ringo Starr.`;
 }
 
 async function getAlbums() {
-// Adicione um atraso falso para tornar a espera perceptível.
+  // Adicione um atraso falso para tornar a espera perceptível.
   await new Promise(resolve => {
     setTimeout(resolve, 3000);
   });
@@ -1496,6 +1497,101 @@ main {
 
 ---
 
+### Exibindo um erro para usuários com um limite de erro {/*displaying-an-error-to-users-with-error-boundary*/}
+
+<Canary>
+
+Atualmente, o limite de erro para useTransition está disponível apenas nos canais canário e experimental do React. Saiba mais sobre [canais de lançamento do React aqui](/community/versioning-policy#all-release-channels).
+
+</Canary>
+
+Se uma função passada para `startTransition` gerar um erro, você poderá exibir um erro ao seu usuário com um [limite de erro](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar um limite de erro, envolva o componente onde você está chamando `useTransition` em um limite de erro. Depois que a função for passada para erros `startTransition`, o substituto para o limite do erro será exibido.
+
+<Sandpack>
+
+```js src/AddCommentContainer.js active
+import { useTransition } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+
+export function AddCommentContainer() {
+  return (
+    <ErrorBoundary fallback={<p>⚠️Something went wrong</p>}>
+      <AddCommentButton />
+    </ErrorBoundary>
+  );
+}
+
+function addComment(comment) {
+  // Para fins de demonstração, para mostrar o limite de erro
+  if (comment == null) {
+    throw new Error("Example Error: An error thrown to trigger error boundary");
+  }
+}
+
+function AddCommentButton() {
+  const [pending, startTransition] = useTransition();
+
+  return (
+    <button
+      disabled={pending}
+      onClick={() => {
+        startTransition(() => {
+          // Intentionally not passing a comment
+          // so error gets thrown
+          addComment();
+        });
+      }}
+    >
+      Add comment
+    </button>
+  );
+}
+```
+
+```js src/App.js hidden
+import { AddCommentContainer } from "./AddCommentContainer.js";
+
+export default function App() {
+  return <AddCommentContainer />;
+}
+```
+
+```js src/index.js hidden
+// TODO: update to import from stable
+// react instead of canary once the `use`
+// Hook is in a stable release of React
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles.css';
+
+// TODO: update this example to use
+// the Codesandbox Server Component
+// demo environment once it is created
+import App from './App';
+
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "canary",
+    "react-dom": "canary",
+    "react-scripts": "^5.0.0",
+    "react-error-boundary": "4.0.3"
+  },
+  "main": "/index.js"
+}
+```
+</Sandpack>
+
+---
+
 ## Solução de problemas {/*troubleshooting*/}
 
 ### A atualização de uma entrada numa transição não funciona {/*updating-an-input-in-a-transition-doesnt-work*/}
@@ -1517,9 +1613,7 @@ return <input value={text} onChange={handleChange} />;
 
 Isso ocorre porque as transições não são bloqueantes, mas a atualização de uma entrada em resposta ao evento de alteração deve ocorrer de forma síncrona. Se você deseja executar uma transição em resposta à digitação, você tem duas opções:
 
-
 1. Você pode declarar duas variáveis de state separadas: uma para o state da entrada (que sempre é atualizado de forma síncrona) e outra que você atualizará em uma transição. Isso permite que você controle a entrada usando o state síncrono e passe a variável de state de transição (que ficará "atrasada" em relação à entrada) para o restante da sua lógica de renderização.
-
 2. Em alternativa, pode ter uma variável de state e adicionar [`useDeferredValue`](/reference/react/useDeferredValue) que ficará "atrasado" em relação ao valor real. Isso irá desencadear re-renderizações não bloqueantes para "alcançar" automaticamente o novo valor.
 ---
 
@@ -1559,6 +1653,7 @@ setTimeout(() => {
 ```
 
 Da mesma forma, não é possível marcar uma atualização como uma transição dessa maneira:
+
 
 ```js
 startTransition(async () => {
