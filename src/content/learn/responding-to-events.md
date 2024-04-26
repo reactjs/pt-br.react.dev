@@ -628,7 +628,7 @@ Depois de fazer isso, perceba que ao clicar no botão, o contador de cliques da 
 
 <Sandpack>
 
-```js ColorSwitch.js active
+```js src/ColorSwitch.js active
 export default function ColorSwitch({
   onChangeColor
 }) {
@@ -640,7 +640,7 @@ export default function ColorSwitch({
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState } from 'react';
 import ColorSwitch from './ColorSwitch.js';
 
@@ -684,7 +684,7 @@ No entanto, surge o problema que incremeta contador. Se o seu colega está certo
 
 <Sandpack>
 
-```js ColorSwitch.js active
+```js src/ColorSwitch.js active
 export default function ColorSwitch({
   onChangeColor
 }) {
@@ -699,7 +699,7 @@ export default function ColorSwitch({
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState } from 'react';
 import ColorSwitch from './ColorSwitch.js';
 

@@ -113,11 +113,11 @@ const recentPosts = blogSidebar.routes.slice(0, 4).map((entry) => ({
 export function HomeContent() {
   return (
     <>
-      <div className="pl-0">
+      <div className="ps-0">
         <div className="mx-5 mt-12 lg:mt-24 mb-20 lg:mb-32 flex flex-col justify-center">
           <Logo
             className={cn(
-              'mt-4 mb-3 text-link dark:text-link-dark w-24 lg:w-28 self-center text-sm mr-0 flex origin-center transition-all ease-in-out'
+              'mt-4 mb-3 text-link dark:text-link-dark w-24 lg:w-28 self-center text-sm me-0 flex origin-center transition-all ease-in-out'
             )}
           />
           <h1 className="text-5xl font-display lg:text-6xl self-center flex font-semibold leading-snug text-primary dark:text-primary-dark">
@@ -381,10 +381,10 @@ export function HomeContent() {
                           <Link href="https://github.com/expo/expo">Expo</Link>{' '}
                           permite que você crie aplicativos em React para
                           Android, iOS e muito mais. Eles parecem nativos porque
-                          suas interfaces de usuário são realmente nativas. Não
-                          é uma visualização da Web. Seus componentes React
-                          renderizam visualizações reais de Android e iOS
-                          fornecidas pela plataforma.
+                          suas interfaces de usuário <i>são</i> realmente
+                          nativas. Não é uma visualização da Web. Seus
+                          componentes React renderizam visualizações reais de
+                          Android e iOS fornecidas pela plataforma.
                         </p>
                       </div>
                     </div>
@@ -412,7 +412,7 @@ export function HomeContent() {
         <Section background="right-card">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row px-5">
             <div className="max-w-3xl lg:max-w-7xl gap-5 flex flex-col lg:flex-row lg:px-5">
-              <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:pl-5 lg:pr-10">
+              <div className="w-full lg:w-6/12 max-w-3xl flex flex-col items-start justify-start lg:ps-5 lg:pe-10">
                 <Header>Atualize quando o futuro estiver pronto</Header>
                 <Para>
                   React aborda as mudanças com cuidado. Cada commit do React é
@@ -440,14 +440,14 @@ export function HomeContent() {
                   <IconChevron />
                   Últimas notícias do React
                 </p>
-                <div className="flex-col sm:flex-row flex-wrap flex gap-5 text-left my-5">
-                  <div className="flex-1 min-w-[40%]">
+                <div className="flex-col sm:flex-row flex-wrap flex gap-5 text-start my-5">
+                  <div className="flex-1 min-w-[40%] text-start">
                     <BlogCard {...recentPosts[0]} />
                   </div>
-                  <div className="flex-1 min-w-[40%]">
+                  <div className="flex-1 min-w-[40%] text-start">
                     <BlogCard {...recentPosts[1]} />
                   </div>
-                  <div className="flex-1 min-w-[40%]">
+                  <div className="flex-1 min-w-[40%] text-start">
                     <BlogCard {...recentPosts[2]} />
                   </div>
                   <div className="hidden sm:flex-1 sm:inline">
@@ -499,7 +499,7 @@ export function HomeContent() {
           <div className="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
             <Logo className="text-link dark:text-link-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
             <Header>
-              Bem-vindo à <br className="" />
+              Bem-vindo à <br className="hidden lg:inline" />
               comunidade React
             </Header>
             <ButtonLink
@@ -532,7 +532,7 @@ function CTA({children, icon, href}) {
       className="focus:outline-none focus-visible:outline focus-visible:outline-link focus:outline-offset-2 focus-visible:dark:focus:outline-link-dark group cursor-pointer w-auto justify-center inline-flex font-bold items-center mt-10 outline-none hover:bg-gray-40/5 active:bg-gray-40/10 hover:dark:bg-gray-60/5 active:dark:bg-gray-60/10 leading-tight hover:bg-opacity-80 text-lg py-2.5 rounded-full px-4 sm:px-6 ease-in-out shadow-secondary-button-stroke dark:shadow-secondary-button-stroke-dark text-primary dark:text-primary-dark">
       {icon === 'native' && (
         <svg
-          className="mr-2.5 text-primary dark:text-primary-dark"
+          className="me-2.5 text-primary dark:text-primary-dark"
           fill="none"
           width="24"
           height="24"
@@ -563,7 +563,7 @@ function CTA({children, icon, href}) {
       )}
       {icon === 'framework' && (
         <svg
-          className="mr-2.5 text-primary dark:text-primary-dark"
+          className="me-2.5 text-primary dark:text-primary-dark"
           fill="none"
           width="24"
           height="24"
@@ -586,7 +586,7 @@ function CTA({children, icon, href}) {
       )}
       {icon === 'code' && (
         <svg
-          className="mr-2.5 text-primary dark:text-primary-dark"
+          className="me-2.5 text-primary dark:text-primary-dark"
           fill="none"
           width="24"
           height="24"
@@ -615,7 +615,7 @@ function CTA({children, icon, href}) {
       )}
       {icon === 'news' && (
         <svg
-          className="mr-2.5 text-primary dark:text-primary-dark"
+          className="me-2.5 text-primary dark:text-primary-dark"
           fill="none"
           width="24"
           height="24"
@@ -631,7 +631,7 @@ function CTA({children, icon, href}) {
       )}
       {children}
       <svg
-        className="text-primary dark:text-primary-dark"
+        className="text-primary dark:text-primary-dark rtl:rotate-180"
         fill="none"
         width="24"
         height="24"
@@ -834,12 +834,12 @@ function ExampleLayout({
     }
   }, [activeArea, hoverTopOffset]);
   return (
-    <div className="lg:pl-10 lg:pr-5 w-full">
+    <div className="lg:ps-10 lg:pe-5 w-full">
       <div className="mt-12 mb-2 lg:my-16 max-w-7xl mx-auto flex flex-col w-full lg:rounded-2xl lg:bg-card lg:dark:bg-card-dark">
-        <div className="flex-col gap-0 lg:gap-5 lg:rounded-2xl lg:bg-gray-10 lg:dark:bg-gray-70 shadow-inner-border dark:shadow-inner-border-dark lg:flex-row flex grow w-full mx-auto items-center bg-cover bg-center lg:bg-right lg:bg-[length:60%_100%] bg-no-repeat bg-meta-gradient dark:bg-meta-gradient-dark">
+        <div className="flex-col gap-0 lg:gap-5 lg:rounded-2xl lg:bg-gray-10 lg:dark:bg-gray-70 shadow-inner-border dark:shadow-inner-border-dark lg:flex-row flex grow w-full mx-auto items-center bg-cover bg-center lg:bg-right ltr:lg:bg-[length:60%_100%] bg-no-repeat bg-meta-gradient dark:bg-meta-gradient-dark">
           <div className="lg:-m-5 h-full shadow-nav dark:shadow-nav-dark lg:rounded-2xl bg-wash dark:bg-gray-95 w-full flex grow flex-col">
             <div className="w-full bg-card dark:bg-wash-dark lg:rounded-t-2xl border-b border-black/5 dark:border-white/5">
-              <h3 className="text-sm my-1 mx-5 text-tertiary dark:text-tertiary-dark select-none">
+              <h3 className="text-sm my-1 mx-5 text-tertiary dark:text-tertiary-dark select-none text-start">
                 {filename}
               </h3>
             </div>
@@ -857,7 +857,7 @@ function ExampleLayout({
               {overlayStyles.map((styles, i) => (
                 <div
                   key={i}
-                  className="top-0 left-0 bg-blue-30/5 border-2 border-link dark:border-link-dark absolute rounded-lg"
+                  className="top-0 start-0 bg-blue-30/5 border-2 border-link dark:border-link-dark absolute rounded-lg"
                   style={styles}
                 />
               ))}
@@ -1278,7 +1278,7 @@ function BrowserChrome({children, hasPulse, hasRefresh, domain, path}) {
           {hasRefresh && <div className="h-4 w-6" />}
           <div className="w-full leading-snug flex flex-row items-center justify-center">
             <svg
-              className="text-tertiary mr-1 opacity-60"
+              className="text-tertiary me-1 opacity-60"
               width="12"
               height="12"
               viewBox="0 0 44 44"
@@ -1325,7 +1325,7 @@ function BrowserChrome({children, hasPulse, hasRefresh, domain, path}) {
         {restartId > 0 && (
           <div
             key={restartId}
-            className="z-10 loading h-0.5 bg-link transition-all duration-200 absolute bottom-0 left-0"
+            className="z-10 loading h-0.5 bg-link transition-all duration-200 absolute bottom-0 start-0"
             style={{
               animation: `progressbar ${loadTalksDelay + 100}ms ease-in-out`,
             }}
@@ -1472,13 +1472,13 @@ function SearchInput({value, onChange}) {
         Procurar
       </label>
       <div className="relative w-full">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+        <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
           <IconSearch className="text-gray-30 w-4" />
         </div>
         <input
           type="text"
           id={id}
-          className="flex pl-11 py-4 h-10 w-full bg-secondary-button outline-none betterhover:hover:bg-opacity-80 pointer items-center text-left text-primary rounded-full align-middle text-base"
+          className="flex ps-11 py-4 h-10 w-full text-start bg-secondary-button outline-none betterhover:hover:bg-opacity-80 pointer items-center text-primary rounded-full align-middle text-base"
           placeholder="Procurar"
           value={value}
           onChange={(e) => onChange(e.target.value)}
@@ -1507,7 +1507,7 @@ function ConferenceLayout({conf, children}) {
               navigate(e.target.value);
             });
           }}
-          className="appearance-none pr-8 bg-transparent text-primary-dark text-2xl font-bold mb-0.5"
+          className="appearance-none pe-8 ps-2 bg-transparent text-primary-dark text-2xl font-bold mb-0.5"
           style={{
             backgroundSize: '4px 4px, 4px 4px',
             backgroundRepeat: 'no-repeat',
@@ -1516,8 +1516,16 @@ function ConferenceLayout({conf, children}) {
             backgroundImage:
               'linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)',
           }}>
-          <option value="react-conf-2021">React Conf 2021</option>
-          <option value="react-conf-2019">React Conf 2019</option>
+          <option
+            className="bg-wash dark:bg-wash-dark text-primary dark:text-primary-dark"
+            value="react-conf-2021">
+            React Conf 2021
+          </option>
+          <option
+            className="bg-wash dark:bg-wash-dark text-primary dark:text-primary-dark"
+            value="react-conf-2019">
+            React Conf 2019
+          </option>
         </select>
       </Cover>
       <div className="px-4 pb-4" key={conf.id}>
@@ -1573,9 +1581,11 @@ function Video({video}) {
 
 function Code({children}) {
   return (
-    <span className="font-mono inline rounded-lg bg-gray-15/40 dark:bg-secondary-button-dark py-0.5 px-1">
+    <code
+      dir="ltr"
+      className="font-mono inline rounded-lg bg-gray-15/40 dark:bg-secondary-button-dark py-0.5 px-1 text-left">
       {children}
-    </span>
+    </code>
   );
 }
 
@@ -1618,7 +1628,7 @@ function Thumbnail({video}) {
           </div>
           <div className="mt-1">
             <span className="inline-flex text-xs font-normal items-center text-primary-dark py-1 whitespace-nowrap outline-link px-1.5 rounded-lg">
-              <Logo className="text-xs mr-1 w-4 h-4 text-link-dark" />
+              <Logo className="text-xs me-1 w-4 h-4 text-link-dark" />
               React Conf
             </span>
           </div>
@@ -1660,8 +1670,8 @@ function LikeButton({video}) {
     <button
       data-hover="LikeButton"
       className={cn(
-        'outline-none focus:bg-red-50/5 focus:text-red-50 relative flex items-center justify-center w-10 h-10 cursor-pointer rounded-full text-tertiary hover:bg-card active:scale-95 active:bg-red-50/5 active:text-red-50',
-        isLiked && 'text-red-50'
+        'outline-none focus:bg-red-50/5 focus:text-red-50 relative flex items-center justify-center w-10 h-10 cursor-pointer rounded-full hover:bg-card active:scale-95 active:bg-red-50/5 active:text-red-50',
+        isLiked ? 'text-red-50' : 'text-tertiary'
       )}
       aria-label={isLiked ? 'Unsave' : 'Save'}
       onClick={() => {

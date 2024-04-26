@@ -52,7 +52,7 @@ img { margin: 0 10px 10px 0; height: 90px; }
 
 </Sandpack>
 
-Atualmente, eles residem em um **arquivo de componente raiz,** chamado `App.js` nesse exemplo. Em [Criar Aplicação React](https://create-react-app.dev/), seu app reside em `src/App.js`. Dependendo da sua configuração, seu componente raiz pode estar em outro arquivo. Se você usar um framework com roteamento baseado em arquivo, como o Next.js, seu componente raiz será diferente para cada página.
+Atualmente, eles residem em um **arquivo de componente raiz,** chamado `App.js` nesse exemplo. Dependendo da sua configuração, seu componente raiz pode estar em outro arquivo. Se você usar um framework com roteamento baseado em arquivo, como o Next.js, seu componente raiz será diferente para cada página.
 
 ## Exportando e importando um componente {/*exporting-and-importing-a-component*/}
 
@@ -66,7 +66,7 @@ Aqui, tanto `Profile` e `Gallery` foram movidos de `App.js` para um novo arquivo
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 
 export default function App() {
@@ -76,7 +76,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js
+```js src/Gallery.js
 function Profile() {
   return (
     <img
@@ -183,7 +183,7 @@ Agora `Gallery.js` contém duas exportações: uma exportação `Gallery` padrã
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 import { Profile } from './Gallery.js';
 
@@ -194,7 +194,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js
+```js src/Gallery.js
 export function Profile() {
   return (
     <img
@@ -268,7 +268,7 @@ Não se esqueça de importar seus componentes onde eles são chamados. A `Galler
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 import { Profile } from './Gallery.js';
 
@@ -281,7 +281,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js active
+```js src/Gallery.js active
 // Move me to Profile.js!
 export function Profile() {
   return (
@@ -304,7 +304,7 @@ export default function Gallery() {
 }
 ```
 
-```js Profile.js
+```js src/Profile.js
 ```
 
 ```css
@@ -321,7 +321,7 @@ Esta é a solução com exportações nomeadas:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 import { Profile } from './Profile.js';
 
@@ -335,7 +335,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js
+```js src/Gallery.js
 import { Profile } from './Profile.js';
 
 export default function Gallery() {
@@ -350,7 +350,7 @@ export default function Gallery() {
 }
 ```
 
-```js Profile.js
+```js src/Profile.js
 export function Profile() {
   return (
     <img
@@ -371,7 +371,7 @@ Esta é a solução com exportações padrão:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Gallery from './Gallery.js';
 import Profile from './Profile.js';
 
@@ -385,7 +385,7 @@ export default function App() {
 }
 ```
 
-```js Gallery.js
+```js src/Gallery.js
 import Profile from './Profile.js';
 
 export default function Gallery() {
@@ -400,7 +400,7 @@ export default function Gallery() {
 }
 ```
 
-```js Profile.js
+```js src/Profile.js
 export default function Profile() {
   return (
     <img
