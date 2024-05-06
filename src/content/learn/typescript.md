@@ -44,13 +44,14 @@ As seguintes opções do compilador precisam ser definidas em seu `tsconfig.json
 ## TypeScript com Componentes React {/*typescript-with-react-components*/}
 
 <Note>
+
 Todo arquivo contendo JSX deve utilizar a extensão de arquivo `.tsx`. Esta é uma extensão específica do TypeScript que indica ao TypeScript que este arquivo contém JSX.
 
 </Note>
 
-Escrever TypeScript com React é muito parecido com escrever JavaScript com React. A principal diferença ao trabalhar com um componente é que você pode especificar tipos para as `props` do seu componente. Estes tipos podem ser usados para checar sua exatidão e prover documentação incorporada em editores.
+Escrever TypeScript com React é muito parecido com escrever JavaScript com React. A principal diferença ao trabalhar com um componente é que você pode especificar tipos para as props do seu componente. Estes tipos podem ser usados para checar sua exatidão e prover documentação incorporada em editores.
 
-Utilizando o [componente `MyButton`](/learn#components) do Guia de [Quick Start](/learn), podemos adicionar um tipo descrevendo o `title` para o botão.
+Utilizando o [componente `MyButton`](/learn#components) do Guia de [Início rápido](/learn), podemos adicionar um tipo descrevendo o `title` para o botão.
 
 <Sandpack>
 
@@ -79,11 +80,11 @@ export default App = AppTSX;
 
  <Note>
 
-Estes trechos de código conseguem lidar com código TypeScript, porém eles não executarão nenhuma checagem de tipos. Isso significa que você pode alterar este trecho de código para fins de aprendizado, mas não receberá nenhum erro ou warning. para ter uma checagem de tipos, você pode usar o [TypeScript Playground](https://www.typescriptlang.org/play) ou utilizar uma ferramenta online de sandbox mais completa.
+Estes trechos de código conseguem lidar com código TypeScript, porém eles não executarão nenhuma checagem de tipos. Isso significa que você pode alterar este trecho de código para fins de aprendizado, mas não receberá nenhum erro ou _warnings_. Para ter uma checagem de tipos, você pode usar o [TypeScript Playground](https://www.typescriptlang.org/play) ou utilizar uma ferramenta online de sandbox mais completa.
 
 </Note>
 
-Esta sintaxe em uma mesma linha é a forma mais simples de fornecer tipos para um componente, no entanto a medida que se tem alguns campos a mais para serem descritos, as coisas podem ficar complicadas. Ao invés disso, você pode usar um `type` ou uma `interface` para descrever as props de um componente:
+Esta sintaxe em uma mesma linha é a forma mais simples de fornecer tipos para um componente, no entanto à medida que se tem alguns campos a mais para serem descritos, as coisas podem ficar complicadas. Ao invés disso, você pode usar uma `interface` ou um `type` para descrever as props de um componente:
 
 <Sandpack>
 
@@ -136,7 +137,7 @@ O [hook `useState`](/reference/react/useState) irá reutilizar o valor passado c
 const [enabled, setEnabled] = useState(false);
 ```
 
-Atribuirá o tipo `boolean` à `enabled` e `setEnable` será uma função que ou aceita um `boolean` como argumento ou uma função que retorna `boolean`. Se você deseja informar explicitamente um tipo para o state, você pode informat um tipo como argumento à chamada do `useState`:
+Atribuirá o tipo `boolean` à `enabled` e `setEnable` será uma função que ou aceita um `boolean` como argumento ou uma função que retorna `boolean`. Se você deseja informar explicitamente um tipo para o state, você pode informar um tipo como argumento à chamada do `useState`:
 
 ```ts 
 // Explicitamente define o tipo como "boolean"
@@ -151,7 +152,7 @@ type Status = "ocioso" | "carregando" | "sucesso" | "erro";
 const [status, setStatus] = useState<Status>("ocioso");
 ```
 
-Ou, como recomendado em [Princípios para estruturação de estado](/learn/choosing-the-state-structure#principles-for-structuring-state), você pode agrupar estados relacionados em um objeto descrevendo suas diferentes possibilidades através de tipos objetos:
+Ou, como recomendado em [Princípios para estruturar estados](/learn/choosing-the-state-structure#principles-for-structuring-state), você pode agrupar _states_ relacionados em um objeto descrevendo suas diferentes possibilidades através de tipos objetos:
 
 ```ts
 type RequestState =
@@ -165,7 +166,7 @@ const [requestState, setRequestState] = useState<RequestState>({ status: 'ocioso
 
 ### `useReducer` {/*typing-usereducer*/}
 
-O [hook `useReducer`](/reference/react/useReducer) é um hook mais complexo que recebe uma função _reducer_ e um _state_ inicial. os tipos para a função _reducer_ são inferidos a partir do _state_ inicial. Você pode opcionalmente informar um tipo como argumendo para a chamada de `useReducer` para informar um tipo para o _state_, mas é frequentemente melhor, ao invés disso, definir o tipo no _state_ inicial:
+O [hook `useReducer`](/reference/react/useReducer) é um hook mais complexo que recebe uma função _reducer_ e um _state_ inicial. Os tipos para a função _reducer_ são inferidos a partir do _state_ inicial. Você pode opcionalmente informar um tipo como argumendo para a chamada de `useReducer` para informar um tipo para o _state_, mas é frequentemente melhor definir o tipo no _state_ inicial:
 
 <Sandpack>
 
@@ -218,6 +219,7 @@ export default App = AppTSX;
 ```
 
 </Sandpack>
+
 
 Estamos usando TypeScript em alguns lugares importantes:
 
@@ -282,9 +284,9 @@ export default App = AppTSX;
 
 </Sandpack>
 
-Essa técnica funciona quando você tem um valor padrão que faz sentido, mas há casos onde isso não acontece, como por exemplo ao utilizar `null` como um valor padrão, o que faz todo o sentido. Portanto, para permitir que o sistema de tipos compreenda o seu código, você precisa explicitamente definir `ContextShape | null` na chamada de `createContext`.
+Essa técnica funciona quando você tem um valor padrão que faz sentido, mas há casos onde isso não acontece, e nesses casos utilizar `null` como um valor padrão pode parecer razoável. Porém, para permitir que o sistema de tipos compreenda o seu código, você precisa explicitamente definir `ContextShape | null` na chamada de `createContext`.
 
-Isso causa um problema onde é necessário eliminar o `| null` no tipo onde se consome o contexto. A recomendação é fazer com que o hook faça uma checagem de sua existência em tempo de execução e cause um erro caso não exista.
+Isso causa um problema onde é necessário eliminar o `| null` no tipo onde se consome o contexto. A recomendação é fazer com que o hook faça uma checagem de sua existência em tempo de execução e cause um erro caso não exista:
 
 ```js {5, 16-20}
 import { createContext, useContext, useState, useMemo } from 'react';
@@ -327,12 +329,13 @@ function MyComponent() {
 
 ### `useMemo` {/*typing-usememo*/}
 
-O [hook `useMemo`](/reference/react/useMemo) criam/reacessam um valor memoizado de uma chamada de função, executando-a novamente apenas quando as dependências passadas como segundo parâmetro mudarem. O resultado da chamada do hook é inferido pelo valor retornado pela função do primeiro parâmetro. Você pode ser mais explícito informando um tipo como argumento para o hook.
+O [hook `useMemo`](/reference/react/useMemo) cria/reacessa um valor memoizado de uma chamada de função, executando-a novamente apenas quando as dependências passadas como segundo parâmetro mudarem. O resultado da chamada do hook é inferido pelo valor retornado pela função do primeiro parâmetro. Você pode ser mais explícito informando um tipo como argumento para o hook.
 
 ```ts
 // O tipo de visibleTodos é inferido pelo retorno do valor de filterTodos
 const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
 ```
+
 
 ### `useCallback` {/*typing-usecallback*/}
 
@@ -347,7 +350,7 @@ const handleClick = useCallback(() => {
 
 Ao trabalhar no _strict mode_ do TypeScript, o `useCallback` requer a adição de tipos para os parâmetros da callback. Isso ocorre porque o tipo da callback é inferido a partir do valor de retorno da função e, sem parâmetros, o tipo não pode ser totalmente compreendido.
 
-Dependendo de suas preferências de estilo de código, você pode usar as funções `EventHandler` dos tipos do React para fornecer o tipo do manipulador de eventos ao mesmo tempo em que define a callback: 
+Dependendo de suas preferências de estilo de código, você pode usar as funções `*EventHandler` dos tipos do React para fornecer o tipo do manipulador de eventos ao mesmo tempo em que define a callback: 
 
 ```ts
 import { useState, useCallback } from 'react';
@@ -421,7 +424,7 @@ interface ModalRendererProps {
 }
 ```
 
-Essa é uma definição bem ampla de _children_. A segunda é usar o tipo `React.ReactElement`, que corresponde apenas à elementos JSX e não tipos primitivos do JavaScript, como strings ou numbers:
+Essa é uma definição bem ampla de _children_. A segunda é usar o tipo `React.ReactElement`, que corresponde apenas a elementos JSX e não tipos primitivos do JavaScript, como strings ou numbers:
 
 ```ts
 interface ModalRendererProps {
@@ -430,9 +433,9 @@ interface ModalRendererProps {
 }
 ```
 
-Note, você não pode usar o TypeScript para descrever que os filhos são de um determinado tipo de elemento JSX, portanto, não é possível usar o sistema de tipos para descrever um componente que só aceita filhos `<li>`.
+Note que você não pode usar o TypeScript para descrever que os filhos são de um determinado tipo de elemento JSX, portanto, não é possível usar o sistema de tipos para descrever um componente que só aceita filhos `<li>`.
 
-Você pode ver todos os exemplos de `React.ReactNode` e `React.ReactElement` com checagem de tipos com [este playground do TypeScript](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgIilQ3wChSB6CxYmAOmXRgDkIATJOdNJMGAZzgwAFpxAR+8YADswAVwGkZMJFEzpOjDKw4AFHGEEBvUnDhphwADZsi0gFw0mDWjqQBuUgF9yaCNMlENzgAXjgACjADfkctFnYkfQhDAEpQgD44AB42YAA3dKMo5P46C2tbJGkvLIpcgt9-QLi3AEEwMFCItJDMrPTTbIQ3dKywdIB5aU4kKyQQKpha8drhhIGzLLWODbNs3b3s8YAxKBQAcwXpAThMaGWDvbH0gFloGbmrgQfBzYpd1YjQZbEYARkB6zMwO2SHSAAlZlYIBCdtCRkZpHIrFYahQYQD8UYYFA5EhcfjyGYqHAXnJAsIUHlOOUbHYhMIIHJzsI0Qk4P9SLUBuRqXEXEwAKKfRZcNA8PiCfxWACecAAUgBlAAacFm80W-CU11U6h4TgwUv11yShjgJjMLMqDnN9Dilq+nh8pD8AXgCHdMrCkWisVoAet0R6fXqhWKhjKllZVVxMcavpd4Zg7U6Qaj+2hmdG4zeRF10uu-Aeq0LBfLMEe-V+T2L7zLVu+FBWLdLeq+lc7DYFf39deFVOotMCACNOCh1dq219a+30uC8YWoZsRyuEdjkevR8uvoVMdjyTWt4WiSSydXD4NqZP4AymeZE072ZzuUeZQKheQgA).
+Você pode ver todos os exemplos de ambos `React.ReactNode` e `React.ReactElement` com checagem de tipos com [este playground do TypeScript](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgIilQ3wChSB6CxYmAOmXRgDkIATJOdNJMGAZzgwAFpxAR+8YADswAVwGkZMJFEzpOjDKw4AFHGEEBvUnDhphwADZsi0gFw0mDWjqQBuUgF9yaCNMlENzgAXjgACjADfkctFnYkfQhDAEpQgD44AB42YAA3dKMo5P46C2tbJGkvLIpcgt9-QLi3AEEwMFCItJDMrPTTbIQ3dKywdIB5aU4kKyQQKpha8drhhIGzLLWODbNs3b3s8YAxKBQAcwXpAThMaGWDvbH0gFloGbmrgQfBzYpd1YjQZbEYARkB6zMwO2SHSAAlZlYIBCdtCRkZpHIrFYahQYQD8UYYFA5EhcfjyGYqHAXnJAsIUHlOOUbHYhMIIHJzsI0Qk4P9SLUBuRqXEXEwAKKfRZcNA8PiCfxWACecAAUgBlAAacFm80W-CU11U6h4TgwUv11yShjgJjMLMqDnN9Dilq+nh8pD8AXgCHdMrCkWisVoAet0R6fXqhWKhjKllZVVxMcavpd4Zg7U6Qaj+2hmdG4zeRF10uu-Aeq0LBfLMEe-V+T2L7zLVu+FBWLdLeq+lc7DYFf39deFVOotMCACNOCh1dq219a+30uC8YWoZsRyuEdjkevR8uvoVMdjyTWt4WiSSydXD4NqZP4AymeZE072ZzuUeZQKheQgA).
 
 ### Props de Estilo {/*typing-style-props*/}
 
@@ -447,7 +450,7 @@ interface MyComponentProps {
 ## Conteúdo adicional {/*further-learning*/}
 
 Este guia abordou os conceitos básicos do uso do TypeScript com React, mas há muito mais para aprender.
-As páginas individuais de cada API nas documentação pode conter uma informação mais detalhada sobre como usá-las com o TypeScript.
+As páginas individuais de cada API na documentação podem conter uma informação mais detalhada sobre como usá-las com o TypeScript.
 
 Recomendamos as seguintes fontes
 
