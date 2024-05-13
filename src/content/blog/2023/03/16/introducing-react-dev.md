@@ -1,5 +1,8 @@
 ---
 title: "Apresentando react.dev"
+author: Dan Abramov and Rachel Nabors
+date: 2023/03/16
+description: Hoje estamos entusiasmados em lançar o react.dev, o novo lar do React e sua documentação. Neste post, gostaríamos de fazer um tour pelo novo site.
 ---
 
 16 de março de 2023 por [Dan Abramov](https://twitter.com/dan_abramov) e [Rachel Nabors](https://twitter.com/rachelnabors)
@@ -566,7 +569,7 @@ export default function MyCheckbox() {
 
 <Solution />
 
-#### Formulário (duas variáveis){/*form-two-variables*/}
+#### Formulário (duas variáveis) {/*form-two-variables*/}
 
 Você pode declarar mais de uma variável state no mesmo componente. Cada variável state é completamente independente.
 
@@ -610,7 +613,7 @@ Esperamos que esta abordagem torne a referência da API útil não só como uma 
 
 ## O que vem a seguir? {/*whats-next*/}
 
-E assim termina nosso pequeno tour! Dê uma olhada no novo site, veja o que você gosta ou não gosta e continue enviando feedback em [pesquisa anônima](https://www.surveymonkey.co.uk/r/PYRPF3X) ou no nosso [rastreador de problemas](https://github.com/reactjs/reactjs.org/issues).
+E assim termina nosso pequeno tour! Dê uma olhada no novo site, veja o que você gosta ou não gosta e continue enviando feedback em nosso [rastreador de problemas](https://github.com/reactjs/reactjs.org/issues).
 
 Reconhecemos que este projeto demorou muito tempo a ser lançado. Nós queríamos manter um alto nível de qualidade que a comunidade React merece. Enquanto escrevíamos essa documentação e criávamos todos os exemplos, encontramos erros em algumas de nossas próprias explicações, bugs no React e até mesmo lacunas no design do React que agora estamos trabalhando para resolver. Esperamos que a nova documentação nos ajude a manter o próprio React em um nível mais alto no futuro.
 
