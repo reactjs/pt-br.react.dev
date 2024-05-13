@@ -2915,4 +2915,8 @@ Se você tem tempo extra ou quer praticar suas novas habilidades de React, aqui 
 1. Quando alguém ganhar, sublinhe os três quadrados que causaram a vitória (e quando ninguém ganhar, exiba uma mensagem sobre o resultado ter sido um empate).
 1. Exiba a localização de cada movimento no formato (linha, coluna) e mova a lista do histórico.
 
+<<<<<<< HEAD
 Ao longo desse tutorial, você entrou em contato com conceitos do React incluindo elementos, componentes, *props* e *state*. Agora que você viu como esses conceitos funcionam construindo um jogo, veja [Pensando em React](/learn/thinking-in-react) para entender como os mesmos conceitos do React funcionam ao construir a UI de um aplicativo.
+=======
+Throughout this tutorial, you've touched on React concepts including elements, components, props, and state. Now that you've seen how these concepts work when building a game, check out [Thinking in React](/learn/thinking-in-react) to see how the same React concepts work when building an app's UI.
+>>>>>>> b7bf6c16fb3152626a71c115b3242df6eb93bc6e
