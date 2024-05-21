@@ -87,7 +87,7 @@ Profiling adiciona uma sobrecarga adicional, então **ele é desativado por padr
 
 <Note>
 
-`<Profiler>` permite que você colete medições de forma programática. Se estiver procurando por um profiler interativo, experimente a guia Profiler no [React Developer Tools](/learn/react-developer-tools). Ele expõe funcionalidades semelhantes a uma extensão de navegador.
+`<Profiler>` permite que você colete medições de forma programática. Se estiver procurando por um profiler interativo, experimente a guia Profiler na [Ferramenta de desenvolvedor do React](/learn/react-developer-tools). Ela expõe funcionalidades semelhantes a uma extensão de navegador.
 
 </Note>
 
