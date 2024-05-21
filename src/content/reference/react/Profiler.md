@@ -35,7 +35,7 @@ Envolva uma árvore de componentes em um `<Profiler>` para medir seu desempenho 
 * `id`: Uma string que identifica a parte da UI que você está medindo.
 * `onRender`: Um [callback `onRender`](#onrender-callback) que o React chama toda vez que os componentes dentro da árvore são atualizados. Ele recebe informações sobre o que foi renderizado e quanto tempo levou.
 
-#### Cuidados {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
 * O profiling adiciona uma sobrecarga adicional, então **ele é desativado por padrão na compilação de produção.** Para optar pelo profiling em produção, você precisa habilitar uma [compilação especial de produção com profiling ativado.](https://fb.me/react-profiling)
 
