@@ -4,13 +4,12 @@ title: useInsertionEffect
 
 <Pitfall>
 
-`useInsertionEffect` is for CSS-in-JS library authors. Unless you are working on a CSS-in-JS library and need a place to inject the styles, you probably want [`useEffect`](/reference/react/useEffect) or [`useLayoutEffect`](/reference/react/useLayoutEffect) instead.
-
+`useInsertionEffect` é destinado a autores de bibliotecas CSS-em-JS. A menos que você esteja desenvolvendo em uma biblioteca CSS-em-JS e precise injetar os estilos, você provavelmente vai utilizar [`useEffect`](/reference/react/useEffect) ou [`useLayoutEffect`](/reference/react/useLayoutEffect).
 </Pitfall>
 
 <Intro>
 
-`useInsertionEffect` allows inserting elements into the DOM before any layout effects fire.
+O `useInsertionEffect` permite inserir elementos no DOM antes que qualquer efeito de layout seja acionado.
 
 ```js
 useInsertionEffect(setup, dependencies?)
@@ -22,81 +21,82 @@ useInsertionEffect(setup, dependencies?)
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `useInsertionEffect(setup, dependencies?)` {/*useinsertioneffect*/}
 
-Call `useInsertionEffect` to insert styles before any effects fire that may need to read layout:
+Chame `useInsertionEffect` para inserir estilos antes de qualquer efeito que precise ler o layout:
 
 ```js
 import { useInsertionEffect } from 'react';
 
-// Inside your CSS-in-JS library
+// Na sua biblioteca CSS-em-JS
 function useCSS(rule) {
   useInsertionEffect(() => {
-    // ... inject <style> tags here ...
+    // ... injetar tags <style> aqui ...
   });
   return rule;
 }
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Parameters {/*parameters*/}
 
-* `setup`: The function with your Effect's logic. Your setup function may also optionally return a *cleanup* function. When your component is added to the DOM, but before any layout effects fire, React will run your setup function. After every re-render with changed dependencies, React will first run the cleanup function (if you provided it) with the old values, and then run your setup function with the new values. When your component is removed from the DOM, React will run your cleanup function.
+* `setup`: A função que contém a lógica do seu Effect. A função de setup também pode opcionalmente retornar uma função *cleanup*. Quando o componente é adicionado ao DOM, porém antes de qualquer efeito de layout ser acionado, o React executará sua função de setup. Após cada re-renderização com as dependências alteradas, o React irá executar primeiro a função de cleanup ( caso você a tenha fornecido) com os valores antigos, e depois executará sua função de setup com os novos valores. Quando o componente for removido do DOM, o React irá executar sua função de limpeza.
  
-* **optional** `dependencies`: The list of all reactive values referenced inside of the `setup` code. Reactive values include props, state, and all the variables and functions declared directly inside your component body. If your linter is [configured for React](/learn/editor-setup#linting), it will verify that every reactive value is correctly specified as a dependency. The list of dependencies must have a constant number of items and be written inline like `[dep1, dep2, dep3]`. React will compare each dependency with its previous value using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison algorithm. If you don't specify the dependencies at all, your Effect will re-run after every re-render of the component.
+* **opcional** `dependencies`: A lista de todos os valores reativos referenciados no código `setup`. Valores reativos incluem props, state, e todas as variáveis e funções declaradas diretamente dentro do corpo do seu componente. Caso seu linter esteja [configurado para React](/learn/editor-setup#linting), ele irá verificar se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita em linha como `[dep1, dep2, dep3]`. O React irá comparar cada dependência com seu valor anterior utilizando o algoritmo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se você não especificar as dependências, seu Effect será executado novamente após cada re-renderização do componente.
 
-#### Returns {/*returns*/}
+#### Devoluções {/*returns*/}
 
-`useInsertionEffect` returns `undefined`.
+`useInsertionEffect` retorna `undefined`.
 
-#### Caveats {/*caveats*/}
+#### Avisos {/*caveats*/}
 
-* Effects only run on the client. They don't run during server rendering.
-* You can't update state from inside `useInsertionEffect`.
-* By the time `useInsertionEffect` runs, refs are not attached yet.
-* `useInsertionEffect` may run either before or after the DOM has been updated. You shouldn't rely on the DOM being updated at any particular time.
-* Unlike other types of Effects, which fire cleanup for every Effect and then setup for every Effect, `useInsertionEffect` will fire both cleanup and setup one component at a time. This results in an "interleaving" of the cleanup and setup functions.
+* Effects (efeitos) só são executados pelo cliente. Eles não são executados durante a renderização do servidor.
+* Não é possível atualizar o estado de dentro do `useInsertionEffect`.
+* No momento em que `useInsertionEffect` é executado, as refs ainda não foram anexadas.
+* O `useInsertionEffect` pode ser utilizado antes ou depois do DOM ter sido atualizado. Você não deve confiar que o DOM seja atualizado em um determinado momento.
+* Ao contrário de outros tipos de Effects, que disparam a limpeza para cada Effect e depois a configuração para cada Effect, `useInsertionEffect` irá disparar tanto a limpeza quanto a configuração de um componente de cada vez. Isso resulta em uma “intercalação” das funções de limpeza e configuração.
+
 ---
 
-## Usage {/*usage*/}
+## Utilização {/*usage*/}
 
-### Injecting dynamic styles from CSS-in-JS libraries {/*injecting-dynamic-styles-from-css-in-js-libraries*/}
+### Injetar os estilos dinâmicos em bibliotecas CSS-em-JS {/*injecting-dynamic-styles-from-css-em-js-libraries*/}
 
-Traditionally, you would style React components using plain CSS.
+Normalmente, os componentes React são estilizados com CSS simples.
 
 ```js
-// In your JS file:
+// Em seu arquivo JS:
 <button className="success" />
 
-// In your CSS file:
+// Em seu arquivo CSS:
 .success { color: green; }
 ```
 
-Some teams prefer to author styles directly in JavaScript code instead of writing CSS files. This usually requires using a CSS-in-JS library or a tool. There are three common approaches to CSS-in-JS:
+Algumas equipes preferem criar estilos diretamente no código JavaScript em vez de escrever arquivos CSS. Isso geralmente requer o uso de uma biblioteca CSS-em-JS ou de alguma ferramenta. Existem três abordagens comuns para CSS-em-JS:
 
-1. Static extraction to CSS files with a compiler
-2. Inline styles, e.g. `<div style={{ opacity: 1 }}>`
-3. Runtime injection of `<style>` tags
+1. A extração estática para os arquivos CSS por um compilador
+2. Estilos em linha, por exemplo, `<div style={{ opacity: 1 }}>`
+3. Injeção em tempo de execução de tags `<style>`
 
-If you use CSS-in-JS, we recommend a combination of the first two approaches (CSS files for static styles, inline styles for dynamic styles). **We don't recommend runtime `<style>` tag injection for two reasons:**
+Se utilizar CSS-em-JS, é recomendável uma combinação das duas primeiras abordagens ( arquivos CSS para estilos estáticos, e estilos inline para estilos dinâmicos). **Não recomendamos a injeção de tag em tempo de execução `<style>` por duas razões:**
 
-1. Runtime injection forces the browser to recalculate the styles a lot more often.
-2. Runtime injection can be very slow if it happens at the wrong time in the React lifecycle.
+1. A injeção em tempo de execução obriga o browser a recalcular os estilos com muito mais frequência.
+2. A injeção em tempo de execução pode ser muito lenta se ocorrer no tempo errado no ciclo de vida do React.
 
-The first problem is not solvable, but `useInsertionEffect` helps you solve the second problem.
+O primeiro problema não tem solução, mas o `useInsertionEffect` pode ajudar a resolver o segundo problema.
 
-Call `useInsertionEffect` to insert the styles before any layout effects fire:
+Chame `useInsertionEffect` para inserir os estilos antes que quaisquer efeitos de layout sejam acionados:
 
 ```js {4-11}
-// Inside your CSS-in-JS library
+// Dentro da sua biblioteca CSS-em-JS
 let isInserted = new Set();
 function useCSS(rule) {
   useInsertionEffect(() => {
-    // As explained earlier, we don't recommend runtime injection of <style> tags.
-    // But if you have to do it, then it's important to do in useInsertionEffect.
+    // Como explicado anteriormente, nós não recomendamos injeção em tempo de execução de tags <style>.
+       // Porém, se precisar ser feito, é importante que seja feito em useInsertionEffect.
     if (!isInserted.has(rule)) {
       isInserted.add(rule);
       document.head.appendChild(getStyleForRule(rule));
@@ -111,7 +111,7 @@ function Button() {
 }
 ```
 
-Similarly to `useEffect`, `useInsertionEffect` does not run on the server. If you need to collect which CSS rules have been used on the server, you can do it during rendering:
+Da mesma forma que `useEffect`, `useInsertionEffect` não é executado no servidor. Caso seja necessário coletar as regras CSS que foram utilizadas no servidor, isso pode ser feito durante a renderização:
 
 ```js {1,4-6}
 let collectedRulesSet = new Set();
@@ -127,14 +127,14 @@ function useCSS(rule) {
 }
 ```
 
-[Read more about upgrading CSS-in-JS libraries with runtime injection to `useInsertionEffect`.](https://github.com/reactwg/react-18/discussions/110)
+[Saiba mais sobre a atualização das bibliotecas CSS-em-JS com injeção em tempo de execução para `useInsertionEffect`.](https://github.com/reactwg/react-18/discussions/110)
 
 <DeepDive>
 
-#### How is this better than injecting styles during rendering or useLayoutEffect? {/*how-is-this-better-than-injecting-styles-during-rendering-or-uselayouteffect*/}
+#### Qual é a melhor forma de o fazer do que injetar estilos durante a renderização ou usarLayoutEffect? {/*how-is-this-better-than-emjecting-styles-during-rendering-or-uselayouteffect*/}
 
-If you insert styles during rendering and React is processing a [non-blocking update,](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) the browser will recalculate the styles every single frame while rendering a component tree, which can be **extremely slow.**
+Caso insira estilos durante a renderização e o React esteja a executar uma [atualização não bloqueada,](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) o browser irá recalcular os estilos a cada frame enquanto renderiza uma estrutura de componentes, o que pode ser **extremamente lento**.
 
-`useInsertionEffect` is better than inserting styles during [`useLayoutEffect`](/reference/react/useLayoutEffect) or [`useEffect`](/reference/react/useEffect) because it ensures that by the time other Effects run in your components, the `<style>` tags have already been inserted. Otherwise, layout calculations in regular Effects would be wrong due to outdated styles.
+O `useInsertionEffect` é melhor do do que inserir estilos durante o [`useLayoutEffect`](/reference/react/useLayoutEffect) ou [`useEffect`](/reference/react/useEffect) porque ele garante que no momento em que outros efeitos forem executados em seus componentes, as tags `<style>` já estão inseridas. Caso contrário, os cálculos de layout em Effects comuns estariam errados devido a estilos desatualizados
 
 </DeepDive>
