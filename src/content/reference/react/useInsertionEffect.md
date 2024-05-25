@@ -83,7 +83,7 @@ Algumas equipes preferem criar estilos diretamente no código JavaScript em vez 
 
 Se utilizar CSS-em-JS, é recomendável uma combinação das duas primeiras abordagens ( arquivos CSS para estilos estáticos, e estilos inline para estilos dinâmicos). **Não recomendamos a injeção de tag em tempo de execução `<style>` por duas razões:**
 
-1. A injeção em tempo de execução obriga o browser a recalcular os estilos com muito mais frequência.
+1. A injeção em tempo de execução obriga o navegador a recalcular os estilos com muito mais frequência.
 2. A injeção em tempo de execução pode ser muito lenta se ocorrer no tempo errado no ciclo de vida do React.
 
 O primeiro problema não tem solução, mas o `useInsertionEffect` pode ajudar a resolver o segundo problema.
@@ -133,7 +133,7 @@ function useCSS(rule) {
 
 #### Qual é a melhor forma de o fazer do que injetar estilos durante a renderização ou usarLayoutEffect? {/*how-is-this-better-than-emjecting-styles-during-rendering-or-uselayouteffect*/}
 
-Caso insira estilos durante a renderização e o React esteja a executar uma [atualização não bloqueada,](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) o browser irá recalcular os estilos a cada frame enquanto renderiza uma estrutura de componentes, o que pode ser **extremamente lento**.
+Caso insira estilos durante a renderização e o React esteja a executar uma [atualização não bloqueada,](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) o navegador irá recalcular os estilos a cada frame enquanto renderiza uma estrutura de componentes, o que pode ser **extremamente lento**.
 
 O `useInsertionEffect` é melhor do do que inserir estilos durante o [`useLayoutEffect`](/reference/react/useLayoutEffect) ou [`useEffect`](/reference/react/useEffect) porque ele garante que no momento em que outros efeitos forem executados em seus componentes, as tags `<style>` já estão inseridas. Caso contrário, os cálculos de layout em Effects comuns estariam errados devido a estilos desatualizados
 
