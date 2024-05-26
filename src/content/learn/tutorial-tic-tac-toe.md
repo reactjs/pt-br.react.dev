@@ -29,7 +29,7 @@ Você pode ver com o que ele se parecerá quando você tiver terminado aqui:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -147,7 +147,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -206,13 +206,13 @@ No editor de código abaixo, clique em **Fork** no canto superior direito para a
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 export default function Square() {
   return <button className="square">X</button>;
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -263,11 +263,11 @@ body {
 
 Você também pode seguir esse tutorial usando o seu ambiente de desenvolvimento local. Para fazer isso, você precisará:
 
-1. Instalar [Node.js](https://nodejs.org/en/)
-1. Na aba do CodeSandbox que você abriu anteriormente, pressione o botão no canto superior esquerdo para abrir o menu e então escolha **Arquivo > Exportar como ZIP** naquele menu para baixar os arquivos localmente
-1. Descompacte o arquivo, então abra um terminal e execute `cd` até o diretório em que você os descompactou
+1. Instale [Node.js](https://nodejs.org/en/)
+1. Na guia CodeSandbox que você abriu anteriormente, pressione o botão do canto superior esquerdo para abrir o menu e escolha **Baixar Sandbox** nesse menu para baixar um arquivo dos arquivos localmente
+1. Descompacte o arquivo, abra um terminal e `cd` no diretório que você descompactou
 1. Instale as dependências com `npm install`
-1. Execute `npm start` para iniciar um servidor local e siga os prompts para ver o código rodando em um navegador
+1. Execute `npm start` para iniciar um servidor local e siga as instruções para visualizar o código em execução em um navegador
 
 Se você tiver problemas, não deixe com que isso lhe pare! Ao invés disso continue online e tente novamente em ambiente local mais tarde.
 
@@ -337,7 +337,7 @@ import './styles.css';
 import App from './App';
 ```
 
-As linhas 1-5 juntam todas as peças necessárias:
+As linhas 1 a 5 reúnem todas as peças necessárias:
 
 - React
 - a biblioteca do React para conversar com navegadores de internet (React DOM)
@@ -362,11 +362,11 @@ Você receberá este erro:
 
 <ConsoleBlock level="error">
 
-/src/App.js: Elementos JSX adjacentes devem ser envolvidos em uma tag externa. Você queria um fragment JSX `<>...</>`?
+/src/App.js: os elementos JSX adjacentes devem ser agrupados em uma tag envolvente. Você queria um fragmento JSX `<>...</>`?
 
 </ConsoleBlock>
 
-Componentes do React precisam retornar um único elemento JSX e não múltiplos elementos JSX adjacentes como dois botões. Para consertar isso você pode usar *fragments* (`<>` e `</>`) para envolver múltiplos elementos JSX adjacentes desta forma:
+Os componentes React precisam retornar um único elemento JSX e não vários elementos JSX adjacentes, como dois botões. Para corrigir isso, você pode usar *Fragments* (`<>` e `</>`) para agrupar vários elementos JSX adjacentes como este:
 
 ```js {3-6}
 export default function Square() {
@@ -455,7 +455,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -627,7 +627,7 @@ O seu código atualizado deve se parecer com isto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 function Square({ value }) {
   return <button className="square">{value}</button>;
 }
@@ -655,7 +655,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -807,7 +807,7 @@ Após ter feito as mudanças acima, seu código deve se parecer com isto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square() {
@@ -850,7 +850,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -988,7 +988,7 @@ E seu código deve se parecer com isto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value }) {
@@ -1019,7 +1019,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -1228,7 +1228,7 @@ Seu código deve se parecer com isto:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -1270,7 +1270,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -1422,7 +1422,7 @@ Agora você pode apenas adicionar `X`'s ou `O`'s a quadrados vazios! Veja como o
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({value, onSquareClick}) {
@@ -1473,7 +1473,7 @@ export default function Board() {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -1524,7 +1524,7 @@ body {
 
 Agora que os jogadores podem trocar de vez, você vai querer exibir quando o jogo for vencido e não existam mais turnos a fazer. Para fazer isso você adicionará uma função ajudante chamada `calculateWinner` a qual recebe um array de 9 quadrados, checa por um vencedor e retorna `'X'`, `'O'`, ou `null` apropriadamente. Não se preocupe muito com a função `calculateWinner`; ela não é específica ao React:
 
-```js App.js
+```js src/App.js
 export default function Board() {
   //...
 }
@@ -1594,7 +1594,7 @@ Parabéns! Você agora tem um jogo da velha funcional. E você também acabou de
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({value, onSquareClick}) {
@@ -1674,7 +1674,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -1872,7 +1872,7 @@ Até agora, você moveu o *state* para viver no componente `Game`, e a UI deve e
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -1970,7 +1970,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -2073,11 +2073,17 @@ export default function Game() {
 }
 ```
 
-Você pode ver como seu código deve se parecer abaixo. Perceba que você deve ver um erro em seu console nas ferramentas de desenvolvedor que diz: ``Aviso: Cada filho em um array ou iterador deve ter uma *prop* "key" única. Cheque o método render de `Game`.`` Você consertará esse erro na próxima seção.
+Você pode ver como seu código deve ficar abaixo. Observe que você deverá ver um erro no console de ferramentas do desenvolvedor que diz:
+
+<ConsoleBlock level="warning">
+Aviso: cada filho em um array ou iterador deve ter uma propriedade "chave" exclusiva. Verifique o método de renderização de &#96;Game&#96;.
+</ConsoleBlock>
+  
+Você corrigirá esse erro na próxima seção.
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -2193,7 +2199,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -2266,7 +2272,7 @@ para
 <li>Alexa: 5 tarefas restantes</li>
 ```
 
-Em adição às contagens atualizadas, um humano lendo isso provavelmente diria que você trocou a ordem de Alexa e Ben e inseriu Claudia entre Alexa e Ben. Entretanto, o React é um programa de computador e não pode saber quais as suas intenções, então você precisa especificar uma propriedade *key* para cada item da lista para diferenciar cada item da lista de seus irmãos. Se seus dados vêm de uma base de dados, os IDs de Alexa, Ben e Claudia vindos da base de dados podem ser usadas como keys.
+Além das contagens atualizadas, um humano lendo isso provavelmente diria que você trocou os pedidos de Alexa e Ben e inseriu Claudia entre Alexa e Ben. No entanto, React é um programa de computador e não sabe o que você pretende, então você precisa especificar uma propriedade _key_ para cada item da lista para diferenciar cada item da lista de seus irmãos. Se seus dados fossem de um banco de dados, os IDs do banco de dados de Alexa, Ben e Claudia poderiam ser usados como chaves.
 
 ```js {1}
 <li key={user.id}>
@@ -2305,7 +2311,7 @@ const moves = history.map((squares, move) => {
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -2422,7 +2428,7 @@ function calculateWinner(squares) {
 
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -2526,7 +2532,7 @@ Se você clicar em qualquer passo no histórico do jogo, o tabuleiro de jogo da 
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({value, onSquareClick}) {
@@ -2646,7 +2652,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }
@@ -2736,7 +2742,7 @@ Cheque o resultado final aqui:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
@@ -2854,7 +2860,7 @@ function calculateWinner(squares) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 * {
   box-sizing: border-box;
 }

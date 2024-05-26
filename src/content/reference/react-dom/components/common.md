@@ -100,11 +100,11 @@ These standard DOM props are also supported for all built-in components:
 * `onFocusCapture`: A version of `onFocus` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
 * [`onGotPointerCapture`](https://developer.mozilla.org/en-US/docs/Web/API/Element/gotpointercapture_event): A [`PointerEvent` handler](#pointerevent-handler) function. Fires when an element programmatically captures a pointer.
 * `onGotPointerCaptureCapture`: A version of `onGotPointerCapture` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
-* [`onKeyDown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event): A [`KeyboardEvent` handler](#pointerevent-handler) function. Fires when a key is pressed.
+* [`onKeyDown`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event): A [`KeyboardEvent` handler](#keyboardevent-handler) function. Fires when a key is pressed.
 * `onKeyDownCapture`: A version of `onKeyDown` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
-* [`onKeyPress`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event): A [`KeyboardEvent` handler](#pointerevent-handler) function. Deprecated. Use `onKeyDown` or `onBeforeInput` instead.
+* [`onKeyPress`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event): A [`KeyboardEvent` handler](#keyboardevent-handler) function. Deprecated. Use `onKeyDown` or `onBeforeInput` instead.
 * `onKeyPressCapture`: A version of `onKeyPress` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
-* [`onKeyUp`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keyup_event): A [`KeyboardEvent` handler](#pointerevent-handler) function. Fires when a key is released.
+* [`onKeyUp`](https://developer.mozilla.org/en-US/docs/Web/API/Element/keyup_event): A [`KeyboardEvent` handler](#keyboardevent-handler) function. Fires when a key is released.
 * `onKeyUpCapture`: A version of `onKeyUp` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
 * [`onLostPointerCapture`](https://developer.mozilla.org/en-US/docs/Web/API/Element/lostpointercapture_event): A [`PointerEvent` handler](#pointerevent-handler) function. Fires when an element stops capturing a pointer.
 * `onLostPointerCaptureCapture`: A version of `onLostPointerCapture` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
@@ -257,11 +257,32 @@ React will also call your `ref` callback whenever you pass a *different* `ref` c
 
 #### Parameters {/*ref-callback-parameters*/}
 
-* `node`: A DOM node or `null`. React will pass you the DOM node when the ref gets attached, and `null` when the ref gets detached. Unless you pass the same function reference for the `ref` callback on every render, the callback will get temporarily detached and re-attached during every re-render of the component.
+* `node`: A DOM node or `null`. React will pass you the DOM node when the ref gets attached, and `null` when the `ref` gets detached. Unless you pass the same function reference for the `ref` callback on every render, the callback will get temporarily detached and re-attached during every re-render of the component.
+
+<Canary>
 
 #### Returns {/*returns*/}
 
-Do not return anything from the `ref` callback.
+*  **optional** `cleanup function`: When the `ref` is detached, React will call the cleanup function. If a function is not returned by the `ref` callback, React will call the callback again with `null` as the argument when the `ref` gets detached.
+
+```js
+
+<div ref={(node) => {
+  console.log(node);
+
+  return () => {
+    console.log('Clean up', node)
+  }
+}}>
+
+```
+
+#### Caveats {/*caveats*/}
+
+* When Strict Mode is on, React will **run one extra development-only setup+cleanup cycle** before the first real setup. This is a stress-test that ensures that your cleanup logic "mirrors" your setup logic and that it stops or undoes whatever the setup is doing. If this causes a problem, implement the cleanup function.
+* When you pass a *different* `ref` callback, React will call the *previous* callback's cleanup function if provided. If not cleanup function is defined, the `ref` callback will be called with `null` as the argument. The *next* function will be called with the DOM node.
+
+</Canary>
 
 ---
 
@@ -694,7 +715,7 @@ An event handler type for the `onWheel` event.
 
 ```js
 <div
-  onScroll={e => console.log('onScroll')}
+  onWheel={e => console.log('onWheel')}
 />
 ```
 
@@ -771,7 +792,7 @@ In the above example, `style={{}}` is not a special syntax, but a regular `{}` o
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import Avatar from './Avatar.js';
 
 const user = {
@@ -785,7 +806,7 @@ export default function App() {
 }
 ```
 
-```js Avatar.js active
+```js src/Avatar.js active
 export default function Avatar({ user }) {
   return (
     <img
@@ -801,7 +822,7 @@ export default function Avatar({ user }) {
 }
 ```
 
-```css styles.css
+```css src/styles.css
 .avatar {
   border-radius: 50%;
 }
@@ -940,7 +961,7 @@ export default function MarkdownEditor() {
 }
 ```
 
-```js MarkdownPreview.js active
+```js src/MarkdownPreview.js active
 import { Remarkable } from 'remarkable';
 
 const md = new Remarkable();
@@ -981,6 +1002,8 @@ textarea { display: block; margin-top: 5px; margin-bottom: 10px; }
 ```
 
 </Sandpack>
+
+The `{__html}` object should be created as close to where the HTML is generated as possible, like the above example does in the `renderMarkdownToHTML` function. This ensures that all raw HTML being used in your code is explicitly marked as such, and that only variables that you expect to contain HTML are passed to `dangerouslySetInnerHTML`. It is not recommended to create the object inline like `<div dangerouslySetInnerHTML={{__html: markup}} />`.
 
 To see why rendering arbitrary HTML is dangerous, replace the code above with this:
 

@@ -529,7 +529,7 @@ Você também pode mover essa expressão para uma função separada, como `getIm
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { getImageUrl } from './utils.js'
 
 const person = {
@@ -561,7 +561,7 @@ export default function TodoList() {
 }
 ```
 
-```js utils.js
+```js src/utils.js
 export function getImageUrl(person) {
   return (
     'https://i.imgur.com/' +

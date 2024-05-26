@@ -43,6 +43,11 @@
         {
           "title": "Ferramentas do Desenvolvedor React",
           "path": "/learn/react-developer-tools"
+        },
+        {
+          "title": "Compilador React",
+          "path": "/learn/react-compiler",
+          "canary": true
         }
       ]
     },
@@ -86,6 +91,10 @@
         {
           "title": "Mantendo seus Componentes Puros",
           "path": "/learn/keeping-components-pure"
+        },
+        {
+          "title": "Your UI as a Tree",
+          "path": "/learn/understanding-your-ui-as-a-tree"
         }
       ]
     },
