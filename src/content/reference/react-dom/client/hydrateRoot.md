@@ -201,9 +201,9 @@ O React se recupera de alguns erros de hidratação, mas **você precisa corrig�
 
 ---
 
-### Hydrating an entire document {/*hydrating-an-entire-document*/}
+### Hidratando um documento inteiro {/*hydrating-an-entire-document*/}
 
-Apps fully built with React can render the entire document as JSX, including the [`<html>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html) tag:
+Aplicações totalmente construídas com React podem renderizar o documento inteiro como JSX, incluindo o [`<html>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html) tag:
 
 ```js {3,13}
 function App() {
@@ -223,7 +223,7 @@ function App() {
 }
 ```
 
-To hydrate the entire document, pass the [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Window/document) global as the first argument to `hydrateRoot`:
+Para hidratar o documento inteiro, passe o [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Window/document) global como primeiro argumento para `hydrateRoot`:
 
 ```js {4}
 import { hydrateRoot } from 'react-dom/client';
@@ -234,11 +234,11 @@ hydrateRoot(document, <App />);
 
 ---
 
-### Suppressing unavoidable hydration mismatch errors {/*suppressing-unavoidable-hydration-mismatch-errors*/}
+### Suprimindo erros inevitáveis ​​de incompatibilidade de hidratação {/*suppressing-unavoidable-hydration-mismatch-errors*/}
 
-If a single element’s attribute or text content is unavoidably different between the server and the client (for example, a timestamp), you may silence the hydration mismatch warning.
+Se um simples atributo do elemento ou conteúdo de texto inevitavelmente conter diferenças entre o servidor e o cliente (por examplo, um timestamp), você poderá silenciar o aviso de diferença de hidratação.
 
-To silence hydration warnings on an element, add `suppressHydrationWarning={true}`:
+Para silenciar avisos de hidratação em um elemento, adicione `suppressHydrationWarning={true}`:
 
 <Sandpack>
 
@@ -270,13 +270,13 @@ export default function App() {
 
 </Sandpack>
 
-This only works one level deep, and is intended to be an escape hatch. Don’t overuse it. Unless it’s text content, React still won’t attempt to patch it up, so it may remain inconsistent until future updates.
+Somente funciona em um nível de profundidade, e é para ser usado como uma saída de emergência. Não abuse desse recurso. A menos que seja conteúdo de texto, o React ainda não tentará corrigi-lo, portanto pode permanecer inconsistente até atualizações futuras.
 
 ---
 
-### Handling different client and server content {/*handling-different-client-and-server-content*/}
+### Tratando diferenças de conteúdo entre cliente e servidor {/*handling-different-client-and-server-content*/}
 
-If you intentionally need to render something different on the server and the client, you can do a two-pass rendering. Components that render something different on the client can read a [state variable](/reference/react/useState) like `isClient`, which you can set to `true` in an [Effect](/reference/react/useEffect):
+Se você intecionalmente precisa renderizar algo diferente no servidor e no cliente, você pode fazer uma renderização de dois passos. Componentes que renderizam algo diferente no cliente pode ler um [state variable](/reference/react/useState) como `isClient`, o qual você pode definir como `true` em um [Effect](/reference/react/useEffect):
 
 <Sandpack>
 
@@ -316,21 +316,21 @@ export default function App() {
 
 </Sandpack>
 
-This way the initial render pass will render the same content as the server, avoiding mismatches, but an additional pass will happen synchronously right after hydration.
+Dessa forma a renderização inicial passará a renderizar o mesmo conteúdo do servidor, evitando diferenças, mas um passo adicional acontecerá de forma síncrona logo após a hidratação.
 
 <Pitfall>
 
-This approach makes hydration slower because your components have to render twice. Be mindful of the user experience on slow connections. The JavaScript code may load significantly later than the initial HTML render, so rendering a different UI immediately after hydration may also feel jarring to the user.
+Essa abordagem deixa a hidratação mais vagarosa porque seus componentes terão que renderizar duas vezes. Fique atento a experiência do usuário com conexões lentas. O código JavaScript pode atrasar significantemente seu carregamento comparado com a renderização inicial do HTML, então renderizar uma UI diferente imediatamente após hidratação pode também ser prejudicial para o usuário.
 
 </Pitfall>
 
 ---
 
-### Updating a hydrated root component {/*updating-a-hydrated-root-component*/}
+### Atualizando um componente raiz hidratado {/*updating-a-hydrated-root-component*/}
 
-After the root has finished hydrating, you can call [`root.render`](#root-render) to update the root React component. **Unlike with [`createRoot`](/reference/react-dom/client/createRoot), you don't usually need to do this because the initial content was already rendered as HTML.**
+Após a finalização da hidratação da raiz, você pode chamar [`root.render`](#root-render) para atualizar o componente raiz do React. **Diferente de [`createRoot`](/reference/react-dom/client/createRoot), você não precisa frequentemente fazer isso porque o conteúdo inicial já renderizou como HTML.**
 
-If you call `root.render` at some point after hydration, and the component tree structure matches up with what was previously rendered, React will [preserve the state.](/learn/preserving-and-resetting-state) Notice how you can type in the input, which means that the updates from repeated `render` calls every second in this example are not destructive:
+Se você chamar `root.render` em algum ponto após a hidratação, e a estrutura do componente árvore coincidir com o que foi previamente renderizado, o React [preservará o state.](/learn/preserving-and-resetting-state) Note como você pode escrever no campo de texto, o que significa que a atualização de repetidos `render` chamados cada segundo nesse exemplo não são destrutivos:
 
 <Sandpack>
 
@@ -372,17 +372,17 @@ export default function App({counter}) {
 
 </Sandpack>
 
-It is uncommon to call [`root.render`](#root-render) on a hydrated root. Usually, you'll [update state](/reference/react/useState) inside one of the components instead.
+É incomum chamar [`root.render`](#root-render) para uma raiz hidratada. Ao invés disso, usualmente, você [atualizará o state](/reference/react/useState) dentro de um dos componentes.
 
-### Show a dialog for uncaught errors {/*show-a-dialog-for-uncaught-errors*/}
+### Mostrando diálogo para erros não interceptados {/*show-a-dialog-for-uncaught-errors*/}
 
 <Canary>
 
-`onUncaughtError` is only available in the latest React Canary release.
+`onUncaughtError` só está disponível no último release do React Canary.
 
 </Canary>
 
-By default, React will log all uncaught errors to the console. To implement your own error reporting, you can provide the optional `onUncaughtError` root option:
+Por padrão, React imprimirá todos os log's de erros não interceptados no console. Para implementar seu prórpio relatório de erros, você pode definir o opcional `onUncaughtError` para raiz:
 
 ```js [[1, 7, "onUncaughtError"], [2, 7, "error", 1], [3, 7, "errorInfo"], [4, 11, "componentStack"]]
 import { hydrateRoot } from 'react-dom/client';
@@ -403,12 +403,12 @@ const root = hydrateRoot(
 root.render(<App />);
 ```
 
-The <CodeStep step={1}>onUncaughtError</CodeStep> option is a function called with two arguments:
+A opção <CodeStep step={1}>onUncaughtError</CodeStep> é uma função que é chamada com dois argumentos:
 
-1. The <CodeStep step={2}>error</CodeStep> that was thrown.
-2. An <CodeStep step={3}>errorInfo</CodeStep> object that contains the <CodeStep step={4}>componentStack</CodeStep> of the error.
+1. O <CodeStep step={2}>error</CodeStep> que é lançado.
+2. um objeto <CodeStep step={3}>errorInfo</CodeStep> que contém o <CodeStep step={4}>componentStack</CodeStep> do erro.
 
-You can use the `onUncaughtError` root option to display error dialogs:
+Você pode usar a opção de raiz `onUncaughtError` para exibir diálogos de erros:
 
 <Sandpack>
 
@@ -626,15 +626,15 @@ export default function App() {
 </Sandpack>
 
 
-### Displaying Error Boundary errors {/*displaying-error-boundary-errors*/}
+### Mostrando erros de Error Boundary {/*displaying-error-boundary-errors*/}
 
 <Canary>
 
-`onCaughtError` is only available in the latest React Canary release.
+`onCaughtError` só está disponível na última release do React Canary.
 
 </Canary>
 
-By default, React will log all errors caught by an Error Boundary to `console.error`. To override this behavior, you can provide the optional `onCaughtError` root option for errors caught by an [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary):
+Por padrão, React impriirá todos os log's de erros interceptados por um Error Boundary no `console.error`. Para mudar esse comportmento, você pode definir o opcional `onCaughtError` opção de raiz para erros interceptados por [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary):
 
 ```js [[1, 7, "onCaughtError"], [2, 7, "error", 1], [3, 7, "errorInfo"], [4, 11, "componentStack"]]
 import { hydrateRoot } from 'react-dom/client';
@@ -655,12 +655,12 @@ const root = hydrateRoot(
 root.render(<App />);
 ```
 
-The <CodeStep step={1}>onCaughtError</CodeStep> option is a function called with two arguments:
+A opção <CodeStep step={1}>onCaughtError</CodeStep> é uma função que possui dois argumentos:
 
-1. The <CodeStep step={2}>error</CodeStep> that was caught by the boundary.
-2. An <CodeStep step={3}>errorInfo</CodeStep> object that contains the <CodeStep step={4}>componentStack</CodeStep> of the error.
+1. O <CodeStep step={2}>error</CodeStep> que foi interceptado pelo boundary.
+2. um objeto <CodeStep step={3}>errorInfo</CodeStep> que contém o <CodeStep step={4}>componentStack</CodeStep> do erro.
 
-You can use the `onCaughtError` root option to display error dialogs or filter known errors from logging:
+Você pode usar a opção da raiz `onCaughtError` para mostrar diálogos de erro ou filtrar erros conhecidos do log:
 
 <Sandpack>
 
@@ -913,9 +913,9 @@ function Throw({error}) {
 
 </Sandpack>
 
-### Show a dialog for recoverable hydration mismatch errors {/*show-a-dialog-for-recoverable-hydration-mismatch-errors*/}
+### Mostrar um diálogo para erros recuperáveis de diferença de hidratação {/*show-a-dialog-for-recoverable-hydration-mismatch-errors*/}
 
-When React encounters a hydration mismatch, it will automatically attempt to recover by rendering on the client. By default, React will log hydration mismatch errors to `console.error`. To override this behavior, you can provide the optional `onRecoverableError` root option:
+Quando o React encontra uma diferença de hidratação, ele automaticamente tentará recuperar renderizando no cliente. Por padrão, o React imprimirá o log de erros de diferença de hidratação no `console.error`. Para mudar esse comportamento, você pode definir o opcional `onRecoverableError` opção da raiz:
 
 ```js [[1, 7, "onRecoverableError"], [2, 7, "error", 1], [3, 11, "error.cause", 1], [4, 7, "errorInfo"], [5, 12, "componentStack"]]
 import { hydrateRoot } from 'react-dom/client';
@@ -936,12 +936,12 @@ const root = hydrateRoot(
 );
 ```
 
-The <CodeStep step={1}>onRecoverableError</CodeStep> option is a function called with two arguments:
+A opção <CodeStep step={1}>onRecoverableError</CodeStep> é uma função com dois argumentos:
 
-1. The <CodeStep step={2}>error</CodeStep> React throws. Some errors may include the original cause as <CodeStep step={3}>error.cause</CodeStep>.
-2. An <CodeStep step={4}>errorInfo</CodeStep> object that contains the <CodeStep step={5}>componentStack</CodeStep> of the error.
+1. O <CodeStep step={2}>error</CodeStep> lançado pelo React. Alguns erros podem incluir a causa original como <CodeStep step={3}>error.cause</CodeStep>.
+2. Um objeto <CodeStep step={4}>errorInfo</CodeStep> que contém o <CodeStep step={5}>componentStack</CodeStep> do erro.
 
-You can use the `onRecoverableError` root option to display error dialogs for hydration mismatches:
+Você pode usar a opção da raiz `onRecoverableError` para mostrar diálogos de erro para diferenças de hidratação:
 
 <Sandpack>
 
@@ -1175,12 +1175,12 @@ function Throw({error}) {
 
 </Sandpack>
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
 
-### I'm getting an error: "You passed a second argument to root.render" {/*im-getting-an-error-you-passed-a-second-argument-to-root-render*/}
+### Estou recebendo esse erro: "You passed a second argument to root.render" {/*im-getting-an-error-you-passed-a-second-argument-to-root-render*/}
 
-A common mistake is to pass the options for `hydrateRoot` to `root.render(...)`:
+um erro comum é passar as opções de `hydrateRoot` para `root.render(...)`:
 
 <ConsoleBlock level="error">
 
@@ -1188,7 +1188,7 @@ Warning: You passed a second argument to root.render(...) but it only accepts on
 
 </ConsoleBlock>
 
-To fix, pass the root options to `hydrateRoot(...)`, not `root.render(...)`:
+Para correção, passe as opções da raiz para `hydrateRoot(...)`, e não para `root.render(...)`:
 ```js {2,5}
 // 🚩 Wrong: root.render only takes one argument.
 root.render(App, {onUncaughtError});
