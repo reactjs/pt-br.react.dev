@@ -1,14 +1,14 @@
 ---
-title: react-test-renderer Deprecation Warnings
+title: Avisos de Descontinuação do react-test-renderer
 ---
 
-## ReactTestRenderer.create() warning {/*reacttestrenderercreate-warning*/}
+## Aviso do ReactTestRenderer.create() {/*reacttestrenderercreate-warning*/}
 
-react-test-renderer is deprecated. A warning will fire whenever calling ReactTestRenderer.create() or ReactShallowRender.render(). The react-test-renderer package will remain available on NPM but will not be maintained and may break with new React features or changes to React's internals.
+O react-test-renderer está descontinuado. Um aviso será emitido sempre que ReactTestRenderer.create() ou ReactShallowRender.render() forem chamados. O pacote react-test-renderer permanecerá disponível no NPM, mas não será mantido e pode quebrar com novos recursos do React ou mudanças nos internos do React.
 
-The React Team recommends migrating your tests to [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/) or [@testing-library/react-native](https://callstack.github.io/react-native-testing-library/docs/getting-started) for a modern and well supported testing experience.
+A equipe do React recomenda migrar seus testes para [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/) ou [@testing-library/react-native](https://callstack.github.io/react-native-testing-library/docs/getting-started) para uma experiência de teste moderna e bem suportada.
 
 
-## new ShallowRenderer() warning {/*new-shallowrenderer-warning*/}
+## Novo Aviso do ShallowRenderer() {/*new-shallowrenderer-warning*/}
 
-The react-test-renderer package no longer exports a shallow renderer at `react-test-renderer/shallow`. This was simply a repackaging of a previously extracted separate package: `react-shallow-renderer`. Therefore you can continue using the shallow renderer in the same way by installing it directly. See [Github](https://github.com/enzymejs/react-shallow-renderer) / [NPM](https://www.npmjs.com/package/react-shallow-renderer).
+O pacote react-test-renderer não exporta mais um shallow renderer em `react-test-renderer/shallow`. . Isto era simplesmente uma reembalagem de um pacote separado anteriormente extraído: `react-shallow-renderer`. Portanto, você pode continuar usando o shallow renderer da mesma maneira, instalando-o diretamente. Veja [Github](https://github.com/enzymejs/react-shallow-renderer) / [NPM](https://www.npmjs.com/package/react-shallow-renderer).
