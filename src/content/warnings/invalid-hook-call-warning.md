@@ -103,7 +103,7 @@ class Bad extends React.Component {
 }
 ```
 
-Você pode usar o [`eslint-plugin-react-hooks` plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) para detectar esses erros.
+Você pode usar o [plugin `eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks) para detectar esses erros.
 
 <Note>
 
