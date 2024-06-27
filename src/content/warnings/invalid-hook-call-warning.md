@@ -117,7 +117,7 @@ Você pode estar usando uma versão do `react-dom` (< 16.8.0) ou `react-native` 
 
 ## Cópia Duplicada do React {/*duplicate-react*/}
 
-Para que os Hooks funcionem, a importação de `react` no seu código de aplicação precisa ser resolvida para o mesmo módulo que a importação de `react` dentro do pacote `react-dom`.
+Para que os Hooks funcionem, a importação de `react` no código da sua aplicação precisa ser resolvida para o mesmo módulo que a importação de `react` dentro do pacote `react-dom`.
 
 Se essas importações de `react` forem resolvidas para dois objetos de exportação diferentes, você verá este aviso. Isso pode acontecer se você **acidentalmente acabar** com duas cópias do pacote `react`.
 
