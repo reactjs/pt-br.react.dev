@@ -119,7 +119,7 @@ Você pode estar usando uma versão do `react-dom` (< 16.8.0) ou `react-native` 
 
 Para que os Hooks funcionem, a importação de `react` no código da sua aplicação precisa ser resolvida para o mesmo módulo que a importação de `react` dentro do pacote `react-dom`.
 
-Se essas importações de `react` forem resolvidas para dois objetos de exportação diferentes, você verá este aviso. Isso pode acontecer se você **acidentalmente acabar** com duas cópias do pacote `react`.
+Se essas importações de `react` forem resolvidas para dois objetos de exportação diferentes, você verá este aviso. Isso pode acontecer se você **acidentalmente acabar com duas cópias** do pacote `react`.
 
 Se você usar Node para gerenciamento de pacotes, pode executar esta verificação na sua pasta de projeto:
 
