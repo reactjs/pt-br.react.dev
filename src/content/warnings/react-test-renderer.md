@@ -1,5 +1,5 @@
 ---
-title: Avisos de Descontinuação do react-test-renderer
+title: Avisos de Depreciação do react-test-renderer
 ---
 
 ## Aviso do ReactTestRenderer.create() {/*reacttestrenderercreate-warning*/}

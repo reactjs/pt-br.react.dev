@@ -1,8 +1,8 @@
 ---
-title: Aviso de Propriedade Desconhecida
+title: Aviso de Prop Desconhecida
 ---
 
-O aviso de propriedade desconhecida será acionado se você tentar renderizar um elemento DOM com uma propriedade que não é reconhecida pelo React como um atributo/propriedade legal do DOM. Você deve garantir que seus elementos DOM não tenham propriedades espúrias.
+O aviso de prop desconhecida será acionado se você tentar renderizar um elemento DOM com uma prop que não é reconhecida pelo React como um atributo/prop legal do DOM. Você deve garantir que seus elementos DOM não tenham props espúrias.
 
 Existem algumas razões prováveis para esse aviso aparecer:
 
