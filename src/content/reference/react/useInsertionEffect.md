@@ -4,7 +4,7 @@ title: useInsertionEffect
 
 <Pitfall>
 
-`useInsertionEffect` é destinado a autores de bibliotecas CSS-em-JS. A menos que você esteja desenvolvendo em uma biblioteca CSS-em-JS e precise injetar os estilos, você provavelmente vai utilizar [`useEffect`](/reference/react/useEffect) ou [`useLayoutEffect`](/reference/react/useLayoutEffect).
+`useInsertionEffect` é destinado a autores de bibliotecas CSS-em-JS. A menos que você esteja desenvolvendo em uma biblioteca CSS-em-JS e precise injetar os estilos, você provavelmente vai utilizar [`useEffect`](/reference/react/useEffect) ou [`useLayoutEffect`](/reference/react/useLayoutEffect) em vez disso.
 
 </Pitfall>
 
@@ -26,7 +26,7 @@ useInsertionEffect(setup, dependencies?)
 
 ### `useInsertionEffect(setup, dependencies?)` {/*useinsertioneffect*/}
 
-Chame `useInsertionEffect` para inserir estilos antes de qualquer efeito que precise ler o layout:
+Chame useInsertionEffect para inserir estilos antes que quaisquer efeitos sejam ativados e que possam precisar ler o layout:
 
 ```js
 import { useInsertionEffect } from 'react';
@@ -44,7 +44,7 @@ function useCSS(rule) {
 
 #### Parameters {/*parameters*/}
 
-* `setup`: A função que contém a lógica do seu Effect. A função de setup também pode opcionalmente retornar uma função *cleanup*. Quando o componente é adicionado ao DOM, porém antes de qualquer efeito de layout ser acionado, o React executará sua função de setup. Após cada re-renderização com as dependências alteradas, o React irá executar primeiro a função de cleanup (caso você a tenha fornecido) com os valores antigos, e depois executará sua função de setup com os novos valores. Quando o componente for removido do DOM, o React irá executar sua função de limpeza.
+* `setup`: A função que contém a lógica do seu Effect. A função de setup também pode opcionalmente retornar uma função *cleanup*. Quando o componente é adicionado ao DOM, porém antes de qualquer efeito de layout ser acionado, o React executará sua função de setup. Após cada re-renderização com as dependências alteradas, o React irá executar primeiro a função de cleanup (caso você a tenha fornecido) com os valores antigos, e depois executará sua função de setup com os novos valores. Quando o componente for removido do DOM, o React irá executar sua função de cleanup.
  
 * **opcional** `dependencies`: A lista de todos os valores reativos referenciados no código `setup`. Valores reativos incluem props, state, e todas as variáveis e funções declaradas diretamente dentro do corpo do seu componente. Caso seu linter esteja [configurado para React](/learn/editor-setup#linting), ele irá verificar se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita em linha como `[dep1, dep2, dep3]`. O React irá comparar cada dependência com seu valor anterior utilizando o algoritmo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se você não especificar as dependências, seu Effect será executado novamente após cada re-renderização do componente.
 
@@ -66,7 +66,7 @@ function useCSS(rule) {
 
 ### Injetar os estilos dinâmicos em bibliotecas CSS-em-JS {/*injecting-dynamic-styles-from-css-em-js-libraries*/}
 
-Normalmente, os componentes React são estilizados com CSS simples.
+Tradicionalmente, você estilizaria componentes React usando CSS simples.
 
 ```js
 // Em seu arquivo JS:
