@@ -5,7 +5,7 @@ title: <StrictMode>
 
 <Intro>
 
-`<StrictMode>` lets you find common bugs in your components early during development.
+`<StrictMode>` permite que você encontre bugs comuns em seus componentes no início de desenvolvimento.
 
 
 ```js
@@ -20,11 +20,11 @@ title: <StrictMode>
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<StrictMode>` {/*strictmode*/}
 
-Use `StrictMode` to enable additional development behaviors and warnings for the component tree inside:
+Use `StrictMode` para habilitar comportamentos e avisos adicionais de desenvolvimento para o componente da árvore de dentro:
 
 ```js
 import { StrictMode } from 'react';
@@ -38,17 +38,17 @@ root.render(
 );
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-Strict Mode enables the following development-only behaviors:
+Strict Mode habilita o seguimento de comportamentos somente de desenvolvimento:
 
-- Your components will [re-render an extra time](#fixing-bugs-found-by-double-rendering-in-development) to find bugs caused by impure rendering.
-- Your components will [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) to find bugs caused by missing Effect cleanup.
-- Your components will [be checked for usage of deprecated APIs.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+- Seus componentes vão [renderizar novamente um tempo extra](#fixing-bugs-found-by-double-rendering-in-development) para encontrar bugs causados por renderizações impuras.
+- Seus componentes vão [executar efeitos novamente em um tempo extra](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar bugs causados por falta de limpeza de efeito.
+- Seus componentes vão [ser checados pelo uso de APIs descontinuadas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
 #### Props {/*props*/}
 
-`StrictMode` accepts no props.
+`StrictMode` não aceita props.
 
 #### Caveats {/*caveats*/}
 
