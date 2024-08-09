@@ -4,7 +4,7 @@ title: forwardRef
 
 <Intro>
 
-`forwardRef` lets your component expose a DOM node to parent component with a [ref.](/learn/manipulating-the-dom-with-refs)
+`forwardRef` Permitira que seu componente exponha um nó DOM para o componente pai com um [ref.](/learn/manipulating-the-dom-with-refs)
 
 ```js
 const SomeComponent = forwardRef(render)
@@ -16,11 +16,11 @@ const SomeComponent = forwardRef(render)
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `forwardRef(render)` {/*forwardref*/}
 
-Call `forwardRef()` to let your component receive a ref and forward it to a child component:
+Invoque `forwardRef()` para criar um componente que pode receber um `ref` e repassá-lo para um componente filho:
 
 ```js
 import { forwardRef } from 'react';
@@ -30,27 +30,26 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 });
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `render`: The render function for your component. React calls this function with the props and `ref` that your component received from its parent. The JSX you return will be the output of your component.
+* `render`: A função de renderização do seu componente. O React usa essa função com as props e o `ref` que seu componente recebeu do pai. O JSX que irá retornar será o resultado do seu componente.
 
-#### Returns {/*returns*/}
+#### Retornos {/*returns*/}
 
-`forwardRef` returns a React component that you can render in JSX. Unlike React components defined as plain functions, a component returned by `forwardRef` is also able to receive a `ref` prop.
+`forwardRef` retorna um componente React que você pode renderizar em JSX. Diferente dos componentes React definidos como funções simples, um componente retornado por `forwardRef` também pode receber uma prop `ref`.
 
-#### Caveats {/*caveats*/}
+#### Advertências {/*caveats*/}
 
-* In Strict Mode, React will **call your render function twice** in order to [help you find accidental impurities.](/reference/react/useState#my-initializer-or-updater-function-runs-twice) This is development-only behavior and does not affect production. If your render function is pure (as it should be), this should not affect the logic of your component. The result from one of the calls will be ignored.
+* No Modo Estrito, o React **chamará sua função de renderização duas vezes** para [ajudar a encontrar impurezas acidentais.](/reference/react/useState#my-initializer-or-updater-function-runs-twice) Esse comportamento ocorre apenas no ambiente de desenvolvimento e não afeta a produção. Se sua função de renderização for pura (como deve ser), isso não afetará a lógica do seu componente. O resultado de uma das chamadas será ignorado.
 
 
 ---
 
-### `render` function {/*render-function*/}
+### Função de `renderização` {/*render-function*/}
 
-`forwardRef` accepts a render function as an argument. React calls this function with `props` and `ref`:
-
+`forwardRef` aceita uma função de renderização como argumento. O React chama essa função com as props e o ref:
 ```js
 const MyInput = forwardRef(function MyInput(props, ref) {
   return (
@@ -64,13 +63,13 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 
 #### Parameters {/*render-parameters*/}
 
-* `props`: The props passed by the parent component.
+* `props`: As props passadas pelo componente pai.
 
-* `ref`:  The `ref` attribute passed by the parent component. The `ref` can be an object or a function. If the parent component has not passed a ref, it will be `null`. You should either pass the `ref` you receive to another component, or pass it to [`useImperativeHandle`.](/reference/react/useImperativeHandle)
+* `ref`: O atributo `ref` transmitido pelo componente pai. O `ref` pode ser um objeto ou uma função. Se o componente pai não passar um `ref`, ele será `null`. Você deve passar o `ref` recebido para outro componente ou usá-lo com [useImperativeHandle.le`.](/reference/react/useImperativeHandle)
 
-#### Returns {/*render-returns*/}
+#### Retornos {/*render-returns*/}
 
-`forwardRef` returns a React component that you can render in JSX. Unlike React components defined as plain functions, the component returned by `forwardRef` is able to take a `ref` prop.
+`forwardRef` retorna um componente React que você pode renderizar em JSX. Diferente dos componentes React definidos como funções simples, um componente retornado por `forwardRef` também pode receber uma prop `ref`.
 
 ---
 
