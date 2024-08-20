@@ -15,7 +15,7 @@ Utilizando uma estrutura, você pode começar a usar o React rapidamente, além 
 
 <DeepDive>
 
-#### Posso usar o React sem um framework? {/*can-i-use-react-without-a-framework*/}
+#### Posso usar o React sem uma estrutura? {/*can-i-use-react-without-a-framework*/}
 
 Você definitivamente pode usar o React sem um Framework--é assim que você faria [Usando o React para uma parte da sua página existente.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) **Entretanto, se voce esta criando um novo aplicativo ou site com React, nós recomendamos usar um framework.**
 
