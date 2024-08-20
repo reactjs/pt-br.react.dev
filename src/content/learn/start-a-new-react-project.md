@@ -33,7 +33,7 @@ Se o seu aplicativo tiver restrições incomuns que não são bem atendidas por 
 
 ## *Frameworks* baseados em React com qualidade de mercado {/*production-grade-react-frameworks*/}
 
-Esses frameworks oferecem suporte a todos os recursos necessários para implantar e dimensionar seu aplicativo em produção e estão trabalhando para dar suporte à nossa [visão de arquitetura full-stack](#which-features-make-up-the-react-teams-full-stack-architecture-vision). Todos os frameworks que recomendamos são de código aberto com comunidades ativas para suporte, e pode ser implantado em seu próprio servidor ou em um provedor de hospedagem. Se você é um autor de um framework e está interessado em ser incluído nesta lista, [por favor nos avise](https://github.com/reactjs/react.dev/issues/new?assignees=&labels=type%3A+framework&projects=&template=3-framework.yml&title=%5BFramework%5D%3A+).
+Essas estruturas oferecem suporte a todos os recursos necessários para implantar e dimensionar seu aplicativo em produção e estão trabalhando para dar suporte à nossa [visão de arquitetura full-stack](#which-features-make-up-the-react-teams-full-stack-architecture-vision). Todas as estruturas que recomendamos são de código aberto com comunidades ativas para suporte, e podem ser implantadas em seu próprio servidor ou em um provedor de hospedagem. Se você é um autor de uma estrutura e está interessado em ser incluído nesta lista, [por favor nos avise](https://github.com/reactjs/react.dev/issues/new?assignees=&labels=type%3A+framework&projects=&template=3-framework.yml&title=%5BFramework%5D%3A+).
 
 ### Next.js {/*nextjs-pages-router*/}
 
