@@ -11,7 +11,7 @@ Se você deseja construir um novo aplicativo ou site totalmente com React, recom
 
 Você pode usar o React sem uma estrutura, mas descobrimos que a maioria dos aplicativos e sites eventualmente criam soluções para problemas comuns, como divisão de código, roteamento, busca de dados e geração de HTML. Esses problemas são comuns a todas as bibliotecas de UI, não apenas ao React.
 
-Ao começar com um framework, você pode começar com React mais rapidamente, além de evitar criar seu próprio framework mais tarde.
+Utilizando uma estrutura, você pode começar a usar o React rapidamente, além de evitar criar sua própria estrutura mais tarde.
 
 <DeepDive>
 
