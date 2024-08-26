@@ -12,7 +12,7 @@ Quando você escreve um efeito, o linter verifica se você incluiu todos os valo
 
 - Como corrigir loops de dependência de efeito infinito
 - O que fazer quando você quiser remover uma dependência
-- Como ler um valor de seu Effect sem “reagir” a ele
+- Como ler um valor de seu Efeito sem “reagir” a ele
 - Como e por que evitar dependências de objetos e funções
 - Por que suprimir o linter de dependência é perigoso e o que fazer em vez disso
 
@@ -273,7 +273,7 @@ Talvez você tenha notado um padrão em seu fluxo de trabalho:
 2. Em seguida, você segue as orientações do linter e ajusta as dependências para **corresponder ao código que você alterou**.
 3. Se não estiver satisfeito com a lista de dependências, você **volta ao primeiro passo** (e altera o código novamente).
 
-A última parte é importante. **Se você deseja alterar as dependências, modifique o código ao redor primeiro.** Você pode considerar a lista de dependências como [uma lista de todos os valores reativos usados pelo código do seu Effect.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) Você não *escolhe* o que colocar nessa lista. A lista *descreve* o seu código. Para alterar a lista de dependências, altere o código.
+A última parte é importante. **Se você deseja alterar as dependências, modifique o código ao redor primeiro.** Você pode considerar a lista de dependências como [uma lista de todos os valores reativos usados pelo código do seu Efeito.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) Você não *escolhe* o que colocar nessa lista. A lista *descreve* o seu código. Para alterar a lista de dependências, altere o código.
 
 Isso pode parecer como resolver uma equação. Você pode começar com um objetivo (por exemplo, remover uma dependência) e precisa “encontrar” o código que corresponda a esse objetivo. Nem todo mundo acha divertido resolver equações, e a mesma coisa pode ser dita sobre escrever efeitos! Felizmente, há uma lista de receitas comuns que você pode experimentar abaixo.
 
@@ -555,7 +555,7 @@ O código final é mais longo que o original, mas a divisão desses Efeitos aind
 
 ### Você está lendo algum estado para calcular o próximo estado? {/*are-you-reading-some-state-to-calculate-the-next-state*/}
 
-Esse Efeito atualiza a variável de estado `messages` com uma matriz recém-criada sempre que uma nova mensagem chega:
+Este Efeito atualiza a variável de estado `messages` com uma *array* recém-criada sempre que chega uma nova mensagem:
 
 ```js {2,6-8}
 function ChatRoom({ roomId }) {
@@ -569,7 +569,7 @@ function ChatRoom({ roomId }) {
     // ...
 ```
 
-Ele usa a variável `messages` para [criar uma nova matriz](/learn/updating-arrays-in-state) começando com todas as mensagens existentes e adicionando a nova mensagem no final. Entretanto, como `messages` é um valor reativo lido por um Effect, ele deve ser uma dependência:
+Ele usa a variável `messages` para [criar um novo array](/learn/updating-arrays-in-state) começando com todas as mensagens existentes e adicionando a nova mensagem no final. Entretanto, como `messages` é um valor reativo lido por um Efeito, ele deve ser uma dependência:
 
 ```js {7,10}
 function ChatRoom({ roomId }) {
@@ -587,7 +587,7 @@ function ChatRoom({ roomId }) {
 
 E tornar `messages` uma dependência introduz um problema.
 
-Toda vez que você recebe uma mensagem, `setMessages()` faz com que o componente seja renderizado novamente com uma nova matriz `messages` que inclui a mensagem recebida. Entretanto, como esse Efeito agora depende de `messages`, isso *também* ressincronizará o Efeito. Portanto, cada nova mensagem fará com que o chat se reconecte. O usuário não gostaria disso!
+Toda vez que você recebe uma mensagem, `setMessages()` faz com que o componente seja renderizado novamente com um novo *array* `messages` que inclui a mensagem recebida. Entretanto, como esse Efeito agora depende de `messages`, isso *também* ressincronizará o Efeito. Portanto, cada nova mensagem fará com que o chat se reconecte. O usuário não gostaria disso!
 
 Para corrigir o problema, não leia `messages` dentro do Efeito. Em vez disso, passe uma [função de atualização](/reference/react/useState#updating-state-based-on-the-previous-state) para `setMessages`:
 
@@ -716,7 +716,7 @@ Suponha que o componente pai passe uma função `onReceiveMessage` *diferente* a
 />
 ```
 
-Como o `onReceiveMessage` é uma dependência, isso faria com que o Effect fosse ressincronizado após cada nova renderização do pai. Isso faria com que ele se reconectasse ao chat. Para resolver isso, envolva a chamada em um Evento de Efeito:
+Como o `onReceiveMessage` é uma dependência, isso faria com que o Efeito fosse ressincronizado após cada nova renderização do pai. Isso faria com que ele se reconectasse ao chat. Para resolver isso, envolva a chamada em um Evento de Efeito:
 
 ```js {4-6,12,15}
 function ChatRoom({ roomId, onReceiveMessage }) {
@@ -933,7 +933,7 @@ function ChatRoom() {
   // ...
 ```
 
-Como o `createOptions` é declarado fora de seu componente, ele não é um valor reativo. É por isso que ele não precisa ser especificado nas dependências de seu Effect e nunca fará com que seu Efeito seja ressincronizado.
+Como o `createOptions` é declarado fora de seu componente, ele não é um valor reativo. É por isso que ele não precisa ser especificado nas dependências de seu Efeito e nunca fará com que seu Efeito seja ressincronizado.
 
 #### Mova objetos e funções dinâmicos dentro de seu Efeito {/*move-dynamic-objects-and-functions-inside-your-effect*/}
 
@@ -1173,13 +1173,13 @@ Isso só funciona para funções [puras](/learn/keeping-components-pure) porque 
 
 <Challenges>
 
-#### Fix a resetting interval {/*fix-a-resetting-interval*/}
+#### Fixar um intervalo de reinicialização {/*fix-a-resetting-interval*/}
 
-This Effect sets up an interval that ticks every second. You've noticed something strange happening: it seems like the interval gets destroyed and re-created every time it ticks. Fix the code so that the interval doesn't get constantly re-created.
+Esse Efeito configura um intervalo que passa a cada segundo. Você notou que algo estranho está acontecendo: parece que o intervalo é destruído e recriado toda vez que ele faz tique-taque. Corrija o código para que o intervalo não seja recriado constantemente.
 
 <Hint>
 
-It seems like this Effect's code depends on `count`. Is there some way to not need this dependency? There should be a way to update the `count` state based on its previous value without adding a dependency on that value.
+Parece que o código desse Efeito depende do `count`. Existe alguma maneira de não precisar dessa dependência? Deve haver uma maneira de atualizar o estado do `count` com base em seu valor anterior sem adicionar uma dependência a esse valor.
 
 </Hint>
 
@@ -1192,18 +1192,18 @@ export default function Timer() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log('✅ Creating an interval');
+    console.log('✅ Criando um intervalo');
     const id = setInterval(() => {
-      console.log('⏰ Interval tick');
+      console.log('⏰ Intervalo de tique-taque');
       setCount(count + 1);
     }, 1000);
     return () => {
-      console.log('❌ Clearing an interval');
+      console.log('❌ Limpar o intervalo');
       clearInterval(id);
     };
   }, [count]);
 
-  return <h1>Counter: {count}</h1>
+  return <h1>Contador: {count}</h1>
 }
 ```
 
@@ -1211,9 +1211,9 @@ export default function Timer() {
 
 <Solution>
 
-You want to update the `count` state to be `count + 1` from inside the Effect. However, this makes your Effect depend on `count`, which changes with every tick, and that's why your interval gets re-created on every tick.
+Você deseja atualizar o estado `count` para que seja `count + 1` de dentro do Efeito. Entretanto, isso faz com que seu Efeito dependa de `count`, que muda a cada tique-taque, e é por isso que seu intervalo é recriado a cada tique-taque.
 
-To solve this, use the [updater function](/reference/react/useState#updating-state-based-on-the-previous-state) and write `setCount(c => c + 1)` instead of `setCount(count + 1)`:
+Para resolver isso, use a [função atualizadora](/reference/react/useState#updating-state-based-on-the-previous-state) e escreva `setCount(c => c + 1)` em vez de `setCount(count + 1)`:
 
 <Sandpack>
 
@@ -1224,36 +1224,36 @@ export default function Timer() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log('✅ Creating an interval');
+    console.log('✅ Criando um intervalo');
     const id = setInterval(() => {
-      console.log('⏰ Interval tick');
+      console.log('⏰ Intervalo de tique-taque');
       setCount(c => c + 1);
     }, 1000);
     return () => {
-      console.log('❌ Clearing an interval');
+      console.log('❌ Limpar o intervalo');
       clearInterval(id);
     };
   }, []);
 
-  return <h1>Counter: {count}</h1>
+  return <h1>Contador: {count}</h1>
 }
 ```
 
 </Sandpack>
 
-Instead of reading `count` inside the Effect, you pass a `c => c + 1` instruction ("increment this number!") to React. React will apply it on the next render. And since you don't need to read the value of `count` inside your Effect anymore, so you can keep your Effect's dependencies empty (`[]`). This prevents your Effect from re-creating the interval on every tick.
+Em vez de ler o valor de `count` dentro do Efeito, você passa uma instrução `c => c + 1` ("incremente esse número!") para o React. O React aplicará essa instrução na próxima renderização. Como você não precisa mais ler o valor de `count` dentro do seu Efeito, você pode manter as dependências do Efeito vazias (`[]`). Isso evita que o Efeito recrie o intervalo a cada tique-taque.
 
 </Solution>
 
-#### Fix a retriggering animation {/*fix-a-retriggering-animation*/}
+#### Corrigir uma animação que está sendo reiniciada repetidamente {/*fix-a-retriggering-animation*/}
 
-In this example, when you press "Show", a welcome message fades in. The animation takes a second. When you press "Remove", the welcome message immediately disappears. The logic for the fade-in animation is implemented in the `animation.js` file as plain JavaScript [animation loop.](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) You don't need to change that logic. You can treat it as a third-party library. Your Effect creates an instance of `FadeInAnimation` for the DOM node, and then calls `start(duration)` or `stop()` to control the animation. The `duration` is controlled by a slider. Adjust the slider and see how the animation changes.
+Neste exemplo, ao pressionar "Mostrar", uma mensagem de boas-vindas aparece gradualmente. A animação leva um segundo. Quando você pressiona "Remover", a mensagem de boas-vindas desaparece imediatamente. A lógica para a animação de fade-in é implementada no arquivo `animation.js` como um [loop de animação](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) em JavaScript. Você não precisa alterar essa lógica, pois pode tratá-la como uma biblioteca de terceiros. Seu Efeito cria uma instância de `FadeInAnimation` para o nó do DOM e depois chama `start(duration)` ou `stop()` para controlar a animação. A `duration` é controlada por um *slider*. Ajuste o *slider* e veja como a animação muda.
 
-This code already works, but there is something you want to change. Currently, when you move the slider that controls the `duration` state variable, it retriggers the animation. Change the behavior so that the Effect does not "react" to the `duration` variable. When you press "Show", the Effect should use the current `duration` on the slider. However, moving the slider itself should not by itself retrigger the animation.
+Esse código já funciona, mas há algo que você deseja modificar. Atualmente, quando você move o *slider* que controla a variável de estado `duration`, ele reinicia a animação. Altere o comportamento para que o Efeito não "reaja" à variável `duration`. Quando você pressionar "Mostrar", o Efeito deve usar a `duration` atual do *slider*. No entanto, mover o *slider* em si não deve reiniciar a animação.
 
 <Hint>
 
-Is there a line of code inside the Effect that should not be reactive? How can you move non-reactive code out of the Effect?
+Existe uma linha de código dentro do Efeito que não deveria ser reativa? Como você pode mover código não reativo para fora do Efeito?
 
 </Hint>
 
@@ -1303,7 +1303,7 @@ function Welcome({ duration }) {
         backgroundImage: 'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)'
       }}
     >
-      Welcome
+      Bem-vindo(a)
     </h1>
   );
 }
@@ -1323,10 +1323,10 @@ export default function App() {
           onChange={e => setDuration(Number(e.target.value))}
         />
         <br />
-        Fade in duration: {duration} ms
+        Duração do fade-in: {duration} ms
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome duration={duration} />}
@@ -1343,11 +1343,11 @@ export class FadeInAnimation {
   start(duration) {
     this.duration = duration;
     if (this.duration === 0) {
-      // Jump to end immediately
+      // Ir para o final imediatamente
       this.onProgress(1);
     } else {
       this.onProgress(0);
-      // Start animating
+      // Comece a animar
       this.startTime = performance.now();
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
@@ -1357,7 +1357,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // We still have more frames to paint
+      // Ainda temos mais quadros para renderizar
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
@@ -1382,7 +1382,7 @@ html, body { min-height: 300px; }
 
 <Solution>
 
-Your Effect needs to read the latest value of `duration`, but you don't want it to "react" to changes in `duration`. You use `duration` to start the animation, but starting animation isn't reactive. Extract the non-reactive line of code into an Effect Event, and call that function from your Effect.
+Seu Efeito precisa ler o valor mais recente de `duration`, mas você não quer que ele "reaja" às mudanças em `duration`. Você usa `duration` para iniciar a animação, mas iniciar a animação não é reativo. Extraia a linha de código não reativa para um Evento de Efeito e chame essa função a partir do seu Efeito.
 
 <Sandpack>
 
@@ -1434,7 +1434,7 @@ function Welcome({ duration }) {
         backgroundImage: 'radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)'
       }}
     >
-      Welcome
+      Bem-vindo(a)
     </h1>
   );
 }
@@ -1454,10 +1454,10 @@ export default function App() {
           onChange={e => setDuration(Number(e.target.value))}
         />
         <br />
-        Fade in duration: {duration} ms
+         Duração do fade-in: {duration} ms
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Remove' : 'Show'}
+        {show ? 'Remover' : 'Mostrar'}
       </button>
       <hr />
       {show && <Welcome duration={duration} />}
@@ -1482,7 +1482,7 @@ export class FadeInAnimation {
     const progress = Math.min(timePassed / this.duration, 1);
     this.onProgress(progress);
     if (progress < 1) {
-      // We still have more frames to paint
+      // Ainda temos mais quadros para renderizar
       this.frameId = requestAnimationFrame(() => this.onFrame());
     }
   }
@@ -1505,19 +1505,19 @@ html, body { min-height: 300px; }
 
 </Sandpack>
 
-Effect Events like `onAppear` are not reactive, so you can read `duration` inside without retriggering the animation.
+Eventos de Efeito, como `onAppear`, não são reativos, portanto você pode ler `duration` dentro sem disparar a animação.
 
 </Solution>
 
-#### Fix a reconnecting chat {/*fix-a-reconnecting-chat*/}
+#### Corrigir um chat que está se reconectando {/*fix-a-reconnecting-chat*/}
 
-In this example, every time you press "Toggle theme", the chat re-connects. Why does this happen? Fix the mistake so that the chat re-connects only when you edit the Server URL or choose a different chat room.
+Neste exemplo, toda vez que você pressiona "Alternar tema", o chat se reconecta. Por que isso acontece? Corrija o erro para que o chat se reconecte apenas quando você editar a URL do servidor ou escolher uma sala de chat diferente.
 
-Treat `chat.js` as an external third-party library: you can consult it to check its API, but don't edit it.
+Trate `chat.js` como uma biblioteca externa de terceiros: você pode consultá-la para verificar sua API, mas não edite o código.
 
 <Hint>
 
-There's more than one way to fix this, but ultimately you want to avoid having an object as your dependency.
+Há mais de uma maneira de corrigir isso, mas, no final, você deve evitar ter um objeto como sua dependência.
 
 </Hint>
 
@@ -1529,7 +1529,7 @@ import ChatRoom from './ChatRoom.js';
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('geral');
   const [serverUrl, setServerUrl] = useState('https://localhost:1234');
 
   const options = {
@@ -1540,24 +1540,24 @@ export default function App() {
   return (
     <div className={isDark ? 'dark' : 'light'}>
       <button onClick={() => setIsDark(!isDark)}>
-        Toggle theme
+        Alternar tema
       </button>
       <label>
-        Server URL:{' '}
+        URL do servidor:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="geral">geral</option>
+          <option value="viagem">viagem</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -1578,25 +1578,25 @@ export default function ChatRoom({ options }) {
     return () => connection.disconnect();
   }, [options]);
 
-  return <h1>Welcome to the {options.roomId} room!</h1>;
+  return <h1>Bem-vindo(a) à sala {options.roomId}!</h1>;
 }
 ```
 
 ```js src/chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real realmente se conectaria ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Esperava-se que serverUrl fosse uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Esperava-se que roomId fosse uma string. Recebido: ' + roomId);
   }
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando à sala "' + roomId + '" em ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectado da sala "' + roomId + '" em ' + serverUrl);
     }
   };
 }
@@ -1611,9 +1611,9 @@ label, button { display: block; margin-bottom: 5px; }
 
 <Solution>
 
-Your Effect is re-running because it depends on the `options` object. Objects can be re-created unintentionally, you should try to avoid them as dependencies of your Effects whenever possible.
+Seu Efeito está sendo reexecutado porque depende do objeto `options`. Objetos podem ser recriados involuntariamente, você deve tentar evitar usá-los como dependências dos seus Efeitos sempre que possível.
 
-The least invasive fix is to read `roomId` and `serverUrl` right outside the Effect, and then make the Effect depend on those primitive values (which can't change unintentionally). Inside the Effect, create an object and pass it to `createConnection`:
+A correção menos invasiva é ler `roomId` e `serverUrl` logo fora do Efeito e, em seguida, fazer com que o Efeito dependa desses valores primitivos (que não podem mudar involuntariamente). Dentro do Efeito, crie um objeto e passe-o para `createConnection`:
 
 <Sandpack>
 
@@ -1623,7 +1623,7 @@ import ChatRoom from './ChatRoom.js';
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('geral');
   const [serverUrl, setServerUrl] = useState('https://localhost:1234');
 
   const options = {
@@ -1634,24 +1634,24 @@ export default function App() {
   return (
     <div className={isDark ? 'dark' : 'light'}>
       <button onClick={() => setIsDark(!isDark)}>
-        Toggle theme
+        Alternar tema
       </button>
       <label>
-        Server URL:{' '}
+        URL do servidor:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="geral">geral</option>
+          <option value="viagem">viagem</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -1676,25 +1676,25 @@ export default function ChatRoom({ options }) {
     return () => connection.disconnect();
   }, [roomId, serverUrl]);
 
-  return <h1>Welcome to the {options.roomId} room!</h1>;
+  return <h1>Bem-vindo(a) à sala {options.roomId}!</h1>;
 }
 ```
 
 ```js src/chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real realmente se conectaria ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Esperava-se que serverUrl fosse uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Esperava-se que roomId fosse uma string. Recebido: ' + roomId);
   }
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando à sala "' + roomId + '" em ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectado da sala "' + roomId + '" em ' + serverUrl);
     }
   };
 }
@@ -1707,7 +1707,7 @@ label, button { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-It would be even better to replace the object `options` prop with the more specific `roomId` and `serverUrl` props:
+Seria ainda melhor substituir a propriedade de objeto `options` pelas propriedades mais específicas `roomId` e `serverUrl`:
 
 <Sandpack>
 
@@ -1717,30 +1717,30 @@ import ChatRoom from './ChatRoom.js';
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('geral');
   const [serverUrl, setServerUrl] = useState('https://localhost:1234');
 
   return (
     <div className={isDark ? 'dark' : 'light'}>
       <button onClick={() => setIsDark(!isDark)}>
-        Toggle theme
+        Alternar tema
       </button>
       <label>
-        Server URL:{' '}
+        URL do servidor:{' '}
         <input
           value={serverUrl}
           onChange={e => setServerUrl(e.target.value)}
         />
       </label>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="geral">geral</option>
+          <option value="viagem">viagem</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -1767,25 +1767,25 @@ export default function ChatRoom({ roomId, serverUrl }) {
     return () => connection.disconnect();
   }, [roomId, serverUrl]);
 
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>Bem-vindo(a) à sala {options.roomId}!</h1>;
 }
 ```
 
 ```js src/chat.js
 export function createConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real realmente se conectaria ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Esperava-se que serverUrl fosse uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Esperava-se que roomId fosse uma string. Recebido: ' + roomId);
   }
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+      console.log('✅ Conectando à sala "' + roomId + '" em ' + serverUrl + '...');
     },
     disconnect() {
-      console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+      console.log('❌ Desconectado da sala "' + roomId + '" em ' + serverUrl);
     }
   };
 }
@@ -1798,25 +1798,25 @@ label, button { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-Sticking to primitive props where possible makes it easier to optimize your components later.
+Manter-se aos *props* primitivos, quando possível, facilita a otimização futura dos seus componentes.
 
 </Solution>
 
-#### Fix a reconnecting chat, again {/*fix-a-reconnecting-chat-again*/}
+#### Corrigir um chat que reconecta, novamente {/*fix-a-reconnecting-chat-again*/}
 
-This example connects to the chat either with or without encryption. Toggle the checkbox and notice the different messages in the console when the encryption is on and off. Try changing the room. Then, try toggling the theme. When you're connected to a chat room, you will receive new messages every few seconds. Verify that their color matches the theme you've picked.
+Neste exemplo, a conexão com o chat pode ser feita com ou sem criptografia. Marque e desmarque a caixa de seleção para notar as mensagens diferentes no console quando a criptografia está ativada ou desativada. Experimente mudar a sala. Em seguida, tente alternar o tema. Quando você está conectado a uma sala de chat, você receberá novas mensagens a cada poucos segundos. Verifique se a cor das mensagens corresponde ao tema que você escolheu.
 
-In this example, the chat re-connects every time you try to change the theme. Fix this. After the fix, changing the theme should not re-connect the chat, but toggling encryption settings or changing the room should re-connect.
+Neste exemplo, o chat reconecta toda vez que você tenta mudar o tema. Corrija isso. Após a correção, mudar o tema não deve reconectar o chat, mas alternar as configurações de criptografia ou mudar a sala deve reconectar.
 
-Don't change any code in `chat.js`. Other than that, you can change any code as long as it results in the same behavior. For example, you may find it helpful to change which props are being passed down.
+Não altere nenhum código em `chat.js`. Além disso, você pode alterar qualquer código, desde que resulte no mesmo comportamento. Por exemplo, pode ser útil alterar quais props estão sendo passadas.
 
 <Hint>
 
-You're passing down two functions: `onMessage` and `createConnection`. Both of them are created from scratch every time `App` re-renders. They are considered to be new values every time, which is why they re-trigger your Effect.
+Você está passando duas funções: `onMessage` e `createConnection`. Ambas são criadas do zero toda vez que o `App` é renderizado novamente. Por isso, são consideradas como valores novos a cada renderização, o que faz com que o seu Efeito seja reexecutado.
 
-One of these functions is an event handler. Do you know some way to call an event handler an Effect without "reacting" to the new values of the event handler function? That would come in handy!
+Um desses manipuladores é um manipulador de eventos. Você conhece alguma forma de chamar um manipulador de eventos dentro de um Efeito sem que ele "reaja" aos novos valores da função do manipulador de eventos? Isso seria bastante útil!
 
-Another of these functions only exists to pass some state to an imported API method. Is this function really necessary? What is the essential information that's being passed down? You might need to move some imports from `App.js` to `ChatRoom.js`.
+Outra dessas funções existe apenas para passar um estado para um método de API importado. Essa função é realmente necessária? Qual é a informação essencial que está sendo passada adiante? Você pode precisar mover algumas importações de `App.js` para `ChatRoom.js`.
 
 </Hint>
 
@@ -1850,7 +1850,7 @@ import { showNotification } from './notifications.js';
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('geral');
   const [isEncrypted, setIsEncrypted] = useState(false);
 
   return (
@@ -1861,7 +1861,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Use dark theme
+        Usar tema escuro
       </label>
       <label>
         <input
@@ -1869,24 +1869,24 @@ export default function App() {
           checked={isEncrypted}
           onChange={e => setIsEncrypted(e.target.checked)}
         />
-        Enable encryption
+        Habilitar criptografia
       </label>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="geral">geral</option>
+          <option value="viagem">viagem</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
       <ChatRoom
         roomId={roomId}
         onMessage={msg => {
-          showNotification('New message: ' + msg, isDark ? 'dark' : 'light');
+          showNotification('Nova mensagem: ' + msg, isDark ? 'dark' : 'light');
         }}
         createConnection={() => {
           const options = {
@@ -1917,29 +1917,29 @@ export default function ChatRoom({ roomId, createConnection, onMessage }) {
     return () => connection.disconnect();
   }, [createConnection, onMessage]);
 
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>Bem-vindo(a) à sala {roomId}!</h1>;
 }
 ```
 
 ```js src/chat.js
 export function createEncryptedConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real realmente se conectaria ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Esperava-se que serverUrl fosse uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Esperava-se que roomId fosse uma string. Recebido: ' + roomId);
   }
   let intervalId;
   let messageCallback;
   return {
     connect() {
-      console.log('✅ 🔐 Connecting to "' + roomId + '" room... (encrypted)');
+      console.log('✅ 🔐 Conectando à sala "' + roomId + '"... (criptografado');
       clearInterval(intervalId);
       intervalId = setInterval(() => {
         if (messageCallback) {
           if (Math.random() > 0.5) {
-            messageCallback('hey')
+            messageCallback('ei')
           } else {
             messageCallback('lol');
           }
@@ -1949,14 +1949,14 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
     disconnect() {
       clearInterval(intervalId);
       messageCallback = null;
-      console.log('❌ 🔐 Disconnected from "' + roomId + '" room (encrypted)');
+      console.log('❌ 🔐 Desconectado da sala "' + roomId + '" (criptografada)');
     },
     on(event, callback) {
       if (messageCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('Não é possível adicionar o manipulador duas vezes.');
       }
       if (event !== 'message') {
-        throw Error('Only "message" event is supported.');
+        throw Error('Apenas o evento "message" é suportado.');
       }
       messageCallback = callback;
     },
@@ -1964,23 +1964,23 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
 }
 
 export function createUnencryptedConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real realmente se conectaria ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Esperava-se que serverUrl fosse uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Esperava-se que roomId fosse uma string. Recebido: ' + roomId);
   }
   let intervalId;
   let messageCallback;
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room (unencrypted)...');
+      console.log('✅ Conectando à sala "' + roomId + '" (sem criptografia)...');
       clearInterval(intervalId);
       intervalId = setInterval(() => {
         if (messageCallback) {
           if (Math.random() > 0.5) {
-            messageCallback('hey')
+            messageCallback('ei')
           } else {
             messageCallback('lol');
           }
@@ -1990,14 +1990,14 @@ export function createUnencryptedConnection({ serverUrl, roomId }) {
     disconnect() {
       clearInterval(intervalId);
       messageCallback = null;
-      console.log('❌ Disconnected from "' + roomId + '" room (unencrypted)');
+      console.log('❌ Desconectado da sala "' + roomId + '" (sem criptografia)');
     },
     on(event, callback) {
       if (messageCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('Não é possível adicionar o manipulador duas vezes.');
       }
       if (event !== 'message') {
-        throw Error('Only "message" event is supported.');
+        throw Error('Apenas o evento "message" é suportado.');
       }
       messageCallback = callback;
     },
@@ -2031,11 +2031,11 @@ label, button { display: block; margin-bottom: 5px; }
 
 <Solution>
 
-There's more than one correct way to solve this, but here is one possible solution.
+Há mais de uma maneira correta de resolver isso, mas aqui está uma solução possível.
 
-In the original example, toggling the theme caused different `onMessage` and `createConnection` functions to be created and passed down. Since the Effect depended on these functions, the chat would re-connect every time you toggle the theme.
+No exemplo original, alternar o tema fazia com que diferentes funções `onMessage` e `createConnection` fossem criadas e passadas para baixo. Como o Efeito dependia dessas funções, o chat seria reconectado toda vez que o tema fosse alterado.
 
-To fix the problem with `onMessage`, you needed to wrap it into an Effect Event:
+Para resolver o problema com `onMessage`, você precisava envolvê-lo em um evento Efeito:
 
 ```js {1,2,6}
 export default function ChatRoom({ roomId, createConnection, onMessage }) {
@@ -2047,21 +2047,21 @@ export default function ChatRoom({ roomId, createConnection, onMessage }) {
     // ...
 ```
 
-Unlike the `onMessage` prop, the `onReceiveMessage` Effect Event is not reactive. This is why it doesn't need to be a dependency of your Effect. As a result, changes to `onMessage` won't cause the chat to re-connect.
+Diferente da prop `onMessage`, o Evento de Efeito `onReceiveMessage` não é reativo. É por isso que ele não precisa ser uma dependência do seu Efeito. Como resultado, mudanças no `onMessage` não farão com que o chat se reconecte.
 
-You can't do the same with `createConnection` because it *should* be reactive. You *want* the Effect to re-trigger if the user switches between an encrypted and an unencryption connection, or if the user switches the current room. However, because `createConnection` is a function, you can't check whether the information it reads has *actually* changed or not. To solve this, instead of passing `createConnection` down from the `App` component, pass the raw `roomId` and `isEncrypted` values:
+Você não pode fazer o mesmo com `createConnection` porque ele *deve* ser reativo. Você *quer* que o Efeito seja acionado novamente se o usuário trocar entre uma conexão criptografada e uma não criptografada, ou se o usuário trocar a sala atual. Entretanto, como `createConnection` é uma função, não é possível verificar se a informação lida mudou ou não. Para resolver isso, ao invés de passar `createConnection` do componente `App`, passe os valores brutos de `roomId` e `isEncrypted`:
 
 ```js {2-3}
       <ChatRoom
         roomId={roomId}
         isEncrypted={isEncrypted}
         onMessage={msg => {
-          showNotification('New message: ' + msg, isDark ? 'dark' : 'light');
+          showNotification('Nova mensagem: ' + msg, isDark ? 'dark' : 'light');
         }}
       />
 ```
 
-Now you can move the `createConnection` function *inside* the Effect instead of passing it down from the `App`:
+Agora você pode mover a função `createConnection` para *dentro* do Efeito em vez de passá-la como uma propriedade de `App`:
 
 ```js {1-4,6,10-20}
 import {
@@ -2087,19 +2087,19 @@ export default function ChatRoom({ roomId, isEncrypted, onMessage }) {
     // ...
 ```
 
-After these two changes, your Effect no longer depends on any function values:
+Após estas duas alterações, o seu Efeito já não depende de quaisquer valores de função:
 
 ```js {1,8,10,21}
-export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Reactive values
-  const onReceiveMessage = useEffectEvent(onMessage); // Not reactive
+export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Valores reativos
+  const onReceiveMessage = useEffectEvent(onMessage); // Não reativo
 
   useEffect(() => {
     function createConnection() {
       const options = {
         serverUrl: 'https://localhost:1234',
-        roomId: roomId // Reading a reactive value
+        roomId: roomId // Leitura de um valor reativo
       };
-      if (isEncrypted) { // Reading a reactive value
+      if (isEncrypted) { // Leitura de um valor reativo
         return createEncryptedConnection(options);
       } else {
         return createUnencryptedConnection(options);
@@ -2113,7 +2113,7 @@ export default function ChatRoom({ roomId, isEncrypted, onMessage }) { // Reacti
   }, [roomId, isEncrypted]); // ✅ Todas as dependências declaradas
 ```
 
-As a result, the chat re-connects only when something meaningful (`roomId` or `isEncrypted`) changes:
+Como resultado, o chat só volta a ligar-se quando algo significativo (`roomId` ou `isEncrypted`) muda:
 
 <Sandpack>
 
@@ -2142,7 +2142,7 @@ import { showNotification } from './notifications.js';
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
-  const [roomId, setRoomId] = useState('general');
+  const [roomId, setRoomId] = useState('geral');
   const [isEncrypted, setIsEncrypted] = useState(false);
 
   return (
@@ -2153,7 +2153,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Use dark theme
+        Usar tema escuro
       </label>
       <label>
         <input
@@ -2161,17 +2161,17 @@ export default function App() {
           checked={isEncrypted}
           onChange={e => setIsEncrypted(e.target.checked)}
         />
-        Enable encryption
+        Habilitar criptografia
       </label>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="geral">geral</option>
+          <option value="viagem">viagem</option>
+          <option value="música">música</option>
         </select>
       </label>
       <hr />
@@ -2179,7 +2179,7 @@ export default function App() {
         roomId={roomId}
         isEncrypted={isEncrypted}
         onMessage={msg => {
-          showNotification('New message: ' + msg, isDark ? 'dark' : 'light');
+          showNotification('Nova mensagem: ' + msg, isDark ? 'dark' : 'light');
         }}
       />
     </>
@@ -2217,29 +2217,29 @@ export default function ChatRoom({ roomId, isEncrypted, onMessage }) {
     return () => connection.disconnect();
   }, [roomId, isEncrypted]);
 
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>Bem-vindo(a) à sala {roomId}!</h1>;
 }
 ```
 
 ```js src/chat.js
 export function createEncryptedConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real realmente se conectaria ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Esperava-se que serverUrl fosse uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Esperava-se que roomId fosse uma cadeia de caracteres. Recebido: ' + roomId);
   }
   let intervalId;
   let messageCallback;
   return {
     connect() {
-      console.log('✅ 🔐 Connecting to "' + roomId + '" room... (encrypted)');
+      console.log('✅ 🔐 Conectando à sala "' + roomId + '"... (criptografado)');
       clearInterval(intervalId);
       intervalId = setInterval(() => {
         if (messageCallback) {
           if (Math.random() > 0.5) {
-            messageCallback('hey')
+            messageCallback('ei')
           } else {
             messageCallback('lol');
           }
@@ -2249,14 +2249,14 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
     disconnect() {
       clearInterval(intervalId);
       messageCallback = null;
-      console.log('❌ 🔐 Disconnected from "' + roomId + '" room (encrypted)');
+      console.log('❌ 🔐 Desconectado da sala "' + roomId + '" (criptografada)');
     },
     on(event, callback) {
       if (messageCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('Não é possível adicionar o manipulador duas vezes.');
       }
       if (event !== 'message') {
-        throw Error('Only "message" event is supported.');
+        throw Error('Apenas o evento "message" é suportado.');
       }
       messageCallback = callback;
     },
@@ -2264,23 +2264,23 @@ export function createEncryptedConnection({ serverUrl, roomId }) {
 }
 
 export function createUnencryptedConnection({ serverUrl, roomId }) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real realmente se conectaria ao servidor
   if (typeof serverUrl !== 'string') {
-    throw Error('Expected serverUrl to be a string. Received: ' + serverUrl);
+    throw Error('Esperava-se que serverUrl fosse uma string. Recebido: ' + serverUrl);
   }
   if (typeof roomId !== 'string') {
-    throw Error('Expected roomId to be a string. Received: ' + roomId);
+    throw Error('Esperava-se que roomId fosse uma string. Recebido: ' + roomId);
   }
   let intervalId;
   let messageCallback;
   return {
     connect() {
-      console.log('✅ Connecting to "' + roomId + '" room (unencrypted)...');
+      console.log('✅ Conectando à sala "' + roomId + '" (sem criptografado)...');
       clearInterval(intervalId);
       intervalId = setInterval(() => {
         if (messageCallback) {
           if (Math.random() > 0.5) {
-            messageCallback('hey')
+            messageCallback('ei')
           } else {
             messageCallback('lol');
           }
@@ -2290,14 +2290,14 @@ export function createUnencryptedConnection({ serverUrl, roomId }) {
     disconnect() {
       clearInterval(intervalId);
       messageCallback = null;
-      console.log('❌ Disconnected from "' + roomId + '" room (unencrypted)');
+      console.log('❌ Desconectado da sala "' + roomId + '" (sem criptografado)');
     },
     on(event, callback) {
       if (messageCallback) {
-        throw Error('Cannot add the handler twice.');
+        throw Error('Não é possível adicionar o manipulador duas vezes.');
       }
       if (event !== 'message') {
-        throw Error('Only "message" event is supported.');
+        throw Error('Apenas o evento "message" é suportado.');
       }
       messageCallback = callback;
     },
