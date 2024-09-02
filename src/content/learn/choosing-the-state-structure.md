@@ -1,53 +1,53 @@
 ---
-title: Choosing the State Structure
+title: Escolhendo a Estrutura do Estado
 ---
 
 <Intro>
 
-Structuring state well can make a difference between a component that is pleasant to modify and debug, and one that is a constant source of bugs. Here are some tips you should consider when structuring state.
+Estruturar bem o estado pode fazer a diferença entre um componente que é agradável de modificar e depurar, e um que é uma fonte constante de erros. Aqui estão algumas dicas que você deve considerar ao estruturar estados.
 
 </Intro>
 
 <YouWillLearn>
 
-* When to use a single vs multiple state variables
-* What to avoid when organizing state
-* How to fix common issues with the state structure
+* Quando usar uma única variável de estado versus várias
+* O que evitar ao organizar estados
+* Como corrigir problemas comuns na estrutura do estado
 
 </YouWillLearn>
 
-## Principles for structuring state {/*principles-for-structuring-state*/}
+## Princípios para estruturar estados {/*principles-for-structuring-state*/}
 
-When you write a component that holds some state, you'll have to make choices about how many state variables to use and what the shape of their data should be. While it's possible to write correct programs even with a suboptimal state structure, there are a few principles that can guide you to make better choices:
+Quando você escreve um componente que mantém algum estado, você terá que fazer escolhas sobre quantas variáveis de estado usar e qual deve ser a forma dos dados. Embora seja possível escrever programas corretos mesmo com uma estrutura de estado subótima, existem alguns princípios que podem orientá-lo a fazer escolhas melhores:
 
-1. **Group related state.** If you always update two or more state variables at the same time, consider merging them into a single state variable.
-2. **Avoid contradictions in state.** When the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.
-3. **Avoid redundant state.** If you can calculate some information from the component's props or its existing state variables during rendering, you should not put that information into that component's state.
-4. **Avoid duplication in state.** When the same data is duplicated between multiple state variables, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.
-5. **Avoid deeply nested state.** Deeply hierarchical state is not very convenient to update. When possible, prefer to structure state in a flat way.
+1. **Agrupe estados relacionados.** Se você sempre atualiza duas ou mais variáveis de estado ao mesmo tempo, considere uni-las em uma única variável de estado.
+2. **Evite contradições no estado.** Quando o estado é estruturado de forma que várias partes do estado possam se contradizer e "discordar" umas das outras, você deixa espaço para erros. Tente evitar isso.
+3. **Evite estados redundantes.** Se você puder calcular algumas informações das *props* do componente ou de suas variáveis de estado existentes durante a renderização, não coloque essas informações no estado desse componente.
+4. **Evite duplicação no estado.** Quando os mesmos dados são duplicados entre várias variáveis de estado, ou dentro de objetos aninhados, é difícil mantê-los sincronizados. Reduza a duplicação quando puder.
+5. **Evite estados muito aninhados.** Um estado muito hierárquico não é muito conveniente para atualizar. Quando possível, prefira estruturar o estado de forma plana.
 
-The goal behind these principles is to *make state easy to update without introducing mistakes*. Removing redundant and duplicate data from state helps ensure that all its pieces stay in sync. This is similar to how a database engineer might want to ["normalize" the database structure](https://docs.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description) to reduce the chance of bugs. To paraphrase Albert Einstein, **"Make your state as simple as it can be--but no simpler."**
+O objetivo por trás destes princípios é *tornar o estado fácil de atualizar sem introduzir erros*. Remover dados redundantes e duplicados do estado ajuda a garantir que todas as suas partes permaneçam sincronizadas. Isso é semelhante a como um engenheiro de banco de dados pode querer ["normalizar" a estrutura do banco de dados](https://docs.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description) para reduzir a chance de erros. Parafraseando Albert Einstein, **"Faça seu estado o mais simples possível - mas não simples demais."**
 
-Now let's see how these principles apply in action.
+Agora vamos ver como estes princípios se aplicam na prática.
 
-## Group related state {/*group-related-state*/}
+## Agrupe estados relacionados {/*group-related-state*/}
 
-You might sometimes be unsure between using a single or multiple state variables.
+As vezes você pode ficar em dúvida entre usar uma única variável de estado, ou várias.
 
-Should you do this?
+Você deveria fazer isto?
 
 ```js
 const [x, setX] = useState(0);
 const [y, setY] = useState(0);
 ```
 
-Or this?
+Ou isto?
 
 ```js
 const [position, setPosition] = useState({ x: 0, y: 0 });
 ```
 
-Technically, you can use either of these approaches. But **if some two state variables always change together, it might be a good idea to unify them into a single state variable.** Then you won't forget to always keep them in sync, like in this example where moving the cursor updates both coordinates of the red dot:
+Tecnicamente, você pode usar qualquer uma dessas abordagens. Mas **se duas variáveis de estado sempre mudam juntas, pode ser uma boa ideia uní-las em uma única variável de estado.** Assim você não esquecerá de sempre mantê-las sincronizadas, como neste exemplo onde mover o cursor atualiza ambas as coordenadas do ponto vermelho:
 
 <Sandpack>
 
@@ -93,17 +93,17 @@ body { margin: 0; padding: 0; height: 250px; }
 
 </Sandpack>
 
-Another case where you'll group data into an object or an array is when you don't know how many pieces of state you'll need. For example, it's helpful when you have a form where the user can add custom fields.
+Outro caso em que você agrupará dados em um objeto ou em um *array* é quando você não sabe quantas variáveis de estado vai precisar. Por exemplo, é útil quando você tem um formulário onde o usuário pode adicionar campos personalizados.
 
 <Pitfall>
 
-If your state variable is an object, remember that [you can't update only one field in it](/learn/updating-objects-in-state) without explicitly copying the other fields. For example, you can't do `setPosition({ x: 100 })` in the above example because it would not have the `y` property at all! Instead, if you wanted to set `x` alone, you would either do `setPosition({ ...position, x: 100 })`, or split them into two state variables and do `setX(100)`.
+Se sua variável de estado é um objeto, lembre-se de que [você não pode atualizar apenas um campo nele](/learn/updating-objects-in-state) sem explicitamente copiar os outros campos. Por exemplo, você não pode fazer `setPosition({ x: 100 })` no exemplo acima porque ele não teria a propriedade `y`! Em vez disso, se você quisesse definir apenas `x`, faria `setPosition({ ...position, x: 100 })`, ou dividiria em duas variáveis de estado e faria `setX(100)`.
 
 </Pitfall>
 
-## Avoid contradictions in state {/*avoid-contradictions-in-state*/}
+## Evite contradições no estado {/*avoid-contradictions-in-state*/}
 
-Here is a hotel feedback form with `isSending` and `isSent` state variables:
+Aqui está um formulário de feedback do hotel com as variáveis de estado `isSending` e `isSent`:
 
 <Sandpack>
 
@@ -124,12 +124,12 @@ export default function FeedbackForm() {
   }
 
   if (isSent) {
-    return <h1>Thanks for feedback!</h1>
+    return <h1>Obrigado pelo feedback!</h1>
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>How was your stay at The Prancing Pony?</p>
+      <p>Como foi sua estadia no Pônei Saltitante?</p>
       <textarea
         disabled={isSending}
         value={text}
@@ -140,14 +140,14 @@ export default function FeedbackForm() {
         disabled={isSending}
         type="submit"
       >
-        Send
+        Enviar
       </button>
-      {isSending && <p>Sending...</p>}
+      {isSending && <p>Enviando...</p>}
     </form>
-  );
+  )
 }
 
-// Pretend to send a message.
+// Simula o envio de uma mensagem.
 function sendMessage(text) {
   return new Promise(resolve => {
     setTimeout(resolve, 2000);
@@ -157,9 +157,9 @@ function sendMessage(text) {
 
 </Sandpack>
 
-While this code works, it leaves the door open for "impossible" states. For example, if you forget to call `setIsSent` and `setIsSending` together, you may end up in a situation where both `isSending` and `isSent` are `true` at the same time. The more complex your component is, the harder it is to understand what happened.
+Embora este código funcione, ele deixa a porta aberta para estados "impossíveis". Por exemplo, se você esquecer de chamar `setIsSent` e `setIsSending` juntos, você pode acabar em uma situação onde tanto `isSending` quanto `isSent` são `true` ao mesmo tempo. Quão mais complexo for o seu componente, mais difícil será entender o que aconteceu.
 
-**Since `isSending` and `isSent` should never be `true` at the same time, it is better to replace them with one `status` state variable that may take one of *three* valid states:** `'typing'` (initial), `'sending'`, and `'sent'`:
+**Como `isSending` e `isSent` nunca devem ser `true` ao mesmo tempo, é melhor substituí-los por uma variável de estado `status` que pode assumir um de *três* estados válidos:** `'typing'` (inicial), `'sending'` e `'sent'`:
 
 <Sandpack>
 
@@ -181,12 +181,12 @@ export default function FeedbackForm() {
   const isSent = status === 'sent';
 
   if (isSent) {
-    return <h1>Thanks for feedback!</h1>
+    return <h1>Obrigado pelo feedback!</h1>
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>How was your stay at The Prancing Pony?</p>
+      <p>Como foi sua estadia no Pônei Saltitante?</p>
       <textarea
         disabled={isSending}
         value={text}
@@ -197,14 +197,14 @@ export default function FeedbackForm() {
         disabled={isSending}
         type="submit"
       >
-        Send
+        Enviar
       </button>
-      {isSending && <p>Sending...</p>}
+      {isSending && <p>Enviando...</p>}
     </form>
   );
 }
 
-// Pretend to send a message.
+// Simula o envio de uma mensagem.
 function sendMessage(text) {
   return new Promise(resolve => {
     setTimeout(resolve, 2000);
@@ -214,20 +214,20 @@ function sendMessage(text) {
 
 </Sandpack>
 
-You can still declare some constants for readability:
+Voce ainda pode declarar algumas constantes para legibilidade:
 
 ```js
 const isSending = status === 'sending';
 const isSent = status === 'sent';
 ```
 
-But they're not state variables, so you don't need to worry about them getting out of sync with each other.
+Mas elas não são variáveis de estado, então você não precisa se preocupar com elas ficando fora de sincronia uma com a outra.
 
-## Avoid redundant state {/*avoid-redundant-state*/}
+## Evite estados redundantes {/*avoid-redundant-state*/}
 
-If you can calculate some information from the component's props or its existing state variables during rendering, you **should not** put that information into that component's state.
+Se você pode calcular algumas informações das *props* do componente ou de suas variáveis de estado existentes durante a renderização, você **não deveria** colocar essas informações no estado desse componente.
 
-For example, take this form. It works, but can you find any redundant state in it?
+Por exemplo, neste formulário. Ele funciona, mas você consegue encontrar algum estado redundante nele?
 
 <Sandpack>
 
@@ -251,26 +251,26 @@ export default function Form() {
 
   return (
     <>
-      <h2>Let’s check you in</h2>
+      <h2>Vamos fazer seu check-in</h2>
       <label>
-        First name:{' '}
+        Primeiro nome:{' '}
         <input
           value={firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:{' '}
+        Sobrenome:{' '}
         <input
           value={lastName}
           onChange={handleLastNameChange}
         />
       </label>
       <p>
-        Your ticket will be issued to: <b>{fullName}</b>
+        Seu ticket será emitido para: <b>{fullName}</b>
       </p>
     </>
-  );
+  )
 }
 ```
 
@@ -280,9 +280,9 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-This form has three state variables: `firstName`, `lastName`, and `fullName`. However, `fullName` is redundant. **You can always calculate `fullName` from `firstName` and `lastName` during render, so remove it from state.**
+Este formulário tem três variáveis de estado: `firstName`, `lastName` e `fullName`. No entanto, `fullName` é redundante. **Você sempre pode calcular `fullName` a partir de `firstName` e `lastName` durante a renderização, então remova-o do estado.**
 
-This is how you can do it:
+Você pode fazer desta forma:
 
 <Sandpack>
 
@@ -305,23 +305,23 @@ export default function Form() {
 
   return (
     <>
-      <h2>Let’s check you in</h2>
+      <h2>Vamos fazer seu check-in</h2>
       <label>
-        First name:{' '}
+        Primeiro nome:{' '}
         <input
           value={firstName}
           onChange={handleFirstNameChange}
         />
       </label>
       <label>
-        Last name:{' '}
+        Sobrenome:{' '}
         <input
           value={lastName}
           onChange={handleLastNameChange}
         />
       </label>
       <p>
-        Your ticket will be issued to: <b>{fullName}</b>
+        Seu ticket será emitido para: <b>{fullName}</b>
       </p>
     </>
   );
@@ -334,50 +334,50 @@ label { display: block; margin-bottom: 5px; }
 
 </Sandpack>
 
-Here, `fullName` is *not* a state variable. Instead, it's calculated during render:
+Aqui, `fullName` *não* é uma variável de estado. Em vez disso, ela é calculada durante a renderização:
 
 ```js
 const fullName = firstName + ' ' + lastName;
 ```
 
-As a result, the change handlers don't need to do anything special to update it. When you call `setFirstName` or `setLastName`, you trigger a re-render, and then the next `fullName` will be calculated from the fresh data.
+Como resultado, os manipuladores de mudança não precisam fazer nada de especial para atualizá-lo. Quando você chama `setFirstName` ou `setLastName`, você dispara uma nova renderização, e então o próximo `fullName` será calculado a partir dos dados atualizados.
 
 <DeepDive>
 
-#### Don't mirror props in state {/*don-t-mirror-props-in-state*/}
+#### Não espelhe *props* no estado {/*don-t-mirror-props-in-state*/}
 
-A common example of redundant state is code like this:
+Um exemplo comum de estado redundante são códigos como este:
 
 ```js
 function Message({ messageColor }) {
   const [color, setColor] = useState(messageColor);
 ```
 
-Here, a `color` state variable is initialized to the `messageColor` prop. The problem is that **if the parent component passes a different value of `messageColor` later (for example, `'red'` instead of `'blue'`), the `color` *state variable* would not be updated!** The state is only initialized during the first render.
+Aqui, uma variável de estado `color` é inicializada com a prop `messageColor`. O problema é que **se o componente pai passar um valor diferente para `messageColor` depois (por exemplo, `'red'` ao invés de `'blue'`), a *variável de estado* `color` não seria atualizada!** O estado é inicializado apenas durante a primeira renderização.
 
-This is why "mirroring" some prop in a state variable can lead to confusion. Instead, use the `messageColor` prop directly in your code. If you want to give it a shorter name, use a constant:
+É por isso que "espelhar" alguma *prop* em uma variável de estado pode levar a confusão. Em vez disso, use a *prop* `messageColor` diretamente no seu código. Se você quiser dar um nome mais curto para ela, use uma constante:
 
 ```js
 function Message({ messageColor }) {
   const color = messageColor;
 ```
 
-This way it won't get out of sync with the prop passed from the parent component.
+Desta forma, ela não ficará fora de sincronia com a *prop* passada pelo componente pai.
 
-"Mirroring" props into state only makes sense when you *want* to ignore all updates for a specific prop. By convention, start the prop name with `initial` or `default` to clarify that its new values are ignored:
+"Espelhar" *props* no estado só faz sentido quando você *quer* ignorar todas as atualizações para uma *prop* específica. Por convenção, comece o nome da *prop* com `initial` ou `default` para deixar claro que seus novos valores são ignorados:
 
 ```js
 function Message({ initialColor }) {
-  // The `color` state variable holds the *first* value of `initialColor`.
-  // Further changes to the `initialColor` prop are ignored.
-  const [color, setColor] = useState(initialColor);
+  // A variável de estado `color` guarda o *primeiro* valor de `initialColor`.
+  // Mudanças posteriores na *prop* `initialColor` são ignoradas.
+  const [color, setColor] = useState(initialColor); */
 ```
 
 </DeepDive>
 
-## Avoid duplication in state {/*avoid-duplication-in-state*/}
+## Evite duplicação no estado {/*avoid-duplication-in-state*/}
 
-This menu list component lets you choose a single travel snack out of several:
+Este componente de lista de menus permite que você escolha um único lanche de viagem dentre vários:
 
 <Sandpack>
 
@@ -386,8 +386,8 @@ import { useState } from 'react';
 
 const initialItems = [
   { title: 'pretzels', id: 0 },
-  { title: 'crispy seaweed', id: 1 },
-  { title: 'granola bar', id: 2 },
+  { title: 'alga crocante', id: 1 },
+  { title: 'barra de granola', id: 2 },
 ];
 
 export default function Menu() {
@@ -398,7 +398,7 @@ export default function Menu() {
 
   return (
     <>
-      <h2>What's your travel snack?</h2>
+      <h2>Qual o seu lanche de viagem?</h2>
       <ul>
         {items.map(item => (
           <li key={item.id}>
@@ -406,11 +406,11 @@ export default function Menu() {
             {' '}
             <button onClick={() => {
               setSelectedItem(item);
-            }}>Choose</button>
+            }}>Escolha</button>
           </li>
         ))}
       </ul>
-      <p>You picked {selectedItem.title}.</p>
+      <p>Você selecionou {selectedItem.title}.</p>
     </>
   );
 }
@@ -422,9 +422,9 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-Currently, it stores the selected item as an object in the `selectedItem` state variable. However, this is not great: **the contents of the `selectedItem` is the same object as one of the items inside the `items` list.** This means that the information about the item itself is duplicated in two places.
+No momento, ele armazena o item selecionado como um objeto na variável de estado `selectedItem`. No entanto, isso não é bom: **o conteúdo de `selectedItem` é o mesmo objeto que um dos itens dentro da lista `items`.** Isso significa que as informações sobre o item em si estão duplicadas em dois lugares.
 
-Why is this a problem? Let's make each item editable:
+Por que isso é um problema? Vamos tornar cada item editável:
 
 <Sandpack>
 
@@ -433,8 +433,8 @@ import { useState } from 'react';
 
 const initialItems = [
   { title: 'pretzels', id: 0 },
-  { title: 'crispy seaweed', id: 1 },
-  { title: 'granola bar', id: 2 },
+  { title: 'alga crocante', id: 1 },
+  { title: 'barra de granola', id: 2 },
 ];
 
 export default function Menu() {
@@ -458,7 +458,7 @@ export default function Menu() {
 
   return (
     <>
-      <h2>What's your travel snack?</h2> 
+      <h2>Qual o seu lanche de viagem?</h2> 
       <ul>
         {items.map((item, index) => (
           <li key={item.id}>
@@ -471,11 +471,11 @@ export default function Menu() {
             {' '}
             <button onClick={() => {
               setSelectedItem(item);
-            }}>Choose</button>
+            }}>Escolha</button>
           </li>
         ))}
       </ul>
-      <p>You picked {selectedItem.title}.</p>
+      <p>Você selecionou {selectedItem.title}.</p>
     </>
   );
 }
@@ -487,9 +487,9 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-Notice how if you first click "Choose" on an item and *then* edit it, **the input updates but the label at the bottom does not reflect the edits.** This is because you have duplicated state, and you forgot to update `selectedItem`.
+Observe como se você clicar primeiro em "Escolha" em um item e *depois* editá-lo, **a entrada é atualizada, mas o rótulo na parte inferior não reflete as edições.** Isso ocorre porque você duplicou o estado e esqueceu de atualizar `selectedItem`.
 
-Although you could update `selectedItem` too, an easier fix is to remove duplication. In this example, instead of a `selectedItem` object (which creates a duplication with objects inside `items`), you hold the `selectedId` in state, and *then* get the `selectedItem` by searching the `items` array for an item with that ID:
+Embora você pudesse atualizar `selectedItem` também, uma correção mais fácil é remover a duplicação. Neste exemplo, em vez de um objeto `selectedItem` (que cria uma duplicação com objetos dentro de `items`), você mantém o `selectedId` no estado e *depois* obtém o `selectedItem` pesquisando o array `items` por um item com esse ID:
 
 <Sandpack>
 
@@ -498,8 +498,8 @@ import { useState } from 'react';
 
 const initialItems = [
   { title: 'pretzels', id: 0 },
-  { title: 'crispy seaweed', id: 1 },
-  { title: 'granola bar', id: 2 },
+  { title: 'alga crocante', id: 1 },
+  { title: 'barra de granola', id: 2 },
 ];
 
 export default function Menu() {
@@ -525,7 +525,7 @@ export default function Menu() {
 
   return (
     <>
-      <h2>What's your travel snack?</h2>
+      <h2>Qual o seu lanche de viagem?</h2>
       <ul>
         {items.map((item, index) => (
           <li key={item.id}>
@@ -538,11 +538,11 @@ export default function Menu() {
             {' '}
             <button onClick={() => {
               setSelectedId(item.id);
-            }}>Choose</button>
+            }}>Escolha</button>
           </li>
         ))}
       </ul>
-      <p>You picked {selectedItem.title}.</p>
+      <p>Você selecionou {selectedItem.title}.</p>
     </>
   );
 }
@@ -554,25 +554,23 @@ button { margin-top: 10px; }
 
 </Sandpack>
 
-(Alternatively, you may hold the selected index in state.)
-
-The state used to be duplicated like this:
+O estado costumava ser duplicado assim:
 
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
 * `selectedItem = {id: 0, title: 'pretzels'}`
 
-But after the change it's like this:
+Mas depois da mudança, é assim:
 
 * `items = [{ id: 0, title: 'pretzels'}, ...]`
 * `selectedId = 0`
 
-The duplication is gone, and you only keep the essential state!
+A duplicação desapareceu, e você mantém apenas o estado essencial!
 
-Now if you edit the *selected* item, the message below will update immediately. This is because `setItems` triggers a re-render, and `items.find(...)` would find the item with the updated title. You didn't need to hold *the selected item* in state, because only the *selected ID* is essential. The rest could be calculated during render.
+Agora, se você editar o item *selecionado*, a mensagem abaixo será atualizada imediatamente. Isso ocorre porque `setItems` dispara uma nova renderização, e `items.find(...)` encontraria o item com o título atualizado. Você não precisava manter *o item selecionado* no estado, porque apenas o *ID selecionado* é essencial. O resto poderia ser calculado durante a renderização.
 
-## Avoid deeply nested state {/*avoid-deeply-nested-state*/}
+## Evite estados muito aninhados {/*avoid-deeply-nested-state*/}
 
-Imagine a travel plan consisting of planets, continents, and countries. You might be tempted to structure its state using nested objects and arrays, like in this example:
+Imagine um plano de viagem consistindo de planetas, continentes e países. Você pode ser tentado estruturar seu estado usando objetos e arrays aninhados, como neste exemplo:
 
 <Sandpack>
 
@@ -612,27 +610,27 @@ export default function TravelPlan() {
 }
 ```
 
-```js places.js active
+```js src/places.js active
 export const initialTravelPlan = {
   id: 0,
   title: '(Root)',
   childPlaces: [{
     id: 1,
-    title: 'Earth',
+    title: 'Terra',
     childPlaces: [{
       id: 2,
-      title: 'Africa',
+      title: 'África',
       childPlaces: [{
         id: 3,
-        title: 'Botswana',
+        title: 'Botsuana',
         childPlaces: []
       }, {
         id: 4,
-        title: 'Egypt',
+        title: 'Egito',
         childPlaces: []
       }, {
         id: 5,
-        title: 'Kenya',
+        title: 'Kênia',
         childPlaces: []
       }, {
         id: 6,
@@ -640,27 +638,27 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 7,
-        title: 'Morocco',
+        title: 'Marrocos',
         childPlaces: []
       }, {
         id: 8,
-        title: 'Nigeria',
+        title: 'Nigéria',
         childPlaces: []
       }, {
         id: 9,
-        title: 'South Africa',
+        title: 'África do Sul',
         childPlaces: []
       }]
     }, {
       id: 10,
-      title: 'Americas',
+      title: 'Ámericas',
       childPlaces: [{
         id: 11,
         title: 'Argentina',
         childPlaces: []
       }, {
         id: 12,
-        title: 'Brazil',
+        title: 'Brasil',
         childPlaces: []
       }, {
         id: 13,
@@ -668,7 +666,7 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 14,
-        title: 'Canada',
+        title: 'Canadá',
         childPlaces: []
       }, {
         id: 15,
@@ -676,11 +674,11 @@ export const initialTravelPlan = {
         childPlaces: []
       }, {
         id: 16,
-        title: 'Mexico',
+        title: 'México',
         childPlaces: []
       }, {
         id: 17,
-        title: 'Trinidad and Tobago',
+        title: 'Trindade e Tobago',
         childPlaces: []
       }, {
         id: 18,
@@ -689,50 +687,50 @@ export const initialTravelPlan = {
       }]
     }, {
       id: 19,
-      title: 'Asia',
+      title: 'Ásia',
       childPlaces: [{
         id: 20,
         title: 'China',
         childPlaces: []
       }, {
         id: 21,
-        title: 'India',
+        title: 'Índia',
         childPlaces: []
       }, {
         id: 22,
-        title: 'Singapore',
+        title: 'Singapura',
         childPlaces: []
       }, {
         id: 23,
-        title: 'South Korea',
+        title: 'Coreia do Sul',
         childPlaces: []
       }, {
         id: 24,
-        title: 'Thailand',
+        title: 'Tailândia',
         childPlaces: []
       }, {
         id: 25,
-        title: 'Vietnam',
+        title: 'Vietnã',
         childPlaces: []
       }]
     }, {
       id: 26,
-      title: 'Europe',
+      title: 'Europa',
       childPlaces: [{
         id: 27,
-        title: 'Croatia',
+        title: 'Croácia',
         childPlaces: [],
       }, {
         id: 28,
-        title: 'France',
+        title: 'França',
         childPlaces: [],
       }, {
         id: 29,
-        title: 'Germany',
+        title: 'Alemanha',
         childPlaces: [],
       }, {
         id: 30,
-        title: 'Italy',
+        title: 'Itália',
         childPlaces: [],
       }, {
         id: 31,
@@ -740,11 +738,11 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 32,
-        title: 'Spain',
+        title: 'Espanha',
         childPlaces: [],
       }, {
         id: 33,
-        title: 'Turkey',
+        title: 'Turquia',
         childPlaces: [],
       }]
     }, {
@@ -752,15 +750,15 @@ export const initialTravelPlan = {
       title: 'Oceania',
       childPlaces: [{
         id: 35,
-        title: 'Australia',
+        title: 'Austrália',
         childPlaces: [],
       }, {
         id: 36,
-        title: 'Bora Bora (French Polynesia)',
+        title: 'Bora Bora (Polinésia Francesa)',
         childPlaces: [],
       }, {
         id: 37,
-        title: 'Easter Island (Chile)',
+        title: 'Ilha da Páscoa (Chile)',
         childPlaces: [],
       }, {
         id: 38,
@@ -768,11 +766,11 @@ export const initialTravelPlan = {
         childPlaces: [],
       }, {
         id: 39,
-        title: 'Hawaii (the USA)',
+        title: 'Hawaii (EUA)',
         childPlaces: [],
       }, {
         id: 40,
-        title: 'New Zealand',
+        title: 'Nova Zelândia',
         childPlaces: [],
       }, {
         id: 41,
@@ -782,7 +780,7 @@ export const initialTravelPlan = {
     }]
   }, {
     id: 42,
-    title: 'Moon',
+    title: 'Lua',
     childPlaces: [{
       id: 43,
       title: 'Rheita',
@@ -798,14 +796,14 @@ export const initialTravelPlan = {
     }]
   }, {
     id: 46,
-    title: 'Mars',
+    title: 'Marte',
     childPlaces: [{
       id: 47,
-      title: 'Corn Town',
+      title: 'Cidade do Milho',
       childPlaces: []
     }, {
       id: 48,
-      title: 'Green Hill',
+      title: 'Monte Verde',
       childPlaces: []      
     }]
   }]
@@ -814,11 +812,11 @@ export const initialTravelPlan = {
 
 </Sandpack>
 
-Now let's say you want to add a button to delete a place you've already visited. How would you go about it? [Updating nested state](/learn/updating-objects-in-state#updating-a-nested-object) involves making copies of objects all the way up from the part that changed. Deleting a deeply nested place would involve copying its entire parent place chain. Such code can be very verbose.
+Agora, digamos que você queira adicionar um botão para excluir um lugar que você já visitou. Como você faria isso? [Atualizar estados aninhados](/learn/updating-objects-in-state#updating-a-nested-object) envolve fazer cópias de objetos desde a parte que mudou. Excluir um lugar profundamente aninhado envolveria copiar toda a cadeia de lugares pai. Esse código pode ser muito verboso.
 
-**If the state is too nested to update easily, consider making it "flat".** Here is one way you can restructure this data. Instead of a tree-like structure where each `place` has an array of *its child places*, you can have each place hold an array of *its child place IDs*. Then store a mapping from each place ID to the corresponding place.
+**Se o estado for muito aninhado para ser atualizado facilmente, considere torná-lo "plano".** Aqui está uma maneira de você reestruturar esses dados. Em vez de uma estrutura em forma de árvore em que cada `place` tem um array de *seus lugares filhos*, você pode fazer com que cada lugar mantenha um array de *IDs dos seus lugares filhos*. Em seguida, armazene um mapeamento de cada ID de lugar para o lugar correspondente.
 
-This data restructuring might remind you of seeing a database table:
+Essa reestruturação de dados pode lembrá-lo de ver uma tabela de banco de dados:
 
 <Sandpack>
 
@@ -853,7 +851,7 @@ export default function TravelPlan() {
   const planetIds = root.childIds;
   return (
     <>
-      <h2>Places to visit</h2>
+      <h2>Lugares para visitar</h2>
       <ol>
         {planetIds.map(id => (
           <PlaceTree
@@ -868,7 +866,7 @@ export default function TravelPlan() {
 }
 ```
 
-```js places.js active
+```js src/places.js active
 export const initialTravelPlan = {
   0: {
     id: 0,
@@ -877,27 +875,27 @@ export const initialTravelPlan = {
   },
   1: {
     id: 1,
-    title: 'Earth',
+    title: 'Terra',
     childIds: [2, 10, 19, 26, 34]
   },
   2: {
     id: 2,
-    title: 'Africa',
+    title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
   }, 
   3: {
     id: 3,
-    title: 'Botswana',
+    title: 'Botsuana',
     childIds: []
   },
   4: {
     id: 4,
-    title: 'Egypt',
+    title: 'Egito',
     childIds: []
   },
   5: {
     id: 5,
-    title: 'Kenya',
+    title: 'Kênia',
     childIds: []
   },
   6: {
@@ -907,22 +905,22 @@ export const initialTravelPlan = {
   }, 
   7: {
     id: 7,
-    title: 'Morocco',
+    title: 'Marrocos',
     childIds: []
   },
   8: {
     id: 8,
-    title: 'Nigeria',
+    title: 'Nigéria',
     childIds: []
   },
   9: {
     id: 9,
-    title: 'South Africa',
+    title: 'África do Sul',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Americas',
+    title: 'Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
   },
   11: {
@@ -932,7 +930,7 @@ export const initialTravelPlan = {
   },
   12: {
     id: 12,
-    title: 'Brazil',
+    title: 'Brasil',
     childIds: []
   },
   13: {
@@ -942,7 +940,7 @@ export const initialTravelPlan = {
   }, 
   14: {
     id: 14,
-    title: 'Canada',
+    title: 'Canadá',
     childIds: []
   },
   15: {
@@ -952,12 +950,12 @@ export const initialTravelPlan = {
   },
   16: {
     id: 16,
-    title: 'Mexico',
+    title: 'México',
     childIds: []
   },
   17: {
     id: 17,
-    title: 'Trinidad and Tobago',
+    title: 'Trindade e Tobago',
     childIds: []
   },
   18: {
@@ -967,7 +965,7 @@ export const initialTravelPlan = {
   },
   19: {
     id: 19,
-    title: 'Asia',
+    title: 'Ásia',
     childIds: [20, 21, 22, 23, 24, 25],   
   },
   20: {
@@ -977,52 +975,52 @@ export const initialTravelPlan = {
   },
   21: {
     id: 21,
-    title: 'India',
+    title: 'Índia',
     childIds: []
   },
   22: {
     id: 22,
-    title: 'Singapore',
+    title: 'Singapura',
     childIds: []
   },
   23: {
     id: 23,
-    title: 'South Korea',
+    title: 'Coreia do Sul',
     childIds: []
   },
   24: {
     id: 24,
-    title: 'Thailand',
+    title: 'Tailândia',
     childIds: []
   },
   25: {
     id: 25,
-    title: 'Vietnam',
+    title: 'Vietnã',
     childIds: []
   },
   26: {
     id: 26,
-    title: 'Europe',
+    title: 'Europa',
     childIds: [27, 28, 29, 30, 31, 32, 33],   
   },
   27: {
     id: 27,
-    title: 'Croatia',
+    title: 'Croácia',
     childIds: []
   },
   28: {
     id: 28,
-    title: 'France',
+    title: 'França',
     childIds: []
   },
   29: {
     id: 29,
-    title: 'Germany',
+    title: 'Alemanha',
     childIds: []
   },
   30: {
     id: 30,
-    title: 'Italy',
+    title: 'Itália',
     childIds: []
   },
   31: {
@@ -1032,12 +1030,12 @@ export const initialTravelPlan = {
   },
   32: {
     id: 32,
-    title: 'Spain',
+    title: 'Espanha',
     childIds: []
   },
   33: {
     id: 33,
-    title: 'Turkey',
+    title: 'Turquia',
     childIds: []
   },
   34: {
@@ -1047,17 +1045,17 @@ export const initialTravelPlan = {
   },
   35: {
     id: 35,
-    title: 'Australia',
+    title: 'Austrália',
     childIds: []
   },
   36: {
     id: 36,
-    title: 'Bora Bora (French Polynesia)',
+    title: 'Bora Bora (Polinésia Francesa)',
     childIds: []
   },
   37: {
     id: 37,
-    title: 'Easter Island (Chile)',
+    title: 'Ilha de Páscoa (Chile)',
     childIds: []
   },
   38: {
@@ -1066,13 +1064,13 @@ export const initialTravelPlan = {
     childIds: []
   },
   39: {
-    id: 40,
-    title: 'Hawaii (the USA)',
+    id: 39,
+    title: 'Hawaii (EUA)',
     childIds: []
   },
   40: {
     id: 40,
-    title: 'New Zealand',
+    title: 'Nova Zelândia',
     childIds: []
   },
   41: {
@@ -1082,7 +1080,7 @@ export const initialTravelPlan = {
   },
   42: {
     id: 42,
-    title: 'Moon',
+    title: 'Lua',
     childIds: [43, 44, 45]
   },
   43: {
@@ -1102,17 +1100,17 @@ export const initialTravelPlan = {
   },
   46: {
     id: 46,
-    title: 'Mars',
+    title: 'Marte',
     childIds: [47, 48]
   },
   47: {
     id: 47,
-    title: 'Corn Town',
+    title: 'Cidade do Milho',
     childIds: []
   },
   48: {
     id: 48,
-    title: 'Green Hill',
+    title: 'Monte Verde',
     childIds: []
   }
 };
@@ -1120,14 +1118,14 @@ export const initialTravelPlan = {
 
 </Sandpack>
 
-**Now that the state is "flat" (also known as "normalized"), updating nested items becomes easier.**
+Agora que o estado está "plano" (também conhecido como "normalizado"), atualizar itens aninhados fica mais fácil.
 
-In order to remove a place now, you only need to update two levels of state:
+Para remover um lugar agora, você só precisa atualizar dois níveis de estado:
 
-- The updated version of its *parent* place should exclude the removed ID from its `childIds` array.
-- The updated version of the root "table" object should include the updated version of the parent place.
+- A versão atualizada de seu lugar *pai* deve excluir o ID removido de seu array `childIds`.
+- A versão atualizada do objeto "tabela" raiz deve incluir a versão atualizada do lugar pai.
 
-Here is an example of how you could go about it:
+Aqui está um exemplo de como você poderia fazer isso:
 
 <Sandpack>
 
@@ -1140,17 +1138,17 @@ export default function TravelPlan() {
 
   function handleComplete(parentId, childId) {
     const parent = plan[parentId];
-    // Create a new version of the parent place
-    // that doesn't include this child ID.
+    // Cria uma nova versão do lugar pai
+    // que não inclui o ID deste filho.
     const nextParent = {
       ...parent,
       childIds: parent.childIds
         .filter(id => id !== childId)
     };
-    // Update the root state object...
+    // Atualiza o objeto de estado raiz...
     setPlan({
       ...plan,
-      // ...so that it has the updated parent.
+      // ...para que tenha o pai atualizado.
       [parentId]: nextParent
     });
   }
@@ -1159,7 +1157,7 @@ export default function TravelPlan() {
   const planetIds = root.childIds;
   return (
     <>
-      <h2>Places to visit</h2>
+      <h2>Lugares para visitar</h2>
       <ol>
         {planetIds.map(id => (
           <PlaceTree
@@ -1184,7 +1182,7 @@ function PlaceTree({ id, parentId, placesById, onComplete }) {
       <button onClick={() => {
         onComplete(parentId, id);
       }}>
-        Complete
+        Completar
       </button>
       {childIds.length > 0 &&
         <ol>
@@ -1204,7 +1202,7 @@ function PlaceTree({ id, parentId, placesById, onComplete }) {
 }
 ```
 
-```js places.js
+```js src/places.js
 export const initialTravelPlan = {
   0: {
     id: 0,
@@ -1213,27 +1211,27 @@ export const initialTravelPlan = {
   },
   1: {
     id: 1,
-    title: 'Earth',
+    title: 'Terra',
     childIds: [2, 10, 19, 26, 34]
   },
   2: {
     id: 2,
-    title: 'Africa',
+    title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
   }, 
   3: {
     id: 3,
-    title: 'Botswana',
+    title: 'Botsuana',
     childIds: []
   },
   4: {
     id: 4,
-    title: 'Egypt',
+    title: 'Egito',
     childIds: []
   },
   5: {
     id: 5,
-    title: 'Kenya',
+    title: 'Kênia',
     childIds: []
   },
   6: {
@@ -1243,22 +1241,22 @@ export const initialTravelPlan = {
   }, 
   7: {
     id: 7,
-    title: 'Morocco',
+    title: 'Marrocos',
     childIds: []
   },
   8: {
     id: 8,
-    title: 'Nigeria',
+    title: 'Nigéria',
     childIds: []
   },
   9: {
     id: 9,
-    title: 'South Africa',
+    title: 'África do Sul',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Americas',
+    title: 'Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
   },
   11: {
@@ -1268,7 +1266,7 @@ export const initialTravelPlan = {
   },
   12: {
     id: 12,
-    title: 'Brazil',
+    title: 'Brasil',
     childIds: []
   },
   13: {
@@ -1278,7 +1276,7 @@ export const initialTravelPlan = {
   }, 
   14: {
     id: 14,
-    title: 'Canada',
+    title: 'Canadá',
     childIds: []
   },
   15: {
@@ -1288,12 +1286,12 @@ export const initialTravelPlan = {
   },
   16: {
     id: 16,
-    title: 'Mexico',
+    title: 'México',
     childIds: []
   },
   17: {
     id: 17,
-    title: 'Trinidad and Tobago',
+    title: 'Trindade e Tobago',
     childIds: []
   },
   18: {
@@ -1303,7 +1301,7 @@ export const initialTravelPlan = {
   },
   19: {
     id: 19,
-    title: 'Asia',
+    title: 'Ásia',
     childIds: [20, 21, 22, 23, 24, 25],   
   },
   20: {
@@ -1313,52 +1311,52 @@ export const initialTravelPlan = {
   },
   21: {
     id: 21,
-    title: 'India',
+    title: 'Índia',
     childIds: []
   },
   22: {
     id: 22,
-    title: 'Singapore',
+    title: 'Singapura',
     childIds: []
   },
   23: {
     id: 23,
-    title: 'South Korea',
+    title: 'Coreia do Sul',
     childIds: []
   },
   24: {
     id: 24,
-    title: 'Thailand',
+    title: 'Tailândia',
     childIds: []
   },
   25: {
     id: 25,
-    title: 'Vietnam',
+    title: 'Vietnã',
     childIds: []
   },
   26: {
     id: 26,
-    title: 'Europe',
+    title: 'Europa',
     childIds: [27, 28, 29, 30, 31, 32, 33],   
   },
   27: {
     id: 27,
-    title: 'Croatia',
+    title: 'Croácia',
     childIds: []
   },
   28: {
     id: 28,
-    title: 'France',
+    title: 'França',
     childIds: []
   },
   29: {
     id: 29,
-    title: 'Germany',
+    title: 'Alemanha',
     childIds: []
   },
   30: {
     id: 30,
-    title: 'Italy',
+    title: 'Itália',
     childIds: []
   },
   31: {
@@ -1368,32 +1366,32 @@ export const initialTravelPlan = {
   },
   32: {
     id: 32,
-    title: 'Spain',
+    title: 'Espanha',
     childIds: []
   },
   33: {
     id: 33,
-    title: 'Turkey',
+    title: 'Turquia',
     childIds: []
   },
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [35, 36, 37, 38, 39, 40, 41],   
+    childIds: [36, 37, 38, 39, 40, 41, 42],   
   },
   35: {
     id: 35,
-    title: 'Australia',
+    title: 'Austrália',
     childIds: []
   },
   36: {
     id: 36,
-    title: 'Bora Bora (French Polynesia)',
+    title: 'Bora Bora (Polinésia Francesa)',
     childIds: []
   },
   37: {
     id: 37,
-    title: 'Easter Island (Chile)',
+    title: 'Ilha de Páscoa (Chile)',
     childIds: []
   },
   38: {
@@ -1403,12 +1401,12 @@ export const initialTravelPlan = {
   },
   39: {
     id: 39,
-    title: 'Hawaii (the USA)',
+    title: 'Hawaii (EUA)',
     childIds: []
   },
   40: {
     id: 40,
-    title: 'New Zealand',
+    title: 'Nova Zelândia',
     childIds: []
   },
   41: {
@@ -1418,37 +1416,32 @@ export const initialTravelPlan = {
   },
   42: {
     id: 42,
-    title: 'Moon',
+    title: 'Lua',
     childIds: [43, 44, 45]
   },
   43: {
     id: 43,
-    title: 'Rheita',
+    title: 'Piccolomini',
     childIds: []
   },
   44: {
     id: 44,
-    title: 'Piccolomini',
-    childIds: []
-  },
-  45: {
-    id: 45,
     title: 'Tycho',
     childIds: []
   },
   46: {
     id: 46,
-    title: 'Mars',
+    title: 'Marte',
     childIds: [47, 48]
   },
   47: {
     id: 47,
-    title: 'Corn Town',
+    title: 'Cidade do Milho',
     childIds: []
   },
   48: {
     id: 48,
-    title: 'Green Hill',
+    title: 'Monte Verde',
     childIds: []
   }
 };
@@ -1460,13 +1453,13 @@ button { margin: 10px; }
 
 </Sandpack>
 
-You can nest state as much as you like, but making it "flat" can solve numerous problems. It makes state easier to update, and it helps ensure you don't have duplication in different parts of a nested object.
+Você pode aninhar o estado o quanto quiser, mas torná-lo "plano" pode resolver inúmeros problemas. Isso torna o estado mais fácil de atualizar, e ajuda a garantir que você não tenha duplicação em diferentes partes de um objeto aninhado.
 
 <DeepDive>
 
-#### Improving memory usage {/*improving-memory-usage*/}
+#### Otimizando o uso da memória {/*improving-memory-usage*/}
 
-Ideally, you would also remove the deleted items (and their children!) from the "table" object to improve memory usage. This version does that. It also [uses Immer](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) to make the update logic more concise.
+Idealmente, você também removeria os itens excluídos (e seus filhos!) do objeto "tabela" para melhorar o uso da memória. Esta versão faz isso. Ele também [usa Immer](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) para tornar a lógica de atualização mais concisa.
 
 <Sandpack>
 
@@ -1479,12 +1472,12 @@ export default function TravelPlan() {
 
   function handleComplete(parentId, childId) {
     updatePlan(draft => {
-      // Remove from the parent place's child IDs.
+      // Remove os IDs dos filhos do lugar pai.
       const parent = draft[parentId];
       parent.childIds = parent.childIds
         .filter(id => id !== childId);
 
-      // Forget this place and all its subtree.
+      // Remove o lugar e todos os seus filhos.
       deleteAllChildren(childId);
       function deleteAllChildren(id) {
         const place = draft[id];
@@ -1498,7 +1491,7 @@ export default function TravelPlan() {
   const planetIds = root.childIds;
   return (
     <>
-      <h2>Places to visit</h2>
+      <h2>Lugares para visitar</h2>
       <ol>
         {planetIds.map(id => (
           <PlaceTree
@@ -1523,7 +1516,7 @@ function PlaceTree({ id, parentId, placesById, onComplete }) {
       <button onClick={() => {
         onComplete(parentId, id);
       }}>
-        Complete
+        Completar
       </button>
       {childIds.length > 0 &&
         <ol>
@@ -1543,7 +1536,7 @@ function PlaceTree({ id, parentId, placesById, onComplete }) {
 }
 ```
 
-```js places.js
+```js src/places.js
 export const initialTravelPlan = {
   0: {
     id: 0,
@@ -1552,27 +1545,27 @@ export const initialTravelPlan = {
   },
   1: {
     id: 1,
-    title: 'Earth',
+    title: 'Terra',
     childIds: [2, 10, 19, 26, 34]
   },
   2: {
     id: 2,
-    title: 'Africa',
+    title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
   }, 
   3: {
     id: 3,
-    title: 'Botswana',
+    title: 'Botsuana',
     childIds: []
   },
   4: {
     id: 4,
-    title: 'Egypt',
+    title: 'Egito',
     childIds: []
   },
   5: {
     id: 5,
-    title: 'Kenya',
+    title: 'Kênia',
     childIds: []
   },
   6: {
@@ -1582,22 +1575,22 @@ export const initialTravelPlan = {
   }, 
   7: {
     id: 7,
-    title: 'Morocco',
+    title: 'Marrocos',
     childIds: []
   },
   8: {
     id: 8,
-    title: 'Nigeria',
+    title: 'Nigéria',
     childIds: []
   },
   9: {
     id: 9,
-    title: 'South Africa',
+    title: 'África do Sul',
     childIds: []
   },
   10: {
     id: 10,
-    title: 'Americas',
+    title: 'Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
   },
   11: {
@@ -1607,7 +1600,7 @@ export const initialTravelPlan = {
   },
   12: {
     id: 12,
-    title: 'Brazil',
+    title: 'Brasil',
     childIds: []
   },
   13: {
@@ -1617,7 +1610,7 @@ export const initialTravelPlan = {
   }, 
   14: {
     id: 14,
-    title: 'Canada',
+    title: 'Canadá',
     childIds: []
   },
   15: {
@@ -1627,12 +1620,12 @@ export const initialTravelPlan = {
   },
   16: {
     id: 16,
-    title: 'Mexico',
+    title: 'México',
     childIds: []
   },
   17: {
     id: 17,
-    title: 'Trinidad and Tobago',
+    title: 'Trindade e Tobago',
     childIds: []
   },
   18: {
@@ -1642,8 +1635,8 @@ export const initialTravelPlan = {
   },
   19: {
     id: 19,
-    title: 'Asia',
-    childIds: [20, 21, 22, 23, 24, 25,],   
+    title: 'Ásia',
+    childIds: [20, 21, 22, 23, 24, 25],   
   },
   20: {
     id: 20,
@@ -1652,52 +1645,52 @@ export const initialTravelPlan = {
   },
   21: {
     id: 21,
-    title: 'India',
+    title: 'Índia',
     childIds: []
   },
   22: {
     id: 22,
-    title: 'Singapore',
+    title: 'Singapura',
     childIds: []
   },
   23: {
     id: 23,
-    title: 'South Korea',
+    title: 'Coreia do Sul',
     childIds: []
   },
   24: {
     id: 24,
-    title: 'Thailand',
+    title: 'Tailândia',
     childIds: []
   },
   25: {
     id: 25,
-    title: 'Vietnam',
+    title: 'Vietnã',
     childIds: []
   },
   26: {
     id: 26,
-    title: 'Europe',
-    childIds: [27, 28, 29, 30, 31, 32, 33],   
+    title: 'Europa',
+    childIds: [28, 29, 30, 31, 32, 33, 34],   
   },
   27: {
     id: 27,
-    title: 'Croatia',
+    title: 'Croácia',
     childIds: []
   },
   28: {
     id: 28,
-    title: 'France',
+    title: 'França',
     childIds: []
   },
   29: {
     id: 29,
-    title: 'Germany',
+    title: 'Alemanha',
     childIds: []
   },
   30: {
     id: 30,
-    title: 'Italy',
+    title: 'Itália',
     childIds: []
   },
   31: {
@@ -1707,32 +1700,32 @@ export const initialTravelPlan = {
   },
   32: {
     id: 32,
-    title: 'Spain',
+    title: 'Espanha',
     childIds: []
   },
   33: {
     id: 33,
-    title: 'Turkey',
+    title: 'Turquia',
     childIds: []
   },
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [35, 36, 37, 38, 39, 40,, 41],   
+    childIds: [36, 37, 38, 39, 40, 41, 42],   
   },
   35: {
     id: 35,
-    title: 'Australia',
+    title: 'Austrália',
     childIds: []
   },
   36: {
     id: 36,
-    title: 'Bora Bora (French Polynesia)',
+    title: 'Bora Bora (Polinésia Francesa)',
     childIds: []
   },
   37: {
     id: 37,
-    title: 'Easter Island (Chile)',
+    title: 'Ilha de Páscoa (Chile)',
     childIds: []
   },
   38: {
@@ -1742,12 +1735,12 @@ export const initialTravelPlan = {
   },
   39: {
     id: 39,
-    title: 'Hawaii (the USA)',
+    title: 'Hawaii (EUA)',
     childIds: []
   },
   40: {
     id: 40,
-    title: 'New Zealand',
+    title: 'Nova Zelândia',
     childIds: []
   },
   41: {
@@ -1757,37 +1750,37 @@ export const initialTravelPlan = {
   },
   42: {
     id: 42,
-    title: 'Moon',
+    title: 'Lua',
     childIds: [43, 44, 45]
   },
   43: {
     id: 43,
-    title: 'Rheita',
+    title: 'Piccolomini',
     childIds: []
   },
   44: {
     id: 44,
-    title: 'Piccolomini',
+    title: 'Tycho',
     childIds: []
   },
   45: {
     id: 45,
-    title: 'Tycho',
-    childIds: []
+    title: 'Mars',
+    childIds: [47, 48]
   },
   46: {
     id: 46,
-    title: 'Mars',
+    title: 'Marte',
     childIds: [47, 48]
   },
   47: {
     id: 47,
-    title: 'Corn Town',
+    title: 'Cidade do Milho',
     childIds: []
   },
   48: {
     id: 48,
-    title: 'Green Hill',
+    title: 'Monte Verde',
     childIds: []
   }
 };
@@ -1819,29 +1812,29 @@ button { margin: 10px; }
 
 </DeepDive>
 
-Sometimes, you can also reduce state nesting by moving some of the nested state into the child components. This works well for ephemeral UI state that doesn't need to be stored, like whether an item is hovered.
+Por vezes, você também pode reduzir o aninhamento do estado movendo parte do estado aninhado para os componentes filhos. Isso funciona bem para o estado de UI efêmero que não precisa ser armazenado, como saber se o mouse está passando sobre um item.
 
 <Recap>
 
-* If two state variables always update together, consider merging them into one. 
-* Choose your state variables carefully to avoid creating "impossible" states.
-* Structure your state in a way that reduces the chances that you'll make a mistake updating it.
-* Avoid redundant and duplicate state so that you don't need to keep it in sync.
-* Don't put props *into* state unless you specifically want to prevent updates.
-* For UI patterns like selection, keep ID or index in state instead of the object itself.
-* If updating deeply nested state is complicated, try flattening it.
+* Se duas variáveis de estado sempre são atualizadas juntas, considere uní-las em uma.
+* Escolha suas variáveis de estado cuidadosamente para evitar criar estados "impossíveis".
+* Estruture seu estado de uma maneira que reduza as chances de você cometer um erro ao atualizá-lo.
+* Evite estados redundantes e duplicados para que você não precise mantê-los sincronizados.
+* Não coloque *props* *dentro de* estados a menos que você queira especificamente impedir atualizações.
+* Para padrões de UI como seleção, mantenha o ID ou o índice no estado em vez do objeto em si.
+* Se atualizar o estado profundamente aninhado for complicado, tente achatá-lo.
 
 </Recap>
 
 <Challenges>
 
-#### Fix a component that's not updating {/*fix-a-component-thats-not-updating*/}
+#### Corrija um componente que não está sendo atualizado {/*fix-a-component-thats-not-updating*/}
 
-This `Clock` component receives two props: `color` and `time`. When you select a different color in the select box, the `Clock` component receives a different `color` prop from its parent component. However, for some reason, the displayed color doesn't update. Why? Fix the problem.
+Este componente `Clock` recebe duas *props*: `color` e `time`. Quando você seleciona uma cor diferente na caixa de seleção, o componente `Clock` recebe uma *prop* `color` diferente de seu componente pai. No entanto, por algum motivo, a cor exibida não é atualizada. Por quê? Corrija o problema.
 
 <Sandpack>
 
-```js Clock.js active
+```js src/Clock.js active
 import { useState } from 'react';
 
 export default function Clock(props) {
@@ -1854,7 +1847,7 @@ export default function Clock(props) {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 
@@ -1875,7 +1868,7 @@ export default function App() {
   return (
     <div>
       <p>
-        Pick a color:{' '}
+        Selecione uma cor:{' '}
         <select value={color} onChange={e => setColor(e.target.value)}>
           <option value="lightcoral">lightcoral</option>
           <option value="midnightblue">midnightblue</option>
@@ -1892,11 +1885,11 @@ export default function App() {
 
 <Solution>
 
-The issue is that this component has `color` state initialized with the initial value of the `color` prop. But when the `color` prop changes, this does not affect the state variable! So they get out of sync. To fix this issue, remove the state variable altogether, and use the `color` prop directly.
+O problema é que este componente tem o estado `color` inicializado com o valor inicial da *prop* `color`. Mas quando a *prop* `color` muda, isso não afeta a variável de estado! Então elas ficam fora de sincronia. Para corrigir esse problema, remova a variável de estado por completo e use a *prop* `color` diretamente.
 
 <Sandpack>
 
-```js Clock.js active
+```js src/Clock.js active
 import { useState } from 'react';
 
 export default function Clock(props) {
@@ -1908,7 +1901,7 @@ export default function Clock(props) {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 
@@ -1929,7 +1922,7 @@ export default function App() {
   return (
     <div>
       <p>
-        Pick a color:{' '}
+        Selecione uma cor:{' '}
         <select value={color} onChange={e => setColor(e.target.value)}>
           <option value="lightcoral">lightcoral</option>
           <option value="midnightblue">midnightblue</option>
@@ -1944,11 +1937,11 @@ export default function App() {
 
 </Sandpack>
 
-Or, using the destructuring syntax:
+Ou, usando a sintaxe de desestruturação:
 
 <Sandpack>
 
-```js Clock.js active
+```js src/Clock.js active
 import { useState } from 'react';
 
 export default function Clock({ color, time }) {
@@ -1960,7 +1953,7 @@ export default function Clock({ color, time }) {
 }
 ```
 
-```js App.js hidden
+```js src/App.js hidden
 import { useState, useEffect } from 'react';
 import Clock from './Clock.js';
 
@@ -1981,7 +1974,7 @@ export default function App() {
   return (
     <div>
       <p>
-        Pick a color:{' '}
+        Selecione uma cor:{' '}
         <select value={color} onChange={e => setColor(e.target.value)}>
           <option value="lightcoral">lightcoral</option>
           <option value="midnightblue">midnightblue</option>
@@ -1998,28 +1991,28 @@ export default function App() {
 
 </Solution>
 
-#### Fix a broken packing list {/*fix-a-broken-packing-list*/}
+#### Corrija uma lista de itens quebrada {/*fix-a-broken-packing-list*/}
 
-This packing list has a footer that shows how many items are packed, and how many items there are overall. It seems to work at first, but it is buggy. For example, if you mark an item as packed and then delete it, the counter will not be updated correctly. Fix the counter so that it's always correct.
+Esta lista de itens tem um rodapé que mostra quantos itens estão empacotados e quantos itens existem no total. Parece funcionar a princípio, mas está com defeitos. Por exemplo, se você marcar um item como empacotado e depois excluí-lo, o contador não será atualizado corretamente. Corrija o contador para que ele esteja sempre correto.
 
 <Hint>
 
-Is any state in this example redundant?
+Algum estado neste exemplo é redundante?
 
 </Hint>
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AddItem from './AddItem.js';
 import PackingList from './PackingList.js';
 
 let nextId = 3;
 const initialItems = [
-  { id: 0, title: 'Warm socks', packed: true },
-  { id: 1, title: 'Travel journal', packed: false },
-  { id: 2, title: 'Watercolors', packed: false },
+  { id: 0, title: 'Meias quentes', packed: true },
+  { id: 1, title: 'Diário de viagem', packed: false },
+  { id: 2, title: 'Aguarelas', packed: false },
 ];
 
 export default function TravelPlan() {
@@ -2072,13 +2065,13 @@ export default function TravelPlan() {
         onDeleteItem={handleDeleteItem}
       />
       <hr />
-      <b>{packed} out of {total} packed!</b>
+      <b>{packed} de {total} empacotados!</b>
     </>
   );
 }
 ```
 
-```js AddItem.js hidden
+```js src/AddItem.js hidden
 import { useState } from 'react';
 
 export default function AddItem({ onAddItem }) {
@@ -2086,20 +2079,20 @@ export default function AddItem({ onAddItem }) {
   return (
     <>
       <input
-        placeholder="Add item"
+        placeholder="Adicionar item"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddItem(title);
-      }}>Add</button>
+      }}>Adicionar</button>
     </>
   )
 }
 ```
 
-```js PackingList.js hidden
+```js src/PackingList.js hidden
 import { useState } from 'react';
 
 export default function PackingList({
@@ -2126,7 +2119,7 @@ export default function PackingList({
             {item.title}
           </label>
           <button onClick={() => onDeleteItem(item.id)}>
-            Delete
+            Deletar
           </button>
         </li>
       ))}
@@ -2145,20 +2138,20 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution>
 
-Although you could carefully change each event handler to update the `total` and `packed` counters correctly, the root problem is that these state variables exist at all. They are redundant because you can always calculate the number of items (packed or total) from the `items` array itself. Remove the redundant state to fix the bug:
+Apesar de você poder alterar cuidadosamente cada manipulador de eventos para atualizar os contadores `total` e `packed` corretamente, o problema raiz é que essas variáveis de estado sequer existem. Eles são redundantes porque você sempre pode calcular o número de itens (empacotados ou totais) a partir do próprio array `items`. Remova o estado redundante para corrigir o erro:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import AddItem from './AddItem.js';
 import PackingList from './PackingList.js';
 
 let nextId = 3;
 const initialItems = [
-  { id: 0, title: 'Warm socks', packed: true },
-  { id: 1, title: 'Travel journal', packed: false },
-  { id: 2, title: 'Watercolors', packed: false },
+  { id: 0, title: 'Meias quentes', packed: true },
+  { id: 1, title: 'Diário de viagem', packed: false },
+  { id: 2, title: 'Aguarelas', packed: false },
 ];
 
 export default function TravelPlan() {
@@ -2207,13 +2200,13 @@ export default function TravelPlan() {
         onDeleteItem={handleDeleteItem}
       />
       <hr />
-      <b>{packed} out of {total} packed!</b>
+      <b>{packed} de {total} empacotados!</b>
     </>
   );
 }
 ```
 
-```js AddItem.js hidden
+```js src/AddItem.js hidden
 import { useState } from 'react';
 
 export default function AddItem({ onAddItem }) {
@@ -2221,20 +2214,20 @@ export default function AddItem({ onAddItem }) {
   return (
     <>
       <input
-        placeholder="Add item"
+        placeholder="Adicionar item"
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
       <button onClick={() => {
         setTitle('');
         onAddItem(title);
-      }}>Add</button>
+      }}>Adicionar</button>
     </>
   )
 }
 ```
 
-```js PackingList.js hidden
+```js src/PackingList.js hidden
 import { useState } from 'react';
 
 export default function PackingList({
@@ -2261,7 +2254,7 @@ export default function PackingList({
             {item.title}
           </label>
           <button onClick={() => onDeleteItem(item.id)}>
-            Delete
+            Deletar
           </button>
         </li>
       ))}
@@ -2278,19 +2271,19 @@ ul, li { margin: 0; padding: 0; }
 
 </Sandpack>
 
-Notice how the event handlers are only concerned with calling `setItems` after this change. The item counts are now calculated during the next render from `items`, so they are always up-to-date.
+Observe como os manipuladores de eventos estão apenas preocupados em chamar `setItems` após essa alteração. As contagens de itens agora são calculadas durante a próxima renderização a partir de `items`, portanto, estão sempre atualizadas.
 
 </Solution>
 
-#### Fix the disappearing selection {/*fix-the-disappearing-selection*/}
+#### Corrija a seleção que desaparece {/*fix-the-disappearing-selection*/}
 
-There is a list of `letters` in state. When you hover or focus a particular letter, it gets highlighted. The currently highlighted letter is stored in the `highlightedLetter` state variable. You can "star" and "unstar" invidual letters, which updates the `letters` array in state.
+Existe uma lista de `letters` no estado. Quando você passa o mouse ou foca em uma determinada letra, ela é destacada. A letra destacada atual é armazenada na variável de estado `highlightedLetter`. Você pode "marcar" e "desmarcar" letras individuais, o que atualiza o array `letters` no estado.
 
-This code works, but there is a minor UI glitch. When you press "Star" or "Unstar", the highlighting disappears for a moment. However, it reappears as soon as you move your pointer or switch to another letter with keyboard. Why is this happening? Fix it so that the highlighting doesn't disappear after the button click.
+Este código funciona, mas há um pequeno problema de UI. Quando você pressiona "Marcar" ou "Desmarcar", o destaque desaparece por um momento. No entanto, ele reaparece assim que você move o ponteiro ou muda para outra letra com o teclado. Por que isso está acontecendo? Corrija para que o destaque não desapareça após o clique no botão.
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { initialLetters } from './data.js';
 import Letter from './Letter.js';
@@ -2318,7 +2311,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Caixa de entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2337,7 +2330,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   isHighlighted,
@@ -2359,7 +2352,7 @@ export default function Letter({
       <button onClick={() => {
         onToggleStar(letter);
       }}>
-        {letter.isStarred ? 'Unstar' : 'Star'}
+        {letter.isStarred ? 'Desmarcar' : 'Marcar'}
       </button>
       {letter.subject}
     </li>
@@ -2367,18 +2360,18 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const initialLetters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: 'Pronto para a aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: 'Hora de fazer o check-in!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: 'O festival começa em apenas SETE dias!',
   isStarred: false,
 }];
 ```
@@ -2393,13 +2386,13 @@ li { border-radius: 5px; }
 
 <Solution>
 
-The problem is that you're holding the letter object in `highlightedLetter`. But you're also holding the same information in the `letters` array. So your state has duplication! When you update the `letters` array after the button click, you create a new letter object which is different from `highlightedLetter`. This is why `highlightedLetter === letter` check becomes `false`, and the highlight disappears. It reappears the next time you call `setHighlightedLetter` when the pointer moves.
+O problema é que você está mantendo o objeto de letras em `highlightedLetter`. Mas você também está mantendo as mesmas informações no array `letters`. Então seu estado tem duplicação! Quando você atualiza o array `letters` após o clique no botão, você cria um novo objeto de letras que é diferente de `highlightedLetter`. É por isso que `highlightedLetter === letter` verifica se torna `false` e o destaque desaparece. Ele reaparece na próxima vez que você chamar `setHighlightedLetter` quando o ponteiro se move.
 
-To fix the issue, remove the duplication from state. Instead of storing *the letter itself* in two places, store the `highlightedId` instead. Then you can check `isHighlighted` for each letter with `letter.id === highlightedId`, which will work even if the `letter` object has changed since the last render.
+Para corrigir o problema, remova a duplicação do estado. Em vez de armazenar *a própria letra* em dois lugares, armazene o `highlightedId` em vez disso. Então você pode verificar `isHighlighted` para cada letra com `letter.id === highlightedId`, o que funcionará mesmo se o objeto `letter` tiver mudado desde a última renderização.
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { initialLetters } from './data.js';
 import Letter from './Letter.js';
@@ -2427,7 +2420,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Caixa de Entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2446,7 +2439,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   isHighlighted,
@@ -2468,7 +2461,7 @@ export default function Letter({
       <button onClick={() => {
         onToggleStar(letter.id);
       }}>
-        {letter.isStarred ? 'Unstar' : 'Star'}
+        {letter.isStarred ? 'Desmarcar' : 'Marcar'}
       </button>
       {letter.subject}
     </li>
@@ -2476,18 +2469,18 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const initialLetters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: 'Pronto para a aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: 'Hora de fazer o check-in!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: 'O festival começa em apenas SETE dias!',
   isStarred: false,
 }];
 ```
@@ -2502,21 +2495,21 @@ li { border-radius: 5px; }
 
 </Solution>
 
-#### Implement multiple selection {/*implement-multiple-selection*/}
+#### Implemente seleção múltipla {/*implemente-selecao-multipla*/}
 
-In this example, each `Letter` has an `isSelected` prop and an `onToggle` handler that marks it as selected. This works, but the state is stored as a `selectedId` (either `null` or an ID), so only one letter can get selected at any given time.
+Neste exemplo, cada `Letter` tem uma *prop* `isSelected` e um manipulador `onToggle` que a marca como selecionada. Isso funciona, mas o estado é armazenado como um `selectedId` (ou `null` ou um ID), então apenas uma letra pode ser selecionada em um determinado momento.
 
-Change the state structure to support multiple selection. (How would you structure it? Think about this before writing the code.) Each checkbox should become independent from the others. Clicking a selected letter should uncheck it. Finally, the footer should show the correct number of the selected items.
+Altere a estrutura do estado para que seleção múltipla seja possível. (Como você estruturaria isso? Pense nisso antes de escrever o código.) Cada caixa de seleção deve se tornar independente das outras. Clicar em uma letra selecionada deve desmarcá-la. Por último, o rodapé deve mostrar o número correto de itens selecionados.
 
 <Hint>
 
-Instead of a single selected ID, you might want to hold an array or a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) of selected IDs in state.
+Ao invés de um único ID selecionado, você pode querer manter um array ou um [Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set) de IDs selecionados no estado.
 
 </Hint>
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { letters } from './data.js';
 import Letter from './Letter.js';
@@ -2524,24 +2517,24 @@ import Letter from './Letter.js';
 export default function MailClient() {
   const [selectedId, setSelectedId] = useState(null);
 
-  // TODO: allow multiple selection
+  // TODO: permitir seleção múltipla
   const selectedCount = 1;
 
   function handleToggle(toggledId) {
-    // TODO: allow multiple selection
+    // TODO: permitir seleção múltipla
     setSelectedId(toggledId);
   }
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Caixa de Entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
             key={letter.id}
             letter={letter}
             isSelected={
-              // TODO: allow multiple selection
+              // TODO: permitir seleção múltipla
               letter.id === selectedId
             }
             onToggle={handleToggle}
@@ -2549,8 +2542,8 @@ export default function MailClient() {
         ))}
         <hr />
         <p>
-          <b>
-            You selected {selectedCount} letters
+          <b> 
+            Você selecionou {selectedCount} cartas
           </b>
         </p>
       </ul>
@@ -2559,7 +2552,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   onToggle,
@@ -2584,18 +2577,18 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const letters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: 'Pronto para a aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: 'Hora de fazer o check-in!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: 'O festival começa em apenas SETE dias!',
   isStarred: false,
 }];
 ```
@@ -2611,11 +2604,11 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 <Solution>
 
-Instead of a single `selectedId`, keep a `selectedIds` *array* in state. For example, if you select the first and the last letter, it would contain `[0, 2]`. When nothing is selected, it would be an empty `[]` array:
+Ao invés de um único `selectedId`, mantenha um *array* `selectedIds` no estado. Por exemplo, se você selecionar a primeira e a última carta, ele conteria `[0, 2]`. Quando nada estiver selecionado, seria um array vazio `[]`:
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { letters } from './data.js';
 import Letter from './Letter.js';
@@ -2626,14 +2619,14 @@ export default function MailClient() {
   const selectedCount = selectedIds.length;
 
   function handleToggle(toggledId) {
-    // Was it previously selected?
+    // Ela estava selecionada?
     if (selectedIds.includes(toggledId)) {
-      // Then remove this ID from the array.
+      // Então remova este ID do array.
       setSelectedIds(selectedIds.filter(id =>
         id !== toggledId
       ));
     } else {
-      // Otherwise, add this ID to the array.
+      // Caso contrário, adicione este ID ao array.
       setSelectedIds([
         ...selectedIds,
         toggledId
@@ -2643,7 +2636,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Caixa de Entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2658,7 +2651,7 @@ export default function MailClient() {
         <hr />
         <p>
           <b>
-            You selected {selectedCount} letters
+            Você selecionou {selectedCount} cartas
           </b>
         </p>
       </ul>
@@ -2667,7 +2660,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   onToggle,
@@ -2692,18 +2685,18 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const letters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: 'Pronto para a aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: 'Hora de fazer o check-in!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: 'O festival começa em apenas SETE dias!',
   isStarred: false,
 }];
 ```
@@ -2717,13 +2710,11 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 </Sandpack>
 
-One minor downside of using an array is that for each item, you're calling `selectedIds.includes(letter.id)` to check whether it's selected. If the array is very large, this can become a performance problem because array search with [`includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) takes linear time, and you're doing this search for each individual item.
-
-To fix this, you can hold a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) in state instead, which provides a fast [`has()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has) operation:
+Uma pequena desvantagem de usar um array é que, para cada item, você está chamando `selectedIds.includes(letter.id)` para verificar se ele está selecionado. Se o array for muito grande, isso pode se tornar um problema de desempenho porque a pesquisa de array com [`includes()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) leva tempo linear, e você está fazendo essa pesquisa para cada item individual.
 
 <Sandpack>
 
-```js App.js
+```js src/App.js
 import { useState } from 'react';
 import { letters } from './data.js';
 import Letter from './Letter.js';
@@ -2736,7 +2727,7 @@ export default function MailClient() {
   const selectedCount = selectedIds.size;
 
   function handleToggle(toggledId) {
-    // Create a copy (to avoid mutation).
+    // Cria uma cópia (para evitar mutação).
     const nextIds = new Set(selectedIds);
     if (nextIds.has(toggledId)) {
       nextIds.delete(toggledId);
@@ -2748,7 +2739,7 @@ export default function MailClient() {
 
   return (
     <>
-      <h2>Inbox</h2>
+      <h2>Caixa de Entrada</h2>
       <ul>
         {letters.map(letter => (
           <Letter
@@ -2763,7 +2754,7 @@ export default function MailClient() {
         <hr />
         <p>
           <b>
-            You selected {selectedCount} letters
+            Você selecionou {selectedCount} cartas
           </b>
         </p>
       </ul>
@@ -2772,7 +2763,7 @@ export default function MailClient() {
 }
 ```
 
-```js Letter.js
+```js src/Letter.js
 export default function Letter({
   letter,
   onToggle,
@@ -2797,18 +2788,18 @@ export default function Letter({
 }
 ```
 
-```js data.js
+```js src/data.js
 export const letters = [{
   id: 0,
-  subject: 'Ready for adventure?',
+  subject: 'Pronto para a aventura?',
   isStarred: true,
 }, {
   id: 1,
-  subject: 'Time to check in!',
+  subject: 'Hora de fazer o check-in!',
   isStarred: false,
 }, {
   id: 2,
-  subject: 'Festival Begins in Just SEVEN Days!',
+  subject: 'O festival começa em apenas SETE dias!',
   isStarred: false,
 }];
 ```
@@ -2822,9 +2813,9 @@ label { width: 100%; padding: 5px; display: inline-block; }
 
 </Sandpack>
 
-Now each item does a `selectedIds.has(letter.id)` check, which is very fast.
+Agora cada item faz uma verificação `selectedIds.has(letter.id)`, que é muito rápida.
 
-Keep in mind that you [should not mutate objects in state](/learn/updating-objects-in-state), and that includes Sets, too. This is why the `handleToggle` function creates a *copy* of the Set first, and then updates that copy.
+Lembre-se de que você [não deve mutar objetos no estado](/learn/updating-objects-in-state), e isso também inclui Sets. É por isso que a função `handleToggle` cria uma *cópia* do Set primeiro e, em seguida, atualiza essa cópia.
 
 </Solution>
 

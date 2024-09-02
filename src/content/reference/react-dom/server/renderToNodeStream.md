@@ -13,7 +13,7 @@ Essa API será removida em uma futura versão major do React. Prefira usar [`ren
 `renderToNodeStream` renderiza uma árvore React para um [Node.js Readable Stream.](https://nodejs.org/api/stream.html#readable-streams)
 
 ```js
-const stream = renderToNodeStream(reactNode)
+const stream = renderToNodeStream(reactNode, options?)
 ```
 
 </Intro>
@@ -24,7 +24,7 @@ const stream = renderToNodeStream(reactNode)
 
 ## Referência {/*reference*/}
 
-### `renderToNodeStream(reactNode)` {/*rendertonodestream*/}
+### `renderToNodeStream(reactNode, options?)` {/*rendertonodestream*/}
 
 Pelo servidor, chame `renderToNodeStream` para obter um [Node.js Readable Stream](https://nodejs.org/api/stream.html#readable-streams) que você pode encadear para a resposta.
 
@@ -42,6 +42,8 @@ Pelo cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) par
 #### Parâmetros {/*parameters*/}
 
 * `reactNode`: Um nó React que você quer renderizar para HTML. Por exemplo, um elemento JSX como `<App />`.
+* **optional** `options`: Um objeto para renderizador de servidor.
+  * **optional** `identifierPrefix`: Um prefixo de string que o React usa para IDs gerados por [`useId`.](/reference/react/useId) Útil para evitar conflitos quando usando múltiplas raizes na mesma página. Deve ser o mesmo prefixo passado para [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
 
 #### Retorna {/*returns*/}
 
