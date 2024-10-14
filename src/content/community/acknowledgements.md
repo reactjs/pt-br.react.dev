@@ -59,7 +59,11 @@ Gostaríamos de reconhecer algumas pessoas que fizeram contribuições significa
 
 Esta lista não é exaustiva.
 
+<<<<<<< HEAD
 Gostaríamos de agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Também somos gratos a todos os voluntários que [traduziram o React para outros idiomas.](https://translations.reactjs.org/)
+=======
+We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We are also thankful to all the volunteers who [translated React into other languages.](https://translations.react.dev/)
+>>>>>>> 2b2d0f2309f49c82cf5bb88ea62fb2e44661c634
 
 ## Agradecimentos Extras {/*additional-thanks*/}
 
