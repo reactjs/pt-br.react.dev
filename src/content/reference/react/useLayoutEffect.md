@@ -67,6 +67,8 @@ function Tooltip() {
 
 * O código executado dentro do `useLayoutEffect` e todas as atualizações de *state* (estado) agendadas a partir dele **bloqueiam o navegador de exibir a tela**. Quando usado em excesso, acaba tornando sua aplicação lenta. Sempre que possível, prefira usar o [`useEffect`.](/reference/react/useEffect)
 
+* If you trigger a state update inside `useLayoutEffect`, React will execute all remaining Effects immediately including `useEffect`.
+
 ---
 
 ## Uso {/*usage*/}

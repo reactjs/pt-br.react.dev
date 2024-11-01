@@ -327,7 +327,7 @@ Neste exemplo, o operador JavaScript `&&` é utilizado para renderizar condicion
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked && '✔'}
+      {name} {isPacked && '✅'}
     </li>
   );
 }
