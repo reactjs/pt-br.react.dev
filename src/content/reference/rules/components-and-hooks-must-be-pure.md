@@ -154,7 +154,7 @@ function FriendList({ friends }) {
 }
 ```
 
-Não há necessidade de contorcer o seu código para evitar a mutação local. [`Array.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) também poderia ser usado aqui por questões de brevidade, mas não há nada de errado em criar um array local e então colocar itens nele [durante a renderização](#how-does-react-run-your-code).
+Não há necessidade de contorcer o seu código para evitar a mutação local. [`Array.map`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map) também poderia ser usado aqui por questões de brevidade, mas não há nada de errado em criar um array local e então colocar itens nele [durante a renderização](#how-does-react-run-your-code).
 
 Mesmo que pareça que estamos mutando `items`, o ponto chave a ser observado é que este código só faz isso _localmente_ - a mutação não é “lembrada” quando o componente é renderizado novamente. Em outras palavras, `items` só permanece enquanto o componente estiver presente. Como `items` é sempre _recriado_ toda vez que `<FriendList />` é renderizado, o componente sempre retornará o mesmo resultado.
 
