@@ -29,7 +29,7 @@ Concretamente, isto significa que a lógica de renderização pode ser executada
 
 O React é declarativo: você diz ao React _o que_ renderizar, e o React vai descobrir _como_ melhor exibir isso para o seu usuário. Para fazer isso, o React tem algumas fases onde ele executa seu código. Você não precisa saber sobre todas essas fases para usar bem o React. Mas em um nível alto, você deve saber qual código é executado em um _render_, e o que é executado fora dele.
 
-_Renderização_ refere-se ao cálculo de como deve ser a próxima versão da sua UI. Após a renderização, [Effects](/reference/react/useEffect) são _flushed_ (significando que eles são executados até que não haja mais nenhum) e podem atualizar o cálculo se os Effects tiverem impactos no layout. O React pega esse novo cálculo e o compara com o cálculo usado para criar a versão anterior da sua UI, então _compromete_ apenas as mudanças mínimas necessárias para o [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (o que o seu usuário realmente vê) para atualizá-lo para a versão mais recente.
+_Renderização_ refere-se ao cálculo de como deve ser a próxima versão da sua UI. Após a renderização, [Effects](/reference/react/useEffect) são _flushed_ (significando que eles são executados até que não haja mais nenhum) e podem atualizar o cálculo se os Effects tiverem impactos no layout. O React pega esse novo cálculo e o compara com o cálculo usado para criar a versão anterior da sua UI, então _compromete_ apenas as mudanças mínimas necessárias para o [DOM](https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model) (o que o seu usuário realmente vê) para atualizá-lo para a versão mais recente.
 
 <DeepDive>
 
@@ -139,7 +139,7 @@ Enquanto o render deve ser mantido puro, efeitos colaterais são necessários em
 ### Quando é que se pode ter uma mutação? {/*mutation*/}
 
 #### Mutação local {/*local-mutation*/}
-Um exemplo comum de efeito colateral é a mutação, que em JavaScript se refere à alteração do valor de uma variável não-[primitiva](https://developer.mozilla.org/en-US/docs/Glossary/Primitive). Em geral, embora a mutação não seja idiomática no React, a mutação _local_ é absolutamente boa:
+Um exemplo comum de efeito colateral é a mutação, que em JavaScript se refere à alteração do valor de uma variável não-[primitiva](https://developer.mozilla.org/pt-BR/docs/Glossary/Primitive). Em geral, embora a mutação não seja idiomática no React, a mutação _local_ é absolutamente boa:
 
 ```js {2,7}
 function FriendList({ friends }) {
