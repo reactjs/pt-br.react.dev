@@ -203,7 +203,7 @@ O React se recupera de alguns erros de hidratação, mas **você precisa corrig�
 
 ### Hidratando um documento inteiro {/*hydrating-an-entire-document*/}
 
-Aplicações totalmente construídas com React podem renderizar o documento inteiro como JSX, incluindo o [`<html>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html) tag:
+Aplicações totalmente construídas com React podem renderizar o documento inteiro como JSX, incluindo o [`<html>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/html) tag:
 
 ```js {3,13}
 function App() {
