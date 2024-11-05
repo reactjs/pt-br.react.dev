@@ -192,7 +192,7 @@ As causas mais comuns que levam a erros de hidratação incluem:
 
 * Espaços extras (como caractere de nova linha) ao redor do HTML gerado pelo React na raiz do nó.
 * Usar comparações como `typeof window !== 'undefined'` na sua lógica de renderização.
-* Usar API's específicas do navegador como [`window.matchMedia`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) na sua lógica de renderização.
+* Usar API's específicas do navegador como [`window.matchMedia`](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/matchMedia) na sua lógica de renderização.
 * Renderizar diferentes dados no servidor e no cliente.
 
 O React se recupera de alguns erros de hidratação, mas **você precisa corrigí-los como os outros erros.** No melhor caso, ele ficará lento; no pior caso, manipuladores de eventos podem ser conectados a elementos errados.
