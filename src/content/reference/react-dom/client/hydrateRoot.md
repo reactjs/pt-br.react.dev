@@ -223,7 +223,7 @@ function App() {
 }
 ```
 
-Para hidratar o documento inteiro, passe o [`document`](https://developer.mozilla.org/en-US/docs/Web/API/Window/document) global como primeiro argumento para `hydrateRoot`:
+Para hidratar o documento inteiro, passe o [`document`](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/document) global como primeiro argumento para `hydrateRoot`:
 
 ```js {4}
 import { hydrateRoot } from 'react-dom/client';
