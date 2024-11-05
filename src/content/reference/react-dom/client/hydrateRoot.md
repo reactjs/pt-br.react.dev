@@ -35,7 +35,7 @@ React irá anexar o HTML existente dentro do `domNode`, e assumir a gestão do D
 
 #### Parâmetros {/*parameters*/}
 
-* `domNode`: Um [elemento DOM](https://developer.mozilla.org/en-US/docs/Web/API/Element) que foi renderizado como elemento raiz no servidor.
+* `domNode`: Um [elemento DOM](https://developer.mozilla.org/pt-BR/docs/Web/API/Element) que foi renderizado como elemento raiz no servidor.
 
 * `reactNode`: O "nó do React" usado para renderizar o HTML existente. Frequentemente será uma parte do JSX como `<App />` que foi renderizado com um método `ReactDOM Server` como `renderToPipeableStream(<App />)`.
 
