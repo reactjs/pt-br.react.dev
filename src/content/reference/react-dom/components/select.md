@@ -4,12 +4,12 @@ title: "<select>"
 
 <Intro>
 
-The [built-in browser `<select>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) lets you render a select box with options.
+O [componente `<select>` nativo do navegador](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select) permite que você renderize uma caixa de seleção com opções.
 
 ```js
 <select>
-  <option value="someOption">Some option</option>
-  <option value="otherOption">Other option</option>
+  <option value="someOption">Alguma opção</option>
+  <option value="otherOption">Outra opção</option>
 </select>
 ```
 
@@ -19,68 +19,68 @@ The [built-in browser `<select>` component](https://developer.mozilla.org/en-US/
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<select>` {/*select*/}
 
-To display a select box, render the [built-in browser `<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) component.
+Para exibir uma caixa de seleção, renderize o componente [`<select>` nativo do navegador](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select).
 
 ```js
 <select>
-  <option value="someOption">Some option</option>
-  <option value="otherOption">Other option</option>
+  <option value="someOption">Alguma opção</option>
+  <option value="otherOption">Outra opção</option>
 </select>
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Props {/*props*/}
 
-`<select>` supports all [common element props.](/reference/react-dom/components/common#props)
+`<select>` suporta todas as [props de elementos gerais.](/reference/react-dom/components/common#props)
 
-You can [make a select box controlled](#controlling-a-select-box-with-a-state-variable) by passing a `value` prop:
+Você pode [tornar uma caixa de seleção controlada](#controlling-a-select-box-with-a-state-variable) passando a prop `value`:
 
-* `value`: A string (or an array of strings for [`multiple={true}`](#enabling-multiple-selection)). Controls which option is selected. Every value string match the `value` of some `<option>` nested inside the `<select>`.
+* `value`: Uma string (ou um array de strings para [`multiple={true}`](#enabling-multiple-selection)). Controla qual opção está selecionada. Cada valor de string corresponde ao `value` de algum `<option>` aninhado dentro do `<select>`.
 
-When you pass `value`, you must also pass an `onChange` handler that updates the passed value.
+Ao passar `value`, você deve também passar o manipulador `onChange` que atualize o valor passado.
 
-If your `<select>` is uncontrolled, you may pass the `defaultValue` prop instead:
+Se o `<select>` for não controlado, você pode passar a prop `defaultValue` em vez disso:
 
-* `defaultValue`: A string (or an array of strings for [`multiple={true}`](#enabling-multiple-selection)). Specifies [the initially selected option.](#providing-an-initially-selected-option)
+* `defaultValue`: Uma string (ou um array de strings para [`multiple={true}`](#enabling-multiple-selection)). Especifica [a opção selecionada inicialmente.](#providing-an-initially-selected-option)
 
-These `<select>` props are relevant both for uncontrolled and controlled select boxes:
+Essas props `<select>` são relevantes tanto para caixas de seleção controladas e não controladas:
 
-* [`autoComplete`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#autocomplete): A string. Specifies one of the possible [autocomplete behaviors.](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values)
-* [`autoFocus`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#autofocus): A boolean. If `true`, React will focus the element on mount.
-* `children`: `<select>` accepts [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option), [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup), and [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) components as children. You can also pass your own components as long as they eventually render one of the allowed components. If you pass your own components that eventually render `<option>` tags, each `<option>` you render must have a `value`.
-* [`disabled`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#disabled): A boolean. If `true`, the select box will not be interactive and will appear dimmed.
-* [`form`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#form): A string. Specifies the `id` of the `<form>` this select box belongs to. If omitted, it's the closest parent form.
-* [`multiple`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#multiple): A boolean. If `true`, the browser allows [multiple selection.](#enabling-multiple-selection)
-* [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#name): A string. Specifies the name for this select box that's [submitted with the form.](#reading-the-select-box-value-when-submitting-a-form)
-* `onChange`: An [`Event` handler](/reference/react-dom/components/common#event-handler) function. Required for [controlled select boxes.](#controlling-a-select-box-with-a-state-variable) Fires immediately when the user picks a different option. Behaves like the browser [`input` event.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event)
-* `onChangeCapture`: A version of `onChange` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
-* [`onInput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event): An [`Event` handler](/reference/react-dom/components/common#event-handler) function. Fires immediately when the value is changed by the user. For historical reasons, in React it is idiomatic to use `onChange` instead which works similarly.
-* `onInputCapture`: A version of `onInput` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
-* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event): An [`Event` handler](/reference/react-dom/components/common#event-handler) function. Fires if an input fails validation on form submit. Unlike the built-in `invalid` event, the React `onInvalid` event bubbles.
-* `onInvalidCapture`: A version of `onInvalid` that fires in the [capture phase.](/learn/responding-to-events#capture-phase-events)
-* [`required`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#required): A boolean. If `true`, the value must be provided for the form to submit.
-* [`size`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select#size): A number. For `multiple={true}` selects, specifies the preferred number of initially visible items.
+* [`autoComplete`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select#autocomplete): Uma string. Especifica um dos possíveis [comportamentos de preenchimento automático.](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values)
+* [`autoFocus`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select#autofocus): Um booleano. Se `true`, o React irá focar o elemento ao montar.
+* `children`: `<select>` aceita os componentes [`<option>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/option), [`<optgroup>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/optgroup) e [`<datalist>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/datalist) como filhos. Você também pode passar seus próprios componentes, desde que eventualmente renderizam um dos componentes permitidos. Se passar seus próprios componentes, que eventualmente renderizem tags `<option>`, cada `<option>` que você renderize precisa ter um `value`.
+* [`disabled`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select#disabled): Um booleano. Se `true`, a caixa de seleção não será interativa e aparecerá desativada.
+* [`form`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select#form): Uma string. Especifica o `id` do `<form>` ao qual esta caixa de seleção pertence. Se omitido, será o formulário pai mais próximo.
+* [`multiple`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select#multiple): Um booleano. If `true`, o navegador permite [seleção múltipla.](#enabling-multiple-selection)
+* [`name`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select#name): Uma string. Especifica o nome desta caixa de seleção que é [enviado com o formulário.](#reading-the-select-box-value-when-submitting-a-form)
+* `onChange`: Uma função de [manipulador de `Event`](/reference/react-dom/components/common#event-handler). Necessário para [caixas de seleção controladas.](#controlling-a-select-box-with-a-state-variable) Dispara imediatamente quando o usuário escolhe uma opção diferente. Se comporta como o [evento de `input`](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/input_event) do navegador.
+* `onChangeCapture`: Uma versão de `onChange` que dispara na [fase de captura.](/learn/responding-to-events#capture-phase-events)
+* [`onInput`](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/input_event): Uma função de [manipulador de `Event`](/reference/react-dom/components/common#event-handler). Dispara imediatamente quando o valor é alterado pelo usuário. Por razões históricas, é comum usar `onChange` no React, que funciona de forma similar.
+* `onInputCapture`: Uma versão de `onInput` que dispara na [fase de captura.](/learn/responding-to-events#capture-phase-events)
+* [`onInvalid`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/invalid_event): Uma função de [manipulador de `Event`](/reference/react-dom/components/common#event-handler). Dispara se uma entrada falha na validação ao enviar o formulário. Diferente do evento `invalid` nativo, o evento `onInvalid` do React é propagado.
+* `onInvalidCapture`: Uma versão de `onInvalid` que dispara na [fase de captura.](/learn/responding-to-events#capture-phase-events)
+* [`required`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select#required): Um booleano. Se `true`, o valor deve ser fornecido para o envio do formulário.
+* [`size`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/select#size): Um número. Para selects `multiple={true}` selects, especifica o número preferencial de itens visíveis inicialmente.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- Unlike in HTML, passing a `selected` attribute to `<option>` is not supported. Instead, use [`<select defaultValue>`](#providing-an-initially-selected-option) for uncontrolled select boxes and [`<select value>`](#controlling-a-select-box-with-a-state-variable) for controlled select boxes.
-- If a select box receives a `value` prop, it will be [treated as controlled.](#controlling-a-select-box-with-a-state-variable)
-- A select box can't be both controlled and uncontrolled at the same time.
-- A select box cannot switch between being controlled or uncontrolled over its lifetime.
-- Every controlled select box needs an `onChange` event handler that synchronously updates its backing value.
+- Diferente do HTML, passar um atributo `selected` para `<option>` não é suportado. Em vez disso, use [`<select defaultValue>`](#providing-an-initially-selected-option) para caixas de seleção não controladas e [`<select value>`](#controlling-a-select-box-with-a-state-variable) para caixas de seleção controladas.
+- Se uma caixa de seleção receber a prop `value`, ela será [tratada como controlada.](#controlling-a-select-box-with-a-state-variable)
+- Uma caixa de seleção não pode ser simultaneamente controlada e não controlada.
+- Uma caixa de seleção não pode alternar entre ser controlada e não controlada durante sua vida útil.
+- Toda caixa de seleção controlada precisa de um manipulador de eventos `onChange` que atualize seu valor de forma síncrona.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Displaying a select box with options {/*displaying-a-select-box-with-options*/}
+### Exibindo uma caixa de seleção com opções {/*displaying-a-select-box-with-options*/}
 
-Render a `<select>` with a list of `<option>` components inside to display a select box. Give each `<option>` a `value` representing the data to be submitted with the form.
+Renderize um `<select>` com uma lista de componentes `<option>` dentro para exibir uma caixa de seleção. Dê a cada `<option>` um `value` que represente os dados a serem enviados com o formulário.
 
 <Sandpack>
 
@@ -88,11 +88,11 @@ Render a `<select>` with a list of `<option>` components inside to display a sel
 export default function FruitPicker() {
   return (
     <label>
-      Pick a fruit:
+      Escolha uma fruta:
       <select name="selectedFruit">
-        <option value="apple">Apple</option>
+        <option value="apple">Maçã</option>
         <option value="banana">Banana</option>
-        <option value="orange">Orange</option>
+        <option value="orange">Laranja</option>
       </select>
     </label>
   );
@@ -107,9 +107,9 @@ select { margin: 5px; }
 
 ---
 
-### Providing a label for a select box {/*providing-a-label-for-a-select-box*/}
+### Fornecendo um rótulo para uma caixa de seleção {/*providing-a-label-for-a-select-box*/}
 
-Typically, you will place every `<select>` inside a [`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) tag. This tells the browser that this label is associated with that select box. When the user clicks the label, the browser will automatically focus the select box. It's also essential for accessibility: a screen reader will announce the label caption when the user focuses the select box.
+Normalmente, você colocará cada `<select>` dentro de uma tag [`<label>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/label). Isso informa ao navegador que esse rótulo está associado a essa caixa de seleção. Quando o usuário clica no rótulo, o navegador automaticamente foca na caixa de seleção. Isso também é essencial para acessibilidade: um leitor de tela anunciará a legenda do rótulo quando o usuário focar na caixa de seleção.
 
 If you can't nest `<select>` into a `<label>`, associate them by passing the same ID to `<select id>` and [`<label htmlFor>`.](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLabelElement/htmlFor) To avoid conflicts between multiple instances of one component, generate such an ID with [`useId`.](/reference/react/useId)
 
