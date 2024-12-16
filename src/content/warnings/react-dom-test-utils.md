@@ -2,7 +2,13 @@
 title: Avisos de Depreciação do react-dom/test-utils
 ---
 
+<<<<<<< HEAD
 ## Aviso do ReactDOMTestUtils.act() {/*reactdomtestutilsact-warning*/}
+=======
+TODO: update for 19?
+
+## ReactDOMTestUtils.act() warning {/*reactdomtestutilsact-warning*/}
+>>>>>>> 3b02f828ff2a4f9d2846f077e442b8a405e2eb04
 
 O `act` de `react-dom/test-utils` foi depreciado em favor do `act` do `react`.
 

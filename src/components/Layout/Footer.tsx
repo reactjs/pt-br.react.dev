@@ -8,6 +8,7 @@ import cn from 'classnames';
 import {ExternalLink} from 'components/ExternalLink';
 import {IconFacebookCircle} from 'components/Icon/IconFacebookCircle';
 import {IconTwitter} from 'components/Icon/IconTwitter';
+import {IconBsky} from 'components/Icon/IconBsky';
 import {IconGitHub} from 'components/Icon/IconGitHub';
 
 export function Footer() {
@@ -283,7 +284,7 @@ export function Footer() {
           <div
             className="text-xs text-left rtl:text-right mt-2 pe-0.5"
             dir="ltr">
-            &copy;{new Date().getFullYear()}
+            Copyright &copy; Meta Platforms, Inc
           </div>
           <div
             className="uwu-visible text-xs cursor-pointer hover:text-link hover:dark:text-link-dark hover:underline"
@@ -375,7 +376,17 @@ export function Footer() {
               <IconTwitter />
             </ExternalLink>
             <ExternalLink
+<<<<<<< HEAD
               aria-label="React no Github"
+=======
+              aria-label="React on Bluesky"
+              href="https://bsky.app/profile/react.dev"
+              className={socialLinkClasses}>
+              <IconBsky />
+            </ExternalLink>
+            <ExternalLink
+              aria-label="React on Github"
+>>>>>>> 3b02f828ff2a4f9d2846f077e442b8a405e2eb04
               href="https://github.com/facebook/react"
               className={socialLinkClasses}>
               <IconGitHub />
