@@ -1,25 +1,25 @@
 ---
-title: Extracting State Logic into a Reducer
+title: Extraindo a Lógica de Estado para um Reducer
 ---
 
 <Intro>
 
-Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called a _reducer._
+Componentes com muitas atualizações de estado espalhadas por vários manipuladores de eventos podem se tornar complexos. Para esses casos, você pode consolidar toda a lógica de atualização de estado fora do seu componente em uma única função, chamada de _reducer._
 
 </Intro>
 
 <YouWillLearn>
 
-- What a reducer function is
-- How to refactor `useState` to `useReducer`
-- When to use a reducer
-- How to write one well
+- O que é uma função reducer
+- Como refatorar `useState` para `useReducer`
+- Quando usar um reducer
+- Como escrever um reducer bem
 
 </YouWillLearn>
 
-## Consolidate state logic with a reducer {/*consolidate-state-logic-with-a-reducer*/}
+## Consolidando a lógica de estado com um reducer {/*consolidate-state-logic-with-a-reducer*/}
 
-As your components grow in complexity, it can get harder to see at a glance all the different ways in which a component's state gets updated. For example, the `TaskApp` component below holds an array of `tasks` in state and uses three different event handlers to add, remove, and edit tasks:
+À medida que seus componentes crescem em complexidade, pode ficar mais difícil ver de relance todas as diferentes maneiras pelas quais o estado de um componente é atualizado. Por exemplo, o componente `TaskApp` abaixo mantém um array de `tasks` no estado e usa três manipuladores de eventos diferentes para adicionar, remover e editar tarefas:
 
 <Sandpack>
 
@@ -179,17 +179,17 @@ li {
 
 </Sandpack>
 
-Each of its event handlers calls `setTasks` in order to update the state. As this component grows, so does the amount of state logic sprinkled throughout it. To reduce this complexity and keep all your logic in one easy-to-access place, you can move that state logic into a single function outside your component, **called a "reducer".**
+Cada um dos seus manipuladores de eventos chama `setTasks` para atualizar o estado. À medida que este componente cresce, também cresce a quantidade de lógica de estado espalhada por ele. Para reduzir essa complexidade e manter toda a sua lógica em um local de fácil acesso, você pode mover essa lógica de estado para uma única função fora do seu componente, **chamada de "reducer".**
 
-Reducers are a different way to handle state. You can migrate from `useState` to `useReducer` in three steps:
+Os reducers são uma maneira diferente de lidar com o estado. Você pode migrar do `useState` para `useReducer` em três etapas:
 
-1. **Move** from setting state to dispatching actions.
-2. **Write** a reducer function.
-3. **Use** the reducer from your component.
+1. **Mover** de definir estado para despachar ações.
+2. **Escrever** uma função reducer.
+3. **Usar** o reducer no seu componente.
 
-### Step 1: Move from setting state to dispatching actions {/*step-1-move-from-setting-state-to-dispatching-actions*/}
+### Etapa 1: Mover de definir estado para despachar ações {/*step-1-move-from-setting-state-to-dispatching-actions*/}
 
-Your event handlers currently specify _what to do_ by setting state:
+Seus manipuladores de eventos atualmente especificam _o que fazer_ ao definir o estado:
 
 ```js
 function handleAddTask(text) {
@@ -220,13 +220,13 @@ function handleDeleteTask(taskId) {
 }
 ```
 
-Remove all the state setting logic. What you are left with are three event handlers:
+Remova toda a lógica de definição de estado. O que sobra são três manipuladores de eventos:
 
-- `handleAddTask(text)` is called when the user presses "Add".
-- `handleChangeTask(task)` is called when the user toggles a task or presses "Save".
-- `handleDeleteTask(taskId)` is called when the user presses "Delete".
+- `handleAddTask(text)` é chamado quando o usuário pressiona "Adicionar"
+- `handleChangeTask(task)` é chamado quando o usuário alterna uma tarefa ou pressiona "Salvar"
+- `handleDeleteTask(taskId)` é chamado quando o usuário pressiona "Deletar"
 
-Managing state with reducers is slightly different from directly setting state. Instead of telling React "what to do" by setting state, you specify "what the user just did" by dispatching "actions" from your event handlers. (The state update logic will live elsewhere!) So instead of "setting `tasks`" via an event handler, you're dispatching an "added/changed/deleted a task" action. This is more descriptive of the user's intent.
+Gerenciar estado com reducers é um pouco diferente de definir o estado diretamente. Em vez de "dizer ao React o que fazer" definindo o estado, você especifica "o que o usuário acabou de fazer" despachando "ações" dos seus manipuladores de eventos. (A lógica de atualização de estado viverá em outro lugar!) Então, em vez de "definir `tasks`" através de um manipulador de evento, você está despachando uma ação "adicionou/alterou/deletou uma tarefa". Isso é mais descritivo da intenção do usuário.
 
 ```js
 function handleAddTask(text) {
@@ -252,12 +252,12 @@ function handleDeleteTask(taskId) {
 }
 ```
 
-The object you pass to `dispatch` is called an "action":
+O objeto que você passa para `dispatch` é chamado de "ação":
 
 ```js {3-7}
 function handleDeleteTask(taskId) {
   dispatch(
-    // "action" object:
+    // objeto "action":
     {
       type: 'deleted',
       id: taskId,
@@ -266,43 +266,43 @@ function handleDeleteTask(taskId) {
 }
 ```
 
-It is a regular JavaScript object. You decide what to put in it, but generally it should contain the minimal information about _what happened_. (You will add the `dispatch` function itself in a later step.)
+É um objeto JavaScript regular. Você decide o que colocar nele, mas geralmente deve conter a quantidade mínima de informação sobre _o que aconteceu_. (Você adicionará a função `dispatch` em uma etapa posterior.)
 
 <Note>
 
-An action object can have any shape.
+Um objeto de ação pode ter qualquer forma.
 
-By convention, it is common to give it a string `type` that describes what happened, and pass any additional information in other fields. The `type` is specific to a component, so in this example either `'added'` or `'added_task'` would be fine. Choose a name that says what happened!
+Por convenção, é comum dar a ele uma string `type` que descreve o que aconteceu e passar quaisquer informações adicionais em outros campos. O `type` é específico para um componente, então neste exemplo tanto `'added'` quanto `'added_task'` seriam adequados. Escolha um nome que descreva o que aconteceu!
 
 ```js
 dispatch({
-  // specific to component
+  // específico para o componente
   type: 'what_happened',
-  // other fields go here
+  // outros campos vão aqui
 });
 ```
 
 </Note>
 
-### Step 2: Write a reducer function {/*step-2-write-a-reducer-function*/}
+### Etapa 2: Escrever uma função reducer {/*step-2-write-a-reducer-function*/}
 
-A reducer function is where you will put your state logic. It takes two arguments, the current state and the action object, and it returns the next state:
+Uma função reducer é onde você colocará sua lógica de estado. Ela recebe dois argumentos, o estado atual e o objeto de ação, e retorna o estado seguinte:
 
 ```js
 function yourReducer(state, action) {
-  // return next state for React to set
+  // retorna o próximo estado para o React definir
 }
 ```
 
-React will set the state to what you return from the reducer.
+React definirá o estado para o que você retornar da função reducer.
 
-To move your state setting logic from your event handlers to a reducer function in this example, you will:
+Para mover sua lógica de definição de estado dos manipuladores de eventos para uma função reducer neste exemplo, você fará:
 
-1. Declare the current state (`tasks`) as the first argument.
-2. Declare the `action` object as the second argument.
-3. Return the _next_ state from the reducer (which React will set the state to).
+1. Declarar o estado atual (`tasks`) como o primeiro argumento.
+2. Declarar o objeto `action` como o segundo argumento.
+3. Retornar o estado seguinte da função reducer (que React definirá o estado para).
 
-Here is all the state setting logic migrated to a reducer function:
+Aqui está toda a lógica de definição de estado migrada para uma função reducer:
 
 ```js
 function tasksReducer(tasks, action) {
@@ -331,13 +331,13 @@ function tasksReducer(tasks, action) {
 }
 ```
 
-Because the reducer function takes state (`tasks`) as an argument, you can **declare it outside of your component.** This decreases the indentation level and can make your code easier to read.
+Porque a função reducer recebe o estado (`tasks`) como argumento, você pode **declará-la fora do seu componente.** Isso diminui o nível de indentação e pode tornar seu código mais fácil de ler.
 
 <Note>
 
-The code above uses if/else statements, but it's a convention to use [switch statements](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/switch) inside reducers. The result is the same, but it can be easier to read switch statements at a glance.
+O código acima usa instruções if/else, mas é uma convenção usar [instruções switch](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/switch) dentro de reducers. O resultado é o mesmo, mas pode ser mais fácil de ler switch statements a olho nu.
 
-We'll be using them throughout the rest of this documentation like so:
+Usaremos eles ao longo do restante desta documentação assim:
 
 ```js
 function tasksReducer(tasks, action) {
@@ -371,19 +371,19 @@ function tasksReducer(tasks, action) {
 }
 ```
 
-We recommend wrapping each `case` block into the `{` and `}` curly braces so that variables declared inside of different `case`s don't clash with each other. Also, a `case` should usually end with a `return`. If you forget to `return`, the code will "fall through" to the next `case`, which can lead to mistakes!
+Recomendamos embrulhar cada bloco `case` em `{` e `}` para evitar que variáveis declaradas em diferentes `case`s entrem em conflito. Também, um `case` deve geralmente terminar com um `return`. Se você esquecer de `return`, o código vai "cair" para o próximo `case`, o que pode levar a erros!
 
-If you're not yet comfortable with switch statements, using if/else is completely fine.
+Se você não está familiarizado com instruções switch, usar if/else é completamente aceitável.
 
 </Note>
 
 <DeepDive>
 
-#### Why are reducers called this way? {/*why-are-reducers-called-this-way*/}
+#### Por que os reducers são chamados assim? {/*why-are-reducers-called-this-way*/}
 
-Although reducers can "reduce" the amount of code inside your component, they are actually named after the [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) operation that you can perform on arrays.
+Embora os reducers possam "reduzir" a quantidade de código dentro do seu componente, eles são na verdade nomeados depois do método [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) que você pode executar em arrays.
 
-The `reduce()` operation lets you take an array and "accumulate" a single value out of many:
+O método `reduce()` permite que você tome um array e "acumule" um único valor de muitos:
 
 ```
 const arr = [1, 2, 3, 4, 5];
@@ -392,9 +392,9 @@ const sum = arr.reduce(
 ); // 1 + 2 + 3 + 4 + 5
 ```
 
-The function you pass to `reduce` is known as a "reducer". It takes the _result so far_ and the _current item,_ then it returns the _next result._ React reducers are an example of the same idea: they take the _state so far_ and the _action_, and return the _next state._ In this way, they accumulate actions over time into state.
+A função que você passa para `reduce` é conhecida como "reducer". Ela toma o _resultado atual_ e o _item atual_, então retorna o _resultado seguinte_. React reducers são um exemplo do mesmo conceito: eles tomam o _estado atual_ e a _ação_, e retornam o _estado seguinte_. Em essência, eles acumulam ações sobre o tempo em estado.
 
-You could even use the `reduce()` method with an `initialState` and an array of `actions` to calculate the final state by passing your reducer function to it:
+Você pode até mesmo usar o método `reduce()` com um `initialState` e um array de `actions` para calcular o estado final passando sua função reducer para ele:
 
 <Sandpack>
 
@@ -453,43 +453,43 @@ export default function tasksReducer(tasks, action) {
 
 </Sandpack>
 
-You probably won't need to do this yourself, but this is similar to what React does!
+Você provavelmente nunca precisará fazer isso você mesmo, mas isso é similar ao que React faz!
 
 </DeepDive>
 
-### Step 3: Use the reducer from your component {/*step-3-use-the-reducer-from-your-component*/}
+### Etapa 3: Usar o reducer no seu componente {/*step-3-use-the-reducer-from-your-component*/}
 
-Finally, you need to hook up the `tasksReducer` to your component. Import the `useReducer` Hook from React:
+Finalmente, você precisa conectar o `tasksReducer` ao seu componente. Importe a função `useReducer` do React:
 
 ```js
 import { useReducer } from 'react';
 ```
 
-Then you can replace `useState`:
+Então você pode substituir `useState`:
 
 ```js
 const [tasks, setTasks] = useState(initialTasks);
 ```
 
-with `useReducer` like so:
+com `useReducer` assim:
 
 ```js
 const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 ```
 
-The `useReducer` Hook is similar to `useState`—you must pass it an initial state and it returns a stateful value and a way to set state (in this case, the dispatch function). But it's a little different.
+O Hook `useReducer` é similar ao `useState`—você deve passar um estado inicial e ele retorna um valor de estado e uma maneira de definir estado (neste caso, a função `dispatch`). Mas é um pouco diferente.
 
-The `useReducer` Hook takes two arguments:
+O Hook `useReducer` recebe dois argumentos:
 
-1. A reducer function
-2. An initial state
+1. Uma função reducer
+2. Um estado inicial
 
-And it returns:
+E retorna:
 
-1. A stateful value
-2. A dispatch function (to "dispatch" user actions to the reducer)
+1. Um valor de estado
+2. Uma função `dispatch` (para "despachar" ações para o reducer)
 
-Now it's fully wired up! Here, the reducer is declared at the bottom of the component file:
+Agora está totalmente conectado! Aqui, a função reducer é declarada no final do arquivo do componente:
 
 <Sandpack>
 
@@ -674,7 +674,7 @@ li {
 
 </Sandpack>
 
-If you want, you can even move the reducer to a different file:
+Se você quiser, você pode até mover a função reducer para um arquivo diferente:
 
 <Sandpack>
 
@@ -864,28 +864,28 @@ li {
 
 Component logic can be easier to read when you separate concerns like this. Now the event handlers only specify _what happened_ by dispatching actions, and the reducer function determines _how the state updates_ in response to them.
 
-## Comparing `useState` and `useReducer` {/*comparing-usestate-and-usereducer*/}
+## Comparando `useState` e `useReducer` {/*comparing-usestate-and-usereducer*/}
 
-Reducers are not without downsides! Here's a few ways you can compare them:
+Reducers são não sem desvantagens! Aqui estão algumas maneiras de compará-los:
 
-- **Code size:** Generally, with `useState` you have to write less code upfront. With `useReducer`, you have to write both a reducer function _and_ dispatch actions. However, `useReducer` can help cut down on the code if many event handlers modify state in a similar way.
-- **Readability:** `useState` is very easy to read when the state updates are simple. When they get more complex, they can bloat your component's code and make it difficult to scan. In this case, `useReducer` lets you cleanly separate the _how_ of update logic from the _what happened_ of event handlers.
-- **Debugging:** When you have a bug with `useState`, it can be difficult to tell _where_ the state was set incorrectly, and _why_. With `useReducer`, you can add a console log into your reducer to see every state update, and _why_ it happened (due to which `action`). If each `action` is correct, you'll know that the mistake is in the reducer logic itself. However, you have to step through more code than with `useState`.
-- **Testing:** A reducer is a pure function that doesn't depend on your component. This means that you can export and test it separately in isolation. While generally it's best to test components in a more realistic environment, for complex state update logic it can be useful to assert that your reducer returns a particular state for a particular initial state and action.
-- **Personal preference:** Some people like reducers, others don't. That's okay. It's a matter of preference. You can always convert between `useState` and `useReducer` back and forth: they are equivalent!
+- **Tamanho do código:** Geralmente, com `useState` você escreve menos código no início. Com `useReducer`, você deve escrever tanto a função reducer _e_ despachar ações. No entanto, `useReducer` pode ajudar a reduzir o código se muitos manipuladores de eventos modificam o estado de forma semelhante.
+- **Legibilidade:** `useState` é muito fácil de ler quando os updates de estado são simples. Quando eles se tornam mais complexos, eles podem expandir o código do seu componente e torná-lo difícil de escanear. Neste caso, `useReducer` permite que você separe a _como_ da lógica de atualização do _o que aconteceu_ dos manipuladores de eventos.
+- **Depuração:** Quando você tem um bug com `useState`, pode ser difícil dizer _onde_ o estado foi definido incorretamente, e _por que_ isso aconteceu. Com `useReducer`, você pode adicionar um console.log no seu reducer para ver cada atualização de estado, e _por que_ isso aconteceu. Se cada ação é correta, você saberá que o erro está na lógica do reducer em si. No entanto, você precisa passar por mais código do que com `useState`.
+- **Testes:** Um reducer é uma função pura que não depende do seu componente. Isso significa que você pode exportá-lo e testá-lo em isolamento. Enquanto geralmente é melhor testar componentes em um ambiente mais realista, para a lógica complexa de atualização de estado, pode ser útil afirmar que seu reducer retorna um estado particular para um estado inicial e ação específicos.
+- **Preferência pessoal:** Algumas pessoas gostam de reducers, outras não. Isso está bem. É uma questão de preferência. Você sempre pode converter entre `useState` e `useReducer` para frente e para trás: eles são equivalentes!
 
-We recommend using a reducer if you often encounter bugs due to incorrect state updates in some component, and want to introduce more structure to its code. You don't have to use reducers for everything: feel free to mix and match! You can even `useState` and `useReducer` in the same component.
+Recomendamos usar um reducer se você frequentemente encontra bugs devido a atualizações de estado incorretas em algum componente e quer introduzir mais estrutura no seu código. Você não precisa usar reducers para tudo: sinta-se à vontade para misturar e combinar! Você pode até usar `useState` e `useReducer` no mesmo componente.
 
-## Writing reducers well {/*writing-reducers-well*/}
+## Escrevendo reducers bem {/*writing-reducers-well*/}
 
-Keep these two tips in mind when writing reducers:
+Manter esses dois conselhos em mente ao escrever reducers:
 
-- **Reducers must be pure.** Similar to [state updater functions](/learn/queueing-a-series-of-state-updates), reducers run during rendering! (Actions are queued until the next render.) This means that reducers [must be pure](/learn/keeping-components-pure)—same inputs always result in the same output. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should update [objects](/learn/updating-objects-in-state) and [arrays](/learn/updating-arrays-in-state) without mutations.
-- **Each action describes a single user interaction, even if that leads to multiple changes in the data.** For example, if a user presses "Reset" on a form with five fields managed by a reducer, it makes more sense to dispatch one `reset_form` action rather than five separate `set_field` actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!
+- **Reducers devem ser puros.** Similar a [state updater functions](/learn/queueing-a-series-of-state-updates), reducers são executados durante o render! (Ações são enfileiradas até a próxima renderização.) Isso significa que reducers [devem ser puros](/learn/keeping-components-pure)—mesmas entradas sempre resultam na mesma saída. Eles não devem enviar solicitações, agendar timeouts ou realizar qualquer efeito de lado (operações que impactam coisas fora do componente). Eles devem atualizar [objetos](/learn/updating-objects-in-state) e [arrays](/learn/updating-arrays-in-state#write-concise-update-logic-with-immer) sem mutações.
+- **Cada ação descreve uma única interação do usuário, mesmo que isso leve a várias mudanças nos dados.** Por exemplo, se um usuário pressiona "Reset" em um formulário com cinco campos gerenciados por um reducer, faz mais sentido despachar uma ação `reset_form` do que cinco ações `set_field` separadas. Se você registrar cada ação em um reducer, aquele registro deve ser claro o suficiente para você reconstruir o que interações ou respostas aconteceram em qual ordem. Isso ajuda com depuração!
 
-## Writing concise reducers with Immer {/*writing-concise-reducers-with-immer*/}
+## Escrevendo reducers concisos com Immer {/*writing-concise-reducers-with-immer*/}
 
-Just like with [updating objects](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) and [arrays](/learn/updating-arrays-in-state#write-concise-update-logic-with-immer) in regular state, you can use the Immer library to make reducers more concise. Here, [`useImmerReducer`](https://github.com/immerjs/use-immer#useimmerreducer) lets you mutate the state with `push` or `arr[i] =` assignment:
+Similar ao [atualizar objetos](/learn/updating-objects-in-state#write-concise-update-logic-with-immer) e [arrays](/learn/updating-arrays-in-state#write-concise-update-logic-with-immer) em estado regular, você pode usar a biblioteca Immer para tornar reducers mais concisos. Aqui, [`useImmerReducer`](https://github.com/immerjs/use-immer#useimmerreducer) permite que você muta o estado com `push` ou `arr[i] =` atribuição:
 
 <Sandpack>
 
@@ -1082,34 +1082,34 @@ li {
 
 </Sandpack>
 
-Reducers must be pure, so they shouldn't mutate state. But Immer provides you with a special `draft` object which is safe to mutate. Under the hood, Immer will create a copy of your state with the changes you made to the `draft`. This is why reducers managed by `useImmerReducer` can mutate their first argument and don't need to return state.
+Reducers devem ser puros, então eles não devem mutar o estado. No entanto, Immer fornece um objeto especial `draft` que é seguro para mutar. Por baixo dos panos, Immer criará uma cópia do seu estado com as mudanças que você fez ao `draft`. Isso é por que reducers gerenciados por `useImmerReducer` podem mutar seu primeiro argumento e não precisam retornar estado. Isso é por que reducers gerenciados por `useImmerReducer` podem mutar seu primeiro argumento e não precisam retornar estado.
 
 <Recap>
 
-- To convert from `useState` to `useReducer`:
-  1. Dispatch actions from event handlers.
-  2. Write a reducer function that returns the next state for a given state and action.
-  3. Replace `useState` with `useReducer`.
-- Reducers require you to write a bit more code, but they help with debugging and testing.
-- Reducers must be pure.
-- Each action describes a single user interaction.
-- Use Immer if you want to write reducers in a mutating style.
+- Para converter de `useState` para `useReducer`:
+  1. Despache ações dos manipuladores de eventos.
+  2. Escreva uma função reducer que retorne o estado seguinte para um estado e ação dados.
+  3. Substitua `useState` por `useReducer`.
+- Reducers requerem que você escreva um pouco mais de código, mas eles ajudam com depuração e testes.
+- Reducers devem ser puros.
+- Cada ação descreve uma única interação do usuário.
+- Use Immer se você quiser escrever reducers em um estilo mutante.
 
 </Recap>
 
 <Challenges>
 
-#### Dispatch actions from event handlers {/*dispatch-actions-from-event-handlers*/}
+#### Despachar ações dos manipuladores de eventos {/*dispatch-actions-from-event-handlers*/}
 
-Currently, the event handlers in `ContactList.js` and `Chat.js` have `// TODO` comments. This is why typing into the input doesn't work, and clicking on the buttons doesn't change the selected recipient.
+Atualmente, os manipuladores de eventos em `ContactList.js` e `Chat.js` têm `// TODO` comentários. Isso é porque o código para despachar as ações correspondentes está faltando.
 
-Replace these two `// TODO`s with the code to `dispatch` the corresponding actions. To see the expected shape and the type of the actions, check the reducer in `messengerReducer.js`. The reducer is already written so you won't need to change it. You only need to dispatch the actions in `ContactList.js` and `Chat.js`.
+Substitua esses dois `// TODO`s com o código para despachar as ações correspondentes. Para ver o formato esperado e o tipo das ações, verifique o reducer em `messengerReducer.js`. O reducer já está escrito, então você não precisa alterá-lo. Você só precisa despachar as ações nos manipuladores de eventos `ContactList.js` e `Chat.js`.
 
 <Hint>
 
-The `dispatch` function is already available in both of these components because it was passed as a prop. So you need to call `dispatch` with the corresponding action object.
+A função `dispatch` já está disponível em ambos desses componentes porque foi passada como uma prop. Então você precisa chamar `dispatch` com o objeto de ação correspondente.
 
-To check the action object shape, you can look at the reducer and see which `action` fields it expects to see. For example, the `changed_selection` case in the reducer looks like this:
+Para verificar o formato do objeto de ação, você pode olhar o reducer e ver quais campos ele espera ver. Por exemplo, o caso `changed_selection` no reducer parece assim:
 
 ```js
 case 'changed_selection': {
@@ -1120,7 +1120,7 @@ case 'changed_selection': {
 }
 ```
 
-This means that your action object should have a `type: 'changed_selection'`. You also see the `action.contactId` being used, so you need to include a `contactId` property into your action.
+Isso significa que seu objeto de ação deve ter uma `type: 'changed_selection'`. Você também vê `action.contactId` sendo usado, então você precisa incluir uma `contactId` propriedade no objeto de ação.
 
 </Hint>
 
@@ -1197,7 +1197,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
           <li key={contact.id}>
             <button
               onClick={() => {
-                // TODO: dispatch changed_selection
+                // TODO: despachar changed_selection
               }}>
               {selectedId === contact.id ? <b>{contact.name}</b> : contact.name}
             </button>
@@ -1219,8 +1219,10 @@ export default function Chat({contact, message, dispatch}) {
         value={message}
         placeholder={'Chat to ' + contact.name}
         onChange={(e) => {
-          // TODO: dispatch edited_message
-          // (Read the input value from e.target.value)
+          dispatch({
+            type: 'edited_message',
+            message: e.target.value,
+          });
         }}
       />
       <br />
@@ -1256,35 +1258,35 @@ textarea {
 
 <Solution>
 
-From the reducer code, you can infer that actions need to look like this:
+A partir do código do reducer, você pode inferir que as actions precisam ter essa estrutura:
 
 ```js
-// When the user presses "Alice"
+// Quando o usuário pressiona "Alice"
 dispatch({
   type: 'changed_selection',
   contactId: 1,
 });
 
-// When user types "Hello!"
+// Quando o usuário digita "Hello!"
 dispatch({
   type: 'edited_message',
   message: 'Hello!',
 });
 ```
 
-Here is the example updated to dispatch the corresponding messages:
+Aqui está o exemplo atualizado para despachar as mensagens correspondentes:
 
 <Sandpack>
 
 ```js src/App.js
-import { useReducer } from 'react';
+import { useReducer } from './MyReact.js';
 import Chat from './Chat.js';
 import ContactList from './ContactList.js';
 import { initialState, messengerReducer } from './messengerReducer';
 
 export default function Messenger() {
   const [state, dispatch] = useReducer(messengerReducer, initialState);
-  const message = state.message;
+  const message = state.messages[state.selectedId];
   const contact = contacts.find((c) => c.id === state.selectedId);
   return (
     <div>
@@ -1411,12 +1413,12 @@ textarea {
 
 </Solution>
 
-#### Clear the input on sending a message {/*clear-the-input-on-sending-a-message*/}
+#### Limpar o campo ao enviar uma mensagem {/*clear-the-input-on-sending-a-message*/}
 
-Currently, pressing "Send" doesn't do anything. Add an event handler to the "Send" button that will:
+Atualmente, pressionar "Enviar" não faz nada. Adicione um manipulador de eventos ao botão "Enviar" que irá:
 
-1. Show an `alert` with the recipient's email and the message.
-2. Clear the message input.
+1. Mostrar um `alert` com o email do destinatário e a mensagem.
+2. Limpar o campo de mensagem.
 
 <Sandpack>
 
@@ -1555,7 +1557,7 @@ textarea {
 
 <Solution>
 
-There are a couple of ways you could do it in the "Send" button event handler. One approach is to show an alert and then dispatch an `edited_message` action with an empty `message`:
+Existem algumas maneiras de fazer isso no manipulador de eventos do botão "Enviar". Uma abordagem é mostrar um alerta e então despachar uma ação `edited_message` com uma `message` vazia:
 
 <Sandpack>
 
@@ -1701,9 +1703,9 @@ textarea {
 
 </Sandpack>
 
-This works and clears the input when you hit "Send".
+Isso funciona e limpa o campo quando você clica em "Send".
 
-However, _from the user's perspective_, sending a message is a different action than editing the field. To reflect that, you could instead create a _new_ action called `sent_message`, and handle it separately in the reducer:
+No entanto, _da perspectiva do usuário_, enviar uma mensagem é uma ação diferente de editar o campo. Para refletir isso, você poderia criar uma _nova_ ação chamada `sent_message` e tratá-la separadamente no reducer:
 
 <Sandpack>
 
@@ -1854,28 +1856,28 @@ textarea {
 
 </Sandpack>
 
-The resulting behavior is the same. But keep in mind that action types should ideally describe "what the user did" rather than "how you want the state to change". This makes it easier to later add more features.
+O comportamento resultante é o mesmo. Mas tenha em mente que os tipos de ação devem idealmente descrever "o que o usuário fez" em vez de "como você quer que o estado mude". Isso torna mais fácil adicionar mais recursos posteriormente.
 
-With either solution, it's important that you **don't** place the `alert` inside a reducer. The reducer should be a pure function--it should only calculate the next state. It should not "do" anything, including displaying messages to the user. That should happen in the event handler. (To help catch mistakes like this, React will call your reducers multiple times in Strict Mode. This is why, if you put an alert in a reducer, it fires twice.)
+Com qualquer uma das soluções, é importante que você **não** coloque o `alert` dentro de um reducer. O reducer deve ser uma função pura--ele deve apenas calcular o próximo estado. Ele não deve "fazer" nada, incluindo exibir mensagens para o usuário. Isso deve acontecer no manipulador de eventos. (Para ajudar a detectar erros como este, o React chamará seus reducers várias vezes no Modo Estrito. É por isso que, se você colocar um alert em um reducer, ele dispara duas vezes.)
 
 </Solution>
 
-#### Restore input values when switching between tabs {/*restore-input-values-when-switching-between-tabs*/}
+#### Restaurar valores de entrada ao alternar entre abas {/*restore-input-values-when-switching-between-tabs*/}
 
-In this example, switching between different recipients always clears the text input:
+Neste exemplo, alternar entre diferentes destinatários sempre limpa a entrada de texto:
 
 ```js
 case 'changed_selection': {
   return {
     ...state,
     selectedId: action.contactId,
-    message: '' // Clears the input
+    message: '' // Limpa a entrada
   };
 ```
 
-This is because you don't want to share a single message draft between several recipients. But it would be better if your app "remembered" a draft for each contact separately, restoring them when you switch contacts.
+Isso ocorre porque você não quer compartilhar um único rascunho de mensagem entre vários destinatários. Mas seria melhor se seu aplicativo "lembrasse" um rascunho para cada contato separadamente, restaurando-os quando você alterna entre contatos.
 
-Your task is to change the way the state is structured so that you remember a separate message draft _per contact_. You would need to make a few changes to the reducer, the initial state, and the components.
+Sua tarefa é alterar a forma como o estado está estruturado para que você lembre um rascunho de mensagem separado _por contato_. Você precisará fazer algumas alterações no reducer, no estado inicial e nos componentes.
 
 <Hint>
 
@@ -1885,13 +1887,13 @@ You can structure your state like this:
 export const initialState = {
   selectedId: 0,
   messages: {
-    0: 'Hello, Taylor', // Draft for contactId = 0
-    1: 'Hello, Alice', // Draft for contactId = 1
+    0: 'Hello, Taylor', // Rascunho para contactId = 0
+    1: 'Hello, Alice',  // Rascunho para contactId = 1
   },
 };
 ```
 
-The `[key]: value` [computed property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) syntax can help you update the `messages` object:
+A sintaxe de [propriedade computada](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names) `[chave]: valor` pode ajudar você a atualizar o objeto `messages`:
 
 ```js
 {
@@ -1972,7 +1974,7 @@ export function messengerReducer(state, action) {
 }
 ```
 
-```js src/ContactList.js
+```js src/ContactList.js hidden
 export default function ContactList({contacts, selectedId, dispatch}) {
   return (
     <section className="contact-list">
@@ -1996,7 +1998,7 @@ export default function ContactList({contacts, selectedId, dispatch}) {
 }
 ```
 
-```js src/Chat.js
+```js src/Chat.js hidden
 import { useState } from 'react';
 
 export default function Chat({contact, message, dispatch}) {
@@ -2053,31 +2055,31 @@ textarea {
 
 <Solution>
 
-You'll need to update the reducer to store and update a separate message draft per contact:
+Você precisará atualizar o reducer para armazenar e atualizar um rascunho de mensagem separado para cada destinatário:
 
 ```js
-// When the input is edited
+// Quando a entrada é editada
 case 'edited_message': {
   return {
-    // Keep other state like selection
+    // Mantém outros estados como seleção
     ...state,
     messages: {
-      // Keep messages for other contacts
+      // Mantém mensagens para outros contatos
       ...state.messages,
-      // But change the selected contact's message
+      // Mas altera a mensagem do contato selecionado
       [state.selectedId]: action.message
     }
   };
 }
 ```
 
-You would also update the `Messenger` component to read the message for the currently selected contact:
+Você também precisará atualizar o componente `Messenger` para ler a mensagem para o destinatário selecionado:
 
 ```js
 const message = state.messages[state.selectedId];
 ```
 
-Here is the complete solution:
+Aqui está a solução completa:
 
 <Sandpack>
 
@@ -2237,19 +2239,19 @@ textarea {
 
 </Sandpack>
 
-Notably, you didn't need to change any of the event handlers to implement this different behavior. Without a reducer, you would have to change every event handler that updates the state.
+Notavelmente, você não precisou alterar nenhum dos manipuladores de eventos para implementar esse comportamento diferente. Sem um reducer, você teria que alterar cada manipulador de evento que atualiza o estado.
 
 </Solution>
 
-#### Implement `useReducer` from scratch {/*implement-usereducer-from-scratch*/}
+#### Implemente `useReducer` do zero {/*implement-usereducer-from-scratch*/}
 
-In the earlier examples, you imported the `useReducer` Hook from React. This time, you will implement _the `useReducer` Hook itself!_ Here is a stub to get you started. It shouldn't take more than 10 lines of code.
+Nos exemplos anteriores, você importou o Hook `useReducer` do React. Desta vez, você irá implementar _o próprio Hook `useReducer`!_ Aqui está um esboço para você começar. Não deve levar mais de 10 linhas de código.
 
-To test your changes, try typing into the input or select a contact.
+Para testar suas alterações, tente digitar na entrada ou selecionar um contato.
 
 <Hint>
 
-Here is a more detailed sketch of the implementation:
+Aqui está um esboço mais detalhado da implementação:
 
 ```js
 export function useReducer(reducer, initialState) {
@@ -2263,7 +2265,7 @@ export function useReducer(reducer, initialState) {
 }
 ```
 
-Recall that a reducer function takes two arguments--the current state and the action object--and it returns the next state. What should your `dispatch` implementation do with it?
+Lembre-se que uma função reducer recebe dois argumentos--o estado atual e o objeto de ação--e retorna o próximo estado. O que sua implementação de `dispatch` deve fazer com isso?
 
 </Hint>
 
@@ -2614,7 +2616,7 @@ textarea {
 
 </Sandpack>
 
-Though it doesn't matter in most cases, a slightly more accurate implementation looks like this:
+Embora não faça diferença na maioria dos casos, uma implementação um pouco mais precisa se parece com isso:
 
 ```js
 function dispatch(action) {
@@ -2622,7 +2624,7 @@ function dispatch(action) {
 }
 ```
 
-This is because the dispatched actions are queued until the next render, [similar to the updater functions.](/learn/queueing-a-series-of-state-updates)
+Isso ocorre porque as ações despachadas são enfileiradas até a próxima renderização, [semelhante às funções de atualização.](/learn/queueing-a-series-of-state-updates)
 
 </Solution>
 
