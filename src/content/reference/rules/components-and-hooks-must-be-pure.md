@@ -192,11 +192,19 @@ Os efeitos colaterais que são diretamente visíveis para o utilizador não são
 
 ```js {2}
 function ProductDetailPage({ product }) {
+<<<<<<< HEAD
   document.window.title = product.title; // 🔴 Mau: Altera o DOM
 }
 ```
 
 Uma maneira de alcançar o resultado desejado de atualizar `window.title` fora da renderização é [sincronizar o componente com `window`](/learn/synchronizing-with-effects).
+=======
+  document.title = product.title; // 🔴 Bad: Changes the DOM
+}
+```
+
+One way to achieve the desired result of updating `document.title` outside of render is to [synchronize the component with `document`](/learn/synchronizing-with-effects).
+>>>>>>> 9000e6e003854846c4ce5027703b5ce6f81aad80
 
 Desde que chamar um componente várias vezes seja seguro e não afete a renderização de outros componentes, o React não se importa se é 100% puro no sentido estrito de programação funcional da palavra. É mais importante que [componentes devem ser idempotentes](/reference/rules/components-and-hooks-must-be-pure).
 
