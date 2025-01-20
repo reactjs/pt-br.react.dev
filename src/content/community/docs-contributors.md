@@ -39,4 +39,4 @@ A documentação do React é escrita e mantida pela [equipe do React](/community
 * [Harish Kumar](https://www.strek.in/): desenvolvimento e manutenção
 * [Luna Ruan](https://twitter.com/lunaruan): melhorias no sandbox
 
-Gostaríamos também de agradecer a inúmeros testadores alpha e membros da comunidade que nos forneceram feedback ao longo do caminho.
+Gostaríamos também de agradecer a inúmeras pessoas que testaram em alfa e membros da comunidade que nos deram feedback ao longo do caminho.
