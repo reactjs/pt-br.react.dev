@@ -1081,12 +1081,81 @@ Há um pequeno problema com essa interface do usuário. Você pode notar que, se
 
 <Hint>
 
-Parece que o Efeito que configura o timer "reage" ao valor de `increment`. A linha que usa o valor atual de `increment` para chamar `setCount` realmente precisa ser reativa?
+Parece que o Efeito que configura o timer "reage" ao valor de `increment`. A linha que usa o valor atual de `increment` para chamar `setCount` realmente precisa ser reativado?
 
 </Hint>
 
 <Sandpack>
 
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "experimental",
+    "react-dom": "experimental",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+
+```js
+import { useState, useEffect } from 'react';
+import { experimental_useEffectEvent as useEffectEvent } from 'react';
+
+export default function Timer() {
+  const [count, setCount] = useState(0);
+  const [increment, setIncrement] = useState(1);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(c => c + increment);
+    }, 1000);
+    return () => {
+      clearInterval(id);
+    };
+  }, [increment]);
+
+  return (
+    <>
+      <h1>
+        Counter: {count}
+        <button onClick={() => setCount(0)}>Reset</button>
+      </h1>
+      <hr />
+      <p>
+        Every second, increment by:
+        <button disabled={increment === 0} onClick={() => {
+          setIncrement(i => i - 1);
+        }}>–</button>
+        <b>{increment}</b>
+        <button onClick={() => {
+          setIncrement(i => i + 1);
+        }}>+</button>
+      </p>
+    </>
+  );
+}
+```
+
+```css
+button { margin: 10px; }
+```
+
+</Sandpack>
+
+<Solution>
+  
+The issue is that the code inside the Effect uses the `increment` state variable. Since it's a dependency of your Effect, every change to `increment` causes the Effect to re-synchronize, which causes the interval to clear. If you keep clearing the interval every time before it has a chance to fire, it will appear as if the timer has stalled.
+
+To solve the issue, extract an `onTick` Effect Event from the Effect:
+
+<Sandpack>
+  
 ```json package.json hidden
 {
   "dependencies": {
@@ -1127,12 +1196,12 @@ export default function Timer() {
   return (
     <>
       <h1>
-        Contador: {count}
-        <button onClick={() => setCount(0)}>Reiniciar</button>
+        Counter: {count}
+        <button onClick={() => setCount(0)}>Reset</button>
       </h1>
       <hr />
       <p>
-        A cada segundo, incrementar em:
+        Every second, increment by:
         <button disabled={increment === 0} onClick={() => {
           setIncrement(i => i - 1);
         }}>–</button>
@@ -1140,6 +1209,98 @@ export default function Timer() {
         <button onClick={() => {
           setIncrement(i => i + 1);
         }}>+</button>
+      </p>
+    </>
+  );
+}
+```
+
+```css
+button { margin: 10px; }
+```
+
+</Sandpack>
+Since `onTick` is an Effect Event, the code inside it isn't reactive. The change to `increment` does not trigger any Effects.
+
+</Solution>
+
+#### Fix a non-adjustable delay {/*fix-a-non-adjustable-delay*/}
+
+In this example, you can customize the interval delay. It's stored in a `delay` state variable which is updated by two buttons. However, even if you press the "plus 100 ms" button until the `delay` is 1000 milliseconds (that is, a second), you'll notice that the timer still increments very fast (every 100 ms). It's as if your changes to the `delay` are ignored. Find and fix the bug.
+
+<Hint>
+Code inside Effect Events is not reactive. Are there cases in which you would _want_ the `setInterval` call to re-run?
+</Hint>
+
+<Sandpack>
+
+```json package.json hidden
+{
+  "dependencies": {
+    "react": "experimental",
+    "react-dom": "experimental",
+    "react-scripts": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+```
+  
+```js
+import { useState, useEffect } from 'react';
+import { experimental_useEffectEvent as useEffectEvent } from 'react';
+
+export default function Timer() {
+  const [count, setCount] = useState(0);
+  const [increment, setIncrement] = useState(1);
+  const [delay, setDelay] = useState(100);
+
+  const onTick = useEffectEvent(() => {
+    setCount(c => c + increment);
+  });
+
+  const onMount = useEffectEvent(() => {
+    return setInterval(() => {
+      onTick();
+    }, delay);
+  });
+
+  useEffect(() => {
+    const id = onMount();
+    return () => {
+      clearInterval(id);
+    }
+  }, []);
+
+  return (
+    <>
+      <h1>
+        Counter: {count}
+        <button onClick={() => setCount(0)}>Reset</button>
+      </h1>
+      <hr />
+      <p>
+        Increment by:
+        <button disabled={increment === 0} onClick={() => {
+          setIncrement(i => i - 1);
+        }}>–</button>
+	@@ -1298,22 +1141,11 @@ export default function Timer() {
+          setIncrement(i => i + 1);
+        }}>+</button>
+      </p>
+      <p>
+        Increment delay:
+        <button disabled={delay === 100} onClick={() => {
+          setDelay(d => d - 100);
+        }}>–100 ms</button>
+        <b>{delay} ms</b>
+        <button onClick={() => {
+          setDelay(d => d + 100);
+        }}>+100 ms</button>
       </p>
     </>
   );
