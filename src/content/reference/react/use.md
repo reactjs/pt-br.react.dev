@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-The `use` API is currently only available in React's Canary and experimental channels. Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
+A API `use` está atualmente disponível apenas nos canais Canary e experimentais do React. Aprenda mais sobre [os canais de versão do React aqui](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
 <Intro>
 
-`use` is a React API that lets you read the value of a resource like a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [context](/learn/passing-data-deeply-with-context).
+`use` é uma API do React que permite ler o valor de um recurso como uma [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) ou [contexto](/learn/passing-data-deeply-with-context).
 
 ```js
 const value = use(resource);
@@ -23,11 +23,11 @@ const value = use(resource);
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `use(resource)` {/*use*/}
 
-Call `use` in your component to read the value of a resource like a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [context](/learn/passing-data-deeply-with-context).
+Chame `use` em seu componente para ler o valor de um recurso como uma [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) ou [contexto](/learn/passing-data-deeply-with-context).
 
 ```jsx
 import { use } from 'react';
@@ -38,33 +38,33 @@ function MessageComponent({ messagePromise }) {
   // ...
 ```
 
-Unlike React Hooks, `use` can be called within loops and conditional statements like `if`. Like React Hooks, the function that calls `use` must be a Component or Hook.
+Diferente dos Hooks do React, `use` pode ser chamado dentro de loops e declarações condicionais como `if`. Assim como os Hooks do React, a função que chama `use` deve ser um Componente ou Hook.
 
-When called with a Promise, the `use` API integrates with [`Suspense`](/reference/react/Suspense) and [error boundaries](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). The component calling `use` *suspends* while the Promise passed to `use` is pending. If the component that calls `use` is wrapped in a Suspense boundary, the fallback will be displayed.  Once the Promise is resolved, the Suspense fallback is replaced by the rendered components using the data returned by the `use` API. If the Promise passed to `use` is rejected, the fallback of the nearest Error Boundary will be displayed.
+Quando chamado com uma Promise, a API `use` se integra com [`Suspense`](/reference/react/Suspense) e [limites de erro](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). O componente que chama `use` *suspende* enquanto a Promise passada para `use` está pendente. Se o componente que chama `use` está envolto em um limite de Suspense, o fallback será exibido. Uma vez que a Promise é resolvida, o fallback do Suspense é substituído pelos componentes renderizados usando os dados retornados pela API `use`. Se a Promise passada para `use` for rejeitada, o fallback do limite de erro mais próximo será exibido.
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `resource`: this is the source of the data you want to read a value from. A resource can be a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or a [context](/learn/passing-data-deeply-with-context).
+* `resource`: esta é a fonte dos dados de onde você deseja ler um valor. Um recurso pode ser uma [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) ou um [contexto](/learn/passing-data-deeply-with-context).
 
-#### Returns {/*returns*/}
+#### Retornos {/*returns*/}
 
-The `use` API returns the value that was read from the resource like the resolved value of a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [context](/learn/passing-data-deeply-with-context).
+A API `use` retorna o valor que foi lido do recurso como o valor resolvido de uma [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) ou [contexto](/learn/passing-data-deeply-with-context).
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* The `use` API must be called inside a Component or a Hook.
-* When fetching data in a [Server Component](/reference/rsc/use-server), prefer `async` and `await` over `use`. `async` and `await` pick up rendering from the point where `await` was invoked, whereas `use` re-renders the component after the data is resolved.
-* Prefer creating Promises in [Server Components](/reference/rsc/use-server) and passing them to [Client Components](/reference/rsc/use-client) over creating Promises in Client Components. Promises created in Client Components are recreated on every render. Promises passed from a Server Component to a Client Component are stable across re-renders. [See this example](#streaming-data-from-server-to-client).
+* A API `use` deve ser chamada dentro de um Componente ou Hook.
+* Ao buscar dados em um [Componente do Servidor](/reference/rsc/use-server), prefira `async` e `await` ao invés de `use`. `async` e `await` retomam a renderização do ponto em que `await` foi invocado, enquanto `use` re-renderiza o componente após os dados serem resolvidos.
+* Prefira criar Promises em [Componentes do Servidor](/reference/rsc/use-server) e passá-las para [Componentes do Cliente](/reference/rsc/use-client) ao invés de criar Promises em Componentes do Cliente. Promises criadas em Componentes do Cliente são recriadas a cada renderização. Promises passadas de um Componente do Servidor para um Componente do Cliente são estáveis entre re-renderizações. [Veja este exemplo](#streaming-data-from-server-to-client).
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Reading context with `use` {/*reading-context-with-use*/}
+### Lendo contexto com `use` {/*reading-context-with-use*/}
 
-When a [context](/learn/passing-data-deeply-with-context) is passed to `use`, it works similarly to [`useContext`](/reference/react/useContext). While `useContext` must be called at the top level of your component, `use` can be called inside conditionals like `if` and loops like `for`. `use` is preferred over `useContext` because it is more flexible.
+Quando um [contexto](/learn/passing-data-deeply-with-context) é passado para `use`, ele funciona de maneira semelhante ao [`useContext`](/reference/react/useContext). Enquanto `useContext` deve ser chamado no nível superior do seu componente, `use` pode ser chamado dentro de condicionais como `if` e loops como `for`. `use` é preferido em relação a `useContext` porque é mais flexível.
 
 ```js [[2, 4, "theme"], [1, 4, "ThemeContext"]]
 import { use } from 'react';
@@ -74,9 +74,9 @@ function Button() {
   // ... 
 ```
 
-`use` returns the <CodeStep step={2}>context value</CodeStep> for the <CodeStep step={1}>context</CodeStep> you passed. To determine the context value, React searches the component tree and finds **the closest context provider above** for that particular context.
+`use` retorna o <CodeStep step={2}>valor do contexto</CodeStep> para o <CodeStep step={1}>contexto</CodeStep> que você passou. Para determinar o valor do contexto, o React busca na árvore de componentes e encontra **o provedor de contexto mais próximo acima** para aquele contexto específico.
 
-To pass context to a `Button`, wrap it or one of its parent components into the corresponding context provider.
+Para passar contexto para um `Button`, envolva-o ou um de seus componentes pai no provedor de contexto correspondente.
 
 ```js [[1, 3, "ThemeContext"], [2, 3, "\\"dark\\""], [1, 5, "ThemeContext"]]
 function MyPage() {
@@ -88,13 +88,13 @@ function MyPage() {
 }
 
 function Form() {
-  // ... renders buttons inside ...
+  // ... renderiza botões dentro ...
 }
 ```
 
-It doesn't matter how many layers of components there are between the provider and the `Button`. When a `Button` *anywhere* inside of `Form` calls `use(ThemeContext)`, it will receive `"dark"` as the value.
+Não importa quantas camadas de componentes existam entre o provedor e o `Button`. Quando um `Button` *em qualquer lugar* dentro de `Form` chama `use(ThemeContext)`, ele receberá `"dark"` como o valor.
 
-Unlike [`useContext`](/reference/react/useContext), <CodeStep step={2}>`use`</CodeStep> can be called in conditionals and loops like <CodeStep step={1}>`if`</CodeStep>.
+Diferente do [`useContext`](/reference/react/useContext), <CodeStep step={2}>`use`</CodeStep> pode ser chamado em condicionais e loops como <CodeStep step={1}>`if`</CodeStep>.
 
 ```js [[1, 2, "if"], [2, 3, "use"]]
 function HorizontalRule({ show }) {
@@ -106,11 +106,11 @@ function HorizontalRule({ show }) {
 }
 ```
 
-<CodeStep step={2}>`use`</CodeStep> is called from inside a <CodeStep step={1}>`if`</CodeStep> statement, allowing you to conditionally read values from a Context.
+<CodeStep step={2}>`use`</CodeStep> é chamado de dentro de uma <CodeStep step={1}>`if`</CodeStep> statement, permitindo que você leia condicionalmente valores de um Contexto.
 
 <Pitfall>
 
-Like `useContext`, `use(context)` always looks for the closest context provider *above* the component that calls it. It searches upwards and **does not** consider context providers in the component from which you're calling `use(context)`.
+Assim como o `useContext`, `use(context)` sempre procura o provedor de contexto mais próximo *acima* do componente que o chama. Ele busca para cima e **não** considera provedores de contexto no componente de onde você está chamando `use(context)`.
 
 </Pitfall>
 
@@ -212,9 +212,9 @@ function Button({ show, children }) {
 
 </Sandpack>
 
-### Streaming data from the server to the client {/*streaming-data-from-server-to-client*/}
+### Transmitindo dados do servidor para o cliente {/*streaming-data-from-server-to-client*/}
 
-Data can be streamed from the server to the client by passing a Promise as a prop from a <CodeStep step={1}>Server Component</CodeStep> to a <CodeStep step={2}>Client Component</CodeStep>.
+Os dados podem ser transmitidos do servidor para o cliente passando uma Promise como uma prop de um <CodeStep step={1}>Componente do Servidor</CodeStep> para um <CodeStep step={2}>Componente do Cliente</CodeStep>.
 
 ```js [[1, 4, "App"], [2, 2, "Message"], [3, 7, "Suspense"], [4, 8, "messagePromise", 30], [4, 5, "messagePromise"]]
 import { fetchMessage } from './lib.js';
@@ -223,14 +223,14 @@ import { Message } from './message.js';
 export default function App() {
   const messagePromise = fetchMessage();
   return (
-    <Suspense fallback={<p>waiting for message...</p>}>
+    <Suspense fallback={<p>esperando pela mensagem...</p>}>
       <Message messagePromise={messagePromise} />
     </Suspense>
   );
 }
 ```
 
-The <CodeStep step={2}>Client Component</CodeStep> then takes <CodeStep step={4}>the Promise it received as a prop</CodeStep> and passes it to the <CodeStep step={5}>`use`</CodeStep> API. This allows the <CodeStep step={2}>Client Component</CodeStep> to read the value from <CodeStep step={4}>the Promise</CodeStep> that was initially created by the Server Component.
+O <CodeStep step={2}>Componente do Cliente</CodeStep> então pega <CodeStep step={4}>a Promise que recebeu como uma prop</CodeStep> e a passa para a API <CodeStep step={5}>`use`</CodeStep>. Isso permite que o <CodeStep step={2}>Componente do Cliente</CodeStep> leia o valor da <CodeStep step={4}>Promise</CodeStep> que foi inicialmente criada pelo Componente do Servidor.
 
 ```js [[2, 6, "Message"], [4, 6, "messagePromise"], [4, 7, "messagePromise"], [5, 7, "use"]]
 // message.js
@@ -240,10 +240,10 @@ import { use } from 'react';
 
 export function Message({ messagePromise }) {
   const messageContent = use(messagePromise);
-  return <p>Here is the message: {messageContent}</p>;
+  return <p>Aqui está a mensagem: {messageContent}</p>;
 }
 ```
-Because <CodeStep step={2}>`Message`</CodeStep> is wrapped in <CodeStep step={3}>[`Suspense`](/reference/react/Suspense)</CodeStep>, the fallback will be displayed until the Promise is resolved. When the Promise is resolved, the value will be read by the <CodeStep step={5}>`use`</CodeStep> API and the <CodeStep step={2}>`Message`</CodeStep> component will replace the Suspense fallback.
+Porque <CodeStep step={2}>`Message`</CodeStep> está envolto em <CodeStep step={3}>[`Suspense`](/reference/react/Suspense)</CodeStep>, o fallback será exibido até que a Promise seja resolvida. Quando a Promise é resolvida, o valor será lido pela API <CodeStep step={5}>`use`</CodeStep> e o componente <CodeStep step={2}>`Message`</CodeStep> substituirá o fallback do Suspense.
 
 <Sandpack>
 
@@ -254,12 +254,12 @@ import { use, Suspense } from "react";
 
 function Message({ messagePromise }) {
   const messageContent = use(messagePromise);
-  return <p>Here is the message: {messageContent}</p>;
+  return <p>Aqui está a mensagem: {messageContent}</p>;
 }
 
 export function MessageContainer({ messagePromise }) {
   return (
-    <Suspense fallback={<p>⌛Downloading message...</p>}>
+    <Suspense fallback={<p>⌛Baixando mensagem...</p>}>
       <Message messagePromise={messagePromise} />
     </Suspense>
   );
@@ -285,22 +285,22 @@ export default function App() {
   if (show) {
     return <MessageContainer messagePromise={messagePromise} />;
   } else {
-    return <button onClick={download}>Download message</button>;
+    return <button onClick={download}>Baixar mensagem</button>;
   }
 }
 ```
 
 ```js src/index.js hidden
-// TODO: update to import from stable
-// react instead of canary once the `use`
-// API is in a stable release of React
+// TODO: atualizar para importar de estável
+// react em vez de canary uma vez que a API `use`
+// esteja em uma versão estável do React
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
-// TODO: update this example to use
-// the Codesandbox Server Component
-// demo environment once it is created
+// TODO: atualizar este exemplo para usar
+// o ambiente de demonstração do Componente do Servidor
+// do Codesandbox uma vez que seja criado
 import App from './App';
 
 const root = createRoot(document.getElementById('root'));
@@ -323,18 +323,18 @@ root.render(
 ```
 </Sandpack>
 
-<Note>
+<Nota>
 
-When passing a Promise from a Server Component to a Client Component, its resolved value must be serializable to pass between server and client. Data types like functions aren't serializable and cannot be the resolved value of such a Promise.
+Ao passar uma Promise de um Componente do Servidor para um Componente do Cliente, seu valor resolvido deve ser serializável para passar entre servidor e cliente. Tipos de dados como funções não são serializáveis e não podem ser o valor resolvido de tal Promise.
 
-</Note>
+</Nota>
 
 
-<DeepDive>
+<Aprofundamento>
 
-#### Should I resolve a Promise in a Server or Client Component? {/*resolve-promise-in-server-or-client-component*/}
+#### Devo resolver uma Promise em um Componente do Servidor ou do Cliente? {/*resolve-promise-in-server-or-client-component*/}
 
-A Promise can be passed from a Server Component to a Client Component and resolved in the Client Component with the `use` API. You can also resolve the Promise in a Server Component with `await` and pass the required data to the Client Component as a prop.
+Uma Promise pode ser passada de um Componente do Servidor para um Componente do Cliente e resolvida no Componente do Cliente com a API `use`. Você também pode resolver a Promise em um Componente do Servidor com `await` e passar os dados necessários para o Componente do Cliente como uma prop.
 
 ```js
 export default async function App() {
@@ -343,24 +343,24 @@ export default async function App() {
 }
 ```
 
-But using `await` in a [Server Component](/reference/react/components#server-components) will block its rendering until the `await` statement is finished. Passing a Promise from a Server Component to a Client Component prevents the Promise from blocking the rendering of the Server Component.
+Mas usar `await` em um [Componente do Servidor](/reference/react/components#server-components) bloqueará sua renderização até que a instrução `await` seja concluída. Passar uma Promise de um Componente do Servidor para um Componente do Cliente impede que a Promise bloqueie a renderização do Componente do Servidor.
 
-</DeepDive>
+</Aprofundamento>
 
-### Dealing with rejected Promises {/*dealing-with-rejected-promises*/}
+### Lidando com Promises rejeitadas {/*dealing-with-rejected-promises*/}
 
-In some cases a Promise passed to `use` could be rejected. You can handle rejected Promises by either:
+Em alguns casos, uma Promise passada para `use` pode ser rejeitada. Você pode lidar com Promises rejeitadas de duas maneiras:
 
-1. [Displaying an error to users with an error boundary.](#displaying-an-error-to-users-with-error-boundary)
-2. [Providing an alternative value with `Promise.catch`](#providing-an-alternative-value-with-promise-catch)
+1. [Exibir um erro para os usuários com um limite de erro.](#displaying-an-error-to-users-with-error-boundary)
+2. [Fornecer um valor alternativo com `Promise.catch`](#providing-an-alternative-value-with-promise-catch)
 
 <Pitfall>
-`use` cannot be called in a try-catch block. Instead of a try-catch block [wrap your component in an Error Boundary](#displaying-an-error-to-users-with-error-boundary), or [provide an alternative value to use with the Promise's `.catch` method](#providing-an-alternative-value-with-promise-catch).
+`use` não pode ser chamado em um bloco try-catch. Em vez de um bloco try-catch [envolva seu componente em um Limite de Erro](#displaying-an-error-to-users-with-error-boundary), ou [forneça um valor alternativo para usar com o método `.catch` da Promise](#providing-an-alternative-value-with-promise-catch).
 </Pitfall>
 
-#### Displaying an error to users with an error boundary {/*displaying-an-error-to-users-with-error-boundary*/}
+#### Exibindo um erro para os usuários com um limite de erro {/*displaying-an-error-to-users-with-error-boundary*/}
 
-If you'd like to display an error to your users when a Promise is rejected, you can use an [error boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). To use an error boundary, wrap the component where you are calling the `use` API in an error boundary. If the Promise passed to `use` is rejected the fallback for the error boundary will be displayed.
+Se você deseja exibir um erro para seus usuários quando uma Promise é rejeitada, você pode usar um [limite de erro](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar um limite de erro, envolva o componente onde você está chamando a API `use` em um limite de erro. Se a Promise passada para `use` for rejeitada, o fallback para o limite de erro será exibido.
 
 <Sandpack>
 
@@ -372,8 +372,8 @@ import { ErrorBoundary } from "react-error-boundary";
 
 export function MessageContainer({ messagePromise }) {
   return (
-    <ErrorBoundary fallback={<p>⚠️Something went wrong</p>}>
-      <Suspense fallback={<p>⌛Downloading message...</p>}>
+    <ErrorBoundary fallback={<p>⚠️ Algo deu errado</p>}>
+      <Suspense fallback={<p>⌛Baixando mensagem...</p>}>
         <Message messagePromise={messagePromise} />
       </Suspense>
     </ErrorBoundary>
@@ -382,7 +382,7 @@ export function MessageContainer({ messagePromise }) {
 
 function Message({ messagePromise }) {
   const content = use(messagePromise);
-  return <p>Here is the message: {content}</p>;
+  return <p>Aqui está a mensagem: {content}</p>;
 }
 ```
 
@@ -405,22 +405,22 @@ export default function App() {
   if (show) {
     return <MessageContainer messagePromise={messagePromise} />;
   } else {
-    return <button onClick={download}>Download message</button>;
+    return <button onClick={download}>Baixar mensagem</button>;
   }
 }
 ```
 
 ```js src/index.js hidden
-// TODO: update to import from stable
-// react instead of canary once the `use`
-// API is in a stable release of React
+// TODO: atualizar para importar de estável
+// react em vez de canary uma vez que a API `use`
+// esteja em uma versão estável do React
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
-// TODO: update this example to use
-// the Codesandbox Server Component
-// demo environment once it is created
+// TODO: atualizar este exemplo para usar
+// o ambiente de demonstração do Componente do Servidor
+// do Codesandbox uma vez que seja criado
 import App from './App';
 
 const root = createRoot(document.getElementById('root'));
@@ -444,9 +444,9 @@ root.render(
 ```
 </Sandpack>
 
-#### Providing an alternative value with `Promise.catch` {/*providing-an-alternative-value-with-promise-catch*/}
+#### Fornecendo um valor alternativo com `Promise.catch` {/*providing-an-alternative-value-with-promise-catch*/}
 
-If you'd like to provide an alternative value when the Promise passed to `use` is rejected you can use the Promise's <CodeStep step={1}>[`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)</CodeStep> method.
+Se você deseja fornecer um valor alternativo quando a Promise passada para `use` for rejeitada, você pode usar o método <CodeStep step={1}>[`catch`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)</CodeStep> da Promise.
 
 ```js [[1, 6, "catch"],[2, 7, "return"]]
 import { Message } from './message.js';
@@ -455,42 +455,42 @@ export default function App() {
   const messagePromise = new Promise((resolve, reject) => {
     reject();
   }).catch(() => {
-    return "no new message found.";
+    return "nenhuma nova mensagem encontrada.";
   });
 
   return (
-    <Suspense fallback={<p>waiting for message...</p>}>
+    <Suspense fallback={<p>esperando pela mensagem...</p>}>
       <Message messagePromise={messagePromise} />
     </Suspense>
   );
 }
 ```
 
-To use the Promise's <CodeStep step={1}>`catch`</CodeStep> method, call <CodeStep step={1}>`catch`</CodeStep> on the Promise object. <CodeStep step={1}>`catch`</CodeStep> takes a single argument: a function that takes an error message as an argument. Whatever is <CodeStep step={2}>returned</CodeStep> by the function passed to <CodeStep step={1}>`catch`</CodeStep> will be used as the resolved value of the Promise.
+Para usar o método <CodeStep step={1}>`catch`</CodeStep> da Promise, chame <CodeStep step={1}>`catch`</CodeStep> no objeto Promise. <CodeStep step={1}>`catch`</CodeStep> aceita um único argumento: uma função que recebe uma mensagem de erro como argumento. O que quer que seja <CodeStep step={2}>retornado</CodeStep> pela função passada para <CodeStep step={1}>`catch`</CodeStep> será usado como o valor resolvido da Promise.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### "Suspense Exception: This is not a real error!" {/*suspense-exception-error*/}
+### "Exceção de Suspense: Isto não é um erro real!" {/*suspense-exception-error*/}
 
-You are either calling `use` outside of a React Component or Hook function, or calling `use` in a try–catch block. If you are calling `use` inside a try–catch block, wrap your component in an error boundary, or call the Promise's `catch` to catch the error and resolve the Promise with another value. [See these examples](#dealing-with-rejected-promises).
+Você está chamando `use` fora de um Componente ou função Hook do React, ou chamando `use` em um bloco try–catch. Se você está chamando `use` dentro de um bloco try–catch, envolva seu componente em um limite de erro, ou chame o `catch` da Promise para capturar o erro e resolver a Promise com outro valor. [Veja estes exemplos](#dealing-with-rejected-promises).
 
-If you are calling `use` outside a React Component or Hook function, move the `use` call to a React Component or Hook function.
+Se você está chamando `use` fora de uma função de Componente ou Hook do React, mova a chamada `use` para um Componente ou função Hook do React.
 
 ```jsx
 function MessageComponent({messagePromise}) {
   function download() {
-    // ❌ the function calling `use` is not a Component or Hook
+    // ❌ a função chamando `use` não é um Componente ou Hook
     const message = use(messagePromise);
     // ...
 ```
 
-Instead, call `use` outside any component closures, where the function that calls `use` is a Component or Hook.
+Em vez disso, chame `use` fora de qualquer fechamento de componente, onde a função que chama `use` é um Componente ou Hook.
 
 ```jsx
 function MessageComponent({messagePromise}) {
-  // ✅ `use` is being called from a component. 
+  // ✅ `use` está sendo chamado de um componente. 
   const message = use(messagePromise);
   // ...
 ```
