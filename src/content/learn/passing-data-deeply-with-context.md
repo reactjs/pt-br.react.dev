@@ -1,36 +1,36 @@
 ---
-title: Passing Data Deeply with Context
+title: Passando Dados Profundamente com Contexto
 ---
 
 <Intro>
 
-Usually, you will pass information from a parent component to a child component via props. But passing props can become verbose and inconvenient if you have to pass them through many components in the middle, or if many components in your app need the same information. *Context* lets the parent component make some information available to any component in the tree below it—no matter how deep—without passing it explicitly through props.
+Normalmente, você passa informações de um componente pai para um componente filho via props. Mas passar props pode se tornar verboso e inconveniente se você precisar passá-las por muitos componentes intermediários ou se muitos componentes em seu aplicativo precisarem das mesmas informações. *Contexto* permite que o componente pai torne algumas informações disponíveis para qualquer componente na árvore abaixo dele—não importa quão profundo—sem passá-las explicitamente por props.
 
 </Intro>
 
 <YouWillLearn>
 
-- What "prop drilling" is
-- How to replace repetitive prop passing with context
-- Common use cases for context
-- Common alternatives to context
+- O que é "prop drilling"
+- Como substituir a passagem repetitiva de props por contexto
+- Casos de uso comuns para contexto
+- Alternativas comuns ao contexto
 
 </YouWillLearn>
 
-## The problem with passing props {/*the-problem-with-passing-props*/}
+## O problema com passar props {/*the-problem-with-passing-props*/}
 
-[Passing props](/learn/passing-props-to-a-component) is a great way to explicitly pipe data through your UI tree to the components that use it.
+[Passar props](/learn/passing-props-to-a-component) é uma ótima maneira de canalizar dados explicitamente através da sua árvore de UI para os componentes que os utilizam.
 
-But passing props can become verbose and inconvenient when you need to pass some prop deeply through the tree, or if many components need the same prop. The nearest common ancestor could be far removed from the components that need data, and [lifting state up](/learn/sharing-state-between-components) that high can lead to a situation called "prop drilling".
+Mas passar props pode se tornar verboso e inconveniente quando você precisa passar alguma prop profundamente pela árvore, ou se muitos componentes precisam da mesma prop. O ancestral comum mais próximo poderia estar longe dos componentes que precisam dos dados, e [elevar o estado](/learn/sharing-state-between-components) tão alto pode levar a uma situação chamada "prop drilling".
 
 <DiagramGroup>
 
-<Diagram name="passing_data_lifting_state" height={160} width={608} captionPosition="top" alt="Diagram with a tree of three components. The parent contains a bubble representing a value highlighted in purple. The value flows down to each of the two children, both highlighted in purple." >
+<Diagram name="passing_data_lifting_state" height={160} width={608} captionPosition="top" alt="Diagrama com uma árvore de três componentes. O pai contém uma bolha representando um valor destacado em roxo. O valor flui para cada um dos dois filhos, ambos destacados em roxo.">
 
-Lifting state up
+Elevando o estado
 
 </Diagram>
-<Diagram name="passing_data_prop_drilling" height={430} width={608} captionPosition="top" alt="Diagram with a tree of ten nodes, each node with two children or less. The root node contains a bubble representing a value highlighted in purple. The value flows down through the two children, each of which pass the value but do not contain it. The left child passes the value down to two children which are both highlighted purple. The right child of the root passes the value through to one of its two children - the right one, which is highlighted purple. That child passed the value through its single child, which passes it down to both of its two children, which are highlighted purple.">
+<Diagram name="passing_data_prop_drilling" height={430} width={608} captionPosition="top" alt="Diagrama com uma árvore de dez nós, cada nó com dois filhos ou menos. O nó raiz contém uma bolha representando um valor destacado em roxo. O valor flui através dos dois filhos, cada um dos quais passa o valor, mas não o contém. O filho da esquerda passa o valor para dois filhos que estão ambos destacados em roxo. O filho direito do nó raiz passa o valor através de um de seus dois filhos - o direito, que está destacado em roxo. Esse filho passou o valor através de seu único filho, que o passa para ambos os seus dois filhos, que estão destacados em roxo.">
 
 Prop drilling
 
@@ -38,11 +38,11 @@ Prop drilling
 
 </DiagramGroup>
 
-Wouldn't it be great if there were a way to "teleport" data to the components in the tree that need it without passing props? With React's context feature, there is!
+Não seria ótimo se houvesse uma maneira de "teletransportar" dados para os componentes na árvore que precisam dele sem passar props? Com o recurso de contexto do React, há!
 
-## Context: an alternative to passing props {/*context-an-alternative-to-passing-props*/}
+## Contexto: uma alternativa a passar props {/*context-an-alternative-to-passing-props*/}
 
-Context lets a parent component provide data to the entire tree below it. There are many uses for context. Here is one example. Consider this `Heading` component that accepts a `level` for its size:
+O contexto permite que um componente pai forneça dados para toda a árvore abaixo dele. Existem muitos usos para o contexto. Aqui está um exemplo. Considere este componente `Heading` que aceita um `level` para seu tamanho:
 
 <Sandpack>
 
@@ -53,12 +53,12 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading level={1}>Title</Heading>
-      <Heading level={2}>Heading</Heading>
-      <Heading level={3}>Sub-heading</Heading>
-      <Heading level={4}>Sub-sub-heading</Heading>
-      <Heading level={5}>Sub-sub-sub-heading</Heading>
-      <Heading level={6}>Sub-sub-sub-sub-heading</Heading>
+      <Heading level={1}>Título</Heading>
+      <Heading level={2}>Cabeçalho</Heading>
+      <Heading level={3}>Sub-cabeçalho</Heading>
+      <Heading level={4}>Sub-sub-cabeçalho</Heading>
+      <Heading level={5}>Sub-sub-sub-cabeçalho</Heading>
+      <Heading level={6}>Sub-sub-sub-sub-cabeçalho</Heading>
     </Section>
   );
 }
@@ -90,7 +90,7 @@ export default function Heading({ level, children }) {
     case 6:
       return <h6>{children}</h6>;
     default:
-      throw Error('Unknown level: ' + level);
+      throw Error('Nível desconhecido: ' + level);
   }
 }
 ```
@@ -106,7 +106,7 @@ export default function Heading({ level, children }) {
 
 </Sandpack>
 
-Let's say you want multiple headings within the same `Section` to always have the same size:
+Suponha que você queira que múltiplos cabeçalhos dentro da mesma `Section` sempre tenham o mesmo tamanho:
 
 <Sandpack>
 
@@ -117,19 +117,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading level={1}>Title</Heading>
+      <Heading level={1}>Título</Heading>
       <Section>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
+        <Heading level={2}>Cabeçalho</Heading>
+        <Heading level={2}>Cabeçalho</Heading>
+        <Heading level={2}>Cabeçalho</Heading>
         <Section>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
+          <Heading level={3}>Sub-cabeçalho</Heading>
+          <Heading level={3}>Sub-cabeçalho</Heading>
+          <Heading level={3}>Sub-cabeçalho</Heading>
           <Section>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
+            <Heading level={4}>Sub-sub-cabeçalho</Heading>
+            <Heading level={4}>Sub-sub-cabeçalho</Heading>
+            <Heading level={4}>Sub-sub-cabeçalho</Heading>
           </Section>
         </Section>
       </Section>
@@ -164,7 +164,7 @@ export default function Heading({ level, children }) {
     case 6:
       return <h6>{children}</h6>;
     default:
-      throw Error('Unknown level: ' + level);
+      throw Error('Nível desconhecido: ' + level);
   }
 }
 ```
@@ -180,55 +180,55 @@ export default function Heading({ level, children }) {
 
 </Sandpack>
 
-Currently, you pass the `level` prop to each `<Heading>` separately:
+Atualmente, você passa a prop `level` para cada `<Heading>` separadamente:
 
 ```js
 <Section>
-  <Heading level={3}>About</Heading>
-  <Heading level={3}>Photos</Heading>
-  <Heading level={3}>Videos</Heading>
+  <Heading level={3}>Sobre</Heading>
+  <Heading level={3}>Fotos</Heading>
+  <Heading level={3}>Vídeos</Heading>
 </Section>
 ```
 
-It would be nice if you could pass the `level` prop to the `<Section>` component instead and remove it from the `<Heading>`. This way you could enforce that all headings in the same section have the same size:
+Seria bom se você pudesse passar a prop `level` para o componente `<Section>` em vez de removê-la do `<Heading>`. Assim, você poderia garantir que todos os cabeçalhos na mesma seção tenham o mesmo tamanho:
 
 ```js
 <Section level={3}>
-  <Heading>About</Heading>
-  <Heading>Photos</Heading>
-  <Heading>Videos</Heading>
+  <Heading>Sobre</Heading>
+  <Heading>Fotos</Heading>
+  <Heading>Vídeos</Heading>
 </Section>
 ```
 
-But how can the `<Heading>` component know the level of its closest `<Section>`? **That would require some way for a child to "ask" for data from somewhere above in the tree.**
+Mas como o componente `<Heading>` saberá o nível de sua `<Section>` mais próxima? **Isso exigiria alguma maneira de um filho "pedir" dados de algum lugar acima na árvore.**
 
-You can't do it with props alone. This is where context comes into play. You will do it in three steps:
+Você não pode fazer isso apenas com props. É aqui que o contexto entra em cena. Você fará isso em três etapas:
 
-1. **Create** a context. (You can call it `LevelContext`, since it's for the heading level.)
-2. **Use** that context from the component that needs the data. (`Heading` will use `LevelContext`.)
-3. **Provide** that context from the component that specifies the data. (`Section` will provide `LevelContext`.)
+1. **Criar** um contexto. (Você pode chamá-lo de `LevelContext`, já que é para o nível do cabeçalho.)
+2. **Usar** esse contexto a partir do componente que precisa dos dados. (`Heading` usará `LevelContext`.)
+3. **Fornecer** esse contexto a partir do componente que especifica os dados. (`Section` fornecerá `LevelContext`.)
 
-Context lets a parent--even a distant one!--provide some data to the entire tree inside of it.
+O contexto permite que um pai—até mesmo um distante!—forneça alguns dados para toda a árvore interna a ele.
 
 <DiagramGroup>
 
-<Diagram name="passing_data_context_close" height={160} width={608} captionPosition="top" alt="Diagram with a tree of three components. The parent contains a bubble representing a value highlighted in orange which projects down to the two children, each highlighted in orange." >
+<Diagram name="passing_data_context_close" height={160} width={608} captionPosition="top" alt="Diagrama com uma árvore de três componentes. O pai contém uma bolha representando um valor destacado em laranja que projeta para baixo nos dois filhos, cada um destacado em laranja." >
 
-Using context in close children
+Usando contexto em filhos próximos
 
 </Diagram>
 
-<Diagram name="passing_data_context_far" height={430} width={608} captionPosition="top" alt="Diagram with a tree of ten nodes, each node with two children or less. The root parent node contains a bubble representing a value highlighted in orange. The value projects down directly to four leaves and one intermediate component in the tree, which are all highlighted in orange. None of the other intermediate components are highlighted.">
+<Diagram name="passing_data_context_far" height={430} width={608} captionPosition="top" alt="Diagrama com uma árvore de dez nós, cada nó com dois filhos ou menos. O nó pai raiz contém uma bolha representando um valor destacado em laranja. O valor projeta para baixo diretamente para quatro folhas e um componente intermediário na árvore, que estão todos destacados em laranja. Nenhum dos outros componentes intermediários está destacado.">
 
-Using context in distant children
+Usando contexto em filhos distantes
 
 </Diagram>
 
 </DiagramGroup>
 
-### Step 1: Create the context {/*step-1-create-the-context*/}
+### Etapa 1: Criar o contexto {/*step-1-create-the-context*/}
 
-First, you need to create the context. You'll need to **export it from a file** so that your components can use it:
+Primeiro, você precisa criar o contexto. Você precisará **exportá-lo de um arquivo** para que seus componentes possam usá-lo:
 
 <Sandpack>
 
@@ -239,19 +239,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading level={1}>Title</Heading>
+      <Heading level={1}>Título</Heading>
       <Section>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
-        <Heading level={2}>Heading</Heading>
+        <Heading level={2}>Cabeçalho</Heading>
+        <Heading level={2}>Cabeçalho</Heading>
+        <Heading level={2}>Cabeçalho</Heading>
         <Section>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
-          <Heading level={3}>Sub-heading</Heading>
+          <Heading level={3}>Sub-cabeçalho</Heading>
+          <Heading level={3}>Sub-cabeçalho</Heading>
+          <Heading level={3}>Sub-cabeçalho</Heading>
           <Section>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
-            <Heading level={4}>Sub-sub-heading</Heading>
+            <Heading level={4}>Sub-sub-cabeçalho</Heading>
+            <Heading level={4}>Sub-sub-cabeçalho</Heading>
+            <Heading level={4}>Sub-sub-cabeçalho</Heading>
           </Section>
         </Section>
       </Section>
@@ -286,7 +286,7 @@ export default function Heading({ level, children }) {
     case 6:
       return <h6>{children}</h6>;
     default:
-      throw Error('Unknown level: ' + level);
+      throw Error('Nível desconhecido: ' + level);
   }
 }
 ```
@@ -308,18 +308,18 @@ export const LevelContext = createContext(1);
 
 </Sandpack>
 
-The only argument to `createContext` is the _default_ value. Here, `1` refers to the biggest heading level, but you could pass any kind of value (even an object). You will see the significance of the default value in the next step.
+O único argumento para `createContext` é o valor _padrão_. Aqui, `1` refere-se ao maior nível de cabeçalho, mas você poderia passar qualquer tipo de valor (até mesmo um objeto). Você verá a importância do valor padrão na próxima etapa.
 
-### Step 2: Use the context {/*step-2-use-the-context*/}
+### Etapa 2: Usar o contexto {/*step-2-use-the-context*/}
 
-Import the `useContext` Hook from React and your context:
+Importe o Hook `useContext` do React e seu contexto:
 
 ```js
 import { useContext } from 'react';
 import { LevelContext } from './LevelContext.js';
 ```
 
-Currently, the `Heading` component reads `level` from props:
+Atualmente, o componente `Heading` lê `level` das props:
 
 ```js
 export default function Heading({ level, children }) {
@@ -327,7 +327,7 @@ export default function Heading({ level, children }) {
 }
 ```
 
-Instead, remove the `level` prop and read the value from the context you just imported, `LevelContext`:
+Em vez disso, remova a prop `level` e leia o valor do contexto que você acabou de importar, `LevelContext`:
 
 ```js {2}
 export default function Heading({ children }) {
@@ -336,29 +336,29 @@ export default function Heading({ children }) {
 }
 ```
 
-`useContext` is a Hook. Just like `useState` and `useReducer`, you can only call a Hook immediately inside a React component (not inside loops or conditions). **`useContext` tells React that the `Heading` component wants to read the `LevelContext`.**
+`useContext` é um Hook. Assim como `useState` e `useReducer`, você só pode chamar um Hook imediatamente dentro de um componente React (não dentro de loops ou condições). **`useContext` informa ao React que o componente `Heading` deseja ler o `LevelContext`.**
 
-Now that the `Heading` component doesn't have a `level` prop, you don't need to pass the level prop to `Heading` in your JSX like this anymore:
+Agora que o componente `Heading` não tem uma prop `level`, você não precisa passar a prop level para `Heading` em seu JSX assim:
 
 ```js
 <Section>
-  <Heading level={4}>Sub-sub-heading</Heading>
-  <Heading level={4}>Sub-sub-heading</Heading>
-  <Heading level={4}>Sub-sub-heading</Heading>
+  <Heading level={4}>Sub-sub-cabeçalho</Heading>
+  <Heading level={4}>Sub-sub-cabeçalho</Heading>
+  <Heading level={4}>Sub-sub-cabeçalho</Heading>
 </Section>
 ```
 
-Update the JSX so that it's the `Section` that receives it instead:
+Atualize o JSX para que seja a `Section` que a receba em vez disso:
 
 ```jsx
 <Section level={4}>
-  <Heading>Sub-sub-heading</Heading>
-  <Heading>Sub-sub-heading</Heading>
-  <Heading>Sub-sub-heading</Heading>
+  <Heading>Sub-sub-cabeçalho</Heading>
+  <Heading>Sub-sub-cabeçalho</Heading>
+  <Heading>Sub-sub-cabeçalho</Heading>
 </Section>
 ```
 
-As a reminder, this is the markup that you were trying to get working:
+Como lembrete, esta é a marcação que você estava tentando fazer funcionar:
 
 <Sandpack>
 
@@ -369,19 +369,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section level={1}>
-      <Heading>Title</Heading>
+      <Heading>Título</Heading>
       <Section level={2}>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Cabeçalho</Heading>
+        <Heading>Cabeçalho</Heading>
+        <Heading>Cabeçalho</Heading>
         <Section level={3}>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Sub-cabeçalho</Heading>
+          <Heading>Sub-cabeçalho</Heading>
+          <Heading>Sub-cabeçalho</Heading>
           <Section level={4}>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
           </Section>
         </Section>
       </Section>
@@ -420,7 +420,7 @@ export default function Heading({ children }) {
     case 6:
       return <h6>{children}</h6>;
     default:
-      throw Error('Unknown level: ' + level);
+      throw Error('Nível desconhecido: ' + level);
   }
 }
 ```
@@ -442,13 +442,13 @@ export const LevelContext = createContext(1);
 
 </Sandpack>
 
-Notice this example doesn't quite work, yet! All the headings have the same size because **even though you're *using* the context, you have not *provided* it yet.** React doesn't know where to get it!
+Observe que este exemplo ainda não funciona corretamente! Todos os cabeçalhos têm o mesmo tamanho porque **mesmo que você *esteja usando* o contexto, ainda não o *forneceu*.** O React não sabe de onde obtê-lo!
 
-If you don't provide the context, React will use the default value you've specified in the previous step. In this example, you specified `1` as the argument to `createContext`, so `useContext(LevelContext)` returns `1`, setting all those headings to `<h1>`. Let's fix this problem by having each `Section` provide its own context.
+Se você não fornecer o contexto, o React usará o valor padrão que você especificou na etapa anterior. Neste exemplo, você especificou `1` como argumento para `createContext`, então `useContext(LevelContext)` retorna `1`, definindo todos aqueles cabeçalhos como `<h1>`. Vamos consertar esse problema fazendo com que cada `Section` forneça seu próprio contexto.
 
-### Step 3: Provide the context {/*step-3-provide-the-context*/}
+### Etapa 3: Fornecer o contexto {/*step-3-provide-the-context*/}
 
-The `Section` component currently renders its children:
+O componente `Section` atualmente renderiza seus filhos:
 
 ```js
 export default function Section({ children }) {
@@ -460,7 +460,7 @@ export default function Section({ children }) {
 }
 ```
 
-**Wrap them with a context provider** to provide the `LevelContext` to them:
+**Envolva-os com um provedor de contexto** para fornecer o `LevelContext` a eles:
 
 ```js {1,6,8}
 import { LevelContext } from './LevelContext.js';
@@ -476,7 +476,7 @@ export default function Section({ level, children }) {
 }
 ```
 
-This tells React: "if any component inside this `<Section>` asks for `LevelContext`, give them this `level`." The component will use the value of the nearest `<LevelContext.Provider>` in the UI tree above it.
+Isso diz ao React: "se algum componente dentro deste `<Section>` pedir `LevelContext`, dê a eles esse `level`." O componente usará o valor do `<LevelContext.Provider>` mais próximo na árvore de UI acima dele.
 
 <Sandpack>
 
@@ -487,19 +487,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section level={1}>
-      <Heading>Title</Heading>
+      <Heading>Título</Heading>
       <Section level={2}>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Cabeçalho</Heading>
+        <Heading>Cabeçalho</Heading>
+        <Heading>Cabeçalho</Heading>
         <Section level={3}>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Sub-cabeçalho</Heading>
+          <Heading>Sub-cabeçalho</Heading>
+          <Heading>Sub-cabeçalho</Heading>
           <Section level={4}>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
           </Section>
         </Section>
       </Section>
@@ -542,7 +542,7 @@ export default function Heading({ children }) {
     case 6:
       return <h6>{children}</h6>;
     default:
-      throw Error('Unknown level: ' + level);
+      throw Error('Nível desconhecido: ' + level);
   }
 }
 ```
@@ -564,15 +564,15 @@ export const LevelContext = createContext(1);
 
 </Sandpack>
 
-It's the same result as the original code, but you did not need to pass the `level` prop to each `Heading` component! Instead, it "figures out" its heading level by asking the closest `Section` above:
+É o mesmo resultado que o código original, mas você não precisou passar a prop `level` para cada componente `Heading`! Em vez disso, ele "descobre" seu nível de cabeçalho pedindo o valor mais próximo de `Section` acima:
 
-1. You pass a `level` prop to the `<Section>`.
-2. `Section` wraps its children into `<LevelContext.Provider value={level}>`.
-3. `Heading` asks the closest value of `LevelContext` above with `useContext(LevelContext)`.
+1. Você passa uma prop `level` para o `<Section>`.
+2. `Section` envolve seus filhos em `<LevelContext.Provider value={level}>`.
+3. `Heading` pede o valor mais próximo do `LevelContext` acima com `useContext(LevelContext)`.
 
-## Using and providing context from the same component {/*using-and-providing-context-from-the-same-component*/}
+## Usando e fornecendo contexto do mesmo componente {/*using-and-providing-context-from-the-same-component*/}
 
-Currently, you still have to specify each section's `level` manually:
+Atualmente, você ainda precisa especificar manualmente o `level` de cada seção:
 
 ```js
 export default function Page() {
@@ -585,7 +585,7 @@ export default function Page() {
           ...
 ```
 
-Since context lets you read information from a component above, each `Section` could read the `level` from the `Section` above, and pass `level + 1` down automatically. Here is how you could do it:
+Como o contexto permite que você leia informações de um componente acima, cada `Section` poderia ler o `level` da `Section` acima e passar `level + 1` automaticamente. Aqui está como você poderia fazer isso:
 
 ```js src/Section.js {5,8}
 import { useContext } from 'react';
@@ -603,7 +603,7 @@ export default function Section({ children }) {
 }
 ```
 
-With this change, you don't need to pass the `level` prop *either* to the `<Section>` or to the `<Heading>`:
+Com essa mudança, você não precisa passar a prop `level` *nem* para o `<Section>` nem para o `<Heading>`:
 
 <Sandpack>
 
@@ -614,19 +614,19 @@ import Section from './Section.js';
 export default function Page() {
   return (
     <Section>
-      <Heading>Title</Heading>
+      <Heading>Título</Heading>
       <Section>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
-        <Heading>Heading</Heading>
+        <Heading>Cabeçalho</Heading>
+        <Heading>Cabeçalho</Heading>
+        <Heading>Cabeçalho</Heading>
         <Section>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
-          <Heading>Sub-heading</Heading>
+          <Heading>Sub-cabeçalho</Heading>
+          <Heading>Sub-cabeçalho</Heading>
+          <Heading>Sub-cabeçalho</Heading>
           <Section>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
-            <Heading>Sub-sub-heading</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
+            <Heading>Sub-sub-cabeçalho</Heading>
           </Section>
         </Section>
       </Section>
@@ -659,7 +659,7 @@ export default function Heading({ children }) {
   const level = useContext(LevelContext);
   switch (level) {
     case 0:
-      throw Error('Heading must be inside a Section!');
+      throw Error('O cabeçalho deve estar dentro de uma Seção!');
     case 1:
       return <h1>{children}</h1>;
     case 2:
@@ -673,7 +673,7 @@ export default function Heading({ children }) {
     case 6:
       return <h6>{children}</h6>;
     default:
-      throw Error('Unknown level: ' + level);
+      throw Error('Nível desconhecido: ' + level);
   }
 }
 ```
@@ -695,19 +695,19 @@ export const LevelContext = createContext(0);
 
 </Sandpack>
 
-Now both `Heading` and `Section` read the `LevelContext` to figure out how "deep" they are. And the `Section` wraps its children into the `LevelContext` to specify that anything inside of it is at a "deeper" level.
+Agora ambos `Heading` e `Section` leem o `LevelContext` para descobrir como "profundo" eles estão. E a `Section` envolve seus filhos no `LevelContext` para especificar que qualquer coisa dentro dela está em um nível "mais profundo".
 
 <Note>
 
-This example uses heading levels because they show visually how nested components can override context. But context is useful for many other use cases too. You can pass down any information needed by the entire subtree: the current color theme, the currently logged in user, and so on.
+Este exemplo usa níveis de cabeçalho porque eles mostram visualmente como componentes aninhados podem sobrescrever o contexto. Mas o contexto é útil para muitos outros casos de uso também. Você pode passar qualquer informação necessária para toda a subárvore: o tema de cor atual, o usuário atualmente logado, e assim por diante.
 
 </Note>
 
-## Context passes through intermediate components {/*context-passes-through-intermediate-components*/}
+## O contexto passa através de componentes intermediários {/*context-passes-through-intermediate-components*/}
 
-You can insert as many components as you like between the component that provides context and the one that uses it. This includes both built-in components like `<div>` and components you might build yourself.
+Você pode inserir quantos componentes quiser entre o componente que fornece contexto e o que o utiliza. Isso inclui tanto componentes embutidos, como `<div>`, quanto componentes que você pode construir.
 
-In this example, the same `Post` component (with a dashed border) is rendered at two different nesting levels. Notice that the `<Heading>` inside of it gets its level automatically from the closest `<Section>`:
+Neste exemplo, o mesmo componente `Post` (com uma borda pontilhada) é renderizado em dois níveis de aninhamento diferentes. Observe que o `<Heading>` dentro dele obtém seu nível automaticamente do `<Section>` mais próximo:
 
 <Sandpack>
 
@@ -718,10 +718,10 @@ import Section from './Section.js';
 export default function ProfilePage() {
   return (
     <Section>
-      <Heading>My Profile</Heading>
+      <Heading>Meu Perfil</Heading>
       <Post
-        title="Hello traveller!"
-        body="Read about my adventures."
+        title="Olá viajante!"
+        body="Leia sobre minhas aventuras."
       />
       <AllPosts />
     </Section>
@@ -731,7 +731,7 @@ export default function ProfilePage() {
 function AllPosts() {
   return (
     <Section>
-      <Heading>Posts</Heading>
+      <Heading>Postagens</Heading>
       <RecentPosts />
     </Section>
   );
@@ -740,14 +740,14 @@ function AllPosts() {
 function RecentPosts() {
   return (
     <Section>
-      <Heading>Recent Posts</Heading>
+      <Heading>Postagens Recentes</Heading>
       <Post
-        title="Flavors of Lisbon"
-        body="...those pastéis de nata!"
+        title="Sabores de Lisboa"
+        body="...aqueles pastéis de nata!"
       />
       <Post
-        title="Buenos Aires in the rhythm of tango"
-        body="I loved it!"
+        title="Buenos Aires no ritmo do tango"
+        body="Eu amei!"
       />
     </Section>
   );
@@ -792,7 +792,7 @@ export default function Heading({ children }) {
   const level = useContext(LevelContext);
   switch (level) {
     case 0:
-      throw Error('Heading must be inside a Section!');
+      throw Error('O cabeçalho deve estar dentro de uma Seção!');
     case 1:
       return <h1>{children}</h1>;
     case 2:
@@ -806,7 +806,7 @@ export default function Heading({ children }) {
     case 6:
       return <h6>{children}</h6>;
     default:
-      throw Error('Unknown level: ' + level);
+      throw Error('Nível desconhecido: ' + level);
   }
 }
 ```
@@ -832,58 +832,58 @@ export const LevelContext = createContext(0);
 
 </Sandpack>
 
-You didn't do anything special for this to work. A `Section` specifies the context for the tree inside it, so you can insert a `<Heading>` anywhere, and it will have the correct size. Try it in the sandbox above!
+Você não fez nada especial para que isso funcione. Uma `Section` especifica o contexto para a árvore dentro dela, então você pode inserir um `<Heading>` em qualquer lugar, e ele terá o tamanho correto. Tente isso na sandbox acima!
 
-**Context lets you write components that "adapt to their surroundings" and display themselves differently depending on _where_ (or, in other words, _in which context_) they are being rendered.**
+**O contexto permite que você escreva componentes que "se adaptam ao seu ambiente" e exibem-se de forma diferente dependendo de _onde_ (ou, em outras palavras, _em qual contexto_) estão sendo renderizados.**
 
-How context works might remind you of [CSS property inheritance.](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance) In CSS, you can specify `color: blue` for a `<div>`, and any DOM node inside of it, no matter how deep, will inherit that color unless some other DOM node in the middle overrides it with `color: green`. Similarly, in React, the only way to override some context coming from above is to wrap children into a context provider with a different value.
+Como o contexto funciona pode te lembrar da [herança de propriedades do CSS.](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance) No CSS, você pode especificar `color: blue` para um `<div>`, e qualquer nó DOM dentro dele, não importa quão profundo, herdará essa cor, a menos que outro nó DOM no meio sobrescreva com `color: green`. De forma semelhante, no React, a única maneira de sobrescrever algum contexto vindo de cima é envolver os filhos em um provedor de contexto com um valor diferente.
 
-In CSS, different properties like `color` and `background-color` don't override each other. You can set all  `<div>`'s `color` to red without impacting `background-color`. Similarly, **different React contexts don't override each other.** Each context that you make with `createContext()` is completely separate from other ones, and ties together components using and providing *that particular* context. One component may use or provide many different contexts without a problem.
+No CSS, propriedades diferentes, como `color` e `background-color`, não se sobrepõem. Você pode definir todos os `<div>`'s `color` como vermelho sem impactar o `background-color`. Da mesma forma, **diferentes contextos do React não se sobrepõem.** Cada contexto que você faz com `createContext()` é completamente separado de outros, e amarra componentes que usam e fornecem *aquele contexto particular*. Um componente pode usar ou fornecer muitos contextos diferentes sem problemas.
 
-## Before you use context {/*before-you-use-context*/}
+## Antes de usar contexto {/*before-you-use-context*/}
 
-Context is very tempting to use! However, this also means it's too easy to overuse it. **Just because you need to pass some props several levels deep doesn't mean you should put that information into context.**
+O contexto é muito tentador para usar! No entanto, isso também significa que é fácil usá-lo em excesso. **Só porque você precisa passar algumas props várias camadas para baixo, não significa que deve colocar essa informação no contexto.**
 
-Here's a few alternatives you should consider before using context:
+Aqui estão algumas alternativas que você deve considerar antes de usar contexto:
 
-1. **Start by [passing props.](/learn/passing-props-to-a-component)** If your components are not trivial, it's not unusual to pass a dozen props down through a dozen components. It may feel like a slog, but it makes it very clear which components use which data! The person maintaining your code will be glad you've made the data flow explicit with props.
-2. **Extract components and [pass JSX as `children`](/learn/passing-props-to-a-component#passing-jsx-as-children) to them.** If you pass some data through many layers of intermediate components that don't use that data (and only pass it further down), this often means that you forgot to extract some components along the way. For example, maybe you pass data props like `posts` to visual components that don't use them directly, like `<Layout posts={posts} />`. Instead, make `Layout` take `children` as a prop, and render `<Layout><Posts posts={posts} /></Layout>`. This reduces the number of layers between the component specifying the data and the one that needs it.
+1. **Comece passando [props.](/learn/passing-props-to-a-component)** Se seus componentes não forem triviais, não é incomum passar uma dúzia de props através de uma dúzia de componentes. Pode parecer cansativo, mas isso torna muito claro quais componentes usam quais dados! A pessoa que mantiver seu código ficará feliz que você tornou o fluxo de dados explícito com as props.
+2. **Extraia componentes e [passe JSX como `children`](/learn/passing-props-to-a-component#passing-jsx-as-children) para eles.** Se você passar alguns dados através de muitas camadas de componentes intermediários que não usam esses dados (e apenas os passam adiante), isso muitas vezes significa que você se esqueceu de extrair alguns componentes ao longo do caminho. Por exemplo, talvez você passe dados como `posts` para componentes visuais que não os usam diretamente, como `<Layout posts={posts} />`. Em vez disso, faça o `Layout` aceitar `children` como uma prop e renderize `<Layout><Posts posts={posts} /></Layout>`. Isso reduz o número de camadas entre o componente que especifica os dados e o que os necessita.
 
-If neither of these approaches works well for you, consider context.
+Se nenhuma dessas abordagens funcionar bem para você, considere usar contexto.
 
-## Use cases for context {/*use-cases-for-context*/}
+## Casos de uso para contexto {/*use-cases-for-context*/}
 
-* **Theming:** If your app lets the user change its appearance (e.g. dark mode), you can put a context provider at the top of your app, and use that context in components that need to adjust their visual look.
-* **Current account:** Many components might need to know the currently logged in user. Putting it in context makes it convenient to read it anywhere in the tree. Some apps also let you operate multiple accounts at the same time (e.g. to leave a comment as a different user). In those cases, it can be convenient to wrap a part of the UI into a nested provider with a different current account value.
-* **Routing:** Most routing solutions use context internally to hold the current route. This is how every link "knows" whether it's active or not. If you build your own router, you might want to do it too.
-* **Managing state:** As your app grows, you might end up with a lot of state closer to the top of your app. Many distant components below may want to change it. It is common to [use a reducer together with context](/learn/scaling-up-with-reducer-and-context) to manage complex state and pass it down to distant components without too much hassle.
-  
-Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.
+* **Tematização:** Se seu aplicativo permite que o usuário mude sua aparência (por exemplo, modo escuro), você pode colocar um provedor de contexto no topo do seu aplicativo e usar esse contexto em componentes que precisam ajustar sua aparência visual.
+* **Conta atual:** Muitos componentes podem precisar saber qual usuário está logado atualmente. Colocá-lo no contexto torna conveniente lê-lo em qualquer lugar na árvore. Alguns aplicativos também permitem operar várias contas ao mesmo tempo (por exemplo, para deixar um comentário como um usuário diferente). Nesses casos, pode ser conveniente envolver uma parte da UI em um provedor aninhado com um valor de conta atual diferente.
+* **Roteamento:** A maioria das soluções de roteamento usa contexto internamente para manter a rota atual. É assim que todos os links "sabem" se estão ativos ou não. Se você construir seu próprio roteador, pode querer fazer o mesmo.
+* **Gerenciamento de estado:** À medida que seu aplicativo cresce, você pode acabar com muito estado mais próximo do topo do seu aplicativo. Muitos componentes distantes abaixo podem querer alterá-lo. É comum [usar um redutor junto com contexto](/learn/scaling-up-with-reducer-and-context) para gerenciar estados complexos e passá-los para componentes distantes sem muito esforço.
 
-In general, if some information is needed by distant components in different parts of the tree, it's a good indication that context will help you.
+O contexto não está limitado a valores estáticos. Se você passar um valor diferente na próxima renderização, o React atualizará todos os componentes que o leem abaixo! É por isso que o contexto é frequentemente usado em combinação com o estado.
+
+Em geral, se algumas informações são necessárias por componentes distantes em diferentes partes da árvore, é uma boa indicação de que o contexto ajudará você.
 
 <Recap>
 
-* Context lets a component provide some information to the entire tree below it.
-* To pass context:
-  1. Create and export it with `export const MyContext = createContext(defaultValue)`.
-  2. Pass it to the `useContext(MyContext)` Hook to read it in any child component, no matter how deep.
-  3. Wrap children into `<MyContext.Provider value={...}>` to provide it from a parent.
-* Context passes through any components in the middle.
-* Context lets you write components that "adapt to their surroundings".
-* Before you use context, try passing props or passing JSX as `children`.
+* O contexto permite que um componente forneça algumas informações para toda a árvore abaixo dele.
+* Para passar contexto:
+  1. Crie e exporte usando `export const MyContext = createContext(defaultValue)`.
+  2. Passe-o para o Hook `useContext(MyContext)` para lê-lo em qualquer componente filho, não importa quão profundo.
+  3. Envolva os filhos em `<MyContext.Provider value={...}>` para fornecê-lo a partir de um pai.
+* O contexto passa através de qualquer componente no meio.
+* O contexto permite que você escreva componentes que "se adaptam ao seu ambiente".
+* Antes de usar contexto, tente passar props ou passar JSX como `children`.
 
 </Recap>
 
 <Challenges>
 
-#### Replace prop drilling with context {/*replace-prop-drilling-with-context*/}
+#### Substitua o prop drilling por contexto {/*replace-prop-drilling-with-context*/}
 
-In this example, toggling the checkbox changes the `imageSize` prop passed to each `<PlaceImage>`. The checkbox state is held in the top-level `App` component, but each `<PlaceImage>` needs to be aware of it.
+Neste exemplo, alternar a caixa de seleção altera a prop `imageSize` passada para cada `<PlaceImage>`. O estado da caixa de seleção é mantido no componente `App` de nível superior, mas cada `<PlaceImage>` precisa estar ciente disso.
 
-Currently, `App` passes `imageSize` to `List`, which passes it to each `Place`, which passes it to the `PlaceImage`. Remove the `imageSize` prop, and instead pass it from the `App` component directly to `PlaceImage`.
+Atualmente, `App` passa `imageSize` para `List`, que a passa para cada `Place`, que a passa para `PlaceImage`. Remova a prop `imageSize` e, em vez disso, passe-a diretamente do componente `App` para `PlaceImage`.
 
-You can declare context in `Context.js`.
+Você pode declarar o contexto em `Context.js`.
 
 <Sandpack>
 
@@ -905,7 +905,7 @@ export default function App() {
             setIsLarge(e.target.checked);
           }}
         />
-        Use large images
+        Usar imagens grandes
       </label>
       <hr />
       <List imageSize={imageSize} />
@@ -959,38 +959,38 @@ function PlaceImage({ place, imageSize }) {
 ```js src/data.js
 export const places = [{
   id: 0,
-  name: 'Bo-Kaap in Cape Town, South Africa',
-  description: 'The tradition of choosing bright colors for houses began in the late 20th century.',
+  name: 'Bo-Kaap em Cape Town, África do Sul',
+  description: 'A tradição de escolher cores vibrantes para as casas começou no final do século 20.',
   imageId: 'K9HVAGH'
 }, {
   id: 1, 
-  name: 'Rainbow Village in Taichung, Taiwan',
-  description: 'To save the houses from demolition, Huang Yung-Fu, a local resident, painted all 1,200 of them in 1924.',
+  name: 'Rainbow Village em Taichung, Taiwan',
+  description: 'Para salvar as casas da demolição, Huang Yung-Fu, um residente local, pintou todas as 1.200 delas em 1924.',
   imageId: '9EAYZrt'
 }, {
   id: 2, 
-  name: 'Macromural de Pachuca, Mexico',
-  description: 'One of the largest murals in the world covering homes in a hillside neighborhood.',
+  name: 'Macromural de Pachuca, México',
+  description: 'Um dos maiores murais do mundo cobrindo casas em um bairro na encosta da colina.',
   imageId: 'DgXHVwu'
 }, {
   id: 3, 
-  name: 'Selarón Staircase in Rio de Janeiro, Brazil',
-  description: 'This landmark was created by Jorge Selarón, a Chilean-born artist, as a "tribute to the Brazilian people."',
+  name: 'Escadaria Selarón no Rio de Janeiro, Brasil',
+  description: 'Este marco foi criado por Jorge Selarón, um artista nascido no Chile, como um "tributo ao povo brasileiro."',
   imageId: 'aeO3rpI'
 }, {
   id: 4, 
-  name: 'Burano, Italy',
-  description: 'The houses are painted following a specific color system dating back to 16th century.',
+  name: 'Burano, Itália',
+  description: 'As casas são pintadas seguindo um sistema específico de cores que data do século 16.',
   imageId: 'kxsph5C'
 }, {
   id: 5, 
-  name: 'Chefchaouen, Marocco',
-  description: 'There are a few theories on why the houses are painted blue, including that the color repels mosquitos or that it symbolizes sky and heaven.',
+  name: 'Chefchaouen, Marrocos',
+  description: 'Existem algumas teorias sobre por que as casas são pintadas de azul, incluindo que a cor repele mosquitos ou que simboliza o céu e o paraíso.',
   imageId: 'rTqKo46'
 }, {
   id: 6,
-  name: 'Gamcheon Culture Village in Busan, South Korea',
-  description: 'In 2009, the village was converted into a cultural hub by painting the houses and featuring exhibitions and art installations.',
+  name: 'Vila Cultural Gamcheon em Busan, Coreia do Sul',
+  description: 'Em 2009, a vila foi convertida em um centro cultural pintando as casas e apresentando exposições e instalações de arte.',
   imageId: 'ZfQOOzf'
 }];
 ```
@@ -1020,9 +1020,9 @@ li {
 
 <Solution>
 
-Remove `imageSize` prop from all the components.
+Remova a prop `imageSize` de todos os componentes.
 
-Create and export `ImageSizeContext` from `Context.js`. Then wrap the List into `<ImageSizeContext.Provider value={imageSize}>` to pass the value down, and `useContext(ImageSizeContext)` to read it in the `PlaceImage`:
+Crie e exporte `ImageSizeContext` de `Context.js`. Então envolva o List em `<ImageSizeContext.Provider value={imageSize}>` para passar o valor para baixo, e `useContext(ImageSizeContext)` para lê-lo em `PlaceImage`:
 
 <Sandpack>
 
@@ -1047,7 +1047,7 @@ export default function App() {
             setIsLarge(e.target.checked);
           }}
         />
-        Use large images
+        Usar imagens grandes
       </label>
       <hr />
       <List />
@@ -1098,38 +1098,38 @@ export const ImageSizeContext = createContext(500);
 ```js src/data.js
 export const places = [{
   id: 0,
-  name: 'Bo-Kaap in Cape Town, South Africa',
-  description: 'The tradition of choosing bright colors for houses began in the late 20th century.',
+  name: 'Bo-Kaap em Cape Town, África do Sul',
+  description: 'A tradição de escolher cores vibrantes para as casas começou no final do século 20.',
   imageId: 'K9HVAGH'
 }, {
   id: 1, 
-  name: 'Rainbow Village in Taichung, Taiwan',
-  description: 'To save the houses from demolition, Huang Yung-Fu, a local resident, painted all 1,200 of them in 1924.',
+  name: 'Rainbow Village em Taichung, Taiwan',
+  description: 'Para salvar as casas da demolição, Huang Yung-Fu, um residente local, pintou todas as 1.200 delas em 1924.',
   imageId: '9EAYZrt'
 }, {
   id: 2, 
-  name: 'Macromural de Pachuca, Mexico',
-  description: 'One of the largest murals in the world covering homes in a hillside neighborhood.',
+  name: 'Macromural de Pachuca, México',
+  description: 'Um dos maiores murais do mundo cobrindo casas em um bairro na encosta da colina.',
   imageId: 'DgXHVwu'
 }, {
   id: 3, 
-  name: 'Selarón Staircase in Rio de Janeiro, Brazil',
-  description: 'This landmark was created by Jorge Selarón, a Chilean-born artist, as a "tribute to the Brazilian people".',
+  name: 'Escadaria Selarón no Rio de Janeiro, Brasil',
+  description: 'Este marco foi criado por Jorge Selarón, um artista nascido no Chile, como um "tributo ao povo brasileiro".',
   imageId: 'aeO3rpI'
 }, {
   id: 4, 
-  name: 'Burano, Italy',
-  description: 'The houses are painted following a specific color system dating back to 16th century.',
+  name: 'Burano, Itália',
+  description: 'As casas são pintadas seguindo um sistema específico de cores que data do século 16.',
   imageId: 'kxsph5C'
 }, {
   id: 5, 
-  name: 'Chefchaouen, Marocco',
-  description: 'There are a few theories on why the houses are painted blue, including that the color repels mosquitos or that it symbolizes sky and heaven.',
+  name: 'Chefchaouen, Marrocos',
+  description: 'Existem algumas teorias sobre por que as casas são pintadas de azul, incluindo que a cor repele mosquitos ou que simboliza o céu e o paraíso.',
   imageId: 'rTqKo46'
 }, {
   id: 6,
-  name: 'Gamcheon Culture Village in Busan, South Korea',
-  description: 'In 2009, the village was converted into a cultural hub by painting the houses and featuring exhibitions and art installations.',
+  name: 'Vila Cultural Gamcheon em Busan, Coreia do Sul',
+  description: 'Em 2009, a vila foi convertida em um centro cultural pintando as casas e apresentando exposições e instalações de arte.',
   imageId: 'ZfQOOzf'
 }];
 ```
@@ -1157,7 +1157,7 @@ li {
 
 </Sandpack>
 
-Note how components in the middle don't need to pass `imageSize` anymore.
+Note como os componentes no meio não precisam passar `imageSize` mais.
 
 </Solution>
 
