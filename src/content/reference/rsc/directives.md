@@ -1,23 +1,23 @@
 ---
-title: "Directives"
+title: "Diretivas"
 canary: true
 ---
 
 <Canary>
 
-These directives are needed only if you're [using React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) or building a library compatible with them.
+Essas diretivas são necessárias apenas se você estiver [usando Componentes do Servidor do React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) ou construindo uma biblioteca compatível com eles.
 
 </Canary>
 
 <Intro>
 
-Directives provide instructions to [bundlers compatible with React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+As diretivas fornecem instruções para [bundlers compatíveis com Componentes do Servidor do React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
 
 </Intro>
 
 ---
 
-## Source code directives {/*source-code-directives*/}
+## Diretivas de código-fonte {/*source-code-directives*/}
 
-* [`'use client'`](/reference/rsc/use-client) lets you mark what code runs on the client.
-* [`'use server'`](/reference/rsc/use-server) marks server-side functions that can be called from client-side code.
+* [`'use client'`](/reference/rsc/use-client) permite que você marque qual código é executado no cliente.
+* [`'use server'`](/reference/rsc/use-server) marca funções do lado do servidor que podem ser chamadas a partir do código do lado do cliente.
