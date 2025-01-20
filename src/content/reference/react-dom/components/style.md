@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-React's extensions to `<style>` are currently only available in React's canary and experimental channels. In stable releases of React `<style>` works only as a [built-in browser HTML component](https://react.dev/reference/react-dom/components#all-html-components). Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
+As extensões do React para `<style>` estão atualmente disponíveis apenas nos canais canário e experimental do React. Em versões estáveis do React, `<style>` funciona apenas como um [componente HTML padrão do navegador](https://react.dev/reference/react-dom/components#all-html-components). Saiba mais sobre [os canais de lançamento do React aqui](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
 <Intro>
 
-The [built-in browser `<style>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) lets you add inline CSS stylesheets to your document.
+O [componente `<style>` padrão do navegador](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style) permite que você adicione folhas de estilo CSS inline ao seu documento.
 
 ```js
 <style>{` p { color: red; } `}</style>
@@ -23,53 +23,53 @@ The [built-in browser `<style>` component](https://developer.mozilla.org/en-US/d
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<style>` {/*style*/}
 
-To add inline styles to your document, render the [built-in browser `<style>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style). You can render `<style>` from any component and React will [in certain cases](#special-rendering-behavior) place the corresponding DOM element in the document head and de-duplicate identical styles.
+Para adicionar estilos inline ao seu documento, renderize o [componente `<style>` padrão do navegador](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style). Você pode renderizar `<style>` de qualquer componente e o React [em certos casos](#special-rendering-behavior) colocará o correspondente elemento DOM no cabeçalho do documento e deduplicará estilos idênticos.
 
 ```js
 <style>{` p { color: red; } `}</style>
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Props {/*props*/}
 
-`<style>` supports all [common element props.](/reference/react-dom/components/common#props)
+`<style>` suporta todas as [props de elemento comuns.](/reference/react-dom/components/common#props)
 
-* `children`: a string, required. The contents of the stylesheet.
-* `precedence`: a string. Tells React where to rank the `<style>` DOM node relative to others in the document `<head>`, which determines which stylesheet can override the other. Its value can be (in order of precedence) `"reset"`, `"low"`, `"medium"`, `"high"`. Stylesheets with the same precedence go together whether they are `<link>` or inline `<style>` tags or loaded using the [`preload`](/reference/react-dom/preload) or [`preinit`](/reference/react-dom/preinit) functions.
-* `href`: a string. Allows React to [de-duplicate styles](#special-rendering-behavior) that have the same `href`.
-* `media`: a string. Restricts the stylesheet to a certain [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
-* `nonce`: a string. A cryptographic [nonce to allow the resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy.
-* `title`: a string. Specifies the name of an [alternative stylesheet](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
+* `children`: uma string, obrigatória. O conteúdo da folha de estilo.
+* `precedence`: uma string. Diz ao React onde classificar o nó DOM `<style>` em relação a outros no `<head>` do documento, o que determina qual folha de estilo pode sobrescrever a outra. Seu valor pode ser (em ordem de precedência) `"reset"`, `"low"`, `"medium"`, `"high"`. Folhas de estilo com a mesma precedência vão juntas, independentemente de serem tags `<link>` ou `<style>` inline ou carregadas usando as funções [`preload`](/reference/react-dom/preload) ou [`preinit`](/reference/react-dom/preinit).
+* `href`: uma string. Permite que o React [deduplicate estilos](#special-rendering-behavior) que têm o mesmo `href`.
+* `media`: uma string. Restringe a folha de estilo a uma certa [consulta de mídia](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
+* `nonce`: uma string. Um [nonce criptográfico para permitir o recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) ao usar uma Política de Segurança de Conteúdo rígida.
+* `title`: uma string. Especifica o nome de uma [folha de estilo alternativa](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
 
-Props that are **not recommended** for use with React:
+Props que **não são recomendadas** para uso com o React:
 
-* `blocking`: a string. If set to `"render"`, instructs the browser not to render the page until the stylesheet is loaded. React provides more fine-grained control using Suspense.
+* `blocking`: uma string. Se definido como `"render"`, instrui o navegador a não renderizar a página até que a folha de estilo seja carregada. O React fornece um controle mais refinado usando Suspense.
 
-#### Special rendering behavior {/*special-rendering-behavior*/}
+#### Comportamento de renderização especial {/*special-rendering-behavior*/}
 
-React can move `<style>` components to the document's `<head>`, de-duplicate identical stylesheets, and [suspend](/reference/react/Suspense) while the stylesheet is loading.
+O React pode mover componentes `<style>` para o `<head>` do documento, deduplicar folhas de estilo idênticas e [suspender](/reference/react/Suspense) enquanto a folha de estilo está sendo carregada.
 
-To opt into this behavior, provide the `href` and `precedence` props. React will de-duplicate styles if they have the same `href`. The precedence prop tells React where to rank the `<style>` DOM node relative to others in the document `<head>`, which determines which stylesheet can override the other.
+Para optar por esse comportamento, forneça as props `href` e `precedence`. O React deduplicará estilos se eles tiverem o mesmo `href`. A prop de precedência diz ao React onde classificar o nó DOM `<style>` em relação a outros no `<head>` do documento, o que determina qual folha de estilo pode sobrescrever a outra.
 
-This special treatment comes with two caveats:
+Esse tratamento especial vem com duas ressalvas:
 
-* React will ignore changes to props after the style has been rendered. (React will issue a warning in development if this happens.)
-* React may leave the style in the DOM even after the component that rendered it has been unmounted.
+* O React ignorará alterações nas props após o estilo ter sido renderizado. (O React emitirá um aviso em desenvolvimento se isso acontecer.)
+* O React pode deixar o estilo no DOM mesmo após o componente que o renderizou ter sido desmontado.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Rendering an inline CSS stylesheet {/*rendering-an-inline-css-stylesheet*/}
+### Renderizando uma folha de estilo CSS inline {/*rendering-an-inline-css-stylesheet*/}
 
-If a component depends on certain CSS styles in order to be displayed correctly, you can render an inline stylesheet within the component.
+Se um componente depende de certos estilos CSS para ser exibido corretamente, você pode renderizar uma folha de estilo inline dentro do componente.
 
-If you supply an `href` and `precedence` prop, your component will suspend while the stylesheet is loading. (Even with inline stylesheets, there may be a loading time due to fonts and images that the stylesheet refers to.) The `href` prop should uniquely identify the stylesheet, because React will de-duplicate stylesheets that have the same `href`.
+Se você fornecer uma prop `href` e `precedence`, seu componente será suspenso enquanto a folha de estilo está sendo carregada. (Mesmo com folhas de estilo inline, pode haver um tempo de carregamento devido a fontes e imagens às quais a folha de estilo se refere.) A prop `href` deve identificar exclusivamente a folha de estilo, porque o React deduplicará folhas de estilo que tenham o mesmo `href`.
 
 <SandpackWithHTMLOutput>
 
