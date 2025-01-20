@@ -4,15 +4,15 @@ title: unmountComponentAtNode
 
 <Deprecated>
 
-This API will be removed in a future major version of React.
+Esta API será removida em uma futura versão principal do React.
 
-In React 18, `unmountComponentAtNode` was replaced by [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount).
+No React 18, `unmountComponentAtNode` foi substituído por [`root.unmount()`](/reference/react-dom/client/createRoot#root-unmount).
 
 </Deprecated>
 
 <Intro>
 
-`unmountComponentAtNode` removes a mounted React component from the DOM.
+`unmountComponentAtNode` remove um componente React montado do DOM.
 
 ```js
 unmountComponentAtNode(domNode)
@@ -28,7 +28,7 @@ unmountComponentAtNode(domNode)
 
 ### `unmountComponentAtNode(domNode)` {/*unmountcomponentatnode*/}
 
-Call `unmountComponentAtNode` to remove a mounted React component from the DOM and clean up its event handlers and state.
+Chame `unmountComponentAtNode` para remover um componente React montado do DOM e limpar seus manipuladores de eventos e estado.
 
 ```js
 import { unmountComponentAtNode } from 'react-dom';
@@ -39,21 +39,21 @@ render(<App />, domNode);
 unmountComponentAtNode(domNode);
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Parameters {/*parameters*/}
 
-* `domNode`: A [DOM element.](https://developer.mozilla.org/en-US/docs/Web/API/Element) React will remove a mounted React component from this element.
+* `domNode`: Um [elemento DOM.](https://developer.mozilla.org/en-US/docs/Web/API/Element) O React removerá um componente React montado deste elemento.
 
 #### Returns {/*returns*/}
 
-`unmountComponentAtNode` returns `true` if a component was unmounted and `false` otherwise.
+`unmountComponentAtNode` retorna `true` se um componente foi desmontado e `false` caso contrário.
 
 ---
 
 ## Usage {/*usage*/}
 
-Call `unmountComponentAtNode` to remove a <CodeStep step={1}>mounted React component</CodeStep> from a <CodeStep step={2}>browser DOM node</CodeStep> and clean up its event handlers and state.
+Chame `unmountComponentAtNode` para remover um <CodeStep step={1}>componente React montado</CodeStep> de um <CodeStep step={2}>nó DOM do navegador</CodeStep> e limpar seus manipuladores de eventos e estado.
 
 ```js [[1, 5, "<App />"], [2, 5, "rootNode"], [2, 8, "rootNode"]]
 import { render, unmountComponentAtNode } from 'react-dom';
@@ -69,20 +69,20 @@ unmountComponentAtNode(rootNode);
 
 ### Removing a React app from a DOM element {/*removing-a-react-app-from-a-dom-element*/}
 
-Occasionally, you may want to "sprinkle" React on an existing page, or a page that is not fully written in React. In those cases, you may need to "stop" the React app, by removing all of the UI, state, and listeners from the DOM node it was rendered to.
+Ocasionalmente, você pode querer "polvilhar" o React em uma página existente, ou uma página que não está totalmente escrita em React. Nesses casos, você pode precisar "parar" o aplicativo React, removendo toda a UI, estado e ouvintes do nó DOM em que foi renderizado.
 
-In this example, clicking "Render React App" will render a React app. Click "Unmount React App" to destroy it:
+Neste exemplo, clicar em "Render React App" irá renderizar um aplicativo React. Clique em "Unmount React App" para destruí-lo:
 
 <Sandpack>
 
 ```html index.html
 <!DOCTYPE html>
 <html>
-  <head><title>My app</title></head>
+  <head><title>Meu aplicativo</title></head>
   <body>
-    <button id='render'>Render React App</button>
-    <button id='unmount'>Unmount React App</button>
-    <!-- This is the React App node -->
+    <button id='render'>Renderizar Aplicativo React</button>
+    <button id='unmount'>Desmontar Aplicativo React</button>
+    <!-- Este é o nó do Aplicativo React -->
     <div id='root'></div>
   </body>
 </html>
@@ -106,7 +106,7 @@ document.getElementById('unmount').addEventListener('click', () => {
 
 ```js src/App.js
 export default function App() {
-  return <h1>Hello, world!</h1>;
+  return <h1>Olá, mundo!</h1>;
 }
 ```
 
