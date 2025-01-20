@@ -1836,4 +1836,28 @@ Se você tiver código de limpeza sem lógica correspondente de configuração, 
 ```js {2-5}
 useEffect(() => {
   // 🔴 Evitar: Lógica de limpeza sem lógica de configuração correspondente
-  return
+  return () => {
+    doSomething();
+  };
+}, []);
+```
+
+Your cleanup logic should be "symmetrical" to the setup logic, and should stop or undo whatever setup did:
+
+```js {2-3,5}
+  useEffect(() => {
+    const connection = createConnection(serverUrl, roomId);
+    connection.connect();
+    return () => {
+      connection.disconnect();
+    };
+  }, [serverUrl, roomId]);
+```
+
+[Learn how the Effect lifecycle is different from the component's lifecycle.](/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect)
+
+---
+
+### My Effect does something visual, and I see a flicker before it runs {/*my-effect-does-something-visual-and-i-see-a-flicker-before-it-runs*/}
+
+If your Effect must block the browser from [painting the screen,](/learn/render-and-commit#epilogue-browser-paint) replace `useEffect` with [`useLayoutEffect`](/reference/react/useLayoutEffect). Note that **this shouldn't be needed for the vast majority of Effects.** You'll only need this if it's crucial to run your Effect before the browser paint: for example, to measure and position a tooltip before the user sees it.
