@@ -1,42 +1,42 @@
 ---
-title: Docs Contributors
+title: Contribuidores da Docs
 ---
 
 <Intro>
 
-React documentation is written and maintained by the [React team](/community/team) and [external contributors.](https://github.com/reactjs/react.dev/graphs/contributors) On this page, we'd like to thank a few people who've made significant contributions to this site.
+A documentação do React é escrita e mantida pela [equipe do React](/community/team) e [contribuidores externos.](https://github.com/reactjs/react.dev/graphs/contributors) Nesta página, gostaríamos de agradecer a algumas pessoas que fizeram contribuições significativas para este site.
 
 </Intro>
 
-## Content {/*content*/}
+## Conteúdo {/*content*/}
 
-* [Rachel Nabors](https://twitter.com/RachelNabors): editing, writing, illustrating
-* [Dan Abramov](https://twitter.com/dan_abramov): writing, curriculum design
-* [Sylwia Vargas](https://twitter.com/SylwiaVargas): example code
-* [Rick Hanlon](https://twitter.com/rickhanlonii): writing
-* [David McCabe](https://twitter.com/mcc_abe): writing
-* [Sophie Alpert](https://twitter.com/sophiebits): writing
-* [Pete Hunt](https://twitter.com/floydophone): writing
-* [Andrew Clark](https://twitter.com/acdlite): writing
-* [Matt Carroll](https://twitter.com/mattcarrollcode): editing, writing
-* [Natalia Tepluhina](https://twitter.com/n_tepluhina): reviews, advice
+* [Rachel Nabors](https://twitter.com/RachelNabors): edição, escrita, ilustração
+* [Dan Abramov](https://twitter.com/dan_abramov): escrita, design curricular
+* [Sylwia Vargas](https://twitter.com/SylwiaVargas): código de exemplo
+* [Rick Hanlon](https://twitter.com/rickhanlonii): escrita
+* [David McCabe](https://twitter.com/mcc_abe): escrita
+* [Sophie Alpert](https://twitter.com/sophiebits): escrita
+* [Pete Hunt](https://twitter.com/floydophone): escrita
+* [Andrew Clark](https://twitter.com/acdlite): escrita
+* [Matt Carroll](https://twitter.com/mattcarrollcode): edição, escrita
+* [Natalia Tepluhina](https://twitter.com/n_tepluhina): revisões, conselhos
 * [Sebastian Markbåge](https://twitter.com/sebmarkbage): feedback
 
 ## Design {/*design*/}
 
-* [Dan Lebowitz](https://twitter.com/lebo): site design
-* [Razvan Gradinar](https://dribbble.com/GradinarRazvan): sandbox design
-* [Maggie Appleton](https://maggieappleton.com/): diagram system
-* [Sophie Alpert](https://twitter.com/sophiebits): color-coded explanations
+* [Dan Lebowitz](https://twitter.com/lebo): design do site
+* [Razvan Gradinar](https://dribbble.com/GradinarRazvan): design do sandbox
+* [Maggie Appleton](https://maggieappleton.com/): sistema de diagramas
+* [Sophie Alpert](https://twitter.com/sophiebits): explicações codificadas por cor
 
-## Development {/*development*/}
+## Desenvolvimento {/*development*/}
 
-* [Jared Palmer](https://twitter.com/jaredpalmer): site development
-* [ThisDotLabs](https://www.thisdot.co/) ([Dane Grant](https://twitter.com/danecando), [Dustin Goodman](https://twitter.com/dustinsgoodman)): site development
-* [CodeSandbox](https://codesandbox.io/) ([Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), [Danilo Woznica](https://twitter.com/danilowoz)): sandbox integration
-* [Dan Abramov](https://twitter.com/dan_abramov): site development
-* [Rick Hanlon](https://twitter.com/rickhanlonii): site development
-* [Harish Kumar](https://www.strek.in/): development and maintenance
-* [Luna Ruan](https://twitter.com/lunaruan): sandbox improvements
+* [Jared Palmer](https://twitter.com/jaredpalmer): desenvolvimento do site
+* [ThisDotLabs](https://www.thisdot.co/) ([Dane Grant](https://twitter.com/danecando), [Dustin Goodman](https://twitter.com/dustinsgoodman)): desenvolvimento do site
+* [CodeSandbox](https://codesandbox.io/) ([Ives van Hoorne](https://twitter.com/CompuIves), [Alex Moldovan](https://twitter.com/alexnmoldovan), [Jasper De Moor](https://twitter.com/JasperDeMoor), [Danilo Woznica](https://twitter.com/danilowoz)): integração do sandbox
+* [Dan Abramov](https://twitter.com/dan_abramov): desenvolvimento do site
+* [Rick Hanlon](https://twitter.com/rickhanlonii): desenvolvimento do site
+* [Harish Kumar](https://www.strek.in/): desenvolvimento e manutenção
+* [Luna Ruan](https://twitter.com/lunaruan): melhorias no sandbox
 
-We'd also like to thank countless alpha testers and community members who gave us feedback along the way.
+Gostaríamos também de agradecer a inúmeros testadores alpha e membros da comunidade que nos forneceram feedback ao longo do caminho.
