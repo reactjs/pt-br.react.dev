@@ -4,7 +4,7 @@ title: Traduções
 
 <Intro>
 
-Os documentos do React são traduzidos pela comunidade global em muitas línguas ao redor do mundo.
+As documentações do React são traduzidos pela comunidade global em muitas línguas ao redor do mundo.
 
 </Intro>
 
@@ -30,6 +30,6 @@ Para o progresso de cada tradução, veja: [O React já foi traduzido?](https://
 
 Você pode contribuir com os esforços de tradução! 
 
-A comunidade realiza o trabalho de tradução dos documentos do React em cada fork específico de idioma do react.dev. O trabalho típico de tradução envolve traduzir diretamente um arquivo Markdown e criar uma solicitação de pull. Clique no link "contribuir" acima para o repositório do GitHub do seu idioma e siga as instruções lá para ajudar com o esforço de tradução.
+A comunidade realiza o trabalho de tradução das documentações do React em cada fork específico de idioma do react.dev. O trabalho típico de tradução envolve traduzir diretamente um arquivo Markdown e criar uma solicitação de pull. Clique no link "contribuir" acima para o repositório do GitHub do seu idioma e siga as instruções lá para ajudar com o esforço de tradução.
 
 Se você quiser iniciar uma nova tradução para seu idioma, visite: [translations.react.dev](https://github.com/reactjs/translations.react.dev)
