@@ -1,10 +1,10 @@
 ---
-title: Encontros do React
+title: React Meetups
 ---
 
 <Intro>
 
-Você tem um encontro local do React.js? Adicione aqui! (Por favor, mantenha a lista em ordem alfabética)
+Você tem um meetup local de React.js? Adicione aqui! (Por favor, mantenha a lista em ordem alfabética)
 
 </Intro>
 
@@ -59,7 +59,7 @@ Você tem um encontro local do React.js? Adicione aqui! (Por favor, mantenha a l
 
 ## Colômbia {/*colombia*/}
 * [Bogotá](https://www.meetup.com/meetup-group-iHIeHykY/)
-* [Medellín](https://www.meetup.com/React-Medellin/)
+* [Medellin](https://www.meetup.com/React-Medellin/)
 * [Cali](https://www.meetup.com/reactcali/)
 
 ## Dinamarca {/*denmark*/}
@@ -173,7 +173,7 @@ Você tem um encontro local do React.js? Adicione aqui! (Por favor, mantenha a l
 * [Istambul](https://kommunity.com/reactjs-istanbul)
 
 ## Ucrânia {/*ukraine*/}
-* [Kiev](https://www.meetup.com/Kyiv-ReactJS-Meetup)
+* [Quieve](https://www.meetup.com/Kyiv-ReactJS-Meetup)
 
 ## EUA {/*us*/}
 * [Ann Arbor, MI - ReactJS](https://www.meetup.com/AnnArbor-jsx/)
@@ -188,7 +188,7 @@ Você tem um encontro local do React.js? Adicione aqui! (Por favor, mantenha a l
 * [Columbus, OH - ReactJS](https://www.meetup.com/ReactJS-Columbus-meetup/)
 * [Dallas, TX - ReactJS](https://www.meetup.com/ReactDallas/)
 * [Dallas, TX - [Remoto] React JS](https://www.meetup.com/React-JS-Group/)
-* [Detroit, MI - Grupo de Usuários do React de Detroit](https://www.meetup.com/Detroit-React-User-Group/)
+* [Detroit, MI - Detroit React User Group](https://www.meetup.com/Detroit-React-User-Group/)
 * [Indianápolis, IN - React.Indy](https://www.meetup.com/React-Indy)
 * [Irvine, CA - ReactJS](https://www.meetup.com/ReactJS-OC/)
 * [Kansas City, MO - ReactJS](https://www.meetup.com/Kansas-City-React-Meetup/)
@@ -212,7 +212,7 @@ Você tem um encontro local do React.js? Adicione aqui! (Por favor, mantenha a l
 * [Provo, UT - ReactJS](https://www.meetup.com/ReactJS-Utah/)
 * [Sacramento, CA - ReactJS](https://www.meetup.com/Sacramento-ReactJS-Meetup/)
 * [San Diego, CA - San Diego JS](https://www.meetup.com/sandiegojs/)
-* [São Francisco - React do Mundo Real](https://www.meetup.com/Real-World-React)
+* [São Francisco - Real World React](https://www.meetup.com/Real-World-React)
 * [São Francisco - ReactJS](https://www.meetup.com/ReactJS-San-Francisco/)
 * [São Francisco, CA - React Native](https://www.meetup.com/React-Native-San-Francisco/)
 * [San Ramon, CA - TriValley Coders](https://www.meetup.com/trivalleycoders/)
