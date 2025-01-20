@@ -4,7 +4,7 @@ title: startTransition
 
 <Intro>
 
-`startTransition` lets you update the state without blocking the UI.
+`startTransition` permite que você atue no estado sem bloquear a UI.
 
 ```js
 startTransition(scope)
@@ -16,11 +16,11 @@ startTransition(scope)
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `startTransition(scope)` {/*starttransitionscope*/}
 
-The `startTransition` function lets you mark a state update as a Transition.
+A função `startTransition` permite que você marque uma atualização de estado como uma Transição.
 
 ```js {7,9}
 import { startTransition } from 'react';
@@ -37,37 +37,37 @@ function TabContainer() {
 }
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `scope`: A function that updates some state by calling one or more [`set` functions.](/reference/react/useState#setstate) React immediately calls `scope` with no arguments and marks all state updates scheduled synchronously during the `scope` function call as Transitions. They will be [non-blocking](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) and [will not display unwanted loading indicators.](/reference/react/useTransition#preventing-unwanted-loading-indicators)
+* `scope`: Uma função que atualiza algum estado chamando uma ou mais [`funções set.`](/reference/react/useState#setstate) O React chama imediatamente `scope` sem argumentos e marca todas as atualizações de estado agendadas de forma síncrona durante a chamada da função `scope` como Transições. Elas serão [não-bloqueantes](/reference/react/useTransition#marking-a-state-update-as-a-non-blocking-transition) e [não exibirão indicadores de carregamento indesejados.](/reference/react/useTransition#preventing-unwanted-loading-indicators)
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`startTransition` does not return anything.
+`startTransition` não retorna nada.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* `startTransition` does not provide a way to track whether a Transition is pending. To show a pending indicator while the Transition is ongoing, you need [`useTransition`](/reference/react/useTransition) instead.
+* `startTransition` não fornece uma maneira de rastrear se uma Transição está pendente. Para mostrar um indicador de pendência enquanto a Transição está em andamento, você precisa de [`useTransition`](/reference/react/useTransition) em vez disso.
 
-* You can wrap an update into a Transition only if you have access to the `set` function of that state. If you want to start a Transition in response to some prop or a custom Hook return value, try [`useDeferredValue`](/reference/react/useDeferredValue) instead.
+* Você pode encapsular uma atualização em uma Transição apenas se tiver acesso à função `set` desse estado. Se você quiser iniciar uma Transição em resposta a alguma prop ou valor de retorno de um Hook personalizado, tente [`useDeferredValue`](/reference/react/useDeferredValue) em vez disso.
 
-* The function you pass to `startTransition` must be synchronous. React immediately executes this function, marking all state updates that happen while it executes as Transitions. If you try to perform more state updates later (for example, in a timeout), they won't be marked as Transitions.
+* A função que você passa para `startTransition` deve ser síncrona. O React executa imediatamente essa função, marcando todas as atualizações de estado que ocorrem enquanto ela é executada como Transições. Se você tentar realizar mais atualizações de estado posteriormente (por exemplo, em um timeout), elas não serão marcadas como Transições.
 
-* A state update marked as a Transition will be interrupted by other state updates. For example, if you update a chart component inside a Transition, but then start typing into an input while the chart is in the middle of a re-render, React will restart the rendering work on the chart component after handling the input state update.
+* Uma atualização de estado marcada como uma Transição será interrompida por outras atualizações de estado. Por exemplo, se você atualizar um componente de gráfico dentro de uma Transição, mas então começar a digitar em um input enquanto o gráfico está no meio de uma re-renderização, o React reiniciará o trabalho de renderização no componente gráfico após lidar com a atualização de estado do input.
 
-* Transition updates can't be used to control text inputs.
+* Atualizações de Transição não podem ser usadas para controlar inputs de texto.
 
-* If there are multiple ongoing Transitions, React currently batches them together. This is a limitation that will likely be removed in a future release.
+* Se houver várias Transições em andamento, o React atualmente as agrupa. Esta é uma limitação que provavelmente será removida em uma versão futura.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Marking a state update as a non-blocking Transition {/*marking-a-state-update-as-a-non-blocking-transition*/}
+### Marcando uma atualização de estado como uma Transição não-bloqueante {/*marking-a-state-update-as-a-non-blocking-transition*/}
 
-You can mark a state update as a *Transition* by wrapping it in a `startTransition` call:
+Você pode marcar uma atualização de estado como uma *Transição* envolvendo-a em uma chamada `startTransition`:
 
 ```js {7,9}
 import { startTransition } from 'react';
@@ -84,14 +84,14 @@ function TabContainer() {
 }
 ```
 
-Transitions let you keep the user interface updates responsive even on slow devices.
+Transições permitem que você mantenha as atualizações da interface do usuário responsivas mesmo em dispositivos lentos.
 
-With a Transition, your UI stays responsive in the middle of a re-render. For example, if the user clicks a tab but then change their mind and click another tab, they can do that without waiting for the first re-render to finish.
+Com uma Transição, sua UI permanece responsiva no meio de uma re-renderização. Por exemplo, se o usuário clicar em uma aba, mas depois mudar de ideia e clicar em outra aba, ele pode fazer isso sem esperar que a primeira re-renderização termine.
 
 <Note>
 
-`startTransition` is very similar to [`useTransition`](/reference/react/useTransition), except that it does not provide the `isPending` flag to track whether a Transition is ongoing. You can call `startTransition` when `useTransition` is not available. For example, `startTransition` works outside components, such as from a data library.
+`startTransition` é muito semelhante ao [`useTransition`](/reference/react/useTransition), exceto que não fornece a flag `isPending` para rastrear se uma Transição está em andamento. Você pode chamar `startTransition` quando `useTransition` não está disponível. Por exemplo, `startTransition` funciona fora de componentes, como de uma biblioteca de dados.
 
-[Learn about Transitions and see examples on the `useTransition` page.](/reference/react/useTransition)
+[Saiba mais sobre Transições e veja exemplos na página `useTransition`](/reference/react/useTransition)
 
 </Note>
