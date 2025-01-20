@@ -5,19 +5,19 @@ canary: true
 
 <Canary>
 
-The `useActionState` Hook is currently only available in React's Canary and experimental channels. Learn more about [release channels here](/community/versioning-policy#all-release-channels). In addition, you need to use a framework that supports [React Server Components](/reference/rsc/use-client) to get the full benefit of `useActionState`.
+O Hook `useActionState` está atualmente disponível apenas nos canais Canary e experimentais do React. Saiba mais sobre [canais de lançamento aqui](/community/versioning-policy#all-release-channels). Além disso, você precisa usar um framework que suporte [React Server Components](/reference/rsc/use-client) para obter o máximo benefício do `useActionState`.
 
 </Canary>
 
 <Note>
 
-In earlier React Canary versions, this API was part of React DOM and called `useFormState`.
+Nas versões anteriores do React Canary, esta API fazia parte do React DOM e era chamada de `useFormState`.
 
 </Note>
 
 <Intro>
 
-`useActionState` is a Hook that allows you to update state based on the result of a form action.
+`useActionState` é um Hook que permite atualizar o estado com base no resultado de uma ação de formulário.
 
 ```js
 const [state, formAction] = useActionState(fn, initialState, permalink?);
@@ -29,13 +29,13 @@ const [state, formAction] = useActionState(fn, initialState, permalink?);
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `useActionState(action, initialState, permalink?)` {/*useactionstate*/}
 
-{/* TODO T164397693: link to actions documentation once it exists */}
+{/* TODO T164397693: link para a documentação de ações assim que ela existir */}
 
-Call `useActionState` at the top level of your component to create component state that is updated [when a form action is invoked](/reference/react-dom/components/form). You pass `useActionState` an existing form action function as well as an initial state, and it returns a new action that you use in your form, along with the latest form state. The latest form state is also passed to the function that you provided.
+Chame `useActionState` no nível superior do seu componente para criar um estado de componente que é atualizado [quando uma ação de formulário é invocada](/reference/react-dom/components/form). Você passa para `useActionState` uma função de ação de formulário existente, bem como um estado inicial, e ele retorna uma nova ação que você usa em seu formulário, juntamente com o estado mais recente do formulário. O estado mais recente do formulário também é passado para a função que você forneceu.
 
 ```js
 import { useActionState } from "react";
@@ -49,45 +49,45 @@ function StatefulForm({}) {
   return (
     <form>
       {state}
-      <button formAction={formAction}>Increment</button>
+      <button formAction={formAction}>Incrementar</button>
     </form>
   )
 }
 ```
 
-The form state is the value returned by the action when the form was last submitted. If the form has not yet been submitted, it is the initial state that you pass.
+O estado do formulário é o valor retornado pela ação quando o formulário foi submetido pela última vez. Se o formulário ainda não foi submetido, é o estado inicial que você passa.
 
-If used with a Server Action, `useActionState` allows the server's response from submitting the form to be shown even before hydration has completed.
+Se usado com uma Ação do Servidor, `useActionState` permite que a resposta do servidor da submissão do formulário seja exibida mesmo antes que a hidratação tenha sido concluída.
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `fn`: The function to be called when the form is submitted or button pressed. When the function is called, it will receive the previous state of the form (initially the `initialState` that you pass, subsequently its previous return value) as its initial argument, followed by the arguments that a form action normally receives.
-* `initialState`: The value you want the state to be initially. It can be any serializable value. This argument is ignored after the action is first invoked.
-* **optional** `permalink`: A string containing the unique page URL that this form modifies. For use on pages with dynamic content (eg: feeds) in conjunction with progressive enhancement: if `fn` is a [server action](/reference/rsc/use-server) and the form is submitted before the JavaScript bundle loads, the browser will navigate to the specified permalink URL, rather than the current page's URL. Ensure that the same form component is rendered on the destination page (including the same action `fn` and `permalink`) so that React knows how to pass the state through. Once the form has been hydrated, this parameter has no effect.
+* `fn`: A função a ser chamada quando o formulário é submetido ou o botão pressionado. Quando a função é chamada, ela receberá o estado anterior do formulário (inicialmente o `initialState` que você passa, posteriormente seu último valor de retorno) como seu argumento inicial, seguido pelos argumentos que uma ação de formulário normalmente recebe.
+* `initialState`: O valor que você deseja que o estado tenha inicialmente. Ele pode ser qualquer valor serializável. Este argumento é ignorado após a ação ser invocada pela primeira vez.
+* **opcional** `permalink`: Uma string contendo a URL única da página que este formulário modifica. Para uso em páginas com conteúdo dinâmico (por exemplo: feeds) em conjunto com aprimoramento progressivo: se `fn` for uma [ação do servidor](/reference/rsc/use-server) e o formulário for submetido antes que o pacote JavaScript carregue, o navegador navegará para a URL permalink especificada, em vez da URL da página atual. Certifique-se de que o mesmo componente de formulário seja renderizado na página de destino (incluindo a mesma ação `fn` e `permalink`) para que o React saiba como passar o estado. Uma vez que o formulário tenha sido hidratado, este parâmetro não tem efeito.
 
-{/* TODO T164397693: link to serializable values docs once it exists */}
+{/* TODO T164397693: link para a documentação de valores serializáveis assim que existir */}
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`useActionState` returns an array with exactly two values:
+`useActionState` retorna um array com exatamente dois valores:
 
-1. The current state. During the first render, it will match the `initialState` you have passed. After the action is invoked, it will match the value returned by the action.
-2. A new action that you can pass as the `action` prop to your `form` component or `formAction` prop to any `button` component within the form.
+1. O estado atual. Durante a primeira renderização, ele corresponderá ao `initialState` que você passou. Após a invocação da ação, ele corresponderá ao valor retornado pela ação.
+2. Uma nova ação que você pode passar como a prop `action` para seu componente `form` ou prop `formAction` para qualquer componente `button` dentro do formulário.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* When used with a framework that supports React Server Components, `useActionState` lets you make forms interactive before JavaScript has executed on the client. When used without Server Components, it is equivalent to component local state.
-* The function passed to `useActionState` receives an extra argument, the previous or initial state, as its first argument. This makes its signature different than if it were used directly as a form action without using `useActionState`.
+* Quando usado com um framework que suporta React Server Components, `useActionState` permite que você torne os formulários interativos antes que o JavaScript tenha sido executado no cliente. Quando usado sem Server Components, é equivalente ao estado local do componente.
+* A função passada para `useActionState` recebe um argumento extra, o estado anterior ou inicial, como seu primeiro argumento. Isso torna sua assinatura diferente do que se ela fosse usada diretamente como uma ação de formulário sem usar `useActionState`.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Using information returned by a form action {/*using-information-returned-by-a-form-action*/}
+### Usando informações retornadas por uma ação de formulário {/*using-information-returned-by-a-form-action*/}
 
-Call `useActionState` at the top level of your component to access the return value of an action from the last time a form was submitted.
+Chame `useActionState` no nível superior do seu componente para acessar o valor retornado de uma ação da última vez que um formulário foi submetido.
 
 ```js [[1, 5, "state"], [2, 5, "formAction"], [3, 5, "action"], [4, 5, "null"], [2, 8, "formAction"]]
 import { useActionState } from 'react';
@@ -104,27 +104,27 @@ function MyComponent() {
 }
 ```
 
-`useActionState` returns an array with exactly two items:
+`useActionState` retorna um array com exatamente dois itens:
 
-1. The <CodeStep step={1}>current state</CodeStep> of the form, which is initially set to the <CodeStep step={4}>initial state</CodeStep> you provided, and after the form is submitted is set to the return value of the <CodeStep step={3}>action</CodeStep> you provided.
-2. A <CodeStep step={2}>new action</CodeStep> that you pass to `<form>` as its `action` prop.
+1. O <CodeStep step={1}>estado atual</CodeStep> do formulário, que é inicialmente definido para o <CodeStep step={4}>estado inicial</CodeStep> que você forneceu, e após a submissão do formulário é definido para o valor de retorno da <CodeStep step={3}>ação</CodeStep> que você forneceu.
+2. Uma <CodeStep step={2}>nova ação</CodeStep> que você passa para `<form>` como sua prop `action`.
 
-When the form is submitted, the <CodeStep step={3}>action</CodeStep> function that you provided will be called. Its return value will become the new <CodeStep step={1}>current state</CodeStep> of the form.
+Quando o formulário é submetido, a função <CodeStep step={3}>ação</CodeStep> que você forneceu será chamada. Seu valor de retorno se tornará o novo <CodeStep step={1}>estado atual</CodeStep> do formulário.
 
-The <CodeStep step={3}>action</CodeStep> that you provide will also receive a new first argument, namely the <CodeStep step={1}>current state</CodeStep> of the form. The first time the form is submitted, this will be the <CodeStep step={4}>initial state</CodeStep> you provided, while with subsequent submissions, it will be the return value from the last time the action was called. The rest of the arguments are the same as if `useActionState` had not been used.
+A <CodeStep step={3}>ação</CodeStep> que você fornece também receberá um novo primeiro argumento, que é o <CodeStep step={1}>estado atual</CodeStep> do formulário. A primeira vez que o formulário é submetido, isso será o <CodeStep step={4}>estado inicial</CodeStep> que você forneceu, enquanto em submissões subsequentes, será o valor de retorno da última vez em que a ação foi chamada. O restante dos argumentos é o mesmo do que se `useActionState` não tivesse sido usado.
 
 ```js [[3, 1, "action"], [1, 1, "currentState"]]
 function action(currentState, formData) {
   // ...
-  return 'next state';
+  return 'próximo estado';
 }
 ```
 
-<Recipes titleText="Display information after submitting a form" titleId="display-information-after-submitting-a-form">
+<Recipes titleText="Exibir informações após submeter um formulário" titleId="display-information-after-submitting-a-form">
 
-#### Display form errors {/*display-form-errors*/}
+#### Exibir erros de formulário {/*display-form-errors*/}
 
-To display messages such as an error message or toast that's returned by a Server Action, wrap the action in a call to `useActionState`.
+Para exibir mensagens como uma mensagem de erro ou um toast que é retornado por uma Ação do Servidor, envolva a ação em uma chamada para `useActionState`.
 
 <Sandpack>
 
@@ -138,7 +138,7 @@ function AddToCartForm({itemID, itemTitle}) {
     <form action={formAction}>
       <h2>{itemTitle}</h2>
       <input type="hidden" name="itemID" value={itemID} />
-      <button type="submit">Add to Cart</button>
+      <button type="submit">Adicionar ao Carrinho</button>
       {message}
     </form>
   );
@@ -147,8 +147,8 @@ function AddToCartForm({itemID, itemTitle}) {
 export default function App() {
   return (
     <>
-      <AddToCartForm itemID="1" itemTitle="JavaScript: The Definitive Guide" />
-      <AddToCartForm itemID="2" itemTitle="JavaScript: The Good Parts" />
+      <AddToCartForm itemID="1" itemTitle="JavaScript: O Guia Definitivo" />
+      <AddToCartForm itemID="2" itemTitle="JavaScript: Os Bons Partes" />
     </>
   )
 }
@@ -160,9 +160,9 @@ export default function App() {
 export async function addToCart(prevState, queryData) {
   const itemID = queryData.get('itemID');
   if (itemID === "1") {
-    return "Added to cart";
+    return "Adicionado ao carrinho";
   } else {
-    return "Couldn't add to cart: the item is sold out.";
+    return "Não foi possível adicionar ao carrinho: o item está esgotado.";
   }
 }
 ```
@@ -194,9 +194,9 @@ form button {
 
 <Solution />
 
-#### Display structured information after submitting a form {/*display-structured-information-after-submitting-a-form*/}
+#### Exibir informações estruturadas após submeter um formulário {/*display-structured-information-after-submitting-a-form*/}
 
-The return value from a Server Action can be any serializable value. For example, it could be an object that includes a boolean indicating whether the action was successful, an error message, or updated information.
+O valor de retorno de uma Ação do Servidor pode ser qualquer valor serializável. Por exemplo, pode ser um objeto que inclui um booleano indicando se a ação foi bem-sucedida, uma mensagem de erro ou informações atualizadas.
 
 <Sandpack>
 
@@ -210,15 +210,15 @@ function AddToCartForm({itemID, itemTitle}) {
     <form action={formAction}>
       <h2>{itemTitle}</h2>
       <input type="hidden" name="itemID" value={itemID} />
-      <button type="submit">Add to Cart</button>
+      <button type="submit">Adicionar ao Carrinho</button>
       {formState?.success &&
         <div className="toast">
-          Added to cart! Your cart now has {formState.cartSize} items.
+          Adicionado ao carrinho! Seu carrinho agora tem {formState.cartSize} itens.
         </div>
       }
       {formState?.success === false &&
         <div className="error">
-          Failed to add to cart: {formState.message}
+          Falha ao adicionar ao carrinho: {formState.message}
         </div>
       }
     </form>
@@ -228,8 +228,8 @@ function AddToCartForm({itemID, itemTitle}) {
 export default function App() {
   return (
     <>
-      <AddToCartForm itemID="1" itemTitle="JavaScript: The Definitive Guide" />
-      <AddToCartForm itemID="2" itemTitle="JavaScript: The Good Parts" />
+      <AddToCartForm itemID="1" itemTitle="JavaScript: O Guia Definitivo" />
+      <AddToCartForm itemID="2" itemTitle="JavaScript: Os Bons Partes" />
     </>
   )
 }
@@ -248,7 +248,7 @@ export async function addToCart(prevState, queryData) {
   } else {
     return {
       success: false,
-      message: "The item is sold out.",
+      message: "O item está esgotado.",
     };
   }
 }
@@ -283,11 +283,11 @@ form button {
 
 </Recipes>
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### My action can no longer read the submitted form data {/*my-action-can-no-longer-read-the-submitted-form-data*/}
+### Minha ação não consegue mais ler os dados do formulário submetido {/*my-action-can-no-longer-read-the-submitted-form-data*/}
 
-When you wrap an action with `useActionState`, it gets an extra argument *as its first argument*. The submitted form data is therefore its *second* argument instead of its first as it would usually be. The new first argument that gets added is the current state of the form.
+Quando você envolve uma ação com `useActionState`, ela recebe um argumento extra *como seu primeiro argumento*. Os dados do formulário submetido são, portanto, seu *segundo* argumento em vez de seu primeiro, como geralmente seria. O novo primeiro argumento que é adicionado é o estado atual do formulário.
 
 ```js
 function action(currentState, formData) {
