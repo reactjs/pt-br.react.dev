@@ -4,13 +4,13 @@ title: createFactory
 
 <Deprecated>
 
-This API will be removed in a future major version of React. [See the alternatives.](#alternatives)
+Esta API será removida em uma futura versão principal do React. [Veja as alternativas.](#alternatives)
 
 </Deprecated>
 
 <Intro>
 
-`createFactory` lets you create a function that produces React elements of a given type.
+`createFactory` permite que você crie uma função que produz elementos React de um determinado tipo.
 
 ```js
 const factory = createFactory(type)
@@ -22,11 +22,11 @@ const factory = createFactory(type)
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `createFactory(type)` {/*createfactory*/}
 
-Call `createFactory(type)` to create a factory function which produces React elements of a given `type`.
+Chame `createFactory(type)` para criar uma função de fábrica que produz elementos React de um dado `type`.
 
 ```js
 import { createFactory } from 'react';
@@ -34,37 +34,37 @@ import { createFactory } from 'react';
 const button = createFactory('button');
 ```
 
-Then you can use it to create React elements without JSX:
+Então você pode usá-la para criar elementos React sem JSX:
 
 ```js
 export default function App() {
   return button({
     onClick: () => {
-      alert('Clicked!')
+      alert('Clicado!')
     }
-  }, 'Click me');
+  }, 'Clique em mim');
 }
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `type`: The `type` argument must be a valid React component type. For example, it could be a tag name string (such as `'div'` or `'span'`), or a React component (a function, a class, or a special component like [`Fragment`](/reference/react/Fragment)).
+* `type`: O argumento `type` deve ser um tipo de componente React válido. Por exemplo, pode ser uma string de nome de tag (como `'div'` ou `'span'`), ou um componente React (uma função, uma classe ou um componente especial como [`Fragment`](/reference/react/Fragment)).
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-Returns a factory function. That factory function receives a `props` object as the first argument, followed by a list of `...children` arguments, and returns a React element with the given `type`, `props` and `children`.
+Retorna uma função de fábrica. Essa função de fábrica recebe um objeto `props` como o primeiro argumento, seguido por uma lista de argumentos `...children`, e retorna um elemento React com o dado `type`, `props` e `children`.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Creating React elements with a factory {/*creating-react-elements-with-a-factory*/}
+### Criando elementos React com uma fábrica {/*creating-react-elements-with-a-factory*/}
 
-Although most React projects use [JSX](/learn/writing-markup-with-jsx) to describe the user interface, JSX is not required. In the past, `createFactory` used to be one of the ways you could describe the user interface without JSX.
+Embora a maioria dos projetos React use [JSX](/learn/writing-markup-with-jsx) para descrever a interface do usuário, JSX não é obrigatório. No passado, `createFactory` era uma das maneiras de descrever a interface do usuário sem JSX.
 
-Call `createFactory` to create a *factory function* for a specific element type like `'button'`:
+Chame `createFactory` para criar uma *função de fábrica* para um tipo de elemento específico como `'button'`:
 
 ```js
 import { createFactory } from 'react';
@@ -72,7 +72,7 @@ import { createFactory } from 'react';
 const button = createFactory('button');
 ```
 
-Calling that factory function will produce React elements with the props and children you have provided:
+Chamar essa função de fábrica produzirá elementos React com os props e children que você forneceu:
 
 <Sandpack>
 
@@ -84,23 +84,23 @@ const button = createFactory('button');
 export default function App() {
   return button({
     onClick: () => {
-      alert('Clicked!')
+      alert('Clicado!')
     }
-  }, 'Click me');
+  }, 'Clique em mim');
 }
 ```
 
 </Sandpack>
 
-This is how `createFactory` was used as an alternative to JSX. However, `createFactory` is deprecated, and you should not call `createFactory` in any new code. See how to migrate away from `createFactory` below.
+Esta é a forma como `createFactory` era usado como uma alternativa ao JSX. No entanto, `createFactory` está obsoleto, e você não deve chamar `createFactory` em nenhum novo código. Veja como migrar para fora de `createFactory` abaixo.
 
 ---
 
-## Alternatives {/*alternatives*/}
+## Alternativas {/*alternatives*/}
 
-### Copying `createFactory` into your project {/*copying-createfactory-into-your-project*/}
+### Copiando `createFactory` para o seu projeto {/*copying-createfactory-into-your-project*/}
 
-If your project has many `createFactory` calls, copy this `createFactory.js` implementation into your project:
+Se o seu projeto tem muitas chamadas de `createFactory`, copie esta implementação de `createFactory.js` para o seu projeto:
 
 <Sandpack>
 
@@ -112,9 +112,9 @@ const button = createFactory('button');
 export default function App() {
   return button({
     onClick: () => {
-      alert('Clicked!')
+      alert('Clicado!')
     }
-  }, 'Click me');
+  }, 'Clique em mim');
 }
 ```
 
@@ -128,13 +128,13 @@ export function createFactory(type) {
 
 </Sandpack>
 
-This lets you keep all of your code unchanged except the imports.
+Isso permite que você mantenha todo o seu código inalterado, exceto pelas importações.
 
 ---
 
-### Replacing `createFactory` with `createElement` {/*replacing-createfactory-with-createelement*/}
+### Substituindo `createFactory` por `createElement` {/*replacing-createfactory-with-createelement*/}
 
-If you have a few `createFactory` calls that you don't mind porting manually, and you don't want to use JSX, you can replace every call a factory function with a [`createElement`](/reference/react/createElement) call. For example, you can replace this code:
+Se você tiver algumas chamadas de `createFactory` que não se importa em portar manualmente, e você não quiser usar JSX, pode substituir cada chamada de uma função de fábrica por uma chamada de [`createElement`](/reference/react/createElement). Por exemplo, você pode substituir este código:
 
 ```js {1,3,6}
 import { createFactory } from 'react';
@@ -144,14 +144,13 @@ const button = createFactory('button');
 export default function App() {
   return button({
     onClick: () => {
-      alert('Clicked!')
+      alert('Clicado!')
     }
-  }, 'Click me');
+  }, 'Clique em mim');
 }
 ```
 
-with this code:
-
+por este código:
 
 ```js {1,4}
 import { createElement } from 'react';
@@ -159,13 +158,13 @@ import { createElement } from 'react';
 export default function App() {
   return createElement('button', {
     onClick: () => {
-      alert('Clicked!')
+      alert('Clicado!')
     }
-  }, 'Click me');
+  }, 'Clique em mim');
 }
 ```
 
-Here is a complete example of using React without JSX:
+Aqui está um exemplo completo de uso do React sem JSX:
 
 <Sandpack>
 
@@ -175,9 +174,9 @@ import { createElement } from 'react';
 export default function App() {
   return createElement('button', {
     onClick: () => {
-      alert('Clicked!')
+      alert('Clicado!')
     }
-  }, 'Click me');
+  }, 'Clique em mim');
 }
 ```
 
@@ -185,9 +184,9 @@ export default function App() {
 
 ---
 
-### Replacing `createFactory` with JSX {/*replacing-createfactory-with-jsx*/}
+### Substituindo `createFactory` por JSX {/*replacing-createfactory-with-jsx*/}
 
-Finally, you can use JSX instead of `createFactory`. This is the most common way to use React:
+Finalmente, você pode usar JSX em vez de `createFactory`. Esta é a forma mais comum de usar o React:
 
 <Sandpack>
 
@@ -195,9 +194,9 @@ Finally, you can use JSX instead of `createFactory`. This is the most common way
 export default function App() {
   return (
     <button onClick={() => {
-      alert('Clicked!');
+      alert('Clicado!');
     }}>
-      Click me
+      Clique em mim
     </button>
   );
 };
@@ -207,7 +206,7 @@ export default function App() {
 
 <Pitfall>
 
-Sometimes, your existing code might pass some variable as a `type` instead of a constant like `'button'`:
+Às vezes, seu código existente pode passar alguma variável como um `type` em vez de uma constante como `'button'`:
 
 ```js {3}
 function Heading({ isSubheading, ...props }) {
@@ -217,7 +216,7 @@ function Heading({ isSubheading, ...props }) {
 }
 ```
 
-To do the same in JSX, you need to rename your variable to start with an uppercase letter like `Type`:
+Para fazer o mesmo em JSX, você precisa renomear sua variável para começar com uma letra maiúscula como `Type`:
 
 ```js {2,3}
 function Heading({ isSubheading, ...props }) {
@@ -226,6 +225,6 @@ function Heading({ isSubheading, ...props }) {
 }
 ```
 
-Otherwise React will interpret `<type>` as a built-in HTML tag because it is lowercase.
+Caso contrário, o React interpretará `<type>` como uma tag HTML embutida porque está em minúsculas.
 
 </Pitfall>
