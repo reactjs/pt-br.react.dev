@@ -1,40 +1,40 @@
 ---
-title: "React DOM Components"
+title: "Componentes do React DOM"
 ---
 
 <Intro>
 
-React supports all of the browser built-in [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) components.
+O React suporta todos os componentes internos de [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) e [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element) do navegador.
 
 </Intro>
 
 ---
 
-## Common components {/*common-components*/}
+## Componentes Comuns {/*common-components*/}
 
-All of the built-in browser components support some props and events.
+Todos os componentes internos do navegador suportam algumas props e eventos.
 
-* [Common components (e.g. `<div>`)](/reference/react-dom/components/common)
+* [Componentes comuns (por exemplo, `<div>`)](/reference/react-dom/components/common)
 
-This includes React-specific props like `ref` and `dangerouslySetInnerHTML`.
+Isso inclui props específicas do React, como `ref` e `dangerouslySetInnerHTML`.
 
 ---
 
-## Form components {/*form-components*/}
+## Componentes de Formulário {/*form-components*/}
 
-These built-in browser components accept user input:
+Esses componentes internos do navegador aceitam entrada do usuário:
 
 * [`<input>`](/reference/react-dom/components/input)
 * [`<select>`](/reference/react-dom/components/select)
 * [`<textarea>`](/reference/react-dom/components/textarea)
 
-They are special in React because passing the `value` prop to them makes them *[controlled.](/reference/react-dom/components/input#controlling-an-input-with-a-state-variable)*
+Eles são especiais no React porque passar a prop `value` para eles os torna *[controlados.](/reference/react-dom/components/input#controlling-an-input-with-a-state-variable)*
 
 ---
 
-## Resource and Metadata Components {/*resource-and-metadata-components*/}
+## Componentes de Recursos e Metadados {/*resource-and-metadata-components*/}
 
-These bulit-in browser components let you load external resources or annotate the document with metadata:
+Esses componentes internos do navegador permitem que você carregue recursos externos ou anote o documento com metadados:
 
 * [`<link>`](/reference/react-dom/components/link)
 * [`<meta>`](/reference/react-dom/components/meta)
@@ -42,13 +42,13 @@ These bulit-in browser components let you load external resources or annotate th
 * [`<style>`](/reference/react-dom/components/style)
 * [`<title>`](/reference/react-dom/components/title)
 
-They are special in React because React can render them into the document head, suspend while resources are loading, and enact other behaviors that are described on the reference page for each specific component.
+Eles são especiais no React porque o React pode renderizá-los no cabeçalho do documento, suspender enquanto os recursos estão sendo carregados e realizar outros comportamentos que são descritos na página de referência para cada componente específico.
 
 ---
 
-## All HTML components {/*all-html-components*/}
+## Todos os Componentes HTML {/*all-html-components*/}
 
-React supports all built-in browser HTML components. This includes:
+O React suporta todos os componentes HTML internos do navegador. Isso inclui:
 
 * [`<aside>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
 * [`<audio>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
@@ -154,38 +154,38 @@ React supports all built-in browser HTML components. This includes:
 
 <Note>
 
-Similar to the [DOM standard,](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) React uses a `camelCase` convention for prop names. For example, you'll write `tabIndex` instead of `tabindex`. You can convert existing HTML to JSX with an [online converter.](https://transform.tools/html-to-jsx)
+Semelhante ao [padrão DOM,](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) o React usa uma convenção de `camelCase` para nomes de props. Por exemplo, você escreverá `tabIndex` em vez de `tabindex`. Você pode converter HTML existente para JSX com um [conversor online.](https://transform.tools/html-to-jsx)
 
 </Note>
 
 ---
 
-### Custom HTML elements {/*custom-html-elements*/}
+### Elementos HTML Personalizados {/*custom-html-elements*/}
 
-If you render a tag with a dash, like `<my-element>`, React will assume you want to render a [custom HTML element.](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) In React, rendering custom elements works differently from rendering built-in browser tags:
+Se você renderizar uma tag com um hífen, como `<my-element>`, o React assumirá que você deseja renderizar um [elemento HTML personalizado.](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) No React, renderizar elementos personalizados funciona de maneira diferente de renderizar tags internas do navegador:
 
-- All custom element props are serialized to strings and are always set using attributes.
-- Custom elements accept `class` rather than `className`, and `for` rather than `htmlFor`.
+- Todas as props de elementos personalizados são serializadas como strings e são sempre definidas usando atributos.
+- Elementos personalizados aceitam `class` em vez de `className`, e `for` em vez de `htmlFor`.
 
-If you render a built-in browser HTML element with an [`is`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/is) attribute, it will also be treated as a custom element.
+Se você renderizar um elemento HTML interno do navegador com um atributo [`is`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/is), ele também será tratado como um elemento personalizado.
 
 <Note>
 
-[A future version of React will include more comprehensive support for custom elements.](https://github.com/facebook/react/issues/11347#issuecomment-1122275286)
+[Uma versão futura do React incluirá suporte mais abrangente para elementos personalizados.](https://github.com/facebook/react/issues/11347#issuecomment-1122275286)
 
-You can try it by upgrading React packages to the most recent experimental version:
+Você pode experimentar isso atualizando os pacotes do React para a versão experimental mais recente:
 
 - `react@experimental`
 - `react-dom@experimental`
 
-Experimental versions of React may contain bugs. Don't use them in production.
+Versões experimentais do React podem conter bugs. Não use-as em produção.
 
 </Note>
 ---
 
-## All SVG components {/*all-svg-components*/}
+## Todos os Componentes SVG {/*all-svg-components*/}
 
-React supports all built-in browser SVG components. This includes:
+O React suporta todos os componentes SVG internos do navegador. Isso inclui:
 
 * [`<a>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/a)
 * [`<animate>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate)
@@ -256,20 +256,20 @@ React supports all built-in browser SVG components. This includes:
 
 <Note>
 
-Similar to the [DOM standard,](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) React uses a `camelCase` convention for prop names. For example, you'll write `tabIndex` instead of `tabindex`. You can convert existing SVG to JSX with an [online converter.](https://transform.tools/)
+Semelhante ao [padrão DOM,](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) o React usa uma convenção de `camelCase` para nomes de props. Por exemplo, você escreverá `tabIndex` em vez de `tabindex`. Você pode converter SVG existente para JSX com um [conversor online.](https://transform.tools/)
 
-Namespaced attributes also have to be written without the colon:
+Atributos nomeados também devem ser escritos sem os dois pontos:
 
-* `xlink:actuate` becomes `xlinkActuate`.
-* `xlink:arcrole` becomes `xlinkArcrole`.
-* `xlink:href` becomes `xlinkHref`.
-* `xlink:role` becomes `xlinkRole`.
-* `xlink:show` becomes `xlinkShow`.
-* `xlink:title` becomes `xlinkTitle`.
-* `xlink:type` becomes `xlinkType`.
-* `xml:base` becomes `xmlBase`.
-* `xml:lang` becomes `xmlLang`.
-* `xml:space` becomes `xmlSpace`.
-* `xmlns:xlink` becomes `xmlnsXlink`.
+* `xlink:actuate` se torna `xlinkActuate`.
+* `xlink:arcrole` se torna `xlinkArcrole`.
+* `xlink:href` se torna `xlinkHref`.
+* `xlink:role` se torna `xlinkRole`.
+* `xlink:show` se torna `xlinkShow`.
+* `xlink:title` se torna `xlinkTitle`.
+* `xlink:type` se torna `xlinkType`.
+* `xml:base` se torna `xmlBase`.
+* `xml:lang` se torna `xmlLang`.
+* `xml:space` se torna `xmlSpace`.
+* `xmlns:xlink` se torna `xmlnsXlink`.
 
 </Note>
