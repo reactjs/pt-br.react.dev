@@ -1,17 +1,17 @@
 ---
-title: Contribuidores da Documentação
+title: Contribuidores da Docs
 ---
 
 <Intro>
 
-A documentação do React é escrita e mantida pela [equipe do React](/community/team) e [contribuidores externos.](https://github.com/reactjs/react.dev/graphs/contributors) Nesta página, gostaríamos de agradecer a algumas pessoas que fizeram contribuições significativas a este site.
+A documentação do React é escrita e mantida pela [equipe do React](/community/team) e [contribuidores externos.](https://github.com/reactjs/react.dev/graphs/contributors) Nesta página, gostaríamos de agradecer a algumas pessoas que fizeram contribuições significativas para este site.
 
 </Intro>
 
 ## Conteúdo {/*content*/}
 
 * [Rachel Nabors](https://twitter.com/RachelNabors): edição, escrita, ilustração
-* [Dan Abramov](https://twitter.com/dan_abramov): escrita, design curricular
+* [Dan Abramov](https://twitter.com/dan_abramov): escrita, design do currículo
 * [Sylwia Vargas](https://twitter.com/SylwiaVargas): código de exemplo
 * [Rick Hanlon](https://twitter.com/rickhanlonii): escrita
 * [David McCabe](https://twitter.com/mcc_abe): escrita
@@ -27,7 +27,7 @@ A documentação do React é escrita e mantida pela [equipe do React](/community
 * [Dan Lebowitz](https://twitter.com/lebo): design do site
 * [Razvan Gradinar](https://dribbble.com/GradinarRazvan): design do sandbox
 * [Maggie Appleton](https://maggieappleton.com/): sistema de diagramas
-* [Sophie Alpert](https://twitter.com/sophiebits): explicações codificadas por cor
+* [Sophie Alpert](https://twitter.com/sophiebits): explicações codificadas por cores
 
 ## Desenvolvimento {/*development*/}
 
@@ -39,4 +39,4 @@ A documentação do React é escrita e mantida pela [equipe do React](/community
 * [Harish Kumar](https://www.strek.in/): desenvolvimento e manutenção
 * [Luna Ruan](https://twitter.com/lunaruan): melhorias no sandbox
 
-Gostaríamos também de agradecer a inúmeros testadores alfa e membros da comunidade que nos deram feedback ao longo do caminho.
+Gostaríamos também de agradecer a inúmeros testadores alpha e membros da comunidade que nos deram feedback ao longo do caminho.
