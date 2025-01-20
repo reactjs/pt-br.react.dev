@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-The `useOptimistic` Hook is currently only available in React's Canary and experimental channels. Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
+O Hook `useOptimistic` está atualmente disponível apenas nos canais Canary e experimentais do React. Saiba mais sobre [os canais de lançamento do React aqui](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
 <Intro>
 
-`useOptimistic` is a React Hook that lets you optimistically update the UI.
+`useOptimistic` é um Hook do React que permite atualizar a interface do usuário de forma otimista.
 
 ```js
   const [optimisticState, addOptimistic] = useOptimistic(state, updateFn);
@@ -23,13 +23,13 @@ The `useOptimistic` Hook is currently only available in React's Canary and exper
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `useOptimistic(state, updateFn)` {/*use*/}
 
-`useOptimistic` is a React Hook that lets you show a different state while an async action is underway. It accepts some state as an argument and returns a copy of that state that can be different during the duration of an async action such as a network request. You provide a function that takes the current state and the input to the action, and returns the optimistic state to be used while the action is pending.
+`useOptimistic` é um Hook do React que permite mostrar um estado diferente enquanto uma ação assíncrona está em andamento. Ele aceita algum estado como argumento e retorna uma cópia desse estado que pode ser diferente durante a duração de uma ação assíncrona, como uma solicitação de rede. Você fornece uma função que recebe o estado atual e a entrada para a ação e retorna o estado otimista a ser usado enquanto a ação está pendente.
 
-This state is called the "optimistic" state because it is usually used to immediately present the user with the result of performing an action, even though the action actually takes time to complete.
+Esse estado é chamado de estado "otimista" porque geralmente é usado para apresentar imediatamente ao usuário o resultado de realizar uma ação, mesmo que a ação realmente leve tempo para ser concluída.
 
 ```js
 import { useOptimistic } from 'react';
@@ -39,35 +39,35 @@ function AppContainer() {
     state,
     // updateFn
     (currentState, optimisticValue) => {
-      // merge and return new state
-      // with optimistic value
+      // mesclar e retornar novo estado
+      // com valor otimista
     }
   );
 }
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `state`: the value to be returned initially and whenever no action is pending.
-* `updateFn(currentState, optimisticValue)`: a function that takes the current state and the optimistic value passed to `addOptimistic` and returns the resulting optimistic state. It must be a pure function. `updateFn` takes in two parameters. The `currentState` and the `optimisticValue`. The return value will be the merged value of the `currentState` and `optimisticValue`.
+* `state`: o valor a ser retornado inicialmente e sempre que nenhuma ação estiver pendente.
+* `updateFn(currentState, optimisticValue)`: uma função que recebe o estado atual e o valor otimista passado para `addOptimistic` e retorna o estado otimista resultante. Deve ser uma função pura. `updateFn` aceita dois parâmetros. O `currentState` e o `optimisticValue`. O valor de retorno será o valor mesclado do `currentState` e `optimisticValue`.
 
 
-#### Returns {/*returns*/}
+#### Retornos {/*returns*/}
 
-* `optimisticState`: The resulting optimistic state. It is equal to `state` unless an action is pending, in which case it is equal to the value returned by `updateFn`.
-* `addOptimistic`: `addOptimistic` is the dispatching function to call when you have an optimistic update. It takes one argument, `optimisticValue`, of any type and will call the `updateFn` with `state` and `optimisticValue`.
+* `optimisticState`: O estado otimista resultante. É igual a `state`, a menos que uma ação esteja pendente, caso em que é igual ao valor retornado por `updateFn`.
+* `addOptimistic`: `addOptimistic` é a função de despacho a ser chamada quando você tiver uma atualização otimista. Aceita um argumento, `optimisticValue`, de qualquer tipo e chamará `updateFn` com `state` e `optimisticValue`.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Optimistically updating forms {/*optimistically-updating-with-forms*/}
+### Atualizando formulários de forma otimista {/*optimistically-updating-with-forms*/}
 
-The `useOptimistic` Hook provides a way to optimistically update the user interface before a background operation, like a network request, completes. In the context of forms, this technique helps to make apps feel more responsive. When a user submits a form, instead of waiting for the server's response to reflect the changes, the interface is immediately updated with the expected outcome.
+O Hook `useOptimistic` fornece uma maneira de atualizar de forma otimista a interface do usuário antes que uma operação em segundo plano, como uma solicitação de rede, seja concluída. No contexto de formulários, essa técnica ajuda a fazer os aplicativos parecerem mais responsivos. Quando um usuário envia um formulário, em vez de esperar pela resposta do servidor para refletir as mudanças, a interface é imediatamente atualizada com o resultado esperado.
 
-For example, when a user types a message into the form and hits the "Send" button, the `useOptimistic` Hook allows the message to immediately appear in the list with a "Sending..." label, even before the message is actually sent to a server. This "optimistic" approach gives the impression of speed and responsiveness. The form then attempts to truly send the message in the background. Once the server confirms the message has been received, the "Sending..." label is removed.
+Por exemplo, quando um usuário digita uma mensagem no formulário e clica no botão "Enviar", o Hook `useOptimistic` permite que a mensagem apareça imediatamente na lista com um rótulo "Enviando...", mesmo antes que a mensagem seja realmente enviada para um servidor. Essa abordagem "otimista" dá a impressão de velocidade e responsividade. O formulário então tenta realmente enviar a mensagem em segundo plano. Assim que o servidor confirma que a mensagem foi recebida, o rótulo "Enviando..." é removido.
 
 <Sandpack>
 
@@ -99,12 +99,12 @@ function Thread({ messages, sendMessage }) {
       {optimisticMessages.map((message, index) => (
         <div key={index}>
           {message.text}
-          {!!message.sending && <small> (Sending...)</small>}
+          {!!message.sending && <small> (Enviando...)</small>}
         </div>
       ))}
       <form action={formAction} ref={formRef}>
-        <input type="text" name="message" placeholder="Hello!" />
-        <button type="submit">Send</button>
+        <input type="text" name="message" placeholder="Olá!" />
+        <button type="submit">Enviar</button>
       </form>
     </>
   );
@@ -112,7 +112,7 @@ function Thread({ messages, sendMessage }) {
 
 export default function App() {
   const [messages, setMessages] = useState([
-    { text: "Hello there!", sending: false, key: 1 }
+    { text: "Olá!", sending: false, key: 1 }
   ]);
   async function sendMessage(formData) {
     const sentMessage = await deliverMessage(formData.get("message"));
