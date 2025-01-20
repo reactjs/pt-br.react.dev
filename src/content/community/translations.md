@@ -8,15 +8,15 @@ A documentação do React é traduzida pela comunidade global em muitos idiomas 
 
 </Intro>
 
-## Site fonte {/*main-site*/}
+## Site de origem {/*main-site*/}
 
-Todas as traduções são fornecidas a partir da documentação fonte canônica:
+Todas as traduções são fornecidas a partir da documentação de origem canônica:
 
-- [Inglês](https://react.dev/) &mdash; [Contribua](https://github.com/reactjs/react.dev/)
+- [Inglês](https://react.dev/) &mdash; [Contribuir](https://github.com/reactjs/react.dev/)
 
 ## Traduções completas {/*full-translations*/}
 
-{/* Se você é um mantenedor de idioma e deseja adicionar seu idioma aqui, finalize as traduções "Core" e edite `deployedTranslations` em `src/utils`. */}
+{/* Se você é um mantenedor de idioma e deseja adicionar seu idioma aqui, finalize as traduções "Core" e edite `deployedTranslations` sob `src/utils`. */}
 
 <LanguageList progress="complete" />
 
@@ -28,8 +28,8 @@ Para o progresso de cada tradução, veja: [O React já foi traduzido?](https://
 
 ## Como contribuir {/*how-to-contribute*/}
 
-Você pode contribuir com os esforços de tradução! 
+Você pode contribuir para os esforços de tradução! 
 
-A comunidade realiza o trabalho de tradução da documentação do React em cada fork específico de idioma do react.dev. O trabalho típico de tradução envolve traduzir diretamente um arquivo Markdown e criar uma pull request. Clique no link "contribua" acima para o repositório do GitHub para seu idioma e siga as instruções lá para ajudar com o esforço de tradução.
+A comunidade realiza o trabalho de tradução da documentação do React em cada fork específico de idioma do react.dev. O trabalho típico de tradução envolve traduzir diretamente um arquivo Markdown e criar um pull request. Clique no link "contribuir" acima para o repositório GitHub do seu idioma e siga as instruções lá para ajudar com o esforço de tradução.
 
-Se você deseja iniciar uma nova tradução para seu idioma, visite: [translations.react.dev](https://github.com/reactjs/translations.react.dev)
+Se você deseja iniciar uma nova tradução para o seu idioma, visite: [translations.react.dev](https://github.com/reactjs/translations.react.dev)
