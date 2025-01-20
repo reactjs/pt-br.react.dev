@@ -5,13 +5,13 @@ canary: true
 
 <Canary>
 
-React's extensions to `<script>` are currently only available in React's canary and experimental channels. In stable releases of React `<script>` works only as a [built-in browser HTML component](https://react.dev/reference/react-dom/components#all-html-components). Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
+As extensões de `<script>` do React estão disponíveis atualmente apenas nos canais canary e experimental do React. Nas versões estáveis do React, `<script>` funciona apenas como um [componente HTML embutido do navegador](https://react.dev/reference/react-dom/components#all-html-components). Saiba mais sobre [os canais de versão do React aqui](/community/versioning-policy#all-release-channels).
 
 </Canary>
 
 <Intro>
 
-The [built-in browser `<script>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script) lets you add a script to your document.
+O [componente `<script>` embutido do navegador](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script) permite adicionar um script ao seu documento.
 
 ```js
 <script> alert("hi!") </script>
@@ -23,71 +23,71 @@ The [built-in browser `<script>` component](https://developer.mozilla.org/en-US/
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<script>` {/*script*/}
 
-To add inline or external scripts to your document, render the [built-in browser `<script>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script). You can render `<script>` from any component and React will [in certain cases](#special-rendering-behavior) place the corresponding DOM element in the document head and de-duplicate identical scripts.
+Para adicionar scripts inline ou externos ao seu documento, renderize o [componente `<script>` embutido do navegador](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script). Você pode renderizar `<script>` de qualquer componente e o React [em certos casos](#special-rendering-behavior) colocará o elemento DOM correspondente no cabeçalho do documento e deduplicará scripts idênticos.
 
 ```js
 <script> alert("hi!") </script>
 <script src="script.js" />
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Props {/*props*/}
 
-`<script>` supports all [common element props.](/reference/react-dom/components/common#props)
+`<script>` suporta todas as [props comuns de elementos](/reference/react-dom/components/common#props)
 
-It should have *either* `children` or a `src` prop.
+Deve ter *ou* `children` ou uma prop `src`.
 
-* `children`: a string. The source code of an inline script.
-* `src`: a string. The URL of an external script.
+* `children`: uma string. O código fonte de um script inline.
+* `src`: uma string. A URL de um script externo.
 
-Other supported props:
+Outras props suportadas:
 
-* `async`: a boolean. Allows the browser to defer execution of the script until the rest of the document has been processed — the preferred behavior for performance.
-*  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`.
-* `fetchPriority`: a string. Lets the browser rank scripts in priority when fetching multiple scripts at the same time. Can be `"high"`, `"low"`, or `"auto"` (the default).
-* `integrity`: a string. A cryptographic hash of the script, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
-* `noModule`: a boolean. Disables the script in browsers that support ES modules — allowing for a fallback script for browsers that do not.
-* `nonce`: a string. A cryptographic [nonce to allow the resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy.
-* `referrer`: a string. Says [what Referer header to send](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#referrerpolicy) when fetching the script and any resources that the script fetches in turn. 
-* `type`: a string. Says whether the script is a [classic script, ES module, or import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type).
+* `async`: um booleano. Permite que o navegador adie a execução do script até que o resto do documento tenha sido processado — o comportamento preferido para desempenho.
+*  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a ser utilizada. Seus valores possíveis são `anonymous` e `use-credentials`.
+* `fetchPriority`: uma string. Permite que o navegador classifique scripts em prioridade ao buscar múltiplos scripts ao mesmo tempo. Pode ser `"high"`, `"low"` ou `"auto"` (o padrão).
+* `integrity`: uma string. Um hash criptográfico do script, para [verificar sua autenticidade](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
+* `noModule`: um booleano. Desabilita o script em navegadores que suportam módulos ES — permitindo um script alternativa para navegadores que não o suportam.
+* `nonce`: uma string. Um [nonce criptográfico para permitir o recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) ao usar uma política de segurança de conteúdo estrita.
+* `referrer`: uma string. Indica [qual cabeçalho Referer enviar](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#referrerpolicy) ao buscar o script e quaisquer recursos que o script buscar por sua vez. 
+* `type`: uma string. Indica se o script é um [script clássico, módulo ES ou mapa de importação](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type).
 
-Props that disable React's [special treatment of scripts](#special-rendering-behavior):
+Props que desabilitam o [tratamento especial de scripts do React](#special-rendering-behavior):
 
-* `onError`: a function. Called when the script fails to load.
-* `onLoad`: a function. Called when the script finishes being loaded.
+* `onError`: uma função. Chamado quando o script falha ao carregar.
+* `onLoad`: uma função. Chamado quando o script termina de ser carregado.
 
-Props that are **not recommended** for use with React:
+Props que **não são recomendadas** para uso com o React:
 
-* `blocking`: a string. If set to `"render"`, instructs the browser not to render the page until the scriptsheet is loaded. React provides more fine-grained control using Suspense.
-* `defer`: a string. Prevents the browser from executing the script until the document is done loading. Not compatible with streaming server-rendered components. Use the `async` prop instead.
+* `blocking`: uma string. Se definida como `"render"`, instrui o navegador a não renderizar a página até que a planilha de scripts esteja carregada. O React fornece um controle mais detalhado usando Suspense.
+* `defer`: uma string. Impede que o navegador execute o script até que o documento tenha terminado de carregar. Não é compatível com componentes renderizados no servidor em streaming. Use a prop `async` em vez disso.
 
-#### Special rendering behavior {/*special-rendering-behavior*/}
+#### Comportamento de renderização especial {/*special-rendering-behavior*/}
 
-React can move `<script>` components to the document's `<head>`, de-duplicate identical scripts, and [suspend](/reference/react/Suspense) while the script is loading.
+O React pode mover componentes `<script>` para o `<head>` do documento, deduplicar scripts idênticos e [suspender](/reference/react/Suspense) enquanto o script está carregando.
 
-To opt into this behavior, provide the `src` and `async={true}` props. React will de-duplicate scripts if they have the same `src`. The `async` prop must be true to allow scripts to be safely moved.
+Para optar por esse comportamento, forneça as props `src` e `async={true}`. O React deduplicará scripts se eles tiverem o mesmo `src`. A prop `async` deve ser verdadeira para permitir que os scripts sejam movidos com segurança.
 
-If you supply any of the `onLoad` or `onError` props, there is no special behavior, because these props indicate that you are managing the loading of the script manually within your component.
+Se você fornecer qualquer uma das props `onLoad` ou `onError`, não haverá comportamento especial, pois essas props indicam que você está gerenciando o carregamento do script manualmente dentro do seu componente.
 
-This special treatment comes with two caveats:
+Esse tratamento especial vem com duas ressalvas:
 
-* React will ignore changes to props after the script has been rendered. (React will issue a warning in development if this happens.)
-* React may leave the script in the DOM even after the component that rendered it has been unmounted. (This has no effect as scripts just execute once when they are inserted into the DOM.)
+* O React ignorará alterações nas props após o script ter sido renderizado. (O React emitirá um aviso em desenvolvimento se isso acontecer.)
+* O React pode deixar o script no DOM mesmo depois que o componente que o renderizou tenha sido desmontado. (Isso não tem efeito, pois os scripts são executados apenas uma vez quando são inseridos no DOM.)
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Rendering an external script {/*rendering-an-external-script*/}
+### Renderizando um script externo {/*rendering-an-external-script*/}
 
-If a component depends on certain scripts in order to be displayed correctly, you can render a `<script>` within the component.
+Se um componente depende de certos scripts para ser exibido corretamente, você pode renderizar um `<script>` dentro do componente.
 
-If you supply an `src` and `async` prop, your component will suspend while the script is loading. React will de-duplicate scripts that have the same `src`, inserting only one of them into the DOM even if multiple components render it.
+Se você fornecer as props `src` e `async`, seu componente será suspenso enquanto o script estiver carregando. O React deduplicará scripts que têm o mesmo `src`, inserindo apenas um deles no DOM mesmo que múltiplos componentes o renderizem.
 
 <SandpackWithHTMLOutput>
 
@@ -115,12 +115,12 @@ export default function Page() {
 </SandpackWithHTMLOutput>
 
 <Note>
-When you want to use a script, it can be beneficial to call the [preinit](/reference/react-dom/preinit) function. Calling this function may allow the browser to start fetching the script earlier than if you just render a `<script>` component, for example by sending an [HTTP Early Hints response](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103).
+Quando você deseja usar um script, pode ser benéfico chamar a função [preinit](/reference/react-dom/preinit). Chamar essa função pode permitir que o navegador comece a buscar o script mais cedo do que se você apenas renderizar um componente `<script>`, por exemplo, enviando uma [resposta de Dicas Iniciais HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103).
 </Note>
 
-### Rendering an inline script {/*rendering-an-inline-script*/}
+### Renderizando um script inline {/*rendering-an-inline-script*/}
 
-To include an inline script, render the `<script>` component with the script source code as its children. Inline scripts are not de-duplicated or moved to the document `<head>`, and since they don't load any external resources, they will not cause your component to suspend.
+Para incluir um script inline, renderize o componente `<script>` com o código fonte do script como seus filhos. Scripts inline não são deduplicados ou movidos para o `<head>` do documento e, como não carregam nenhum recurso externo, não causarão a suspensão do seu componente.
 
 <SandpackWithHTMLOutput>
 
@@ -138,9 +138,9 @@ function Tracking() {
 export default function Page() {
   return (
     <ShowRenderedHTML>
-      <h1>My Website</h1>
+      <h1>Meu Site</h1>
       <Tracking />
-      <p>Welcome</p>
+      <p>Bem-vindo</p>
     </ShowRenderedHTML>
   );
 }
