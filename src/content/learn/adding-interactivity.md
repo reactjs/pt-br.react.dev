@@ -4,16 +4,16 @@ title: Adicionando Interatividade
 
 <Intro>
 
-Algumas coisas na tela são atualizadas em resposta à entrada do usuário. Por exemplo, clicar em uma galeria de imagens altera a imagem ativa. No React, dados que mudam ao longo do tempo são chamados de *estado.* Você pode adicionar estado a qualquer componente e atualizá-lo conforme necessário. Neste capítulo, você aprenderá como escrever componentes que lidam com interações, atualizam seu estado e exibem diferentes saídas ao longo do tempo.
+Algumas coisas na tela são atualizadas em resposta à entrada do usuário. Por exemplo, clicar em uma galeria de imagens troca a imagem ativa. No React, dados que mudam ao longo do tempo são chamados de *estado.* Você pode adicionar estado a qualquer componente e atualizá-lo conforme necessário. Neste capítulo, você aprenderá a escrever componentes que lidam com interações, atualizam seu estado e exibem diferentes saídas ao longo do tempo.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
 * [Como lidar com eventos iniciados pelo usuário](/learn/responding-to-events)
-* [Como fazer componentes "lembrarem" informações com estado](/learn/state-a-components-memory)
-* [Como o React atualiza a interface do usuário em duas fases](/learn/render-and-commit)
-* [Por que o estado não é atualizado imediatamente após você mudá-lo](/learn/state-as-a-snapshot)
+* [Como fazer componentes "lembrar" informações com estado](/learn/state-a-components-memory)
+* [Como o React atualiza a UI em duas fases](/learn/render-and-commit)
+* [Por que o estado não é atualizado logo após você alterá-lo](/learn/state-as-a-snapshot)
 * [Como enfileirar múltiplas atualizações de estado](/learn/queueing-a-series-of-state-updates)
 * [Como atualizar um objeto no estado](/learn/updating-objects-in-state)
 * [Como atualizar um array no estado](/learn/updating-arrays-in-state)
@@ -22,9 +22,9 @@ Algumas coisas na tela são atualizadas em resposta à entrada do usuário. Por 
 
 ## Respondendo a eventos {/*responding-to-events*/}
 
-O React permite que você adicione *manipuladores de eventos* ao seu JSX. Manipuladores de eventos são suas próprias funções que serão acionadas em resposta a interações do usuário, como clicar, passar o mouse, focar em entradas de formulário, e assim por diante.
+O React permite que você adicione *manipuladores de eventos* ao seu JSX. Manipuladores de eventos são suas próprias funções que serão acionadas em resposta a interações do usuário, como clicar, passar o mouse, focar em entradas de formulário e assim por diante.
 
-Componentes embutidos como `<button>` suportam apenas eventos embutidos do navegador, como `onClick`. No entanto, você também pode criar seus próprios componentes e dar aos props do seu manipulador de eventos qualquer nome específico da aplicação que você desejar.
+Componentes integrados, como `<button>`, suportam apenas eventos incorporados do navegador, como `onClick`. No entanto, você também pode criar seus próprios componentes e dar a eles nomes de props de manipuladores de eventos que sejam específicos para sua aplicação.
 
 <Sandpack>
 
@@ -74,16 +74,16 @@ Leia **[Respondendo a Eventos](/learn/responding-to-events)** para aprender como
 
 ## Estado: a memória de um componente {/*state-a-components-memory*/}
 
-Os componentes frequentemente precisam mudar o que está na tela como resultado de uma interação. Digitar em um formulário deve atualizar o campo de entrada, clicar em "próximo" em um carrossel de imagens deve mudar qual imagem é exibida, clicar em "comprar" coloca um produto no carrinho de compras. Os componentes precisam "lembrar" de coisas: o valor de entrada atual, a imagem atual, o carrinho de compras. No React, esse tipo de memória específica do componente é chamado de *estado.*
+Componentes frequentemente precisam mudar o que está na tela como resultado de uma interação. Digitar no formulário deve atualizar o campo de entrada, clicar em "próximo" em um carrossel de imagens deve mudar qual imagem está sendo exibida, clicar em "comprar" coloca um produto no carrinho de compras. Componentes precisam "lembrar" coisas: o valor atual de entrada, a imagem atual, o carrinho de compras. No React, esse tipo de memória específica do componente é chamado de *estado.*
 
-Você pode adicionar estado a um componente com um [`useState`](/apis/usestate) Hook. Os Hooks são funções especiais que permitem que seus componentes usem recursos do React (estado é um desses recursos). O Hook `useState` permite declarar uma variável de estado. Ele recebe o estado inicial e retorna um par de valores: o estado atual e uma função setter de estado que permite atualizá-lo.
+Você pode adicionar estado a um componente com um Hook [`useState`](/apis/usestate). Hooks são funções especiais que permitem que seus componentes utilizem recursos do React (o estado é um desses recursos). O Hook `useState` permite que você declare uma variável de estado. Ele recebe o estado inicial e retorna um par de valores: o estado atual e uma função definidora de estado que permite que você o atualize.
 
 ```js
 const [index, setIndex] = useState(0);
 const [showMore, setShowMore] = useState(false);
 ```
 
-Aqui está como uma galeria de imagens usa e atualiza o estado ao clicar:
+Aqui está como uma galeria de imagens utiliza e atualiza o estado ao clicar:
 
 <Sandpack>
 
@@ -138,75 +138,75 @@ export default function Gallery() {
 export const sculptureList = [{
   name: 'Homenaje a la Neurocirugía',
   artist: 'Marta Colvin Andrade',
-  description: 'Embora Colvin seja predominantemente conhecida por temas abstratos que aludem a símbolos pré-hispânicos, esta escultura gigante, uma homenagem à neurocirurgia, é uma de suas peças de arte pública mais reconhecíveis.',
+  description: 'Embora Colvin seja predominantemente conhecida por temas abstratos que aludem a símbolos pré-hispânicos, esta escultura gigantesca, uma homenagem à neurocirurgia, é uma das suas peças de arte pública mais reconhecíveis.',
   url: 'https://i.imgur.com/Mx7dA2Y.jpg',
-  alt: 'Uma estátua de bronze de duas mãos cruzadas segurando delicadamente um cérebro humano nas pontas dos dedos.'
+  alt: 'Uma estátua de bronze de duas mãos cruzadas segurando delicadamente um cérebro humano com as pontas dos dedos.'
 }, {
   name: 'Floralis Genérica',
   artist: 'Eduardo Catalano',
-  description: 'Esta enorme flor prateada (23 m) está localizada em Buenos Aires. Ela foi projetada para se mover, fechando suas pétalas à noite ou quando ventos fortes sopram e abrindo-as pela manhã.',
+  description: 'Esta enorme (75 pés ou 23m) flor prateada está localizada em Buenos Aires. Ela foi projetada para se mover, fechando suas pétalas à noite ou quando ventos fortes sopram, e abrindo-as pela manhã.',
   url: 'https://i.imgur.com/ZF6s192m.jpg',
-  alt: 'Uma escultura de flor metálica gigante com pétalas reflexivas e estamens fortes.'
+  alt: 'Uma escultura floral metálica gigante com pétalas refletivas semelhantes a espelhos e estames fortes.'
 }, {
   name: 'Eternal Presence',
   artist: 'John Woodrow Wilson',
-  description: 'Wilson era conhecido por sua preocupação com a igualdade, justiça social, bem como as qualidades essenciais e espirituais da humanidade. Esta enorme escultura (2,13 m) de bronze representa o que ele descreveu como "uma presença simbólica negra infundida com um sentido de humanidade universal."',
+  description: 'Wilson era conhecido por sua preocupação com a igualdade, justiça social, assim como as qualidades essenciais e espirituais da humanidade. Este enorme (7 pés ou 2,13m) bronze representa o que ele descreveu como "uma presença simbólica negra imbuída de um senso de humanidade universal".',
   url: 'https://i.imgur.com/aTtVpES.jpg',
-  alt: 'A escultura que retrata uma cabeça humana parece sempre presente e solene. Ela irradia calma e serenidade.'
+  alt: 'A escultura representando uma cabeça humana parece sempre presente e solene. Ela irradia calma e serenidade.'
 }, {
   name: 'Moai',
-  artist: 'Desconhecido',
-  description: 'Localizados na Ilha de Páscoa, existem 1.000 moai, ou estátuas monumentais existentes, criadas pelo povo Rapa Nui, que alguns acreditam representar ancestrais deificados.',
+  artist: 'Artista Desconhecido',
+  description: 'Localizados na Ilha de Páscoa, existem 1.000 moai, ou estátuas monumentais existentes, criadas pelos primeiros habitantes Rapa Nui, que alguns acreditam representar ancestrais deificados.',
   url: 'https://i.imgur.com/RCwLEoQm.jpg',
-  alt: 'Três bustos monumentais de pedra com cabeças desproporcionalmente grandes e rostos sérios.'
+  alt: 'Três bustos monumentais de pedra com cabeças desproporcionalmente grandes e rostos sombrios.'
 }, {
   name: 'Blue Nana',
   artist: 'Niki de Saint Phalle',
-  description: 'As Nanas são criaturas triunfantes, símbolos de feminilidade e maternidade. Inicialmente, Saint Phalle usou tecido e objetos encontrados para as Nanas, e mais tarde introduziu poliéster para alcançar um efeito mais vibrante.',
+  description: 'As Nanas são criaturas triunfantes, símbolos de feminilidade e maternidade. Inicialmente, Saint Phalle usou tecido e objetos encontrados para as Nanas e, mais tarde, introduziu poliéster para obter um efeito mais vibrante.',
   url: 'https://i.imgur.com/Sd1AgUOm.jpg',
-  alt: 'Uma grande escultura mosaico de uma figura feminina dançante e caprichosa em um traje colorido emanando alegria.'
+  alt: 'Uma grande escultura em mosaico de uma figura feminina dançante e lúdica em um traje colorido que emana alegria.'
 }, {
   name: 'Ultimate Form',
   artist: 'Barbara Hepworth',
-  description: 'Esta escultura abstrata de bronze faz parte da série The Family of Man localizada no Yorkshire Sculpture Park. Hepworth escolheu não criar representações literais do mundo, mas desenvolveu formas abstratas inspiradas em pessoas e paisagens.',
+  description: 'Esta escultura abstrata de bronze faz parte da série The Family of Man localizada no Yorkshire Sculpture Park. Hepworth escolheu não criar representações literais do mundo, mas desenvolveu formas abstratas inspiradas por pessoas e paisagens.',
   url: 'https://i.imgur.com/2heNQDcm.jpg',
   alt: 'Uma escultura alta feita de três elementos empilhados uns sobre os outros, lembrando uma figura humana.'
 }, {
   name: 'Cavaliere',
   artist: 'Lamidi Olonade Fakeye',
-  description: "Descendente de quatro gerações de entalhadores de madeira, o trabalho de Fakeye mistura temas tradicionais e contemporâneos de Yoruba.",
+  description: "Descendente de quatro gerações de escultores, o trabalho de Fakeye mesclava temas tradicionais e contemporâneos de Iorubá.",
   url: 'https://i.imgur.com/wIdGuZwm.png',
-  alt: 'Uma escultura intrincada de madeira de um guerreiro com uma expressão concentrada em um cavalo adornado com padrões.'
+  alt: 'Uma intrincada escultura de madeira de um guerreiro com um rosto focado em um cavalo adornado com padrões.'
 }, {
   name: 'Big Bellies',
   artist: 'Alina Szapocznikow',
-  description: "Szapocznikow é conhecida por suas esculturas do corpo fragmentado como uma metáfora para a fragilidade e impermanência da juventude e beleza. Esta escultura retrata duas barrigas grandes e realistas empilhadas uma sobre a outra, cada uma com cerca de cinco pés (1,5m) de altura.",
+  description: "Szapocznikow é conhecida por suas esculturas do corpo fragmentado como uma metáfora para a fragilidade e impermanência da juventude e beleza. Esta escultura retrata dois barrigões muito realistas empilhados um sobre o outro, cada um com cerca de cinco pés (1,5m) de altura.",
   url: 'https://i.imgur.com/AlHTAdDm.jpg',
-  alt: 'A escultura se assemelha a uma cascata de dobras, bastante diferente das barrigas em esculturas clássicas.'
+  alt: 'A escultura lembra uma cascata de dobras, bem diferente das barrigas em esculturas clássicas.'
 }, {
   name: 'Terracotta Army',
-  artist: 'Desconhecido',
-  description: 'O Exército de Terracota é uma coleção de esculturas de terracota representando os exércitos de Qin Shi Huang, o primeiro Imperador da China. O exército consistia em mais de 8.000 soldados, 130 carruagens com 520 cavalos e 150 cavalos de cavalaria.',
+  artist: 'Artista Desconhecido',
+  description: 'O Exército de Terracota é uma coleção de esculturas de terracota retratando os exércitos de Qin Shi Huang, o primeiro Imperador da China. O exército consistiu de mais de 8.000 soldados, 130 carruagens com 520 cavalos e 150 cavalos de cavalaria.',
   url: 'https://i.imgur.com/HMFmH6m.jpg',
-  alt: '12 esculturas de terracota de guerreiros solenes, cada uma com uma expressão facial única e armadura.'
+  alt: '12 esculturas de terracota de guerreiros solenes, cada uma com uma expressão facial e armadura únicas.'
 }, {
   name: 'Lunar Landscape',
   artist: 'Louise Nevelson',
-  description: 'Nevelson era conhecida por garimpar objetos dos destroços de Nova York, que ela mais tarde montava em construções monumentais. Nesta, ela utilizou partes discrepantes como um pé de cama, pino de malabares e fragmento de assento, pregando e colando-os em caixas que refletem a influência da abstração geométrica do Cubismo em espaço e forma.',
+  description: 'Nevelson era conhecida por coletar objetos dos escombros de Nova York, que ela posteriormente montava em construções monumentais. Neste, ela usou partes díspares como um pé de cama, um pin de malabarismo e um fragmento de assento, pregando e colando-os em caixas que refletem a influência da abstração geométrica do Cubismo no espaço e na forma.',
   url: 'https://i.imgur.com/rN7hY6om.jpg',
-  alt: 'Uma escultura preta fosca onde os elementos individuais são inicialmente indistinguíveis.'
+  alt: 'Uma escultura preta fosca onde os elementos individuais são inicialmente indistintos.'
 }, {
   name: 'Aureole',
   artist: 'Ranjani Shettar',
-  description: 'Shettar funde o tradicional e o moderno, o natural e o industrial. Sua arte foca na relação entre homem e natureza. Seu trabalho foi descrito como convincente tanto abstratamente quanto figurativamente, desafiando a gravidade, e uma "fina síntese de materiais improváveis."',
+  description: 'Shettar funde o tradicional e o moderno, o natural e o industrial. Sua arte foca na relação entre o homem e a natureza. Seu trabalho foi descrito como atraente tanto abstratamente quanto figurativamente, desafiando a gravidade, e uma "fina síntese de materiais improváveis."',
   url: 'https://i.imgur.com/okTpbHhm.jpg',
-  alt: 'Uma escultura pálida em forma de fio montada em uma parede de concreto e descendo ao chão. Ela parece leve.'
+  alt: 'Uma escultura pálida e semelhante a fio montada na parede de concreto e descendo pelo chão. Ela parece leve.'
 }, {
   name: 'Hippos',
   artist: 'Zoológico de Taipei',
-  description: 'O Zoológico de Taipei comissionou uma Praça de Hipopótamo com hipopótamos submersos brincando.',
+  description: 'O Zoológico de Taipei encomendou uma Praça Hipopótamo apresentando hipopótamos submersos brincando.',
   url: 'https://i.imgur.com/6o5Vuyu.jpg',
-  alt: 'Um grupo de escultura de hipopótamos em bronze emergindo da calçada como se estivessem nadando.'
+  alt: 'Um grupo de esculturas de hipopótamos de bronze emergindo da calçada como se estivessem nadando.'
 }];
 ```
 
@@ -229,43 +229,43 @@ button {
 
 <LearnMore path="/learn/state-a-components-memory">
 
-Leia **[Estado: A Memória de um Componente](/learn/state-a-components-memory)** para aprender como lembrar um valor e atualizá-lo na interação.
+Leia **[Estado: A Memória de Um Componente](/learn/state-a-components-memory)** para aprender como lembrar um valor e atualizá-lo na interação.
 
 </LearnMore>
 
 ## Renderizar e confirmar {/*render-and-commit*/}
 
-Antes que seus componentes sejam exibidos na tela, eles devem ser renderizados pelo React. Entender as etapas desse processo ajudará você a pensar sobre como seu código é executado e explicar seu comportamento.
+Antes que seus componentes sejam exibidos na tela, eles devem ser renderizados pelo React. Compreender as etapas desse processo ajudará você a pensar sobre como seu código é executado e explicar seu comportamento.
 
-Imagine que seus componentes são cozinheiros na cozinha, montando pratos saborosos a partir de ingredientes. Nesse cenário, o React é o garçom que faz pedidos dos clientes e traz suas encomendas. Esse processo de solicitar e servir a interface do usuário tem três etapas:
+Imagine que seus componentes são cozinheiros na cozinha, montando pratos saborosos a partir de ingredientes. Nesse cenário, o React é o garçom que faz os pedidos dos clientes e traz a eles as suas encomendas. Esse processo de solicitar e servir a UI tem três etapas:
 
-1. **Acionando** uma renderização (entregando o pedido do cliente à cozinha)
-2. **Renderizando** o componente (preparando o pedido na cozinha)
-3. **Confirmando** no DOM (colocando o pedido na mesa)
+1. **Acionar** uma renderização (entregar o pedido do cliente à cozinha)
+2. **Renderizar** o componente (preparar o pedido na cozinha)
+3. **Confirmar** ao DOM (colocar o pedido na mesa)
 
 <IllustrationBlock sequential>
-  <Illustration caption="Acionar" alt="React como um servidor em um restaurante, buscando pedidos dos usuários e entregando-os à Cozinha de Componentes." src="/images/docs/illustrations/i_render-and-commit1.png" />
+  <Illustration caption="Acionar" alt="React como um servidor em um restaurante, buscando pedidos dos usuários e entregando-os à Cozinha do Componente." src="/images/docs/illustrations/i_render-and-commit1.png" />
   <Illustration caption="Renderizar" alt="O Chef do Card dá ao React um novo componente Card." src="/images/docs/illustrations/i_render-and-commit2.png" />
-  <Illustration caption="Confirmar" alt="React entrega o Card ao usuário na mesa dele." src="/images/docs/illustrations/i_render-and-commit3.png" />
+  <Illustration caption="Confirmar" alt="React entrega o Card ao usuário em sua mesa." src="/images/docs/illustrations/i_render-and-commit3.png" />
 </IllustrationBlock>
 
 <LearnMore path="/learn/render-and-commit">
 
-Leia **[Renderizar e Confirmar](/learn/render-and-commit)** para aprender sobre o ciclo de vida de uma atualização da interface do usuário.
+Leia **[Renderizar e Confirmar](/learn/render-and-commit)** para aprender sobre o ciclo de vida de uma atualização de UI.
 
 </LearnMore>
 
 ## Estado como um instantâneo {/*state-as-a-snapshot*/}
 
-Diferentemente das variáveis JavaScript comuns, o estado do React se comporta mais como um instantâneo. Defini-lo não muda a variável de estado que você já tem, mas aciona uma nova renderização. Isso pode ser surpreendente a princípio!
+Diferente de variáveis regulares do JavaScript, o estado do React se comporta mais como um instantâneo. Alterá-lo não muda a variável de estado que você já tem, mas sim aciona uma nova renderização. Isso pode ser surpreendente a princípio!
 
 ```js
 console.log(count);  // 0
-setCount(count + 1); // Solicita uma nova renderização com 1
+setCount(count + 1); // Solicitar uma nova renderização com 1
 console.log(count);  // Ainda 0!
 ```
 
-Esse comportamento ajuda você a evitar erros sutis. Aqui está um pequeno aplicativo de chat. Tente adivinhar o que acontece se você pressionar "Enviar" primeiro e *depois* mudar o destinatário para Bob. Qual nome aparecerá no `alert` cinco segundos depois?
+Esse comportamento ajuda você a evitar bugs sutis. Aqui está um pequeno aplicativo de bate-papo. Tente adivinhar o que acontece se você pressionar "Enviar" primeiro e *depois* mudar o destinatário para Bob. De quem o nome aparecerá no `alert` cinco segundos depois?
 
 <Sandpack>
 
@@ -279,7 +279,7 @@ export default function Form() {
   function handleSubmit(e) {
     e.preventDefault();
     setTimeout(() => {
-      alert(`Você disse ${message} a ${to}`);
+      alert(`Você disse ${message} para ${to}`);
     }, 5000);
   }
 
@@ -320,7 +320,7 @@ Leia **[Estado como um Instantâneo](/learn/state-as-a-snapshot)** para aprender
 
 ## Enfileirando uma série de atualizações de estado {/*queueing-a-series-of-state-updates*/}
 
-Este componente está com um bug: clicar em "+3" incrementa a pontuação apenas uma vez.
+Este componente possui um erro: clicar em "+3" incrementa a pontuação apenas uma vez.
 
 <Sandpack>
 
@@ -354,7 +354,7 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 </Sandpack>
 
-[Estado como um Instantâneo](/learn/state-as-a-snapshot) explica por que isso está acontecendo. Definir estado solicita uma nova renderização, mas não o muda no código que já está em execução. Assim, `score` continua sendo `0` logo após você chamar `setScore(score + 1)`.
+[Estado como um Instantâneo](/learn/state-as-a-snapshot) explica por que isso está acontecendo. Definir o estado solicita uma nova renderização, mas não o altera no código já em execução. Assim, `score` continua sendo `0` logo após você chamar `setScore(score + 1)`.
 
 ```js
 console.log(score);  // 0
@@ -366,7 +366,7 @@ setScore(score + 1); // setScore(0 + 1);
 console.log(score);  // 0
 ```
 
-Você pode corrigir isso passando uma *função de atualização* ao definir o estado. Note como substituir `setScore(score + 1)` por `setScore(s => s + 1)` corrige o botão "+3". Isso permite que você enfileire múltiplas atualizações de estado.
+Você pode corrigir isso passando uma *função de atualizador* ao definir o estado. Note como substituir `setScore(score + 1)` por `setScore(s => s + 1)` corrige o botão "+3". Isso permite que você enfileire múltiplas atualizações de estado.
 
 <Sandpack>
 
@@ -408,9 +408,9 @@ Leia **[Enfileirando uma Série de Atualizações de Estado](/learn/queueing-a-s
 
 ## Atualizando objetos no estado {/*updating-objects-in-state*/}
 
-O estado pode conter qualquer tipo de valor JavaScript, incluindo objetos. Mas você não deve alterar objetos e arrays que você mantém no estado do React diretamente. Em vez disso, quando você quiser atualizar um objeto e um array, você precisa criar um novo (ou fazer uma cópia de um existente) e, em seguida, atualizar o estado para usar essa cópia.
+O estado pode conter qualquer tipo de valor JavaScript, incluindo objetos. Mas você não deve alterar objetos e arrays que você mantém no estado do React diretamente. Em vez disso, quando você quiser atualizar um objeto e array, precisa criar um novo (ou fazer uma cópia de um existente) e, em seguida, atualizar o estado para usar essa cópia.
 
-Normalmente, você usará a sintaxe de espalhamento `...` para copiar objetos e arrays que deseja mudar. Por exemplo, atualizar um objeto aninhado pode parecer assim:
+Normalmente, você usará a sintaxe de espalhamento `...` para copiar objetos e arrays que deseja modificar. Por exemplo, atualizar um objeto aninhado poderia ser assim:
 
 <Sandpack>
 
@@ -499,7 +499,7 @@ export default function Form() {
         {' por '}
         {person.name}
         <br />
-        (localizado em {person.artwork.city})
+        (localizada em {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
@@ -518,7 +518,7 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-Se copiar objetos em código se tornar cansativo, você pode usar uma biblioteca como [Immer](https://github.com/immerjs/use-immer) para reduzir o código repetitivo:
+Se copiar objetos em código se tornar maçante, você pode usar uma biblioteca como [Immer](https://github.com/immerjs/use-immer) para reduzir o código repetitivo:
 
 <Sandpack>
 
@@ -594,7 +594,7 @@ export default function Form() {
         {' por '}
         {person.name}
         <br />
-        (localizado em {person.artwork.city})
+        (localizada em {person.artwork.city})
       </p>
       <img
         src={person.artwork.image}
@@ -639,7 +639,7 @@ Leia **[Atualizando Objetos no Estado](/learn/updating-objects-in-state)** para 
 
 ## Atualizando arrays no estado {/*updating-arrays-in-state*/}
 
-Arrays são outro tipo de objeto JavaScript mutável que você pode armazenar no estado e devem ser tratados como somente leitura. Assim como com objetos, quando você quiser atualizar um array armazenado no estado, você precisa criar um novo (ou fazer uma cópia de um existente) e, em seguida, definir o estado para usar o novo array:
+Arrays são outro tipo de objetos JavaScript mutáveis que você pode armazenar no estado e devem ser tratados como somente leitura. Assim como com objetos, quando você deseja atualizar um array armazenado no estado, precisa criar um novo (ou fazer uma cópia de um existente) e, em seguida, definir o estado para usar o novo array:
 
 <Sandpack>
 
@@ -669,7 +669,7 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Lista de Obras de Arte</h1>
+      <h1>Lista de Arte</h1>
       <h2>Minha lista de arte para ver:</h2>
       <ItemList
         artworks={list}
@@ -705,7 +705,7 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-Se copiar arrays em código se tornar cansativo, você pode usar uma biblioteca como [Immer](https://github.com/immerjs/use-immer) para reduzir o código repetitivo:
+Se copiar arrays em código se tornar maçante, você pode usar uma biblioteca como [Immer](https://github.com/immerjs/use-immer) para reduzir código repetitivo:
 
 <Sandpack>
 
@@ -733,7 +733,7 @@ export default function BucketList() {
 
   return (
     <>
-      <h1>Lista de Obras de Arte</h1>
+      <h1>Lista de Arte</h1>
       <h2>Minha lista de arte para ver:</h2>
       <ItemList
         artworks={list}
@@ -793,8 +793,8 @@ Leia **[Atualizando Arrays no Estado](/learn/updating-arrays-in-state)** para ap
 
 </LearnMore>
 
-## O que vem a seguir? {/*whats-next*/}
+## E agora? {/*whats-next*/}
 
-Vá para **[Respondendo a Eventos](/learn/responding-to-events)** para começar a ler este capítulo página por página!
+Vá para [Respondendo a Eventos](/learn/responding-to-events) para começar a ler este capítulo página por página!
 
-Ou, se você já está familiarizado com esses tópicos, que tal ler sobre **[Gerenciando Estado](/learn/managing-state)**?
+Ou, se você já está familiarizado com esses tópicos, que tal ler sobre [Gerenciando Estado](/learn/managing-state)?
