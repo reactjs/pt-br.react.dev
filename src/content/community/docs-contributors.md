@@ -1,24 +1,24 @@
 ---
-title: Contribuidores da Docs
+title: Contribuidores da Documentação
 ---
 
 <Intro>
 
-A documentação do React é escrita e mantida pela [equipe do React](/community/team) e [contribuidores externos.](https://github.com/reactjs/react.dev/graphs/contributors) Nesta página, gostaríamos de agradecer a algumas pessoas que fizeram contribuições significativas a este site.
+A documentação do React é escrita e mantida pela [equipe do React](/community/team) e [contribuidores externos.](https://github.com/reactjs/react.dev/graphs/contributors) Nesta página, gostaríamos de agradecer a algumas pessoas que fizeram contribuições significativas para este site.
 
 </Intro>
 
 ## Conteúdo {/*content*/}
 
-* [Rachel Nabors](https://twitter.com/RachelNabors): edição, redação, ilustração
-* [Dan Abramov](https://twitter.com/dan_abramov): redação, design curricular
+* [Rachel Nabors](https://twitter.com/RachelNabors): edição, escrita, ilustração
+* [Dan Abramov](https://twitter.com/dan_abramov): escrita, design curricular
 * [Sylwia Vargas](https://twitter.com/SylwiaVargas): código de exemplo
-* [Rick Hanlon](https://twitter.com/rickhanlonii): redação
-* [David McCabe](https://twitter.com/mcc_abe): redação
-* [Sophie Alpert](https://twitter.com/sophiebits): redação
-* [Pete Hunt](https://twitter.com/floydophone): redação
-* [Andrew Clark](https://twitter.com/acdlite): redação
-* [Matt Carroll](https://twitter.com/mattcarrollcode): edição, redação
+* [Rick Hanlon](https://twitter.com/rickhanlonii): escrita
+* [David McCabe](https://twitter.com/mcc_abe): escrita
+* [Sophie Alpert](https://twitter.com/sophiebits): escrita
+* [Pete Hunt](https://twitter.com/floydophone): escrita
+* [Andrew Clark](https://twitter.com/acdlite): escrita
+* [Matt Carroll](https://twitter.com/mattcarrollcode): edição, escrita
 * [Natalia Tepluhina](https://twitter.com/n_tepluhina): revisões, conselhos
 * [Sebastian Markbåge](https://twitter.com/sebmarkbage): feedback
 
@@ -27,7 +27,7 @@ A documentação do React é escrita e mantida pela [equipe do React](/community
 * [Dan Lebowitz](https://twitter.com/lebo): design do site
 * [Razvan Gradinar](https://dribbble.com/GradinarRazvan): design do sandbox
 * [Maggie Appleton](https://maggieappleton.com/): sistema de diagramas
-* [Sophie Alpert](https://twitter.com/sophiebits): explicações codificadas por cores
+* [Sophie Alpert](https://twitter.com/sophiebits): explicações codificadas por cor
 
 ## Desenvolvimento {/*development*/}
 
