@@ -1842,7 +1842,7 @@ useEffect(() => {
 }, []);
 ```
 
-Your cleanup logic should be "symmetrical" to the setup logic, and should stop or undo whatever setup did:
+Sua lógica de limpeza deve ser "simétrica" à lógica de configuração e deve parar ou desfazer o que a configuração fez:
 
 ```js {2-3,5}
   useEffect(() => {
@@ -1854,10 +1854,10 @@ Your cleanup logic should be "symmetrical" to the setup logic, and should stop o
   }, [serverUrl, roomId]);
 ```
 
-[Learn how the Effect lifecycle is different from the component's lifecycle.](/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect)
+[Saiba como o ciclo de vida do Effect é diferente do ciclo de vida do componente.](/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect)
 
 ---
 
-### My Effect does something visual, and I see a flicker before it runs {/*my-effect-does-something-visual-and-i-see-a-flicker-before-it-runs*/}
+### Meu Effect faz algo visual, e eu vejo uma cintilação antes dele ser executado {/*my-effect-does-something-visual-and-i-see-a-flicker-before-it-runs*/}
 
-If your Effect must block the browser from [painting the screen,](/learn/render-and-commit#epilogue-browser-paint) replace `useEffect` with [`useLayoutEffect`](/reference/react/useLayoutEffect). Note that **this shouldn't be needed for the vast majority of Effects.** You'll only need this if it's crucial to run your Effect before the browser paint: for example, to measure and position a tooltip before the user sees it.
+Se o seu Effect precisa bloquear o navegador de [pintar a tela,](/learn/render-and-commit#epilogue-browser-paint) substitua `useEffect` por [`useLayoutEffect`](/reference/react/useLayoutEffect). Note que **isso não deve ser necessário para a grande maioria dos Effects.** Você só precisará disso se for crucial executar seu Effect antes da pintura do navegador: por exemplo, para medir e posicionar uma dica de ferramenta antes que o usuário a veja.
