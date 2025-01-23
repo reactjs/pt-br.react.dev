@@ -277,6 +277,6 @@ O React foi liberado como código aberto em 29 de maio de 2013. O commit inicial
 
 Veja a primeira postagem no blog: [Por que construímos o React?](https://legacy.reactjs.org/blog/2013/06/05/why-react.html) 
 
-O React foi liberado na Facebook Seattle em 2013:
+O React foi liberado como código aberto pelo Facebook em Seattle, 2013:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XxVg_s8xAms?si=466vSJrnXTn05j9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
