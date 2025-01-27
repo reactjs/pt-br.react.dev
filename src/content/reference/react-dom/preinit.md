@@ -1,13 +1,6 @@
 ---
 title: preinit
-canary: true
 ---
-
-<Canary>
-
-The `preinit` function is currently only available in React's Canary and experimental channels. Learn more about [React's release channels here](/community/versioning-policy#all-release-channels).
-
-</Canary>
 
 <Note>
 
@@ -20,7 +13,7 @@ The `preinit` function is currently only available in React's Canary and experim
 `preinit` lets you eagerly fetch and evaluate a stylesheet or external script.
 
 ```js
-preinit("https://example.com/script.js", {as: "style"});
+preinit("https://example.com/script.js", {as: "script"});
 ```
 
 </Intro>

@@ -5,7 +5,11 @@ date: 2020/12/21
 description: 2020 foi um longo ano. Ao chegar ao fim, gostaríamos de compartilhar uma atualização especial de fim de ano sobre nossa pesquisa sobre componentes do React Server de tamanho zero.
 ---
 
+<<<<<<< HEAD
 21 de dezembro de 2020 por [Dan Abramov](https://twitter.com/dan_abramov), [Lauren Tan](https://twitter.com/potetotes), [Joseph Savona](https://twitter.com/en_JS), e [Sebastian Markbåge](https://twitter.com/sebmarkbage)
+=======
+December 21, 2020 by [Dan Abramov](https://bsky.app/profile/danabra.mov), [Lauren Tan](https://twitter.com/potetotes), [Joseph Savona](https://twitter.com/en_JS), and [Sebastian Markbåge](https://twitter.com/sebmarkbage)
+>>>>>>> a5aad0d5e92872ef715b462b1dd6dcbeb45cf781
 
 ---
 
