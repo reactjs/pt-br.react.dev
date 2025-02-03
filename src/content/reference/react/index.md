@@ -14,10 +14,17 @@ A documentação de referência do React é dividida em subseções funcionais:
 
 Recursos do React Programático:
 
+<<<<<<< HEAD
 * [Hooks](/reference/react/hooks) - Use diferentes recursos do React de seus componentes.
 * [Componentes](/reference/react/components) - Documenta componentes integrados que você pode usar em seu JSX.
 * [APIs](/reference/react/apis) - APIs que são úteis para definir componentes.
 * [Diretivas](/reference/react/directives) - Fornece instruções para bundlers compatíveis com componentes do React Server.
+=======
+* [Hooks](/reference/react/hooks) - Use different React features from your components.
+* [Components](/reference/react/components) - Built-in components that you can use in your JSX.
+* [APIs](/reference/react/apis) - APIs that are useful for defining components.
+* [Directives](/reference/rsc/directives) - Provide instructions to bundlers compatible with React Server Components.
+>>>>>>> 6fc98fffdaad3b84e6093d1eb8def8f2cedeee16
 
 ## React DOM {/*react-dom*/}
 

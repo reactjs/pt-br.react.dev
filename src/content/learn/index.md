@@ -4,7 +4,11 @@ title: Início rápido
 
 <Intro>
 
+<<<<<<< HEAD
 Bem-vindo à documentação do React! Esta página fornecerá uma introdução aos 80% dos conceitos do React que você utilizará no seu dia a dia.
+=======
+Welcome to the React documentation! This page will give you an introduction to 80% of the React concepts that you will use on a daily basis.
+>>>>>>> 6fc98fffdaad3b84e6093d1eb8def8f2cedeee16
 
 </Intro>
 
