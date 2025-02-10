@@ -226,7 +226,7 @@ Se você renderizar várias aplicações React independentes em uma única pági
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>Meu app</title></head>
