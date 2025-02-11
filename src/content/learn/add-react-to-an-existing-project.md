@@ -21,7 +21,7 @@ Digamos que você tenha um aplicativo da web existente em `example.com` constru�
 Veja como recomendamos configurá-lo:
 
 1. **Construa a parte React do seu aplicativo** usando um dos [frameworks baseados em React](/learn/start-a-new-react-project).
-2. **Especifique `/some-app` como o *caminho base*** na configuração do seu framework (veja como: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+2. **Especifique `/some-app` como o *caminho base*** na configuração do seu framework (veja como: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configure seu servidor ou um proxy** para que todas as solicitações em `/some-app/` sejam tratadas pelo seu aplicativo React.
 
 Isso garante que a parte React do seu aplicativo possa [se beneficiar das melhores práticas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) embutidas nesses frameworks.
@@ -45,7 +45,7 @@ Um ambiente JavaScript modular permite que você escreva seus componentes React 
 
 * **Se o seu aplicativo já está dividido em arquivos que usam declarações `import`,** tente usar a configuração que você já tem. Verifique se escrever `<div />` no seu código JS causa um erro de sintaxe. Se causar um erro de sintaxe, você pode precisar [transformar seu código JavaScript com o Babel](https://babeljs.io/setup) e habilitar o [Babel React preset](https://babeljs.io/docs/babel-preset-react) para usar JSX.
 
-* **Se o seu aplicativo não possui uma configuração existente para compilar módulos JavaScript,** configure-o com o [Vite](https://vitejs.dev/). A comunidade do Vite mantém [muitas integrações com frameworks backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), incluindo Rails, Django e Laravel. Se o seu framework backend não estiver listado, [siga este guia](https://vitejs.dev/guide/backend-integration.html) para integrar manualmente a construção do Vite com seu backend.
+* **Se o seu aplicativo não possui uma configuração existente para compilar módulos JavaScript,** configure-o com o [Vite](https://vite.dev/). A comunidade do Vite mantém [muitas integrações com frameworks backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), incluindo Rails, Django e Laravel. Se o seu framework backend não estiver listado, [siga este guia](https://vite.dev/guide/backend-integration.html) para integrar manualmente a construção do Vite com seu backend.
 
 Para verificar se a sua configuração funciona, execute este comando na pasta do seu projeto:
 
@@ -57,12 +57,13 @@ Em seguida, adicione estas linhas de código no topo do seu arquivo JavaScript p
 
 <Sandpack>
 
-```html index.html hidden
+```html public/index.html hidden
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>
   <body>
     <!-- O conteúdo existente da sua página (neste exemplo, ele é substituído) -->
+    <div id="root"></div>
   </body>
 </html>
 ```
@@ -84,7 +85,7 @@ Se todo o conteúdo da sua página foi substituído por um "Hello, world", tudo 
 
 <Note>
 
-Integrar um ambiente JavaScript modular em um projeto existente pela primeira vez pode parecer intimidante, mas vale a pena! Se você ficar preso, experimente os nossos [recursos da comunidade](/community) ou o [Vite Chat](https://chat.vitejs.dev/).
+Integrar um ambiente JavaScript modular em um projeto existente pela primeira vez pode parecer intimidante, mas vale a pena! Se você ficar preso, experimente os nossos [recursos da comunidade](/community) ou o [Vite Chat](https://chat.vite.dev/).
 
 </Note>
 
@@ -119,7 +120,7 @@ Isso permite que você encontre aquele elemento HTML com [`document.getElementBy
 
 <Sandpack>
 
-```html index.html
+```html public/index.html
 <!DOCTYPE html>
 <html>
   <head><title>My app</title></head>

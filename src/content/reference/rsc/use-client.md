@@ -1,13 +1,13 @@
 ---
 title: "'use client'"
 titleForTitleTag: "'use client' directive"
-canary: true
 ---
 
-<Canary>
+<RSC>
 
-`'use client'` é necessário apenas se você estiver [usando Componentes do Servidor React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) ou construindo uma biblioteca compatível com eles.
-</Canary>
+`'use client'` é para uso com [Componentes do React Server](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+
+</RSC>
 
 
 <Intro>
@@ -253,29 +253,32 @@ Os valores das props passadas de um Componente do Servidor para um Componente do
 
 Props serializáveis incluem:
 * Primitivos
-	* [string](https://developer.mozilla.org/en-US/docs/Glossary/String)
-	* [number](https://developer.mozilla.org/en-US/docs/Glossary/Number)
-	* [bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
-	* [boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean)
-	* [undefined](https://developer.mozilla.org/en-US/docs/Glossary/Undefined)
-	* [null](https://developer.mozilla.org/en-US/docs/Glossary/Null)
-	* [symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), apenas símbolos registrados no registro global de símbolos via [`Symbol.for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
+	* [string](https://developer.mozilla.org/pt-BR/docs/Glossary/String)
+	* [number](https://developer.mozilla.org/pt-BR/docs/Glossary/Number)
+	* [bigint](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+	* [boolean](https://developer.mozilla.org/pt-BR/docs/Glossary/Boolean)
+	* [undefined](https://developer.mozilla.org/pt-BR/docs/Glossary/Undefined)
+	* [null](https://developer.mozilla.org/pt-BR/docs/Glossary/Null)
+	* [symbol](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Symbol), apenas símbolos registrados no registro global de símbolos via [`Symbol.for`](https://developer.mozilla.org/
+  
+  
+  /docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
 * Iteráveis contendo valores serializáveis
-	* [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-	* [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-	* [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
-	* [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-	* [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) e [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
-* [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-* Objetos simples [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object): aqueles criados com [inicializadores de objeto](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer), com propriedades serializáveis
-* Funções que são [Ações do Servidor](/reference/rsc/use-server)
-* Elementos de Componente do Cliente ou do Servidor (JSX)
-* [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+	* [String](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String)
+	* [Array](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array)
+	* [Map](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Map)
+	* [Set](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Set)
+	* [TypedArray](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) e [ArrayBuffer](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+* [Date](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date)
+* [Objetos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object) simples: aqueles criados com [inicializadores de objetos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Object_initializer), com propriedades serializáveis
+* Funções que são [Funções de Servidor](/reference/rsc/server-functions)
+* Elementos de Componente de Cliente ou Servidor (JSX)
+* [Promises](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Notavelmente, estes não são suportados:
-* [Funções](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) que não são exportadas de módulos marcados como cliente ou marcados com [`'use server'`](/reference/rsc/use-server)
-* [Classes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
-* Objetos que são instâncias de qualquer classe (exceto as embutidas mencionadas) ou objetos com [um protótipo nulo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
+* [Funções](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function) que não são exportadas de módulos marcados como cliente ou marcados com [`'use server'`](/reference/rsc/use-server)
+* [Classes](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
+* Objetos que são instâncias de qualquer classe (exceto as embutidas mencionadas) ou objetos com [um protótipo nulo](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
 * Símbolos não registrados globalmente, ex. `Symbol('meu novo símbolo')`
 
 ## Uso {/*usage*/}
@@ -337,9 +340,9 @@ Mas se a saída HTML de `FancyText` fosse grande em relação ao seu código-fon
 
 ### Usando APIs do cliente {/*using-client-apis*/}
 
-Seu aplicativo React pode usar APIs específicas do cliente, como as APIs do navegador para armazenamento web, manipulação de áudio e vídeo, e hardware de dispositivos, entre [outras](https://developer.mozilla.org/en-US/docs/Web/API).
+Seu aplicativo React pode usar APIs específicas do cliente, como as APIs do navegador para armazenamento web, manipulação de áudio e vídeo, e hardware de dispositivos, entre [outras](https://developer.mozilla.org/pt-BR/docs/Web/API).
 
-Neste exemplo, o componente usa [APIs do DOM](https://developer.mozilla.org/en-US/docs/Glossary/DOM) para manipular um [`canvas`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas) elemento. Como essas APIs estão disponíveis apenas no navegador, ele deve ser marcado como um Componente do Cliente.
+Neste exemplo, o componente usa [APIs do DOM](https://developer.mozilla.org/pt-BR/docs/Glossary/DOM) para manipular um [`canvas`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/canvas) elemento. Como essas APIs estão disponíveis apenas no navegador, ele deve ser marcado como um Componente do Cliente.
 
 ```js
 'use client';
