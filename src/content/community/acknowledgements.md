@@ -4,7 +4,7 @@ title: Reconhecimentos
 
 <Intro>
 
-O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/blob/main/AUTHORS)
+O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/graphs/contributors)
 
 </Intro>
 
@@ -36,6 +36,8 @@ Gostaríamos de reconhecer algumas pessoas que fizeram contribuições significa
 * [Joe Critchley](https://github.com/joecritch)
 * [Jeff Morrison](https://github.com/jeffmo)
 * [Luna Ruan](https://github.com/lunaruan)
+* [Luna Wei](https://github.com/lunaleaps)
+* [Noah Lemen](https://github.com/noahlemen)
 * [Kathryn Middleton](https://github.com/kmiddleton14)
 * [Keyan Zhang](https://github.com/keyz)
 * [Marco Salazar](https://github.com/salazarm)
@@ -51,15 +53,16 @@ Gostaríamos de reconhecer algumas pessoas que fizeram contribuições significa
 * [Samuel Susla](https://github.com/sammy-SC)
 * [Sander Spies](https://github.com/sanderspies)
 * [Sasha Aickin](https://github.com/aickin)
-* [Sean Keegan](https://github.com/seanryankeegan)
+* [Sathya Gunasekaran](https://github.com/gsathya)
 * [Sophia Shoemaker](https://github.com/mrscobbler)
 * [Sunil Pai](https://github.com/threepointone)
+* [Tianyu Yao](https://github.com/)
 * [Tim Yung](https://github.com/yungsters)
 * [Xuan Huang](https://github.com/huxpro)
 
 Esta lista não é exaustiva.
 
-Gostaríamos de agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Também somos gratos a todos os voluntários que [traduziram o React para outros idiomas.](https://translations.reactjs.org/)
+Gostaríamos de agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Também somos gratos a todos os voluntários que [traduziram o React para outros idiomas.](https://translations.react.dev/)
 
 ## Agradecimentos Extras {/*additional-thanks*/}
 

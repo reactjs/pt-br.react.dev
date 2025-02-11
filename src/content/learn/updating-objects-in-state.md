@@ -58,6 +58,7 @@ Este exemplo mantém um objeto no state para representar a posição atual do po
 
 ```js
 import { useState } from 'react';
+
 export default function MovingDot() {
   const [position, setPosition] = useState({
     x: 0,
@@ -128,6 +129,7 @@ Observe como o ponto vermelho agora segue seu ponteiro quando você toca ou pass
 
 ```js
 import { useState } from 'react';
+
 export default function MovingDot() {
   const [position, setPosition] = useState({
     x: 0,
@@ -377,7 +379,7 @@ Observe que a sintaxe de espalhamento `...` é "rasa" -- ela copia apenas um ní
 
 #### Usando um único manipulador de eventos para vários campos {/*using-a-single-event-handler-for-multiple-fields*/}
 
-Você também pode usar as chaves `[` e `]` dentro da definição do objeto para especificar uma propriedade com nome dinâmico. Aqui está o mesmo exemplo, mas com um único manipulador de eventos em vez de três diferentes:
+Você também pode usar os colchetes `[` e `]` dentro da definição do objeto para especificar uma propriedade com nome dinâmico. Aqui está o mesmo exemplo, mas com um único manipulador de eventos em vez de três diferentes:
 
 <Sandpack>
 

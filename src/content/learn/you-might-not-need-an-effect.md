@@ -408,9 +408,9 @@ function Game() {
 
 Há dois problemas com esse código.
 
-Um problema é que ele é muito ineficiente: o componente (e seus filhos) precisa ser renderizado novamente entre cada chamada `set` na cadeia. No exemplo acima, na pior das hipóteses (`setCard` → render → `setGoldCardCount` → render → `setRound` → render → `setIsGameOver` → render), há três re-renderizações desnecessárias da árvore abaixo.
+O primeiro problema é que ele é muito ineficiente: o componente (e seus filhos) precisa ser renderizado novamente entre cada chamada `set` na cadeia. No exemplo acima, na pior das hipóteses (`setCard` → render → `setGoldCardCount` → render → `setRound` → render → `setIsGameOver` → render), há três re-renderizações desnecessárias da árvore abaixo.
 
-Mesmo que isso não fosse lento, à medida que seu código evolui, você se depara com casos em que a "cadeia" que você escreveu não atende aos novos requisitos. Imagine que você esteja adicionando uma maneira de percorrer o histórico dos movimentos do jogo. Você faria isso atualizando cada state para um valor do passado. Entretanto, definir o state `card` como um valor do passado acionaria a cadeia de Effects novamente e alteraria os dados que você está mostrando. Esse tipo de código costuma ser rígido e frágil.
+O segundo problema é que, mesmo que isso não fosse lento, à medida que seu código evolui, você se depara com casos em que a "cadeia" que você escreveu não atende aos novos requisitos. Imagine que você esteja adicionando uma maneira de percorrer o histórico dos movimentos do jogo. Você faria isso atualizando cada state para um valor do passado. Entretanto, definir o state `card` como um valor do passado acionaria a cadeia de Effects novamente e alteraria os dados que você está mostrando. Esse tipo de código costuma ser rígido e frágil.
 
 Neste caso, é melhor calcular o que for possível durante a renderização e ajustar o state no manipulador de evento:
 

@@ -11,9 +11,9 @@ A documentação do React em [react.dev](https://react.dev) fornece informaçõe
 Nosso objetivo é manter a documentação atualizada dentro das versões principais e não publicamos versões para cada versão menor ou de correção. Quando uma nova versão principal é lançada, arquivamos a documentação da versão anterior como `x.react.dev`. Veja nossa [política de versionamento](/community/versioning-policy) para mais informações.
 
 Você pode encontrar um arquivo das versões principais anteriores abaixo.
-## Versões Futuras {/*future-versions*/}
+## Versões Futuras 19.0 {/*future-versions*/}
 
-- [19.react.dev](https://19.react.dev) {/*docs-19*/}
+- [react.dev](https://react.dev) {/*docs-19*/}
 
 ## Versões Anteriores {/*previous-versions*/}
 
@@ -33,6 +33,25 @@ Para versões anteriores ao React 15, veja [15.react.dev](https://15.react.dev).
 </Note>
 
 ## Registro de Mudanças {/*changelog*/}
+
+### React 19 {/*react-19*/}
+
+**Blog Posts**
+- [React v19](/blog/2024/12/05/react-19)
+- [React 19 Upgrade Guide](/blog/2024/04/25/react-19-upgrade-guide)
+- [React Compiler Beta Release](/blog/2024/10/21/react-compiler-beta-release)
+
+**Talks**
+- [React 19 Keynote](https://www.youtube.com/watch?v=lyEKhv8-3n0)
+- [A Roadmap to React 19](https://www.youtube.com/watch?v=R0B2HsSM78s)
+- [What's new in React 19](https://www.youtube.com/watch?v=AJOGzVygGcY)
+- [React for Two Computers](https://www.youtube.com/watch?v=ozI4V_29fj4)
+- [React Compiler Deep Dive](https://www.youtube.com/watch?v=uA_PVyZP7AI)
+- [React Compiler Case Studies](https://www.youtube.com/watch?v=lvhPq5chokM)
+- [React 19 Deep Dive: Coordinating HTML](https://www.youtube.com/watch?v=IBBN-s77YSI)
+
+**Releases**
+- [v19.0.0 (December, 2024)](https://github.com/facebook/react/blob/main/CHANGELOG.md#1900-december-5-2024)
 
 ### React 18 {/*react-18*/}
 
