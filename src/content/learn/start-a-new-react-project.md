@@ -27,11 +27,7 @@ Mesmo que você não precise de roteamento ou busca de dados a princípio, você
 
 **As estruturas React nesta página solucionam problemas como esses por padrão, sem nenhum trabalho extra da sua parte.** Elas permitem que você comece de forma bem enxuta e depois dimensione seu aplicativo conforme suas necessidades. Cada estrutura de React tem uma comunidade, então encontrar respostas e atualizar ferramentas é mais fácil. Estruturas fornecem suporte ao seu código, ajudando você e outros a reaproveitar contexto e habilidades entre diferentes projetos. Por outro lado, com uma configuração personalizada, é mais fácil ficar preso em versões de dependências sem suporte, e você acabará criando sua própria estrutura, porém sem uma comunidade ou meios de atualizar as dependências (e se for parecido com as que fizemos no passado, projetada mais aleatoriamente).
 
-<<<<<<< HEAD
-Se o seu aplicativo tiver restrições incomuns que não são bem atendidas por esses frameworks, ou você prefere resolver esses problemas sozinho, você pode criar sua própria configuração personalizada com React. Use `react` e `react-dom` a partir do npm, configure seu processo de construção personalizado com um *bundler* como [Vite](https://vitejs.dev/) ou [Parcel](https://parceljs.org/), e adicione outras ferramentas conforme necessário para roteamento, geração estática ou renderização do lado do servidor e muito mais.
-=======
-If your app has unusual constraints not served well by these frameworks, or you prefer to solve these problems yourself, you can roll your own custom setup with React. Grab `react` and `react-dom` from npm, set up your custom build process with a bundler like [Vite](https://vite.dev/) or [Parcel](https://parceljs.org/), and add other tools as you need them for routing, static generation or server-side rendering, and more.
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
+Se o seu aplicativo tiver restrições incomuns que não são bem atendidas por essas estruturas, ou se você preferir resolver esses problemas por conta própria, você pode criar sua própria configuração personalizada com React. Pegue `react` e `react-dom` do npm, configure seu processo de build personalizado com um bundler como [Vite](https://vite.dev/) ou [Parcel](https://parceljs.org/), e adicione outras ferramentas conforme necessário para roteamento, geração estática ou renderização no lado do servidor, e mais.
 
 </DeepDive>
 

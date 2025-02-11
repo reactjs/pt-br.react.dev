@@ -5,11 +5,7 @@ date: 2023/03/16
 description: Hoje estamos entusiasmados em lançar o react.dev, o novo lar do React e sua documentação. Neste post, gostaríamos de fazer um tour pelo novo site.
 ---
 
-<<<<<<< HEAD
-16 de março de 2023 por [Dan Abramov](https://twitter.com/dan_abramov) e [Rachel Nabors](https://twitter.com/rachelnabors)
-=======
-March 16, 2023 by [Dan Abramov](https://bsky.app/profile/danabra.mov) and [Rachel Nabors](https://twitter.com/rachelnabors)
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
+16 de março de 2023 por [Dan Abramov](https://bsky.app/profile/danabra.mov) e [Rachel Nabors](https://twitter.com/rachelnabors)
 
 ---
 
@@ -635,11 +631,7 @@ Nós achamos que nunca houve um momento melhor para aprender React.
 
 ## Quem trabalhou nisso? {/*who-worked-on-this*/}
 
-<<<<<<< HEAD
-Na equipe do React, [Rachel Nabors](https://twitter.com/rachelnabors/) liderou o projeto (e forneceu as ilustrações), e [Dan Abramov](https://twitter.com/dan_abramov) elaborou o currículo. Eles também foram coautores da maior parte do conteúdo.
-=======
-On the React team, [Rachel Nabors](https://twitter.com/rachelnabors/) led the project (and provided the illustrations), and [Dan Abramov](https://bsky.app/profile/danabra.mov) designed the curriculum. They co-authored most of the content together as well.
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
+Na equipe do React, [Rachel Nabors](https://twitter.com/rachelnabors/) liderou o projeto (e forneceu as ilustrações), e [Dan Abramov](https://bsky.app/profile/danabra.mov) elaborou o currículo. Eles também foram coautores da maior parte do conteúdo.
 
 É claro que nenhum projeto desse porte acontece isoladamente. Temos que agradecer a muitas pessoas!
 

@@ -20,15 +20,9 @@ Digamos que você tenha um aplicativo da web existente em `example.com` constru�
 
 Veja como recomendamos configurá-lo:
 
-<<<<<<< HEAD
 1. **Construa a parte React do seu aplicativo** usando um dos [frameworks baseados em React](/learn/start-a-new-react-project).
-2. **Especifique `/some-app` como o *caminho base*** na configuração do seu framework (veja como: [Next.js](https://nextjs.org/docs/api-reference/next.config.js/basepath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+2. **Especifique `/some-app` como o *caminho base*** na configuração do seu framework (veja como: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configure seu servidor ou um proxy** para que todas as solicitações em `/some-app/` sejam tratadas pelo seu aplicativo React.
-=======
-1. **Build the React part of your app** using one of the [React-based frameworks](/learn/start-a-new-react-project).
-2. **Specify `/some-app` as the *base path*** in your framework's configuration (here's how: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
-3. **Configure your server or a proxy** so that all requests under `/some-app/` are handled by your React app.
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
 
 Isso garante que a parte React do seu aplicativo possa [se beneficiar das melhores práticas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) embutidas nesses frameworks.
 
@@ -51,11 +45,7 @@ Um ambiente JavaScript modular permite que você escreva seus componentes React 
 
 * **Se o seu aplicativo já está dividido em arquivos que usam declarações `import`,** tente usar a configuração que você já tem. Verifique se escrever `<div />` no seu código JS causa um erro de sintaxe. Se causar um erro de sintaxe, você pode precisar [transformar seu código JavaScript com o Babel](https://babeljs.io/setup) e habilitar o [Babel React preset](https://babeljs.io/docs/babel-preset-react) para usar JSX.
 
-<<<<<<< HEAD
-* **Se o seu aplicativo não possui uma configuração existente para compilar módulos JavaScript,** configure-o com o [Vite](https://vitejs.dev/). A comunidade do Vite mantém [muitas integrações com frameworks backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), incluindo Rails, Django e Laravel. Se o seu framework backend não estiver listado, [siga este guia](https://vitejs.dev/guide/backend-integration.html) para integrar manualmente a construção do Vite com seu backend.
-=======
-* **If your app doesn't have an existing setup for compiling JavaScript modules,** set it up with [Vite](https://vite.dev/). The Vite community maintains [many integrations with backend frameworks](https://github.com/vitejs/awesome-vite#integrations-with-backends), including Rails, Django, and Laravel. If your backend framework is not listed, [follow this guide](https://vite.dev/guide/backend-integration.html) to manually integrate Vite builds with your backend.
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
+* **Se o seu aplicativo não possui uma configuração existente para compilar módulos JavaScript,** configure-o com o [Vite](https://vite.dev/). A comunidade do Vite mantém [muitas integrações com frameworks backend](https://github.com/vitejs/awesome-vite#integrations-with-backends), incluindo Rails, Django e Laravel. Se o seu framework backend não estiver listado, [siga este guia](https://vite.dev/guide/backend-integration.html) para integrar manualmente a construção do Vite com seu backend.
 
 Para verificar se a sua configuração funciona, execute este comando na pasta do seu projeto:
 
@@ -72,12 +62,8 @@ Em seguida, adicione estas linhas de código no topo do seu arquivo JavaScript p
 <html>
   <head><title>My app</title></head>
   <body>
-<<<<<<< HEAD
     <!-- O conteúdo existente da sua página (neste exemplo, ele é substituído) -->
-=======
-    <!-- Your existing page content (in this example, it gets replaced) -->
     <div id="root"></div>
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
   </body>
 </html>
 ```
@@ -99,11 +85,7 @@ Se todo o conteúdo da sua página foi substituído por um "Hello, world", tudo 
 
 <Note>
 
-<<<<<<< HEAD
-Integrar um ambiente JavaScript modular em um projeto existente pela primeira vez pode parecer intimidante, mas vale a pena! Se você ficar preso, experimente os nossos [recursos da comunidade](/community) ou o [Vite Chat](https://chat.vitejs.dev/).
-=======
-Integrating a modular JavaScript environment into an existing project for the first time can feel intimidating, but it's worth it! If you get stuck, try our [community resources](/community) or the [Vite Chat](https://chat.vite.dev/).
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
+Integrar um ambiente JavaScript modular em um projeto existente pela primeira vez pode parecer intimidante, mas vale a pena! Se você ficar preso, experimente os nossos [recursos da comunidade](/community) ou o [Vite Chat](https://chat.vite.dev/).
 
 </Note>
 

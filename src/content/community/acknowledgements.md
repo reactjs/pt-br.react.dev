@@ -4,11 +4,7 @@ title: Reconhecimentos
 
 <Intro>
 
-<<<<<<< HEAD
-O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/blob/main/AUTHORS)
-=======
-React was originally created by [Jordan Walke.](https://github.com/jordwalke) Today, React has a [dedicated full-time team working on it](/community/team), as well as over a thousand [open source contributors.](https://github.com/facebook/react/graphs/contributors)
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
+O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/graphs/contributors)
 
 </Intro>
 
@@ -66,11 +62,7 @@ Gostaríamos de reconhecer algumas pessoas que fizeram contribuições significa
 
 Esta lista não é exaustiva.
 
-<<<<<<< HEAD
-Gostaríamos de agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Também somos gratos a todos os voluntários que [traduziram o React para outros idiomas.](https://translations.reactjs.org/)
-=======
-We'd like to give special thanks to [Tom Occhino](https://github.com/tomocchino) and [Adam Wolff](https://github.com/wolffiex) for their guidance and support over the years. We are also thankful to all the volunteers who [translated React into other languages.](https://translations.react.dev/)
->>>>>>> 91614a51a1be9078777bc337ba83fc62e606cc14
+Gostaríamos de agradecer especialmente a [Tom Occhino](https://github.com/tomocchino) e [Adam Wolff](https://github.com/wolffiex) por sua orientação e suporte ao longo dos anos. Também somos gratos a todos os voluntários que [traduziram o React para outros idiomas.](https://translations.react.dev/)
 
 ## Agradecimentos Extras {/*additional-thanks*/}
 
