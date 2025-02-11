@@ -132,7 +132,7 @@ Um Efeito permite que você [mantenha seu componente sincronizado](/learn/synchr
 
 </Note>
 
-<Receitas titleText="Exemplos de conexão a um sistema externo" titleId="examples-connecting">
+<Recipes titleText="Exemplos de conexão a um sistema externo" titleId="examples-connecting">
 
 #### Conectando a um servidor de chat {/*connecting-to-a-chat-server*/}
 
@@ -498,7 +498,7 @@ export default function Box() {
 
 <Solução />
 
-</Receitas>
+</Recipes>
 
 ---
 
@@ -539,7 +539,7 @@ Existem também muitos ótimos Hooks personalizados para todos os propósitos di
 
 [Saiba mais sobre encapsular Efeitos em Hooks personalizados.](/learn/reusing-logic-with-custom-hooks)
 
-<Receitas titleText="Exemplos de encapsulamento de Efeitos em Hooks personalizados" titleId="examples-custom-hooks">
+<Recipes titleText="Exemplos de encapsulamento de Efeitos em Hooks personalizados" titleId="examples-custom-hooks">
 
 #### Hook personalizado `useChatRoom` {/*custom-usechatroom-hook*/}
 
@@ -782,7 +782,7 @@ export function useIntersectionObserver(ref) {
 
 <Solução />
 
-</Receitas>
+</Recipes>
 
 ---
 
@@ -1140,7 +1140,7 @@ useEffect(() => {
 
 </Pitfall>
 
-<Receitas titleText="Exemplos de passagem de dependências reativas" titleId="examples-dependencies">
+<Recipes titleText="Exemplos de passagem de dependências reativas" titleId="examples-dependencies">
 
 #### Passando um array de dependências {/*passing-a-dependency-array*/}
 
@@ -1413,7 +1413,7 @@ button { margin-left: 5px; }
 
 <Solução />
 
-</Receitas>
+</Recipes>
 
 ---
 
