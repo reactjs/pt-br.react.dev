@@ -216,7 +216,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 #### Ouvindo um evento global do navegador {/*listening-to-a-global-browser-event*/}
 
@@ -265,7 +265,7 @@ body {
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 #### Iniciando uma animação {/*triggering-an-animation*/}
 
@@ -364,7 +364,7 @@ html, body { min-height: 300px; }
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 #### Controlando um diálogo modal {/*controlling-a-modal-dialog*/}
 
@@ -424,7 +424,7 @@ body {
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 #### Rastreando a visibilidade de um elemento {/*tracking-element-visibility*/}
 
@@ -496,7 +496,7 @@ export default function Box() {
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 </Recipes>
 
@@ -635,7 +635,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 #### Hook personalizado `useWindowListener` {/*custom-usewindowlistener-hook*/}
 
@@ -692,7 +692,7 @@ body {
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 #### Hook personalizado `useIntersectionObserver` {/*custom-useintersectionobserver-hook*/}
 
@@ -780,7 +780,7 @@ export function useIntersectionObserver(ref) {
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 </Recipes>
 
@@ -1237,7 +1237,7 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 #### Passando um array de dependências vazio {/*passing-an-empty-dependency-array*/}
 
@@ -1313,7 +1313,7 @@ export function createConnection(serverUrl, roomId) {
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 
 #### Não passando nenhuma array de dependências {/*passing-no-dependency-array-at-all*/}
@@ -1411,7 +1411,7 @@ button { margin-left: 5px; }
 
 </Sandpack>
 
-<Solução />
+<Solution />
 
 </Recipes>
 
