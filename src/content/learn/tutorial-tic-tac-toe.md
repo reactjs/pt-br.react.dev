@@ -1133,7 +1133,7 @@ Chamar a função `setSquares` permite que o React saiba que o *state* do compon
 
 <Note>
 
-O JavaScript possui suporte a [closures](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures) o que significa que uma função interna (por exemplo, `handleClick`) tem acesso às variáveis e funções definidas em uma função externa (por exemplo, `Board`). A função `handleClick` pode ler o *state* `squares` e chamar o método `setSquares` porque eles são ambos definidos dentro da função `Board`.
+JavaScript suporta [closures](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Closures), o que significa que uma função interna (por exemplo, `handleClick`) tem acesso às variáveis e funções definidas em uma função externa (por exemplo, `Board`). A função `handleClick` pode ler o estado `squares` e chamar o método `setSquares` porque ambos são definidos dentro da função `Board`.
 
 </Note>
 

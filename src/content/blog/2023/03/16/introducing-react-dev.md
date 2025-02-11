@@ -5,7 +5,7 @@ date: 2023/03/16
 description: Hoje estamos entusiasmados em lançar o react.dev, o novo lar do React e sua documentação. Neste post, gostaríamos de fazer um tour pelo novo site.
 ---
 
-16 de março de 2023 por [Dan Abramov](https://twitter.com/dan_abramov) e [Rachel Nabors](https://twitter.com/rachelnabors)
+16 de março de 2023 por [Dan Abramov](https://bsky.app/profile/danabra.mov) e [Rachel Nabors](https://twitter.com/rachelnabors)
 
 ---
 
@@ -269,7 +269,7 @@ Use o operador condicional (`cond ? a : b`) para renderizar um ❌ se `isPacked`
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked && '✔'}
+      {name} {isPacked && '✅'}
     </li>
   );
 }
@@ -307,7 +307,7 @@ export default function PackingList() {
 function Item({ name, isPacked }) {
   return (
     <li className="item">
-      {name} {isPacked ? '✔' : '❌'}
+      {name} {isPacked ? '✅' : '❌'}
     </li>
   );
 }
@@ -631,7 +631,7 @@ Nós achamos que nunca houve um momento melhor para aprender React.
 
 ## Quem trabalhou nisso? {/*who-worked-on-this*/}
 
-Na equipe do React, [Rachel Nabors](https://twitter.com/rachelnabors/) liderou o projeto (e forneceu as ilustrações), e [Dan Abramov](https://twitter.com/dan_abramov) elaborou o currículo. Eles também foram coautores da maior parte do conteúdo.
+Na equipe do React, [Rachel Nabors](https://twitter.com/rachelnabors/) liderou o projeto (e forneceu as ilustrações), e [Dan Abramov](https://bsky.app/profile/danabra.mov) elaborou o currículo. Eles também foram coautores da maior parte do conteúdo.
 
 É claro que nenhum projeto desse porte acontece isoladamente. Temos que agradecer a muitas pessoas!
 

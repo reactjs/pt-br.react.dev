@@ -23,7 +23,7 @@ useEffect(configurar, dependências?)
 Chame `useEffect` no nível superior do seu componente para declarar um Efeito:
 
 ```js
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 function ChatRoom({ roomId }) {
@@ -64,7 +64,9 @@ function ChatRoom({ roomId }) {
 
 * Se seu Efeito não foi causado por uma interação (como um clique), o React geralmente permitirá que o navegador **pinte a tela atualizada primeiro antes de executar seu Efeito.** Se seu Efeito estiver fazendo algo visual (por exemplo, posicionando uma dica), e o atraso for perceptível (por exemplo, ele pisca), substitua `useEffect` por [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
-* Mesmo se seu Efeito foi causado por uma interação (como um clique), **o navegador pode repintar a tela antes de processar as atualizações de estado dentro do seu Efeito.** Normalmente, isso é o que você quer. No entanto, se você precisar impedir que o navegador repinte a tela, precisará substituir `useEffect` por [`useLayoutEffect`.](/reference/react/useLayoutEffect)
+* Se seu Efeito foi causado por uma interação (como um clique), **o React pode executar seu Efeito antes que o navegador pinte a tela atualizada**. Isso garante que o resultado do Efeito possa ser observado pelo sistema de eventos. Normalmente, isso funciona como esperado. No entanto, se você precisar adiar o trabalho até depois da pintura, como um `alert()`, você pode usar `setTimeout`. Veja [reactwg/react-18/128](https://github.com/reactwg/react-18/discussions/128) para mais informações.
+
+* Mesmo que seu Efeito tenha sido causado por uma interação (como um clique), **o React pode permitir que o navegador repinte a tela antes de processar as atualizações de estado dentro do seu Efeito.** Normalmente, isso funciona como esperado. No entanto, se você precisar bloquear o navegador de repintar a tela, você precisa substituir `useEffect` por [`useLayoutEffect`.](/reference/react/useLayoutEffect)
 
 * Efeitos **somente são executados no cliente.** Eles não são executados durante a renderização do servidor.
 
@@ -79,7 +81,7 @@ Alguns componentes precisam permanecer conectados à rede, a alguma API do naveg
 Para [conectar seu componente a algum sistema externo,](/learn/synchronizing-with-effects) chame `useEffect` no nível superior do seu componente:
 
 ```js [[1, 8, "const connection = createConnection(serverUrl, roomId);"], [1, 9, "connection.connect();"], [2, 11, "connection.disconnect();"], [3, 13, "[serverUrl, roomId]"]]
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 function ChatRoom({ roomId }) {
