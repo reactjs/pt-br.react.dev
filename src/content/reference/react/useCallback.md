@@ -4,7 +4,7 @@ title: useCallback
 
 <Intro>
 
-`useCallback` is a React Hook that lets you cache a function definition between re-renders.
+`useCallback` é um Hook do React que permite armazenar em cache uma definição de função entre re-renderizações.
 
 ```js
 const cachedFn = useCallback(fn, dependencies)
@@ -16,11 +16,11 @@ const cachedFn = useCallback(fn, dependencies)
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `useCallback(fn, dependencies)` {/*usecallback*/}
 
-Call `useCallback` at the top level of your component to cache a function definition between re-renders:
+Chame `useCallback` na raiz do seu componente para armazenar em cache uma definição de função entre re-renderizações:
 
 ```js {4,9}
 import { useCallback } from 'react';
@@ -34,34 +34,34 @@ export default function ProductPage({ productId, referrer, theme }) {
   }, [productId, referrer]);
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `fn`: The function value that you want to cache. It can take any arguments and return any values. React will return (not call!) your function back to you during the initial render. On next renders, React will give you the same function again if the `dependencies` have not changed since the last render. Otherwise, it will give you the function that you have passed during the current render, and store it in case it can be reused later. React will not call your function. The function is returned to you so you can decide when and whether to call it.
+* `fn`: O valor da função que você deseja armazenar em cache. Pode receber quaisquer argumentos e retornar quaisquer valores. O React retornará (não chamará!) sua função de volta durante a renderização inicial. Nas próximas renderizações, o React lhe dará a mesma função novamente se as `dependencies` não tiverem mudado desde a última renderização. Caso contrário, ele lhe fornecerá a função que você passou durante a renderização atual e a armazenará para que possa ser reutilizada mais tarde. O React não chamará sua função. A função é retornada para que você possa decidir quando e se chamá-la.
 
-* `dependencies`: The list of all reactive values referenced inside of the `fn` code. Reactive values include props, state, and all the variables and functions declared directly inside your component body. If your linter is [configured for React](/learn/editor-setup#linting), it will verify that every reactive value is correctly specified as a dependency. The list of dependencies must have a constant number of items and be written inline like `[dep1, dep2, dep3]`. React will compare each dependency with its previous value using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison algorithm.
+* `dependencies`: A lista de todos os valores reativos referenciados dentro do código da `fn`. Os valores reativos incluem props, estado e todas as variáveis e funções declaradas diretamente dentro do corpo do seu componente. Se o seu linter estiver [configurado para React](/learn/editor-setup#linting), ele verificará se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita em linha como `[dep1, dep2, dep3]`. O React comparará cada dependência com seu valor anterior usando o algoritmo de comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is).
 
-#### Returns {/*returns*/}
+#### Retornos {/*returns*/}
 
-On the initial render, `useCallback` returns the `fn` function you have passed.
+Na renderização inicial, `useCallback` retorna a função `fn` que você passou.
 
-During subsequent renders, it will either return an already stored `fn`  function from the last render (if the dependencies haven't changed), or return the `fn` function you have passed during this render.
+Durante renderizações subsequentes, ele retornará uma função `fn` já armazenada da última renderização (se as dependências não mudaram), ou retornará a função `fn` que você passou durante esta renderização.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* `useCallback` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
-* React **will not throw away the cached function unless there is a specific reason to do that.** For example, in development, React throws away the cache when you edit the file of your component. Both in development and in production, React will throw away the cache if your component suspends during the initial mount. In the future, React may add more features that take advantage of throwing away the cache--for example, if React adds built-in support for virtualized lists in the future, it would make sense to throw away the cache for items that scroll out of the virtualized table viewport. This should match your expectations if you rely on `useCallback` as a performance optimization. Otherwise, a [state variable](/reference/react/useState#im-trying-to-set-state-to-a-function-but-it-gets-called-instead) or a [ref](/reference/react/useRef#avoiding-recreating-the-ref-contents) may be more appropriate.
+* `useCallback` é um Hook, portanto, você só pode chamá-lo **na raiz do seu componente** ou nos seus próprios Hooks. Você não pode chamá-lo dentro de loops ou condições. Se precisar disso, extraia um novo componente e mova o estado para ele.
+* O React **não descartará a função armazenada em cache a menos que haja um motivo específico para isso.** Por exemplo, em desenvolvimento, o React descarta o cache quando você edita o arquivo do seu componente. Tanto em desenvolvimento quanto em produção, o React descartará o cache se seu componente suspender durante a montagem inicial. No futuro, o React pode adicionar mais recursos que aproveitam o descarte do cache - por exemplo, se o React adicionar suporte interno para listas virtualizadas no futuro, faria sentido descartar o cache para itens que rolam para fora da área de visualização da tabela virtualizada. Isso deve corresponder às suas expectativas se você depender de `useCallback` como uma otimização de desempenho. Caso contrário, uma [variável de estado](/reference/react/useState#im-trying-to-set-state-to-a-function-but-it-gets-called-instead) ou uma [ref](/reference/react/useRef#avoiding-recreating-the-ref-contents) podem ser mais apropriadas.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Skipping re-rendering of components {/*skipping-re-rendering-of-components*/}
+### Ignorando re-renderizações de componentes {/*skipping-re-rendering-of-components*/}
 
-When you optimize rendering performance, you will sometimes need to cache the functions that you pass to child components. Let's first look at the syntax for how to do this, and then see in which cases it's useful.
+Quando você otimiza o desempenho de renderização, às vezes precisará armazenar em cache as funções que você passa para componentes filhos. Vamos primeiro olhar para a sintaxe de como fazer isso e, em seguida, ver em quais casos isso é útil.
 
-To cache a function between re-renders of your component, wrap its definition into the `useCallback` Hook:
+Para armazenar em cache uma função entre re-renderizações do seu componente, envolva sua definição no Hook `useCallback`:
 
 ```js [[3, 4, "handleSubmit"], [2, 9, "[productId, referrer]"]]
 import { useCallback } from 'react';
@@ -76,20 +76,20 @@ function ProductPage({ productId, referrer, theme }) {
   // ...
 ```
 
-You need to pass two things to `useCallback`:
+Você precisa passar duas coisas para `useCallback`:
 
-1. A function definition that you want to cache between re-renders.
-2. A <CodeStep step={2}>list of dependencies</CodeStep> including every value within your component that's used inside your function.
+1. Uma definição de função que você deseja armazenar em cache entre re-renderizações.
+2. Uma <CodeStep step={2}>lista de dependências</CodeStep> incluindo cada valor dentro do seu componente que é usado dentro da sua função.
 
-On the initial render, the <CodeStep step={3}>returned function</CodeStep> you'll get from `useCallback` will be the function you passed.
+Na renderização inicial, a <CodeStep step={3}>função retornada</CodeStep> que você receberá do `useCallback` será a função que você passou.
 
-On the following renders, React will compare the <CodeStep step={2}>dependencies</CodeStep> with the dependencies you passed during the previous render. If none of the dependencies have changed (compared with [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), `useCallback` will return the same function as before. Otherwise, `useCallback` will return the function you passed on *this* render.
+Nas renderizações seguintes, o React comparará as <CodeStep step={2}>dependências</CodeStep> com as dependências que você passou durante a renderização anterior. Se nenhuma das dependências mudou (comparada com [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)), o `useCallback` retornará a mesma função que antes. Caso contrário, `useCallback` retornará a função que você passou nesta renderização.
 
-In other words, `useCallback` caches a function between re-renders until its dependencies change.
+Em outras palavras, `useCallback` armazena em cache uma função entre re-renderizações até que suas dependências mudem.
 
-**Let's walk through an example to see when this is useful.**
+**Vamos analisar um exemplo para ver quando isso é útil.**
 
-Say you're passing a `handleSubmit` function down from the `ProductPage` to the `ShippingForm` component:
+Digamos que você está passando uma função `handleSubmit` do `ProductPage` para o componente `ShippingForm`:
 
 ```js {5}
 function ProductPage({ productId, referrer, theme }) {
@@ -101,9 +101,9 @@ function ProductPage({ productId, referrer, theme }) {
   );
 ```
 
-You've noticed that toggling the `theme` prop freezes the app for a moment, but if you remove `<ShippingForm />` from your JSX, it feels fast. This tells you that it's worth trying to optimize the `ShippingForm` component.
+Você notou que alternar a prop `theme` faz o aplicativo travar por um momento, mas se você remover `<ShippingForm />` do seu JSX, ele parece rápido. Isso indica que vale a pena tentar otimizar o componente `ShippingForm`.
 
-**By default, when a component re-renders, React re-renders all of its children recursively.** This is why, when `ProductPage` re-renders with a different `theme`, the `ShippingForm` component *also* re-renders. This is fine for components that don't require much calculation to re-render. But if you verified a re-render is slow, you can tell `ShippingForm` to skip re-rendering when its props are the same as on last render by wrapping it in [`memo`:](/reference/react/memo)
+**Por padrão, quando um componente re-renderiza, o React re-renderiza todos os seus filhos recursivamente.** É por isso que, quando `ProductPage` re-renderiza com um `theme` diferente, o componente `ShippingForm` *também* re-renderiza. Isso é aceitável para componentes que não exigem muito cálculo para re-renderizar. Mas se você verificou que uma re-renderização é lenta, pode avisar o `ShippingForm` para pular a re-renderização quando suas props forem as mesmas da última renderização, envolvendo-o em [`memo`:](/reference/react/memo)
 
 ```js {3,5}
 import { memo } from 'react';
@@ -113,11 +113,11 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
 });
 ```
 
-**With this change, `ShippingForm` will skip re-rendering if all of its props are the *same* as on the last render.** This is when caching a function becomes important! Let's say you defined `handleSubmit` without `useCallback`:
+**Com essa mudança, `ShippingForm` pulará a re-renderização se todas as suas props forem as *mesmas* da última renderização.** É aqui que armazenar em cache uma função se torna importante! Vamos supor que você definiu `handleSubmit` sem `useCallback`:
 
 ```js {2,3,8,12-13}
 function ProductPage({ productId, referrer, theme }) {
-  // Every time the theme changes, this will be a different function...
+  // Toda vez que o tema muda, esta será uma função diferente...
   function handleSubmit(orderDetails) {
     post('/product/' + productId + '/buy', {
       referrer,
@@ -127,47 +127,47 @@ function ProductPage({ productId, referrer, theme }) {
   
   return (
     <div className={theme}>
-      {/* ... so ShippingForm's props will never be the same, and it will re-render every time */}
+      {/* ... assim as props do ShippingForm nunca serão as mesmas, e ele será re-renderizado toda vez */}
       <ShippingForm onSubmit={handleSubmit} />
     </div>
   );
 }
 ```
 
-**In JavaScript, a `function () {}` or `() => {}` always creates a _different_ function,** similar to how the `{}` object literal always creates a new object. Normally, this wouldn't be a problem, but it means that `ShippingForm` props will never be the same, and your [`memo`](/reference/react/memo) optimization won't work. This is where `useCallback` comes in handy:
+**Em JavaScript, uma `function () {}` ou `() => {}` sempre cria uma função _diferente_,** semelhante a como o literal de objeto `{}` sempre cria um novo objeto. Normalmente, isso não seria um problema, mas significa que as props do `ShippingForm` nunca serão as mesmas, e sua otimização [`memo`](/reference/react/memo) não funcionará. É aqui que `useCallback` é útil:
 
 ```js {2,3,8,12-13}
 function ProductPage({ productId, referrer, theme }) {
-  // Tell React to cache your function between re-renders...
+  // Diga ao React para armazenar em cache sua função entre re-renderizações...
   const handleSubmit = useCallback((orderDetails) => {
     post('/product/' + productId + '/buy', {
       referrer,
       orderDetails,
     });
-  }, [productId, referrer]); // ...so as long as these dependencies don't change...
+  }, [productId, referrer]); // ...desde que essas dependências não mudem...
 
   return (
     <div className={theme}>
-      {/* ...ShippingForm will receive the same props and can skip re-rendering */}
+      {/* ...ShippingForm receberá as mesmas props e pode pular a re-renderização */}
       <ShippingForm onSubmit={handleSubmit} />
     </div>
   );
 }
 ```
 
-**By wrapping `handleSubmit` in `useCallback`, you ensure that it's the *same* function between the re-renders** (until dependencies change). You don't *have to* wrap a function in `useCallback` unless you do it for some specific reason. In this example, the reason is that you pass it to a component wrapped in [`memo`,](/reference/react/memo) and this lets it skip re-rendering. There are other reasons you might need `useCallback` which are described further on this page.
+**Ao envolver `handleSubmit` em `useCallback`, você garante que é a *mesma* função entre as re-renderizações** (até que as dependências mudem). Você não *precisa* envolver uma função em `useCallback` a menos que faça isso por um motivo específico. Neste exemplo, o motivo é que você a passa para um componente envolto em [`memo`,](/reference/react/memo) e isso permite que ele pule a re-renderização. Existem outros motivos pelos quais você pode precisar de `useCallback`, que são descritos mais adiante nesta página.
 
 <Note>
 
-**You should only rely on `useCallback` as a performance optimization.** If your code doesn't work without it, find the underlying problem and fix it first. Then you may add `useCallback` back.
+**Você deve se basear apenas em `useCallback` como uma otimização de desempenho.** Se seu código não funcionar sem ele, encontre o problema subjacente e conserte-o primeiro. Depois, você pode adicionar `useCallback` novamente.
 
 </Note>
 
 <DeepDive>
 
-#### How is useCallback related to useMemo? {/*how-is-usecallback-related-to-usememo*/}
+#### Como o useCallback se relaciona ao useMemo? {/*how-is-usecallback-related-to-usememo*/}
 
-You will often see [`useMemo`](/reference/react/useMemo) alongside `useCallback`. They are both useful when you're trying to optimize a child component. They let you [memoize](https://en.wikipedia.org/wiki/Memoization) (or, in other words, cache) something you're passing down:
+Você verá muitas vezes [`useMemo`](/reference/react/useMemo) ao lado de `useCallback`. Ambos são úteis quando você está tentando otimizar um componente filho. Eles permitem que você [memoize](https://pt.wikipedia.org/wiki/Memoiza%C3%A7%C3%A3o) (ou, em outras palavras, armazene em cache) algo que você está passando para baixo:
 
 ```js {6-8,10-15,19}
 import { useMemo, useCallback } from 'react';
@@ -175,11 +175,11 @@ import { useMemo, useCallback } from 'react';
 function ProductPage({ productId, referrer }) {
   const product = useData('/product/' + productId);
 
-  const requirements = useMemo(() => { // Calls your function and caches its result
+  const requirements = useMemo(() => { // Chama sua função e armazena seu resultado em cache
     return computeRequirements(product);
   }, [product]);
 
-  const handleSubmit = useCallback((orderDetails) => { // Caches your function itself
+  const handleSubmit = useCallback((orderDetails) => { // Armazena em cache sua função
     post('/product/' + productId + '/buy', {
       referrer,
       orderDetails,
@@ -194,60 +194,60 @@ function ProductPage({ productId, referrer }) {
 }
 ```
 
-The difference is in *what* they're letting you cache:
+A diferença está em *o que* eles permitem que você armazene em cache:
 
-* **[`useMemo`](/reference/react/useMemo) caches the *result* of calling your function.** In this example, it caches the result of calling `computeRequirements(product)` so that it doesn't change unless `product` has changed. This lets you pass the `requirements` object down without unnecessarily re-rendering `ShippingForm`. When necessary, React will call the function you've passed during rendering to calculate the result.
-* **`useCallback` caches *the function itself.*** Unlike `useMemo`, it does not call the function you provide. Instead, it caches the function you provided so that `handleSubmit` *itself* doesn't change unless `productId` or `referrer` has changed. This lets you pass the `handleSubmit` function down without unnecessarily re-rendering `ShippingForm`. Your code won't run until the user submits the form.
+* **[`useMemo`](/reference/react/useMemo) armazena em cache o *resultado* de chamar sua função.** Neste exemplo, ele armazena em cache o resultado de chamar `computeRequirements(product)` para que não mude a menos que `product` tenha mudado. Isso permite que você passe o objeto `requirements` sem re-renderizar desnecessariamente o `ShippingForm`. Quando necessário, o React chamará a função que você passou durante a renderização para calcular o resultado.
+* **`useCallback` armazena *a própria função.*" Diferente de `useMemo`, ele não chama a função que você fornece. Em vez disso, armazena a função que você forneceu para que a própria `handleSubmit` *não mude* a menos que `productId` ou `referrer` tenham mudado. Isso permite que você passe a função `handleSubmit` sem re-renderizar desnecessariamente o `ShippingForm`. Seu código não será executado até que o usuário envie o formulário.
 
-If you're already familiar with [`useMemo`,](/reference/react/useMemo) you might find it helpful to think of `useCallback` as this:
+Se você já está familiarizado com [`useMemo`,](/reference/react/useMemo) pode achar útil pensar em `useCallback` assim:
 
 ```js
-// Simplified implementation (inside React)
+// Implementação simplificada (dentro do React)
 function useCallback(fn, dependencies) {
   return useMemo(() => fn, dependencies);
 }
 ```
 
-[Read more about the difference between `useMemo` and `useCallback`.](/reference/react/useMemo#memoizing-a-function)
+[Leia mais sobre a diferença entre `useMemo` e `useCallback`.](/reference/react/useMemo#memoizing-a-function)
 
 </DeepDive>
 
 <DeepDive>
 
-#### Should you add useCallback everywhere? {/*should-you-add-usecallback-everywhere*/}
+#### Você deve adicionar useCallback em todos os lugares? {/*should-you-add-usecallback-everywhere*/}
 
-If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful. 
+Se seu aplicativo for como este site, e a maioria das interações forem grosseiras (como substituir uma página ou uma seção inteira), a memoização geralmente é desnecessária. Por outro lado, se seu aplicativo se assemelhar mais a um editor de desenhos, e a maioria das interações forem granulares (como mover formas), então você pode achar a memoização muito útil.
 
-Caching a function with `useCallback`  is only valuable in a few cases:
+Armazenar uma função em cache com `useCallback` só é valioso em alguns casos:
 
-- You pass it as a prop to a component wrapped in [`memo`.](/reference/react/memo) You want to skip re-rendering if the value hasn't changed. Memoization lets your component re-render only if dependencies changed.
-- The function you're passing is later used as a dependency of some Hook. For example, another function wrapped in `useCallback` depends on it, or you depend on this function from [`useEffect.`](/reference/react/useEffect)
+- Você a passa como uma prop para um componente envolto em [`memo`.](/reference/react/memo) Você deseja pular a re-renderização se o valor não mudou. A memoização permite que seu componente re-renderize apenas se as dependências mudaram.
+- A função que você está passando é usada posteriormente como uma dependência de algum Hook. Por exemplo, outra função envolta em `useCallback` depende dela, ou você depende dessa função do [`useEffect.`](/reference/react/useEffect)
 
-There is no benefit to wrapping a function in `useCallback` in other cases. There is no significant harm to doing that either, so some teams choose to not think about individual cases, and memoize as much as possible. The downside is that code becomes less readable. Also, not all memoization is effective: a single value that's "always new" is enough to break memoization for an entire component.
+Não há benefício em envolver uma função em `useCallback` em outros casos. Também não há dano significativo em fazer isso, então algumas equipes optam por não pensar sobre casos individuais e memoizar o máximo possível. O lado negativo é que o código se torna menos legível. Além disso, nem toda memoização é eficaz: um único valor que é "sempre novo" é suficiente para quebrar a memoização para um componente inteiro.
 
-Note that `useCallback` does not prevent *creating* the function. You're always creating a function (and that's fine!), but React ignores it and gives you back a cached function if nothing changed.
+Observe que `useCallback` não impede *a criação* da função. Você sempre está criando uma função (e isso é bom!), mas o React ignora isso e lhe dá de volta uma função em cache se nada mudou.
 
-**In practice, you can make a lot of memoization unnecessary by following a few principles:**
+**Na prática, você pode tornar a maioria das memoizações desnecessárias seguindo alguns princípios:**
 
-1. When a component visually wraps other components, let it [accept JSX as children.](/learn/passing-props-to-a-component#passing-jsx-as-children) Then, if the wrapper component updates its own state, React knows that its children don't need to re-render.
-1. Prefer local state and don't [lift state up](/learn/sharing-state-between-components) any further than necessary. Don't keep transient state like forms and whether an item is hovered at the top of your tree or in a global state library.
-1. Keep your [rendering logic pure.](/learn/keeping-components-pure) If re-rendering a component causes a problem or produces some noticeable visual artifact, it's a bug in your component! Fix the bug instead of adding memoization.
-1. Avoid [unnecessary Effects that update state.](/learn/you-might-not-need-an-effect) Most performance problems in React apps are caused by chains of updates originating from Effects that cause your components to render over and over.
-1. Try to [remove unnecessary dependencies from your Effects.](/learn/removing-effect-dependencies) For example, instead of memoization, it's often simpler to move some object or a function inside an Effect or outside the component.
+1. Quando um componente embrulha visualmente outros componentes, deixe-o [aceitar JSX como filhos.](/learn/passing-props-to-a-component#passing-jsx-as-children) Assim, se o componente wrapper atualizar seu próprio estado, o React saberá que seus filhos não precisam re-renderizar.
+2. Prefira o estado local e não [eleve o estado](/learn/sharing-state-between-components) mais do que o necessário. Não mantenha estado transitório como formulários e se um item está sendo sobreposto no topo da sua árvore ou em uma biblioteca de estado global.
+3. Mantenha sua [lógica de renderização pura.](/learn/keeping-components-pure) Se re-renderizar um componente causar um problema ou produzir algum artefato visual perceptível, isso é um erro no seu componente! Corrija o erro em vez de adicionar memoização.
+4. Evite [Efeitos desnecessários que atualizam o estado.](/learn/you-might-not-need-an-effect) A maioria dos problemas de desempenho em aplicativos React é causada por cadeias de atualizações originadas de Efeitos que fazem seus componentes renderizarem repetidamente.
+5. Tente [remover dependências desnecessárias dos seus Efeitos.](/learn/removing-effect-dependencies) Por exemplo, em vez de memoização, muitas vezes é mais simples mover algum objeto ou uma função para dentro de um Efeito ou fora do componente.
 
-If a specific interaction still feels laggy, [use the React Developer Tools profiler](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) to see which components benefit the most from memoization, and add memoization where needed. These principles make your components easier to debug and understand, so it's good to follow them in any case. In long term, we're researching [doing memoization automatically](https://www.youtube.com/watch?v=lGEMwh32soc) to solve this once and for all.
+Se uma interação específica ainda parecer lenta, [use a ferramenta de perfis do React Developer Tools](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) para ver quais componentes se beneficiam mais da memoização e adicione memoização onde for necessário. Esses princípios tornam seus componentes mais fáceis de depurar e entender, portanto, é bom segui-los em qualquer caso. A longo prazo, estamos pesquisando [fazer memoização automaticamente](https://www.youtube.com/watch?v=lGEMwh32soc) para resolver isso de uma vez por todas.
 
 </DeepDive>
 
-<Recipes titleText="The difference between useCallback and declaring a function directly" titleId="examples-rerendering">
+<Recipes titleText="A diferença entre useCallback e declarar uma função diretamente" titleId="examples-rerendering">
 
-#### Skipping re-rendering with `useCallback` and `memo` {/*skipping-re-rendering-with-usecallback-and-memo*/}
+#### Ignorando re-renderização com `useCallback` e `memo` {/*skipping-re-rendering-with-usecallback-and-memo*/}
 
-In this example, the `ShippingForm` component is **artificially slowed down** so that you can see what happens when a React component you're rendering is genuinely slow. Try incrementing the counter and toggling the theme.
+Neste exemplo, o componente `ShippingForm` é **artificialmente desacelerado** para que você possa ver o que acontece quando um componente React que você está renderizando é realmente lento. Tente incrementar o contador e alternar o tema.
 
-Incrementing the counter feels slow because it forces the slowed down `ShippingForm` to re-render. That's expected because the counter has changed, and so you need to reflect the user's new choice on the screen.
+Incrementar o contador parece lento porque força o desacelerado `ShippingForm` a re-renderizar. Isso é esperado porque o contador mudou e, portanto, você precisa refletir a nova escolha do usuário na tela.
 
-Next, try toggling the theme. **Thanks to `useCallback` together with [`memo`](/reference/react/memo), it’s fast despite the artificial slowdown!** `ShippingForm` skipped re-rendering because the `handleSubmit` function has not changed. The `handleSubmit` function has not changed because both `productId` and `referrer` (your `useCallback` dependencies) haven't changed since last render.
+Em seguida, tente alternar o tema. **Graças a `useCallback` junto com [`memo`](/reference/react/memo), é rápido apesar da desaceleração artificial!** O `ShippingForm` pulou a re-renderização porque a função `handleSubmit` não mudou. A função `handleSubmit` não mudou porque tanto `productId` quanto `referrer` (suas dependências do `useCallback`) não mudaram desde a última renderização.
 
 <Sandpack>
 
@@ -265,7 +265,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Dark mode
+        Modo escuro
       </label>
       <hr />
       <ProductPage
@@ -298,7 +298,7 @@ export default function ProductPage({ productId, referrer, theme }) {
 }
 
 function post(url, data) {
-  // Imagine this sends a request...
+  // Imagine que isso envia uma solicitação...
   console.log('POST /' + url);
   console.log(data);
 }
@@ -310,10 +310,10 @@ import { memo, useState } from 'react';
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   const [count, setCount] = useState(1);
 
-  console.log('[ARTIFICIALLY SLOW] Rendering <ShippingForm />');
+  console.log('[ARTIFICIALMENTE LENTO] Renderizando <ShippingForm />');
   let startTime = performance.now();
   while (performance.now() - startTime < 500) {
-    // Do nothing for 500 ms to emulate extremely slow code
+    // Não faça nada por 500 ms para emular código extremamente lento
   }
 
   function handleSubmit(e) {
@@ -328,26 +328,26 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p><b>Note: <code>ShippingForm</code> is artificially slowed down!</b></p>
+      <p><b>Nota: <code>ShippingForm</code> é artificialmente desacelerado!</b></p>
       <label>
-        Number of items:
+        Número de itens:
         <button type="button" onClick={() => setCount(count - 1)}>–</button>
         {count}
         <button type="button" onClick={() => setCount(count + 1)}>+</button>
       </label>
       <label>
-        Street:
+        Rua:
         <input name="street" />
       </label>
       <label>
-        City:
+        Cidade:
         <input name="city" />
       </label>
       <label>
-        Postal code:
+        Código postal:
         <input name="zipCode" />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit">Enviar</button>
     </form>
   );
 });
@@ -383,11 +383,11 @@ button[type="button"] {
 
 <Solution />
 
-#### Always re-rendering a component {/*always-re-rendering-a-component*/}
+#### Sempre re-renderizando um componente {/*always-re-rendering-a-component*/}
 
-In this example, the `ShippingForm` implementation is also **artificially slowed down** so that you can see what happens when some React component you're rendering is genuinely slow. Try incrementing the counter and toggling the theme.
+Neste exemplo, a implementação do `ShippingForm` também é **artificialmente desacelerada** para que você possa ver o que acontece quando um componente React que você está renderizando é realmente lento. Tente incrementar o contador e alternar o tema.
 
-Unlike in the previous example, toggling the theme is also slow now! This is because **there is no `useCallback` call in this version,** so `handleSubmit` is always a new function, and the slowed down `ShippingForm` component can't skip re-rendering.
+Ao contrário do exemplo anterior, agora alternar o tema também é lento! Isso ocorre porque **não há chamada `useCallback` nesta versão,** portanto `handleSubmit` é sempre uma nova função, e o desacelerado componente `ShippingForm` não consegue pular a re-renderização.
 
 <Sandpack>
 
@@ -405,7 +405,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Dark mode
+        Modo escuro
       </label>
       <hr />
       <ProductPage
@@ -437,7 +437,7 @@ export default function ProductPage({ productId, referrer, theme }) {
 }
 
 function post(url, data) {
-  // Imagine this sends a request...
+  // Imagine que isso envia uma solicitação...
   console.log('POST /' + url);
   console.log(data);
 }
@@ -449,10 +449,10 @@ import { memo, useState } from 'react';
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   const [count, setCount] = useState(1);
 
-  console.log('[ARTIFICIALLY SLOW] Rendering <ShippingForm />');
+  console.log('[ARTIFICIALMENTE LENTO] Renderizando <ShippingForm />');
   let startTime = performance.now();
   while (performance.now() - startTime < 500) {
-    // Do nothing for 500 ms to emulate extremely slow code
+    // Não faça nada por 500 ms para emular código extremamente lento
   }
 
   function handleSubmit(e) {
@@ -467,26 +467,25 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p><b>Note: <code>ShippingForm</code> is artificially slowed down!</b></p>
       <label>
-        Number of items:
+        Número de itens:
         <button type="button" onClick={() => setCount(count - 1)}>–</button>
         {count}
         <button type="button" onClick={() => setCount(count + 1)}>+</button>
       </label>
       <label>
-        Street:
+        Rua:
         <input name="street" />
       </label>
       <label>
-        City:
+        Cidade:
         <input name="city" />
       </label>
       <label>
-        Postal code:
+        Código postal:
         <input name="zipCode" />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit">Enviar</button>
     </form>
   );
 });
@@ -521,7 +520,7 @@ button[type="button"] {
 </Sandpack>
 
 
-However, here is the same code **with the artificial slowdown removed.** Does the lack of `useCallback` feel noticeable or not?
+No entanto, aqui está o mesmo código **com a desaceleração artificial removida.** A falta de `useCallback` é perceptível ou não?
 
 <Sandpack>
 
@@ -539,7 +538,7 @@ export default function App() {
           checked={isDark}
           onChange={e => setIsDark(e.target.checked)}
         />
-        Dark mode
+        Modo escuro
       </label>
       <hr />
       <ProductPage
@@ -571,7 +570,7 @@ export default function ProductPage({ productId, referrer, theme }) {
 }
 
 function post(url, data) {
-  // Imagine this sends a request...
+  // Imagine que isso envia uma solicitação...
   console.log('POST /' + url);
   console.log(data);
 }
@@ -583,7 +582,7 @@ import { memo, useState } from 'react';
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   const [count, setCount] = useState(1);
 
-  console.log('Rendering <ShippingForm />');
+  console.log('Renderizando <ShippingForm />');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -598,24 +597,24 @@ const ShippingForm = memo(function ShippingForm({ onSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Number of items:
+        Número de itens:
         <button type="button" onClick={() => setCount(count - 1)}>–</button>
         {count}
         <button type="button" onClick={() => setCount(count + 1)}>+</button>
       </label>
       <label>
-        Street:
+        Rua:
         <input name="street" />
       </label>
       <label>
-        City:
+        Cidade:
         <input name="city" />
       </label>
       <label>
-        Postal code:
+        Código postal:
         <input name="zipCode" />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit">Enviar</button>
     </form>
   );
 });
@@ -650,9 +649,9 @@ button[type="button"] {
 </Sandpack>
 
 
-Quite often, code without memoization works fine. If your interactions are fast enough, you don't need memoization.
+Com bastante frequência, o código sem memoização funciona bem. Se suas interações forem rápidas o suficiente, você não precisa de memoização.
 
-Keep in mind that you need to run React in production mode, disable [React Developer Tools](/learn/react-developer-tools), and use devices similar to the ones your app's users have in order to get a realistic sense of what's actually slowing down your app.
+Tenha em mente que você precisa executar o React em modo de produção, desativar [React Developer Tools](/learn/react-developer-tools) e usar dispositivos semelhantes aos que os usuários do seu aplicativo têm para obter uma noção realista do que está realmente desacelerando seu aplicativo.
 
 <Solution />
 
@@ -660,11 +659,11 @@ Keep in mind that you need to run React in production mode, disable [React Devel
 
 ---
 
-### Updating state from a memoized callback {/*updating-state-from-a-memoized-callback*/}
+### Atualizando o estado a partir de um callback memoizado {/*updating-state-from-a-memoized-callback*/}
 
-Sometimes, you might need to update state based on previous state from a memoized callback.
+Às vezes, você pode precisar atualizar o estado com base no estado anterior a partir de um callback memoizado.
 
-This `handleAddTodo` function specifies `todos` as a dependency because it computes the next todos from it:
+Esta função `handleAddTodo` especifica `todos` como uma dependência porque ela calcula os próximos todos a partir dele:
 
 ```js {6,7}
 function TodoList() {
@@ -677,7 +676,7 @@ function TodoList() {
   // ...
 ```
 
-You'll usually want memoized functions to have as few dependencies as possible. When you read some state only to calculate the next state, you can remove that dependency by passing an [updater function](/reference/react/useState#updating-state-based-on-the-previous-state) instead:
+Normalmente, você desejará que funções memoizadas tenham o menor número possível de dependências. Quando você lê algum estado apenas para calcular o próximo estado, pode remover essa dependência passando uma [função atualizadora](/reference/react/useState#updating-state-based-on-the-previous-state) em vez:
 
 ```js {6,7}
 function TodoList() {
@@ -686,17 +685,17 @@ function TodoList() {
   const handleAddTodo = useCallback((text) => {
     const newTodo = { id: nextId++, text };
     setTodos(todos => [...todos, newTodo]);
-  }, []); // ✅ No need for the todos dependency
+  }, []); // ✅ Sem necessidade da dependência todos
   // ...
 ```
 
-Here, instead of making `todos` a dependency and reading it inside, you pass an instruction about *how* to update the state (`todos => [...todos, newTodo]`) to React. [Read more about updater functions.](/reference/react/useState#updating-state-based-on-the-previous-state)
+Aqui, em vez de tornar `todos` uma dependência e lê-lo por dentro, você passa uma instrução sobre *como* atualizar o estado (`todos => [...todos, newTodo]`) para o React. [Leia mais sobre funções atualizadoras.](/reference/react/useState#updating-state-based-on-the-previous-state)
 
 ---
 
-### Preventing an Effect from firing too often {/*preventing-an-effect-from-firing-too-often*/}
+### Impedindo um efeito de disparar com muita frequência {/*preventing-an-effect-from-firing-too-often*/}
 
-Sometimes, you might want to call a function from inside an [Effect:](/learn/synchronizing-with-effects)
+Às vezes, você pode querer chamar uma função de dentro de um [Efeito:](/learn/synchronizing-with-effects)
 
 ```js {4-9,12}
 function ChatRoom({ roomId }) {
@@ -716,7 +715,7 @@ function ChatRoom({ roomId }) {
     // ...
 ```
 
-This creates a problem. [Every reactive value must be declared as a dependency of your Effect.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) However, if you declare `createOptions` as a dependency, it will cause your Effect to constantly reconnect to the chat room:
+Isso cria um problema. [Todo valor reativo deve ser declarado como uma dependência do seu Efeito.](/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) No entanto, se você declarar `createOptions` como uma dependência, isso fará com que seu Efeito reconecte constantemente à sala de chat:
 
 
 ```js {6}
@@ -725,11 +724,11 @@ This creates a problem. [Every reactive value must be declared as a dependency o
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
-  }, [createOptions]); // 🔴 Problem: This dependency changes on every render
+  }, [createOptions]); // 🔴 Problema: Esta dependência muda a cada renderização
   // ...
 ```
 
-To solve this, you can wrap the function you need to call from an Effect into `useCallback`:
+Para resolver isso, você pode envolver a função que precisa chamar de um Efeito em `useCallback`:
 
 ```js {4-9,16}
 function ChatRoom({ roomId }) {
@@ -740,25 +739,25 @@ function ChatRoom({ roomId }) {
       serverUrl: 'https://localhost:1234',
       roomId: roomId
     };
-  }, [roomId]); // ✅ Only changes when roomId changes
+  }, [roomId]); // ✅ Muda apenas quando roomId muda
 
   useEffect(() => {
     const options = createOptions();
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
-  }, [createOptions]); // ✅ Only changes when createOptions changes
+  }, [createOptions]); // ✅ Muda apenas quando createOptions muda
   // ...
 ```
 
-This ensures that the `createOptions` function is the same between re-renders if the `roomId` is the same. **However, it's even better to remove the need for a function dependency.** Move your function *inside* the Effect:
+Isso garante que a função `createOptions` seja a mesma entre as re-renderizações se o `roomId` for o mesmo. **No entanto, é ainda melhor remover a necessidade de uma dependência de função.** Mova sua função *para dentro* do Efeito:
 
 ```js {5-10,16}
 function ChatRoom({ roomId }) {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    function createOptions() { // ✅ No need for useCallback or function dependencies!
+    function createOptions() { // ✅ Sem necessidade de useCallback ou dependências de função!
       return {
         serverUrl: 'https://localhost:1234',
         roomId: roomId
@@ -769,17 +768,17 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
-  }, [roomId]); // ✅ Only changes when roomId changes
+  }, [roomId]); // ✅ Muda apenas quando roomId muda
   // ...
 ```
 
-Now your code is simpler and doesn't need `useCallback`. [Learn more about removing Effect dependencies.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
+Agora seu código está mais simples e não precisa de `useCallback`. [Saiba mais sobre como remover dependências de Efeitos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
 
 ---
 
-### Optimizing a custom Hook {/*optimizing-a-custom-hook*/}
+### Otimizando um Hook personalizado {/*optimizing-a-custom-hook*/}
 
-If you're writing a [custom Hook,](/learn/reusing-logic-with-custom-hooks) it's recommended to wrap any functions that it returns into `useCallback`:
+Se você estiver escrevendo um [Hook personalizado,](/learn/reusing-logic-with-custom-hooks) é recomendável envolver qualquer função que ele retorna em `useCallback`:
 
 ```js {4-6,8-10}
 function useRouter() {
@@ -800,30 +799,17 @@ function useRouter() {
 }
 ```
 
-This ensures that the consumers of your Hook can optimize their own code when needed.
+Isso garante que os consumidores do seu Hook possam otimizar seu próprio código quando necessário.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### Every time my component renders, `useCallback` returns a different function {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
+### Toda vez que meu componente renderiza, `useCallback` retorna uma função diferente {/*every-time-my-component-renders-usecallback-returns-a-different-function*/}
 
-Make sure you've specified the dependency array as a second argument!
+Certifique-se de que você especificou a array de dependências como um segundo argumento!
 
-If you forget the dependency array, `useCallback` will return a new function every time:
-
-```js {7}
-function ProductPage({ productId, referrer }) {
-  const handleSubmit = useCallback((orderDetails) => {
-    post('/product/' + productId + '/buy', {
-      referrer,
-      orderDetails,
-    });
-  }); // 🔴 Returns a new function every time: no dependency array
-  // ...
-```
-
-This is the corrected version passing the dependency array as a second argument:
+Se você esquecer a array de dependências, `useCallback` retornará uma nova função a cada vez:
 
 ```js {7}
 function ProductPage({ productId, referrer }) {
@@ -832,11 +818,24 @@ function ProductPage({ productId, referrer }) {
       referrer,
       orderDetails,
     });
-  }, [productId, referrer]); // ✅ Does not return a new function unnecessarily
+  }); // 🔴 Retorna uma nova função toda vez: sem array de dependências
   // ...
 ```
 
-If this doesn't help, then the problem is that at least one of your dependencies is different from the previous render. You can debug this problem by manually logging your dependencies to the console:
+Esta é a versão corrigida passando a array de dependências como um segundo argumento:
+
+```js {7}
+function ProductPage({ productId, referrer }) {
+  const handleSubmit = useCallback((orderDetails) => {
+    post('/product/' + productId + '/buy', {
+      referrer,
+      orderDetails,
+    });
+  }, [productId, referrer]); // ✅ Não retorna uma nova função desnecessariamente
+  // ...
+```
+
+Se isso não ajudar, então o problema é que pelo menos uma de suas dependências é diferente da renderização anterior. Você pode depurar esse problema registrando manualmente suas dependências no console:
 
 ```js {5}
   const handleSubmit = useCallback((orderDetails) => {
@@ -846,28 +845,28 @@ If this doesn't help, then the problem is that at least one of your dependencies
   console.log([productId, referrer]);
 ```
 
-You can then right-click on the arrays from different re-renders in the console and select "Store as a global variable" for both of them. Assuming the first one got saved as `temp1` and the second one got saved as `temp2`, you can then use the browser console to check whether each dependency in both arrays is the same:
+Você pode então clicar com o botão direito nas arrays de diferentes re-renderizações no console e selecionar "Armazenar como uma variável global" para ambas. Supondo que o primeiro tenha sido salvo como `temp1` e o segundo como `temp2`, você pode então usar o console do navegador para verificar se cada dependência nas duas arrays é a mesma:
 
 ```js
-Object.is(temp1[0], temp2[0]); // Is the first dependency the same between the arrays?
-Object.is(temp1[1], temp2[1]); // Is the second dependency the same between the arrays?
-Object.is(temp1[2], temp2[2]); // ... and so on for every dependency ...
+Object.is(temp1[0], temp2[0]); // A primeira dependência é a mesma entre as arrays?
+Object.is(temp1[1], temp2[1]); // A segunda dependência é a mesma entre as arrays?
+Object.is(temp1[2], temp2[2]); // ... e assim por diante para cada dependência ...
 ```
 
-When you find which dependency is breaking memoization, either find a way to remove it, or [memoize it as well.](/reference/react/useMemo#memoizing-a-dependency-of-another-hook)
+Quando você descobrir qual dependência está quebrando a memoização, encontre uma maneira de removê-la ou [memoize também.](/reference/react/useMemo#memoizing-a-dependency-of-another-hook)
 
 ---
 
-### I need to call `useCallback` for each list item in a loop, but it's not allowed {/*i-need-to-call-usememo-for-each-list-item-in-a-loop-but-its-not-allowed*/}
+### Preciso chamar `useCallback` para cada item da lista em um loop, mas não é permitido {/*i-need-to-call-usememo-for-each-list-item-in-a-loop-but-its-not-allowed*/}
 
-Suppose the `Chart` component is wrapped in [`memo`](/reference/react/memo). You want to skip re-rendering every `Chart` in the list when the `ReportList` component re-renders. However, you can't call `useCallback` in a loop:
+Suponha que o componente `Chart` esteja envolto em [`memo`](/reference/react/memo). Você quer pular a re-renderização de cada `Chart` na lista quando o componente `ReportList` re-renderizar. No entanto, você não pode chamar `useCallback` em um loop:
 
 ```js {5-14}
 function ReportList({ items }) {
   return (
     <article>
       {items.map(item => {
-        // 🔴 You can't call useCallback in a loop like this:
+        // 🔴 Você não pode chamar useCallback em um loop assim:
         const handleClick = useCallback(() => {
           sendReport(item)
         }, [item]);
@@ -883,7 +882,7 @@ function ReportList({ items }) {
 }
 ```
 
-Instead, extract a component for an individual item, and put `useCallback` there:
+Em vez disso, extraia um componente para um item individual e coloque `useCallback` lá:
 
 ```js {5,12-21}
 function ReportList({ items }) {
@@ -897,7 +896,7 @@ function ReportList({ items }) {
 }
 
 function Report({ item }) {
-  // ✅ Call useCallback at the top level:
+  // ✅ Chame useCallback na raiz:
   const handleClick = useCallback(() => {
     sendReport(item)
   }, [item]);
@@ -910,7 +909,7 @@ function Report({ item }) {
 }
 ```
 
-Alternatively, you could remove `useCallback` in the last snippet and instead wrap `Report` itself in [`memo`.](/reference/react/memo) If the `item` prop does not change, `Report` will skip re-rendering, so `Chart` will skip re-rendering too:
+Alternativamente, você poderia remover `useCallback` no último snippet e, em vez disso, envolver `Report` em [`memo`.](/reference/react/memo) Se a prop `item` não mudar, `Report` pulará a re-renderização, então `Chart` também pulará a re-renderização:
 
 ```js {5,6-8,15}
 function ReportList({ items }) {
