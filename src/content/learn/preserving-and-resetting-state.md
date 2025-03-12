@@ -4,7 +4,7 @@ title: Preservando e Reinicializando o Estado
 
 <Intro>
 
-O estado é isolado entre os componentes. O React controla a qual estado pertence a qual componente com base em sua posição na árvore da UI. Você pode controlar quando preservar o estado e quando reiniciá-lo entre renderizações.
+O estado é isolado entre os componentes. O React controla qual estado pertence a qual componente com base em sua posição na árvore da UI. Você pode controlar quando preservar o estado e quando reiniciá-lo entre renderizações.
 
 </Intro>
 
@@ -98,7 +98,7 @@ Veja como isso fica como uma árvore:
 
 </DiagramGroup>
 
-**Esses são dois contadores separados porque cada um é renderizado em sua própria posição na árvore.** Você não costuma precisar pensar sobre essas posições ao usar o React, mas pode ser útil entender como funciona.
+**Esses são dois contadores separados porque cada um é renderizado em sua própria posição na árvore.** Normalmente, você não precisa pensar sobre essas posições ao usar o React, mas pode ser útil entender como funciona.
 
 No React, cada componente na tela tem estado totalmente isolado. Por exemplo, se você renderizar dois componentes `Counter` lado a lado, cada um deles terá seus próprios estados `score` e `hover`, independentes.
 
@@ -264,7 +264,7 @@ Quando você marca "Renderizar o segundo contador", um segundo `Counter` e seu e
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_add_component" height={258} width={500} alt="Diagrama de uma árvore de componentes React. O nó raiz é rotulado como 'div' e tem dois filhos. O filho da esquerda é rotulado como 'Counter' e contém uma bolha de estado rotulada como 'count' com valor 0. O filho da direita é rotulado como 'Counter' e contém uma bolha de estado rotulada como 'count' com valor 0. O node filho da direita inteiro é destacado em amarelo, indicando que foi adicionado recentemente à árvore.">
+<Diagram name="preserving_state_add_component" height={258} width={500} alt="Diagrama de uma árvore de componentes React. O nó raiz é rotulado como 'div' e tem dois filhos. O filho da esquerda é rotulado como 'Counter' e contém uma bolha de estado rotulada como 'count' com valor 0. O filho da direita é rotulado como 'Counter' e contém uma bolha de estado rotulada como 'count' com valor 0. O nó filho da direita inteiro é destacado em amarelo, indicando que foi adicionado recentemente à árvore.">
 
 Adicionando um componente
 
@@ -1007,7 +1007,7 @@ h1 {
 
 </Sandpack>
 
-Alternar entre Taylor e Sarah não preserva o estado. Isso acontece porque **você deu a eles chaves diferentes:**
+Alternar entre Taylor e Sarah não preserva o estado. Isso acontece porque **você deu a eles `key`s diferentes:**
 
 ```js
 {isPlayerA ? (
@@ -1247,7 +1247,7 @@ Não importa qual estratégia você escolha, um chat _com Alice_ é conceitualme
 
 - O React mantém o estado enquanto o mesmo componente é renderizado na mesma posição.
 - O estado não é mantido nas tags JSX. Está associado à posição da árvore em que você colocou esse JSX.
-- Você pode forçar uma subárvore a reinicializar seu estado dando-lhe uma chave diferente.
+- Você pode forçar uma subárvore a reinicializar seu estado dando uma chave diferente a ela.
 - Não aninhe definições de componentes, ou você reinicializará o estado acidentalmente.
 
 </Recap>
@@ -1355,7 +1355,7 @@ textarea { display: block; margin: 10px 0; }
 </Sandpack>
 
 
-Tecnicamente, você também poderia adicionar `null` antes de `<Form />` na ramo `else` para combinar com a estrutura do ramo `if`:
+Tecnicamente, você também poderia adicionar `null` antes de `<Form />` no ramo `else` para combinar com a estrutura do ramo `if`:
 
 <Sandpack>
 
