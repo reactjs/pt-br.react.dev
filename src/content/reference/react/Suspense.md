@@ -1361,6 +1361,8 @@ main {
 }
 ```
 
+</Sandpack>
+
 Quando você pressionou o botão, o componente `Router` renderizou `ArtistPage` em vez de `IndexPage`. Um componente dentro de `ArtistPage` suspendeu, então, o limite de Suspense mais próximo começou a mostrar o fallback. O limite de Suspense mais próximo estava perto da raiz, então todo o layout do site foi substituído por `BigSpinner`.
 
 Para evitar isso, você pode marcar a atualização de estado da navegação como uma *Transition* com [`startTransition`:](/reference/react/startTransition)
