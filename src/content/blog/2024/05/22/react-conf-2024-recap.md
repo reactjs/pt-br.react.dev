@@ -1,124 +1,124 @@
 ---
-title: "React Conf 2024 Recap"
+title: "Resumo da React Conf 2024"
 author: Ricky Hanlon
 date: 2024/05/22
-description: Last week we hosted React Conf 2024, a two-day conference in Henderson, Nevada where 700+ attendees gathered in-person to discuss the latest in UI engineering. In this post, we'll summarize the talks and announcements from the event.
+description: Na semana passada, sediamos a React Conf 2024, uma conferência de dois dias em Henderson, Nevada, onde mais de 700 participantes se reuniram pessoalmente para discutir o que há de mais recente em engenharia de UI. Nesta postagem, resumiremos as palestras e anúncios do evento.
 ---
 
-May 22, 2024 by [Ricky Hanlon](https://twitter.com/rickhanlonii).
+22 de maio de 2024 por [Ricky Hanlon](https://twitter.com/rickhanlonii).
 
 ---
 
 <Intro>
 
-Last week we hosted React Conf 2024, a two-day conference in Henderson, Nevada where 700+ attendees gathered in-person to discuss the latest in UI engineering. This was our first in-person conference since 2019, and we were thrilled to be able to bring the community together again.
+Na semana passada, sediamos a React Conf 2024, uma conferência de dois dias em Henderson, Nevada, onde mais de 700 participantes se reuniram pessoalmente para discutir o que há de mais recente em engenharia de UI. Esta foi a nossa primeira conferência presencial desde 2019, e ficamos muito felizes por poder reunir a comunidade novamente.
 
 </Intro>
 
 ---
 
-At React Conf 2024, we announced the [React 19 RC](/blog/2024/12/05/react-19), the [React Native New Architecture Beta](https://github.com/reactwg/react-native-new-architecture/discussions/189), and an experimental release of the [React Compiler](/learn/react-compiler). The community also took the stage to announce [React Router v7](https://remix.run/blog/merging-remix-and-react-router), [Universal Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=20765s) in Expo Router, React Server Components in [RedwoodJS](https://redwoodjs.com/blog/rsc-now-in-redwoodjs), and much more.
+Na React Conf 2024, anunciamos o [React 19 RC](/blog/2024/12/05/react-19), a [React Native New Architecture Beta](https://github.com/reactwg/react-native-new-architecture/discussions/189) e um lançamento experimental do [React Compiler](/learn/react-compiler). A comunidade também subiu ao palco para anunciar [React Router v7](https://remix.run/blog/merging-remix-and-react-router), [Universal Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=20765s) no Expo Router, React Server Components no [RedwoodJS](https://redwoodjs.com/blog/rsc-now-in-redwoodjs) e muito mais.
 
-The entire [day 1](https://www.youtube.com/watch?v=T8TZQ6k4SLE) and [day 2](https://www.youtube.com/watch?v=0ckOUBiuxVY) streams are available online. In this post, we'll summarize the talks and announcements from the event.
+Os streams completos do [dia 1](https://www.youtube.com/watch?v=T8TZQ6k4SLE) e do [dia 2](https://www.youtube.com/watch?v=0ckOUBiuxVY) estão disponíveis online. Nesta postagem, resumiremos as palestras e os anúncios do evento.
 
-## Day 1 {/*day-1*/}
+## Dia 1 {/*day-1*/}
 
-_[Watch the full day 1 stream here.](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=973s)_
+_[Assista ao stream completo do dia 1 aqui.](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=973s)_
 
-To kick off day 1, Meta CTO [Andrew "Boz" Bosworth](https://www.threads.net/@boztank) shared a welcome message followed by an introduction by [Seth Webster](https://twitter.com/sethwebster), who manages the React Org at Meta, and our MC [Ashley Narcisse](https://twitter.com/_darkfadr).
+Para dar o pontapé inicial no dia 1, o CTO da Meta [Andrew "Boz" Bosworth](https://www.threads.net/@boztank) compartilhou uma mensagem de boas-vindas, seguida por uma introdução de [Seth Webster](https://twitter.com/sethwebster), que gerencia a React Org na Meta, e nossa MC [Ashley Narcisse](https://twitter.com/_darkfadr).
 
-In the day 1 keynote, [Joe Savona](https://twitter.com/en_JS) shared our goals and vision for React to make it easy for anyone to build great user experiences. [Lauren Tan](https://twitter.com/potetotes) followed with a State of React, where she shared that React was downloaded over 1 billion times in 2023, and that 37% of new developers learn to program with React. Finally, she highlighted the work of the React community to make React, React.
+Na palestra principal do dia 1, [Joe Savona](https://twitter.com/en_JS) compartilhou nossos objetivos e visão para o React, para facilitar que qualquer pessoa construa ótimas experiências do usuário. [Lauren Tan](https://twitter.com/potetotes) seguiu com um State of React, onde ela compartilhou que o React foi baixado mais de 1 bilhão de vezes em 2023, e que 37% dos novos desenvolvedores aprendem a programar com React. Por fim, ela destacou o trabalho da comunidade React para fazer o React, React.
 
-For more, check out these talks from the community later in the conference:
+Para mais informações, confira estas palestras da comunidade mais tarde na conferência:
 
-- [Vanilla React](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=5542s) by [Ryan Florence](https://twitter.com/ryanflorence)
-- [React Rhythm & Blues](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=12728s) by [Lee Robinson](https://twitter.com/leeerob)
-- [RedwoodJS, now with React Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=26815s) by [Amy Dutton](https://twitter.com/selfteachme)
-- [Introducing Universal React Server Components in Expo Router](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=20765s) by [Evan Bacon](https://twitter.com/Baconbrix)
+- [Vanilla React](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=5542s) por [Ryan Florence](https://twitter.com/ryanflorence)
+- [React Rhythm & Blues](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=12728s) por [Lee Robinson](https://twitter.com/leeerob)
+- [RedwoodJS, now with React Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=26815s) por [Amy Dutton](https://twitter.com/selfteachme)
+- [Introducing Universal React Server Components in Expo Router](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=20765s) por [Evan Bacon](https://twitter.com/Baconbrix)
 
-Next in the keynote, [Josh Story](https://twitter.com/joshcstory) and [Andrew Clark](https://twitter.com/acdlite) shared new features coming in React 19, and announced the React 19 RC which is ready for testing in production. Check out all the features in the [React 19 release post](/blog/2024/12/05/react-19), and see these talks for deep dives on the new features:
+Em seguida, na palestra principal, [Josh Story](https://twitter.com/joshcstory) e [Andrew Clark](https://twitter.com/acdlite) compartilharam novos recursos que chegam no React 19, e anunciaram o React 19 RC, que está pronto para testes em produção. Confira todos os recursos na [postagem de lançamento do React 19](/blog/2024/12/05/react-19), e veja estas palestras para mergulhos profundos nos novos recursos:
 
-- [What's new in React 19](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=8880s) by [Lydia Hallie](https://twitter.com/lydiahallie)
-- [React Unpacked: A Roadmap to React 19](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=10112s) by [Sam Selikoff](https://twitter.com/samselikoff)
-- [React 19 Deep Dive: Coordinating HTML](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=24916s) by [Josh Story](https://twitter.com/joshcstory)
-- [Enhancing Forms with React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=25280s) by [Aurora Walberg Scharff](https://twitter.com/aurorascharff)
-- [React for Two Computers](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=18825s) by [Dan Abramov](https://bsky.app/profile/danabra.mov)
-- [And Now You Understand React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=11256s) by [Kent C. Dodds](https://twitter.com/kentcdodds)
+- [What's new in React 19](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=8880s) por [Lydia Hallie](https://twitter.com/lydiahallie)
+- [React Unpacked: A Roadmap to React 19](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=10112s) por [Sam Selikoff](https://twitter.com/samselikoff)
+- [React 19 Deep Dive: Coordinating HTML](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=24916s) por [Josh Story](https://twitter.com/joshcstory)
+- [Enhancing Forms with React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=25280s) por [Aurora Walberg Scharff](https://twitter.com/aurorascharff)
+- [React for Two Computers](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=18825s) por [Dan Abramov](https://bsky.app/profile/danabra.mov)
+- [And Now You Understand React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=11256s) por [Kent C. Dodds](https://twitter.com/kentcdodds)
 
-Finally, we ended the keynote with [Joe Savona](https://twitter.com/en_JS), [Sathya Gunasekaran](https://twitter.com/_gsathya), and [Mofei Zhang](https://twitter.com/zmofei) announcing that the React Compiler is now [Open Source](https://github.com/facebook/react/pull/29061), and sharing an experimental version of the React Compiler to try out.
+Finalmente, encerramos a palestra principal com [Joe Savona](https://twitter.com/en_JS), [Sathya Gunasekaran](https://twitter.com/_gsathya) e [Mofei Zhang](https://twitter.com/zmofei) anunciando que o React Compiler agora é [Open Source](https://github.com/facebook/react/pull/29061), e compartilhando uma versão experimental do React Compiler para experimentar.
 
-For more information on using the Compiler and how it works, check out [the docs](/learn/react-compiler) and these talks:
+Para obter mais informações sobre como usar o Compiler e como ele funciona, confira [os docs](/learn/react-compiler) e estas palestras:
 
-- [Forget About Memo](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=12020s) by [Lauren Tan](https://twitter.com/potetotes)
-- [React Compiler Deep Dive](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=9313s) by [Sathya Gunasekaran](https://twitter.com/_gsathya) and [Mofei Zhang](https://twitter.com/zmofei)
+- [Forget About Memo](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=12020s) por [Lauren Tan](https://twitter.com/potetotes)
+- [React Compiler Deep Dive](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=9313s) por [Sathya Gunasekaran](https://twitter.com/_gsathya) e [Mofei Zhang](https://twitter.com/zmofei)
 
-Watch the full day 1 keynote here:
+Assista à palestra principal completa do dia 1 aqui:
 
 <YouTubeIframe src="https://www.youtube.com/embed/T8TZQ6k4SLE?t=973s" />
 
-## Day 2 {/*day-2*/}
+## Dia 2 {/*day-2*/}
 
-_[Watch the full day 2 stream here.](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=1720s)_
+_[Assista ao stream completo do dia 2 aqui.](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=1720s)_
 
-To kick off day 2, [Seth Webster](https://twitter.com/sethwebster) shared a welcome message, followed by a Thank You from [Eli White](https://x.com/Eli_White) and an introduction by our Chief Vibes Officer [Ashley Narcisse](https://twitter.com/_darkfadr).
+Para começar o dia 2, [Seth Webster](https://twitter.com/sethwebster) compartilhou uma mensagem de boas-vindas, seguida por um Obrigado de [Eli White](https://x.com/Eli_White) e uma introdução de nossa Chefe de Vibrações [Ashley Narcisse](https://twitter.com/_darkfadr).
 
-In the day 2 keynote, [Nicola Corti](https://twitter.com/cortinico) shared the State of React Native, including 78 million downloads in 2023. He also highlighted apps using React Native including 2000+ screens used inside of Meta; the product details page in Facebook Marketplace, which is visited more than 2 billion times per day; and part of the Microsoft Windows Start Menu and some features in almost every Microsoft Office product across mobile and desktop.
+Na palestra principal do dia 2, [Nicola Corti](https://twitter.com/cortinico) compartilhou o State of React Native, incluindo 78 milhões de downloads em 2023. Ele também destacou aplicativos que usam React Native, incluindo mais de 2000 telas usadas dentro do Meta; a página de detalhes do produto no Facebook Marketplace, que é visitada mais de 2 bilhões de vezes por dia; e parte do Menu Iniciar do Microsoft Windows e alguns recursos em quase todos os produtos do Microsoft Office em dispositivos móveis e desktops.
 
-Nicola also highlighted all the work the community does to support React Native including libraries, frameworks, and multiple platforms. For more, check out these talks from the community:
+Nicola também destacou todo o trabalho que a comunidade faz para oferecer suporte ao React Native, incluindo bibliotecas, frameworks e várias plataformas. Para mais informações, confira estas palestras da comunidade:
 
-- [Extending React Native beyond Mobile and Desktop Apps](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=5798s) by [Chris Traganos](https://twitter.com/chris_trag) and [Anisha Malde](https://twitter.com/anisha_malde)
-- [Spatial computing with React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=22525s) by [Michał Pierzchała](https://twitter.com/thymikee)
+- [Extending React Native beyond Mobile and Desktop Apps](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=5798s) por [Chris Traganos](https://twitter.com/chris_trag) e [Anisha Malde](https://twitter.com/anisha_malde)
+- [Spatial computing with React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=22525s) por [Michał Pierzchała](https://twitter.com/thymikee)
 
-[Riccardo Cipolleschi](https://twitter.com/cipolleschir) continued the day 2 keynote by announcing that the React Native New Architecture is now in Beta and ready for apps to adopt in production. He shared new features and improvements in the new architecture, and shared the roadmap for the future of React Native. For more check out:
+[Riccardo Cipolleschi](https://twitter.com/cipolleschir) continuou a palestra principal do dia 2, anunciando que a React Native New Architecture agora está em Beta e pronta para os aplicativos adotarem em produção. Ele compartilhou novos recursos e melhorias na nova arquitetura e compartilhou o roteiro para o futuro do React Native. Para mais informações, confira:
 
-- [Cross Platform React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=26569s) by [Olga Zinoveva](https://github.com/SlyCaptainFlint) and [Naman Goel](https://twitter.com/naman34)
+- [Cross Platform React](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=26569s) por [Olga Zinoveva](https://github.com/SlyCaptainFlint) e [Naman Goel](https://twitter.com/naman34)
 
-Next in the keynote, Nicola announced that we are now recommending starting with a framework like Expo for all new apps created with React Native. With the change, he also announced a new React Native homepage and new Getting Started docs. You can view the new Getting Started guide in the [React Native docs](https://reactnative.dev/docs/next/environment-setup).
+Em seguida, na palestra principal, Nicola anunciou que agora estamos recomendando começar com um framework como o Expo para todos os novos aplicativos criados com React Native. Com a mudança, ele também anunciou uma nova homepage do React Native e novos docs de Introdução. Você pode visualizar o novo guia de Introdução nos [docs do React Native](https://reactnative.dev/docs/next/environment-setup).
 
-Finally, to end the keynote, [Kadi Kraman](https://twitter.com/kadikraman) shared the latest features and improvements in Expo, and how to get started developing with React Native using Expo.
+Finalmente, para encerrar a palestra principal, [Kadi Kraman](https://twitter.com/kadikraman) compartilhou os recursos e melhorias mais recentes no Expo e como começar a desenvolver com React Native usando o Expo.
 
-Watch the full day 2 keynote here:
+Assista à palestra principal completa do dia 2 aqui:
 
 <YouTubeIframe src="https://www.youtube.com/embed/0ckOUBiuxVY?t=1720s" />
 
-## Q&A {/*q-and-a*/}
+## Perguntas e Respostas {/*q-and-a*/}
 
-The React and React Native teams also ended each day with a Q&A session:
+As equipes do React e React Native também encerraram cada dia com uma sessão de perguntas e respostas:
 
-- [React Q&A](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=27518s) hosted by [Michael Chan](https://twitter.com/chantastic)
-- [React Native Q&A](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=27935s) hosted by [Jamon Holmgren](https://twitter.com/jamonholmgren)
+- [React Q&A](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=27518s) com [Michael Chan](https://twitter.com/chantastic)
+- [React Native Q&A](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=27935s) com [Jamon Holmgren](https://twitter.com/jamonholmgren)
 
-## And more... {/*and-more*/}
+## E mais... {/*and-more*/}
 
-We also heard talks on accessibility, error reporting, css, and more:
+Também ouvimos palestras sobre acessibilidade, relatório de erros, css e muito mais:
 
-- [Demystifying accessibility in React apps](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=20655s) by [Kateryna Porshnieva](https://twitter.com/krambertech)
-- [Pigment CSS, CSS in the server component age](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=21696s) by [Olivier Tassinari](https://twitter.com/olivtassinari)
-- [Real-time React Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=24070s) by [Sunil Pai](https://twitter.com/threepointone)
-- [Let's break React Rules](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=25862s) by [Charlotte Isambert](https://twitter.com/c_isambert)
-- [Solve 100% of your errors](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=19881s) by [Ryan Albrecht](https://github.com/ryan953)
+- [Demystifying accessibility in React apps](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=20655s) por [Kateryna Porshnieva](https://twitter.com/krambertech)
+- [Pigment CSS, CSS in the server component age](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=21696s) por [Olivier Tassinari](https://twitter.com/olivtassinari)
+- [Real-time React Server Components](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=24070s) por [Sunil Pai](https://twitter.com/threepointone)
+- [Let's break React Rules](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=25862s) por [Charlotte Isambert](https://twitter.com/c_isambert)
+- [Solve 100% of your errors](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=19881s) por [Ryan Albrecht](https://github.com/ryan953)
 
-## Thank you {/*thank-you*/}
+## Obrigado {/*thank-you*/}
 
-Thank you to all the staff, speakers, and participants who made React Conf 2024 possible. There are too many to list, but we want to thank a few in particular.
+Obrigado a todos os funcionários, palestrantes e participantes que tornaram a React Conf 2024 possível. Há muitos para listar, mas queremos agradecer a alguns em particular.
 
-Thank you to [Barbara Markiewicz](https://twitter.com/barbara_markie), the team at [Callstack](https://www.callstack.com/), and our React Team Developer Advocate [Matt Carroll](https://twitter.com/mattcarrollcode) for helping to plan the entire event; and to [Sunny Leggett](https://zeroslopeevents.com/about) and everyone from [Zero Slope](https://zeroslopeevents.com) for helping to organize the event.
+Obrigado a [Barbara Markiewicz](https://twitter.com/barbara_markie), à equipe da [Callstack](https://www.callstack.com/) e ao nosso React Team Developer Advocate [Matt Carroll](https://twitter.com/mattcarrollcode) por ajudar a planejar todo o evento; e a [Sunny Leggett](https://zeroslopeevents.com/about) e a todos da [Zero Slope](https://zeroslopeevents.com) por ajudar a organizar o evento.
 
-Thank you [Ashley Narcisse](https://twitter.com/_darkfadr) for being our MC and Chief Vibes Officer; and to [Michael Chan](https://twitter.com/chantastic) and [Jamon Holmgren](https://twitter.com/jamonholmgren) for hosting the Q&A sessions.
+Obrigado a [Ashley Narcisse](https://twitter.com/_darkfadr) por ser nosso MC e Chief Vibes Officer; e a [Michael Chan](https://twitter.com/chantastic) e [Jamon Holmgren](https://twitter.com/jamonholmgren) por apresentar as sessões de perguntas e respostas.
 
-Thank you [Seth Webster](https://twitter.com/sethwebster) and [Eli White](https://x.com/Eli_White) for welcoming us each day and providing direction on structure and content; and to [Tom Occhino](https://twitter.com/tomocchino) for joining us with a special message during the after-party.
+Obrigado a [Seth Webster](https://twitter.com/sethwebster) e [Eli White](https://x.com/Eli_White) por nos darem as boas-vindas todos os dias e fornecerem orientação sobre estrutura e conteúdo; e a [Tom Occhino](https://twitter.com/tomocchino) por se juntar a nós com uma mensagem especial durante a after-party.
 
-Thank you [Ricky Hanlon](https://www.youtube.com/watch?v=FxTZL2U-uKg&t=1263s) for providing detailed feedback on talks, working on slide designs, and generally filling in the gaps to sweat the details.
+Obrigado a [Ricky Hanlon](https://www.youtube.com/watch?v=FxTZL2U-uKg&t=1263s) por fornecer feedback detalhado sobre as palestras, trabalhar em designs de slides e, em geral, preencher as lacunas para cuidar dos detalhes.
 
-Thank you [Callstack](https://www.callstack.com/) for building the conference website; and to [Kadi Kraman](https://twitter.com/kadikraman) and the [Expo](https://expo.dev/) team for building the conference mobile app.
+Obrigado a [Callstack](https://www.callstack.com/) por construir o site da conferência; e a [Kadi Kraman](https://twitter.com/kadikraman) e à equipe [Expo](https://expo.dev/) por construir o aplicativo móvel da conferência.
 
-Thank you to all the sponsors who made the event possible: [Remix](https://remix.run/), [Amazon](https://developer.amazon.com/apps-and-games?cmp=US_2024_05_3P_React-Conf-2024&ch=prtnr&chlast=prtnr&pub=ref&publast=ref&type=org&typelast=org), [MUI](https://mui.com/), [Sentry](https://sentry.io/for/react/?utm_source=sponsored-conf&utm_medium=sponsored-event&utm_campaign=frontend-fy25q2-evergreen&utm_content=logo-reactconf2024-learnmore), [Abbott](https://www.jobs.abbott/software), [Expo](https://expo.dev/), [RedwoodJS](https://redwoodjs.com/), and [Vercel](https://vercel.com).
+Obrigado a todos os patrocinadores que tornaram o evento possível: [Remix](https://remix.run/), [Amazon](https://developer.amazon.com/apps-and-games?cmp=US_2024_05_3P_React-Conf-2024&ch=prtnr&chlast=prtnr&pub=ref&publast=ref&type=org&typelast=org), [MUI](https://mui.com/), [Sentry](https://sentry.io/for/react/?utm_source=sponsored-conf&utm_medium=sponsored-event&utm_campaign=frontend-fy25q2-evergreen&utm_content=logo-reactconf2024-learnmore), [Abbott](https://www.jobs.abbott/software), [Expo](https://expo.dev/), [RedwoodJS](https://redwoodjs.com/) e [Vercel](https://vercel.com).
 
-Thank you to the AV Team for the visuals, stage, and sound; and to the Westin Hotel for hosting us.
+Obrigado à Equipe AV pelos visuais, palco e som; e ao Westin Hotel por nos hospedar.
 
-Thank you to all the speakers who shared their knowledge and experiences with the community.
+Obrigado a todos os palestrantes que compartilharam seus conhecimentos e experiências com a comunidade.
 
-Finally, thank you to everyone who attended in person and online to show what makes React, React. React is more than a library, it is a community, and it was inspiring to see everyone come together to share and learn together.
+Finalmente, obrigado a todos que compareceram pessoalmente e online para mostrar o que torna o React, React. React é mais do que uma biblioteca, é uma comunidade, e foi inspirador ver todos se reunirem para compartilhar e aprender juntos.
 
-See you next time!
-
+Até a próxima!
+``
