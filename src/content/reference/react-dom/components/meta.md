@@ -1,4 +1,3 @@
-```
 ---
 meta: "<meta>"
 ---
@@ -35,11 +34,11 @@ Para adicionar metadados ao documento, renderize o [componente nativo do navegad
 
 Ele deve ter *exatamente uma* das seguintes props: `name`, `httpEquiv`, `charset`, `itemProp`. O componente `<meta>` faz algo diferente dependendo de qual dessas props é especificada.
 
-*   `name`: uma string. Especifica o [tipo de metadados](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name) a serem anexados ao documento.
-*   `charset`: uma string. Especifica o conjunto de caracteres usado pelo documento. O único valor válido é `"utf-8"`.
-*   `httpEquiv`: uma string. Especifica uma diretiva para processar o documento.
-*   `itemProp`: uma string. Especifica metadados sobre um item específico dentro do documento, em vez do documento como um todo.
-*   `content`: uma string. Especifica os metadados a serem anexados quando usados com as props `name` ou `itemProp` ou o comportamento da diretiva quando usado com a prop `httpEquiv`.
+* `name`: uma string. Especifica o [tipo de metadados](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name) a serem anexados ao documento.
+* `charset`: uma string. Especifica o conjunto de caracteres usado pelo documento. O único valor válido é `"utf-8"`.
+* `httpEquiv`: uma string. Especifica uma diretiva para processar o documento.
+* `itemProp`: uma string. Especifica metadados sobre um item específico dentro do documento, em vez do documento como um todo.
+* `content`: uma string. Especifica os metadados a serem anexados quando usados com as props `name` ou `itemProp` ou o comportamento da diretiva quando usado com a prop `httpEquiv`.
 
 #### Comportamento especial de renderização {/*special-rendering-behavior*/}
 
