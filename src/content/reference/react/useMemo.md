@@ -79,8 +79,8 @@ function TodoList({ todos, tab, theme }) {
 
 Você precisa passar duas coisas para `useMemo`:
 
-1.  Uma <CodeStep step={1}>função de cálculo</CodeStep> que não recebe argumentos, como `() =>`, e retorna o que você queria calcular.
-2.  Uma <CodeStep step={2}>lista de dependências</CodeStep> incluindo cada valor dentro do seu componente que é usado dentro do seu cálculo.
+1. Uma <CodeStep step={1}>função de cálculo</CodeStep> que não recebe argumentos, como `() =>`, e retorna o que você queria calcular.
+2. Uma <CodeStep step={2}>lista de dependências</CodeStep> incluindo cada valor dentro do seu componente que é usado dentro do seu cálculo.
 
 Na renderização inicial, o <CodeStep step={3}>valor</CodeStep> que você obterá de `useMemo` será o resultado da chamada da sua <CodeStep step={1}>cálculo</CodeStep>.
 
@@ -147,19 +147,19 @@ Se seu app for como este site e a maioria das interações for grosseira (como s
 
 Otimizar com `useMemo` só é valioso em alguns casos:
 
-*   O cálculo que você está colocando em `useMemo` é notavelmente lento e suas dependências raramente mudam.
-*   Você o passa como uma prop para um componente encapsulado em [`memo`.](/reference/react/memo) Você quer pular a re-renderização se o valor não tiver mudado. A memoization permite que seu componente renderize novamente apenas quando as dependências não são as mesmas.
-*   O valor que você está passando é posteriormente usado como uma dependência de algum Hook. Por exemplo, talvez outro valor de cálculo `useMemo` dependa dele. Ou talvez você esteja dependendo desse valor de [`useEffect.`](/reference/react/useEffect)
+* O cálculo que você está colocando em `useMemo` é notavelmente lento e suas dependências raramente mudam.
+* Você o passa como uma prop para um componente encapsulado em [`memo`.](/reference/react/memo) Você quer pular a re-renderização se o valor não tiver mudado. A memoization permite que seu componente renderize novamente apenas quando as dependências não são as mesmas.
+* O valor que você está passando é posteriormente usado como uma dependência de algum Hook. Por exemplo, talvez outro valor de cálculo `useMemo` dependa dele. Ou talvez você esteja dependendo desse valor de [`useEffect.`](/reference/react/useEffect)
 
 Não há nenhum benefício em encapsular um cálculo em `useMemo` em outros casos. Também não há nenhum dano significativo em fazer isso, então algumas equipes optam por não pensar em casos individuais e memorizar o máximo possível. A desvantagem dessa abordagem é que o código se torna menos legível. Além disso, nem toda memoization é eficaz: um único valor que é "sempre novo" é suficiente para quebrar a memoization para um componente inteiro.
 
 **Na prática, você pode tornar muita memoization desnecessária seguindo alguns princípios:**
 
-1.  Quando um componente envolve visualmente outros componentes, deixe-o [aceitar JSX como filhos.](/learn/passing-props-to-a-component#passing-jsx-as-children) Dessa forma, quando o componente wrapper atualiza seu próprio state, o React sabe que seus filhos não precisam renderizar novamente.
-2.  Prefira o state local e não [eleve o state](/learn/sharing-state-between-components) mais do que o necessário. Por exemplo, não mantenha o state transitório, como formulários e se um item está em hover, no topo da sua árvore ou em uma biblioteca de state global.
-3.  Mantenha sua [lógica de renderização pura.](/learn/keeping-components-pure) Se renderizar novamente um componente causar um problema ou produzir algum artefato visual perceptível, é um erro no seu componente! Corrija o erro em vez de adicionar memoization.
-4.  Evite [Effects desnecessários que atualizam o state.](/learn/you-might-not-need-an-effect) A maioria dos problemas de desempenho em aplicativos React é causada por cadeias de atualizações originadas de Effects que fazem seus componentes renderizarem repetidamente.
-5.  Tente [remover dependências desnecessárias de seus Effects.](/learn/removing-effect-dependencies) Por exemplo, em vez de memoization, muitas vezes é mais simples mover algum objeto ou uma função dentro de um Effect ou fora do componente.
+1. Quando um componente envolve visualmente outros componentes, deixe-o [aceitar JSX como filhos.](/learn/passing-props-to-a-component#passing-jsx-as-children) Dessa forma, quando o componente wrapper atualiza seu próprio state, o React sabe que seus filhos não precisam renderizar novamente.
+2. Prefira o state local e não [eleve o state](/learn/sharing-state-between-components) mais do que o necessário. Por exemplo, não mantenha o state transitório, como formulários e se um item está em hover, no topo da sua árvore ou em uma biblioteca de state global.
+3. Mantenha sua [lógica de renderização pura.](/learn/keeping-components-pure) Se renderizar novamente um componente causar um problema ou produzir algum artefato visual perceptível, é um erro no seu componente! Corrija o erro em vez de adicionar memoization.
+4. Evite [Effects desnecessários que atualizam o state.](/learn/you-might-not-need-an-effect) A maioria dos problemas de desempenho em aplicativos React é causada por cadeias de atualizações originadas de Effects que fazem seus componentes renderizarem repetidamente.
+5. Tente [remover dependências desnecessárias de seus Effects.](/learn/removing-effect-dependencies) Por exemplo, em vez de memoization, muitas vezes é mais simples mover algum objeto ou uma função dentro de um Effect ou fora do componente.
 
 Se uma interação específica ainda parecer lenta, [use o React Developer Tools profiler](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html) para ver quais componentes se beneficiariam mais da memoization e adicione memoization onde for necessário. Esses princípios tornam seus componentes mais fáceis de depurar e entender, por isso é bom segui-los em qualquer caso. A longo prazo, estamos pesquisando [fazer memoization granularmente automaticamente](https://www.youtube.com/watch?v=lGEMwh32soc) para resolver isso de uma vez por todas.
 
@@ -626,7 +626,6 @@ export default function TodoList({ todos, tab, theme }) {
     </div>
   );
 }
-```
 ```
 O comportamento seria o mesmo. Se os `visibleTodos` não mudaram, `List` não será renderizado novamente.
 
@@ -1419,3 +1418,4 @@ const Report = memo(function Report({ item }) {
     </figure>
   );
 });
+```
