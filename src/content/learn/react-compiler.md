@@ -3,70 +3,70 @@ title: React Compiler
 ---
 
 <Intro>
-This page will give you an introduction to React Compiler and how to try it out successfully.
+Esta página dará uma introdução ao React Compiler e como experimentá-lo com sucesso.
 </Intro>
 
 <Wip>
-These docs are still a work in progress. More documentation is available in the [React Compiler Working Group repo](https://github.com/reactwg/react-compiler/discussions), and will be upstreamed into these docs when they are more stable.
+Estes documentos ainda estão em andamento. Mais documentação está disponível no [repositório do Grupo de Trabalho do React Compiler](https://github.com/reactwg/react-compiler/discussions) e será integrada nestes documentos quando estiverem mais estáveis.
 </Wip>
 
 <YouWillLearn>
 
-* Getting started with the compiler
-* Installing the compiler and ESLint plugin
-* Troubleshooting
+* Começando com o compilador
+* Instalando o compilador e o plugin ESLint
+* Solução de problemas
 
 </YouWillLearn>
 
 <Note>
-React Compiler is a new compiler currently in Beta, that we've open sourced to get early feedback from the community. While it has been used in production at companies like Meta, rolling out the compiler to production for your app will depend on the health of your codebase and how well you’ve followed the [Rules of React](/reference/rules).
+React Compiler é um novo compilador atualmente em Beta, que foi lançado com código aberto para obter feedback inicial da comunidade. Embora tenha sido usado em produção em empresas como a Meta, a implantação do compilador em produção para seu aplicativo dependerá da integridade da sua base de código e de como você seguiu as [Regras do React](/reference/rules).
 
-The latest Beta release can be found with the `@beta` tag, and daily experimental releases with `@experimental`.
+A versão Beta mais recente pode ser encontrada com a tag `@beta` e as versões experimentais diárias com `@experimental`.
 </Note>
 
-React Compiler is a new compiler that we've open sourced to get early feedback from the community. It is a build-time only tool that automatically optimizes your React app. It works with plain JavaScript, and understands the [Rules of React](/reference/rules), so you don't need to rewrite any code to use it.
+React Compiler é um novo compilador que lançamos com código aberto para obter feedback inicial da comunidade. É uma ferramenta somente em tempo de compilação que otimiza automaticamente seu aplicativo React. Ele funciona com JavaScript simples e entende as [Regras do React](/reference/rules), para que você não precise reescrever nenhum código para usá-lo.
 
-The compiler also includes an [ESLint plugin](#installing-eslint-plugin-react-compiler) that surfaces the analysis from the compiler right in your editor. **We strongly recommend everyone use the linter today.** The linter does not require that you have the compiler installed, so you can use it even if you are not ready to try out the compiler.
+O compilador também inclui um [plugin ESLint](#installing-eslint-plugin-react-compiler) que mostra a análise do compilador diretamente no seu editor. **Recomendamos fortemente que todos usem o linter hoje.** O linter não exige que você tenha o compilador instalado, para que você possa usá-lo mesmo que não esteja pronto para experimentar o compilador.
 
-The compiler is currently released as `beta`, and is available to try out on React 17+ apps and libraries. To install the Beta:
+O compilador é lançado atualmente como `beta` e está disponível para testes em aplicativos e bibliotecas React 17+. Para instalar o Beta:
 
 <TerminalBlock>
 npm install -D babel-plugin-react-compiler@beta eslint-plugin-react-compiler@beta
 </TerminalBlock>
 
-Or, if you're using Yarn:
+Ou, se você estiver usando Yarn:
 
 <TerminalBlock>
 yarn add -D babel-plugin-react-compiler@beta eslint-plugin-react-compiler@beta
 </TerminalBlock>
 
-If you are not using React 19 yet, please see [the section below](#using-react-compiler-with-react-17-or-18) for further instructions.
+Se você ainda não estiver usando o React 19, consulte [a seção abaixo](#using-react-compiler-with-react-17-or-18) para obter mais instruções.
 
-### What does the compiler do? {/*what-does-the-compiler-do*/}
+### O que o compilador faz? {/*what-does-the-compiler-do*/}
 
-In order to optimize applications, React Compiler automatically memoizes your code. You may be familiar today with memoization through APIs such as `useMemo`, `useCallback`, and `React.memo`. With these APIs you can tell React that certain parts of your application don't need to recompute if their inputs haven't changed, reducing work on updates. While powerful, it's easy to forget to apply memoization or apply them incorrectly. This can lead to inefficient updates as React has to check parts of your UI that don't have any _meaningful_ changes.
+Para otimizar aplicativos, o React Compiler memoriza automaticamente seu código. Você pode estar familiarizado hoje com a memorização por meio de APIs como `useMemo`, `useCallback` e `React.memo`. Com essas APIs, você pode dizer ao React que certas partes do seu aplicativo não precisam ser recalculadas se suas entradas não foram alteradas, reduzindo o trabalho nas atualizações. Embora poderoso, é fácil esquecer de aplicar a memorização ou aplicá-la incorretamente. Isso pode levar a atualizações ineficientes, pois o React precisa verificar partes da sua UI que não possuem nenhuma alteração _significativa_.
 
-The compiler uses its knowledge of JavaScript and React's rules to automatically memoize values or groups of values within your components and hooks. If it detects breakages of the rules, it will automatically skip over just those components or hooks, and continue safely compiling other code.
+O compilador usa seu conhecimento de JavaScript e as regras do React para memorizar automaticamente valores ou grupos de valores dentro de seus componentes e hooks. Se ele detectar quebras das regras, ele ignorará automaticamente apenas esses componentes ou hooks e continuará compilando outros códigos com segurança.
 
 <Note>
-React Compiler can statically detect when Rules of React are broken, and safely opt-out of optimizing just the affected components or hooks. It is not necessary for the compiler to optimize 100% of your codebase.
+O React Compiler pode detectar estaticamente quando as Regras do React são quebradas e, com segurança, optar por não otimizar apenas os componentes ou hooks afetados. Não é necessário que o compilador otimize 100% da sua base de código.
 </Note>
 
-If your codebase is already very well-memoized, you might not expect to see major performance improvements with the compiler. However, in practice memoizing the correct dependencies that cause performance issues is tricky to get right by hand.
+Se sua base de código já está muito bem memorizada, você pode não esperar ver grandes melhorias de desempenho com o compilador. No entanto, na prática, memorizar as dependências corretas que causam problemas de desempenho é complicado de fazer manualmente.
 
 <DeepDive>
-#### What kind of memoization does React Compiler add? {/*what-kind-of-memoization-does-react-compiler-add*/}
+#### Que tipo de memorização o React Compiler adiciona? {/*what-kind-of-memoization-does-react-compiler-add*/}
 
-The initial release of React Compiler is primarily focused on **improving update performance** (re-rendering existing components), so it focuses on these two use cases:
+A versão inicial do React Compiler está focada principalmente em **melhorar o desempenho da atualização** (renderizar novamente componentes existentes), portanto, ele se concentra nesses dois casos de uso:
 
-1. **Skipping cascading re-rendering of components**
-    * Re-rendering `<Parent />` causes many components in its component tree to re-render, even though only `<Parent />` has changed
-1. **Skipping expensive calculations from outside of React**
-    * For example, calling `expensivelyProcessAReallyLargeArrayOfObjects()` inside of your component or hook that needs that data
+1. **Ignorando a renderização em cascata de componentes**
+    * Renderizar novamente `<Parent />` faz com que muitos componentes em sua árvore de componentes sejam renderizados novamente, mesmo que apenas `<Parent />` tenha mudado
+1. **Ignorando cálculos caros de fora do React**
+    * Por exemplo, chamar `expensivelyProcessAReallyLargeArrayOfObjects()` dentro do seu componente ou hook que precisa desses dados
 
-#### Optimizing Re-renders {/*optimizing-re-renders*/}
+#### Otimizando as Renderizações Novamente {/*optimizing-re-renders*/}
 
-React lets you express your UI as a function of their current state (more concretely: their props, state, and context). In its current implementation, when a component's state changes, React will re-render that component _and all of its children_ — unless you have applied some form of manual memoization with `useMemo()`, `useCallback()`, or `React.memo()`. For example, in the following example, `<MessageButton>` will re-render whenever `<FriendList>`'s state changes:
+O React permite que você expresse sua UI como uma função de seu estado atual (mais concretamente: suas props, estado e contexto). Em sua implementação atual, quando o estado de um componente muda, o React renderizará novamente esse componente _e todos os seus filhos_ — a menos que você tenha aplicado alguma forma de memorização manual com `useMemo()`, `useCallback()` ou `React.memo()`. Por exemplo, no exemplo a seguir, `<MessageButton>` será renderizado novamente sempre que o estado de `<FriendList>` mudar:
 
 ```javascript
 function FriendList({ friends }) {
@@ -85,54 +85,54 @@ function FriendList({ friends }) {
   );
 }
 ```
-[_See this example in the React Compiler Playground_](https://playground.react.dev/#N4Igzg9grgTgxgUxALhAMygOzgFwJYSYAEAYjHgpgCYAyeYOAFMEWuZVWEQL4CURwADrEicQgyKEANnkwIAwtEw4iAXiJQwCMhWoB5TDLmKsTXgG5hRInjRFGbXZwB0UygHMcACzWr1ABn4hEWsYBBxYYgAeADkIHQ4uAHoAPksRbisiMIiYYkYs6yiqPAA3FMLrIiiwAAcAQ0wU4GlZBSUcbklDNqikusaKkKrgR0TnAFt62sYHdmp+VRT7SqrqhOo6Bnl6mCoiAGsEAE9VUfmqZzwqLrHqM7ubolTVol5eTOGigFkEMDB6u4EAAhKA4HCEZ5DNZ9ErlLIWYTcEDcIA)
+[_Veja este exemplo no React Compiler Playground_](https://playground.react.dev/#N4Igzg9grgTgxgUxALhAMygOzgFwJYSYAEAYjHgpgCYAyeYOAFMEWuZVWEQL4CURwADrEicQgyKEANnkwIAwtEw4iAXiJQwCMhWoB5TDLmKsTXgG5hRInjRFGbXZwB0UygHMcACzWr1ABn4hEWsYBBxYYgAeADkIHQ4uAHoAPksRbisiMIiYYkYs6yiqPAA3FMLrIiiwAAcAQ0wU4GlZBSUcbklDNqikusaKkKrgR0TnAFt62sYHdmp+VRT7SqrqhOo6Bnl6mCoiAGsEAE9VUfmqZzwqLrHqM7ubolTVol5eTOGigFkEMDB6u4EAAhKA4HCEZ5DNZ9ErlLIWYTcEDcIA)
 
-React Compiler automatically applies the equivalent of manual memoization, ensuring that only the relevant parts of an app re-render as state changes, which is sometimes referred to as "fine-grained reactivity". In the above example, React Compiler determines that the return value of `<FriendListCard />` can be reused even as `friends` changes, and can avoid recreating this JSX _and_ avoid re-rendering `<MessageButton>` as the count changes.
+O React Compiler aplica automaticamente o equivalente à memorização manual, garantindo que apenas as partes relevantes de um aplicativo sejam renderizadas novamente à medida que o estado muda, o que às vezes é chamado de "reatividade granular". No exemplo acima, o React Compiler determina que o valor de retorno de `<FriendListCard />` pode ser reutilizado mesmo quando os `friends` mudam e pode evitar a recriação deste JSX _e_ evitar a renderização novamente de `<MessageButton>` à medida que a contagem muda.
 
-#### Expensive calculations also get memoized {/*expensive-calculations-also-get-memoized*/}
+#### Cálculos caros também são memorizados {/*expensive-calculations-also-get-memoized*/}
 
-The compiler can also automatically memoize for expensive calculations used during rendering:
+O compilador também pode memorizar automaticamente cálculos caros usados durante a renderização:
 
 ```js
-// **Not** memoized by React Compiler, since this is not a component or hook
+// **Não** memorizado pelo React Compiler, pois este não é um componente ou hook
 function expensivelyProcessAReallyLargeArrayOfObjects() { /* ... */ }
 
-// Memoized by React Compiler since this is a component
+// Memorizado pelo React Compiler, pois este é um componente
 function TableContainer({ items }) {
-  // This function call would be memoized:
+  // Essa chamada de função seria memorizada:
   const data = expensivelyProcessAReallyLargeArrayOfObjects(items);
   // ...
 }
 ```
-[_See this example in the React Compiler Playground_](https://playground.react.dev/#N4Igzg9grgTgxgUxALhAejQAgFTYHIQAuumAtgqRAJYBeCAJpgEYCemASggIZyGYDCEUgAcqAGwQwANJjBUAdokyEAFlTCZ1meUUxdMcIcIjyE8vhBiYVECAGsAOvIBmURYSonMCAB7CzcgBuCGIsAAowEIhgYACCnFxioQAyXDAA5gixMDBcLADyzvlMAFYIvGAAFACUmMCYaNiYAHStOFgAvk5OGJgAshTUdIysHNy8AkbikrIKSqpaWvqGIiZmhE6u7p7ymAAqXEwSguZcCpKV9VSEFBodtcBOmAYmYHz0XIT6ALzefgFUYKhCJRBAxeLcJIsVIZLI5PKFYplCqVa63aoAbm6u0wMAQhFguwAPPRAQA+YAfL4dIloUmBMlODogDpAA)
+[_Veja este exemplo no React Compiler Playground_](https://playground.react.dev/#N4Igzg9grgTgxgUxALhAejQAgFTYHIQAuumAtgqRAJYBeCAJpgEYCemASggIZyGYDCEUgAcqAGwQwANJjBUAdokyEAFlTCZ1meUUxdMcIcIjyE8vhBiYVECAGsAOvIBmURYSonMCAB7CzcgBuCGIsAAowEIhgYACCnFxioQAyXDAA5gixMDBcLADyzvlMAFYIvGAAFACUmMCYaNiYAHStOFgAvk5OGJgAshTUdIysHNy8AkbikrIKSqpaWvqGIiZmhE6u7p7ymAAqXEwSguZcCpKV9VSEFBodtcBOmAYmYHz0XIT6ALzefgFUYKhCJRBAxeLcJIsVIZLI5PKFYplCqVa63aoAbm6u0wMAQhFguwAPPRAQA+YAfL4dIloUmBMlODogDpAA)
 
-However, if `expensivelyProcessAReallyLargeArrayOfObjects` is truly an expensive function, you may want to consider implementing its own memoization outside of React, because:
+No entanto, se `expensivelyProcessAReallyLargeArrayOfObjects` for realmente uma função cara, você pode querer considerar a implementação de sua própria memorização fora do React, porque:
 
-- React Compiler only memoizes React components and hooks, not every function
-- React Compiler's memoization is not shared across multiple components or hooks
+- O React Compiler só memoriza componentes e hooks do React, não todas as funções
+- A memorização do React Compiler não é compartilhada entre vários componentes ou hooks
 
-So if `expensivelyProcessAReallyLargeArrayOfObjects` was used in many different components, even if the same exact items were passed down, that expensive calculation would be run repeatedly. We recommend [profiling](https://react.dev/reference/react/useMemo#how-to-tell-if-a-calculation-is-expensive) first to see if it really is that expensive before making code more complicated.
+Portanto, se `expensivelyProcessAReallyLargeArrayOfObjects` fosse usado em muitos componentes diferentes, mesmo que os mesmos itens exatos fossem passados, esse cálculo caro seria executado repetidamente. Recomendamos [fazer o perfil](https://react.dev/reference/react/useMemo#how-to-tell-if-a-calculation-is-expensive) primeiro para ver se é realmente tão caro antes de tornar o código mais complicado.
 </DeepDive>
 
-### Should I try out the compiler? {/*should-i-try-out-the-compiler*/}
+### Devo experimentar o compilador? {/*should-i-try-out-the-compiler*/}
 
-Please note that the compiler is still in Beta and has many rough edges. While it has been used in production at companies like Meta, rolling out the compiler to production for your app will depend on the health of your codebase and how well you've followed the [Rules of React](/reference/rules).
+Observe que o compilador ainda está em Beta e tem muitas arestas. Embora tenha sido usado em produção em empresas como a Meta, a implantação do compilador em produção para seu aplicativo dependerá da integridade da sua base de código e de como você seguiu as [Regras do React](/reference/rules).
 
-**You don't have to rush into using the compiler now. It's okay to wait until it reaches a stable release before adopting it.** However, we do appreciate trying it out in small experiments in your apps so that you can [provide feedback](#reporting-issues) to us to help make the compiler better.
+**Você não precisa se apressar em usar o compilador agora. Tudo bem esperar até que ele atinja uma versão estável antes de adotá-lo.** No entanto, agradecemos experimentar em pequenos experimentos em seus aplicativos para que você possa [fornecer feedback](#reporting-issues) para nos ajudar a tornar o compilador melhor.
 
-## Getting Started {/*getting-started*/}
+## Começando {/*getting-started*/}
 
-In addition to these docs, we recommend checking the [React Compiler Working Group](https://github.com/reactwg/react-compiler) for additional information and discussion about the compiler.
+Além desses documentos, recomendamos verificar o [Grupo de Trabalho do React Compiler](https://github.com/reactwg/react-compiler) para obter informações e discussões adicionais sobre o compilador.
 
-### Installing eslint-plugin-react-compiler {/*installing-eslint-plugin-react-compiler*/}
+### Instalando eslint-plugin-react-compiler {/*installing-eslint-plugin-react-compiler*/}
 
-React Compiler also powers an ESLint plugin. The ESLint plugin can be used **independently** of the compiler, meaning you can use the ESLint plugin even if you don't use the compiler.
+O React Compiler também alimenta um plugin ESLint. O plugin ESLint pode ser usado **independentemente** do compilador, o que significa que você pode usar o plugin ESLint mesmo que não use o compilador.
 
 <TerminalBlock>
 npm install -D eslint-plugin-react-compiler@beta
 </TerminalBlock>
 
-Then, add it to your ESLint config:
+Em seguida, adicione-o à sua configuração ESLint:
 
 ```js
 import reactCompiler from 'eslint-plugin-react-compiler'
@@ -149,7 +149,7 @@ export default [
 ]
 ```
 
-Or, in the deprecated eslintrc config format:
+Ou, no formato de configuração eslintrc obsoleto:
 
 ```js
 module.exports = {
@@ -162,18 +162,18 @@ module.exports = {
 }
 ```
 
-The ESLint plugin will display any violations of the rules of React in your editor. When it does this, it means that the compiler has skipped over optimizing that component or hook. This is perfectly okay, and the compiler can recover and continue optimizing other components in your codebase.
+O plugin ESLint exibirá quaisquer violações das regras do React no seu editor. Quando ele faz isso, significa que o compilador ignorou a otimização desse componente ou hook. Isso é perfeitamente aceitável, e o compilador pode se recuperar e continuar otimizando outros componentes em sua base de código.
 
 <Note>
-**You don't have to fix all ESLint violations straight away.** You can address them at your own pace to increase the amount of components and hooks being optimized, but it is not required to fix everything before you can use the compiler.
+**Você não precisa corrigir todas as violações do ESLint imediatamente.** Você pode corrigi-las no seu próprio ritmo para aumentar a quantidade de componentes e hooks sendo otimizados, mas não é necessário corrigir tudo antes de poder usar o compilador.
 </Note>
 
-### Rolling out the compiler to your codebase {/*using-the-compiler-effectively*/}
+### Implantando o compilador em sua base de código {/*using-the-compiler-effectively*/}
 
-#### Existing projects {/*existing-projects*/}
-The compiler is designed to compile functional components and hooks that follow the [Rules of React](/reference/rules). It can also handle code that breaks those rules by bailing out (skipping over) those components or hooks. However, due to the flexible nature of JavaScript, the compiler cannot catch every possible violation and may compile with false negatives: that is, the compiler may accidentally compile a component/hook that breaks the Rules of React which can lead to undefined behavior.
+#### Projetos existentes {/*existing-projects*/}
+O compilador foi projetado para compilar componentes funcionais e hooks que seguem as [Regras do React](/reference/rules). Ele também pode lidar com código que quebra essas regras, abandonando (ignorando) esses componentes ou hooks. No entanto, devido à natureza flexível do JavaScript, o compilador não pode detectar todas as violações possíveis e pode compilar com falsos negativos: ou seja, o compilador pode compilar acidentalmente um componente/hook que quebra as Regras do React, o que pode levar a um comportamento indefinido.
 
-For this reason, to adopt the compiler successfully on existing projects, we recommend running it on a small directory in your product code first. You can do this by configuring the compiler to only run on a specific set of directories:
+Por esse motivo, para adotar o compilador com sucesso em projetos existentes, recomendamos executá-lo primeiro em um diretório pequeno no código do seu produto. Você pode fazer isso configurando o compilador para ser executado apenas em um conjunto específico de diretórios:
 
 ```js {3}
 const ReactCompilerConfig = {
@@ -183,21 +183,21 @@ const ReactCompilerConfig = {
 };
 ```
 
-When you have more confidence with rolling out the compiler, you can expand coverage to other directories as well and slowly roll it out to your whole app.
+Quando você tiver mais confiança em implantar o compilador, também poderá expandir a cobertura para outros diretórios e implantá-lo lentamente em todo o seu aplicativo.
 
-#### New projects {/*new-projects*/}
+#### Novos projetos {/*new-projects*/}
 
-If you're starting a new project, you can enable the compiler on your entire codebase, which is the default behavior.
+Se você estiver iniciando um novo projeto, poderá habilitar o compilador em toda a sua base de código, que é o comportamento padrão.
 
-### Using React Compiler with React 17 or 18 {/*using-react-compiler-with-react-17-or-18*/}
+### Como usar o React Compiler com React 17 ou 18 {/*using-react-compiler-with-react-17-or-18*/}
 
-React Compiler works best with React 19 RC. If you are unable to upgrade, you can install the extra `react-compiler-runtime` package which will allow the compiled code to run on versions prior to 19. However, note that the minimum supported version is 17.
+O React Compiler funciona melhor com o React 19 RC. Se você não puder fazer o upgrade, poderá instalar o pacote extra `react-compiler-runtime`, que permitirá que o código compilado seja executado em versões anteriores à 19. No entanto, observe que a versão mínima suportada é 17.
 
 <TerminalBlock>
 npm install react-compiler-runtime@beta
 </TerminalBlock>
 
-You should also add the correct `target` to your compiler config, where `target` is the major version of React you are targeting:
+Você também deve adicionar o `target` correto à sua configuração do compilador, onde `target` é a versão principal do React que você está segmentando:
 
 ```js {3}
 // babel.config.js
@@ -214,17 +214,17 @@ module.exports = function () {
 };
 ```
 
-### Using the compiler on libraries {/*using-the-compiler-on-libraries*/}
+### Como usar o compilador em bibliotecas {/*using-the-compiler-on-libraries*/}
 
-React Compiler can also be used to compile libraries. Because React Compiler needs to run on the original source code prior to any code transformations, it is not possible for an application's build pipeline to compile the libraries they use. Hence, our recommendation is for library maintainers to independently compile and test their libraries with the compiler, and ship compiled code to npm.
+O React Compiler também pode ser usado para compilar bibliotecas. Como o React Compiler precisa ser executado no código-fonte original antes de qualquer transformação de código, não é possível para o pipeline de build de um aplicativo compilar as bibliotecas que ele usa. Portanto, nossa recomendação é que os mantenedores da biblioteca compilem e testem suas bibliotecas de forma independente com o compilador e enviem o código compilado para npm.
 
-Because your code is pre-compiled, users of your library will not need to have the compiler enabled in order to benefit from the automatic memoization applied to your library. If your library targets apps not yet on React 19, specify a minimum [`target` and add `react-compiler-runtime` as a direct dependency](#using-react-compiler-with-react-17-or-18). The runtime package will use the correct implementation of APIs depending on the application's version, and polyfill the missing APIs if necessary.
+Como seu código é pré-compilado, os usuários da sua biblioteca não precisarão ter o compilador ativado para se beneficiarem da memorização automática aplicada à sua biblioteca. Se sua biblioteca tiver como alvo aplicativos que ainda não são no React 19, especifique um [`target` mínimo e adicione `react-compiler-runtime` como uma dependência direta](#using-react-compiler-with-react-17-or-18). O pacote de tempo de execução usará a implementação correta das APIs, dependendo da versão do aplicativo, e preencherá as APIs ausentes, se necessário.
 
-Library code can often require more complex patterns and usage of escape hatches. For this reason, we recommend ensuring that you have sufficient testing in order to identify any issues that might arise from using the compiler on your library. If you identify any issues, you can always opt-out the specific components or hooks with the [`'use no memo'` directive](#something-is-not-working-after-compilation).
+O código da biblioteca geralmente pode exigir padrões e uso de saídas de emergência mais complexos. Por esse motivo, recomendamos garantir que você tenha testes suficientes para identificar quaisquer problemas que possam surgir do uso do compilador em sua biblioteca. Se você identificar algum problema, sempre poderá optar por não otimizar componentes ou hooks específicos com a diretiva [`'use no memo'`](#something-is-not-working-after-compilation).
 
-Similarly to apps, it is not necessary to fully compile 100% of your components or hooks to see benefits in your library. A good starting point might be to identify the most performance sensitive parts of your library and ensuring that they don't break the [Rules of React](/reference/rules), which you can use `eslint-plugin-react-compiler` to identify.
+De forma semelhante aos aplicativos, não é necessário compilar totalmente 100% de seus componentes ou hooks para ver os benefícios em sua biblioteca. Um bom ponto de partida pode ser identificar as partes mais sensíveis ao desempenho da sua biblioteca e garantir que elas não quebrem as [Regras do React](/reference/rules), o que você pode usar o `eslint-plugin-react-compiler` para identificar.
 
-## Usage {/*installation*/}
+## Uso {/*installation*/}
 
 ### Babel {/*usage-with-babel*/}
 
@@ -232,9 +232,9 @@ Similarly to apps, it is not necessary to fully compile 100% of your components 
 npm install babel-plugin-react-compiler@beta
 </TerminalBlock>
 
-The compiler includes a Babel plugin which you can use in your build pipeline to run the compiler.
+O compilador inclui um plugin Babel que você pode usar em seu pipeline de compilação para executar o compilador.
 
-After installing, add it to your Babel config. Please note that it's critical that the compiler run **first** in the pipeline:
+Após a instalação, adicione-o à sua configuração Babel. Observe que é fundamental que o compilador seja executado **primeiro** no pipeline:
 
 ```js {7}
 // babel.config.js
@@ -250,11 +250,11 @@ module.exports = function () {
 };
 ```
 
-`babel-plugin-react-compiler` should run first before other Babel plugins as the compiler requires the input source information for sound analysis.
+`babel-plugin-react-compiler` deve ser executado primeiro antes de outros plugins Babel, pois o compilador exige as informações da fonte de entrada para uma análise confiável.
 
 ### Vite {/*usage-with-vite*/}
 
-If you use Vite, you can add the plugin to vite-plugin-react:
+Se você usar o Vite, poderá adicionar o plugin ao vite-plugin-react:
 
 ```js {10}
 // vite.config.js
@@ -278,10 +278,10 @@ export default defineConfig(() => {
 
 ### Next.js {/*usage-with-nextjs*/}
 
-Please refer to the [Next.js docs](https://nextjs.org/docs/app/api-reference/next-config-js/reactCompiler) for more information.
+Consulte a [documentação do Next.js](https://nextjs.org/docs/app/api-reference/next-config-js/reactCompiler) para obter mais informações.
 
 ### Remix {/*usage-with-remix*/}
-Install `vite-plugin-babel`, and add the compiler's Babel plugin to it:
+Instale `vite-plugin-babel` e adicione o plugin Babel do compilador a ele:
 
 <TerminalBlock>
 npm install vite-plugin-babel
@@ -311,54 +311,54 @@ export default defineConfig({
 
 ### Webpack {/*usage-with-webpack*/}
 
-A community Webpack loader is [now available here](https://github.com/SukkaW/react-compiler-webpack).
+Um carregador Webpack da comunidade [está disponível aqui](https://github.com/SukkaW/react-compiler-webpack).
 
 ### Expo {/*usage-with-expo*/}
 
-Please refer to [Expo's docs](https://docs.expo.dev/guides/react-compiler/) to enable and use the React Compiler in Expo apps.
+Consulte a [documentação do Expo](https://docs.expo.dev/guides/react-compiler/) para habilitar e usar o React Compiler em aplicativos Expo.
 
 ### Metro (React Native) {/*usage-with-react-native-metro*/}
 
-React Native uses Babel via Metro, so refer to the [Usage with Babel](#usage-with-babel) section for installation instructions.
+React Native usa Babel via Metro, portanto, consulte a seção [Uso com Babel](#usage-with-babel) para obter instruções de instalação.
 
 ### Rspack {/*usage-with-rspack*/}
 
-Please refer to [Rspack's docs](https://rspack.dev/guide/tech/react#react-compiler) to enable and use the React Compiler in Rspack apps.
+Consulte a [documentação do Rspack](https://rspack.dev/guide/tech/react#react-compiler) para habilitar e usar o React Compiler em aplicativos Rspack.
 
 ### Rsbuild {/*usage-with-rsbuild*/}
 
-Please refer to [Rsbuild's docs](https://rsbuild.dev/guide/framework/react#react-compiler) to enable and use the React Compiler in Rsbuild apps.
+Consulte a [documentação do Rsbuild](https://rsbuild.dev/guide/framework/react#react-compiler) para habilitar e usar o React Compiler em aplicativos Rsbuild.
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-To report issues, please first create a minimal repro on the [React Compiler Playground](https://playground.react.dev/) and include it in your bug report. You can open issues in the [facebook/react](https://github.com/facebook/react/issues) repo.
+Para relatar problemas, primeiro crie uma reprodução mínima no [React Compiler Playground](https://playground.react.dev/) e inclua-a no seu relatório de bug. Você pode abrir problemas no repositório [facebook/react](https://github.com/facebook/react/issues).
 
-You can also provide feedback in the React Compiler Working Group by applying to be a member. Please see [the README for more details on joining](https://github.com/reactwg/react-compiler).
+Você também pode fornecer feedback no Grupo de Trabalho do React Compiler solicitando ser um membro. Consulte [o README para obter mais detalhes sobre como participar](https://github.com/reactwg/react-compiler).
 
-### What does the compiler assume? {/*what-does-the-compiler-assume*/}
+### O que o compilador assume? {/*what-does-the-compiler-assume*/}
 
-React Compiler assumes that your code:
+O React Compiler assume que seu código:
 
-1. Is valid, semantic JavaScript.
-2. Tests that nullable/optional values and properties are defined before accessing them (for example, by enabling [`strictNullChecks`](https://www.typescriptlang.org/tsconfig/#strictNullChecks) if using TypeScript), i.e., `if (object.nullableProperty) { object.nullableProperty.foo }` or with optional-chaining `object.nullableProperty?.foo`.
-3. Follows the [Rules of React](https://react.dev/reference/rules).
+1. É JavaScript semântico válido.
+2. Teste se valores e propriedades anuláveis/opcionais são definidos antes de acessá-los (por exemplo, habilitando [`strictNullChecks`](https://www.typescriptlang.org/tsconfig/#strictNullChecks) ao usar o TypeScript), ou seja, `if (object.nullableProperty) { object.nullableProperty.foo }` ou com encadeamento opcional `object.nullableProperty?.foo`.
+3. Segue as [Regras do React](https://react.dev/reference/rules).
 
-React Compiler can verify many of the Rules of React statically, and will safely skip compilation when it detects an error. To see the errors we recommend also installing [eslint-plugin-react-compiler](https://www.npmjs.com/package/eslint-plugin-react-compiler).
+O React Compiler pode verificar muitas das Regras do React estaticamente e ignorará com segurança a compilação quando detectar um erro. Para ver os erros, recomendamos também instalar [eslint-plugin-react-compiler](https://www.npmjs.com/package/eslint-plugin-react-compiler).
 
-### How do I know my components have been optimized? {/*how-do-i-know-my-components-have-been-optimized*/}
+### Como sei que meus componentes foram otimizados? {/*how-do-i-know-my-components-have-been-optimized*/}
 
-[React DevTools](/learn/react-developer-tools) (v5.0+) and [React Native DevTools](https://reactnative.dev/docs/react-native-devtools) have built-in support for React Compiler and will display a "Memo ✨" badge next to components that have been optimized by the compiler.
+[React DevTools](/learn/react-developer-tools) (v5.0+) e [React Native DevTools](https://reactnative.dev/docs/react-native-devtools) têm suporte integrado para o React Compiler e exibirão um selo "Memo ✨" próximo aos componentes que foram otimizados pelo compilador.
 
-### Something is not working after compilation {/*something-is-not-working-after-compilation*/}
-If you have eslint-plugin-react-compiler installed, the compiler will display any violations of the rules of React in your editor. When it does this, it means that the compiler has skipped over optimizing that component or hook. This is perfectly okay, and the compiler can recover and continue optimizing other components in your codebase. **You don't have to fix all ESLint violations straight away.** You can address them at your own pace to increase the amount of components and hooks being optimized.
+### Algo não está funcionando após a compilação {/*something-is-not-working-after-compilation*/}
+Se você tiver o eslint-plugin-react-compiler instalado, o compilador exibirá quaisquer violações das regras do React no seu editor. Quando ele faz isso, significa que o compilador ignorou a otimização desse componente ou hook. Isso é perfeitamente aceitável, e o compilador pode se recuperar e continuar otimizando outros componentes em sua base de código. **Você não precisa corrigir todas as violações do ESLint imediatamente.** Você pode corrigi-las no seu próprio ritmo para aumentar a quantidade de componentes e hooks sendo otimizados.
 
-Due to the flexible and dynamic nature of JavaScript however, it's not possible to comprehensively detect all cases. Bugs and undefined behavior such as infinite loops may occur in those cases.
+No entanto, devido à natureza flexível e dinâmica do JavaScript, não é possível detectar de forma abrangente todos os casos. Bugs e comportamento indefinido, como loops infinitos, podem ocorrer nesses casos.
 
-If your app doesn't work properly after compilation and you aren't seeing any ESLint errors, the compiler may be incorrectly compiling your code. To confirm this, try to make the issue go away by aggressively opting out any component or hook you think might be related via the [`"use no memo"` directive](#opt-out-of-the-compiler-for-a-component).
+Se seu aplicativo não funcionar corretamente após a compilação e você não estiver vendo nenhum erro do ESLint, o compilador pode estar compilando seu código incorretamente. Para confirmar isso, tente desfazer o problema desativando agressivamente qualquer componente ou hook que você acha que pode estar relacionado por meio da diretiva [`"use no memo"`](#opt-out-of-the-compiler-for-a-component).
 
 ```js {2}
 function SuspiciousComponent() {
-  "use no memo"; // opts out this component from being compiled by React Compiler
+  "use no memo"; // desativa este componente de ser compilado pelo React Compiler
   // ...
 }
 ```
@@ -366,13 +366,13 @@ function SuspiciousComponent() {
 <Note>
 #### `"use no memo"` {/*use-no-memo*/}
 
-`"use no memo"` is a _temporary_ escape hatch that lets you opt-out components and hooks from being compiled by the React Compiler. This directive is not meant to be long lived the same way as eg [`"use client"`](/reference/rsc/use-client) is.
+`"use no memo"` é uma saída de emergência _temporária_ que permite que você desative componentes e hooks de serem compilados pelo React Compiler. Essa diretiva não se destina a ser de longa duração da mesma forma que, por exemplo, [`"use client"`](/reference/rsc/use-client) é.
 
-It is not recommended to reach for this directive unless it's strictly necessary. Once you opt-out a component or hook, it is opted-out forever until the directive is removed. This means that even if you fix the code, the compiler will still skip over compiling it unless you remove the directive.
+Não é recomendável usar essa diretiva, a menos que seja estritamente necessário. Depois de desativar um componente ou hook, ele será desativado para sempre até que a diretiva seja removida. Isso significa que, mesmo que você corrija o código, o compilador ainda ignorará a compilação, a menos que você remova a diretiva.
 </Note>
 
-When you make the error go away, confirm that removing the opt out directive makes the issue come back. Then share a bug report with us (you can try to reduce it to a small repro, or if it's open source code you can also just paste the entire source) using the [React Compiler Playground](https://playground.react.dev) so we can identify and help fix the issue.
+Quando você fizer com que o erro desapareça, confirme que a remoção da diretiva de exclusão faz com que o problema volte. Em seguida, compartilhe um relatório de bug conosco (você pode tentar reduzi-lo a uma pequena reprodução ou, se for código de código aberto, também pode colar a fonte inteira) usando o [React Compiler Playground](https://playground.react.dev) para que possamos identificar e ajudar a corrigir o problema.
 
-### Other issues {/*other-issues*/}
+### Outros problemas {/*other-issues*/}
 
-Please see https://github.com/reactwg/react-compiler/discussions/7.
+Consulte https://github.com/reactwg/react-compiler/discussions/7.
