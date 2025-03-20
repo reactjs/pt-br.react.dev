@@ -1,41 +1,41 @@
 ---
-title: Understanding Your UI as a Tree
+title: Entendendo sua UI como uma Árvore
 ---
 
 <Intro>
 
-Your React app is taking shape with many components being nested within each other. How does React keep track of your app's component structure?
+Seu aplicativo React está tomando forma com muitos componentes sendo aninhados uns dentro dos outros. Como o React acompanha a estrutura de componentes do seu aplicativo?
 
-React, and many other UI libraries, model UI as a tree. Thinking of your app as a tree is useful for understanding the relationship between components. This understanding will help you debug future concepts like performance and state management.
+React, e muitas outras bibliotecas de UI, modelam a UI como uma árvore. Pensar no seu aplicativo como uma árvore é útil para entender a relação entre os componentes. Essa compreensão o ajudará a depurar conceitos futuros como performance e gerenciamento de estado.
 
 </Intro>
 
 <YouWillLearn>
 
-* How React "sees" component structures
-* What a render tree is and what it is useful for
-* What a module dependency tree is and what it is useful for
+* Como o React "vê" as estruturas dos componentes
+* O que é uma árvore de renderização e para que ela é útil
+* O que é uma árvore de dependência de módulos e para que ela é útil
 
-</YouWillLearn>
+</YouYouWillLearn>
 
-## Your UI as a tree {/*your-ui-as-a-tree*/}
+## Sua UI como uma árvore {/*your-ui-as-a-tree*/}
 
-Trees are a relationship model between items and UI is often represented using tree structures. For example, browsers use tree structures to model HTML ([DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction)) and CSS ([CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model)). Mobile platforms also use trees to represent their view hierarchy.
+Árvores são um modelo de relacionamento entre itens e a UI é frequentemente representada usando estruturas de árvores. Por exemplo, os navegadores usam estruturas de árvores para modelar HTML ([DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction)) e CSS ([CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model)). Plataformas móveis também usam árvores para representar sua hierarquia de visualização.
 
-<Diagram name="preserving_state_dom_tree" height={193} width={864} alt="Diagram with three sections arranged horizontally. In the first section, there are three rectangles stacked vertically, with labels 'Component A', 'Component B', and 'Component C'. Transitioning to the next pane is an arrow with the React logo on top labeled 'React'. The middle section contains a tree of components, with the root labeled 'A' and two children labeled 'B' and 'C'. The next section is again transitioned using an arrow with the React logo on top labeled 'React DOM'. The third and final section is a wireframe of a browser, containing a tree of 8 nodes, which has only a subset highlighted (indicating the subtree from the middle section).">
+<Diagram name="preserving_state_dom_tree" height={193} width={864} alt="Diagrama com três seções dispostas horizontalmente. Na primeira seção, há três retângulos empilhados verticalmente, com as etiquetas 'Componente A', 'Componente B' e 'Componente C'. A transição para o próximo painel é uma seta com o logotipo do React no topo rotulado 'React'. A seção do meio contém uma árvore de componentes, com a raiz rotulada 'A' e dois filhos rotulados 'B' e 'C'. A próxima seção é novamente transicionada usando uma seta com o logotipo do React no topo rotulado 'React DOM'. A terceira e última seção é um wireframe de um navegador, contendo uma árvore de 8 nós, que tem apenas um subconjunto destacado (indicando a subárvore da seção do meio).">
 
-React creates a UI tree from your components. In this example, the UI tree is then used to render to the DOM.
+React cria uma árvore de UI a partir de seus componentes. Neste exemplo, a árvore de UI é então usada para renderizar no DOM.
 </Diagram>
 
-Like browsers and mobile platforms, React also uses tree structures to manage and model the relationship between components in a React app. These trees are useful tools to understand how data flows through a React app and how to optimize rendering and app size.
+Como navegadores e plataformas móveis, o React também usa estruturas de árvores para gerenciar e modelar a relação entre os componentes em um aplicativo React. Essas árvores são ferramentas úteis para entender como os dados fluem por um aplicativo React e como otimizar a renderização e o tamanho do aplicativo.
 
-## The Render Tree {/*the-render-tree*/}
+## A Árvore de Renderização {/*the-render-tree*/}
 
-A major feature of components is the ability to compose components of other components. As we [nest components](/learn/your-first-component#nesting-and-organizing-components), we have the concept of parent and child components, where each parent component may itself be a child of another component.
+Uma característica importante dos componentes é a capacidade de compor componentes de outros componentes. À medida que [aninhamos componentes](/learn/your-first-component#nesting-and-organizing-components), temos o conceito de componentes pai e filho, onde cada componente pai pode ser ele mesmo um filho de outro componente.
 
-When we render a React app, we can model this relationship in a tree, known as the render tree.
+Quando renderizamos um aplicativo React, podemos modelar essa relação em uma árvore, conhecida como árvore de renderização.
 
-Here is a React app that renders inspirational quotes.
+Aqui está um aplicativo React que renderiza citações inspiradoras.
 
 <Sandpack>
 
@@ -118,34 +118,34 @@ export default [
 
 </Sandpack>
 
-<Diagram name="render_tree" height={250} width={500} alt="Tree graph with five nodes. Each node represents a component. The root of the tree is App, with two arrows extending from it to 'InspirationGenerator' and 'FancyText'. The arrows are labelled with the word 'renders'. 'InspirationGenerator' node also has two arrows pointing to nodes 'FancyText' and 'Copyright'.">
+<Diagram name="render_tree" height={250} width={500} alt="Gráfico em árvore com cinco nós. Cada nó representa um componente. A raiz da árvore é App, com duas setas se estendendo dela para 'InspirationGenerator' e 'FancyText'. As setas são rotuladas com a palavra 'renders'. O nó 'InspirationGenerator' também tem duas setas apontando para os nós 'FancyText' e 'Copyright'.">
 
-React creates a *render tree*, a UI tree, composed of the rendered components.
+React cria uma *árvore de renderização*, uma árvore de UI, composta pelos componentes renderizados.
 
 
 </Diagram>
 
-From the example app, we can construct the above render tree.
+Do aplicativo de exemplo, podemos construir a árvore de renderização acima.
 
-The tree is composed of nodes, each of which represents a component. `App`, `FancyText`, `Copyright`, to name a few, are all nodes in our tree.
+A árvore é composta por nós, cada um dos quais representa um componente. `App`, `FancyText`, `Copyright`, para citar alguns, são todos nós em nossa árvore.
 
-The root node in a React render tree is the [root component](/learn/importing-and-exporting-components#the-root-component-file) of the app. In this case, the root component is `App` and it is the first component React renders. Each arrow in the tree points from a parent component to a child component.
+O nó raiz em uma árvore de renderização do React é o [componente raiz](/learn/importing-and-exporting-components#the-root-component-file) do aplicativo. Neste caso, o componente raiz é `App` e é o primeiro componente que o React renderiza. Cada seta na árvore aponta de um componente pai para um componente filho.
 
 <DeepDive>
 
-#### Where are the HTML tags in the render tree? {/*where-are-the-html-elements-in-the-render-tree*/}
+#### Onde estão as tags HTML na árvore de renderização? {/*where-are-the-html-elements-in-the-render-tree*/}
 
-You'll notice in the above render tree, there is no mention of the HTML tags that each component renders. This is because the render tree is only composed of React [components](learn/your-first-component#components-ui-building-blocks).
+Você notará na árvore de renderização acima que não há menção das tags HTML que cada componente renderiza. Isso ocorre porque a árvore de renderização é composta apenas de [componentes](learn/your-first-component#components-ui-building-blocks) React.
 
-React, as a UI framework, is platform agnostic. On react.dev, we showcase examples that render to the web, which uses HTML markup as its UI primitives. But a React app could just as likely render to a mobile or desktop platform, which may use different UI primitives like [UIView](https://developer.apple.com/documentation/uikit/uiview) or [FrameworkElement](https://learn.microsoft.com/en-us/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
+React, como uma biblioteca de UI, é agnóstico à plataforma. Em react.dev, mostramos exemplos que renderizam na web, que usa marcação HTML como seus primitivos de UI. Mas um aplicativo React poderia renderizar em uma plataforma móvel ou desktop, que pode usar diferentes primitivos de UI como [UIView](https://developer.apple.com/documentation/uikit/uiview) ou [FrameworkElement](https://learn.microsoft.com/en-us/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
 
-These platform UI primitives are not a part of React. React render trees can provide insight to our React app regardless of what platform your app renders to.
+Esses primitivos de UI da plataforma não fazem parte do React. As árvores de renderização do React podem fornecer informações sobre nosso aplicativo React, independentemente da plataforma em que seu aplicativo renderiza.
 
 </DeepDive>
 
-A render tree represents a single render pass of a React application. With [conditional rendering](/learn/conditional-rendering), a parent component may render different children depending on the data passed.
+Uma árvore de renderização representa uma única passagem de renderização de um aplicativo React. Com a [renderização condicional](/learn/conditional-rendering), um componente pai pode renderizar diferentes filhos dependendo dos dados passados.
 
-We can update the app to conditionally render either an inspirational quote or color.
+Podemos atualizar o aplicativo para renderizar condicionalmente uma citação ou cor inspiradora.
 
 <Sandpack>
 
@@ -245,56 +245,56 @@ export default [
 ```
 </Sandpack>
 
-<Diagram name="conditional_render_tree" height={250} width={561} alt="Tree graph with six nodes. The top node of the tree is labelled 'App' with two arrows extending to nodes labelled 'InspirationGenerator' and 'FancyText'. The arrows are solid lines and are labelled with the word 'renders'. 'InspirationGenerator' node also has three arrows. The arrows to nodes 'FancyText' and 'Color' are dashed and labelled with 'renders?'. The last arrow points to the node labelled 'Copyright' and is solid and labelled with 'renders'.">
+<Diagram name="conditional_render_tree" height={250} width={561} alt="Gráfico em árvore com seis nós. O nó superior da árvore é rotulado 'App' com duas setas se estendendo para os nós rotulados 'InspirationGenerator' e 'FancyText'. As setas são linhas sólidas e são rotuladas com a palavra 'renders'. O nó 'InspirationGenerator' também tem três setas. As setas para os nós 'FancyText' e 'Color' são tracejadas e rotuladas com 'renders?'. A última seta aponta para o nó rotulado 'Copyright' e é sólida e rotulada com 'renders'.">
 
-With conditional rendering, across different renders, the render tree may render different components.
-
-</Diagram>
-
-In this example, depending on what `inspiration.type` is, we may render `<FancyText>` or `<Color>`. The render tree may be different for each render pass.
-
-Although render trees may differ across render passes, these trees are generally helpful for identifying what the *top-level* and *leaf components* are in a React app. Top-level components are the components nearest to the root component and affect the rendering performance of all the components beneath them and often contain the most complexity. Leaf components are near the bottom of the tree and have no child components and are often frequently re-rendered.
-
-Identifying these categories of components are useful for understanding data flow and performance of your app.
-
-## The Module Dependency Tree {/*the-module-dependency-tree*/}
-
-Another relationship in a React app that can be modeled with a tree are an app's module dependencies. As we [break up our components](/learn/importing-and-exporting-components#exporting-and-importing-a-component) and logic into separate files, we create [JS modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) where we may export components, functions, or constants.
-
-Each node in a module dependency tree is a module and each branch represents an `import` statement in that module.
-
-If we take the previous Inspirations app, we can build a module dependency tree, or dependency tree for short.
-
-<Diagram name="module_dependency_tree" height={250} width={658} alt="A tree graph with seven nodes. Each node is labelled with a module name. The top level node of the tree is labelled 'App.js'. There are three arrows pointing to the modules 'InspirationGenerator.js', 'FancyText.js' and 'Copyright.js' and the arrows are labelled with 'imports'. From the 'InspirationGenerator.js' node, there are three arrows that extend to three modules: 'FancyText.js', 'Color.js', and 'inspirations.js'. The arrows are labelled with 'imports'.">
-
-The module dependency tree for the Inspirations app.
+Com a renderização condicional, em diferentes renderizações, a árvore de renderização pode renderizar diferentes componentes.
 
 </Diagram>
 
-The root node of the tree is the root module, also known as the entrypoint file. It often is the module that contains the root component.
+Neste exemplo, dependendo do que `inspiration.type` é, podemos renderizar `<FancyText>` ou `<Color>`. A árvore de renderização pode ser diferente para cada passagem de renderização.
 
-Comparing to the render tree of the same app, there are similar structures but some notable differences:
+Embora as árvores de renderização possam diferir em diferentes passagens de renderização, essas árvores geralmente são úteis para identificar quais são os *componentes de nível superior* e *folha* em um aplicativo React. Os componentes de nível superior são os componentes mais próximos do componente raiz e afetam o desempenho da renderização de todos os componentes abaixo deles e geralmente contêm a maior complexidade. Os componentes folha estão próximos da parte inferior da árvore e não têm componentes filhos e costumam ser renderizados com frequência.
 
-* The nodes that make-up the tree represent modules, not components.
-* Non-component modules, like `inspirations.js`, are also represented in this tree. The render tree only encapsulates components.
-* `Copyright.js` appears under `App.js` but in the render tree, `Copyright`, the component, appears as a child of `InspirationGenerator`. This is because `InspirationGenerator` accepts JSX as [children props](/learn/passing-props-to-a-component#passing-jsx-as-children), so it renders `Copyright` as a child component but does not import the module.
+Identificar essas categorias de componentes é útil para entender o fluxo de dados e a performance do seu aplicativo.
 
-Dependency trees are useful to determine what modules are necessary to run your React app. When building a React app for production, there is typically a build step that will bundle all the necessary JavaScript to ship to the client. The tool responsible for this is called a [bundler](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Overview#the_modern_tooling_ecosystem), and bundlers will use the dependency tree to determine what modules should be included.
+## A Árvore de Dependência de Módulos {/*the-module-dependency-tree*/}
 
-As your app grows, often the bundle size does too. Large bundle sizes are expensive for a client to download and run. Large bundle sizes can delay the time for your UI to get drawn. Getting a sense of your app's dependency tree may help with debugging these issues.
+Outra relação em um aplicativo React que pode ser modelada com uma árvore são as dependências de módulos de um aplicativo. À medida que [dividimos nossos componentes](/learn/importing-and-exporting-components#exporting-and-importing-a-component) e lógica em arquivos separados, criamos [módulos JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) onde podemos exportar componentes, funções ou constantes.
+
+Cada nó em uma árvore de dependência de módulos é um módulo e cada ramificação representa uma declaração `import` nesse módulo.
+
+Se pegarmos o aplicativo Inspirations anterior, podemos construir uma árvore de dependência de módulos, ou árvore de dependência, para abreviar.
+
+<Diagram name="module_dependency_tree" height={250} width={658} alt="Um gráfico em árvore com sete nós. Cada nó é rotulado com um nome de módulo. O nó de nível superior da árvore é rotulado 'App.js'. Existem três setas apontando para os módulos 'InspirationGenerator.js', 'FancyText.js' e 'Copyright.js' e as setas são rotuladas com 'imports'. Do nó 'InspirationGenerator.js', existem três setas que se estendem para três módulos: 'FancyText.js', 'Color.js' e 'inspirations.js'. As setas são rotuladas com 'imports'.">
+
+A árvore de dependência de módulos para o aplicativo Inspirations.
+
+</Diagram>
+
+O nó raiz da árvore é o módulo raiz, também conhecido como arquivo de ponto de entrada. É frequentemente o módulo que contém o componente raiz.
+
+Comparando com a árvore de renderização do mesmo aplicativo, existem estruturas semelhantes, mas algumas diferenças notáveis:
+
+* Os nós que compõem a árvore representam módulos, não componentes.
+* Módulos não componentes, como `inspirations.js`, também são representados nesta árvore. A árvore de renderização encapsula apenas componentes.
+* `Copyright.js` aparece em `App.js`, mas na árvore de renderização, `Copyright`, o componente, aparece como um filho de `InspirationGenerator`. Isso ocorre porque `InspirationGenerator` aceita JSX como [children props](/learn/passing-props-to-a-component#passing-jsx-as-children), portanto, ele renderiza `Copyright` como um componente filho, mas não importa o módulo.
+
+As árvores de dependência são úteis para determinar quais módulos são necessários para executar seu aplicativo React. Ao construir um aplicativo React para produção, geralmente há uma etapa de compilação que irá empacotar todo o JavaScript necessário para enviar ao cliente. A ferramenta responsável por isso é chamada de [bundler](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Overview#the_modern_tooling_ecosystem), e os bundlers usarão a árvore de dependência para determinar quais módulos devem ser incluídos.
+
+À medida que seu aplicativo cresce, o tamanho do pacote também. Tamanhos de pacote grandes são caros para um cliente baixar e executar. Tamanhos de pacote grandes podem atrasar o tempo para sua UI ser desenhada. Obter uma noção da árvore de dependência do seu aplicativo pode ajudar com a depuração desses problemas.
 
 [comment]: <> (perhaps we should also deep dive on conditional imports)
 
 <Recap>
 
-* Trees are a common way to represent the relationship between entities. They are often used to model UI.
-* Render trees represent the nested relationship between React components across a single render.
-* With conditional rendering, the render tree may change across different renders. With different prop values, components may render different children components.
-* Render trees help identify what the top-level and leaf components are. Top-level components affect the rendering performance of all components beneath them and leaf components are often re-rendered frequently. Identifying them is useful for understanding and debugging rendering performance.
-* Dependency trees represent the module dependencies in a React app.
-* Dependency trees are used by build tools to bundle the necessary code to ship an app.
-* Dependency trees are useful for debugging large bundle sizes that slow time to paint and expose opportunities for optimizing what code is bundled.
+* Árvores são uma forma comum de representar a relação entre entidades. Elas são frequentemente usadas para modelar UI.
+* Árvores de renderização representam a relação aninhada entre os componentes do React em uma única renderização.
+* Com a renderização condicional, a árvore de renderização pode mudar em diferentes renderizações. Com diferentes valores de prop, os componentes podem renderizar diferentes componentes filhos.
+* As árvores de renderização ajudam a identificar quais são os componentes de nível superior e folha. Os componentes de nível superior afetam o desempenho da renderização de todos os componentes abaixo deles e os componentes folha são frequentemente renderizados novamente. Identificá-los é útil para entender e depurar a performance de renderização.
+* Árvores de dependência representam as dependências de módulos em um aplicativo React.
+* As árvores de dependência são usadas por ferramentas de construção para empacotar o código necessário para enviar um aplicativo.
+* As árvores de dependência são úteis para depurar tamanhos de pacote grandes que diminuem o tempo de pintura e expõem oportunidades para otimizar o código que é empacotado.
 
 </Recap>
 
-[TODO]: <> (Add challenges)
+[TODO]: <> (Adicionar desafios)
