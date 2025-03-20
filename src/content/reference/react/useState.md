@@ -1076,9 +1076,9 @@ Normalmente, você atualizará o estado em manipuladores de eventos. No entanto,
 
 Na maioria dos casos, você não precisa disso:
 
-*   **Se o valor de que você precisa puder ser calculado inteiramente a partir das props atuais ou de outro estado, [remova completamente esse estado redundante.](/learn/choosing-the-state-structure#avoid-redundant-state)** Se você está preocupado em recalcular com muita frequência, o [`useMemo` Hook](/reference/react/useMemo) pode ajudar.
-*   Se você deseja redefinir o estado de toda a árvore de componentes, [passe um `key` diferente para seu componente.](#resetting-state-with-a-key)
-*   Se puder, atualize todo o estado relevante nos manipuladores de eventos.
+* **Se o valor de que você precisa puder ser calculado inteiramente a partir das props atuais ou de outro estado, [remova completamente esse estado redundante.](/learn/choosing-the-state-structure#avoid-redundant-state)** Se você está preocupado em recalcular com muita frequência, o [`useMemo` Hook](/reference/react/useMemo) pode ajudar.
+* Se você deseja redefinir o estado de toda a árvore de componentes, [passe um `key` diferente para seu componente.](#resetting-state-with-a-key)
+* Se puder, atualize todo o estado relevante nos manipuladores de eventos.
 
 No raro caso de que nenhum deles se aplique, há um padrão que você pode usar para atualizar o estado com base nos valores que foram renderizados até agora, chamando uma função `set` enquanto seu componente está renderizando.
 
@@ -1288,3 +1288,4 @@ const [fn, setFn] = useState(() => someFunction);
 function handleClick() {
   setFn(() => someOtherFunction);
 }
+```
