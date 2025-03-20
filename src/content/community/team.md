@@ -1,103 +1,104 @@
 ---
-title: "Meet the Team"
+title: "Conheça a Equipe"
 ---
 
 <Intro>
 
-React development is led by a dedicated team working full time at Meta. It also receives contributions from people all over the world.
+O desenvolvimento do React é liderado por uma equipe dedicada que trabalha em tempo integral na Meta. Ele também recebe contribuições de pessoas de todo o mundo.
 
 </Intro>
 
 ## React Core {/*react-core*/}
 
-The React Core team members work full time on the core component APIs, the engine that powers React DOM and React Native, React DevTools, and the React documentation website.
+Os membros da equipe React Core trabalham em tempo integral nas APIs dos componentes principais, no mecanismo que impulsiona React DOM e React Native, React DevTools e no site de documentação do React.
 
-Current members of the React team are listed in alphabetical order below.
+Os membros atuais da equipe do React estão listados em ordem alfabética abaixo.
 
 <TeamMember name="Andrew Clark" permalink="andrew-clark" photo="/images/team/acdlite.jpg" github="acdlite" twitter="acdlite" threads="acdlite" title="Engineer at Vercel">
-    Andrew got started with web development by making sites with WordPress, and eventually tricked himself into doing JavaScript. His favorite pastime is karaoke. Andrew is either a Disney villain or a Disney princess, depending on the day.
+    Andrew começou a trabalhar com desenvolvimento web criando sites com WordPress e, eventualmente, se forçou a usar JavaScript. Seu passatempo favorito é karaokê. Andrew é um vilão da Disney ou uma princesa da Disney, dependendo do dia.
 </TeamMember>
 
 <TeamMember name="Dan Abramov" permalink="dan-abramov" photo="/images/team/gaearon.jpg" github="gaearon" bsky="danabra.mov" title="Independent Engineer">
-    Dan got into programming after he accidentally discovered Visual Basic inside Microsoft PowerPoint. He has found his true calling in turning [Sebastian](#sebastian-markbåge)'s tweets into long-form blog posts. Dan occasionally wins at Fortnite by hiding in a bush until the game ends.
+    Dan entrou na programação depois de descobrir acidentalmente o Visual Basic dentro do Microsoft PowerPoint. Ele encontrou sua verdadeira vocação em transformar os tweets de [Sebastian](#sebastian-markbåge) em posts de blog de formato longo. Dan ocasionalmente ganha no Fortnite se escondendo em um arbusto até o final do jogo.
 </TeamMember>
 
 <TeamMember name="Eli White" permalink="eli-white" photo="/images/team/eli-white.jpg" github="elicwhite" twitter="Eli_White" threads="elicwhite" title="Engineering Manager at Meta">
-    Eli got into programming after he got suspended from middle school for hacking. He has been working on React and React Native since 2017. He enjoys eating treats, especially ice cream and apple pie. You can find Eli trying quirky activities like parkour, indoor skydiving, and aerial silks.
+    Eli começou a programar depois de ser suspenso da escola de ensino fundamental por hackear. Ele tem trabalhado com React e React Native desde 2017. Ele gosta de comer guloseimas, especialmente sorvete e torta de maçã. Você pode encontrar Eli tentando atividades incomuns como parkour, paraquedismo indoor e tecido acrobático.
 </TeamMember>
 
 <TeamMember name="Hendrik Liebau" permalink="hendrik-liebau" photo="/images/team/hendrik.jpg" github="unstubbable" bsky="unstubbable.bsky.social" twitter="unstubbable" title="Engineer at Vercel">
-    Hendrik’s journey in tech started in the late 90s when he built his first websites with Netscape Communicator. After earning a diploma in computer science and working at digital agencies, he built a React Server Components bundler and library, paving the way to his role on the Next.js team. Outside of work, he enjoys cycling and tinkering in his workshop.
+    A jornada de Hendrik na tecnologia começou no final dos anos 90, quando ele criou seus primeiros sites com o Netscape Communicator. Depois de obter um diploma em ciência da computação e trabalhar em agências digitais, ele criou um bundler e uma biblioteca de React Server Components, abrindo caminho para seu papel na equipe do Next.js. Fora do trabalho, ele gosta de andar de bicicleta e fazer pequenos reparos em sua oficina.
 </TeamMember>
 
 <TeamMember name="Jack Pope" permalink="jack-pope" photo="/images/team/jack-pope.jpg" github="jackpope" personal="jackpope.me" title="Engineer at Meta">
-    Shortly after being introduced to AutoHotkey, Jack had written scripts to automate everything he could think of. When reaching limitations there, he dove headfirst into web app development and hasn't looked back. Most recently, Jack worked on the web platform at Instagram before moving to React. His favorite programming language is JSX.
+    Pouco depois de ser apresentado ao AutoHotkey, Jack escreveu scripts para automatizar tudo em que conseguia pensar. Ao atingir as limitações ali, ele mergulhou de cabeça no desenvolvimento de aplicativos web e nunca mais olhou para trás. Mais recentemente, Jack trabalhou na plataforma web do Instagram antes de mudar para o React. Sua linguagem de programação favorita é JSX.
 </TeamMember>
 
 <TeamMember name="Jason Bonta" permalink="jason-bonta" photo="/images/team/jasonbonta.jpg" threads="someextent" title="Engineering Manager at Meta">
-    Jason abandoned embedded C for a career in front-end engineering and never looked back. Armed with esoteric CSS knowledge and a passion for beautiful UI, Jason joined Facebook in 2010, where he now feels privileged to have seen JavaScript development come of age. Though he may not understand how `for...of` loops work, he loves getting to work with brilliant people on projects that enable amazing UX.
+    Jason abandonou o C embarcado para uma carreira em engenharia front-end e nunca mais olhou para trás. Armado com conhecimento esotérico de CSS e uma paixão por UI bonita, Jason se juntou ao Facebook em 2010, onde agora se sente privilegiado por ver o desenvolvimento do JavaScript amadurecer. Embora ele possa não entender como os loops `for...of` funcionam, ele adora trabalhar com pessoas brilhantes em projetos que permitem uma UX incrível.
 </TeamMember>
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" threads="joesavona" title="Engineer at Meta">
-    Joe was planning to major in math and philosophy but got into computer science after writing physics simulations in Matlab. Prior to React, he worked on Relay, RSocket.js, and the Skip programming language. While he’s not building some sort of reactive system he enjoys running, studying Japanese, and spending time with his family.
+    Joe planejava se especializar em matemática e filosofia, mas entrou na ciência da computação depois de escrever simulações de física no Matlab. Antes do React, ele trabalhou no Relay, RSocket.js e na linguagem de programação Skip. Enquanto não está construindo algum tipo de sistema reativo, ele gosta de correr, estudar japonês e passar tempo com sua família.
 </TeamMember>
 
 <TeamMember name="Jordan Brown" permalink="jordan-brown" photo="/images/team/jordan.jpg" github="jbrown215" title="Engineer at Meta">
-    Jordan started coding by building iPhone apps, where he was pushing and popping view controllers before he knew that for-loops were a thing. He enjoys working on technology that developers love, which naturally drew him to React. Outside of work he enjoys reading, kiteboarding, and playing guitar.
+    Jordan começou a codificar criando aplicativos para iPhone, onde estava empurrando e retirando controladores de visualização antes de saber que os loops for eram uma coisa. Ele gosta de trabalhar com tecnologia que os desenvolvedores adoram, o que naturalmente o atraiu para o React. Fora do trabalho, ele gosta de ler, praticar kiteboarding e tocar violão.
 </TeamMember>
 
 <TeamMember name="Josh Story" permalink="josh-story" photo="/images/team/josh.jpg" github="gnoff" bsky="storyhb.com" title="Engineer at Vercel">
-    Josh majored in Mathematics and discovered programming while in college. His first professional developer job was to program insurance rate calculations in Microsoft Excel, the paragon of Reactive Programming which must be why he now works on React. In between that time Josh has been an IC, Manager, and Executive at a few startups. outside of work he likes to push his limits with cooking.
+    Josh se formou em Matemática e descobriu a programação na faculdade. Seu primeiro emprego profissional como desenvolvedor foi programar cálculos de taxas de seguro no Microsoft Excel, o auge da Programação Reativa, que deve ser a razão pela qual ele agora trabalha com React. Nesse meio tempo, Josh foi um IC, Gerente e Executivo em algumas startups. Fora do trabalho, ele gosta de ultrapassar seus limites com a culinária.
 </TeamMember>
 
 <TeamMember name="Lauren Tan" permalink="lauren-tan" photo="/images/team/lauren.jpg" github="poteto" twitter="potetotes" threads="potetotes" bsky="no.lol" title="Engineer at Meta">
-    Lauren's programming career peaked when she first discovered the `<marquee>` tag. She’s been chasing that high ever since. She studied Finance instead of CS in college, so she learned to code using Excel. Lauren enjoys dropping cheeky memes in chat, playing video games with her partner, learning Korean, and petting her dog Zelda.
+    A carreira de programação de Lauren atingiu o pico quando ela descobriu a tag `<marquee>`. Ela tem perseguido essa experiência desde então. Ela estudou Finanças em vez de CS na faculdade, então aprendeu a codificar usando o Excel. Lauren gosta de soltar memes descarados no chat, jogar videogames com seu parceiro, aprender coreano e acariciar seu cachorro Zelda.
 </TeamMember>
 
 <TeamMember name="Matt Carroll" permalink="matt-carroll" photo="/images/team/matt-carroll.png" github="mattcarrollcode" twitter="mattcarrollcode" threads="mattcarrollcode" title="Developer Advocate at Meta">
-    Matt stumbled into coding, and since then, has become enamored with creating things in communities that can’t be created alone. Prior to React, he worked on YouTube, the Google Assistant, Fuchsia, and Google Cloud AI and Evernote. When he's not trying to make better developer tools he enjoys the mountains, jazz, and spending time with his family.
+    Matt se deparou com a codificação e, desde então, se apaixonou por criar coisas em comunidades que não podem ser criadas sozinhas. Antes do React, ele trabalhou no YouTube, no Google Assistant, no Fuchsia e no Google Cloud AI e Evernote. Quando ele não está tentando criar melhores ferramentas para desenvolvedores, ele gosta das montanhas, jazz e de passar tempo com sua família.
 </TeamMember>
 
 <TeamMember name="Mike Vitousek" permalink="mike-vitousek" photo="/images/team/mike.jpg" github="mvitousek" title="Engineer at Meta">
-    Mike went to grad school dreaming of becoming a professor but realized that he liked building things a lot more than writing grant applications. Mike joined Meta to work on Javascript infrastructure, which ultimately led him to work on the React Compiler. When not hacking on either Javascript or OCaml, Mike can often be found hiking or skiing in the Pacific Northwest.
+    Mike foi para a pós-graduação sonhando em se tornar professor, mas percebeu que gostava muito mais de construir coisas do que de escrever pedidos de subsídio. Mike se juntou à Meta para trabalhar na infraestrutura do Javascript, o que o levou a trabalhar no React Compiler. Quando não está hackeando em Javascript ou OCaml, Mike geralmente pode ser encontrado caminhando ou esquiando no noroeste do Pacífico.
 </TeamMember>
 
 <TeamMember name="Mofei Zhang" permalink="mofei-zhang" photo="/images/team/mofei-zhang.png" github="mofeiZ" threads="z_mofei" title="Engineer at Meta">
-    Mofei started programming when she realized it can help her cheat in video games. She focused on operating systems in undergrad / grad school, but now finds herself happily tinkering on React. Outside of work, she enjoys debugging bouldering problems and planning her next backpacking trip(s).
+    Mofei começou a programar quando percebeu que isso pode ajudá-la a trapacear em videogames. Ela se concentrou em sistemas operacionais na graduação/pós-graduação, mas agora se diverte alegremente com o React. Fora do trabalho, ela gosta de depurar problemas de escalada e planejar sua(s) próxima(s) viagem(s) de mochila.
 </TeamMember>
 
 <TeamMember name="Pieter Vanderwerff" permalink="pieter-vanderwerff" photo="/images/team/pieter.jpg" github="pieterv" threads="pietervanderwerff" title="Engineer at Meta">
-    Pieter studied building science but after failing to get a job he made himself a website and things escalated from there. At Meta, he enjoys working on performance, languages and now React. When he's not programming you can find him off-road in the mountains.
+    Pieter estudou ciência da construção, mas depois de não conseguir um emprego, ele criou um site e as coisas aumentaram a partir daí. Na Meta, ele gosta de trabalhar em performance, linguagens e agora React. Quando ele não está programando, você pode encontrá-lo fora da estrada nas montanhas.
 </TeamMember>
 
-<TeamMember name="Rick Hanlon" permalink="rick-hanlon" photo="/images/team/rickhanlonii.jpg" github="rickhanlonii" twitter="rickhanlonii" threads="rickhanlonii" bsky="ricky.fm" title="Engineer at Meta">
-    Ricky majored in theoretical math and somehow found himself on the React Native team for a couple years before joining the React team. When he's not programming you can find him snowboarding, biking, climbing, golfing, or closing GitHub issues that do not match the issue template.
+<TeamMember name="Rick Hanlon" permalink="rick-hanlonii" photo="/images/team/rickhanlonii.jpg" github="rickhanlonii" twitter="rickhanlonii" threads="rickhanlonii" bsky="ricky.fm" title="Engineer at Meta">
+    Ricky se formou em matemática teórica e de alguma forma se viu na equipe do React Native por alguns anos antes de ingressar na equipe do React. Quando ele não está programando, você pode encontrá-lo praticando snowboard, ciclismo, escalada, golfe ou fechando issues do GitHub que não correspondem ao modelo do issue.
 </TeamMember>
 
 <TeamMember name="Ruslan Lesiutin" permalink="ruslan-lesiutin" photo="/images/team/lesiutin.jpg" github="hoxyq" twitter="ruslanlesiutin" threads="lesiutin" title="Engineer at Meta">
-    Ruslan's introduction to UI programming started when he was a kid by manually editing HTML templates for his custom gaming forums. Somehow, he ended up majoring in Computer Science. He enjoys music, games, and memes. Mostly memes.
+    A introdução de Ruslan à programação de UI começou quando ele era criança, editando manualmente modelos HTML para seus fóruns de jogos personalizados. De alguma forma, ele acabou se especializando em Ciência da Computação. Ele gosta de música, jogos e memes. Principalmente memes.
 </TeamMember>
 
 <TeamMember name="Sebastian Markbåge" permalink="sebastian-markbåge" photo="/images/team/sebmarkbage.jpg" github="sebmarkbage" twitter="sebmarkbage" threads="sebmarkbage" title="Engineer at Vercel">
-    Sebastian majored in psychology. He's usually quiet. Even when he says something, it often doesn't make sense to the rest of us until a few months later. The correct way to pronounce his surname is "mark-boa-geh" but he settled for "mark-beige" out of pragmatism -- and that's how he approaches React.
+    Sebastian se formou em psicologia. Ele geralmente é quieto. Mesmo quando ele diz alguma coisa, muitas vezes não faz sentido para o resto de nós até alguns meses depois. A maneira correta de pronunciar seu sobrenome é "mark-boa-geh", mas ele se contentou com "mark-beige" por pragmatismo - e é assim que ele aborda o React.
 </TeamMember>
 
 <TeamMember name="Sebastian Silbermann" permalink="sebastian-silbermann" photo="/images/team/sebsilbermann.jpg" github="eps1lon" twitter="sebsilbermann" threads="sebsilbermann" title="Engineer at Vercel">
-    Sebastian learned programming to make the browser games he played during class more enjoyable. Eventually this lead to contributing to as much open source code as possible. Outside of coding he's busy making sure people don't confuse him with the other Sebastians and Zilberman of the React community.
+    Sebastian aprendeu a programar para tornar os jogos de navegador que ele jogava durante a aula mais agradáveis. Eventualmente, isso o levou a contribuir com o máximo de código de código aberto possível. Fora da codificação, ele está ocupado garantindo que as pessoas não o confundam com os outros Sebastians e Zilberman da comunidade React.
 </TeamMember>
 
 <TeamMember name="Seth Webster" permalink="seth-webster" photo="/images/team/seth.jpg" github="sethwebster" twitter="sethwebster" threads="sethwebster" personal="sethwebster.com" title="Engineering Manager at Meta">
-    Seth started programming as a kid growing up in Tucson, AZ. After school, he was bitten by the music bug and was a touring musician for about 10 years before returning to *work*, starting with Intuit. In his spare time, he loves [taking pictures](https://www.sethwebster.com) and flying for animal rescues in the northeastern United States.
+    Seth começou a programar quando criança crescendo em Tucson, AZ. Depois da escola, ele foi picado pelo bichinho da música e foi um músico em turnê por cerca de 10 anos antes de retornar ao *trabalho*, começando com a Intuit. Em seu tempo livre, ele adora [tirar fotos](https://www.sethwebster.com) e voar para resgates de animais no nordeste dos Estados Unidos.
 </TeamMember>
 
 <TeamMember name="Sophie Alpert" permalink="sophie-alpert" photo="/images/team/sophiebits.jpg" github="sophiebits" twitter="sophiebits" threads="sophiebits" personal="sophiebits.com" title="Independent Engineer">
-    Four days after React was released, Sophie rewrote the entirety of her then-current project to use it, which she now realizes was perhaps a bit reckless. After she became the project's #1 committer, she wondered why she wasn't getting paid by Facebook like everyone else was and joined the team officially to lead React through its adolescent years. Though she quit that job years ago, somehow she's still in the team's group chats and “providing value”.
+    Quatro dias após o lançamento do React, Sophie reescreveu a totalidade de seu projeto atual na época para usá-lo, o que ela agora percebe que foi talvez um pouco imprudente. Depois que ela se tornou a committer número 1 do projeto, ela se perguntou por que não estava sendo paga pelo Facebook como todos os outros estavam e ingressou na equipe oficialmente para liderar o React em seus anos de adolescência. Embora ela tenha saído desse emprego há anos, de alguma forma ela ainda está nos chats em grupo da equipe e “fornecendo valor”.
 </TeamMember>
 
 <TeamMember name="Yuzhi Zheng" permalink="yuzhi-zheng" photo="/images/team/yuzhi.jpg" github="yuzhi" twitter="yuzhiz" threads="yuzhiz" title="Engineering Manager at Meta">
-    Yuzhi studied Computer Science in school. She liked the instant gratification of seeing code come to life without having to physically be in a laboratory. Now she’s a manager in the React org. Before management, she used to work on the Relay data fetching framework. In her spare time, Yuzhi enjoys optimizing her life via gardening and home improvement projects.
+    Yuzhi estudou ciência da computação na escola. Ela gostava da gratificação instantânea de ver o código ganhar vida sem precisar estar fisicamente em um laboratório. Agora ela é gerente na organização React. Antes da gestão, ela costumava trabalhar no framework de obtenção de dados Relay. Em seu tempo livre, Yuzhi gosta de otimizar sua vida por meio de jardinagem e projetos de melhoria da casa.
 </TeamMember>
 
-## Past contributors {/*past-contributors*/}
+## Contribuidores anteriores {/*past-contributors*/}
 
-You can find the past team members and other people who significantly contributed to React over the years on the [acknowledgements](/community/acknowledgements) page.
+Você pode encontrar os membros da equipe anteriores e outras pessoas que contribuíram significativamente para o React ao longo dos anos na página de [agradecimentos](/community/acknowledgements).
+``
