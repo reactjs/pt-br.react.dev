@@ -429,7 +429,9 @@ Maio de 2023. Salt Lake City, UT
 ### React Advanced 2021 {/*react-advanced-2021*/}
 22-23 de Outubro de 2021. Presencial em Londres, Reino Unido + remoto (evento híbrido)
 
-[Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)### React Conf Brasil 2021 {#react-conf-brasil-2021}
+[Website](https://reactadvanced.com) - [Twitter](https://twitter.com/reactadvanced) - [Facebook](https://www.facebook.com/ReactAdvanced) - [Videos](https://youtube.com/c/ReactConferences)
+
+### React Conf Brasil 2021 {#react-conf-brasil-2021}
 16 de outubro de 2021 - evento remoto
 
 [Site](http://reactconf.com.br) - [Twitter](https://twitter.com/reactconfbr) - [Slack](https://react.now.sh) - [Facebook](https://facebook.com/reactconf) - [Instagram](https://instagram.com/reactconfbr) - [YouTube](https://www.youtube.com/channel/UCJL5eorStQfC0x1iiWhvqPA/videos)
