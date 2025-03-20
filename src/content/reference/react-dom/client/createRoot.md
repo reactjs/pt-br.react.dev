@@ -549,7 +549,9 @@ const root = createRoot(container, {
   }
 });
 root.render(<App />);
-``````js src/App.js
+```
+
+```js src/App.js
 import { useState } from 'react';
 
 export default function App() {
