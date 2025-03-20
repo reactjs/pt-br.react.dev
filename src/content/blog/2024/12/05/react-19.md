@@ -2,6 +2,7 @@
 title: "React v19"
 author: The React Team
 date: 2024/12/05
+description: React 19 está disponível no npm! Nesta publicação, vamos fazer um apanhado das novas funcionalidades no React 19, e como você pode adotá-los.
 description: React 19 is now available on npm! In this post, we'll give an overview of the new features in React 19, and how you can adopt them.
 ---
 
@@ -428,7 +429,10 @@ Aviso: O conteúdo do texto não correspondeu. Servidor: "Servidor" Cliente: "Cl
 
 <ConsoleLogLine level="error">
 
-Aviso: Ocorreu um erro durante a hidratação. O HTML do servidor foi substituído pelo conteúdo do cliente em \<div\>.```html
+Aviso: Ocorreu um erro durante a hidratação. O HTML do servidor foi substituído pelo conteúdo do cliente em \<div\>.
+
+</ConsoleLogLine>
+
 <ConsoleLogLine level="error">
 
 Warning: Text content did not match. Server: "Server" Client: "Client"
