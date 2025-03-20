@@ -4,7 +4,7 @@ title: React Meetups
 
 <Intro>
 
-Do you have a local React.js meetup? Add it here! (Please keep the list alphabetical)
+Você tem um meetup local de React.js? Adicione-o aqui! (Mantenha a lista em ordem alfabética, por favor)
 
 </Intro>
 
@@ -186,3 +186,4 @@ Do you have a local React.js meetup? Add it here! (Please keep the list alphabet
 * [Tampa, FL - ReactJS](https://www.meetup.com/ReactJS-Tampa-Bay/)
 * [Tucson, AZ - ReactJS](https://www.meetup.com/Tucson-ReactJS-Meetup/)
 * [Washington, DC - ReactJS](https://www.meetup.com/React-DC/)
+``
