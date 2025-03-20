@@ -4,13 +4,13 @@ title: preinit
 
 <Note>
 
-[React-based frameworks](/learn/start-a-new-react-project) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
+[Frameworks baseados em React](/learn/start-a-new-react-project) frequentemente tratam o carregamento de recursos para você, então talvez você não precise chamar esta API sozinho. Consulte a documentação do seu framework para mais detalhes.
 
 </Note>
 
 <Intro>
 
-`preinit` lets you eagerly fetch and evaluate a stylesheet or external script.
+`preinit` permite que você busque e avalie ansiosamente uma folha de estilo ou script externo.
 
 ```js
 preinit("https://example.com/script.js", {as: "script"});
@@ -22,11 +22,11 @@ preinit("https://example.com/script.js", {as: "script"});
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `preinit(href, options)` {/*preinit*/}
 
-To preinit a script or stylesheet, call the `preinit` function from `react-dom`.
+Para pré-inicializar um script ou folha de estilo, chame a função `preinit` de `react-dom`.
 
 ```js
 import { preinit } from 'react-dom';
@@ -38,42 +38,42 @@ function AppRoot() {
 
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-The `preinit` function provides the browser with a hint that it should start downloading and executing the given resource, which can save time. Scripts that you `preinit` are executed when they finish downloading. Stylesheets that you preinit are inserted into the document, which causes them to go into effect right away.
+A função `preinit` fornece ao navegador uma dica de que ele deve começar a baixar e executar o recurso fornecido, o que pode economizar tempo. Scripts que você `preinit` são executados quando terminam o download. Folhas de estilo que você pré-inicializa são inseridas no documento, o que faz com que entrem em vigor imediatamente.
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `href`: a string. The URL of the resource you want to download and execute.
-* `options`: an object. It contains the following properties:
-  *  `as`: a required string. The type of resource. Its possible values are `script` and `style`.
-  * `precedence`: a string. Required with stylesheets. Says where to insert the stylesheet relative to others. Stylesheets with higher precedence can override those with lower precedence. The possible values are `reset`, `low`, `medium`, `high`. 
-  *  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`. It is required when `as` is set to `"fetch"`.
-  *  `integrity`: a string. A cryptographic hash of the resource, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
-  *  `nonce`: a string. A cryptographic [nonce to allow the resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy. 
-  *  `fetchPriority`: a string. Suggests a relative priority for fetching the resource. The possible values are `auto` (the default), `high`, and `low`.
+* `href`: uma string. A URL do recurso que você deseja baixar e executar.
+* `options`: um objeto. Ele contém as seguintes propriedades:
+  *  `as`: uma string obrigatória. O tipo de recurso. Seus valores possíveis são `script` e `style`.
+  * `precedence`: uma string. Obrigatório com folhas de estilo. Diz onde inserir a folha de estilo em relação a outras. Folhas de estilo com maior precedência podem substituir aquelas com menor precedência. Os valores possíveis são `reset`, `low`, `medium`, `high`.
+  *  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus valores possíveis são `anonymous` e `use-credentials`. É necessário quando `as` é definido como `"fetch"`.
+  *  `integrity`: uma string. Um hash criptográfico do recurso, para [verificar sua autenticidade](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
+  *  `nonce`: uma string. Um [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) criptográfico para permitir o recurso ao usar uma Política de Segurança de Conteúdo estrita.
+  *  `fetchPriority`: uma string. Sugere uma prioridade relativa para buscar o recurso. Os valores possíveis são `auto` (o padrão), `high` e `low`.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`preinit` returns nothing.
+`preinit` não retorna nada.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* Multiple calls to `preinit` with the same `href` have the same effect as a single call.
-* In the browser, you can call `preinit` in any situation: while rendering a component, in an Effect, in an event handler, and so on.
-* In server-side rendering or when rendering Server Components, `preinit` only has an effect if you call it while rendering a component or in an async context originating from rendering a component. Any other calls will be ignored.
+* Várias chamadas para `preinit` com o mesmo `href` têm o mesmo efeito de uma única chamada.
+* No navegador, você pode chamar `preinit` em qualquer situação: ao renderizar um componente, em um Effect, em um manipulador de eventos e assim por diante.
+* Na renderização do lado do servidor ou ao renderizar Componentes do Servidor, `preinit` só tem efeito se você o chamar ao renderizar um componente ou em um contexto assíncrono originado da renderização de um componente. Quaisquer outras chamadas serão ignoradas.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Preiniting when rendering {/*preiniting-when-rendering*/}
+### Pré-inicializando ao renderizar {/*preiniting-when-rendering*/}
 
-Call `preinit` when rendering a component if you know that it or its children will use a specific resource, and you're OK with the resource being evaluated and thereby taking effect immediately upon being downloaded.
+Chame `preinit` ao renderizar um componente se você souber que ele ou seus filhos usarão um recurso específico e estiver tudo bem com o recurso sendo avaliado e, portanto, entrando em vigor imediatamente após o download.
 
-<Recipes titleText="Examples of preiniting">
+<Recipes titleText="Exemplos de pré-inicialização">
 
-#### Preiniting an external script {/*preiniting-an-external-script*/}
+#### Pré-inicializando um script externo {/*preiniting-an-external-script*/}
 
 ```js
 import { preinit } from 'react-dom';
@@ -84,11 +84,11 @@ function AppRoot() {
 }
 ```
 
-If you want the browser to download the script but not to execute it right away, use [`preload`](/reference/react-dom/preload) instead. If you want to load an ESM module, use [`preinitModule`](/reference/react-dom/preinitModule).
+Se você quiser que o navegador baixe o script, mas não o execute imediatamente, use [`preload`](/reference/react-dom/preload) em vez disso. Se você quiser carregar um módulo ESM, use [`preinitModule`](/reference/react-dom/preinitModule).
 
 <Solution />
 
-#### Preiniting a stylesheet {/*preiniting-a-stylesheet*/}
+#### Pré-inicializando uma folha de estilo {/*preiniting-a-stylesheet*/}
 
 ```js
 import { preinit } from 'react-dom';
@@ -99,17 +99,17 @@ function AppRoot() {
 }
 ```
 
-The `precedence` option, which is required, lets you control the order of stylesheets within the document. Stylesheets with higher precedence can overrule those with lower precedence.
+A opção `precedence`, que é obrigatória, permite que você controle a ordem das folhas de estilo dentro do documento. Folhas de estilo com maior precedência podem anular as com menor precedência.
 
-If you want to download the stylesheet but not to insert it into the document right away, use [`preload`](/reference/react-dom/preload) instead.
+Se você quiser baixar a folha de estilo, mas não inseri-la no documento imediatamente, use [`preload`](/reference/react-dom/preload) em vez disso.
 
 <Solution />
 
 </Recipes>
 
-### Preiniting in an event handler {/*preiniting-in-an-event-handler*/}
+### Pré-inicializando em um manipulador de eventos {/*preiniting-in-an-event-handler*/}
 
-Call `preinit` in an event handler before transitioning to a page or state where external resources will be needed. This gets the process started earlier than if you call it during the rendering of the new page or state.
+Chame `preinit` em um manipulador de eventos antes de fazer a transição para uma página ou estado onde recursos externos serão necessários. Isso inicia o processo mais cedo do que se você o chamasse durante a renderização da nova página ou estado.
 
 ```js
 import { preinit } from 'react-dom';
