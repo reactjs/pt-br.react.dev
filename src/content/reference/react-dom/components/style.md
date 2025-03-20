@@ -1,4 +1,3 @@
-```
 ---
 style: "<style>"
 ---
@@ -33,16 +32,16 @@ Para adicionar estilos embutidos ao seu documento, renderize o [componente `<sty
 
 `<style>` suporta todas as [props de elementos comuns.](/reference/react-dom/components/common#props)
 
-*   `children`: uma string, obrigatório. O conteúdo da folha de estilo.
-*   `precedence`: uma string. Diz ao React onde classificar o nó `<style>` DOM em relação a outros no `<head>` do documento, o que determina qual folha de estilo pode substituir a outra. React inferirá que valores de precedência que ele descobrir primeiro são "menores" e valores de precedência que ele descobrir mais tarde são "maiores". Muitos sistemas de estilo podem funcionar bem usando um único valor de precedência porque as regras de estilo são atômicas. Folhas de estilo com a mesma precedência vão juntas, sejam elas tags `<link>` ou `<style>` embutidas ou carregadas usando funções [`preinit`](/reference/react-dom/preinit).
-*   `href`: uma string. Permite que o React [faça a desduplicação de estilos](#special-rendering-behavior) que têm o mesmo `href`.
-*   `media`: uma string. Restringe a folha de estilo a uma determinada [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
-*   `nonce`: uma string. Um [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) criptográfico para permitir o recurso ao usar uma Política de Segurança de Conteúdo estrita.
-*   `title`: uma string. Especifica o nome de uma [folha de estilo alternativa](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
+* `children`: uma string, obrigatório. O conteúdo da folha de estilo.
+* `precedence`: uma string. Diz ao React onde classificar o nó `<style>` DOM em relação a outros no `<head>` do documento, o que determina qual folha de estilo pode substituir a outra. React inferirá que valores de precedência que ele descobrir primeiro são "menores" e valores de precedência que ele descobrir mais tarde são "maiores". Muitos sistemas de estilo podem funcionar bem usando um único valor de precedência porque as regras de estilo são atômicas. Folhas de estilo com a mesma precedência vão juntas, sejam elas tags `<link>` ou `<style>` embutidas ou carregadas usando funções [`preinit`](/reference/react-dom/preinit).
+* `href`: uma string. Permite que o React [faça a desduplicação de estilos](#special-rendering-behavior) que têm o mesmo `href`.
+* `media`: uma string. Restringe a folha de estilo a uma determinada [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
+* `nonce`: uma string. Um [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) criptográfico para permitir o recurso ao usar uma Política de Segurança de Conteúdo estrita.
+* `title`: uma string. Especifica o nome de uma [folha de estilo alternativa](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
 
 Props que **não são recomendadas** para uso com o React:
 
-*   `blocking`: uma string. Se definido como `"render"`, instrui o navegador a não renderizar a página até que a folha de estilo seja carregada. O React fornece um controle mais preciso usando o Suspense.
+* `blocking`: uma string. Se definido como `"render"`, instrui o navegador a não renderizar a página até que a folha de estilo seja carregada. O React fornece um controle mais preciso usando o Suspense.
 
 #### Comportamento especial de renderização {/*special-rendering-behavior*/}
 
@@ -52,8 +51,8 @@ Para optar por esse comportamento, forneça as props `href` e `precedence`. O Re
 
 Este tratamento especial vem com duas ressalvas:
 
-*   O React ignorará as alterações nas props após o estilo ter sido renderizado. (O React emitirá um aviso no desenvolvimento se isso acontecer.)
-*   O React pode deixar o estilo no DOM mesmo depois que o componente que o renderizou foi desmontado.
+* O React ignorará as alterações nas props após o estilo ter sido renderizado. (O React emitirá um aviso no desenvolvimento se isso acontecer.)
+* O React pode deixar o estilo no DOM mesmo depois que o componente que o renderizou foi desmontado.
 
 ---
 
