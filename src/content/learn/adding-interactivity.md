@@ -1,30 +1,30 @@
 ---
-title: Adding Interactivity
+title: Adicionando Interatividade
 ---
 
 <Intro>
 
-Some things on the screen update in response to user input. For example, clicking an image gallery switches the active image. In React, data that changes over time is called *state.* You can add state to any component, and update it as needed. In this chapter, you'll learn how to write components that handle interactions, update their state, and display different output over time.
+Algumas coisas na tela atualizam em resposta à entrada do usuário. Por exemplo, clicar em uma galeria de imagens alterna a imagem ativa. Em React, dados que mudam ao longo do tempo são chamados de *state.* Você pode adicionar state a qualquer componente e atualizá-lo conforme necessário. Neste capítulo, você aprenderá como escrever componentes que lidam com interações, atualizam seu state e exibem diferentes saídas ao longo do tempo.
 
 </Intro>
 
 <YouWillLearn isChapter={true}>
 
-* [How to handle user-initiated events](/learn/responding-to-events)
-* [How to make components "remember" information with state](/learn/state-a-components-memory)
-* [How React updates the UI in two phases](/learn/render-and-commit)
-* [Why state doesn't update right after you change it](/learn/state-as-a-snapshot)
-* [How to queue multiple state updates](/learn/queueing-a-series-of-state-updates)
-* [How to update an object in state](/learn/updating-objects-in-state)
-* [How to update an array in state](/learn/updating-arrays-in-state)
+* [Como lidar com eventos iniciados pelo usuário](/learn/responding-to-events)
+* [Como fazer componentes "lembrarem" informações com state](/learn/state-a-components-memory)
+* [Como o React atualiza a UI em duas fases](/learn/render-and-commit)
+* [Por que o state não atualiza logo após você alterá-lo](/learn/state-as-a-snapshot)
+* [Como enfileirar várias atualizações de state](/learn/queueing-a-series-of-state-updates)
+* [Como atualizar um objeto no state](/learn/updating-objects-in-state)
+* [Como atualizar uma array no state](/learn/updating-arrays-in-state)
 
 </YouWillLearn>
 
-## Responding to events {/*responding-to-events*/}
+## Respondendo a eventos {/*responding-to-events*/}
 
-React lets you add *event handlers* to your JSX. Event handlers are your own functions that will be triggered in response to user interactions like clicking, hovering, focusing on form inputs, and so on.
+React permite que você adicione *event handlers* ao seu JSX. Event handlers são suas próprias funções que serão acionadas em resposta a interações do usuário, como clicar, passar o mouse, focar em entradas de formulário e assim por diante.
 
-Built-in components like `<button>` only support built-in browser events like `onClick`. However, you can also create your own components, and give their event handler props any application-specific names that you like.
+Componentes built-in, como `<button>` suportam apenas eventos built-in do navegador, como `onClick`. No entanto, você também pode criar seus próprios componentes e dar a suas props de event handler quaisquer nomes específicos da sua aplicação.
 
 <Sandpack>
 
@@ -68,22 +68,22 @@ button { margin-right: 10px; }
 
 <LearnMore path="/learn/responding-to-events">
 
-Read **[Responding to Events](/learn/responding-to-events)** to learn how to add event handlers.
+Leia **[Respondendo a eventos](/learn/responding-to-events)** para aprender como adicionar event handlers.
 
 </LearnMore>
 
 ## State: a component's memory {/*state-a-components-memory*/}
 
-Components often need to change what's on the screen as a result of an interaction. Typing into the form should update the input field, clicking "next" on an image carousel should change which image is displayed, clicking "buy" puts a product in the shopping cart. Components need to "remember" things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called *state.*
+Componentes frequentemente precisam mudar o que está na tela como resultado de uma interação. Digitar no formulário deve atualizar o campo de entrada, clicar em "próximo" em um carrossel de imagens deve mudar qual imagem é exibida, clicar em "comprar" coloca um produto no carrinho de compras. Os componentes precisam "lembrar" das coisas: o valor atual da entrada, a imagem atual, o carrinho de compras. Em React, esse tipo de memória específica do componente é chamado de *state*.
 
-You can add state to a component with a [`useState`](/apis/usestate) Hook. Hooks are special functions that let your components use React features (state is one of those features). The `useState` Hook lets you declare a state variable. It takes the initial state and returns a pair of values: the current state, and a state setter function that lets you update it.
+Você pode adicionar state a um componente com um Hook [`useState`](/apis/usestate). Hooks são funções especiais que permitem que seus componentes usem recursos do React (state é um desses recursos). O Hook `useState` permite que você declare uma variável de state. Ele recebe o state inicial e retorna um par de valores: o state atual e uma função de definição de state que permite que você o atualize.
 
 ```js
 const [index, setIndex] = useState(0);
 const [showMore, setShowMore] = useState(false);
 ```
 
-Here is how an image gallery uses and updates state on click:
+Veja como uma galeria de imagens usa e atualiza o state ao clicar:
 
 <Sandpack>
 
@@ -229,19 +229,19 @@ button {
 
 <LearnMore path="/learn/state-a-components-memory">
 
-Read **[State: A Component's Memory](/learn/state-a-components-memory)** to learn how to remember a value and update it on interaction.
+Leia **[State: A Component's Memory](/learn/state-a-components-memory)** para aprender como lembrar um valor e atualizá-lo na interação.
 
 </LearnMore>
 
-## Render and commit {/*render-and-commit*/}
+## Render e commit {/*render-and-commit*/}
 
-Before your components are displayed on the screen, they must be rendered by React. Understanding the steps in this process will help you think about how your code executes and explain its behavior.
+Antes que seus componentes sejam exibidos na tela, eles devem ser renderizados pelo React. Entender as etapas desse processo ajudará você a pensar em como seu código é executado e explicar seu comportamento.
 
-Imagine that your components are cooks in the kitchen, assembling tasty dishes from ingredients. In this scenario, React is the waiter who puts in requests from customers and brings them their orders. This process of requesting and serving UI has three steps:
+Imagine que seus componentes são cozinheiros na cozinha, montando pratos saborosos a partir de ingredientes. Nesse cenário, o React é o garçom que faz pedidos de clientes e lhes traz seus pedidos. Esse processo de solicitação e atendimento da UI tem três etapas:
 
-1. **Triggering** a render (delivering the diner's order to the kitchen)
-2. **Rendering** the component (preparing the order in the kitchen)
-3. **Committing** to the DOM (placing the order on the table)
+1. **Triggering** uma renderização (entregando o pedido do jantar para a cozinha)
+2. **Rendering** o componente (preparando o pedido na cozinha)
+3. **Committing** para o DOM (colocando o pedido na mesa)
 
 <IllustrationBlock sequential>
   <Illustration caption="Trigger" alt="React as a server in a restaurant, fetching orders from the users and delivering them to the Component Kitchen." src="/images/docs/illustrations/i_render-and-commit1.png" />
@@ -251,21 +251,21 @@ Imagine that your components are cooks in the kitchen, assembling tasty dishes f
 
 <LearnMore path="/learn/render-and-commit">
 
-Read **[Render and Commit](/learn/render-and-commit)** to learn the lifecycle of a UI update.
+Leia **[Render e Commit](/learn/render-and-commit)** para aprender o ciclo de vida de uma atualização da UI.
 
 </LearnMore>
 
-## State as a snapshot {/*state-as-a-snapshot*/}
+## State como um snapshot {/*state-as-a-snapshot*/}
 
-Unlike regular JavaScript variables, React state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render. This can be surprising at first!
+Ao contrário das variáveis regulares do JavaScript, o React state se comporta mais como um snapshot. Definê-lo não altera a variável de state que você já possui, mas sim aciona uma re-renderização. Isso pode ser surpreendente no começo!
 
 ```js
 console.log(count);  // 0
-setCount(count + 1); // Request a re-render with 1
-console.log(count);  // Still 0!
+setCount(count + 1); // Solicita uma re-renderização com 1
+console.log(count);  // Ainda 0!
 ```
 
-This behavior helps you avoid subtle bugs. Here is a little chat app. Try to guess what happens if you press "Send" first and *then* change the recipient to Bob. Whose name will appear in the `alert` five seconds later?
+Este comportamento ajuda a evitar bugs sutis. Aqui está um pequeno aplicativo de bate-papo. Tente adivinhar o que acontece se você pressionar "Enviar" primeiro e *depois* alterar o destinatário para Bob. Cujo nome aparecerá no `alert` cinco segundos depois?
 
 <Sandpack>
 
@@ -311,16 +311,15 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 </Sandpack>
 
-
 <LearnMore path="/learn/state-as-a-snapshot">
 
-Read **[State as a Snapshot](/learn/state-as-a-snapshot)** to learn why state appears "fixed" and unchanging inside the event handlers.
+Leia **[State como um Snapshot](/learn/state-as-a-snapshot)** para aprender por que o state aparece "fixo" e imutável dentro dos event handlers..
 
 </LearnMore>
 
-## Queueing a series of state updates {/*queueing-a-series-of-state-updates*/}
+## Enfileirando uma série de atualizações de state {/*queueing-a-series-of-state-updates*/}
 
-This component is buggy: clicking "+3" increments the score only once.
+Este componente está com erro: clicar em "+3" incrementa a pontuação apenas uma vez.
 
 <Sandpack>
 
@@ -354,7 +353,7 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 </Sandpack>
 
-[State as a Snapshot](/learn/state-as-a-snapshot) explains why this is happening. Setting state requests a new re-render, but does not change it in the already running code. So `score` continues to be `0` right after you call `setScore(score + 1)`.
+[State como um Snapshot](/learn/state-as-a-snapshot) explica por que isso está acontecendo. Definir o state solicita uma nova re-renderização, mas não o altera no código já em execução. Portanto, `score` continua sendo `0` logo após você chamar `setScore(score + 1)`.
 
 ```js
 console.log(score);  // 0
@@ -366,7 +365,7 @@ setScore(score + 1); // setScore(0 + 1);
 console.log(score);  // 0
 ```
 
-You can fix this by passing an *updater function* when setting state. Notice how replacing `setScore(score + 1)` with `setScore(s => s + 1)` fixes the "+3" button. This lets you queue multiple state updates.
+Você pode corrigir isso passando uma *função de atualização* ao definir o state. Observe como substituir `setScore(score + 1)` por `setScore(s => s + 1)` corrige o botão "+3". Isso permite que você enfileire várias atualizações de state.
 
 <Sandpack>
 
@@ -402,15 +401,15 @@ button { display: inline-block; margin: 10px; font-size: 20px; }
 
 <LearnMore path="/learn/queueing-a-series-of-state-updates">
 
-Read **[Queueing a Series of State Updates](/learn/queueing-a-series-of-state-updates)** to learn how to queue a sequence of state updates.
+Leia **[Enfileirando uma Série de Atualizações de State](/learn/queueing-a-series-of-state-updates)** para aprender como enfileirar uma sequência de atualizações de state.
 
 </LearnMore>
 
-## Updating objects in state {/*updating-objects-in-state*/}
+## Atualizando objetos no state {/*updating-objects-in-state*/}
 
-State can hold any kind of JavaScript value, including objects. But you shouldn't change objects and arrays that you hold in the React state directly. Instead, when you want to update an object and array, you need to create a new one (or make a copy of an existing one), and then update the state to use that copy.
+O state pode conter qualquer tipo de valor JavaScript, incluindo objetos. Mas você não deve alterar objetos e arrays que você guarda no React state diretamente. Em vez disso, quando você quiser atualizar um objeto e uma array, você precisa criar um novo (ou fazer uma cópia de um existente), e então atualizar o state para usar essa cópia.
 
-Usually, you will use the `...` spread syntax to copy objects and arrays that you want to change. For example, updating a nested object could look like this:
+Geralmente, você usará a sintaxe de espalhamento `...` para copiar objetos e arrays que você deseja alterar. Por exemplo, atualizar um objeto aninhado pode se parecer com isso:
 
 <Sandpack>
 
@@ -518,7 +517,7 @@ img { width: 200px; height: 200px; }
 
 </Sandpack>
 
-If copying objects in code gets tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code:
+Se copiar objetos em código se tornar tedioso, você pode usar uma biblioteca como [Immer](https://github.com/immerjs/use-immer) para reduzir o código repetitivo:
 
 <Sandpack>
 
@@ -633,13 +632,13 @@ img { width: 200px; height: 200px; }
 
 <LearnMore path="/learn/updating-objects-in-state">
 
-Read **[Updating Objects in State](/learn/updating-objects-in-state)** to learn how to update objects correctly.
+Leia **[Atualizando Objetos no State](/learn/updating-objects-in-state)** para aprender como atualizar objetos corretamente.
 
 </LearnMore>
 
-## Updating arrays in state {/*updating-arrays-in-state*/}
+## Atualizando arrays no state {/*updating-arrays-in-state*/}
 
-Arrays are another type of mutable JavaScript objects you can store in state and should treat as read-only. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array:
+Arrays são outro tipo de objetos JavaScript mutáveis que você pode armazenar no state e devem ser tratados como somente leitura. Assim como com objetos, quando você deseja atualizar uma array armazenada no state, você precisa criar uma nova (ou fazer uma cópia de uma existente) e, em seguida, definir o state para usar a nova array:
 
 <Sandpack>
 
@@ -705,7 +704,7 @@ function ItemList({ artworks, onToggle }) {
 
 </Sandpack>
 
-If copying arrays in code gets tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code:
+Se copiar arrays em código se tornar tedioso, você pode usar uma biblioteca como [Immer](https://github.com/immerjs/use-immer) para reduzir o código repetitivo:
 
 <Sandpack>
 
@@ -789,12 +788,12 @@ function ItemList({ artworks, onToggle }) {
 
 <LearnMore path="/learn/updating-arrays-in-state">
 
-Read **[Updating Arrays in State](/learn/updating-arrays-in-state)** to learn how to update arrays correctly.
+Leia **[Atualizando Arrays no State](/learn/updating-arrays-in-state)** para aprender como atualizar arrays corretamente.
 
 </LearnMore>
 
-## What's next? {/*whats-next*/}
+## O que vem a seguir? {/*whats-next*/}
 
-Head over to [Responding to Events](/learn/responding-to-events) to start reading this chapter page by page!
+Vá para [Respondendo a Eventos](/learn/responding-to-events) para começar a ler esta página do capítulo, página por página!
 
-Or, if you're already familiar with these topics, why not read about [Managing State](/learn/managing-state)?
+Ou, se você já está familiarizado com esses tópicos, por que não ler sobre [Gerenciando o State](/learn/managing-state)?
