@@ -1,10 +1,10 @@
 ---
-title: React Blog
+title: Blog do React
 ---
 
 <Intro>
 
-This blog is the official source for the updates from the React team. Anything important, including release notes or deprecation notices, will be posted here first. You can also follow the [@reactjs](https://twitter.com/reactjs) account on Twitter, but you won’t miss anything essential if you only read this blog.
+Este blog é a fonte oficial de atualizações da equipe do React. Qualquer coisa importante, incluindo notas de lançamento ou avisos de descontinuação, será postado aqui primeiro. Você também pode seguir a conta [@reactjs](https://twitter.com/reactjs) no Twitter, mas não perderá nada essencial se ler apenas este blog.
 
 </Intro>
 
@@ -12,94 +12,95 @@ This blog is the official source for the updates from the React team. Anything i
 
 <BlogCard title="React v19 " date="December 5, 2024" url="/blog/2024/12/05/react-19">
 
-In the React 19 Upgrade Guide, we shared step-by-step instructions for upgrading your app to React 19. In this post, we'll give an overview of the new features in React 19, and how you can adopt them ...
+No Guia de Atualização do React 19, compartilhamos instruções passo a passo para atualizar seu aplicativo para o React 19. Nesta postagem, daremos uma visão geral dos novos recursos do React 19 e como você pode adotá-los...
 
 </BlogCard>
 
-<BlogCard title="React Compiler Beta Release" date="October 21, 2024" url="/blog/2024/10/21/react-compiler-beta-release">
+<BlogCard title="Lançamento Beta do React Compiler" date="October 21, 2024" url="/blog/2024/10/21/react-compiler-beta-release">
 
-We announced an experimental release of React Compiler at React Conf 2024. We've made a lot of progress since then, and in this post we want to share what's next for React Compiler ...
-
-</BlogCard>
-
-<BlogCard title="React Conf 2024 Recap" date="May 22, 2024" url="/blog/2024/05/22/react-conf-2024-recap">
-
-Last week we hosted React Conf 2024, a two-day conference in Henderson, Nevada where 700+ attendees gathered in-person to discuss the latest in UI engineering. This was our first in-person conference since 2019, and we were thrilled to be able to bring the community together again ...
+Anunciamos um lançamento experimental do React Compiler na React Conf 2024. Fizemos muito progresso desde então e, nesta postagem, queremos compartilhar o que vem a seguir para o React Compiler...
 
 </BlogCard>
 
-<BlogCard title="React 19 Upgrade Guide" date="April 25, 2024" url="/blog/2024/04/25/react-19-upgrade-guide">
+<BlogCard title="Resumo do React Conf 2024" date="May 22, 2024" url="/blog/2024/05/22/react-conf-2024-recap">
 
-The improvements added to React 19 require some breaking changes, but we've worked to make the upgrade as smooth as possible, and we don't expect the changes to impact most apps. In this post, we will guide you through the steps for upgrading libraries to React 19 ...
-
-</BlogCard>
-
-<BlogCard title="React Labs: What We've Been Working On – February 2024" date="February 15, 2024" url="/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024">
-
-In React Labs posts, we write about projects in active research and development. Since our last update, we've made significant progress on React Compiler, new features, and React 19, and we'd like to share what we learned.
+Na semana passada, sediamos a React Conf 2024, uma conferência de dois dias em Henderson, Nevada, onde mais de 700 participantes se reuniram pessoalmente para discutir as últimas novidades em engenharia de UI. Esta foi nossa primeira conferência presencial desde 2019, e ficamos muito felizes em poder reunir a comunidade novamente...
 
 </BlogCard>
 
-<BlogCard title="React Canaries: Incremental Feature Rollout Outside Meta" date="May 3, 2023" url="/blog/2023/05/03/react-canaries">
+<BlogCard title="Guia de Atualização do React 19" date="April 25, 2024" url="/blog/2024/04/25/react-19-upgrade-guide">
 
-Traditionally, new React features used to only be available at Meta first, and land in the open source releases later. We'd like to offer the React community an option to adopt individual new features as soon as their design is close to final--similar to how Meta uses React internally. We are introducing a new officially supported Canary release channel. It lets curated setups like frameworks decouple adoption of individual React features from the React release schedule.
-
-</BlogCard>
-
-<BlogCard title="React Labs: What We've Been Working On – March 2023" date="March 22, 2023" url="/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023">
-
-In React Labs posts, we write about projects in active research and development. Since our last update, we've made significant progress on React Server Components, Asset Loading, Optimizing Compiler, Offscreen Rendering, and Transition Tracing, and we'd like to share what we learned.
+As melhorias adicionadas ao React 19 exigem algumas mudanças significativas, mas trabalhamos para tornar a atualização o mais tranquila possível e não esperamos que as mudanças impactem a maioria dos aplicativos. Nesta postagem, guiaremos você pelas etapas para atualizar as bibliotecas para o React 19...
 
 </BlogCard>
 
+<BlogCard title="React Labs: No Que Temos Trabalhado – Fevereiro de 2024" date="February 15, 2024" url="/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024">
 
-<BlogCard title="Introducing react.dev" date="March 16, 2023" url="/blog/2023/03/16/introducing-react-dev">
+Nas postagens do React Labs, escrevemos sobre projetos em pesquisa e desenvolvimento ativos. Desde nossa última atualização, fizemos um progresso significativo no React Compiler, novos recursos e React 19, e gostaríamos de compartilhar o que aprendemos.
 
-Today we are thrilled to launch react.dev, the new home for React and its documentation. In this post, we would like to give you a tour of the new site.
+</BlogCard>
+
+<BlogCard title="React Canaries: Implantação Incremental de Recursos Fora do Meta" date="May 3, 2023" url="/blog/2023/05/03/react-canaries">
+
+Tradicionalmente, os novos recursos do React só estavam disponíveis no Meta primeiro e, mais tarde, chegavam às versões de código aberto. Gostaríamos de oferecer à comunidade React uma opção para adotar novos recursos individuais assim que seu design estiver próximo do final – semelhante à forma como o Meta usa o React internamente. Estamos apresentando um novo canal de lançamento Canary oficialmente suportado. Ele permite que configurações selecionadas, como frameworks, desacoplem a adoção de recursos individuais do React do cronograma de lançamento do React.
+
+</BlogCard>
+
+<BlogCard title="React Labs: No Que Temos Trabalhado – Março de 2023" date="March 22, 2023" url="/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023">
+
+Nas postagens do React Labs, escrevemos sobre projetos em pesquisa e desenvolvimento ativos. Desde nossa última atualização, fizemos um progresso significativo no React Server Components, Asset Loading, Otimização do Compiler, Offscreen Rendering e Transition Tracing, e gostaríamos de compartilhar o que aprendemos.
 
 </BlogCard>
 
 
-<BlogCard title="React Labs: What We've Been Working On – June 2022" date="June 15, 2022" url="/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022">
-React 18 was years in the making, and with it brought valuable lessons for the React team. Its release was the result of many years of research and exploring many paths. Some of those paths were successful; many more were dead-ends that led to new insights. One lesson we’ve learned is that it’s frustrating for the community to wait for new features without having insight into these paths that we’re exploring...
+<BlogCard title="Apresentando react.dev" date="March 16, 2023" url="/blog/2023/03/16/introducing-react-dev">
+
+Hoje estamos muito satisfeitos em lançar o react.dev, o novo lar do React e sua documentação. Nesta postagem, gostaríamos de fazer um tour pelo novo site.
+
+</BlogCard>
+
+
+<BlogCard title="React Labs: No Que Temos Trabalhado – Junho de 2022" date="June 15, 2022" url="/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022">
+O React 18 levou anos para ser feito, e com ele trouxe lições valiosas para a equipe do React. Seu lançamento foi o resultado de muitos anos de pesquisa e exploração de muitos caminhos. Alguns desses caminhos foram bem-sucedidos; muitos mais foram becos sem saída que levaram a novos insights. Uma lição que aprendemos é que é frustrante para a comunidade esperar por novos recursos sem ter informações sobre esses caminhos que estamos explorando...
 </BlogCard>
 
 <BlogCard title="React v18.0" date="March 29, 2022" url="/blog/2022/03/29/react-v18">
-React 18 is now available on npm! In our last post, we shared step-by-step instructions for upgrading your app to React 18. In this post, we’ll give an overview of what’s new in React 18, and what it means for the future...
+O React 18 já está disponível no npm! Em nossa última postagem, compartilhamos instruções passo a passo para atualizar seu aplicativo para o React 18. Nesta postagem, daremos uma visão geral das novidades do React 18 e o que isso significa para o futuro...
 </BlogCard>
 
-<BlogCard title="How to Upgrade to React 18" date="March 8, 2022" url="/blog/2022/03/08/react-18-upgrade-guide">
-As we shared in the release post, React 18 introduces features powered by our new concurrent renderer, with a gradual adoption strategy for existing applications. In this post, we will guide you through the steps for upgrading to React 18...
+<BlogCard title="Como atualizar para o React 18" date="March 8, 2022" url="/blog/2022/03/08/react-18-upgrade-guide">
+Como compartilhamos na postagem de lançamento, o React 18 apresenta recursos otimizados por nosso novo renderizador concorrente, com uma estratégia de adoção gradual para aplicativos existentes. Nesta postagem, guiaremos você pelas etapas para atualizar para o React 18...
 </BlogCard>
 
-<BlogCard title="React Conf 2021 Recap" date="December 17, 2021" url="/blog/2021/12/17/react-conf-2021-recap">
-Last week we hosted our 6th React Conf.  In previous years, we’ve used the React Conf stage to deliver industry changing announcements such as React Native and React Hooks. This year, we shared our multi-platform vision for React, starting with the release of React 18 and gradual adoption of concurrent features...
+<BlogCard title="Resumo do React Conf 2021" date="December 17, 2021" url="/blog/2021/12/17/react-conf-2021-recap">
+Na semana passada, sediamos nossa 6ª React Conf.  Nos anos anteriores, usamos o palco da React Conf para fornecer anúncios que mudaram a indústria, como React Native e React Hooks. Este ano, compartilhamos nossa visão multiplataforma para o React, começando com o lançamento do React 18 e a adoção gradual de recursos concorrentes...
 </BlogCard>
 
-<BlogCard title="The Plan for React 18" date="June 8, 2021" url="/blog/2021/06/08/the-plan-for-react-18">
-The React team is excited to share a few updates:
+<BlogCard title="O Plano para o React 18" date="June 8, 2021" url="/blog/2021/06/08/the-plan-for-react-18">
+A equipe React está animada para compartilhar algumas atualizações:
 
-- We’ve started work on the React 18 release, which will be our next major version.
-- We’ve created a Working Group to prepare the community for gradual adoption of new features in React 18.
-- We’ve published a React 18 Alpha so that library authors can try it and provide feedback...
+- Começamos a trabalhar no lançamento do React 18, que será nossa próxima versão principal.
+- Criamos um Grupo de Trabalho para preparar a comunidade para a adoção gradual de novos recursos no React 18.
+- Publicamos um React 18 Alpha para que os autores de bibliotecas possam experimentá-lo e fornecer feedback...
 </BlogCard>
 
-<BlogCard title="Introducing Zero-Bundle-Size React Server Components" date="December 21, 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
-2020 has been a long year. As it comes to an end we wanted to share a special Holiday Update on our research into zero-bundle-size React Server Components. To introduce React Server Components, we have prepared a talk and a demo. If you want, you can check them out during the holidays, or later when work picks back up in the new year...
+<BlogCard title="Apresentando os Componentes do Servidor React de Tamanho Zero de Bundle" date="December 21, 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
+2020 foi um ano longo. Ao chegar ao fim, queríamos compartilhar uma atualização especial de férias sobre nossa pesquisa em Componentes do Servidor React de tamanho zero de bundle. Para apresentar os Componentes do Servidor React, preparamos uma palestra e uma demonstração. Se você quiser, pode conferir durante as férias ou mais tarde, quando o trabalho começar novamente no ano novo...
 </BlogCard>
 
 </div>
 
 ---
 
-### All release notes {/*all-release-notes*/}
+### Todas as notas de lançamento {/*all-release-notes*/}
 
-Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md`](https://github.com/facebook/react/blob/main/CHANGELOG.md) file in the React repository, as well as on the [Releases](https://github.com/facebook/react/releases) page.
+Nem todo lançamento do React merece sua própria postagem no blog, mas você pode encontrar um changelog detalhado para cada lançamento no arquivo [`CHANGELOG.md`](https://github.com/facebook/react/blob/main/CHANGELOG.md) no repositório do React, bem como na página [Releases](https://github.com/facebook/react/releases).
 
 ---
 
-### Older posts {/*older-posts*/}
+### Postagens mais antigas {/*older-posts*/}
 
-See the [older posts.](https://reactjs.org/blog/all.html)
+Veja as [postagens mais antigas.](https://reactjs.org/blog/all.html)
 
 <div className="h-12"></div>
+``
