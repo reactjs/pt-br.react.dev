@@ -1,10 +1,11 @@
+```
 ---
 meta: "<meta>"
 ---
 
 <Intro>
 
-The [built-in browser `<meta>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) lets you add metadata to the document.
+O [componente nativo do navegador `<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) permite que você adicione metadados ao documento.
 
 ```js
 <meta name="keywords" content="React, JavaScript, semantic markup, html" />
@@ -16,43 +17,43 @@ The [built-in browser `<meta>` component](https://developer.mozilla.org/en-US/do
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<meta>` {/*meta*/}
 
-To add document metadata, render the [built-in browser `<meta>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta). You can render `<meta>` from any component and React will always place the corresponding DOM element in the document head.
+Para adicionar metadados ao documento, renderize o [componente nativo do navegador `<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta). Você pode renderizar `<meta>` a partir de qualquer componente e o React sempre colocará o elemento DOM correspondente no `head` do documento.
 
 ```js
 <meta name="keywords" content="React, JavaScript, semantic markup, html" />
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Props {/*props*/}
 
-`<meta>` supports all [common element props.](/reference/react-dom/components/common#props)
+`<meta>` suporta todas as [props comuns de elemento](/reference/react-dom/components/common#props).
 
-It should have *exactly one* of the following props: `name`, `httpEquiv`, `charset`, `itemProp`. The `<meta>` component does something different depending on which of these props is specified.
+Ele deve ter *exatamente uma* das seguintes props: `name`, `httpEquiv`, `charset`, `itemProp`. O componente `<meta>` faz algo diferente dependendo de qual dessas props é especificada.
 
-* `name`: a string. Specifies the [kind of metadata](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name) to be attached to the document. 
-* `charset`: a string. Specifies the character set used by the document. The only valid value is `"utf-8"`.
-* `httpEquiv`: a string. Specifies a directive for processing the document.
-* `itemProp`: a string. Specifies metadata about a particular item within the document rather than the document as a whole.
-* `content`: a string. Specifies the metadata to be attached when used with the `name` or `itemProp` props or the behavior of the directive when used with the `httpEquiv` prop.
+*   `name`: uma string. Especifica o [tipo de metadados](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name) a serem anexados ao documento.
+*   `charset`: uma string. Especifica o conjunto de caracteres usado pelo documento. O único valor válido é `"utf-8"`.
+*   `httpEquiv`: uma string. Especifica uma diretiva para processar o documento.
+*   `itemProp`: uma string. Especifica metadados sobre um item específico dentro do documento, em vez do documento como um todo.
+*   `content`: uma string. Especifica os metadados a serem anexados quando usados com as props `name` ou `itemProp` ou o comportamento da diretiva quando usado com a prop `httpEquiv`.
 
-#### Special rendering behavior {/*special-rendering-behavior*/}
+#### Comportamento especial de renderização {/*special-rendering-behavior*/}
 
-React will always place the DOM element corresponding to the `<meta>` component within the document’s `<head>`, regardless of where in the React tree it is rendered. The `<head>` is the only valid place for `<meta>` to exist within the DOM, yet it’s convenient and keeps things composable if a component representing a specific page can render `<meta>` components itself. 
+O React sempre colocará o elemento DOM correspondente ao componente `<meta>` dentro do `<head>` do documento, independentemente de onde na árvore React ele é renderizado. O `<head>` é o único lugar válido para `<meta>` existir no DOM, mas é conveniente e mantém as coisas compostas se um componente que representa uma página específica puder renderizar componentes `<meta>` por si só.
 
-There is one exception to this: if `<meta>` has an [`itemProp`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemprop) prop, there is no special behavior, because in this case it doesn’t represent metadata about the document but rather metadata about a specific part of the page. 
+Há uma exceção a isso: se `<meta>` tiver uma prop [`itemProp`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemprop), não haverá comportamento especial, porque, nesse caso, ele não representa metadados sobre o documento, mas sim metadados sobre uma parte específica da página.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Annotating the document with metadata {/*annotating-the-document-with-metadata*/}
+### Anotando o documento com metadados {/*annotating-the-document-with-metadata*/}
 
-You can annotate the document with metadata such as keywords, a summary, or the author’s name. React will place this metadata within the document `<head>` regardless of where in the React tree it is rendered. 
+Você pode anotar o documento com metadados, como palavras-chave, um resumo ou o nome do autor. O React colocará esses metadados no `<head>` do documento, independentemente de onde na árvore React eles são renderizados.
 
 ```html
 <meta name="author" content="John Smith" />
@@ -60,7 +61,7 @@ You can annotate the document with metadata such as keywords, a summary, or the 
 <meta name="description" content="API reference for the <meta> component in React DOM" />
 ```
 
-You can render the `<meta>` component from any component. React will put a `<meta>` DOM node in the document `<head>`.
+Você pode renderizar o componente `<meta>` a partir de qualquer componente. O React colocará um nó DOM `<meta>` no `<head>` do documento.
 
 <SandpackWithHTMLOutput>
 
@@ -81,13 +82,13 @@ export default function SiteMapPage() {
 
 </SandpackWithHTMLOutput>
 
-### Annotating specific items within the document with metadata {/*annotating-specific-items-within-the-document-with-metadata*/}
+### Anotando itens específicos dentro do documento com metadados {/*annotating-specific-items-within-the-document-with-metadata*/}
 
-You can use the `<meta>` component with the `itemProp` prop to annotate specific items within the document with metadata. In this case, React will *not* place these annotations within the document `<head>` but will place them like any other React component. 
+Você pode usar o componente `<meta>` com a prop `itemProp` para anotar itens específicos dentro do documento com metadados. Nesse caso, o React *não* colocará essas anotações no `<head>` do documento, mas as colocará como qualquer outro componente React.
 
 ```js
 <section itemScope>
-  <h3>Annotating specific items</h3>
+  <h3>Anotando itens específicos</h3>
   <meta itemProp="description" content="API reference for using <meta> with itemProp" />
   <p>...</p>
 </section>
