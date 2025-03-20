@@ -38,13 +38,13 @@ Em vez de marcar funções individualmente com `'use server'`, você pode adicio
 
 #### Ressalvas {/*caveats*/}
 
-*   `'use server'` deve estar no início da função ou módulo; acima de qualquer outro código, incluindo imports (comentários acima das diretivas são OK). Elas devem ser escritas com aspas simples ou duplas, não crases.
-*   `'use server'` só pode ser usado em arquivos do lado do servidor. As Server Functions resultantes podem ser passadas para Client Components por meio de props. Veja os [tipos suportados para serialização](#serializable-parameters-and-return-values).
-*   Para importar Server Functions do [código do cliente](/reference/rsc/use-client), a diretiva deve ser usada em nível de módulo.
-*   Como as chamadas de rede subjacentes são sempre assíncronas, `'use server'` só pode ser usado em funções `async`.
-*   Sempre trate os argumentos das Server Functions como entrada não confiável e autorize quaisquer mutações. Veja [considerações de segurança](#security).
-*   As Server Functions devem ser chamadas em uma [Transition](/reference/react/useTransition). Server Functions passadas para [`<form action>`](/reference/react-dom/components/form#props) ou [`formAction`](/reference/react-dom/components/input#props) serão automaticamente chamadas em uma transition.
-*   As Server Functions são projetadas para mutações que atualizam o estado do lado do servidor; não são recomendadas para busca de dados. Consequentemente, frameworks que implementam Server Functions normalmente processam uma ação por vez e não têm uma maneira de armazenar em cache o valor de retorno.
+* `'use server'` deve estar no início da função ou módulo; acima de qualquer outro código, incluindo imports (comentários acima das diretivas são OK). Elas devem ser escritas com aspas simples ou duplas, não crases.
+* `'use server'` só pode ser usado em arquivos do lado do servidor. As Server Functions resultantes podem ser passadas para Client Components por meio de props. Veja os [tipos suportados para serialização](#serializable-parameters-and-return-values).
+* Para importar Server Functions do [código do cliente](/reference/rsc/use-client), a diretiva deve ser usada em nível de módulo.
+* Como as chamadas de rede subjacentes são sempre assíncronas, `'use server'` só pode ser usado em funções `async`.
+* Sempre trate os argumentos das Server Functions como entrada não confiável e autorize quaisquer mutações. Veja [considerações de segurança](#security).
+* As Server Functions devem ser chamadas em uma [Transition](/reference/react/useTransition). Server Functions passadas para [`<form action>`](/reference/react-dom/components/form#props) ou [`formAction`](/reference/react-dom/components/input#props) serão automaticamente chamadas em uma transition.
+* As Server Functions são projetadas para mutações que atualizam o estado do lado do servidor; não são recomendadas para busca de dados. Consequentemente, frameworks que implementam Server Functions normalmente processam uma ação por vez e não têm uma maneira de armazenar em cache o valor de retorno.
 
 ### Considerações de segurança {/*security*/}
 
@@ -66,36 +66,34 @@ Como o código do cliente chama a Server Function pela rede, quaisquer argumento
 
 Aqui estão os tipos suportados para os argumentos da Server Function:
 
-*   Primitivos
-
-    *   [string](https://developer.mozilla.org/en-US/docs/Glossary/String)
-    *   [number](https://developer.mozilla.org/en-US/docs/Glossary/Number)
-    *   [bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
-    *   [boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean)
-    *   [undefined](https://developer.mozilla.org/en-US/docs/Glossary/Undefined)
-    *   [null](https://developer.mozilla.org/en-US/docs/Glossary/Null)
-    *   [symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), apenas símbolos registrados no registro global de Symbol via [`Symbol.for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
-*   Iteráveis contendo valores serializáveis
-
-    *   [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-    *   [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-    *   [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
-    *   [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-    *   [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) e [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
-*   [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
-*   Instâncias [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
-*   [Objetos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) simples: aqueles criados com [inicializadores de objeto](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer), com propriedades serializáveis
-*   Funções que são Server Functions
-*   [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* Primitivos
+  * [string](https://developer.mozilla.org/en-US/docs/Glossary/String)
+  * [number](https://developer.mozilla.org/en-US/docs/Glossary/Number)
+  * [bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+  * [boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean)
+  * [undefined](https://developer.mozilla.org/en-US/docs/Glossary/Undefined)
+  * [null](https://developer.mozilla.org/en-US/docs/Glossary/Null)
+  * [symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol), apenas símbolos registrados no registro global de Symbol via [`Symbol.for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
+* Iteráveis contendo valores serializáveis
+  * [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+  * [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+  * [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+  * [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+  * [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) e [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
+* [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+* Instâncias [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
+* [Objetos](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) simples: aqueles criados com [inicializadores de objeto](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer), com propriedades serializáveis
+* Funções que são Server Functions
+* [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 Notavelmente, estes não são suportados:
 
-*   Elementos React ou [JSX](/learn/writing-markup-with-jsx)
-*   Funções, incluindo funções de componente ou qualquer outra função que não seja uma Server Function
-*   [Classes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
-*   Objetos que são instâncias de qualquer classe (além dos built-ins mencionados) ou objetos com [um protótipo nulo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
-*   Símbolos não registrados globalmente, ex. `Symbol('meu novo símbolo')`
-*   Eventos de manipuladores de eventos
+* Elementos React ou [JSX](/learn/writing-markup-with-jsx)
+* Funções, incluindo funções de componente ou qualquer outra função que não seja uma Server Function
+* [Classes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Classes_in_JavaScript)
+* Objetos que são instâncias de qualquer classe (além dos built-ins mencionados) ou objetos com [um protótipo nulo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)
+* Símbolos não registrados globalmente, ex. `Symbol('meu novo símbolo')`
+* Eventos de manipuladores de eventos
 
 Os valores de retorno serializáveis suportados são os mesmos que os [props serializáveis](/reference/rsc/use-client#passing-props-from-server-to-client-components) para um Client Component de limite.
 
@@ -216,4 +214,3 @@ export default async function incrementLike() {
 ```
 
 Para ler um valor de retorno da Server Function, você precisará fazer `await` na promise retornada.
-```
