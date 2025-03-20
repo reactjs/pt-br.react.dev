@@ -694,7 +694,9 @@ export default function TaskList() {
   // ...
 ```
 
-Para atualizar a lista de tarefas, qualquer componente pode ler a função `dispatch` do context e chamá-la:```js {3,9-13}
+Para atualizar a lista de tarefas, qualquer componente pode ler a função `dispatch` do context e chamá-la:
+
+```js {3,9-13}
 export default function AddTask() {
   const [text, setText] = useState('');
   const dispatch = useContext(TasksDispatchContext);
