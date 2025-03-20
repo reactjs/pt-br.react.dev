@@ -1,35 +1,36 @@
 ---
-title: Translations
+title: Traduções
 ---
 
 <Intro>
 
-React docs are translated by the global community into many languages all over the world.
+Os documentos do React são traduzidos pela comunidade global para muitos idiomas em todo o mundo.
 
 </Intro>
 
-## Source site {/*main-site*/}
+## Site fonte {/*main-site*/}
 
-All translations are provided from the canonical source docs:
+Todas as traduções são fornecidas a partir dos documentos de origem canônicos:
 
-- [English](https://react.dev/) &mdash; [Contribute](https://github.com/reactjs/react.dev/)
+- [English](https://react.dev/) &mdash; [Contribuir](https://github.com/reactjs/react.dev/)
 
-## Full translations {/*full-translations*/}
+## Traduções completas {/*full-translations*/}
 
-{/* If you are a language maintainer and want to add your language here, finish the "Core" translations and edit `deployedTranslations` under `src/utils`. */}
+{/* Se você é um(a) mantenedor(a) de idioma e quer adicionar seu idioma aqui, finalize as traduções "Core" e edite `deployedTranslations` em `src/utils`. */}
 
 <LanguageList progress="complete" />
 
-## In-progress translations {/*in-progress-translations*/}
+## Traduções em andamento {/*in-progress-translations*/}
 
-For the progress of each translation, see: [Is React Translated Yet?](https://translations.react.dev/)
+Para o progresso de cada tradução, veja: [O React já foi traduzido?](https://translations.react.dev/)
 
 <LanguageList progress="in-progress" />
 
-## How to contribute {/*how-to-contribute*/}
+## Como contribuir {/*how-to-contribute*/}
 
-You can contribute to the translation efforts! 
+Você pode contribuir com os esforços de tradução!
 
-The community conducts the translation work for the React docs on each language-specific fork of react.dev. Typical translation work involves directly translating a Markdown file and creating a pull request. Click the "contribute" link above to the GitHub repository for your language, and follow the instructions there to help with the translation effort.
+A comunidade realiza o trabalho de tradução para os documentos do React em cada fork específico de idioma de react.dev. O trabalho de tradução típico envolve a tradução direta de um arquivo Markdown e a criação de um pull request. Clique no link "contribuir" acima para o repositório do GitHub para seu idioma e siga as instruções lá para ajudar com o esforço de tradução.
 
-If you want to start a new translation for your language, visit: [translations.react.dev](https://github.com/reactjs/translations.react.dev)
+Se você deseja iniciar uma nova tradução para seu idioma, visite: [translations.react.dev](https://github.com/reactjs/translations.react.dev)
+``
