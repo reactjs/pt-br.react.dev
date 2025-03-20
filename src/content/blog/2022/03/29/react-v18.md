@@ -114,8 +114,8 @@ Para mais informações, consulte esta postagem para [Batching automático para 
 
 Uma transition é um novo conceito no React para distinguir entre atualizações urgentes e não urgentes.
 
-*   **Atualizações urgentes** refletem a interação direta, como digitar, clicar, pressionar e assim por diante.
-*   **Atualizações de transition** fazem a transição da UI de uma visualização para outra.
+* **Atualizações urgentes** refletem a interação direta, como digitar, clicar, pressionar e assim por diante.
+* **Atualizações de transition** fazem a transição da UI de uma visualização para outra.
 
 Atualizações urgentes como digitação, clique ou pressione, precisam de resposta imediata para corresponder às nossas intuições sobre como os objetos físicos se comportam. Caso contrário, eles parecem "errados". No entanto, as transitions são diferentes porque o usuário não espera ver cada valor intermediário na tela.
 
@@ -138,8 +138,8 @@ startTransition(() => {
 
 Atualizações encapsuladas em startTransition são tratadas como não urgentes e serão interrompidas se atualizações mais urgentes, como cliques ou pressionamentos de teclas, chegarem. Se uma transition for interrompida pelo usuário (por exemplo, digitando vários caracteres em sequência), o React descartará o trabalho de renderização obsoleto que não foi finalizado e renderizará apenas a atualização mais recente.
 
-*   `useTransition`: um Hook para iniciar transitions, incluindo um valor para rastrear o estado pendente.
-*   `startTransition`: um método para iniciar transitions quando o Hook não pode ser usado.
+* `useTransition`: um Hook para iniciar transitions, incluindo um valor para rastrear o estado pendente.
+* `startTransition`: um método para iniciar transitions quando o Hook não pode ser usado.
 
 As transitions optarão pela renderização concorrente, que permite que a atualização seja interrompida. Se o conteúdo re-suspender, as transitions também dizem ao React para continuar mostrando o conteúdo atual enquanto renderiza o conteúdo da transition em segundo plano (consulte o [Suspense RFC](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md) para obter mais informações).
 
@@ -173,8 +173,8 @@ Nesta versão, aproveitamos a oportunidade para redesenhar as APIs que expomos p
 
 Essas novas APIs agora são exportadas de `react-dom/client`:
 
-*   `createRoot`: Novo método para criar uma raiz para `render` ou `unmount`. Use-o em vez de `ReactDOM.render`. Os novos recursos no React 18 não funcionam sem ele.
-*   `hydrateRoot`: Novo método para hidratar um aplicativo renderizado no servidor. Use-o em vez de `ReactDOM.hydrate` em conjunto com as novas APIs do React DOM Server. Os novos recursos no React 18 não funcionam sem ele.
+* `createRoot`: Novo método para criar uma raiz para `render` ou `unmount`. Use-o em vez de `ReactDOM.render`. Os novos recursos no React 18 não funcionam sem ele.
+* `hydrateRoot`: Novo método para hidratar um aplicativo renderizado no servidor. Use-o em vez de `ReactDOM.hydrate` em conjunto com as novas APIs do React DOM Server. Os novos recursos no React 18 não funcionam sem ele.
 
 `createRoot` e `hydrateRoot` aceitam uma nova opção chamada `onRecoverableError` caso você queira ser notificado quando o React se recuperar de erros durante a renderização ou hidratação para registro. Por padrão, o React usará [`reportError`](https://developer.mozilla.org/en-US/docs/Web/API/reportError), ou `console.error` nos navegadores mais antigos.
 
@@ -184,8 +184,8 @@ Essas novas APIs agora são exportadas de `react-dom/client`:
 
 Essas novas APIs agora são exportadas de `react-dom/server` e têm suporte total para streaming Suspense no servidor:
 
-*   `renderToPipeableStream`: para streaming em ambientes Node.
-*   `renderToReadableStream`: para ambientes de tempo de execução de borda modernos, como Deno e Cloudflare workers.
+* `renderToPipeableStream`: para streaming em ambientes Node.
+* `renderToReadableStream`: para ambientes de tempo de execução de borda modernos, como Deno e Cloudflare workers.
 
 O método `renderToString` existente continua funcionando, mas não é recomendado.
 
@@ -199,7 +199,9 @@ Esse recurso dará aos aplicativos React melhor desempenho imediato, mas requer 
 
 Para ajudar a expor esses problemas, o React 18 apresenta uma nova verificação somente para desenvolvimento no Strict Mode. Essa nova verificação desmontará e remontará automaticamente cada componente, sempre que um componente montar pela primeira vez, restaurando o estado anterior na segunda montagem.
 
-Antes dessa alteração, o React montaria o componente e criaria os efeitos:```
+Antes dessa alteração, o React montaria o componente e criaria os efeitos:
+
+```
 * React monta o componente.
   * Layout effects são criados.
   * Effects são criados.
@@ -227,7 +229,7 @@ Com o Modo Strict no React 18, o React irá simular a desmontagem e remontagem d
 
 `useId` é um novo Hook para gerar IDs únicos tanto no cliente quanto no servidor, evitando incompatibilidades de hidratação. Ele é útil principalmente para bibliotecas de componentes que se integram com APIs de acessibilidade que exigem IDs únicos. Isso resolve um problema que já existe no React 17 e versões anteriores, mas é ainda mais importante no React 18 por causa de como o novo renderizador de servidor de streaming entrega o HTML fora de ordem. [Veja a documentação aqui](/reference/react/useId).
 
-> Nota
+> Note
 >
 > `useId` **não** serve para gerar [chaves em uma lista](/learn/rendering-lists#where-to-get-your-key). As chaves devem ser geradas a partir de seus dados.
 
@@ -243,7 +245,7 @@ Com o Modo Strict no React 18, o React irá simular a desmontagem e remontagem d
 
 `useSyncExternalStore` é um novo Hook que permite que lojas externas suportem leituras simultâneas, forçando as atualizações da loja a serem síncronas. Ele remove a necessidade de useEffect ao implementar assinaturas em fontes de dados externas e é recomendado para qualquer biblioteca que se integra com estado externo ao React. [Veja a documentação aqui](/reference/react/useSyncExternalStore).
 
-> Nota
+> Note
 >
 > `useSyncExternalStore` destina-se a ser usado por bibliotecas, não código de aplicação.
 
@@ -251,7 +253,7 @@ Com o Modo Strict no React 18, o React irá simular a desmontagem e remontagem d
 
 `useInsertionEffect` é um novo Hook que permite que bibliotecas CSS-in-JS abordem problemas de desempenho de injeção de estilos em renderização. A menos que você já tenha construído uma biblioteca CSS-in-JS, não esperamos que você use isso. Este Hook será executado após o DOM ser mutado, mas antes que os layout effects leiam o novo layout. Isso resolve um problema que já existe no React 17 e versões anteriores, mas é ainda mais importante no React 18 porque o React cede ao navegador durante a renderização concorrente, dando a ele a chance de recalcular o layout. [Veja a documentação aqui](/reference/react/useInsertionEffect).
 
-> Nota
+> Note
 >
 > `useInsertionEffect` destina-se a ser usado por bibliotecas, não código de aplicação.
 
