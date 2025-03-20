@@ -775,10 +775,7 @@ Isso ocorre porque você não está mutando o state _original_, mas está mutand
 
 Nos bastidores, Immer sempre constrói o state a partir do zero de acordo com as alterações que você fez no `draft`. Isso mantém seus manipuladores de eventos muito concisos, sem nunca mutar o state.
 
-<Recap>```
-PART 2 OF 2:
-
-PART 3 OF 2:
+<Recap>
 
 - Você pode colocar `arrays` no `state`, mas não pode modificá-los.
 - Em vez de mutar um `array`, crie uma versão *nova* dele, e atualize o `state` para ele.
