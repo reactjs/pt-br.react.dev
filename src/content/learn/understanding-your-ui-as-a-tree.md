@@ -16,7 +16,7 @@ React, e muitas outras bibliotecas de UI, modelam a UI como uma árvore. Pensar 
 * O que é uma árvore de renderização e para que ela é útil
 * O que é uma árvore de dependência de módulos e para que ela é útil
 
-</YouYouWillLearn>
+</YouWillLearn>
 
 ## Sua UI como uma árvore {/*your-ui-as-a-tree*/}
 
