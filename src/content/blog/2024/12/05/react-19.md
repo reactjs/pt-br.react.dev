@@ -41,9 +41,9 @@ Para obter uma lista de mudanças significativas, consulte o [Guia de Atualizaç
 
 ### Ações {/*actions*/}
 
-Um caso de uso comum em aplicativos React é realizar uma mutação de dados e, em seguida, atualizar o estado em resposta. Por exemplo, quando um usuário envia um formulário para alterar seu nome, você fará uma solicitação de API e, em seguida, lidará com a resposta. No passado, você precisaria lidar manualmente com estados pendentes, erros, atualizações otimistas e solicitações sequenciais.
+Um caso de uso comum em aplicativos React é realizar uma mutação de dados e, em seguida, atualizar o state em resposta. Por exemplo, quando um usuário envia um formulário para alterar seu nome, você fará uma solicitação de API e, em seguida, lidará com a resposta. No passado, você precisaria lidar manualmente com estados pendentes, erros, atualizações otimistas e solicitações sequenciais.
 
-Por exemplo, você pode lidar com o estado pendente e de erro em `useState`:
+Por exemplo, você pode lidar com o state pendente e de erro em `useState`:
 
 ```js
 // Antes das Ações
@@ -77,10 +77,10 @@ function UpdateName({}) {
 
 No React 19, estamos adicionando suporte para o uso de funções assíncronas em transições para lidar com estados pendentes, erros, formulários e atualizações otimistas automaticamente.
 
-Por exemplo, você pode usar `useTransition` para lidar com o estado pendente por você:
+Por exemplo, você pode usar `useTransition` para lidar com o state pendente por você:
 
 ```js
-// Usando estado pendente das Ações
+// Usando state pendente das Ações
 function UpdateName({}) {
   const [name, setName] = useState("");
   const [error, setError] = useState(null);
@@ -109,7 +109,7 @@ function UpdateName({}) {
 }
 ```
 
-A transição assíncrona definirá imediatamente o estado `isPending` como true, fará as solicitações assíncronas e definirá `isPending` como false após quaisquer transições. Isso permite que você mantenha a interface do usuário atual responsiva e interativa enquanto os dados estão mudando.
+A transição assíncrona definirá imediatamente o state `isPending` como true, fará as solicitações assíncronas e definirá `isPending` como false após quaisquer transições. Isso permite que você mantenha a interface do usuário atual responsiva e interativa enquanto os dados estão mudando.
 
 <Note>
 
@@ -117,7 +117,7 @@ A transição assíncrona definirá imediatamente o estado `isPending` como true
 
 As Ações gerenciam o envio de dados automaticamente:
 
-- **Estado pendente**: As Ações fornecem um estado pendente que começa no início de uma solicitação e redefine automaticamente quando a atualização final do estado é confirmada.
+- **Estado pendente**: As Ações fornecem um state pendente que começa no início de uma solicitação e redefine automaticamente quando a atualização final do state é confirmada.
 - **Atualizações otimistas**: As Ações oferecem suporte ao novo hook [`useOptimistic`](#new-hook-optimistic-updates) para que você possa mostrar aos usuários feedback instantâneo enquanto as solicitações são enviadas.
 - **Tratamento de erros**: As Ações fornecem tratamento de erros para que você possa exibir Error Boundaries quando uma solicitação falhar e reverter as atualizações otimistas para seu valor original automaticamente.
 - **Formulários**: Os elementos `<form>` agora oferecem suporte à passagem de funções para as propriedades `action` e `formAction`. A passagem de funções para as propriedades `action` usa Ações por padrão e redefine o formulário automaticamente após o envio.
@@ -176,7 +176,7 @@ const [error, submitAction, isPending] = useActionState(
 );
 ```
 
-`useActionState` aceita uma função (a "Ação") e retorna uma Ação encapsulada para chamar. Isso funciona porque as Ações se compõem. Quando a Ação encapsulada é chamada, `useActionState` retornará o último resultado da Ação como `data` e o estado pendente da Ação como `pending`.
+`useActionState` aceita uma função (a "Ação") e retorna uma Ação encapsulada para chamar. Isso funciona porque as Ações se compõem. Quando a Ação encapsulada é chamada, `useActionState` retornará o último resultado da Ação como `data` e o state pendente da Ação como `pending`.
 
 <Note>
 
@@ -188,7 +188,7 @@ Veja [#28491](https://github.com/facebook/react/pull/28491) para obter mais info
 
 Para obter mais informações, consulte a documentação para [`useActionState`](/reference/react/useActionState).
 
-### React DOM: `<form>` Ações {/*form-actions*/}
+### React DOM: Ações de `<form>` {/*form-actions*/}
 
 As Ações também são integradas aos novos recursos do `<form>` do React 19 para `react-dom`. Adicionamos suporte para passar funções como propriedades `action` e `formAction` dos elementos `<form>`, `<input>` e `<button>` para enviar formulários automaticamente com Ações:
 
@@ -219,7 +219,7 @@ Para obter mais informações, consulte a documentação do `react-dom` para [`u
 
 ### Novo hook: `useOptimistic` {/*new-hook-optimistic-updates*/}
 
-Outro padrão comum de UI ao realizar uma mutação de dados é mostrar o estado final de forma otimista enquanto a solicitação assíncrona está em andamento. No React 19, estamos adicionando um novo hook chamado `useOptimistic` para facilitar isso:
+Outro padrão comum de UI ao realizar uma mutação de dados é mostrar o state final de forma otimista enquanto a solicitação assíncrona está em andamento. No React 19, estamos adicionando um novo hook chamado `useOptimistic` para facilitar isso:
 
 ```js {2,6,13,19}
 function ChangeName({currentName, onUpdateName}) {
