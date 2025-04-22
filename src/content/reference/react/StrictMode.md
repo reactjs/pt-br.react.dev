@@ -83,9 +83,9 @@ Embora as verificações do Strict Mode **só sejam executadas no desenvolviment
 
 O Strict Mode habilita as seguintes verificações no desenvolvimento:
 
-- Seus componentes [irão re-renderizar uma vez a mais](#fixing-bugs-found-by-double-rendering-in-development) para encontrar erros causados por renderização impura.
-- Seus componentes [irão re-executar os Effects uma vez a mais](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar erros causados pela falta de limpeza do Effect.
-- Seus componentes [irão re-executar os callbacks de ref uma vez a mais](#fixing-bugs-found-by-cleaning-up-and-re-attaching-dom-refs-in-development) para encontrar erros causados pela falta de limpeza da ref.
+- Seus componentes [re-renderizarão mais uma vez](#fixing-bugs-found-by-double-rendering-in-development) para encontrar bugs causados por renderização impura.
+- Seus componentes [re-executarão os Efeitos mais uma vez](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar bugs causados pela falta de limpeza de Efeitos.
+- Seus componentes [re-executarão os retornos de chamada de referência mais uma vez](#fixing-bugs-found-by-re-running-ref-callbacks-in-development) para encontrar bugs causados pela falta de limpeza de referência.
 - Seus componentes [serão verificados quanto ao uso de APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
 **Todas essas verificações são apenas para desenvolvimento e não afetam a build de produção.**
@@ -118,6 +118,12 @@ function App() {
 ```
 
 Neste exemplo, as verificações do Strict Mode não serão executadas nos componentes `Header` e `Footer`. No entanto, elas serão executadas em `Sidebar` e `Content`, bem como em todos os componentes dentro deles, não importa quão profundos sejam.
+
+<Note>
+
+When `StrictMode` is enabled for a part of the app, React will only enable behaviors that are possible in production. For example, if `<StrictMode>` is not enabled at the root of the app, it will not [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) on initial mount, since this would cause child effects to double fire without the parent effects, which cannot happen in production.
+
+</Note>
 
 ---
 
