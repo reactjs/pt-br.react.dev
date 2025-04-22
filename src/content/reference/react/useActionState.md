@@ -62,7 +62,7 @@ Quando usado com uma Função de Servidor, `useActionState` permite que a respos
 
 {/* TODO T164397693: link to serializable values docs once it exists */}
 
-#### Retorna {/*returns*/}
+#### Retornos {/*returns*/}
 
 `useActionState` retorna um array com os seguintes valores:
 
