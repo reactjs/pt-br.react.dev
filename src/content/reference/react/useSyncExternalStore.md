@@ -405,14 +405,14 @@ Se seus dados da store forem mutáveis, sua função `getSnapshot` deverá retor
 
 Esta função `subscribe` é definida *dentro* de um componente, portanto, é diferente em cada nova renderização:
 
-```js {4-7}
+```js {2-5}
 function ChatIndicator() {
-  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
-  
   // 🚩 Sempre uma função diferente, então o React se reinscreverá em cada nova renderização
   function subscribe() {
     // ...
   }
+  
+  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
 
   // ...
 }
@@ -420,28 +420,28 @@ function ChatIndicator() {
   
 O React se reinscreverá em sua store se você passar uma função `subscribe` diferente entre as novas renderizações. Se isso causar problemas de desempenho e você quiser evitar a reinscrição, mova a função `subscribe` para fora:
 
-```js {6-9}
-function ChatIndicator() {
-  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
+```js {1-4}
+// ✅ Sempre a mesma função, então o React não precisará se inscrever novamente
+function subscribe() {
   // ...
 }
 
-// ✅ Sempre a mesma função, então o React não precisará se reinscrever
-function subscribe() {
+function ChatIndicator() {
+  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
   // ...
 }
 ```
 
 Alternativamente, encapsule `subscribe` em [`useCallback`](/reference/react/useCallback) para se reinscrever apenas quando algum argumento mudar:
 
-```js {4-8}
+```js {2-5}
 function ChatIndicator({ userId }) {
-  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
-  
   // ✅ Mesma função, enquanto userId não mudar
   const subscribe = useCallback(() => {
     // ...
   }, [userId]);
+  
+  const isOnline = useSyncExternalStore(subscribe, getSnapshot);
 
   // ...
 }
