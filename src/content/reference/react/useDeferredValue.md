@@ -88,7 +88,7 @@ Durante as atualizações, o <CodeStep step={2}>valor adiado</CodeStep> "ficará
 
 Este exemplo supõe que você use uma fonte de dados compatível com Suspense:
 
-- Obtenção de dados com estruturas compatíveis com Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) e [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
+- Obtenção de dados com estruturas compatíveis com Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) e [Next.js](https://nextjs.org/docs/app/getting-started/fetching-data#with-suspense)
 - Carregamento lento do código do componente com [`lazy`](/reference/react/lazy)
 - Leitura do valor de uma Promise com [`use`](/reference/react/use)
 
