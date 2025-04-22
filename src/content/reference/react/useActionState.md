@@ -106,7 +106,7 @@ function MyComponent() {
 
 Quando o formulário é enviado, a função <CodeStep step={3}>ação</CodeStep> que você forneceu será chamada. Seu valor de retorno se tornará o novo <CodeStep step={1}>estado atual</CodeStep> do formulário.
 
-A <CodeStep step={3}>action</CodeStep> que você fornece também receberá um novo primeiro argumento, ou seja, o <CodeStep step={1}>estado atual</CodeStep> do formulário. Na primeira vez que o formulário for enviado, este será o <CodeStep step={4}>estado inicial</CodeStep> que você forneceu, enquanto com envios subsequentes, será o valor de retorno da última vez que a action foi chamada. O restante dos argumentos são os mesmos de se `useActionState` não tivesse sido usado.
+A <CodeStep step={3}>ação</CodeStep> que você fornece também receberá um novo primeiro argumento, ou seja, o <CodeStep step={1}>estado atual</CodeStep> do formulário. Na primeira vez que o formulário for enviado, este será o <CodeStep step={4}>estado inicial</CodeStep> que você forneceu, enquanto com envios subsequentes, será o valor de retorno da última vez que a action foi chamada. O restante dos argumentos são os mesmos de se `useActionState` não tivesse sido usado.
 
 ```js [[3, 1, "action"], [1, 1, "currentState"]]
 function action(currentState, formData) {
