@@ -183,7 +183,7 @@ form button {
 
 #### Exibir informações estruturadas após o envio de um formulário {/*display-structured-information-after-submitting-a-form*/}
 
-O valor de retorno de uma Server Function pode ser qualquer valor serializável. Por exemplo, pode ser um objeto que inclui um booleano indicando se a action foi bem-sucedida, uma mensagem de erro ou informações atualizadas.
+O valor de retorno de uma Server Function pode ser qualquer valor serializável. Por exemplo, pode ser um objeto que inclui um booleano indicando se a ação foi bem-sucedida, uma mensagem de erro ou informações atualizadas.
 
 <Sandpack>
 
