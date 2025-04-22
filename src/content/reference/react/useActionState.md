@@ -50,7 +50,7 @@ function StatefulForm({}) {
 
 O estado do formulário é o valor retornado pela ação quando o formulário foi enviado pela última vez. Se o formulário ainda não foi enviado, é o estado inicial que você passa.
 
-Se usado com uma Server Function, `useActionState` permite que a resposta do servidor do envio do formulário seja exibida mesmo antes da conclusão da hidratação.
+Quando usado com uma Função de Servidor, `useActionState` permite que a resposta do servidor ao enviar o formulário seja exibida mesmo antes da hidratação ser concluída.
 
 [Veja mais exemplos abaixo.](#usage)
 
