@@ -25,17 +25,12 @@
       "path": "/learn/installation",
       "routes": [
         {
-<<<<<<< HEAD
-          "title": "Comece um Novo Projeto React",
-          "path": "/learn/start-a-new-react-project"
-=======
-          "title": "Creating a React App",
+          "title": "Criando um App React",
           "path": "/learn/creating-a-react-app"
         },
         {
-          "title": "Build a React App from Scratch",
+          "title": "Crie um App React do Zero",
           "path": "/learn/build-a-react-app-from-scratch"
->>>>>>> 55986965fbf69c2584040039c9586a01bd54eba7
         },
         {
           "title": "Adicione React a um Projeto Existente",
