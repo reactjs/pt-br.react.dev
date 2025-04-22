@@ -66,7 +66,7 @@ Quando usado com uma Função de Servidor, `useActionState` permite que a respos
 
 `useActionState` retorna um array com os seguintes valores:
 
-1. O estado atual. Durante a primeira renderização, ele corresponderá ao `initialState` que você passou. Depois que a action for invocada, ele corresponderá ao valor retornado pela action.
+1. O estado atual. Durante a primeira renderização, ele corresponderá ao `initialState` que você passou. Depois que a ação for invocada, ele corresponderá ao valor retornado pela action.
 2. Uma nova ação que você pode passar como a prop `action` para seu componente `form` ou a prop `formAction` para qualquer componente `button` dentro do formulário. A ação também pode ser chamada manualmente dentro de [`startTransition`](/reference/react/startTransition).
 3. A flag `isPending` que informa se existe uma Transition pendente.
 
