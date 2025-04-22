@@ -57,7 +57,7 @@ Quando usado com uma Função de Servidor, `useActionState` permite que a respos
 #### Parâmetros {/*parameters*/}
 
 * `fn`: A função a ser chamada quando o formulário é enviado ou o botão pressionado. Quando a função é chamada, ela receberá o estado anterior do formulário (inicialmente o `initialState` que você passa, subsequentemente seu valor de retorno anterior) como seu primeiro argumento, seguido pelos argumentos que uma ação de formulário normalmente recebe.
-* `initialState`: O valor que você deseja que o estado seja inicialmente. Pode ser qualquer valor serializável. Este argumento é ignorado depois que a action é invocada pela primeira vez.
+* `initialState`: O valor que você deseja que o estado seja inicialmente. Pode ser qualquer valor serializável. Este argumento é ignorado depois que a ação é invocada pela primeira vez.
 * **opcional** `permalink`: Uma `string` que contém a URL exclusiva da página que este formulário modifica. Para uso em páginas com conteúdo dinâmico (por exemplo: feeds) em conjunto com aprimoramento progressivo: se `fn` é uma [server function](/reference/rsc/server-functions) e o formulário é enviado antes que o bundle JavaScript seja carregado, o navegador navegará para a URL da permalink especificada, em vez da URL da página atual. Certifique-se de que o mesmo componente de formulário seja renderizado na página de destino (incluindo a mesma `action fn` e `permalink`) para que React saiba como passar o state. Depois que o formulário for hidratado, este parâmetro não terá efeito.
 
 {/* TODO T164397693: link to serializable values docs once it exists */}
