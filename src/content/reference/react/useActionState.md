@@ -119,7 +119,7 @@ function action(currentState, formData) {
 
 #### Exibir erros de formulário {/*display-form-errors*/}
 
-Para exibir mensagens como uma mensagem de erro ou toast que é retornado por uma Server Function, envolva a action em uma chamada para `useActionState`.
+Para exibir mensagens como uma mensagem de erro ou toast que é retornado por uma Server Function, envolva a ação em uma chamada para `useActionState`.
 
 <Sandpack>
 
