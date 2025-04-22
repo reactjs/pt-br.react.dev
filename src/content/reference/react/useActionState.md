@@ -28,7 +28,7 @@ Em versões anteriores do React Canary, esta API fazia parte do React DOM e era 
 
 {/* TODO T164397693: link to actions documentation once it exists */}
 
-Chame `useActionState` no nível raiz do seu componente para criar um estado de componente que é atualizado [quando uma action de formulário é invocada](/reference/react-dom/components/form). Você passa para o `useActionState` uma função de action de formulário existente, bem como um estado inicial, e ele retorna uma nova action que você usa no seu formulário, juntamente com o estado atual do formulário e se a Action ainda está pendente. O estado atual do formulário também é passado para a função que você forneceu.
+Chame `useActionState` no nível superior do seu componente para criar um estado do componente que é atualizado [quando uma ação de formulário é invocada](/reference/react-dom/components/form). Você passa para o `useActionState` uma função de ação de formulário existente, bem como um estado inicial, e ele retorna uma nova ação que você usa no seu formulário, juntamente com o estado atual do formulário e se a ação ainda está pendente. O estado atual do formulário também é passado para a função que você forneceu.
 
 ```js
 import { useActionState } from "react";
