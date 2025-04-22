@@ -79,7 +79,7 @@ Quando usado com uma Função de Servidor, `useActionState` permite que a respos
 
 ## Uso {/*usage*/}
 
-### Usando informações retornadas por uma action de formulário {/*using-information-returned-by-a-form-action*/}
+### Usando informações retornadas por uma ação de formulário {/*using-information-returned-by-a-form-action*/}
 
 Chame `useActionState` no nível raiz do seu componente para acessar o valor de retorno de uma action da última vez que um formulário foi enviado.
 
