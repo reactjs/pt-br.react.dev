@@ -8,15 +8,6 @@ React foi projetado desde o princípio para adoção gradual. Você pode utiliza
 
 </Intro>
 
-<YouWillLearn isChapter={true}>
-
-* [Como iniciar um novo projeto em React](/learn/start-a-new-react-project)
-* [Como adicionar React a um projeto existente](/learn/add-react-to-an-existing-project)
-* [Como configurar seu editor](/learn/editor-setup)
-* [Como instalar as Ferramentas de Desenvolvedor React](/learn/react-developer-tools)
-
-</YouWillLearn>
-
 ## Experimente React {/*try-react*/}
 
 Não é necessário que instale nada para mexer com o React. Experimente editar este exemplo de código!
@@ -39,17 +30,28 @@ Você pode editá-lo diretamente ou abri-lo em uma nova aba pressionando o botã
 
 A maioria das páginas na documentação do React contém sandboxes como esta. Fora da documentação do React, existem muitos sandboxes online que suportam React: por exemplo, [CodeSandbox](https://codesandbox.io/s/new), [StackBlitz](https://stackblitz.com/fork/react) ou [CodePen.](https://codepen.io/pen?template=QWYVwWN)
 
-### Experimente React localmente {/*try-react-locally*/}
+Para experimentar o React localmente em sua máquina, [baixe este arquivo HTML.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Abra-o em seu editor e em seu navegador!
 
-Para experimentar o React localmente na sua máquina, [baixe este arquivo HTML.](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html) Abra-o em seu editor e em seu navegador!
+## Criando um App React {/*creating-a-react-app*/}
 
-## Inicie um novo projeto em React {/*start-a-new-react-project*/}
+Se você quiser iniciar um novo app React, você pode [criar um app React](/learn/creating-a-react-app) usando um framework recomendado.
 
-Caso queira construir uma aplicação ou um site totalmente em React, [inicie um novo projeto em React.](/learn/start-a-new-react-project)
+## Criando um App React do Zero {/*build-a-react-app-from-scratch*/}
+
+Se um framework não for uma boa opção para seu projeto, você preferir construir seu próprio framework, ou você apenas quer aprender os fundamentos de um app React, você pode [criar um app React do zero](/learn/build-a-react-app-from-scratch).
 
 ## Adicione React a um projeto existente {/*add-react-to-an-existing-project*/}
 
-Caso queira experimentar React em uma aplicação ou site já existentes, [adicione React a um projeto existente.](/learn/add-react-to-an-existing-project)
+Se você quiser experimentar o React em seu app ou site existente, você pode [adicionar o React a um projeto existente.](/learn/add-react-to-an-existing-project)
+
+
+<Note>
+
+#### Devo usar Create React App? {/*should-i-use-create-react-app*/}
+
+Não. Create React App foi descontinuado. Para mais informações, veja [Sunsetting Create React App](/blog/2025/02/14/sunsetting-create-react-app).
+
+</Note>
 
 ## Próximos passos {/*próximos-passos*/}
 

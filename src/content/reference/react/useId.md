@@ -46,6 +46,8 @@ function PasswordField() {
 
 * `useId` **não deve ser usado para gerar chaves** em uma lista. [As chaves devem ser geradas a partir de seus dados.](/learn/rendering-lists#where-to-get-your-key)
 
+* `useId` currently cannot be used in [async Server Components](/reference/rsc/server-components#async-components-with-server-components).
+
 ---
 
 ## Uso {/*usage*/}
