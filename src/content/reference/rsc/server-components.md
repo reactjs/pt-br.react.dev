@@ -298,4 +298,4 @@ function Comments({commentsPromise}) {
 
 O conteúdo de `note` é dados importantes para a página renderizar, então nós fazemos `await` nele no servidor. Os comentários estão abaixo da dobra e de baixa prioridade, então nós iniciamos a promise no servidor, e esperamos por ela no cliente com a API `use`. Isso irá Suspender no cliente, sem bloquear o conteúdo de `note` de renderizar.
 
-Já que componentes assíncronos [não são suportados no cliente](#why-cant-i-use-async-components-on-the-client), nós fazemos await na promise com `use`.
+Como componentes assíncronos não são suportados no cliente, aguardamos a promessa com `use`.
