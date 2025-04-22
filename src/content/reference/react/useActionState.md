@@ -102,7 +102,7 @@ function MyComponent() {
 
 1. O <CodeStep step={1}>estado atual</CodeStep> do formulário, que é inicialmente definido como o <CodeStep step={4}>estado inicial</CodeStep> que você forneceu e, após o formulário ser enviado, é definido como o valor de retorno da <CodeStep step={3}>ação</CodeStep> que você forneceu.
 2. Uma <CodeStep step={2}>nova action</CodeStep> que você passa para o `<form>` como sua prop `action` ou chama manualmente dentro de `startTransition`.
-3. Um <CodeStep step={1}>estado pendente</CodeStep> que você pode utilizar enquanto sua action está processando.
+3. Um <CodeStep step={1}>estado pendente</CodeStep> que você pode utilizar enquanto sua ação está processando.
 
 Quando o formulário é enviado, a função <CodeStep step={3}>action</CodeStep> que você forneceu será chamada. Seu valor de retorno se tornará o novo <CodeStep step={1}>estado atual</CodeStep> do formulário.
 
