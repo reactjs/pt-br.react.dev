@@ -73,7 +73,7 @@ Quando usado com uma Função de Servidor, `useActionState` permite que a respos
 #### Ressalvas {/*caveats*/}
 
 * Quando usado com um framework que oferece suporte a React Server Components, `useActionState` permite que você torne os formulários interativos antes que o JavaScript tenha sido executado no cliente. Quando usado sem Server Components, é equivalente ao estado local do componente.
-* A função passada para `useActionState` recebe um argumento extra, o estado anterior ou inicial, como seu primeiro argumento. Isso torna sua assinatura diferente do que se fosse usado diretamente como uma action de formulário sem usar `useActionState`.
+* A função passada para `useActionState` recebe um argumento extra, o estado anterior ou inicial, como seu primeiro argumento. Isso torna sua assinatura diferente do que se fosse usado diretamente como uma ação de formulário sem usar `useActionState`.
 
 ---
 
