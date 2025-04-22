@@ -70,7 +70,7 @@ Tente comentar a chamada `root.render()` e veja o componente desaparecer!
 Uma vez que o componente foi renderizado inicialmente, você pode acionar outras renderizações atualizando seu estado com a função [`set`](/reference/react/useState#setstate). A atualização do estado do seu componente enfileira automaticamente uma renderização. (Você pode imaginá-los como um cliente de restaurante pedindo chá, sobremesa e todo tipo de coisas depois de fazer o primeiro pedido, dependendo do estado de sede ou fome.)
 
 <IllustrationBlock sequential>
-  <Illustration caption="Atualização de Estado..." alt="Como um servidor React em um restaurante, servindo uma interface do usuário do cartão para o usuário, representado como um usuário com um cursor para sua cabeça. O patrono expressa que quer um cartão rosa, não preto!" src="/images/docs/illustrations/i_rerender1.png" />
+  <Illustration caption="Atualização de Estado..." alt="React como um servidor em um restaurante, servindo uma interface do usuário do cartão para o usuário, representado como um patrono com um cursor para sua cabeça. O patrono expressa que quer um cartão rosa, não preto!" src="/images/docs/illustrations/i_rerender1.png" />
   <Illustration caption="...triggers..." alt="React retorna à Cozinha de Componentes e diz ao Card Chef que eles precisam de um Card rosa." src="/images/docs/illustrations/i_rerender2.png" />
   <Illustration caption="...render!" alt="O Card Chef dá ao React o cartão rosa." src="/images/docs/illustrations/i_rerender3.png" />
 </IllustrationBlock>
@@ -150,7 +150,7 @@ O comportamento padrão de renderizar todos os componentes aninhados no componen
 
 Depois de renderizar (chamar) seus componentes, o React modificará o DOM.
 
-* **Para a renderização inicial,** o React usará a API DOM [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) para colocar todos os nós DOM criados na tela. 
+* **Para a renderização inicial,** o React usará a API DOM [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) para colocar todos os nós DOM criados na tela.
 * **Para rerrenderizações,** o React aplicará as operações mínimas necessárias (calculadas durante a renderização!) Para fazer o DOM corresponder à última saída de renderização.
 
 **O React apenas altera os nós do DOM se houver uma diferença entre as renderizações.** Por exemplo, aqui está um componente que renderiza novamente com props diferentes passados de seu pai a cada segundo. Observe como você pode adicionar algum texto no `<input>`, atualizando seu `valor`, mas o texto não desaparece quando o componente renderiza novamente:
