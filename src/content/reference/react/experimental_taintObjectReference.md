@@ -4,30 +4,29 @@ title: experimental_taintObjectReference
 
 <Wip>
 
-**This API is experimental and is not available in a stable version of React yet.**
+**Esta API é experimental e ainda não está disponível em uma versão estável do React.**
 
-You can try it by upgrading React packages to the most recent experimental version:
+Você pode experimentá-la atualizando os pacotes do React para a versão experimental mais recente:
 
 - `react@experimental`
 - `react-dom@experimental`
 - `eslint-plugin-react-hooks@experimental`
 
-Experimental versions of React may contain bugs. Don't use them in production.
+As versões experimentais do React podem conter erros. Não as use em produção.
 
-This API is only available inside React Server Components.
+Esta API só está disponível dentro dos Componentes de Servidor React.
 
 </Wip>
 
-
 <Intro>
 
-`taintObjectReference` lets you prevent a specific object instance from being passed to a Client Component like a `user` object.
+`taintObjectReference` permite que você impeça que uma instância de objeto específico seja passada para um Componente de Cliente, como um objeto `user`.
 
 ```js
 experimental_taintObjectReference(message, object);
 ```
 
-To prevent passing a key, hash or token, see [`taintUniqueValue`](/reference/react/experimental_taintUniqueValue).
+Para impedir a passagem de uma chave, hash ou token, consulte [`taintUniqueValue`](/reference/react/experimental_taintUniqueValue).
 
 </Intro>
 
@@ -35,50 +34,50 @@ To prevent passing a key, hash or token, see [`taintUniqueValue`](/reference/rea
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `taintObjectReference(message, object)` {/*taintobjectreference*/}
 
-Call `taintObjectReference` with an object to register it with React as something that should not be allowed to be passed to the Client as is:
+Chame `taintObjectReference` com um objeto para registrá-lo no React como algo que não deve ser permitido que seja passado para o Cliente como está:
 
 ```js
 import {experimental_taintObjectReference} from 'react';
 
 experimental_taintObjectReference(
-  'Do not pass ALL environment variables to the client.',
+  'Não passe TODAS as variáveis de ambiente para o cliente.',
   process.env
 );
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `message`: The message you want to display if the object gets passed to a Client Component. This message will be displayed as a part of the Error that will be thrown if the object gets passed to a Client Component.
+* `message`: A mensagem que você deseja exibir se o objeto for passado para um Componente de Cliente. Esta mensagem será exibida como parte do Erro que será lançado se o objeto for passado para um Componente de Cliente.
 
-* `object`: The object to be tainted. Functions and class instances can be passed to `taintObjectReference` as `object`. Functions and classes are already blocked from being passed to Client Components but the React's default error message will be replaced by what you defined in `message`. When a specific instance of a Typed Array is passed to `taintObjectReference` as `object`, any other copies of the Typed Array will not be tainted.
+* `object`: O objeto a ser "manchado". Funções e instâncias de classe podem ser passadas para `taintObjectReference` como `object`. Funções e classes já estão bloqueadas de serem passadas para Componentes de Cliente, mas a mensagem de erro padrão do React será substituída pelo que você definiu em `message`. Quando uma instância específica de um Typed Array é passada para `taintObjectReference` como `object`, quaisquer outras cópias do Typed Array não serão "manchadas".
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`experimental_taintObjectReference` returns `undefined`.
+`experimental_taintObjectReference` retorna `undefined`.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- Recreating or cloning a tainted object creates a new untainted object which may contain sensitive data. For example, if you have a tainted `user` object, `const userInfo = {name: user.name, ssn: user.ssn}` or `{...user}` will create new objects which are not tainted. `taintObjectReference` only protects against simple mistakes when the object is passed through to a Client Component unchanged.
+- Recriar ou clonar um objeto "manchado" cria um novo objeto não "manchado", que pode conter dados sensíveis. Por exemplo, se você tiver um objeto `user` "manchado", `const userInfo = {name: user.name, ssn: user.ssn}` ou `{...user}` criará novos objetos que não são "manchados". `taintObjectReference` só protege contra erros simples quando o objeto é passado para um Componente de Cliente inalterado.
 
 <Pitfall>
 
-**Do not rely on just tainting for security.** Tainting an object doesn't prevent leaking of every possible derived value. For example, the clone of a tainted object will create a new untainted object. Using data from a tainted object (e.g. `{secret: taintedObj.secret}`) will create a new value or object that is not tainted. Tainting is a layer of protection; a secure app will have multiple layers of protection, well designed APIs, and isolation patterns.
+**Não confie apenas em "manchar" para segurança.** "Manchar" um objeto não impede o vazamento de todos os valores derivados possíveis. Por exemplo, o clone de um objeto "manchado" criará um novo objeto não "manchado". Usar dados de um objeto "manchado" (por exemplo, `{secret: taintedObj.secret}`) criará um novo valor ou objeto que não está "manchado". "Manchar" é uma camada de proteção; um aplicativo seguro terá múltiplas camadas de proteção, APIs bem projetadas e padrões de isolamento.
 
 </Pitfall>
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Prevent user data from unintentionally reaching the client {/*prevent-user-data-from-unintentionally-reaching-the-client*/}
+### Impedir que dados do usuário alcancem o cliente sem intenção {/*prevent-user-data-from-unintentionally-reaching-the-client*/}
 
-A Client Component should never accept objects that carry sensitive data. Ideally, the data fetching functions should not expose data that the current user should not have access to. Sometimes mistakes happen during refactoring. To protect against these mistakes happening down the line we can "taint" the user object in our data API.
+Um Componente de Cliente nunca deve aceitar objetos que carreguem dados sensíveis. Idealmente, as funções de busca de dados não devem expor dados que o usuário atual não deveria ter acesso. Às vezes, erros acontecem durante a refatoração. Para proteger contra esses erros que acontecem ao longo do tempo, podemos "manchar" o objeto do usuário em nossa API de dados.
 
 ```js
 import {experimental_taintObjectReference} from 'react';
@@ -86,21 +85,21 @@ import {experimental_taintObjectReference} from 'react';
 export async function getUser(id) {
   const user = await db`SELECT * FROM users WHERE id = ${id}`;
   experimental_taintObjectReference(
-    'Do not pass the entire user object to the client. ' +
-      'Instead, pick off the specific properties you need for this use case.',
+    'Não passe o objeto inteiro do usuário para o cliente. ' +
+      'Em vez disso, selecione as propriedades específicas que você precisa para este caso de uso.',
     user,
   );
   return user;
 }
 ```
 
-Now whenever anyone tries to pass this object to a Client Component, an error will be thrown with the passed in error message instead.
+Agora, sempre que alguém tentar passar esse objeto para um Componente de Cliente, um erro será lançado com a mensagem de erro passada.
 
 <DeepDive>
 
-#### Protecting against leaks in data fetching {/*protecting-against-leaks-in-data-fetching*/}
+#### Protegendo contra vazamentos na busca de dados {/*protecting-against-leaks-in-data-fetching*/}
 
-If you're running a Server Components environment that has access to sensitive data, you have to be careful not to pass objects straight through:
+Se você estiver executando um ambiente de Componentes de Servidor que tem acesso a dados sensíveis, você deve ter cuidado para não passar os objetos diretamente:
 
 ```js
 // api.js
@@ -116,7 +115,7 @@ import { InfoCard } from 'components.js';
 
 export async function Profile(props) {
   const user = await getUser(props.userId);
-  // DO NOT DO THIS
+  // NÃO FAÇA ISSO
   return <InfoCard user={user} />;
 }
 ```
@@ -130,8 +129,7 @@ export async function InfoCard({ user }) {
 }
 ```
 
-Ideally, the `getUser` should not expose data that the current user should not have access to. To prevent passing the `user` object to a Client Component down the line we can "taint" the user object:
-
+Idealmente, o `getUser` não deve expor dados que o usuário atual não deveria ter acesso. Para impedir a passagem do objeto `user` para um Componente de Cliente ao longo do tempo, podemos "manchar" o objeto do usuário:
 
 ```js
 // api.js
@@ -140,14 +138,14 @@ import {experimental_taintObjectReference} from 'react';
 export async function getUser(id) {
   const user = await db`SELECT * FROM users WHERE id = ${id}`;
   experimental_taintObjectReference(
-    'Do not pass the entire user object to the client. ' +
-      'Instead, pick off the specific properties you need for this use case.',
+    'Não passe o objeto inteiro do usuário para o cliente. ' +
+      'Em vez disso, selecione as propriedades específicas que você precisa para este caso de uso.',
     user,
   );
   return user;
 }
 ```
 
-Now if anyone tries to pass the `user` object to a Client Component, an error will be thrown with the passed in error message.
+Agora, se alguém tentar passar o objeto `user` para um Componente de Cliente, um erro será lançado com a mensagem de erro passada.
 
 </DeepDive>

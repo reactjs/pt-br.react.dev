@@ -1,28 +1,25 @@
 ---
-title: Static React DOM APIs
+title: APIs estáticas do React DOM
 ---
 
 <Intro>
 
-The `react-dom/static` APIs let you generate static HTML for React components. They have limited functionality compared to the streaming APIs. A [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) may call them for you. Most of your components don't need to import or use them.
+As APIs `react-dom/static` permitem que você gere HTML estático para componentes React. Elas têm funcionalidade limitada em comparação com as APIs de streaming. Um [framework](/learn/start-a-new-react-project#production-grade-react-frameworks) pode chamá-las para você. A maioria dos seus componentes não precisa importá-las ou usá-las.
 
 </Intro>
 
 ---
 
-## Static APIs for Web Streams {/*static-apis-for-web-streams*/}
+## APIs estáticas para Web Streams {/*static-apis-for-web-streams*/}
 
-These methods are only available in the environments with [Web Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), which includes browsers, Deno, and some modern edge runtimes:
+Esses métodos estão disponíveis apenas em ambientes com [Web Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), que inclui navegadores, Deno e alguns modernos runtimes de borda:
 
-* [`prerender`](/reference/react-dom/static/prerender) renders a React tree to static HTML with a [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
-
+* [`prerender`](/reference/react-dom/static/prerender) renderiza uma árvore React para HTML estático com um [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
 
 ---
 
-## Static APIs for Node.js Streams {/*static-apis-for-nodejs-streams*/}
+## APIs estáticas para Node.js Streams {/*static-apis-for-nodejs-streams*/}
 
-These methods are only available in the environments with [Node.js Streams](https://nodejs.org/api/stream.html):
+Esses métodos estão disponíveis apenas em ambientes com [Node.js Streams](https://nodejs.org/api/stream.html):
 
-* [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) renders a React tree to static HTML with a [Node.js Stream.](https://nodejs.org/api/stream.html)
-
-
+* [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) renderiza uma árvore React para HTML estático com um [Node.js Stream.](https://nodejs.org/api/stream.html)

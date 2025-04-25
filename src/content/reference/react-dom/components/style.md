@@ -51,8 +51,9 @@ Para optar por esse comportamento, forneça as props `href` e `precedence`. O Re
 
 Este tratamento especial vem com duas ressalvas:
 
-* O React ignorará as alterações nas props após o estilo ter sido renderizado. (O React emitirá um aviso no desenvolvimento se isso acontecer.)
-* O React pode deixar o estilo no DOM mesmo depois que o componente que o renderizou foi desmontado.
+* O React ignorará as alterações nas propriedades após a renderização do estilo. (O React emitirá um aviso no desenvolvimento se isso acontecer.)
+* O React removerá todas as propriedades estranhas ao usar a propriedade `precedence` (além de `href` e `precedence`).
+* O React pode deixar o estilo no DOM mesmo após o componente que o renderizou ter sido desmontado.
 
 ---
 
