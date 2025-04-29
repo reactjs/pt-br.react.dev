@@ -4,7 +4,7 @@ link: "<link>"
 
 <Intro>
 
-The [built-in browser `<link>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) lets you use external resources such as stylesheets or annotate the document with link metadata.
+O [componente `<link>` nativo do navegador](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) permite que você use recursos externos, como folhas de estilo ou anote o documento com metadados de link.
 
 ```js
 <link rel="icon" href="favicon.ico" />
@@ -16,94 +16,94 @@ The [built-in browser `<link>` component](https://developer.mozilla.org/en-US/do
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<link>` {/*link*/}
 
-To link to external resources such as stylesheets, fonts, and icons, or to annotate the document with link metadata, render the [built-in browser `<link>` component](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link). You can render `<link>` from any component and React will [in most cases](#special-rendering-behavior) place the corresponding DOM element in the document head.
+Para fazer link para recursos externos, como folhas de estilo, fontes e ícones, ou para anotar o documento com metadados de link, renderize o [componente `<link>` nativo do navegador](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link). Você pode renderizar `<link>` de qualquer componente e o React [na maioria dos casos](#special-rendering-behavior) colocará o elemento DOM correspondente no head do documento.
 
 ```js
 <link rel="icon" href="favicon.ico" />
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Props {/*props*/}
 
-`<link>` supports all [common element props.](/reference/react-dom/components/common#props)
+`<link>` suporta todas as [props comuns de elemento](/reference/react-dom/components/common#props).
 
-* `rel`: a string, required. Specifies the [relationship to the resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). React [treats links with `rel="stylesheet"` differently](#special-rendering-behavior) from other links.
+* `rel`: uma string, obrigatória. Especifica a [relação com o recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). O React [trata links com `rel="stylesheet"` de forma diferente](#special-rendering-behavior) de outros links.
 
-These props apply when `rel="stylesheet"`:
+Essas props se aplicam quando `rel="stylesheet"`:
 
-* `precedence`: a string. Tells React where to rank the `<link>` DOM node relative to others in the document `<head>`, which determines which stylesheet can override the other. React will infer that precedence values it discovers first are "lower" and precedence values it discovers later are "higher". Many style systems can work fine using a single precedence value because style rules are atomic. Stylesheets with the same precedence go together whether they are `<link>` or inline `<style>` tags or loaded using [`preinit`](/reference/react-dom/preinit) functions.
-* `media`: a string. Restricts the stylesheet to a certain [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
-* `title`: a string. Specifies the name of an [alternative stylesheet](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
+* `precedence`: uma string. Diz ao React onde classificar o nó DOM `<link>` em relação a outros no `<head>` do documento, o que determina qual folha de estilo pode substituir a outra. O React inferirá que os valores de precedência que ele descobrir primeiro são "menores" e os valores de precedência que ele descobrir mais tarde são "maiores". Muitos sistemas de estilo podem funcionar bem usando um único valor de precedência porque as regras de estilo são atômicas. Folhas de estilo com a mesma precedência vão juntas, sejam tags `<link>` ou `<style>` inline ou carregadas usando funções [`preinit`](/reference/react-dom/preinit).
+* `media`: uma string. Restringe a folha de estilo a uma determinada [consulta de mídia](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries).
+* `title`: uma string. Especifica o nome de uma [folha de estilo alternativa](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
 
-These props apply when `rel="stylesheet"` but disable React's [special treatment of stylesheets](#special-rendering-behavior):
+Estas props se aplicam quando `rel="stylesheet"` mas desabilitam o [tratamento especial do React para folhas de estilo](#special-rendering-behavior):
 
-* `disabled`: a boolean. Disables the stylesheet.
-* `onError`: a function. Called when the stylesheet fails to load.
-* `onLoad`: a function. Called when the stylesheet finishes being loaded.
+* `disabled`: um booleano. Desabilita a folha de estilo.
+* `onError`: uma função. Chamada quando a folha de estilo falha ao carregar.
+* `onLoad`: uma função. Chamada quando a folha de estilo termina de ser carregada.
 
-These props apply when `rel="preload"` or `rel="modulepreload"`:
+Estas props se aplicam quando `rel="preload"` ou `rel="modulepreload"`:
 
-* `as`: a string. The type of resource. Its possible values are `audio`, `document`, `embed`, `fetch`, `font`, `image`, `object`, `script`, `style`, `track`, `video`, `worker`.
-* `imageSrcSet`: a string. Applicable only when `as="image"`. Specifies the [source set of the image](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
-* `imageSizes`: a string. Applicable only when `as="image"`. Specifies the [sizes of the image](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
+* `as`: uma string. O tipo de recurso. Seus valores possíveis são `audio`, `document`, `embed`, `fetch`, `font`, `image`, `object`, `script`, `style`, `track`, `video`, `worker`.
+* `imageSrcSet`: uma string. Aplicável somente quando `as="image"`. Especifica o [conjunto de origem da imagem](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
+* `imageSizes`: uma string. Aplicável somente quando `as="image"`. Especifica os [tamanhos da imagem](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
 
-These props apply when `rel="icon"` or `rel="apple-touch-icon"`:
+Essas props se aplicam quando `rel="icon"` ou `rel="apple-touch-icon"`:
 
-* `sizes`: a string. The [sizes of the icon](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
+* `sizes`: uma string. Os [tamanhos do ícone](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
 
-These props apply in all cases:
+Essas props se aplicam em todos os casos:
 
-* `href`: a string. The URL of the linked resource.
-*  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`. It is required when `as` is set to `"fetch"`.
-*  `referrerPolicy`: a string. The [Referrer header](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#referrerpolicy) to send when fetching. Its possible values are `no-referrer-when-downgrade` (the default), `no-referrer`, `origin`, `origin-when-cross-origin`, and `unsafe-url`.
-* `fetchPriority`: a string. Suggests a relative priority for fetching the resource. The possible values are `auto` (the default), `high`, and `low`.
-* `hrefLang`: a string. The language of the linked resource.
-* `integrity`: a string. A cryptographic hash of the resource, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
-* `type`: a string. The MIME type of the linked resource.
+* `href`: uma string. O URL do recurso vinculado.
+* `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus valores possíveis são `anonymous` e `use-credentials`. É obrigatório quando `as` está definido como `"fetch"`.
+* `referrerPolicy`: uma string. O [cabeçalho Referrer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#referrerpolicy) a ser enviado ao buscar. Seus valores possíveis são `no-referrer-when-downgrade` (o padrão), `no-referrer`, `origin`, `origin-when-cross-origin` e `unsafe-url`.
+* `fetchPriority`: uma string. Sugere uma prioridade relativa para buscar o recurso. Os valores possíveis são `auto` (o padrão), `high` e `low`.
+* `hrefLang`: uma string. O idioma do recurso vinculado.
+* `integrity`: uma string. Um hash criptográfico do recurso, para [verificar sua autenticidade](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
+* `type`: uma string. O tipo MIME do recurso vinculado.
 
-Props that are **not recommended** for use with React:
+Props que **não são recomendadas** para uso com o React:
 
-* `blocking`: a string. If set to `"render"`, instructs the browser not to render the page until the stylesheet is loaded. React provides more fine-grained control using Suspense.
+* `blocking`: uma string. Se definido como `"render"`, instrui o navegador a não renderizar a página até que a folha de estilo seja carregada. O React fornece um controle mais refinado usando Suspense.
 
-#### Special rendering behavior {/*special-rendering-behavior*/}
+#### Comportamento especial de renderização {/*special-rendering-behavior*/}
 
-React will always place the DOM element corresponding to the `<link>` component within the document’s `<head>`, regardless of where in the React tree it is rendered. The `<head>` is the only valid place for `<link>` to exist within the DOM, yet it’s convenient and keeps things composable if a component representing a specific page can render `<link>` components itself.
+O React sempre colocará o elemento DOM correspondente ao componente `<link>` dentro do `<head>` do documento, independentemente de onde na árvore React ele é renderizado. O `<head>` é o único lugar válido para `<link>` existir dentro do DOM, no entanto, é conveniente e mantém as coisas compostas se um componente que representa uma página específica pode renderizar os próprios componentes `<link>`.
 
-There are a few exceptions to this:
+Existem algumas exceções a isso:
 
-* If the `<link>` has a `rel="stylesheet"` prop, then it has to also have a `precedence` prop to get this special behavior. This is because the order of stylesheets within the document is significant, so React needs to know how to order this stylesheet relative to others, which you specify using the `precedence` prop. If the `precedence` prop is omitted, there is no special behavior.
-* If the `<link>` has an [`itemProp`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemprop) prop, there is no special behavior, because in this case it doesn’t apply to the document but instead represents metadata about a specific part of the page.
-* If the `<link>` has an `onLoad` or `onError` prop, because in that case you are managing the loading of the linked resource manually within your React component.
+* Se o `<link>` tiver uma prop `rel="stylesheet"`, então ele também precisa ter uma prop `precedence` para obter esse comportamento especial. Isso ocorre porque a ordem das folhas de estilo dentro do documento é significativa, então o React precisa saber como ordenar essa folha de estilo em relação a outras, o que você especifica usando a prop `precedence`. Se a prop `precedence` for omitida, não haverá comportamento especial.
+* Se o `<link>` tiver uma prop [`itemProp`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemprop), não haverá comportamento especial, porque, nesse caso, ele não se aplica ao documento, mas representa metadados sobre uma parte específica da página.
+* Se o `<link>` tiver uma prop `onLoad` ou `onError`, porque nesse caso você está gerenciando o carregamento do recurso vinculado manualmente dentro do seu componente React.
 
-#### Special behavior for stylesheets {/*special-behavior-for-stylesheets*/}
+#### Comportamento especial para folhas de estilo {/*special-behavior-for-stylesheets*/}
 
-In addition, if the `<link>` is to a stylesheet (namely, it has `rel="stylesheet"` in its props), React treats it specially in the following ways:
+Além disso, se o `<link>` for para uma folha de estilo (nomeadamente, ele tem `rel="stylesheet"` em suas props), o React o trata especialmente das seguintes maneiras:
 
-* The component that renders `<link>` will [suspend](/reference/react/Suspense) while the stylesheet is loading.
-* If multiple components render links to the same stylesheet, React will de-duplicate them and only put a single link into the DOM. Two links are considered the same if they have the same `href` prop.
+* O componente que renderiza `<link>` irá [suspender](/reference/react/Suspense) enquanto a folha de estilo está carregando.
+* Se vários componentes renderizarem links para a mesma folha de estilo, o React irá desduplicá-los e colocará apenas um único link no DOM. Dois links são considerados os mesmos se eles tiverem a mesma prop `href`.
 
-There are two exception to this special behavior:
+Há duas exceções a este comportamento especial:
 
-* If the link doesn't have a `precedence` prop, there is no special behavior, because the order of stylesheets within the document is significant, so React needs to know how to order this stylesheet relative to others, which you specify using the `precedence` prop.
-* If you supply any of the `onLoad`, `onError`, or `disabled` props, there is no special behavior, because these props indicate that you are managing the loading of the stylesheet manually within your component.
+* Se o link não tiver uma prop `precedence`, não haverá comportamento especial, porque a ordem das folhas de estilo dentro do documento é importante, portanto, o React precisa saber como ordenar essa folha de estilo em relação às outras, que você especifica usando a prop `precedence`.
+* Se você fornecer alguma das props `onLoad`, `onError` ou `disabled`, não haverá comportamento especial, porque essas props indicam que você está gerenciando o carregamento da folha de estilo manualmente dentro do seu componente.
 
-This special treatment comes with two caveats:
+Este tratamento especial vem com duas ressalvas:
 
-* React will ignore changes to props after the link has been rendered. (React will issue a warning in development if this happens.)
-* React may leave the link in the DOM even after the component that rendered it has been unmounted.
+* O React ignorará as alterações nas props após o link ter sido renderizado. (O React emitirá um aviso no desenvolvimento se isso acontecer.)
+* O React pode deixar o link no DOM mesmo depois que o componente que o renderizou foi desmontado.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Linking to related resources {/*linking-to-related-resources*/}
+### Ligando a recursos relacionados {/*linking-to-related-resources*/}
 
-You can annotate the document with links to related resources such as an icon, canonical URL, or pingback. React will place this metadata within the document `<head>` regardless of where in the React tree it is rendered.
+Você pode anotar o documento com links para recursos relacionados, como um ícone, URL canônico ou pingback. O React colocará esses metadados dentro do `<head>` do documento, independentemente de onde na árvore React ele for renderizado.
 
 <SandpackWithHTMLOutput>
 
@@ -124,12 +124,12 @@ export default function BlogPage() {
 
 </SandpackWithHTMLOutput>
 
-### Linking to a stylesheet {/*linking-to-a-stylesheet*/}
+### Ligando a uma folha de estilo {/*linking-to-a-stylesheet*/}
 
-If a component depends on a certain stylesheet in order to be displayed correctly, you can render a link to that stylesheet within the component. Your component will [suspend](/reference/react/Suspense) while the stylesheet is loading. You must supply the `precedence` prop, which tells React where to place this stylesheet relative to others — stylesheets with higher precedence can override those with lower precedence.
+Se um componente depende de uma determinada folha de estilo para ser exibido corretamente, você pode renderizar um link para essa folha de estilo dentro do componente. Seu componente irá [suspender](/reference/react/Suspense) enquanto a folha de estilo estiver carregando. Você deve fornecer a prop `precedence`, que informa ao React onde colocar essa folha de estilo em relação a outras — folhas de estilo com maior precedência podem substituir aquelas com menor precedência.
 
 <Note>
-When you want to use a stylesheet, it can be beneficial to call the [preinit](/reference/react-dom/preinit) function. Calling this function may allow the browser to start fetching the stylesheet earlier than if you just render a `<link>` component, for example by sending an [HTTP Early Hints response](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103).
+Quando você deseja usar uma folha de estilo, pode ser benéfico chamar a função [preinit](/reference/react-dom/preinit). Chamar essa função pode permitir que o navegador comece a buscar a folha de estilo mais cedo do que se você apenas renderizar um componente `<link>`, por exemplo, enviando uma [resposta HTTP Early Hints](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103).
 </Note>
 
 <SandpackWithHTMLOutput>
@@ -149,9 +149,9 @@ export default function SiteMapPage() {
 
 </SandpackWithHTMLOutput>
 
-### Controlling stylesheet precedence {/*controlling-stylesheet-precedence*/}
+### Controlando a precedência da folha de estilo {/*controlling-stylesheet-precedence*/}
 
-Stylesheets can conflict with each other, and when they do, the browser goes with the one that comes later in the document. React lets you control the order of stylesheets with the `precedence` prop. In this example, three components render stylesheets, and the ones with the same precedence are grouped together in the `<head>`. 
+As folhas de estilo podem entrar em conflito umas com as outras e, quando entram, o navegador usa aquela que vem por último no documento. O React permite que você controle a ordem das folhas de estilo com a prop `precedence`. Neste exemplo, três componentes renderizam folhas de estilo e aquelas com a mesma precedência são agrupadas no `<head>`.
 
 <SandpackWithHTMLOutput>
 
@@ -185,11 +185,11 @@ function ThirdComponent() {
 
 </SandpackWithHTMLOutput>
 
-Note the `precedence` values themselves are arbitrary and their naming is up to you. React will infer that precedence values it discovers first are "lower" and precedence values it discovers later are "higher".
+Observe que os próprios valores `precedence` são arbitrários e sua nomenclatura depende de você. O React inferirá que os valores de precedência que ele descobrir primeiro são "menores" e os valores de precedência que ele descobrir mais tarde são "maiores".
 
-### Deduplicated stylesheet rendering {/*deduplicated-stylesheet-rendering*/}
+### Renderização de folha de estilo desduplicada {/*deduplicated-stylesheet-rendering*/}
 
-If you render the same stylesheet from multiple components, React will place only a single `<link>` in the document head.
+Se você renderizar a mesma folha de estilo de vários componentes, o React colocará apenas um único `<link>` no head do documento.
 
 <SandpackWithHTMLOutput>
 
@@ -213,13 +213,13 @@ function Component() {
 
 </SandpackWithHTMLOutput>
 
-### Annotating specific items within the document with links {/*annotating-specific-items-within-the-document-with-links*/}
+### Anotando itens específicos dentro do documento com links {/*annotating-specific-items-within-the-document-with-links*/}
 
-You can use the `<link>` component with the `itemProp` prop to annotate specific items within the document with links to related resources. In this case, React will *not* place these annotations within the document `<head>` but will place them like any other React component.
+Você pode usar o componente `<link>` com a prop `itemProp` para anotar itens específicos dentro do documento com links para recursos relacionados. Nesse caso, o React *não* colocará essas anotações dentro do `<head>` do documento, mas as colocará como qualquer outro componente React.
 
 ```js
 <section itemScope>
-  <h3>Annotating specific items</h3>
+  <h3>Anotando itens específicos</h3>
   <link itemProp="author" href="http://example.com/" />
   <p>...</p>
 </section>
