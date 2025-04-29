@@ -4,7 +4,7 @@ title: prefetchDNS
 
 <Intro>
 
-`prefetchDNS` lets you eagerly look up the IP of a server that you expect to load resources from.
+`prefetchDNS` permite que você procure antecipadamente o IP de um servidor que você espera carregar recursos.
 
 ```js
 prefetchDNS("https://example.com");
@@ -16,11 +16,11 @@ prefetchDNS("https://example.com");
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `prefetchDNS(href)` {/*prefetchdns*/}
 
-To look up a host, call the `prefetchDNS` function from `react-dom`.
+Para procurar um host, chame a função `prefetchDNS` de `react-dom`.
 
 ```js
 import { prefetchDNS } from 'react-dom';
@@ -32,34 +32,34 @@ function AppRoot() {
 
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-The prefetchDNS function provides the browser with a hint that it should look up the IP address of a given server. If the browser chooses to do so, this can speed up the loading of resources from that server. 
+A função prefetchDNS fornece ao navegador uma dica de que ele deve procurar o endereço IP de um determinado servidor. Se o navegador optar por fazê-lo, isso pode acelerar o carregamento de recursos desse servidor.
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `href`: a string. The URL of the server you want to connect to.
+* `href`: uma string. A URL do servidor que você quer se conectar.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`prefetchDNS` returns nothing.
+`prefetchDNS` não retorna nada.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* Multiple calls to `prefetchDNS` with the same server have the same effect as a single call.
-* In the browser, you can call `prefetchDNS` in any situation: while rendering a component, in an Effect, in an event handler, and so on.
-* In server-side rendering or when rendering Server Components, `prefetchDNS` only has an effect if you call it while rendering a component or in an async context originating from rendering a component. Any other calls will be ignored.
-* If you know the specific resources you'll need, you can call [other functions](/reference/react-dom/#resource-preloading-apis) instead that will start loading the resources right away.
-* There is no benefit to prefetching the same server the webpage itself is hosted from because it's already been looked up by the time the hint would be given.
-* Compared with [`preconnect`](/reference/react-dom/preconnect), `prefetchDNS` may be better if you are speculatively connecting to a large number of domains, in which case the overhead of preconnections might outweigh the benefit.
+* Múltiplas chamadas para `prefetchDNS` com o mesmo servidor têm o mesmo efeito de uma única chamada.
+* No navegador, você pode chamar `prefetchDNS` em qualquer situação: durante a renderização de um componente, em um Effect, em um manipulador de eventos, e assim por diante.
+* Em renderização do lado do servidor ou ao renderizar Componentes do Servidor, `prefetchDNS` só tem efeito se você chamá-lo durante a renderização de um componente ou em um contexto assíncrono originado da renderização de um componente. Quaisquer outras chamadas serão ignoradas.
+* Se você souber os recursos específicos de que precisará, poderá chamar [outras funções](/reference/react-dom/#resource-preloading-apis) em vez disso, que começarão a carregar os recursos imediatamente.
+* Não há benefício em fazer o prefetch do mesmo servidor em que a própria página da web é hospedada, porque ele já foi pesquisado no momento em que a dica seria dada.
+* Em comparação com [`preconnect`](/reference/react-dom/preconnect), `prefetchDNS` pode ser melhor se você estiver se conectando especulativamente a um grande número de domínios, caso em que a sobrecarga de preconexões pode superar o benefício.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Prefetching DNS when rendering {/*prefetching-dns-when-rendering*/}
+### Prefetching DNS ao renderizar {/*prefetching-dns-when-rendering*/}
 
-Call `prefetchDNS` when rendering a component if you know that its children will load external resources from that host.
+Chame `prefetchDNS` ao renderizar um componente se você souber que seus filhos carregarão recursos externos desse host.
 
 ```js
 import { prefetchDNS } from 'react-dom';
@@ -70,9 +70,9 @@ function AppRoot() {
 }
 ```
 
-### Prefetching DNS in an event handler {/*prefetching-dns-in-an-event-handler*/}
+### Prefetching DNS em um manipulador de eventos {/*prefetching-dns-in-an-event-handler*/}
 
-Call `prefetchDNS` in an event handler before transitioning to a page or state where external resources will be needed. This gets the process started earlier than if you call it during the rendering of the new page or state.
+Chame `prefetchDNS` em um manipulador de eventos antes de fazer a transição para uma página ou estado em que recursos externos serão necessários. Isso inicia o processo mais cedo do que se você o chamasse durante a renderização da nova página ou estado.
 
 ```js
 import { prefetchDNS } from 'react-dom';

@@ -2,11 +2,9 @@
 title: <StrictMode>
 ---
 
-
 <Intro>
 
-`<StrictMode>` lets you find common bugs in your components early during development.
-
+`<StrictMode>` permite que você encontre erros comuns em seus componentes no início do desenvolvimento.
 
 ```js
 <StrictMode>
@@ -20,11 +18,11 @@ title: <StrictMode>
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<StrictMode>` {/*strictmode*/}
 
-Use `StrictMode` to enable additional development behaviors and warnings for the component tree inside:
+Use `StrictMode` para habilitar comportamentos e avisos de desenvolvimento adicionais para a árvore de componentes dentro:
 
 ```js
 import { StrictMode } from 'react';
@@ -38,33 +36,32 @@ root.render(
 );
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-Strict Mode enables the following development-only behaviors:
+O Strict Mode habilita os seguintes comportamentos apenas para desenvolvimento:
 
-- Your components will [re-render an extra time](#fixing-bugs-found-by-double-rendering-in-development) to find bugs caused by impure rendering.
-- Your components will [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) to find bugs caused by missing Effect cleanup.
-- Your components will [re-run refs callbacks an extra time](#fixing-bugs-found-by-re-running-ref-callbacks-in-development) to find bugs caused by missing ref cleanup.
-- Your components will [be checked for usage of deprecated APIs.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+- Seus componentes [irão re-renderizar uma vez a mais](#fixing-bugs-found-by-double-rendering-in-development) para encontrar erros causados por renderização impura.
+- Seus componentes [irão re-executar os Effects uma vez a mais](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar erros causados pela falta de limpeza do Effect.
+- Seus componentes [irão re-executar os callbacks de refs uma vez a mais](#fixing-bugs-found-by-re-running-ref-callbacks-in-development) para encontrar erros causados pela falta de limpeza da ref.
+- Seus componentes [serão verificados quanto ao uso de APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
 #### Props {/*props*/}
 
-`StrictMode` accepts no props.
+`StrictMode` não aceita nenhuma prop.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* There is no way to opt out of Strict Mode inside a tree wrapped in `<StrictMode>`. This gives you confidence that all components inside `<StrictMode>` are checked. If two teams working on a product disagree whether they find the checks valuable, they need to either reach consensus or move `<StrictMode>` down in the tree.
+* Não há como cancelar o Strict Mode dentro de uma árvore encapsulada em `<StrictMode>`. Isso te dá a confiança de que todos os componentes dentro de `<StrictMode>` são verificados. Se duas equipes trabalhando em um produto discordarem se acham as verificações valiosas, elas precisam chegar a um consenso ou mover `<StrictMode>` para baixo na árvore.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Enabling Strict Mode for entire app {/*enabling-strict-mode-for-entire-app*/}
+### Habilitando o Strict Mode para todo o aplicativo {/*enabling-strict-mode-for-entire-app*/}
 
-Strict Mode enables extra development-only checks for the entire component tree inside the `<StrictMode>` component. These checks help you find common bugs in your components early in the development process.
+O Strict Mode habilita verificações extras apenas para desenvolvimento para toda a árvore de componentes dentro do componente `<StrictMode>`. Essas verificações ajudam você a encontrar erros comuns em seus componentes no início do processo de desenvolvimento.
 
-
-To enable Strict Mode for your entire app, wrap your root component with `<StrictMode>` when you render it:
+Para habilitar o Strict Mode para todo o seu aplicativo, envolva seu componente raiz com `<StrictMode>` quando você o renderizar:
 
 ```js {6,8}
 import { StrictMode } from 'react';
@@ -78,28 +75,28 @@ root.render(
 );
 ```
 
-We recommend wrapping your entire app in Strict Mode, especially for newly created apps. If you use a framework that calls [`createRoot`](/reference/react-dom/client/createRoot) for you, check its documentation for how to enable Strict Mode.
+Recomendamos envolver todo o seu aplicativo em Strict Mode, especialmente para aplicativos recém-criados. Se você usa um framework que chama o [`createRoot`](/reference/react-dom/client/createRoot) para você, verifique sua documentação para saber como habilitar o Strict Mode.
 
-Although the Strict Mode checks **only run in development,** they help you find bugs that already exist in your code but can be tricky to reliably reproduce in production. Strict Mode lets you fix bugs before your users report them.
+Embora as verificações do Strict Mode **só sejam executadas no desenvolvimento,** elas ajudam você a encontrar erros que já existem em seu código, mas podem ser difíceis de reproduzir de forma confiável na produção. O Strict Mode permite que você corrija erros antes que seus usuários os relatem.
 
 <Note>
 
-Strict Mode enables the following checks in development:
+O Strict Mode habilita as seguintes verificações no desenvolvimento:
 
-- Your components will [re-render an extra time](#fixing-bugs-found-by-double-rendering-in-development) to find bugs caused by impure rendering.
-- Your components will [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) to find bugs caused by missing Effect cleanup.
-- Your components will [re-run ref callbacks an extra time](#fixing-bugs-found-by-cleaning-up-and-re-attaching-dom-refs-in-development) to find bugs caused by missing ref cleanup.
-- Your components will [be checked for usage of deprecated APIs.](#fixing-deprecation-warnings-enabled-by-strict-mode)
+- Seus componentes [re-renderizarão mais uma vez](#fixing-bugs-found-by-double-rendering-in-development) para encontrar bugs causados por renderização impura.
+- Seus componentes [re-executarão os Efeitos mais uma vez](#fixing-bugs-found-by-re-running-effects-in-development) para encontrar bugs causados pela falta de limpeza de Efeitos.
+- Seus componentes [re-executarão os retornos de chamada de referência mais uma vez](#fixing-bugs-found-by-re-running-ref-callbacks-in-development) para encontrar bugs causados pela falta de limpeza de referência.
+- Seus componentes [serão verificados quanto ao uso de APIs obsoletas.](#fixing-deprecation-warnings-enabled-by-strict-mode)
 
-**All of these checks are development-only and do not impact the production build.**
+**Todas essas verificações são apenas para desenvolvimento e não afetam a build de produção.**
 
 </Note>
 
 ---
 
-### Enabling Strict Mode for a part of the app {/*enabling-strict-mode-for-a-part-of-the-app*/}
+### Habilitando o Strict Mode para uma parte do aplicativo {/*enabling-strict-mode-for-a-part-of-the-app*/}
 
-You can also enable Strict Mode for any part of your application:
+Você também pode habilitar o Strict Mode para qualquer parte do seu aplicativo:
 
 ```js {7,12}
 import { StrictMode } from 'react';
@@ -120,25 +117,31 @@ function App() {
 }
 ```
 
-In this example, Strict Mode checks will not run against the `Header` and `Footer` components. However, they will run on `Sidebar` and `Content`, as well as all of the components inside them, no matter how deep.
+Neste exemplo, as verificações do Strict Mode não serão executadas nos componentes `Header` e `Footer`. No entanto, elas serão executadas em `Sidebar` e `Content`, bem como em todos os componentes dentro deles, não importa quão profundos sejam.
+
+<Note>
+
+When `StrictMode` is enabled for a part of the app, React will only enable behaviors that are possible in production. For example, if `<StrictMode>` is not enabled at the root of the app, it will not [re-run Effects an extra time](#fixing-bugs-found-by-re-running-effects-in-development) on initial mount, since this would cause child effects to double fire without the parent effects, which cannot happen in production.
+
+</Note>
 
 ---
 
-### Fixing bugs found by double rendering in development {/*fixing-bugs-found-by-double-rendering-in-development*/}
+### Corrigindo erros encontrados pela renderização dupla no desenvolvimento {/*fixing-bugs-found-by-double-rendering-in-development*/}
 
-[React assumes that every component you write is a pure function.](/learn/keeping-components-pure) This means that React components you write must always return the same JSX given the same inputs (props, state, and context).
+[o React assume que todo componente que você escreve é uma função pura.](/learn/keeping-components-pure) Isso significa que os componentes React que você escreve devem sempre retornar o mesmo JSX, dados as mesmas entradas (props, state e contexto).
 
-Components breaking this rule behave unpredictably and cause bugs. To help you find accidentally impure code, Strict Mode calls some of your functions (only the ones that should be pure) **twice in development.** This includes:
+Os componentes que quebram essa regra se comportam de forma imprevisível e causam erros. Para ajudá-lo a encontrar código acidentalmente impuro, o Strict Mode chama algumas de suas funções (apenas as que deveriam ser puras) **duas vezes no desenvolvimento.** Isso inclui:
 
-- Your component function body (only top-level logic, so this doesn't include code inside event handlers)
-- Functions that you pass to [`useState`](/reference/react/useState), [`set` functions](/reference/react/useState#setstate), [`useMemo`](/reference/react/useMemo), or [`useReducer`](/reference/react/useReducer)
-- Some class component methods like [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([see the whole list](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
+- O corpo da função do seu componente (somente a lógica de nível superior, portanto, isso não inclui código dentro de manipuladores de eventos)
+- Funções que você passa para [`useState`](/reference/react/useState), funções [`set`](/reference/react/useState#setstate), [`useMemo`](/reference/react/useMemo) ou [`useReducer`](/reference/react/useReducer)
+- Alguns métodos de componentes de classe como [`constructor`](/reference/react/Component#constructor), [`render`](/reference/react/Component#render), [`shouldComponentUpdate`](/reference/react/Component#shouldcomponentupdate) ([veja a lista completa](https://reactjs.org/docs/strict-mode.html#detecting-unexpected-side-effects))
 
-If a function is pure, running it twice does not change its behavior because a pure function produces the same result every time. However, if a function is impure (for example, it mutates the data it receives), running it twice tends to be noticeable (that's what makes it impure!) This helps you spot and fix the bug early.
+Se uma função é pura, executá-la duas vezes não altera seu comportamento porque uma função pura produz o mesmo resultado toda vez. No entanto, se uma função for impura (por exemplo, ela muta os dados que recebe), executá-la duas vezes tende a ser perceptível (é isso que a torna impura!) Isso ajuda você a detectar e corrigir o erro no início.
 
-**Here is an example to illustrate how double rendering in Strict Mode helps you find bugs early.**
+**Aqui está um exemplo para ilustrar como a renderização dupla em Strict Mode ajuda você a encontrar erros no início.**
 
-This `StoryTray` component takes an array of `stories` and adds one last "Create Story" item at the end:
+Este componente `StoryTray` recebe uma array de `stories` e adiciona um último item "Create Story" no final:
 
 <Sandpack>
 
@@ -216,9 +219,9 @@ li {
 
 </Sandpack>
 
-There is a mistake in the code above. However, it is easy to miss because the initial output appears correct.
+Há um erro no código acima. No entanto, é fácil de perder porque a saída inicial parece correta.
 
-This mistake will become more noticeable if the `StoryTray` component re-renders multiple times. For example, let's make the `StoryTray` re-render with a different background color whenever you hover over it: 
+Esse erro se tornará mais perceptível se o componente `StoryTray` re-renderizar várias vezes. Por exemplo, vamos fazer o `StoryTray` re-renderizar com uma cor de fundo diferente sempre que você passar o mouse sobre ele:
 
 <Sandpack>
 
@@ -228,7 +231,7 @@ import './styles.css';
 
 import App from './App';
 
-const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 
@@ -305,9 +308,9 @@ li {
 
 </Sandpack>
 
-Notice how every time you hover over the `StoryTray` component, "Create Story" gets added to the list again. The intention of the code was to add it once at the end. But `StoryTray` directly modifies the `stories` array from the props. Every time `StoryTray` renders, it adds "Create Story" again at the end of the same array. In other words, `StoryTray` is not a pure function--running it multiple times produces different results.
+Observe como toda vez que você passa o mouse sobre o componente `StoryTray`, "Create Story" é adicionado à lista novamente. A intenção do código era adicioná-lo uma vez no final. Mas o `StoryTray` modifica diretamente a array `stories` das props. Toda vez que o `StoryTray` renderiza, ele adiciona "Create Story" novamente no final da mesma array. Em outras palavras, `StoryTray` não é uma função pura - executá-la várias vezes produz resultados diferentes.
 
-To fix this problem, you can make a copy of the array, and modify that copy instead of the original one:
+Para corrigir esse problema, você pode fazer uma cópia da array e modificar essa cópia em vez da original:
 
 ```js {2}
 export default function StoryTray({ stories }) {
@@ -316,9 +319,9 @@ export default function StoryTray({ stories }) {
   items.push({ id: 'create', label: 'Create Story' });
 ```
 
-This would [make the `StoryTray` function pure.](/learn/keeping-components-pure) Each time it is called, it would only modify a new copy of the array, and would not affect any external objects or variables. This solves the bug, but you had to make the component re-render more often before it became obvious that something is wrong with its behavior.
+Isso [tornaria a função `StoryTray` pura.](/learn/keeping-components-pure) Cada vez que for chamada, ela só modificaria uma nova cópia da array e não afetaria nenhum objeto ou variável externa. Isso resolve o erro, mas você teve que fazer o componente re-renderizar com mais frequência antes que se tornasse óbvio que algo está errado com seu comportamento.
 
-**In the original example, the bug wasn't obvious. Now let's wrap the original (buggy) code in `<StrictMode>`:**
+**No exemplo original, o erro não era óbvio. Agora vamos encapsular o código original (com erro) em `<StrictMode>`:**
 
 <Sandpack>
 
@@ -401,7 +404,7 @@ li {
 
 </Sandpack>
 
-**Strict Mode *always* calls your rendering function twice, so you can see the mistake right away** ("Create Story" appears twice). This lets you notice such mistakes early in the process. When you fix your component to render in Strict Mode, you *also* fix many possible future production bugs like the hover functionality from before:
+**O Strict Mode *sempre* chama sua função de renderização duas vezes, então você pode ver o erro imediatamente** ("Create Story" aparece duas vezes). Isso permite que você perceba esses erros no início do processo. Quando você corrige seu componente para renderizar no Strict Mode, você *também* corrige muitos possíveis erros futuros de produção, como a funcionalidade de hover de antes:
 
 <Sandpack>
 
@@ -412,7 +415,7 @@ import './styles.css';
 
 import App from './App';
 
-const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById("root"));
 root.render(
   <StrictMode>
     <App />
@@ -493,29 +496,29 @@ li {
 
 </Sandpack>
 
-Without Strict Mode, it was easy to miss the bug until you added more re-renders. Strict Mode made the same bug appear right away. Strict Mode helps you find bugs before you push them to your team and to your users.
+Sem o Strict Mode, era fácil perder o erro até que você adicionasse mais re-renders. O Strict Mode fez o mesmo erro aparecer imediatamente. O Strict Mode ajuda você a encontrar erros antes de enviá-los para sua equipe e para seus usuários.
 
-[Read more about keeping components pure.](/learn/keeping-components-pure)
+[Leia mais sobre como manter os componentes puros.](/learn/keeping-components-pure)
 
 <Note>
 
-If you have [React DevTools](/learn/react-developer-tools) installed, any `console.log` calls during the second render call will appear slightly dimmed. React DevTools also offers a setting (off by default) to suppress them completely.
+Se você tiver [React DevTools](/learn/react-developer-tools) instalado, todas as chamadas `console.log` durante a segunda chamada de renderização aparecerão levemente sombreadas. O React DevTools também oferece uma configuração (desativada por padrão) para suprimi-las completamente.
 
 </Note>
 
 ---
 
-### Fixing bugs found by re-running Effects in development {/*fixing-bugs-found-by-re-running-effects-in-development*/}
+### Corrigindo erros encontrados pela re-execução de Effects no desenvolvimento {/*fixing-bugs-found-by-re-running-effects-in-development*/}
 
-Strict Mode can also help find bugs in [Effects.](/learn/synchronizing-with-effects)
+O Strict Mode também pode ajudar a encontrar erros em [Effects.](/learn/synchronizing-with-effects)
 
-Every Effect has some setup code and may have some cleanup code. Normally, React calls setup when the component *mounts* (is added to the screen) and calls cleanup when the component *unmounts* (is removed from the screen). React then calls cleanup and setup again if its dependencies changed since the last render.
+Cada Effect tem algum código de configuração e pode ter algum código de limpeza. Normalmente, o React chama a configuração quando o componente *monta* (é adicionado à tela) e chama a limpeza quando o componente *desmonta* (é removido da tela). O React então chama a limpeza e a configuração novamente se suas dependências mudaram desde a última renderização.
 
-When Strict Mode is on, React will also run **one extra setup+cleanup cycle in development for every Effect.** This may feel surprising, but it helps reveal subtle bugs that are hard to catch manually.
+Quando o Strict Mode está ativado, o React também executará **um ciclo extra de configuração+limpeza no desenvolvimento para cada Effect.** Isso pode parecer surpreendente, mas ajuda a revelar erros sutis que são difíceis de detectar manualmente.
 
-**Here is an example to illustrate how re-running Effects in Strict Mode helps you find bugs early.**
+**Aqui está um exemplo para ilustrar como a re-execução de Effects no Strict Mode ajuda você a encontrar erros no início.**
 
-Consider this example that connects a component to a chat:
+Considere este exemplo que conecta um componente a um bate-papo:
 
 <Sandpack>
 
@@ -549,7 +552,7 @@ export default function ChatRoom() {
 let connections = 0;
 
 export function createConnection(serverUrl, roomId) {
-  // A real implementation would actually connect to the server
+  // Uma implementação real realmente se conectaria ao servidor
   return {
     connect() {
       console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
@@ -572,9 +575,9 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-There is an issue with this code, but it might not be immediately clear.
+Há um problema com esse código, mas pode não ser imediatamente claro.
 
-To make the issue more obvious, let's implement a feature. In the example below, `roomId` is not hardcoded. Instead, the user can select the `roomId` that they want to connect to from a dropdown. Click "Open chat" and then select different chat rooms one by one. Keep track of the number of active connections in the console:
+Para tornar o problema mais óbvio, vamos implementar um recurso. No exemplo abaixo, `roomId` não é hardcoded. Em vez disso, o usuário pode selecionar o `roomId` ao qual deseja se conectar em uma lista suspensa. Clique em "Open chat" e selecione diferentes salas de bate-papo uma por uma. Mantenha o controle do número de conexões ativas no console:
 
 <Sandpack>
 
@@ -602,6 +605,37 @@ function ChatRoom({ roomId }) {
 
   return <h1>Welcome to the {roomId} room!</h1>;
 }
+```
+```js
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles.css';
+
+import App from './App';
+
+const root = createRoot(document.getElementById("root"));
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+
+```js
+import { useState, useEffect } from 'react';
+import { createConnection } from './chat.js';
+
+const serverUrl = 'https://localhost:1234';
+
+function ChatRoom({ roomId }) {
+  useEffect(() => {
+    const connection = createConnection(serverUrl, roomId);
+    connection.connect();
+    return () => connection.disconnect();
+  }, [roomId]);
+
+  return <h1>Bem-vindo(a) à sala {roomId}!</h1>;
+}
 
 export default function App() {
   const [roomId, setRoomId] = useState('general');
@@ -609,18 +643,18 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="general">geral</option>
+          <option value="travel">viagem</option>
+          <option value="music">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Fechar bate-papo' : 'Abrir bate-papo'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -656,7 +690,7 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-You'll notice that the number of open connections always keeps growing. In a real app, this would cause performance and network problems. The issue is that [your Effect is missing a cleanup function:](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed)
+Você notará que o número de conexões abertas continua crescendo. Em um aplicativo real, isso causaria problemas de desempenho e de rede. O problema é que [seu Effect está perdendo uma função de limpeza:](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed)
 
 ```js {4}
   useEffect(() => {
@@ -666,9 +700,9 @@ You'll notice that the number of open connections always keeps growing. In a rea
   }, [roomId]);
 ```
 
-Now that your Effect "cleans up" after itself and destroys the outdated connections, the leak is solved. However, notice that the problem did not become visible until you've added more features (the select box).
+Agora que seu Effect "limpa" a si mesmo e destrói as conexões desatualizadas, o vazamento está resolvido. No entanto, observe que o problema não se tornou visível até que você adicionasse mais recursos (a caixa de seleção).
 
-**In the original example, the bug wasn't obvious. Now let's wrap the original (buggy) code in `<StrictMode>`:**
+**No exemplo original, o erro não era óbvio. Agora vamos encapsular o código original (com erro) em `<StrictMode>`:**
 
 <Sandpack>
 
@@ -699,7 +733,7 @@ export default function ChatRoom() {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
   }, []);
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>Bem-vindo(a) à sala {roomId}!</h1>;
 }
 ```
 
@@ -730,9 +764,9 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-**With Strict Mode, you immediately see that there is a problem** (the number of active connections jumps to 2). Strict Mode runs an extra setup+cleanup cycle for every Effect. This Effect has no cleanup logic, so it creates an extra connection but doesn't destroy it. This is a hint that you're missing a cleanup function.
+**Com o Strict Mode, você vê imediatamente que há um problema** (o número de conexões ativas salta para 2). O Strict Mode executa um ciclo extra de configuração + limpeza para cada Effect. Este Effect não tem lógica de limpeza, então ele cria uma conexão extra, mas não a destrói. Esta é uma dica de que você está perdendo uma função de limpeza.
 
-Strict Mode lets you notice such mistakes early in the process. When you fix your Effect by adding a cleanup function in Strict Mode, you *also* fix many possible future production bugs like the select box from before:
+O Strict Mode permite que você perceba esses erros no início do processo. Quando você corrige seu Effect adicionando uma função de limpeza no Strict Mode, você *também* corrige muitos possíveis bugs futuros de produção, como a caixa de seleção de antes:
 
 <Sandpack>
 
@@ -764,7 +798,7 @@ function ChatRoom({ roomId }) {
     return () => connection.disconnect();
   }, [roomId]);
 
-  return <h1>Welcome to the {roomId} room!</h1>;
+  return <h1>Bem-vindo(a) à sala {roomId}!</h1>;
 }
 
 export default function App() {
@@ -773,18 +807,18 @@ export default function App() {
   return (
     <>
       <label>
-        Choose the chat room:{' '}
+        Escolha a sala de bate-papo:{' '}
         <select
           value={roomId}
           onChange={e => setRoomId(e.target.value)}
         >
-          <option value="general">general</option>
-          <option value="travel">travel</option>
-          <option value="music">music</option>
+          <option value="general">geral</option>
+          <option value="travel">viagem</option>
+          <option value="music">música</option>
         </select>
       </label>
       <button onClick={() => setShow(!show)}>
-        {show ? 'Close chat' : 'Open chat'}
+        {show ? 'Fechar bate-papo' : 'Abrir bate-papo'}
       </button>
       {show && <hr />}
       {show && <ChatRoom roomId={roomId} />}
@@ -820,22 +854,22 @@ button { margin-left: 10px; }
 
 </Sandpack>
 
-Notice how the active connection count in the console doesn't keep growing anymore.
+Observe como a contagem de conexões ativas no console não continua crescendo mais.
 
-Without Strict Mode, it was easy to miss that your Effect needed cleanup. By running *setup → cleanup → setup* instead of *setup* for your Effect in development, Strict Mode made the missing cleanup logic more noticeable.
+Sem o Strict Mode, foi fácil perder que seu Effect precisava de limpeza. Ao executar *configuração → limpeza → configuração* em vez de *configuração* para seu Effect no desenvolvimento, o Strict Mode tornou a lógica de limpeza ausente mais perceptível.
 
-[Read more about implementing Effect cleanup.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
+[Leia mais sobre como implementar a limpeza do Effect.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
 ---
-### Fixing bugs found by re-running ref callbacks in development {/*fixing-bugs-found-by-re-running-ref-callbacks-in-development*/}
+### Corrigindo erros encontrados pela reexecução dos callbacks ref em desenvolvimento {/*fixing-bugs-found-by-re-running-ref-callbacks-in-development*/}
 
-Strict Mode can also help find bugs in [callbacks refs.](/learn/manipulating-the-dom-with-refs)
+O Strict Mode também pode ajudar a encontrar erros em [callbacks de ref.](/learn/manipulating-the-dom-with-refs)
 
-Every callback `ref` has some setup code and may have some cleanup code. Normally, React calls setup when the element is *created* (is added to the DOM) and calls cleanup when the element is *removed* (is removed from the DOM).
+Cada `ref` de callback tem algum código de configuração e pode ter algum código de limpeza. Normalmente, o React chama a configuração quando o elemento é *criado* (é adicionado ao DOM) e chama a limpeza quando o elemento é *removido* (é removido do DOM).
 
-When Strict Mode is on, React will also run **one extra setup+cleanup cycle in development for every callback `ref`.** This may feel surprising, but it helps reveal subtle bugs that are hard to catch manually.
+Quando o Strict Mode está ativado, o React também executará **um ciclo extra de configuração + limpeza no desenvolvimento para cada `ref` de callback.** Isso pode parecer surpreendente, mas ajuda a revelar erros sutis que são difíceis de detectar manualmente.
 
-Consider this example, which allows you to select an animal and then scroll to one of them. Notice when you switch from "Cats" to "Dogs", the console logs show that the number of animals in the list keeps growing, and the "Scroll to" buttons stop working:
+Considere este exemplo, que permite que você selecione um animal e, em seguida, role para um deles. Observe que, quando você alterna de "Cats" para "Dogs", os logs do console mostram que o número de animais na lista continua crescendo, e os botões "Scroll to" param de funcionar:
 
 <Sandpack>
 
@@ -954,10 +988,9 @@ li {
 
 </Sandpack>
 
+**Este é um erro de produção!** Como o ref callback não remove os animais da lista na limpeza, a lista de animais continua crescendo. Este é um vazamento de memória que pode causar problemas de desempenho em um aplicativo real e quebra o comportamento do aplicativo.
 
-**This is a production bug!** Since the ref callback doesn't remove animals from the list in the cleanup, the list of animals keeps growing. This is a memory leak that can cause performance problems in a real app, and breaks the behavior of the app.
-
-The issue is the ref callback doesn't cleanup after itself:
+O problema é que o ref callback não faz a limpeza após si mesmo:
 
 ```js {6-8}
 <li
@@ -972,7 +1005,7 @@ The issue is the ref callback doesn't cleanup after itself:
 </li>
 ```
 
-Now let's wrap the original (buggy) code in `<StrictMode>`:
+Agora vamos encapsular o código original (com erro) em `<StrictMode>`:
 
 <Sandpack>
 
@@ -1096,9 +1129,9 @@ li {
 
 </Sandpack>
 
-**With Strict Mode, you immediately see that there is a problem**. Strict Mode runs an extra setup+cleanup cycle for every callback ref. This callback ref has no cleanup logic, so it adds refs but doesn't remove them. This is a hint that you're missing a cleanup function.
+**Com o Strict Mode, você vê imediatamente que há um problema**. O Strict Mode executa um ciclo extra de configuração + limpeza para cada ref callback. Este ref callback não tem lógica de limpeza, então ele adiciona refs, mas não as remove. Esta é uma dica de que você está perdendo uma função de limpeza.
 
-Strict Mode lets you eagerly find mistakes in callback refs. When you fix your callback by adding a cleanup function in Strict Mode, you *also* fix many possible future production bugs like the "Scroll to" bug from before:
+O Strict Mode permite que você encontre erros nos refs de callback. Quando você corrige seu callback adicionando uma função de limpeza no Strict Mode, você *também* corrige muitos possíveis bugs de produção futuros, como o bug "Scroll to" de antes:
 
 <Sandpack>
 
@@ -1223,7 +1256,7 @@ li {
 
 </Sandpack>
 
-Now on inital mount in StrictMode, the ref callbacks are all setup, cleaned up, and setup again:
+Agora, na montagem inicial no StrictMode, os refs callbacks são todos configurados, limpos e configurados novamente:
 
 ```
 ...
@@ -1234,15 +1267,15 @@ Now on inital mount in StrictMode, the ref callbacks are all setup, cleaned up, 
 ✅ Adding animal to the map. Total animals: 10
 ```
 
-**This is expected.** Strict Mode confirms that the ref callbacks are cleaned up correctly, so the size never grows above the expected amount. After the fix, there are no memory leaks, and all the features work as expected.
+**Isso é esperado.** O Strict Mode confirma que os refs callbacks são limpos corretamente, então o tamanho nunca excede a quantidade esperada. Após a correção, não há vazamentos de memória e todos os recursos funcionam conforme o esperado.
 
-Without Strict Mode, it was easy to miss the bug until you clicked around to app to notice broken features. Strict Mode made the bugs appear right away, before you push them to production.
+Sem o Strict Mode, foi fácil perder o erro até que você clicou no aplicativo para notar recursos quebrados. O Strict Mode fez com que os erros aparecessem imediatamente, antes de enviá-los para a produção.
 
 --- 
-### Fixing deprecation warnings enabled by Strict Mode {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
+### Corrigindo avisos de descontinuação ativados pelo Strict Mode {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
 
-React warns if some component anywhere inside a `<StrictMode>` tree uses one of these deprecated APIs:
+O React avisa se algum componente em qualquer lugar dentro de uma árvore `<StrictMode>` usa uma dessas APIs descontinuadas:
 
-* `UNSAFE_` class lifecycle methods like [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [See alternatives.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles)
+* Métodos de ciclo de vida de classe `UNSAFE_` como [`UNSAFE_componentWillMount`](/reference/react/Component#unsafe_componentwillmount). [Veja alternativas.](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles)
 
-These APIs are primarily used in older [class components](/reference/react/Component) so they rarely appear in modern apps.
+Essas APIs são usadas principalmente em [componentes de classe](/reference/react/Component) mais antigos, então raramente aparecem em aplicativos modernos.
