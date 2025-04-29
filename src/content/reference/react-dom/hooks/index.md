@@ -14,7 +14,7 @@ O pacote `react-dom` contém Hooks que são suportados apenas para aplicações 
 
 *Formulários* permitem que você crie controles interativos para submeter informações. Para gerenciar formulários em seus componentes, use um destes Hooks:
 
-* [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) permite que você faça atualizações na UI baseadas no status de um formulário.
+* [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) permite que você faça atualizações na UI com base no status de um formulário.
 
 ```js
 function Form({ action }) {

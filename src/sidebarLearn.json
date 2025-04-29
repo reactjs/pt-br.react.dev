@@ -25,13 +25,23 @@
       "path": "/learn/installation",
       "routes": [
         {
-          "title": "Comece um Novo Projeto React",
-          "path": "/learn/start-a-new-react-project"
+          "title": "Criando um App React",
+          "path": "/learn/creating-a-react-app"
+        },
+        {
+          "title": "Crie um App React do Zero",
+          "path": "/learn/build-a-react-app-from-scratch"
         },
         {
           "title": "Adicione React a um Projeto Existente",
           "path": "/learn/add-react-to-an-existing-project"
-        },
+        }
+      ]
+    },
+    {
+      "title": "Setup",
+      "path": "/learn/setup",
+      "routes": [
         {
           "title": "Configuração do Editor",
           "path": "/learn/editor-setup"

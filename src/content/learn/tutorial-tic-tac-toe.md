@@ -1325,7 +1325,7 @@ Vamos recapitular o que acontece quando um usuário clica no quadrado superior e
 1. `handleClick` usa o argumento (`0`) para atualizar o primeiro elemento do array `squares` de `null` para `X`.
 1. O *state* `square` do componente `Board` foi atualizado, então `Board` e todos os seus filhos rerrenderizam. Isso faz com que a *prop* `value` do componente `Square` de índice `0` mude de `null` para `X`.
 
-No final o usuário vê que o quadrado superior esquerdo mudou de vazio para ter um `X` depois de clicar nele.
+No final, o usuário vê que o quadrado superior esquerdo mudou de vazio para ter um `X` depois de clicar nele.
 
 <Note>
 
@@ -1406,7 +1406,7 @@ Mas calma, há um problema. Tente clicar no mesmo quadrado múltiplas vezes:
 
 O `X` é sobrescrito por um `O`! À medida que isso adicionaria uma reviravolta interessante ao jogo, nós vamos nos limitar às regras originais por enquanto.
 
-Quando você marca um quadrado com um `X` ou um `O` você não está primeiro checando se o quadrado já possui um valor `X` ou `O`. Você pode consertar isso *retornando cedo*. Você checará se um quadrado já possui `X` ou `O`. Se o quadrado já estiver preenchido, você chamará `return` na função `handleClick` cedo--antes que ela tente atualizar o *state* do tabuleiro.
+Quando você marca um quadrado com um `X` ou um `O` você não está primeiro checando para ver se o quadrado já possui um valor `X` ou `O`. Você pode consertar isso *retornando cedo*. Você checará para ver se o quadrado já possui um `X` ou um `O`. Se o quadrado já estiver preenchido, você chamará `return` na função `handleClick` cedo--antes que ela tente atualizar o *state* do tabuleiro.
 
 ```js {2,3,4}
 function handleClick(i) {
@@ -2247,7 +2247,7 @@ body {
 
 </Sandpack>
 
-À medida em que você itera sobre o array `history` dentro da função que você passou ao `map`, o argumento `squares` vai a cada elemento de `history` e o argumento `move` vai a cada índice do array: `0`, `1`, `2`, …. (Na maior parte dos casos, você precisaria dos elementos do array em si, mas para renderizar uma lista de movimento você precisará apenas dos índices).
+À medida em que você itera sobre o array `history` dentro da função que você passou ao `map`, o argumento `squares` vai a cada elemento de `history`, e o argumento `move` vai a cada índice do array: `0`, `1`, `2`, …. (Na maior parte dos casos, você precisaria dos elementos do array em si, mas para renderizar uma lista de movimento você precisará apenas dos índices).
 
 Para cada movimento no histórico do jogo da velha, você cria um item de lista `<li>` o qual contém um botão `<button>`. O botão tem um manipulador `onClick` o qual chama a função denominada `jumpTo` (que você ainda não implementou).
 
