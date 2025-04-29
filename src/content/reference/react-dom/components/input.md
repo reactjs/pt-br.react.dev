@@ -297,7 +297,7 @@ Dê um `name` para cada `<input>`, por exemplo, `<input name="firstName" default
 
 <Pitfall>
 
-Por padrão, *qualquer* `<button>` dentro de um componente `<form>` o enviará. Isso pode ser surpreendente! Se você tiver seu próprio componente React `Button` personalizado, considere retornar [`<button type="button">`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/input/button) em vez de `<button>`. Então, para ser explícito, use `<button type="submit">` para os botões que *devem* enviar o formulário.
+Por padrão, um `<button>` dentro de um `<form>` sem um atributo `type` o enviará. Isso pode ser surpreendente! Se você tiver seu próprio componente `Button` React personalizado, considere usar [`<button type="button">`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/button) em vez de `<button>` (sem tipo). Então, para ser mais claro, use `<button type="submit">` para botões que *devem* enviar o formulário.
 
 </Pitfall>
 
