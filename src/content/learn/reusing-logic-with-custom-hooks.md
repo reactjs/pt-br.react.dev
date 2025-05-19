@@ -820,7 +820,11 @@ export default function ChatRoom({ roomId }) {
   // ...
 ```
 
+<<<<<<< HEAD
 e passando como entrada para outro Hook:
+=======
+and passing it as an input to another Hook:
+>>>>>>> 65d297e93b36be5370e58ab7828d022c741ecbe2
 
 ```js {6}
 export default function ChatRoom({ roomId }) {
@@ -2081,7 +2085,6 @@ Escreva `useInterval` no arquivo `useInterval.js` e importe-o no arquivo `useCou
 <Sandpack>
 
 ```js
-import { useState } from 'react';
 import { useCounter } from './useCounter.js';
 
 export default function Counter() {
