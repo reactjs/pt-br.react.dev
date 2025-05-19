@@ -2,9 +2,13 @@
 title: Avisos de Depreciação do react-test-renderer
 ---
 
+<<<<<<< HEAD
 TODO: Atualizar isso para 19?
 
 ## Aviso do ReactTestRenderer.create() {/*reacttestrenderercreate-warning*/}
+=======
+## ReactTestRenderer.create() warning {/*reacttestrenderercreate-warning*/}
+>>>>>>> 65d297e93b36be5370e58ab7828d022c741ecbe2
 
 O react-test-renderer está descontinuado. Um aviso será emitido sempre que ReactTestRenderer.create() ou ReactShallowRender.render() forem chamados. O pacote react-test-renderer permanecerá disponível no NPM, mas não será mantido e pode quebrar com novos recursos do React ou mudanças nos internos do React.
 
