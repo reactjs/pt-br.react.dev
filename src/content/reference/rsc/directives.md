@@ -4,7 +4,11 @@ title: Diretivas
 
 <RSC>
 
+<<<<<<< HEAD
 Diretivas são para uso em [Componentes do Servidor React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+=======
+Directives are for use in [React Server Components](/reference/rsc/server-components).
+>>>>>>> 2571aee6dba2e9790172a70224dac8371640b772
 
 </RSC>
 
