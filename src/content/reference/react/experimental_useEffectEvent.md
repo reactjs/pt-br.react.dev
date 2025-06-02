@@ -1,8 +1,9 @@
 ---
 title: experimental_useEffectEvent
+version: experimental
 ---
 
-<Wip>
+<Experimental>
 
 **Esta API é experimental e ainda não está disponível em uma versão estável do React.**
 
@@ -14,7 +15,7 @@ Você pode experimentá-la atualizando os pacotes do React para a versão experi
 
 Versões experimentais do React podem conter erros. Não as use em produção.
 
-</Wip>
+</Experimental>
 
 <Intro>
 

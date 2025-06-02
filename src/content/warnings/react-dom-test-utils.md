@@ -2,8 +2,11 @@
 title: Avisos de Depreciação do react-dom/test-utils
 ---
 
+<<<<<<< HEAD
 TODO: atualizar para a versão 19?
 
+=======
+>>>>>>> 3ee3a60a1bcc687c0b87039a3a6582e3b1d6887c
 ## ReactDOMTestUtils.act() warning {/*reactdomtestutilsact-warning*/}
 
 O `act` de `react-dom/test-utils` foi depreciado em favor do `act` do `react`.
