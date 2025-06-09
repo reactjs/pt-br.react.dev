@@ -238,7 +238,11 @@ export default function ModalContent({ onClose }) {
 
 É importante garantir que seu aplicativo seja acessível ao usar portais. Por exemplo, pode ser necessário gerenciar o foco do teclado para que o usuário possa mover o foco para dentro e para fora do portal de uma maneira natural.
 
+<<<<<<< HEAD
 Siga as [Práticas de Criação de Modal WAI-ARIA](https://www.w3.org/WAI/ARIA/apg/#dialog_modal) ao criar modais. Se você usar um pacote da comunidade, certifique-se de que ele seja acessível e siga essas diretrizes.
+=======
+Follow the [WAI-ARIA Modal Authoring Practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal) when creating modals. If you use a community package, ensure that it is accessible and follows these guidelines.
+>>>>>>> 50d6991ca6652f4bc4c985cf0c0e593864f2cc91
 
 </Pitfall>
 
