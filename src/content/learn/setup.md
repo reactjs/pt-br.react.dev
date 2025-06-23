@@ -1,28 +1,28 @@
 ---
-title: Setup
+title: Configuração
 ---
 <Intro>
 
-React integrates with tools like editors, TypeScript, browser extensions, and compilers. This section will help you get your environment set up.
+O React se integra com ferramentas como editores, TypeScript, extensões de navegador e compiladores. Esta seção vai te ajudar a configurar seu ambiente.
 
 </Intro>
 
-## Editor Setup {/*editor-setup*/}
+## Configuração do Editor {/*editor-setup*/}
 
-See our [recommended editors](/learn/editor-setup) and learn how to set them up to work with React.
+Veja nossos [editores recomendados](/learn/editor-setup) e aprenda como configurá-los para trabalhar com o React.
 
-## Using TypeScript {/*using-typescript*/}
+## Usando TypeScript {/*using-typescript*/}
 
-TypeScript is a popular way to add type definitions to JavaScript codebases. [Learn how to integrate TypeScript into your React projects](/learn/typescript).
+TypeScript é uma forma popular de adicionar definições de tipos a bases de código JavaScript. [Aprenda como integrar o TypeScript aos seus projetos React](/learn/typescript).
 
-## React Developer Tools {/*react-developer-tools*/}
+## Ferramentas de Desenvolvedor React {/*react-developer-tools*/}
 
-React Developer Tools is a browser extension that can inspect React components, edit props and state, and identify performance problems. Learn how to install it [here](learn/react-developer-tools).
+As Ferramentas de Desenvolvedor React são uma extensão de navegador que pode inspecionar componentes React, editar props e estado, e identificar problemas de performance. Aprenda como instalá-las [aqui](learn/react-developer-tools).
 
-## React Compiler {/*react-compiler*/}
+## Compilador React {/*react-compiler*/}
 
-React Compiler is a tool that automatically optimizes your React app. [Learn more](/learn/react-compiler).
+O Compilador React é uma ferramenta que otimiza automaticamente seu app React. [Saiba mais](/learn/react-compiler).
 
-## Next steps {/*next-steps*/}
+## Próximos passos {/*next-steps*/}
 
-Head to the [Quick Start](/learn) guide for a tour of the most important React concepts you will encounter every day.
+Acesse o guia [Início Rápido](/learn) para um tour pelos conceitos mais importantes do React que você encontrará todos os dias.
