@@ -4,7 +4,11 @@ title: Componentes de Servidor
 
 <RSC>
 
+<<<<<<< HEAD
 Componentes de Servidor são para uso em [Componentes de Servidor React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+=======
+Server Components are for use in [React Server Components](/learn/start-a-new-react-project#full-stack-frameworks).
+>>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 </RSC>
 
@@ -22,7 +26,11 @@ Este ambiente separado é o "servidor" em Componentes de Servidor React. Compone
 
 #### Como eu construo suporte para Componentes de Servidor? {/*how-do-i-build-support-for-server-components*/}
 
+<<<<<<< HEAD
 Enquanto Componentes de Servidor React no React 19 são estáveis e não quebrarão entre versões minor, as APIs por baixo utilizadas para implementar um bundler ou framework de Componentes de Servidor React não seguem semver e podem quebrar entre minors no React 19.x.
+=======
+While React Server Components in React 19 are stable and will not break between minor versions, the underlying APIs used to implement a React Server Components bundler or framework do not follow semver and may break between minors in React 19.x.
+>>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 Para dar suporte a Componentes de Servidor React como um bundler ou framework, nós recomendamos fixar em uma versão especifica do React, ou utilizar a versão Canary. Nós continuaremos trabalhando com bundlers e frameworks para estabilizar as APIs utilizadas para implementar Componentes de Servidor React no futuro.
 
@@ -45,7 +53,7 @@ function Page({page}) {
       setContent(data.content);
     });
   }, [page]);
-  
+
   return <div>{sanitizeHtml(marked(content))}</div>;
 }
 ```
@@ -69,7 +77,7 @@ import sanitizeHtml from 'sanitize-html'; // Not included in bundle
 async function Page({page}) {
   // NOTE: loads *during* render, when the app is built.
   const content = await file.readFile(`${page}.md`);
-  
+
   return <div>{sanitizeHtml(marked(content))}</div>;
 }
 ```
@@ -113,7 +121,7 @@ function Note({id}) {
       setNote(data.note);
     });
   }, [id]);
-  
+
   return (
     <div>
       <Author id={note.authorId} />
@@ -252,7 +260,7 @@ Isso funciona renderizando primeiro `Notes` como um Componente de Servidor, e en
       <p>this is the second note</p>
     </Expandable>
     <!--...-->
-  </div> 
+  </div>
 </body>
 ```
 
@@ -269,8 +277,8 @@ import db from './database';
 async function Page({id}) {
   // Irá suspender o Componente de Servidor.
   const note = await db.notes.get(id);
-  
-  // NOTE: not awaited, will start here and await on the client. 
+
+  // NOTE: not awaited, will start here and await on the client.
   const commentsPromise = db.comments.get(note.id);
   return (
     <div>

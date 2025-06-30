@@ -5,7 +5,11 @@ titleForTitleTag: "'use client' directive"
 
 <RSC>
 
+<<<<<<< HEAD
 `'use client'` é para uso com [Componentes do React Server](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+=======
+`'use client'` is for use with [React Server Components](/reference/rsc/server-components).
+>>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 </RSC>
 
@@ -41,7 +45,11 @@ export default function RichTextEditor({ timestamp, text }) {
 }
 ```
 
+<<<<<<< HEAD
 Quando um arquivo marcado com `'use client'` é importado de um Componente do Servidor, [empacotadores compatíveis](/learn/start-a-new-react-project#bleeding-edge-react-frameworks) tratarão a importação do módulo como uma fronteira entre código executado no servidor e código executado no cliente.
+=======
+When a file marked with `'use client'` is imported from a Server Component, [compatible bundlers](/learn/start-a-new-react-project#full-stack-frameworks) will treat the module import as a boundary between server-run and client-run code.
+>>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 Como dependências de `RichTextEditor`, `formatDate` e `Button` também serão avaliados no cliente, independentemente de seus módulos conterem uma diretiva `'use client'`. Note que um único módulo pode ser avaliado no servidor quando importado de código do servidor e no cliente quando importado de código do cliente.
 

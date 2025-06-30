@@ -208,8 +208,13 @@ As props e o state de um componente são imutáveis [snapshots](learn/state-as-a
 
 Você pode pensar nos valores de props e state como snapshots que são atualizados após a renderização. Por esse motivo, você não modifica as variáveis props ou state diretamente: em vez disso, você passa novas props, ou usa a função setter fornecida para dizer ao React que o state precisa ser atualizado na próxima vez que o componente for renderizado.
 
+<<<<<<< HEAD
 ### Não alterar Props {/*props*/}
 As props são imutáveis porque, se as alterar, a aplicação produzirá resultados inconsistentes, o que pode ser difícil de depurar, uma vez que pode ou não funcionar, dependendo das circunstâncias.
+=======
+### Don't mutate Props {/*props*/}
+Props are immutable because if you mutate them, the application will produce inconsistent output, which can be hard to debug as it may or may not work depending on the circumstances.
+>>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 ```js {2}
 function Post({ item }) {
@@ -309,7 +314,11 @@ function useIconStyle(icon) {
 }
 ```
 
+<<<<<<< HEAD
 Se você alterar os argumentos dos Hooks, a memorização do hook personalizado ficará incorreta, portanto, é importante evitar fazer isso.
+=======
+If you were to mutate the Hook's arguments, the custom hook's memoization will become incorrect,  so it's important to avoid doing that.
+>>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 ```js {4}
 style = useIconStyle(icon);         // `style` é memorizado com base em `icon`
@@ -329,7 +338,11 @@ Da mesma forma, é importante não modificar os valores de retorno dos Hooks, po
 
 ## Valores são imutáveis depois de serem passados para o JSX {/*values-are-immutable-after-being-passed-to-jsx*/}
 
+<<<<<<< HEAD
 Não altere os valores depois de eles terem sido usados no JSX. Mova a mutação antes que o JSX seja criado.
+=======
+Don't mutate values after they've been used in JSX. Move the mutation to before the JSX is created.
+>>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 Quando você usa JSX em uma expressão, o React pode avaliar avidamente o JSX antes que o componente termine de renderizar. Isso significa que mutar valores depois que eles foram passados para o JSX pode levar a UIs desatualizadas, já que o React não saberá atualizar a saída do componente.
 
