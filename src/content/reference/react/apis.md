@@ -11,7 +11,6 @@ Em adição aos [Hooks](/reference/react) e [Componentes](/reference/react/compo
 ---
 
 * [`createContext`](/reference/react/createContext) permite que você defina e forneça contexto para os componentes filhos. Usado com [`useContext`](/reference/react/useContext).
-* [`forwardRef`](/reference/react/forwardRef) permite que seu componente exponha um nó DOM como uma referência para o pai. Usado com [`useRef`](/reference/react/useRef).
 * [`lazy`](/reference/react/lazy) permite adiar o carregamento do código de um componente até que ele seja renderizado pela primeira vez.
 * [`memo`](/reference/react/memo) permite que seu componente pule re-renderizações com as mesmas props. Usado com [`useMemo`](/reference/react/useMemo) e [`useCallback`](/reference/react/useCallback).
 * [`startTransition`](/reference/react/startTransition) permite que você marque uma atualização de estado como não urgente. Semelhante a [`useTransition`](/reference/react/useTransition).

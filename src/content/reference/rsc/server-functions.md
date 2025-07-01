@@ -4,7 +4,7 @@ title: Funções do Servidor
 
 <RSC>
 
-Funções do Servidor são para uso em [Componentes do Servidor React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+Funções do Servidor são para uso em [Componentes do Servidor React](/reference/rsc/server-components).
 
 **Observação:** Até setembro de 2024, nos referíamos a todas as Funções do Servidor como "Ações do Servidor". Se uma Função do Servidor for passada para uma propriedade `action` ou chamada de dentro de uma ação, então ela é uma Ação do Servidor, mas nem todas as Funções do Servidor são Ações do Servidor. A nomenclatura nesta documentação foi atualizada para refletir que as Funções do Servidor podem ser usadas para múltiplos propósitos.
 
@@ -28,7 +28,7 @@ Para oferecer suporte às Funções do Servidor como um bundler ou framework, re
 
 </Note>
 
-Quando uma Função do Servidor é definida com a diretiva [`"use server"`](/reference/rsc/use-server), seu framework criará automaticamente uma referência à função do servidor e passará essa referência para o Componente Cliente. Quando essa função for chamada no cliente, o React enviará uma requisição para o servidor para executar a função e retornará o resultado.
+Quando uma Função do Servidor é definida com a diretiva [`"use server"`](/reference/rsc/use-server), seu framework criará automaticamente uma referência à Função do Servidor e passará essa referência para o Componente Cliente. Quando essa função for chamada no cliente, o React enviará uma requisição para o servidor para executar a função e retornará o resultado.
 
 As Funções do Servidor podem ser criadas em Componentes do Servidor e passadas como props para Componentes Cliente, ou podem ser importadas e usadas em Componentes Cliente.
 
@@ -54,7 +54,7 @@ function EmptyNote () {
 }
 ```
 
-Quando o React renderiza a Função do Servidor `EmptyNote`, ele criará uma referência à função `createNoteAction` e passará essa referência para o Componente Cliente `Button`. Quando o botão for clicado, o React enviará uma requisição para o servidor para executar a função `createNoteAction` com a referência fornecida:
+Quando o React renderiza o Componente do Servidor `EmptyNote`, ele criará uma referência à função `createNoteAction` e passará essa referência para o Componente Cliente `Button`. Quando o botão for clicado, o React enviará uma requisição para o servidor para executar a função `createNoteAction` com a referência fornecida:
 
 ```js {5}
 "use client";

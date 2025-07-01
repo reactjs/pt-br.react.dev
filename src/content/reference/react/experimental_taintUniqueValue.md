@@ -1,8 +1,9 @@
 ---
 title: experimental_taintUniqueValue
+version: experimental
 ---
 
-<Wip>
+<Experimental>
 
 **Esta API é experimental e ainda não está disponível em uma versão estável do React.**
 
@@ -16,7 +17,7 @@ As versões experimentais do React podem conter erros. Não as use na produção
 
 Esta API só está disponível dentro de [Componentes de Servidor React](/reference/rsc/use-client).
 
-</Wip>
+</Experimental>
 
 <Intro>
 
