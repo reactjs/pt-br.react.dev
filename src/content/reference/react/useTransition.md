@@ -161,11 +161,7 @@ function CheckoutForm() {
 
 A função passada para `startTransition` é chamada de "Ação". Você pode atualizar o estado e (opcionalmente) realizar efeitos colaterais dentro de uma Ação, e o trabalho será feito em segundo plano sem bloquear as interações do usuário na página. Uma Transição pode incluir várias Ações, e enquanto uma Transição está em andamento, sua interface do usuário permanece responsiva. Por exemplo, se o usuário clicar em uma aba, mas depois mudar de ideia e clicar em outra aba, o segundo clique será imediatamente tratado sem esperar que a primeira atualização termine.
 
-<<<<<<< HEAD
 Para dar feedback ao usuário sobre Transições em andamento, o estado `isPending` muda para `true` na primeira chamada para `startTransition`, e permanece `true` até que todas as Ações sejam concluídas e o estado final seja mostrado ao usuário. As Transições garantem que os efeitos colaterais nas Ações sejam concluídos em ordem para [prevenir indicadores de carregamento indesejados](#preventing-unwanted-loading-indicators), e você pode fornecer feedback imediato enquanto a Transição está em andamento com `useOptimistic`.
-=======
-To give the user feedback about in-progress Transitions, the `isPending` state switches to `true` at the first call to `startTransition`, and stays `true` until all Actions complete and the final state is shown to the user. Transitions ensure side effects in Actions to complete in order to [prevent unwanted loading indicators](#preventing-unwanted-loading-indicators), and you can provide immediate feedback while the Transition is in progress with `useOptimistic`.
->>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 <Recipes titleText="A diferença entre Ações e manipulação de eventos regular">
 
@@ -587,11 +583,7 @@ This solution makes the app feel slow, because the user must wait each time they
 
 Você pode expor uma prop `action` de um componente para permitir que um componente pai chame uma Ação.
 
-<<<<<<< HEAD
 Por exemplo, este componente `TabButton` envolve sua lógica `onClick` em uma prop `action`:
-=======
-For example, this `TabButton` component wraps its `onClick` logic in an `action` prop:
->>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
 
 ```js {8-12}
 export default function TabButton({ action, children, isActive }) {

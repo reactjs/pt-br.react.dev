@@ -4,11 +4,7 @@ title: Componentes de Servidor
 
 <RSC>
 
-<<<<<<< HEAD
-Componentes de Servidor são para uso em [Componentes de Servidor React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
-=======
-Server Components are for use in [React Server Components](/learn/start-a-new-react-project#full-stack-frameworks).
->>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
+Componentes de Servidor são para uso em [Componentes do Servidor React](/learn/start-a-new-react-project#full-stack-frameworks).
 
 </RSC>
 
@@ -26,11 +22,7 @@ Este ambiente separado é o "servidor" em Componentes de Servidor React. Compone
 
 #### Como eu construo suporte para Componentes de Servidor? {/*how-do-i-build-support-for-server-components*/}
 
-<<<<<<< HEAD
-Enquanto Componentes de Servidor React no React 19 são estáveis e não quebrarão entre versões minor, as APIs por baixo utilizadas para implementar um bundler ou framework de Componentes de Servidor React não seguem semver e podem quebrar entre minors no React 19.x.
-=======
-While React Server Components in React 19 are stable and will not break between minor versions, the underlying APIs used to implement a React Server Components bundler or framework do not follow semver and may break between minors in React 19.x.
->>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
+Enquanto Componentes do Servidor React no React 19 são estáveis e não quebrarão entre versões menores, as APIs subjacentes utilizadas para implementar um bundler ou framework de Componentes do Servidor React não seguem semver e podem quebrar entre versões menores no React 19.x.
 
 Para dar suporte a Componentes de Servidor React como um bundler ou framework, nós recomendamos fixar em uma versão especifica do React, ou utilizar a versão Canary. Nós continuaremos trabalhando com bundlers e frameworks para estabilizar as APIs utilizadas para implementar Componentes de Servidor React no futuro.
 

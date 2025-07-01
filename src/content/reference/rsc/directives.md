@@ -4,21 +4,13 @@ title: Diretivas
 
 <RSC>
 
-<<<<<<< HEAD
-Diretivas são para uso em [Componentes do Servidor React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
-=======
-Directives are for use in [React Server Components](/reference/rsc/server-components).
->>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
+Diretivas são para uso em [Componentes do Servidor React](/reference/rsc/server-components).
 
 </RSC>
 
 <Intro>
 
-<<<<<<< HEAD
-Diretivas fornecem instruções para [bundlers compatíveis com Componentes do Servidor React](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
-=======
-Directives provide instructions to [bundlers compatible with React Server Components](/learn/start-a-new-react-project#full-stack-frameworks).
->>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
+Diretivas fornecem instruções para [bundlers compatíveis com Componentes do Servidor React](/learn/start-a-new-react-project#full-stack-frameworks).
 
 </Intro>
 

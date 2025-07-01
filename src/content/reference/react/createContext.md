@@ -38,18 +38,11 @@ const ThemeContext = createContext('light');
 
 `createContext` retorna um objeto de contexto.
 
-<<<<<<< HEAD
-**O objeto de contexto em si, não possui nenhuma informação.** Ele representa _qual_ contexto outros componentes irão consumir ou fornecer. Geralmente, você vai usar[`SomeContext.Provider`](#provider) em um componente acima para especificar um valor para o contexto, e invocar [`useContext(SomeContext)`](/reference/react/useContext) em componentes abaixo pra consumi-lo. O objeto de contexto possui algumas propriedades:
+**O objeto de contexto em si, não possui nenhuma informação.** Ele representa _qual_ contexto outros componentes irão consumir ou fornecer. Geralmente, você vai usar [`SomeContext`](#provider) em um componente acima para especificar um valor para o contexto, e invocar [`useContext(SomeContext)`](/reference/react/useContext) em componentes abaixo pra consumi-lo. O objeto de contexto possui algumas propriedades:
 
-* `SomeContext.Provider` permite que você forneça o valor do contexto aos seus componentes.
-* `SomeContext.Consumer` é uma alternativa raramanete usada como uma forma de consumir o valor de um contexto.
-=======
-**The context object itself does not hold any information.** It represents _which_ context other components read or provide. Typically, you will use [`SomeContext`](#provider) in components above to specify the context value, and call [`useContext(SomeContext)`](/reference/react/useContext) in components below to read it. The context object has a few properties:
-
-* `SomeContext` lets you provide the context value to components.
-* `SomeContext.Consumer` is an alternative and rarely used way to read the context value.
-* `SomeContext.Provider` is a legacy way to provide the context value before React 19.
->>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
+* `SomeContext` permite que você forneça o valor do contexto aos seus componentes.
+* `SomeContext.Consumer` é uma alternativa raramente usada como uma forma de consumir o valor de um contexto.
+* `SomeContext.Provider` é uma forma legada de fornecer o valor do contexto antes do React 19.
 
 ---
 
@@ -225,12 +218,6 @@ Código como esse especifica o valor *padrão* do contexto:
 const ThemeContext = createContext('light');
 ```
 
-<<<<<<< HEAD
 Esse valor nunca muda. React só usa esse valor como um fallback (reserva) se ele não conseguir encontrar um provedor correspondente acima.
 
 Para fazer o valor do contexto mudar com o tempo, [adicione estado e envolva os componentes em um provedor de contexto (context provider).](/reference/react/useContext#updating-data-passed-via-context)
-=======
-This value never changes. React only uses this value as a fallback if it can't find a matching provider above.
-
-To make context change over time, [add state and wrap components in a context provider.](/reference/react/useContext#updating-data-passed-via-context)
->>>>>>> c0c955ed1d1c4fe3bf3e18c06a8d121902a01619
