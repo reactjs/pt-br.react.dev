@@ -21,8 +21,8 @@ O React vem com vários Hooks embutidos como `useState`, `useContext`, e `useEff
 
 Imagine que você está desenvolvendo um aplicativo que depende fortemente da rede (como a maioria dos aplicativos). Você deseja alertar o usuário caso a conexão de rede seja perdida acidentalmente enquanto eles estiverem usando o seu aplicativo. Como você procederia? Parece que você precisará de duas coisas no seu componente:
 
-1. Um estado que acompanha se a rede está online ou não.
-2. Um efeito que se inscreve nos eventos globais [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) e [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) e atualiza o estado correspondente.
+1. Um state que acompanha se a rede está online ou não.
+2. Um Effect que se inscreve nos eventos globais [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) e [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) e atualiza o estado correspondente.
 
 Isso manterá seu componente [sincronizado](/learn/synchronizing-with-effects) com o status da rede. Você pode começar com algo assim:
 
