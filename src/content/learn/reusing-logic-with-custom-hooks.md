@@ -21,8 +21,8 @@ O React vem com vários Hooks embutidos como `useState`, `useContext`, e `useEff
 
 Imagine que você está desenvolvendo um aplicativo que depende fortemente da rede (como a maioria dos aplicativos). Você deseja alertar o usuário caso a conexão de rede seja perdida acidentalmente enquanto eles estiverem usando o seu aplicativo. Como você procederia? Parece que você precisará de duas coisas no seu componente:
 
-1. Um estado que acompanha se a rede está online ou não.
-2. Um efeito que se inscreve nos eventos globais [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) e [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) e atualiza o estado correspondente.
+1. Um state que acompanha se a rede está online ou não.
+2. Um Effect que se inscreve nos eventos globais [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) e [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) e atualiza o estado correspondente.
 
 Isso manterá seu componente [sincronizado](/learn/synchronizing-with-effects) com o status da rede. Você pode começar com algo assim:
 
@@ -98,7 +98,7 @@ export default function SaveButton() {
 
 Verifique que, ao desligar a rede, o botão alterará sua aparência.
 
-Esses dois componentes funcionam bem, mas a duplicação da lógica entre eles é infeliz. Parece que, mesmo que eles tenham uma aparência *visual diferente,* você deseja reutilizar a lógica entre eles.
+Esses dois componentes funcionam bem, mas a duplicação da lógica entre eles é lamentável. Parece que, mesmo que eles tenham uma aparência *visual diferente,* você deseja reutilizar a lógica entre eles.
 
 ### Extraindo seu próprio Hook personalizado de um componente {/*extracting-your-own-custom-hook-from-a-component*/}
 
@@ -1268,7 +1268,7 @@ function ChatRoom({ roomId }) {
 
 ### Hooks personalizados ajudam na migração para padrões melhores {/*custom-hooks-help-you-migrate-to-better-patterns*/}
 
-Os efeitos são uma ["porta de escape"](/learn/escape-hatches): você os utiliza quando precisa "sair do React" e não há uma solução interna melhor para o seu caso de uso. Com o tempo, o objetivo da equipe do React é reduzir ao mínimo o número de efeitos em seu aplicativo, fornecendo soluções mais específicas para problemas mais específicos. Encapsular seus efeitos em Hooks personalizados facilita a atualização do seu código quando essas soluções estiverem disponíveis.
+Effects são uma ["porta de escape"](/learn/escape-hatches): você os utiliza quando precisa "sair do React" e não há uma solução interna melhor para o seu caso de uso. Com o tempo, o objetivo da equipe do React é reduzir ao mínimo o número de Effects em seu aplicativo, fornecendo soluções mais específicas para problemas mais específicos. Encapsular seus Effects em Hooks personalizados facilita a atualização do seu código quando essas soluções estiverem disponíveis.
 
 Vamos voltar a este exemplo:
 
