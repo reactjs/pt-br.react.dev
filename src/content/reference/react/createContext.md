@@ -38,14 +38,15 @@ const ThemeContext = createContext('light');
 
 `createContext` retorna um objeto de contexto.
 
-**O objeto de contexto em si, não possui nenhuma informação.** Ele representa _qual_ contexto outros componentes irão consumir ou fornecer. Geralmente, você vai usar[`SomeContext.Provider`](#provider) em um componente acima para especificar um valor para o contexto, e invocar [`useContext(SomeContext)`](/reference/react/useContext) em componentes abaixo pra consumi-lo. O objeto de contexto possui algumas propriedades:
+**O objeto de contexto em si, não possui nenhuma informação.** Ele representa _qual_ contexto outros componentes irão consumir ou fornecer. Geralmente, você vai usar [`SomeContext`](#provider) em um componente acima para especificar um valor para o contexto, e invocar [`useContext(SomeContext)`](/reference/react/useContext) em componentes abaixo pra consumi-lo. O objeto de contexto possui algumas propriedades:
 
-* `SomeContext.Provider` permite que você forneça o valor do contexto aos seus componentes.
-* `SomeContext.Consumer` é uma alternativa raramanete usada como uma forma de consumir o valor de um contexto.
+* `SomeContext` permite que você forneça o valor do contexto aos seus componentes.
+* `SomeContext.Consumer` é uma alternativa raramente usada como uma forma de consumir o valor de um contexto.
+* `SomeContext.Provider` é uma forma legada de fornecer o valor do contexto antes do React 19.
 
 ---
 
-### `SomeContext.Provider` {/*provider*/}
+### `SomeContext` Provider {/*provider*/}
 
 Envolva seus componente em um provedor de contexto para especificar o valor desse contexto para todos os componentes dentro dele:
 
@@ -54,12 +55,20 @@ function App() {
   const [theme, setTheme] = useState('light');
   // ...
   return (
-    <ThemeContext.Provider value={theme}>
+    <ThemeContext value={theme}>
       <Page />
-    </ThemeContext.Provider>
+    </ThemeContext>
   );
 }
 ```
+
+<Note>
+
+Starting in React 19, you can render `<SomeContext>` as a provider. 
+
+In older versions of React, use `<SomeContext.Provider>`.
+
+</Note>
 
 #### Props {/*provider-props*/}
 
@@ -141,11 +150,11 @@ function App() {
   // ...
 
   return (
-    <ThemeContext.Provider value={theme}>
-      <AuthContext.Provider value={currentUser}>
+    <ThemeContext value={theme}>
+      <AuthContext value={currentUser}>
         <Page />
-      </AuthContext.Provider>
-    </ThemeContext.Provider>
+      </AuthContext>
+    </ThemeContext>
   );
 }
 ```
@@ -187,11 +196,11 @@ import { ThemeContext, AuthContext } from './Contexts.js';
 function App() {
   // ...
   return (
-    <ThemeContext.Provider value={theme}>
-      <AuthContext.Provider value={currentUser}>
+    <ThemeContext value={theme}>
+      <AuthContext value={currentUser}>
         <Page />
-      </AuthContext.Provider>
-    </ThemeContext.Provider>
+      </AuthContext>
+    </ThemeContext>
   );
 }
 ```

@@ -34,6 +34,7 @@ npx create-next-app@latest
 
 Next.js é mantido pela [Vercel](https://vercel.com/). Você pode [fazer deploy de uma aplicação Next.js](https://nextjs.org/docs/app/building-your-application/deploying) para qualquer hospedagem Node.js ou serverless, ou para seu próprio servidor. Next.js também suporta [exportação estática](https://nextjs.org/docs/app/building-your-application/deploying/static-exports) que não requer um servidor. A Vercel também fornece serviços em nuvem pagos opcionais.
 
+
 ### React Router (v7) {/*react-router-v7*/}
 
 **[React Router](https://reactrouter.com/start/framework/installation) é a biblioteca de roteamento mais popular para React e pode ser pareada com Vite para criar um framework React full-stack**. Ele enfatiza APIs Web padrão e tem vários [templates prontos para deploy](https://github.com/remix-run/react-router-templates) para vários runtimes JavaScript e plataformas.
@@ -106,7 +107,5 @@ Se sua aplicação tem restrições que não são bem atendidas pelos frameworks
 Começar do zero te dá mais flexibilidade, mas requer que você faça escolhas sobre quais ferramentas usar para roteamento, busca de dados, e outros padrões de uso comuns. É muito parecido com construir seu próprio framework, ao invés de usar um framework que já existe. Os [frameworks que recomendamos](#full-stack-frameworks) têm soluções integradas para esses problemas.
 
 Se você quer construir suas próprias soluções, veja nosso guia para [construir uma aplicação React do Zero](/learn/build-a-react-app-from-scratch) para instruções sobre como configurar um novo projeto React começando com uma ferramenta de build como [Vite](https://vite.dev/), [Parcel](https://parceljs.org/), ou [RSbuild](https://rsbuild.dev/).
-
------
 
 _Se você é um autor de framework interessado em ser incluído nesta página, [por favor nos informe](https://github.com/reactjs/react.dev/issues/new?assignees=&labels=type%3A+framework&projects=&template=3-framework.yml&title=%5BFramework%5D%3A+)._

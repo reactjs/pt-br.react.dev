@@ -117,6 +117,7 @@ Para instruções de divisão de código, veja a documentação da sua ferrament
 - [Divisão de código do Parcel](https://parceljs.org/features/code-splitting/)
 - [Divisão de código do Rsbuild](https://rsbuild.dev/guide/optimization/code-splitting)
 
+
 ### Melhorando a Performance da Aplicação {/*improving-application-performance*/}
 
 Como a ferramenta de build que você seleciona só suporta aplicações de página única (SPAs), você precisará implementar outros [padrões de renderização](https://www.patterns.dev/vanilla/rendering-patterns) como renderização do lado do servidor (SSR), geração de site estático (SSG), e/ou React Server Components (RSC). Mesmo se você não precisar dessas funcionalidades no início, no futuro pode haver algumas rotas que se beneficiariam de SSR, SSG ou RSC.

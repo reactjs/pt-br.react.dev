@@ -5,7 +5,7 @@ titleForTitleTag: "Diretiva `'use server'`"
 
 <RSC>
 
-`'use server'` deve ser usado com [usando React Server Components](/learn/start-a-new-react-project#bleeding-edge-react-frameworks).
+`'use server'` é para uso com [Componentes do Servidor React](/reference/rsc/server-components).
 
 </RSC>
 

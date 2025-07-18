@@ -48,9 +48,9 @@ A função `preinit` fornece ao navegador uma dica de que ele deve começar a ba
 * `options`: um objeto. Ele contém as seguintes propriedades:
   *  `as`: uma string obrigatória. O tipo de recurso. Seus valores possíveis são `script` e `style`.
   * `precedence`: uma string. Obrigatório com folhas de estilo. Diz onde inserir a folha de estilo em relação a outras. Folhas de estilo com maior precedência podem substituir aquelas com menor precedência. Os valores possíveis são `reset`, `low`, `medium`, `high`.
-  *  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus valores possíveis são `anonymous` e `use-credentials`. É necessário quando `as` é definido como `"fetch"`.
+  *  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus valores possíveis são `anonymous` e `use-credentials`.
   *  `integrity`: uma string. Um hash criptográfico do recurso, para [verificar sua autenticidade](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
-  *  `nonce`: uma string. Um [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) criptográfico para permitir o recurso ao usar uma Política de Segurança de Conteúdo estrita.
+  *  `nonce`: uma string. Um [nonce criptográfico para permitir o recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) ao usar uma Política de Segurança de Conteúdo estrita.
   *  `fetchPriority`: uma string. Sugere uma prioridade relativa para buscar o recurso. Os valores possíveis são `auto` (o padrão), `high` e `low`.
 
 #### Retorna {/*returns*/}

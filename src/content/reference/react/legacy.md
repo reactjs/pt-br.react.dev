@@ -30,6 +30,6 @@ Essas APIs foram removidas no React 19:
 * [`createFactory`](https://18.react.dev/reference/react/createFactory): use JSX em vez disso.
 * Componentes de Classe: [`static contextTypes`](https://18.react.dev//reference/react/Component#static-contexttypes): use [`static contextType`](#static-contexttype) em vez disso.
 * Componentes de Classe: [`static childContextTypes`](https://18.react.dev//reference/react/Component#static-childcontexttypes): use [`static contextType`](#static-contexttype) em vez disso.
-* Componentes de Classe: [`static getChildContext`](https://18.react.dev//reference/react/Component#getchildcontext): use [`Context.Provider`](/reference/react/createContext#provider) em vez disso.
+* Componentes de Classe: [`static getChildContext`](https://18.react.dev//reference/react/Component#getchildcontext): use [`Context`](/reference/react/createContext#provider) em vez disso.
 * Componentes de Classe: [`static propTypes`](https://18.react.dev//reference/react/Component#static-proptypes): use um sistema de tipos como [TypeScript](https://www.typescriptlang.org/) em vez disso.
 * Componentes de Classe: [`this.refs`](https://18.react.dev//reference/react/Component#refs): use [`createRef`](/reference/react/createRef) em vez disso.

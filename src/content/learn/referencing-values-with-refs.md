@@ -468,7 +468,7 @@ export default function Toggle() {
 
 #### Consertar agrupamento (debouncing) {/*fix-debouncing*/}
 
-Neste exemplo, todos os manipuladores de cliques dos botões estão ["agrupados" (debounced).](https://redd.one/blog/debounce-vs-throttle/) Para entender o que isso significa, clique em um dos botões. Observe como a mensagem aparece um segundo depois. Se você pressionar o botão enquanto aguarda a mensagem, o temporizador será reiniciado. Portanto, se você continuar clicando rapidamente muitas vezes no mesmo botão, a mensagem não aparecerá até um segundo *depois* de você parar de clicar. O agrupamento (debouncing) permite que você atrase alguma ação até que o usuário "pare de fazer coisas".
+Neste exemplo, todos os manipuladores de cliques dos botões estão ["agrupados" (debounced).](https://kettanaito.com/blog/debounce-vs-throttle) Para entender o que isso significa, clique em um dos botões. Observe como a mensagem aparece um segundo depois. Se você pressionar o botão enquanto aguarda a mensagem, o temporizador será reiniciado. Portanto, se você continuar clicando rapidamente muitas vezes no mesmo botão, a mensagem não aparecerá até um segundo *depois* de você parar de clicar. O agrupamento (debouncing) permite que você atrase alguma ação até que o usuário "pare de fazer coisas".
 
 Este exemplo funciona, mas não exatamente como pretendido. Os botões não são independentes. Para ver o problema, clique em um dos botões e, imediatamente depois, clique em outro botão. Você esperaria que após um atraso, você visse as mensagens de ambos os botões. Mas apenas a mensagem do último botão aparece. A mensagem do primeiro botão se perde.
 

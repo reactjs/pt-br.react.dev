@@ -30,14 +30,15 @@ O compilador também inclui um [plugin ESLint](#installing-eslint-plugin-react-c
 
 O compilador está atualmente lançado como `beta`, e está disponível para experimentar em aplicações e bibliotecas React 17+. Para instalar a Beta:
 
+
 <TerminalBlock>
-npm install -D babel-plugin-react-compiler@beta eslint-plugin-react-compiler@beta
+{`npm install -D babel-plugin-react-compiler@rc eslint-plugin-react-hooks@^6.0.0-rc.1`}
 </TerminalBlock>
 
 Ou, se estiver a usar Yarn:
 
 <TerminalBlock>
-yarn add -D babel-plugin-react-compiler@beta eslint-plugin-react-compiler@beta
+{`yarn add -D babel-plugin-react-compiler@rc eslint-plugin-react-hooks@^6.0.0-rc.1`}
 </TerminalBlock>
 
 Se ainda não estiver a usar React 19, por favor consulte [a secção abaixo](#using-react-compiler-with-react-17-or-18) para mais instruções.
@@ -116,7 +117,9 @@ Então se `expensivelyProcessAReallyLargeArrayOfObjects` fosse usado em muitos c
 
 ### Devo experimentar o compilador? {/*should-i-try-out-the-compiler*/}
 
+
 Por favor note que o compilador ainda está em Beta e tem muitas arestas por limar. Embora tenha sido usado em produção em empresas como a Meta, implementar o compilador em produção para a sua aplicação dependerá da saúde da sua base de código e de quão bem seguiu as [Regras do React](/reference/rules).
+
 
 **Não tem de se apressar a usar o compilador agora. Está bem esperar até que chegue a uma versão estável antes de o adotar.** No entanto, apreciamos que o experimente em pequenas experiências nas suas aplicações para que possa [fornecer feedback](#reporting-issues) para nos ajudar a tornar o compilador melhor.
 
@@ -124,13 +127,16 @@ Por favor note que o compilador ainda está em Beta e tem muitas arestas por lim
 
 Além desta documentação, recomendamos verificar o [React Compiler Working Group](https://github.com/reactwg/react-compiler) para informação adicional e discussão sobre o compilador.
 
+
 ### Instalar eslint-plugin-react-compiler {/*installing-eslint-plugin-react-compiler*/}
 
 O React Compiler também alimenta um plugin ESLint. O plugin ESLint pode ser usado **independentemente** do compilador, significando que pode usar o plugin ESLint mesmo que não use o compilador.
 
+
 <TerminalBlock>
-npm install -D eslint-plugin-react-compiler@beta
+{`npm install -D eslint-plugin-react-hooks@^6.0.0-rc.1`}
 </TerminalBlock>
+
 
 Depois, adicione-o à sua configuração ESLint:
 
@@ -194,7 +200,7 @@ Se estiver a começar um novo projeto, pode ativar o compilador em toda a sua ba
 O React Compiler funciona melhor com React 19 RC. Se não conseguir atualizar, pode instalar o pacote extra `react-compiler-runtime` que permitirá que o código compilado execute em versões anteriores à 19. No entanto, note que a versão mínima suportada é a 17.
 
 <TerminalBlock>
-npm install react-compiler-runtime@beta
+{`npm install react-compiler-runtime@rc`}
 </TerminalBlock>
 
 Também deve adicionar o `target` correto à sua configuração do compilador, onde `target` é a versão principal do React que está a usar:
@@ -229,7 +235,7 @@ Similarmente às aplicações, não é necessário compilar completamente 100% d
 ### Babel {/*usage-with-babel*/}
 
 <TerminalBlock>
-npm install babel-plugin-react-compiler@beta
+{`npm install babel-plugin-react-compiler@rc`}
 </TerminalBlock>
 
 O compilador inclui um plugin Babel que pode usar no seu pipeline de compilação para executar o compilador.
@@ -284,7 +290,7 @@ Por favor consulte a [documentação Next.js](https://nextjs.org/docs/app/api-re
 Instale `vite-plugin-babel`, e adicione o plugin Babel do compilador a ele:
 
 <TerminalBlock>
-npm install vite-plugin-babel
+{`npm install vite-plugin-babel`}
 </TerminalBlock>
 
 ```js {2,14}
