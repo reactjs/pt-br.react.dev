@@ -58,7 +58,7 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
   * **opcional** `namespaceURI`: Uma string com a raiz [URI do namespace](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElementNS#important_namespace_uris) para o fluxo. O padrão é HTML comum. Passe `'http://www.w3.org/2000/svg'` para SVG ou `'http://www.w3.org/1998/Math/MathML'` para MathML.
   * **opcional** `onError`: Um retorno de chamada que é disparado sempre que há um erro de servidor, seja ele [recuperável](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-outside-the-shell) ou [não.](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-inside-the-shell). Por padrão, isso chama apenas `console.error`. Se você substituí-lo para [registrar relatórios de falhas,](/reference/react-dom/server/renderToPipeableStream#logging-crashes-on-the-server), certifique-se de ainda chamar `console.error`. Você também pode usá-lo para [ajustar o código de status](/reference/react-dom/server/renderToPipeableStream#setting-the-status-code) antes da emissão do shell.
   * **opcional** `progressiveChunkSize`: O número de bytes em um bloco. [Saiba mais sobre a heurística padrão.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
-  * **opcional** `signal`: Um [sinal de aborto](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a renderização do servidor](/reference/react-dom/server/renderToPipeableStream#aborting-server-rendering) e renderizar o restante no cliente.
+  * **opcional** `signal`: Um [sinal de aborto](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a pré-renderização](#aborting-prerendering) e renderizar o restante no cliente.
 
 #### Retorna {/*returns*/}
 
@@ -66,6 +66,10 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 - Se a renderização for bem-sucedida, a Promise será resolvida para um objeto contendo:
   - `prelude`: um [Node.js Stream.](https://nodejs.org/api/stream.html) de HTML. Você pode usar este stream para enviar uma resposta em chunks, ou pode ler o stream inteiro em uma string.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-inside-the-shell)
+
+#### Caveats {/*caveats*/}
+
+`nonce` is not an available option when prerendering. Nonces must be unique per request and if you use nonces to secure your application with [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) it would be inappropriate and insecure to include the nonce value in the prerender itself.
 
 <Note>
 
@@ -91,7 +95,7 @@ app.use('/', async (request, response) => {
   const { prelude } = await prerenderToNodeStream(<App />, {
     bootstrapScripts: ['/main.js'],
   });
-  
+
   response.setHeader('Content-Type', 'text/plain');
   prelude.pipe(response);
 });
@@ -228,7 +232,7 @@ async function renderToString() {
   const {prelude} = await prerenderToNodeStream(<App />, {
     bootstrapScripts: ['/main.js']
   });
-  
+
   return new Promise((resolve, reject) => {
     let data = '';
     prelude.on('data', chunk => {
@@ -282,6 +286,30 @@ A maneira exata como você carregaria os dados no componente `Posts` acima depen
 O data fetching habilitado para Suspense sem o uso de um framework opinativo ainda não é suportado. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
 
 </Note>
+
+---
+
+### Abortando a pré-renderização {/*aborting-prerendering*/}
+
+Você pode forçar a pré-renderização a "desistir" após um timeout:
+
+```js {2-5,11}
+async function renderToString() {
+  const controller = new AbortController();
+  setTimeout(() => {
+    controller.abort()
+  }, 10000);
+
+  try {
+    // o prelude conterá todo o HTML que foi pré-renderizado
+    // antes do controller abortar.
+    const {prelude} = await prerenderToNodeStream(<App />, {
+      signal: controller.signal,
+    });
+    //...
+```
+
+Quaisquer limites de Suspense com filhos incompletos serão incluídos no prelude no estado de fallback.
 
 ---
 
