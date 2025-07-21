@@ -20,11 +20,19 @@ Digamos que você tenha um aplicativo da web existente em `example.com` constru�
 
 Veja como recomendamos configurá-lo:
 
+<<<<<<< HEAD
 1. **Construa a parte React do seu aplicativo** usando um dos [frameworks baseados em React](/learn/start-a-new-react-project).
 2. **Especifique `/some-app` como o *caminho base*** na configuração do seu framework (veja como: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configure seu servidor ou um proxy** para que todas as solicitações em `/some-app/` sejam tratadas pelo seu aplicativo React.
 
 Isso garante que a parte React do seu aplicativo possa [se beneficiar das melhores práticas](/learn/start-a-new-react-project#can-i-use-react-without-a-framework) embutidas nesses frameworks.
+=======
+1. **Build the React part of your app** using one of the [React-based frameworks](/learn/creating-a-react-app).
+2. **Specify `/some-app` as the *base path*** in your framework's configuration (here's how: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
+3. **Configure your server or a proxy** so that all requests under `/some-app/` are handled by your React app.
+
+This ensures the React part of your app can [benefit from the best practices](/learn/creating-a-react-app#full-stack-frameworks) baked into those frameworks.
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 Muitos frameworks baseados em React são full stack e permitem que seu aplicativo React tire proveito do servidor. No entanto, você pode usar a mesma abordagem mesmo se não puder ou não quiser executar JavaScript no servidor. Nesse caso, exponha os HTML/CSS/JS exportados ([saída `next export`](https://nextjs.org/docs/advanced-features/static-html-export) para o Next.js, padrão para o Gatsby) em `/some-app/` em vez disso.
 
@@ -149,7 +157,11 @@ root.render(<NavigationBar />);
 
 Observe como o conteúdo HTML original de `index.html` é preservado, mas o seu próprio componente React `NavigationBar` agora aparece dentro do `<nav id="navigation" />` do seu HTML. Leia a documentação de uso do [`createRoot`](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) para aprender mais sobre como renderizar componentes React dentro de uma página HTML existente.
 
+<<<<<<< HEAD
 Quando você adota o React em um projeto existente, é comum começar com pequenos componentes interativos (como botões) e, gradualmente, "subir de nível" até que eventualmente toda a sua página seja construída com React. Se você chegar a esse ponto, recomendamos migrar para [um framework React](/learn/start-a-new-react-project) imediatamente para aproveitar ao máximo o React.
+=======
+When you adopt React in an existing project, it's common to start with small interactive components (like buttons), and then gradually keep "moving upwards" until eventually your entire page is built with React. If you ever reach that point, we recommend migrating to [a React framework](/learn/creating-a-react-app) right after to get the most out of React.
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 ## Usando o React Native em um aplicativo móvel nativo existente {/*using-react-native-in-an-existing-native-mobile-app*/}
 

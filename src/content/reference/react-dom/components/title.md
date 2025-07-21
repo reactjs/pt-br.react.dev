@@ -30,7 +30,11 @@ Para especificar o título do documento, renderize o [componente `<title>` de na
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<title>` suporta todas as [props de elementos comuns.](/reference/react-dom/components/common#props)
+=======
+`<title>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 * `children`: `<title>` aceita apenas texto como um filho. Este texto se tornará o título do documento. Você também pode passar seus próprios componentes desde que eles renderizem apenas texto.
 

@@ -11,16 +11,27 @@ TypeScript é uma forma popular de adicionar definições de tipos à bases de c
 
 <YouWillLearn>
 
+<<<<<<< HEAD
 * [TypeScript com Componentes React](/learn/typescript#typescript-with-react-components)
 * [Exemplos de tipagem com hooks](/learn/typescript#example-hooks)
 * [Tipos úteis do `@types/react`](/learn/typescript/#useful-types)
 * [Conteúdo adicional para aprendizagem](/learn/typescript/#further-learning)
+=======
+* [TypeScript with React Components](/learn/typescript#typescript-with-react-components)
+* [Examples of typing with Hooks](/learn/typescript#example-hooks)
+* [Common types from `@types/react`](/learn/typescript#useful-types)
+* [Further learning locations](/learn/typescript#further-learning)
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 </YouWillLearn>
 
 ## Instalação {/*installation*/}
 
+<<<<<<< HEAD
 Todos os [frameworks React em produção](/learn/start-a-new-react-project#production-grade-react-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
+=======
+All [production-grade React frameworks](/learn/creating-a-react-app#full-stack-frameworks) offer support for using TypeScript. Follow the framework specific guide for installation:
+>>>>>>> d52b3ec734077fd56f012fc2b30a67928d14cc73
 
 - [Next.js](https://nextjs.org/docs/app/building-your-application/configuring/typescript)
 - [Remix](https://remix.run/docs/en/1.19.2/guides/typescript)
