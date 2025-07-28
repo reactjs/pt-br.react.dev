@@ -30,7 +30,11 @@ Para adicionar estilos embutidos ao seu documento, renderize o [componente `<sty
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<style>` suporta todas as [props de elementos comuns.](/reference/react-dom/components/common#props)
+=======
+`<style>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 * `children`: uma string, obrigatório. O conteúdo da folha de estilo.
 * `precedence`: uma string. Diz ao React onde classificar o nó `<style>` DOM em relação a outros no `<head>` do documento, o que determina qual folha de estilo pode substituir a outra. React inferirá que valores de precedência que ele descobrir primeiro são "menores" e valores de precedência que ele descobrir mais tarde são "maiores". Muitos sistemas de estilo podem funcionar bem usando um único valor de precedência porque as regras de estilo são atômicas. Folhas de estilo com a mesma precedência vão juntas, sejam elas tags `<link>` ou `<style>` embutidas ou carregadas usando funções [`preinit`](/reference/react-dom/preinit).

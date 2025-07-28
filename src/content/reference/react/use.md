@@ -312,7 +312,11 @@ export default async function App() {
 }
 ```
 
+<<<<<<< HEAD
 Mas usar `await` em um [Server Component](/reference/react/components#server-components) bloqueará sua renderização até que a instrução `await` seja finalizada. Passar uma Promise de um Server Component para um Client Component impede que a Promise bloqueie a renderização do Server Component.
+=======
+But using `await` in a [Server Component](/reference/rsc/server-components) will block its rendering until the `await` statement is finished. Passing a Promise from a Server Component to a Client Component prevents the Promise from blocking the rendering of the Server Component.
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 </DeepDive>
 

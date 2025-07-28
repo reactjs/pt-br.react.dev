@@ -49,7 +49,11 @@ Um portal só muda a colocação física do nó do DOM. Em todas as outras manei
 
 *   `domNode`: Algum nó do DOM, como aqueles retornados por `document.getElementById()`. O nó já deve existir. Passar um nó DOM diferente durante uma atualização fará com que o conteúdo do portal seja recriado.
 
+<<<<<<< HEAD
 *   **opcional** `key`: Uma string ou número único a ser usado como a [chave](/learn/rendering-lists/#keeping-list-items-in-order-with-key) do portal.
+=======
+* **optional** `key`: A unique string or number to be used as the portal's [key.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 #### Retorna {/*returns*/}
 

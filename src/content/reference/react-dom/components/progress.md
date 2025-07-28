@@ -30,7 +30,11 @@ Para exibir um indicador de progresso, renderize o componente [`<progress>` nati
 
 #### Props {/*props*/}
 
+<<<<<<< HEAD
 `<progress>` suporta todas as [props comuns dos elementos.](/reference/react-dom/components/common#props)
+=======
+`<progress>` supports all [common element props.](/reference/react-dom/components/common#common-props)
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 Adicionalmente, `<progress>` suporta estas props:
 

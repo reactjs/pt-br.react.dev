@@ -11,16 +11,27 @@ TypeScript é uma forma popular de adicionar definições de tipos à bases de c
 
 <YouWillLearn>
 
+<<<<<<< HEAD
 * [TypeScript com Componentes React](/learn/typescript#typescript-with-react-components)
 * [Exemplos de tipagem com hooks](/learn/typescript#example-hooks)
 * [Tipos úteis do `@types/react`](/learn/typescript/#useful-types)
 * [Conteúdo adicional para aprendizagem](/learn/typescript/#further-learning)
+=======
+* [TypeScript with React Components](/learn/typescript#typescript-with-react-components)
+* [Examples of typing with Hooks](/learn/typescript#example-hooks)
+* [Common types from `@types/react`](/learn/typescript#useful-types)
+* [Further learning locations](/learn/typescript#further-learning)
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 </YouWillLearn>
 
 ## Instalação {/*installation*/}
 
+<<<<<<< HEAD
 Todos os [frameworks React em produção](/learn/start-a-new-react-project#production-grade-react-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
+=======
+All [production-grade React frameworks](/learn/start-a-new-react-project#full-stack-frameworks) offer support for using TypeScript. Follow the framework specific guide for installation:
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 - [Next.js](https://nextjs.org/docs/app/building-your-application/configuring/typescript)
 - [Remix](https://remix.run/docs/en/1.19.2/guides/typescript)
@@ -124,7 +135,11 @@ O tipo que descreve as props do seu componente pode ser mais simples ou mais com
 
 ## Exemplos de Hooks {/*example-hooks*/}
 
+<<<<<<< HEAD
 As definições de tipos em `@types/react` incluem tipos para os hooks nativos, então você pode usá-los em seus componentes sem nenhuma configuração adicional. Eles são construídos levando em conta o código que você escreve em seu componente, então você terá a [inferência de tipo](https://www.typescriptlang.org/pt/docs/handbook/type-inference.html) na maior parte do tempo e idealmente você não precisará se preocupar com as minúcias de fornecer tipos.
+=======
+The type definitions from `@types/react` include types for the built-in Hooks, so you can use them in your components without any additional setup. They are built to take into account the code you write in your component, so you will get [inferred types](https://www.typescriptlang.org/docs/handbook/type-inference.html) a lot of the time and ideally do not need to handle the minutiae of providing the types.
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 Entretanto, podemos observar alguns exemplos de como fornecer tipos para hooks.
 
@@ -139,8 +154,13 @@ const [enabled, setEnabled] = useState(false);
 
 Isso atribuirá o tipo `boolean` a `enabled`, e `setEnabled` será uma função que aceita um argumento `boolean` ou uma função que retorna um `boolean`. Se você quiser fornecer explicitamente um tipo para o estado, você pode fazê-lo fornecendo um argumento de tipo para a chamada `useState`:
 
+<<<<<<< HEAD
 ```ts 
 // Explicitamente define o tipo como "boolean"
+=======
+```ts
+// Explicitly set the type to "boolean"
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 const [enabled, setEnabled] = useState<boolean>(false);
 ```
 
@@ -174,7 +194,7 @@ O [hook `useReducer`](/reference/react/useReducer) é um hook mais complexo que 
 import {useReducer} from 'react';
 
 interface State {
-   count: number 
+   count: number
 };
 
 type CounterAction =
@@ -284,7 +304,11 @@ export default App = AppTSX;
 
 </Sandpack>
 
+<<<<<<< HEAD
 Essa técnica funciona quando você tem um valor padrão que faz sentido, mas há casos onde isso não acontece, e nesses casos utilizar `null` como um valor padrão pode parecer razoável. Porém, para permitir que o sistema de tipos compreenda o seu código, você precisa explicitamente definir `ContextShape | null` na chamada de `createContext`.
+=======
+This technique works when you have a default value which makes sense - but there are occasionally cases when you do not, and in those cases `null` can feel reasonable as a default value. However, to allow the type-system to understand your code, you need to explicitly set `ContextShape | null` on the `createContext`.
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 Isso causa um problema onde é necessário eliminar o `| null` no tipo onde se consome o contexto. A recomendação é fazer com que o hook faça uma checagem de sua existência em tempo de execução e cause um erro caso não exista:
 
@@ -329,7 +353,17 @@ function MyComponent() {
 
 ### `useMemo` {/*typing-usememo*/}
 
+<<<<<<< HEAD
 O [hook `useMemo`](/reference/react/useMemo) cria/reacessa um valor memoizado de uma chamada de função, executando-a novamente apenas quando as dependências passadas como segundo parâmetro mudarem. O resultado da chamada do hook é inferido pelo valor retornado pela função do primeiro parâmetro. Você pode ser mais explícito informando um tipo como argumento para o hook.
+=======
+<Note>
+
+[React Compiler](/learn/react-compiler) automatically memoizes values and functions, reducing the need for manual `useMemo` calls. You can use the compiler to handle memoization automatically.
+
+</Note>
+
+The [`useMemo`](/reference/react/useMemo) Hooks will create/re-access a memorized value from a function call, re-running the function only when dependencies passed as the 2nd parameter are changed. The result of calling the Hook is inferred from the return value from the function in the first parameter. You can be more explicit by providing a type argument to the Hook.
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 ```ts
 // O tipo de visibleTodos é inferido pelo retorno do valor de filterTodos
@@ -339,7 +373,17 @@ const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
 
 ### `useCallback` {/*typing-usecallback*/}
 
+<<<<<<< HEAD
 O [`useCallback`](/reference/react/useCallback) fornece uma referência estável à uma função, desde que as dependências passadas no segundo parâmetro sejam as mesmas. Assim como o `useMemo`, o tipo da função é inferido a partir do valor de retorno da função do primeiro parâmetro, e você pode ser mais explícito fornecendo um tipo como argumento ao hook.
+=======
+<Note>
+
+[React Compiler](/learn/react-compiler) automatically memoizes values and functions, reducing the need for manual `useCallback` calls. You can use the compiler to handle memoization automatically.
+
+</Note>
+
+The [`useCallback`](/reference/react/useCallback) provide a stable reference to a function as long as the dependencies passed into the second parameter are the same. Like `useMemo`, the function's type is inferred from the return value of the function in the first parameter, and you can be more explicit by providing a type argument to the Hook.
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 
 ```ts
@@ -350,7 +394,11 @@ const handleClick = useCallback(() => {
 
 Ao trabalhar no _strict mode_ do TypeScript, o `useCallback` requer a adição de tipos para os parâmetros da callback. Isso ocorre porque o tipo da callback é inferido a partir do valor de retorno da função e, sem parâmetros, o tipo não pode ser totalmente compreendido.
 
+<<<<<<< HEAD
 Dependendo de suas preferências de estilo de código, você pode usar as funções `*EventHandler` dos tipos do React para fornecer o tipo do manipulador de eventos ao mesmo tempo em que define a callback: 
+=======
+Depending on your code-style preferences, you could use the `*EventHandler` functions from the React types to provide the type for the event handler at the same time as defining the callback:
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 ```ts
 import { useState, useCallback } from 'react';
@@ -361,7 +409,7 @@ export default function Form() {
   const handleChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>((event) => {
     setValue(event.currentTarget.value);
   }, [setValue])
-  
+
   return (
     <>
       <input value={value} onChange={handleChange} />
@@ -433,7 +481,11 @@ interface ModalRendererProps {
 }
 ```
 
+<<<<<<< HEAD
 Note que você não pode usar o TypeScript para descrever que os filhos são de um determinado tipo de elemento JSX, portanto, não é possível usar o sistema de tipos para descrever um componente que só aceita filhos `<li>`.
+=======
+Note, that you cannot use TypeScript to describe that the children are a certain type of JSX elements, so you cannot use the type-system to describe a component which only accepts `<li>` children.
+>>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 Você pode ver todos os exemplos de ambos `React.ReactNode` e `React.ReactElement` com checagem de tipos com [este playground do TypeScript](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgIilQ3wChSB6CxYmAOmXRgDkIATJOdNJMGAZzgwAFpxAR+8YADswAVwGkZMJFEzpOjDKw4AFHGEEBvUnDhphwADZsi0gFw0mDWjqQBuUgF9yaCNMlENzgAXjgACjADfkctFnYkfQhDAEpQgD44AB42YAA3dKMo5P46C2tbJGkvLIpcgt9-QLi3AEEwMFCItJDMrPTTbIQ3dKywdIB5aU4kKyQQKpha8drhhIGzLLWODbNs3b3s8YAxKBQAcwXpAThMaGWDvbH0gFloGbmrgQfBzYpd1YjQZbEYARkB6zMwO2SHSAAlZlYIBCdtCRkZpHIrFYahQYQD8UYYFA5EhcfjyGYqHAXnJAsIUHlOOUbHYhMIIHJzsI0Qk4P9SLUBuRqXEXEwAKKfRZcNA8PiCfxWACecAAUgBlAAacFm80W-CU11U6h4TgwUv11yShjgJjMLMqDnN9Dilq+nh8pD8AXgCHdMrCkWisVoAet0R6fXqhWKhjKllZVVxMcavpd4Zg7U6Qaj+2hmdG4zeRF10uu-Aeq0LBfLMEe-V+T2L7zLVu+FBWLdLeq+lc7DYFf39deFVOotMCACNOCh1dq219a+30uC8YWoZsRyuEdjkevR8uvoVMdjyTWt4WiSSydXD4NqZP4AymeZE072ZzuUeZQKheQgA).
 
