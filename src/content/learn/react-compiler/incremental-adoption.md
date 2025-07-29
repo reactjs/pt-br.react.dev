@@ -1,55 +1,55 @@
 ---
-title: Incremental Adoption
+title: Adoção Incremental
 ---
 
 <Intro>
-React Compiler can be adopted incrementally, allowing you to try it on specific parts of your codebase first. This guide shows you how to gradually roll out the compiler in existing projects.
+O React Compiler pode ser adotado incrementalmente, permitindo que você o teste em partes específicas do seu código primeiro. Este guia mostra como implementar gradualmente o compilador em projetos existentes.
 </Intro>
 
 <YouWillLearn>
 
-* Why incremental adoption is recommended
-* Using Babel overrides for directory-based adoption
-* Using the "use memo" directive for opt-in compilation
-* Using the "use no memo" directive to exclude components
-* Runtime feature flags with gating
-* Monitoring your adoption progress
+* Por que a adoção incremental é recomendada
+* Usando overrides do Babel para adoção baseada em diretório
+* Usando a diretiva "use memo" para compilação opt-in
+* Usando a diretiva "use no memo" para excluir componentes
+* Flags de recurso em tempo de execução com gating
+* Monitorando seu progresso de adoção
 
 </YouWillLearn>
 
-## Why Incremental Adoption? {/*why-incremental-adoption*/}
+## Por que Adoção Incremental? {/*why-incremental-adoption*/}
 
-React Compiler is designed to optimize your entire codebase automatically, but you don't have to adopt it all at once. Incremental adoption gives you control over the rollout process, letting you test the compiler on small parts of your app before expanding to the rest.
+O React Compiler é projetado para otimizar automaticamente todo o seu código, mas você não precisa adotá-lo de uma vez. A adoção incremental dá a você controle sobre o processo de implementação, permitindo que você teste o compilador em pequenas partes do seu app antes de expandir para o resto.
 
-Starting small helps you build confidence in the compiler's optimizations. You can verify that your app behaves correctly with compiled code, measure performance improvements, and identify any edge cases specific to your codebase. This approach is especially valuable for production applications where stability is critical.
+Começar pequeno ajuda você a construir confiança nas otimizações do compilador. Você pode verificar que seu app se comporta corretamente com código compilado, medir melhorias de performance e identificar casos extremos específicos do seu código. Esta abordagem é especialmente valiosa para aplicações em produção onde a estabilidade é crítica.
 
-Incremental adoption also makes it easier to address any Rules of React violations the compiler might find. Instead of fixing violations across your entire codebase at once, you can tackle them systematically as you expand compiler coverage. This keeps the migration manageable and reduces the risk of introducing bugs.
+A adoção incremental também facilita a correção de violações das Regras do React que o compilador pode encontrar. Em vez de corrigir violações em todo o seu código de uma vez, você pode abordá-las sistematicamente conforme expande a cobertura do compilador. Isso mantém a migração gerenciável e reduz o risco de introduzir bugs.
 
-By controlling which parts of your code get compiled, you can also run A/B tests to measure the real-world impact of the compiler's optimizations. This data helps you make informed decisions about full adoption and demonstrates the value to your team.
+Ao controlar quais partes do seu código são compiladas, você também pode executar testes A/B para medir o impacto real das otimizações do compilador. Esses dados ajudam você a tomar decisões informadas sobre a adoção completa e demonstram o valor para sua equipe.
 
-## Approaches to Incremental Adoption {/*approaches-to-incremental-adoption*/}
+## Abordagens para Adoção Incremental {/*approaches-to-incremental-adoption*/}
 
-There are three main approaches to adopt React Compiler incrementally:
+Existem três abordagens principais para adotar o React Compiler incrementalmente:
 
-1. **Babel overrides** - Apply the compiler to specific directories
-2. **Opt-in with "use memo"** - Only compile components that explicitly opt in
-3. **Runtime gating** - Control compilation with feature flags
+1. **Overrides do Babel** - Aplicar o compilador a diretórios específicos
+2. **Opt-in com "use memo"** - Apenas compilar componentes que explicitamente optam por participar
+3. **Gating em tempo de execução** - Controlar compilação com flags de recurso
 
-All approaches allow you to test the compiler on specific parts of your application before full rollout.
+Todas as abordagens permitem que você teste o compilador em partes específicas da sua aplicação antes da implementação completa.
 
-## Directory-Based Adoption with Babel Overrides {/*directory-based-adoption*/}
+## Adoção Baseada em Diretório com Overrides do Babel {/*directory-based-adoption*/}
 
-Babel's `overrides` option lets you apply different plugins to different parts of your codebase. This is ideal for gradually adopting React Compiler directory by directory.
+A opção `overrides` do Babel permite que você aplique plugins diferentes a diferentes partes do seu código. Isso é ideal para adotar gradualmente o React Compiler diretório por diretório.
 
-### Basic Configuration {/*basic-configuration*/}
+### Configuração Básica {/*basic-configuration*/}
 
-Start by applying the compiler to a specific directory:
+Comece aplicando o compilador a um diretório específico:
 
 ```js
 // babel.config.js
 module.exports = {
   plugins: [
-    // Global plugins that apply to all files
+    // Plugins globais que se aplicam a todos os arquivos
   ],
   overrides: [
     {
@@ -62,15 +62,15 @@ module.exports = {
 };
 ```
 
-### Expanding Coverage {/*expanding-coverage*/}
+### Expandindo a Cobertura {/*expanding-coverage*/}
 
-As you gain confidence, add more directories:
+Conforme você ganha confiança, adicione mais diretórios:
 
 ```js
 // babel.config.js
 module.exports = {
   plugins: [
-    // Global plugins
+    // Plugins globais
   ],
   overrides: [
     {
@@ -82,16 +82,16 @@ module.exports = {
     {
       test: './src/legacy/**/*.{js,jsx,ts,tsx}',
       plugins: [
-        // Different plugins for legacy code
+        // Plugins diferentes para código legado
       ]
     }
   ]
 };
 ```
 
-### With Compiler Options {/*with-compiler-options*/}
+### Com Opções do Compilador {/*with-compiler-options*/}
 
-You can also configure compiler options per override:
+Você também pode configurar opções do compilador por override:
 
 ```js
 // babel.config.js
@@ -102,7 +102,7 @@ module.exports = {
       test: './src/experimental/**/*.{js,jsx,ts,tsx}',
       plugins: [
         ['babel-plugin-react-compiler', {
-          // options ...
+          // opções ...
         }]
       ]
     },
@@ -110,7 +110,7 @@ module.exports = {
       test: './src/production/**/*.{js,jsx,ts,tsx}',
       plugins: [
         ['babel-plugin-react-compiler', {
-          // options ...
+          // opções ...
         }]
       ]
     }
@@ -119,15 +119,15 @@ module.exports = {
 ```
 
 
-## Opt-in Mode with "use memo" {/*opt-in-mode-with-use-memo*/}
+## Modo Opt-in com "use memo" {/*opt-in-mode-with-use-memo*/}
 
-For maximum control, you can use `compilationMode: 'annotation'` to only compile components and hooks that explicitly opt in with the `"use memo"` directive.
+Para controle máximo, você pode usar `compilationMode: 'annotation'` para apenas compilar componentes e hooks que explicitamente optam por participar com a diretiva `"use memo"`.
 
 <Note>
-This approach gives you fine-grained control over individual components and hooks. It's useful when you want to test the compiler on specific components without affecting entire directories.
+Esta abordagem dá a você controle refinado sobre componentes e hooks individuais. É útil quando você quer testar o compilador em componentes específicos sem afetar diretórios inteiros.
 </Note>
 
-### Annotation Mode Configuration {/*annotation-mode-configuration*/}
+### Configuração do Modo Annotation {/*annotation-mode-configuration*/}
 
 ```js
 // babel.config.js
@@ -140,13 +140,13 @@ module.exports = {
 };
 ```
 
-### Using the Directive {/*using-the-directive*/}
+### Usando a Diretiva {/*using-the-directive*/}
 
-Add `"use memo"` at the beginning of functions you want to compile:
+Adicione `"use memo"` no início das funções que você quer compilar:
 
 ```js
 function TodoList({ todos }) {
-  "use memo"; // Opt this component into compilation
+  "use memo"; // Opta este componente para compilação
 
   const sortedTodos = todos.slice().sort();
 
@@ -160,28 +160,28 @@ function TodoList({ todos }) {
 }
 
 function useSortedData(data) {
-  "use memo"; // Opt this hook into compilation
+  "use memo"; // Opta este hook para compilação
 
   return data.slice().sort();
 }
 ```
 
-With `compilationMode: 'annotation'`, you must:
-- Add `"use memo"` to every component you want optimized
-- Add `"use memo"` to every custom hook
-- Remember to add it to new components
+Com `compilationMode: 'annotation'`, você deve:
+- Adicionar `"use memo"` a cada componente que você quer otimizado
+- Adicionar `"use memo"` a cada hook customizado
+- Lembrar de adicioná-lo a novos componentes
 
-This gives you precise control over which components are compiled while you evaluate the compiler's impact.
+Isso dá a você controle preciso sobre quais componentes são compilados enquanto você avalia o impacto do compilador.
 
-## Runtime Feature Flags with Gating {/*runtime-feature-flags-with-gating*/}
+## Flags de Recurso em Tempo de Execução com Gating {/*runtime-feature-flags-with-gating*/}
 
-The `gating` option enables you to control compilation at runtime using feature flags. This is useful for running A/B tests or gradually rolling out the compiler based on user segments.
+A opção `gating` permite que você controle a compilação em tempo de execução usando flags de recurso. Isso é útil para executar testes A/B ou implementar gradualmente o compilador baseado em segmentos de usuário.
 
-### How Gating Works {/*how-gating-works*/}
+### Como o Gating Funciona {/*how-gating-works*/}
 
-The compiler wraps optimized code in a runtime check. If the gate returns `true`, the optimized version runs. Otherwise, the original code runs.
+O compilador envolve código otimizado em uma verificação em tempo de execução. Se o gate retorna `true`, a versão otimizada executa. Caso contrário, o código original executa.
 
-### Gating Configuration {/*gating-configuration*/}
+### Configuração do Gating {/*gating-configuration*/}
 
 ```js
 // babel.config.js
@@ -197,29 +197,29 @@ module.exports = {
 };
 ```
 
-### Implementing the Feature Flag {/*implementing-the-feature-flag*/}
+### Implementando a Flag de Recurso {/*implementing-the-feature-flag*/}
 
-Create a module that exports your gating function:
+Crie um módulo que exporta sua função de gating:
 
 ```js
 // ReactCompilerFeatureFlags.js
 export function isCompilerEnabled() {
-  // Use your feature flag system
+  // Use seu sistema de flag de recurso
   return getFeatureFlag('react-compiler-enabled');
 }
 ```
 
-## Troubleshooting Adoption {/*troubleshooting-adoption*/}
+## Solução de Problemas na Adoção {/*troubleshooting-adoption*/}
 
-If you encounter issues during adoption:
+Se você encontrar problemas durante a adoção:
 
-1. Use `"use no memo"` to temporarily exclude problematic components
-2. Check the [debugging guide](/learn/react-compiler/debugging) for common issues
-3. Fix Rules of React violations identified by the ESLint plugin
-4. Consider using `compilationMode: 'annotation'` for more gradual adoption
+1. Use `"use no memo"` para temporariamente excluir componentes problemáticos
+2. Verifique o [guia de depuração](/learn/react-compiler/debugging) para problemas comuns
+3. Corrija violações das Regras do React identificadas pelo plugin ESLint
+4. Considere usar `compilationMode: 'annotation'` para adoção mais gradual
 
-## Next Steps {/*next-steps*/}
+## Próximos Passos {/*next-steps*/}
 
-- Read the [configuration guide](/reference/react-compiler/configuration) for more options
-- Learn about [debugging techniques](/learn/react-compiler/debugging)
-- Check the [API reference](/reference/react-compiler/configuration) for all compiler options
+- Leia o [guia de configuração](/reference/react-compiler/configuration) para mais opções
+- Aprenda sobre [técnicas de depuração](/learn/react-compiler/debugging)
+- Verifique a [referência da API](/reference/react-compiler/configuration) para todas as opções do compilador
