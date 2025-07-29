@@ -36,7 +36,7 @@ Para criar controles interativos para enviar informações, renderize o [compone
 
 #### Props {/*props*/}
 
-`<form>` suporta todas as [props de elementos comuns.](/reference/react-dom/components/common#props)
+`<form>` suporta todas as [props de elementos comuns.](/reference/react-dom/components/common#common-props)
 
 [`action`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/form#action): uma URL ou função. Quando uma URL é passada para `action`, o formulário se comportará como o componente de formulário HTML. Quando uma função é passada para `action`, a função irá manipular o envio do formulário. A função passada para `action` pode ser async e será chamada com um único argumento contendo os [dados do formulário](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) do formulário enviado. A prop `action` pode ser substituída por um atributo `formAction` em um componente `<button>`, `<input type="submit">` ou `<input type="image">`.
 
@@ -230,7 +230,7 @@ export async function deliverMessage(message) {
 </Sandpack>
 
 [//]: # 'Remova o comentário da próxima linha e exclua esta linha após a publicação da página de documentação de referência `useOptimistic`'
-[//]: # 'Para saber mais sobre o Hook `useOptimistic`, consulte a [documentação de referência](/reference/react/hooks/useOptimistic).'
+[//]: # 'Para saber mais sobre o Hook `useOptimistic`, consulte a [documentação de referência](/reference/react/useOptimistic).'
 
 ### Lidando com erros de envio de formulário {/*handling-form-submission-errors*/}
 

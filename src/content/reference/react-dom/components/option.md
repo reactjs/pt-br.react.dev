@@ -36,7 +36,7 @@ O [componente nativo do navegador `<option>`](https://developer.mozilla.org/en-U
 
 #### Props {/*props*/}
 
-`<option>` suporta todas as [props comuns do elemento.](/reference/react-dom/components/common#props)
+`<option>` suporta todas as [props comuns do elemento.](/reference/react-dom/components/common#common-props)
 
 Adicionalmente, `<option>` suporta estas props:
 

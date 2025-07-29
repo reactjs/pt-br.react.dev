@@ -30,7 +30,7 @@ Para exibir uma entrada, renderize o componente [`<input>` do navegador integrad
 
 #### Props {/*props*/}
 
-O componente `<input>` aceita todas as [props comuns de elementos.](/reference/react-dom/components/common#props)
+O componente `<input>` aceita todas as [props comuns de elementos.](/reference/react-dom/components/common#common-props)
 
 - [`formAction`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/input#formaction): Uma string ou função. Substitui o `<form action>` pai para `type="submit"` e `type="image"`. Quando uma URL for passada para `action`, o formulário se comportará como um formulário HTML padrão. Quando uma função é passada para `formAction`, a função manipulará o envio do formulário. Veja [`<form action>`](/reference/react-dom/components/form#props).
 

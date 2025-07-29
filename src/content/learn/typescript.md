@@ -20,7 +20,7 @@ TypeScript é uma forma popular de adicionar definições de tipos à bases de c
 
 ## Instalação {/*installation*/}
 
-Todos os [frameworks React em produção](/learn/start-a-new-react-project#production-grade-react-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
+Todos os [frameworks React em produção](/learn/start-a-new-react-project#full-stack-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
 
 - [Next.js](https://nextjs.org/docs/app/building-your-application/configuring/typescript)
 - [Remix](https://remix.run/docs/en/1.19.2/guides/typescript)
@@ -139,7 +139,7 @@ const [enabled, setEnabled] = useState(false);
 
 Isso atribuirá o tipo `boolean` a `enabled`, e `setEnabled` será uma função que aceita um argumento `boolean` ou uma função que retorna um `boolean`. Se você quiser fornecer explicitamente um tipo para o estado, você pode fazê-lo fornecendo um argumento de tipo para a chamada `useState`:
 
-```ts 
+```ts
 // Explicitamente define o tipo como "boolean"
 const [enabled, setEnabled] = useState<boolean>(false);
 ```
@@ -174,7 +174,7 @@ O [hook `useReducer`](/reference/react/useReducer) é um hook mais complexo que 
 import {useReducer} from 'react';
 
 interface State {
-   count: number 
+   count: number
 };
 
 type CounterAction =
@@ -329,6 +329,12 @@ function MyComponent() {
 
 ### `useMemo` {/*typing-usememo*/}
 
+<Note>
+
+[React Compiler](/learn/react-compiler) automaticamente memoiza valores e funções, reduzindo a necessidade de chamadas manuais de `useMemo`. Você pode usar o compilador para lidar com a memoização automaticamente.
+
+</Note>
+
 O [hook `useMemo`](/reference/react/useMemo) cria/reacessa um valor memoizado de uma chamada de função, executando-a novamente apenas quando as dependências passadas como segundo parâmetro mudarem. O resultado da chamada do hook é inferido pelo valor retornado pela função do primeiro parâmetro. Você pode ser mais explícito informando um tipo como argumento para o hook.
 
 ```ts
@@ -338,6 +344,12 @@ const visibleTodos = useMemo(() => filterTodos(todos, tab), [todos, tab]);
 
 
 ### `useCallback` {/*typing-usecallback*/}
+
+<Note>
+
+[React Compiler](/learn/react-compiler) automaticamente memoiza valores e funções, reduzindo a necessidade de chamadas manuais de `useCallback`. Você pode usar o compilador para lidar com a memoização automaticamente.
+
+</Note>
 
 O [`useCallback`](/reference/react/useCallback) fornece uma referência estável à uma função, desde que as dependências passadas no segundo parâmetro sejam as mesmas. Assim como o `useMemo`, o tipo da função é inferido a partir do valor de retorno da função do primeiro parâmetro, e você pode ser mais explícito fornecendo um tipo como argumento ao hook.
 
@@ -350,7 +362,7 @@ const handleClick = useCallback(() => {
 
 Ao trabalhar no _strict mode_ do TypeScript, o `useCallback` requer a adição de tipos para os parâmetros da callback. Isso ocorre porque o tipo da callback é inferido a partir do valor de retorno da função e, sem parâmetros, o tipo não pode ser totalmente compreendido.
 
-Dependendo de suas preferências de estilo de código, você pode usar as funções `*EventHandler` dos tipos do React para fornecer o tipo do manipulador de eventos ao mesmo tempo em que define a callback: 
+Dependendo de suas preferências de estilo de código, você pode usar as funções `*EventHandler` dos tipos do React para fornecer o tipo do manipulador de eventos ao mesmo tempo em que define a callback:
 
 ```ts
 import { useState, useCallback } from 'react';
@@ -361,7 +373,7 @@ export default function Form() {
   const handleChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>((event) => {
     setValue(event.currentTarget.value);
   }, [setValue])
-  
+
   return (
     <>
       <input value={value} onChange={handleChange} />

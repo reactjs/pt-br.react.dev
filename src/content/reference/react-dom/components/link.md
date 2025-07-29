@@ -30,7 +30,7 @@ Para fazer link para recursos externos, como folhas de estilo, fontes e ícones,
 
 #### Props {/*props*/}
 
-`<link>` suporta todas as [props comuns de elemento](/reference/react-dom/components/common#props).
+`<link>` suporta todas as [props comuns de elemento](/reference/react-dom/components/common#common-props).
 
 * `rel`: uma string, obrigatória. Especifica a [relação com o recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel). O React [trata links com `rel="stylesheet"` de forma diferente](#special-rendering-behavior) de outros links.
 

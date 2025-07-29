@@ -90,7 +90,7 @@ O React exibirá `<App />` na `root` e assumirá o gerenciamento do DOM dentro d
 
 * Se você chamar `render` na mesma root mais de uma vez, o React atualizará o DOM conforme necessário para refletir o último JSX que você passou. O React decidirá quais partes do DOM podem ser reutilizadas e quais precisam ser recriadas por meio de ["combinação"](/learn/preserving-and-resetting-state) com a árvore renderizada anteriormente. Chamar `render` na mesma root novamente é semelhante a chamar a função [`set` (/reference/react/useState#setstate) no componente root: o React evita atualizações desnecessárias do DOM.
 
-* Although rendering is synchronous once it starts, `root.render(...)` is not. This means code after `root.render()` may run before any effects (`useLayoutEffect`, `useEffect`) of that specific render are fired. This is usually fine and rarely needs adjustment. In rare cases where effect timing matters, you can wrap `root.render(...)` in [`flushSync`](https://react.dev/reference/react-dom/client/flushSync) to ensure the initial render runs fully synchronously.
+* Although rendering is synchronous once it starts, `root.render(...)` is not. This means code after `root.render()` may run before any effects (`useLayoutEffect`, `useEffect`) of that specific render are fired. This is usually fine and rarely needs adjustment. In rare cases where effect timing matters, you can wrap `root.render(...)` in [`flushSync`](https://react.dev/reference/react-dom/flushSync) to ensure the initial render runs fully synchronously.
   
   ```js
   const root = createRoot(document.getElementById('root'));
@@ -209,7 +209,7 @@ Quando seu HTML estiver vazio, o usuário verá uma página em branco até que o
 <div id="root"></div>
 ```
 
-Isso pode parecer muito lento! Para resolver isso, você pode gerar o HTML inicial a partir de seus componentes [no servidor ou durante a build.](/reference/react-dom/server) Então seus visitantes podem ler texto, ver imagens e clicar em links antes que qualquer código JavaScript seja carregado. Recomendamos [usar um framework](/learn/start-a-new-react-project#production-grade-react-frameworks) que faça essa otimização imediatamente. Dependendo de quando ele é executado, isso é chamado de *server-side rendering (SSR)* ou *static site generation (SSG).*
+Isso pode parecer muito lento! Para resolver isso, você pode gerar o HTML inicial a partir de seus componentes [no servidor ou durante a build.](/reference/react-dom/server) Então seus visitantes podem ler texto, ver imagens e clicar em links antes que qualquer código JavaScript seja carregado. Recomendamos [usar um framework](/learn/start-a-new-react-project#full-stack-frameworks) que faça essa otimização imediatamente. Dependendo de quando ele é executado, isso é chamado de *server-side rendering (SSR)* ou *static site generation (SSG).*
 
 </Note>
 

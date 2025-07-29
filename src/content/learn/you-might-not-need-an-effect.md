@@ -26,7 +26,7 @@ Existem dois casos comuns em que você não precisa de Effects:
 * **Você não precisa de Effects para manipular seus dados para renderização.** Por exemplo, digamos que você queira filtrar uma lista antes de exibi-la. Você pode ficar tentado a escrever um Effect que atualiza um state quando a lista for alterada. No entanto, isso é ineficiente. Quando você atualizar o state, o React primeiro executará as funções dos componentes para calcular o que deve estar em tela. Em seguida, o React ["aplica"](/learn/render-and-commit) essas alterações no DOM, atualizando a tela. Depois, o React executará seus Effects. Se seu Effect *também* atualizar o state imediatamente, todo o processo será reiniciado do zero! Para evitar renderizações desnecessárias, transforme todos os dados na raiz de seus componentes. Esse código será reexecutado automaticamente sempre que suas props ou state forem alterados.
 * **Você não precisa de Effects para lidar com eventos do usuário.** Por exemplo, digamos que você queira enviar uma requisição POST para `/api/buy` e mostrar uma notificação quando o usuário comprar um produto. No manipulador de evento de clique do botão Comprar, você sabe exatamente o que aconteceu. Quando um Effect é executado, você não sabe *o que* o usuário fez (por exemplo, qual botão foi clicado). É por isso que você normalmente tratará os eventos do usuário nos manipuladores de evento correspondentes.
 
-Você *precisa* de Effects para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) com sistemas externos. Por exemplo, você pode escrever um Effect que mantenha um _widget_ jQuery sincronizado com o state do React. Também é possível buscar dados com Effects: por exemplo, você pode sincronizar os resultados da pesquisa com o termo que você pesquisou. Lembre-se de que [frameworks](/leaxrn/start-a-new-react-project#production-grade-react-frameworks) modernos oferecem mecanismos internos de busca de dados mais eficientes do que escrever Effects diretamente em seus componentes.
+Você *precisa* de Effects para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) com sistemas externos. Por exemplo, você pode escrever um Effect que mantenha um _widget_ jQuery sincronizado com o state do React. Também é possível buscar dados com Effects: por exemplo, você pode sincronizar os resultados da pesquisa com o termo que você pesquisou. Lembre-se de que [frameworks](/learn/start-a-new-react-project#full-stack-frameworks) modernos oferecem mecanismos internos de busca de dados mais eficientes do que escrever Effects diretamente em seus componentes.
 
 Para ajudá-lo a adquirir a intuição correta, vamos dar uma olhada em alguns exemplos concretos comuns!
 
@@ -94,6 +94,12 @@ function TodoList({ todos, filter }) {
 Geralmente, esse código é o suficiente! Mas talvez `getFilteredTodos()` seja lento ou você tenha muitos `todos`.  Neste caso, você não quer recalcular `getFilteredTodos()` se alguma variável de state não relacionada, como `newTodo`, mudou.
 
 Você pode fazer cache (ou ["memoizar"](https://en.wikipedia.org/wiki/Memoization)) um cálculo custoso envolvendo-o num Hook [`useMemo`](/reference/react/useMemo):
+
+<Note>
+
+[React Compiler](/learn/react-compiler) can automatically memoize expensive calculations for you, eliminating the need for manual `useMemo` in many cases.
+
+</Note>
 
 ```js {5-8}
 import { useMemo, useState } from 'react';
@@ -751,7 +757,7 @@ Isso garante que, quando seu Effect buscar dados, todas as respostas, exceto a �
 
 Lidar com condições de corrida não é a única dificuldade na implementação da busca de dados. Talvez você também queira pensar em armazenar respostas em cache (para que o usuário possa clicar em Voltar e ver a tela anterior instantaneamente), como buscar dados no servidor (para que o HTML inicial renderizado pelo servidor contenha o conteúdo buscado em vez de um spinner) e como evitar cascatas de rede (para que um filho possa buscar dados sem esperar por todos os pais).
 
-**Esses problemas se aplicam a qualquer biblioteca de interface do usuário, não apenas ao React. Resolvê-los não é trivial, e é por isso que os [frameworks modernos](/learn/start-a-new-react-project#production-grade-react-frameworks) fornecem mecanismos internos de busca de dados mais eficientes do que a busca de dados nos Effects.**
+**Esses problemas se aplicam a qualquer biblioteca de interface do usuário, não apenas ao React. Resolvê-los não é trivial, e é por isso que os [frameworks modernos](/learn/start-a-new-react-project#full-stack-frameworks) fornecem mecanismos internos de busca de dados mais eficientes do que a busca de dados nos Effects.**
 
 Se você não usa um framework (e não quer criar o seu próprio), mas gostaria de tornar a busca de dados dos Effects mais ergonômica, considere extrair sua lógica de busca em um Hook personalizado, como neste exemplo:
 
