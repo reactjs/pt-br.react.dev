@@ -431,7 +431,7 @@ function ProfilePage() {
 }
 ```
 
-Se ocorrer um erro no componente `Posts` ou em algum lugar dentro dele, o React [tentará se recuperar dele:](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content)
+Se ocorrer um erro no componente `Posts` ou em algum lugar dentro dele, o React [tentará se recuperar dele:](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
 
 1. Ele emitirá o fallback de carregamento para o `<Suspense>` mais próximo (`PostsGlimmer`) no HTML.
 2. Ele "desistirá" de tentar renderizar o conteúdo `Posts` no servidor.

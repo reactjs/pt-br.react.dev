@@ -76,7 +76,7 @@ Leia **[Respondendo a Eventos](/learn/responding-to-events)** para aprender como
 
 Componentes necessitam de alterar frequentemente o que está na tela como resultado de uma interação. O campo de entrada será atualizado ao digitar em um formulário, a imagem exibida será trocada ao clicar em "próxima" em um carrossel de imagens, um produto é colocado no carrinho de compras ao clicar em "comprar". Componentes precisam "memorizar" informações: o valor de entrada ou a imagem atual, assim como o carrinho de compras, por exemplo. Em React, este tipo de memória específica de componente é chamada de *state.*
 
-É possível adicionar states a componentes com um Hook [`useState`](/apis/usestate). Hooks são funções especiais que possibilitam que seus componentes utilizem recursos do React (como o state, por exemplo). O Hook `useState` possibilita a declaração de uma variável de estado. Este recurso recebe o state inicial e retorna um par de valores: o state atual e uma função setter, que possibilita atualizá-lo.
+É possível adicionar states a componentes com um Hook [`useState`](/reference/react/useState). Hooks são funções especiais que possibilitam que seus componentes utilizem recursos do React (como o state, por exemplo). O Hook `useState` possibilita a declaração de uma variável de estado. Este recurso recebe o state inicial e retorna um par de valores: o state atual e uma função setter, que possibilita atualizá-lo.
 
 ```js
 const [index, setIndex] = useState(0);

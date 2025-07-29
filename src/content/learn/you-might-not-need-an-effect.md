@@ -341,7 +341,7 @@ function Form() {
 
 Vamos aplicar os mesmos critérios do exemplo anterior.
 
-A solicitação POST de análise deve permanecer em um Effect. Isso ocorre porque o _motivo_ para enviar o evento de análise é que o formulário foi exibido. (Ele seria disparado duas vezes no desenvolvimento, mas [veja aqui](/learn/synchronizing-with-effects#enviar-análises) para saber como lidar com isso).
+A solicitação POST de análise deve permanecer em um Effect. Isso ocorre porque o _motivo_ para enviar o evento de análise é que o formulário foi exibido. (Ele seria disparado duas vezes no desenvolvimento, mas [veja aqui](/learn/synchronizing-with-effects#sending-analytics) para saber como lidar com isso).
 
 No entanto, a solicitação POST `/api/register` não é causada pelo formulário que está sendo _exibido_. Você só deseja enviar a solicitação em um momento específico: quando o usuário pressiona o botão. Isso só deve acontecer _naquela interação específica_. Exclua o segundo Effect e mova essa solicitação POST para o manipulador de evento:
 
