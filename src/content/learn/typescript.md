@@ -13,8 +13,8 @@ TypeScript é uma forma popular de adicionar definições de tipos à bases de c
 
 * [TypeScript com Componentes React](/learn/typescript#typescript-with-react-components)
 * [Exemplos de tipagem com hooks](/learn/typescript#example-hooks)
-* [Tipos úteis do `@types/react`](/learn/typescript/#useful-types)
-* [Conteúdo adicional para aprendizagem](/learn/typescript/#further-learning)
+* [Tipos úteis do `@types/react`](/learn/typescript#useful-types)
+* [Conteúdo adicional para aprendizagem](/learn/typescript#further-learning)
 
 </YouWillLearn>
 

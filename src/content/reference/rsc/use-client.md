@@ -245,7 +245,7 @@ Para simplicidade, falamos sobre Componentes do Servidor, mas os mesmos princíp
 * Componentes do Servidor não podem usar a maioria dos Hooks.
 	* Quando os Componentes do Servidor são renderizados, sua saída é essencialmente uma lista de componentes para o cliente renderizar. Componentes do Servidor não persistem em memória após a renderização e não podem ter seu próprio estado.
 
-### Tipos serializáveis retornados por Componentes do Servidor {/*serializable-types*/}
+### Tipos serializáveis retornados por Componentes do Servidor {/*passing-props-from-server-to-client-components*/}
 
 Como em qualquer aplicativo React, os componentes pai passam dados para os componentes filhos. Como eles são renderizados em ambientes diferentes, passar dados de um Componente do Servidor para um Componente do Cliente requer consideração extra.
 

@@ -626,7 +626,7 @@ img { width: 200px; height: 200px; }
 
 <Solution />
 
-#### Lista (array) {/*list-array*/}```md
+#### Lista (array) {/*list-array*/}```md {/*lista-array-list-arraymd*/}
 Neste exemplo, a variável de estado `todos` contém um array. Cada manipulador de botões chama `setTodos` com a próxima versão desse array. A sintaxe de espalhamento `[...todos]`, `todos.map()` e `todos.filter()` garante que o array de estado seja substituído em vez de mutado.
 
 <Sandpack>
@@ -883,7 +883,7 @@ function ItemList({ artworks, onToggle }) {
 
 ---
 
-### Evitando recriar o estado inicial {/*evitando-recriar-o-estado-inicial*/}
+### Evitando recriar o estado inicial {/*avoiding-recreating-the-initial-state*/}
 
 React salva o estado inicial uma vez e o ignora nas próximas renderizações.
 
@@ -1070,7 +1070,7 @@ button { display: block; margin-bottom: 20px; }
 
 ---
 
-### Armazenando informações das renderizações anteriores {/*armazenando-informacoes-das-renderizacoes-anteriores*/}
+### Armazenando informações das renderizações anteriores {/*storing-information-from-previous-renders*/}
 
 Normalmente, você atualizará o estado em manipuladores de eventos. No entanto, em casos raros, você pode querer ajustar o estado em resposta à renderização -- por exemplo, você pode querer alterar uma variável de estado quando uma prop for alterada.
 

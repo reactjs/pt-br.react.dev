@@ -2002,7 +2002,7 @@ No entanto, agora imagine que você está navegando entre dois perfis de usuári
 
 ---
 
-### Fornecendo um fallback para erros no servidor e conteúdo somente do cliente {/*providing-a-fallback-for-server-errors-and-client-only-content*/}
+### Fornecendo um fallback para erros no servidor e conteúdo somente do cliente {/*providing-a-fallback-for-server-errors-and-server-only-content*/}
 
 Se você usar uma das [APIs de renderização no servidor de streaming](/reference/react-dom/server) (ou um framework que dependa delas), React também usará seus limites de `<Suspense>` para lidar com erros no servidor. Se um componente lançar um erro no servidor, o React não abortará a renderização do servidor. Em vez disso, ele encontrará o componente `<Suspense>` mais próximo acima dele e incluirá seu fallback (como um spinner) no HTML do servidor gerado. O usuário verá um spinner no início.
 

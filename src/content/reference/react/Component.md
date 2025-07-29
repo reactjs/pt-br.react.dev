@@ -786,7 +786,7 @@ Se você definir `UNSAFE_componentWillReceiveProps`, o React irá chamá-lo quan
 
 [Veja exemplos de como migrar de lifecycles inseguros.](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props)
 
-#### Parâmetros {/*unsafe_componentwillreceiveprops-parameters*/}```text
+#### Parâmetros {/*unsafe_componentwillreceiveprops-parameters*/}```text {/*parâmetros-unsafe_componentwillreceiveprops-parameterstext*/}
 - `nextProps`: As próximas props que o componente está prestes a receber de seu componente pai. Compare `nextProps` com [`this.props`](#props) para determinar o que mudou.
 - `nextContext`: O próximo contexto que o componente está prestes a receber do provedor mais próximo. Compare `nextContext` com [`this.context`](#context) para determinar o que mudou. Disponível somente se você especificar [`static contextType`](#static-contexttype).
 
@@ -806,7 +806,7 @@ Se você definir `UNSAFE_componentWillReceiveProps`, o React irá chamá-lo quan
 
 <Note>
 
-Chamar [`setState`](#setstate) dentro de `UNSAFE_componentWillReceiveProps` em um componente de classe para "ajustar" o estado é equivalente a [chamar a função `set` de `useState` durante a renderização](/reference/react/useState#armazenando-informa%C3%A7%C3%B5es-de-renderiza%C3%A7%C3%B5es-anteriores) em um componente de função.
+Chamar [`setState`](#setstate) dentro de `UNSAFE_componentWillReceiveProps` em um componente de classe para "ajustar" o estado é equivalente a [chamar a função `set` de `useState` durante a renderização](/reference/react/useState#storing-information-from-previous-renders) em um componente de função.
 
 </Note>
 
@@ -1013,7 +1013,7 @@ Derivar o estado leva a um código prolixo e dificulta a reflexão sobre seus co
 
 <Note>
 
-Implementar `static getDerivedStateFromProps` em um componente de classe é equivalente a [chamar a função `set` de `useState` durante a renderização](/reference/react/useState#armazenando-informa%C3%A7%C3%B5es-de-renderiza%C3%A7%C3%B5es-anteriores) em um componente de função.
+Implementar `static getDerivedStateFromProps` em um componente de classe é equivalente a [chamar a função `set` de `useState` durante a renderização](/reference/react/useState#storing-information-from-previous-renders) em um componente de função.
 
 </Note>
 

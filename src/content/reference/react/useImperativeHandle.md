@@ -60,7 +60,7 @@ A partir do React 19, [`ref` está disponível como uma prop.](/blog/2024/12/05/
 
 ### Expondo um identificador de referência customizado ao componente pai {/*exposing-a-custom-ref-handle-to-the-parent-component*/}
 
-Por padrão, os componentes não expõem seus nós DOM aos componentes pai. Por exemplo, se você deseja que o componente pai de `MyInput` [tenha acesso](/learn/manipulating-the-dom-with-refs) ao nó DOM `<input>`, você deve optar por [`forwardRef`:](/referência/react/forwardRef)
+Por padrão, os componentes não expõem seus nós DOM aos componentes pai. Por exemplo, se você deseja que o componente pai de `MyInput` [tenha acesso](/learn/manipulating-the-dom-with-refs) ao nó DOM `<input>`, você deve optar por [`forwardRef`:](/reference/react/forwardRef)
 
 Para expor um nó DOM ao elemento pai, passe a prop `ref` para o nó.
 
