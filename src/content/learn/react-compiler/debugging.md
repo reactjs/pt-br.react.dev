@@ -1,93 +1,93 @@
 ---
-title: Debugging and Troubleshooting
+title: Depuração e Solução de Problemas
 ---
 
 <Intro>
-This guide helps you identify and fix issues when using React Compiler. Learn how to debug compilation problems and resolve common issues.
+Este guia ajuda você a identificar e corrigir problemas ao usar o React Compiler. Aprenda como depurar problemas de compilação e resolver questões comuns.
 </Intro>
 
 <YouWillLearn>
 
-* The difference between compiler errors and runtime issues
-* Common patterns that break compilation
-* Step-by-step debugging workflow
+* A diferença entre erros do compilador e problemas em tempo de execução
+* Padrões comuns que quebram a compilação
+* Fluxo de trabalho de depuração passo a passo
 
 </YouWillLearn>
 
-## Understanding Compiler Behavior {/*understanding-compiler-behavior*/}
+## Entendendo o Comportamento do Compilador {/*understanding-compiler-behavior*/}
 
-React Compiler is designed to handle code that follows the [Rules of React](/reference/rules). When it encounters code that might break these rules, it safely skips optimization rather than risk changing your app's behavior.
+O React Compiler é projetado para lidar com código que segue as [Regras do React](/reference/rules). Quando encontra código que pode quebrar essas regras, ele ignora com segurança a otimização em vez de arriscar alterar o comportamento do seu app.
 
-### Compiler Errors vs Runtime Issues {/*compiler-errors-vs-runtime-issues*/}
+### Erros do Compilador vs Problemas em Tempo de Execução {/*compiler-errors-vs-runtime-issues*/}
 
-**Compiler errors** occur at build time and prevent your code from compiling. These are rare because the compiler is designed to skip problematic code rather than fail.
+**Erros do compilador** ocorrem no momento da compilação e impedem que seu código seja compilado. Estes são raros porque o compilador é projetado para ignorar código problemático em vez de falhar.
 
-**Runtime issues** occur when compiled code behaves differently than expected. Most of the time, if you encounter an issue with React Compiler, it's a runtime issue. This typically happens when your code violates the Rules of React in subtle ways that the compiler couldn't detect, and the compiler mistakenly compiled a component it should have skipped.
+**Problemas em tempo de execução** ocorrem quando o código compilado se comporta de forma diferente do esperado. Na maioria das vezes, se você encontrar um problema com o React Compiler, é um problema em tempo de execução. Isso geralmente acontece quando seu código viola as Regras do React de maneiras sutis que o compilador não conseguiu detectar, e o compilador compilou incorretamente um componente que deveria ter ignorado.
 
-When debugging runtime issues, focus your efforts on finding Rules of React violations in the affected components that were not detected by the ESLint rule. The compiler relies on your code following these rules, and when they're broken in ways it can't detect, that's when runtime problems occur.
+Ao depurar problemas em tempo de execução, concentre seus esforços em encontrar violações das Regras do React nos componentes afetados que não foram detectadas pela regra do ESLint. O compilador depende do seu código seguindo essas regras, e quando elas são quebradas de maneiras que ele não consegue detectar, é quando ocorrem problemas em tempo de execução.
 
 
-## Common Breaking Patterns {/*common-breaking-patterns*/}
+## Padrões Comuns que Quebram {/*common-breaking-patterns*/}
 
-One of the main ways React Compiler can break your app is if your code was written to rely on memoization for correctness. This means your app depends on specific values being memoized to work properly. Since the compiler may memoize differently than your manual approach, this can lead to unexpected behavior like effects over-firing, infinite loops, or missing updates.
+Uma das principais maneiras pelas quais o React Compiler pode quebrar seu app é se seu código foi escrito para depender de memoização para correção. Isso significa que seu app depende de valores específicos sendo memoizados para funcionar adequadamente. Como o compilador pode memoizar de forma diferente da sua abordagem manual, isso pode levar a comportamentos inesperados como efeitos disparando demais, loops infinitos ou atualizações ausentes.
 
-Common scenarios where this occurs:
+Cenários comuns onde isso ocorre:
 
-- **Effects that rely on referential equality** - When effects depend on objects or arrays maintaining the same reference across renders
-- **Dependency arrays that need stable references** - When unstable dependencies cause effects to fire too often or create infinite loops
-- **Conditional logic based on reference checks** - When code uses referential equality checks for caching or optimization
+- **Efeitos que dependem de igualdade referencial** - Quando efeitos dependem de objetos ou arrays mantendo a mesma referência entre renderizações
+- **Arrays de dependência que precisam de referências estáveis** - Quando dependências instáveis fazem efeitos dispararem com muita frequência ou criar loops infinitos
+- **Lógica condicional baseada em verificações de referência** - Quando código usa verificações de igualdade referencial para cache ou otimização
 
-## Debugging Workflow {/*debugging-workflow*/}
+## Fluxo de Trabalho de Depuração {/*debugging-workflow*/}
 
-Follow these steps when you encounter issues:
+Siga estes passos quando encontrar problemas:
 
-### Compiler Build Errors {/*compiler-build-errors*/}
+### Erros de Compilação do Compilador {/*compiler-build-errors*/}
 
-If you encounter a compiler error that unexpectedly breaks your build, this is likely a bug in the compiler. Report it to the [facebook/react](https://github.com/facebook/react/issues) repository with:
-- The error message
-- The code that caused the error
-- Your React and compiler versions
+Se você encontrar um erro do compilador que quebra inesperadamente sua compilação, isso provavelmente é um bug no compilador. Reporte-o para o repositório [facebook/react](https://github.com/facebook/react/issues) com:
+- A mensagem de erro
+- O código que causou o erro
+- Suas versões do React e do compilador
 
-### Runtime Issues {/*runtime-issues*/}
+### Problemas em Tempo de Execução {/*runtime-issues*/}
 
-For runtime behavior issues:
+Para problemas de comportamento em tempo de execução:
 
-### 1. Temporarily Disable Compilation {/*temporarily-disable-compilation*/}
+### 1. Desabilite Temporariamente a Compilação {/*temporarily-disable-compilation*/}
 
-Use `"use no memo"` to isolate whether an issue is compiler-related:
+Use `"use no memo"` para isolar se um problema está relacionado ao compilador:
 
 ```js
 function ProblematicComponent() {
-  "use no memo"; // Skip compilation for this component
-  // ... rest of component
+  "use no memo"; // Pula a compilação para este componente
+  // ... resto do componente
 }
 ```
 
-If the issue disappears, it's likely related to a Rules of React violation.
+Se o problema desaparecer, provavelmente está relacionado a uma violação das Regras do React.
 
-You can also try removing manual memoization (useMemo, useCallback, memo) from the problematic component to verify that your app works correctly without any memoization. If the bug still occurs when all memoization is removed, you have a Rules of React violation that needs to be fixed.
+Você também pode tentar remover a memoização manual (useMemo, useCallback, memo) do componente problemático para verificar que seu app funciona corretamente sem qualquer memoização. Se o bug ainda ocorrer quando toda a memoização for removida, você tem uma violação das Regras do React que precisa ser corrigida.
 
-### 2. Fix Issues Step by Step {/*fix-issues-step-by-step*/}
+### 2. Corrija Problemas Passo a Passo {/*fix-issues-step-by-step*/}
 
-1. Identify the root cause (often memoization-for-correctness)
-2. Test after each fix
-3. Remove `"use no memo"` once fixed
-4. Verify the component shows the ✨ badge in React DevTools
+1. Identifique a causa raiz (frequentemente memoização-para-correção)
+2. Teste após cada correção
+3. Remova `"use no memo"` uma vez corrigido
+4. Verifique se o componente mostra o badge ✨ no React DevTools
 
-## Reporting Compiler Bugs {/*reporting-compiler-bugs*/}
+## Reportando Bugs do Compilador {/*reporting-compiler-bugs*/}
 
-If you believe you've found a compiler bug:
+Se você acredita que encontrou um bug do compilador:
 
-1. **Verify it's not a Rules of React violation** - Check with ESLint
-2. **Create a minimal reproduction** - Isolate the issue in a small example
-3. **Test without the compiler** - Confirm the issue only occurs with compilation
-4. **File an [issue](https://github.com/facebook/react/issues/new?template=compiler_bug_report.yml)**:
-   - React and compiler versions
-   - Minimal reproduction code
-   - Expected vs actual behavior
-   - Any error messages
+1. **Verifique se não é uma violação das Regras do React** - Verifique com o ESLint
+2. **Crie uma reprodução mínima** - Isole o problema em um exemplo pequeno
+3. **Teste sem o compilador** - Confirme que o problema só ocorre com a compilação
+4. **Abra uma [issue](https://github.com/facebook/react/issues/new?template=compiler_bug_report.yml)**:
+   - Versões do React e do compilador
+   - Código de reprodução mínima
+   - Comportamento esperado vs atual
+   - Qualquer mensagem de erro
 
-## Next Steps {/*next-steps*/}
+## Próximos Passos {/*next-steps*/}
 
-- Review the [Rules of React](/reference/rules) to prevent issues
-- Check the [incremental adoption guide](/learn/react-compiler/incremental-adoption) for gradual rollout strategies
+- Revise as [Regras do React](/reference/rules) para prevenir problemas
+- Verifique o [guia de adoção incremental](/learn/react-compiler/incremental-adoption) para estratégias de implementação gradual
