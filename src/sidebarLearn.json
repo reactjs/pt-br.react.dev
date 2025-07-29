@@ -66,22 +66,16 @@
           "path": "/learn/react-compiler/introduction"
         },
         {
-<<<<<<< HEAD
-          "title": "Compilador React",
-          "path": "/learn/react-compiler",
-          "canary": true
-=======
-          "title": "Installation",
+          "title": "Instalação",
           "path": "/learn/react-compiler/installation"
         },
         {
-          "title": "Incremental Adoption",
+          "title": "Adoção Incremental",
           "path": "/learn/react-compiler/incremental-adoption"
         },
         {
-          "title": "Debugging and Troubleshooting",
+          "title": "Depuração e Solução de Problemas",
           "path": "/learn/react-compiler/debugging"
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
         }
       ]
     },

@@ -896,11 +896,7 @@ Neste exemplo, uma função de limpeza não é necessária porque a classe `MapW
 
 ### Buscando dados com Efeitos {/*fetching-data-with-effects*/}
 
-<<<<<<< HEAD
-Você pode usar um Efeito para buscar dados para seu componente. Note que [se você usar uma framework,](/learn/start-a-new-react-project#production-grade-react-frameworks) usar o mecanismo de busca de dados da sua framework será muito mais eficiente do que escrever Efeitos manualmente.
-=======
-You can use an Effect to fetch data for your component. Note that [if you use a framework,](/learn/start-a-new-react-project#full-stack-frameworks) using your framework's data fetching mechanism will be a lot more efficient than writing Effects manually.
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
+Você pode usar um Efeito para buscar dados para seu componente. Note que [se você usar uma framework,](/learn/start-a-new-react-project#full-stack-frameworks) usar o mecanismo de busca de dados da sua framework será muito mais eficiente do que escrever Efeitos manualmente.
 
 Se você quiser buscar dados de um Efeito manualmente, seu código pode ser assim:
 
@@ -1052,13 +1048,8 @@ Escrever chamadas `fetch` dentro de Efeitos é uma [maneira popular de buscar da
 
 Esta lista de desvantagens não é específica do React. Ela se aplica a buscar dados ao montar com qualquer biblioteca. Assim como com roteamento, buscar dados não é trivial de fazer bem, então recomendamos as seguintes abordagens:
 
-<<<<<<< HEAD
-- **Se você usar uma [framework](/learn/start-a-new-react-project#production-grade-react-frameworks), utilize seu mecanismo de busca de dados integrado.** Frameworks modernas de React possuem mecanismos integrados de busca de dados que são eficientes e não sofrem com as armadilhas mencionadas acima.
+- **Se você usar uma [framework](/learn/start-a-new-react-project#full-stack-frameworks), utilize seu mecanismo de busca de dados integrado.** Frameworks modernas de React possuem mecanismos integrados de busca de dados que são eficientes e não sofrem com as armadilhas mencionadas acima.
 - **Caso contrário, considere usar ou construir um cache do lado do cliente.** Soluções populares de código aberto incluem [React Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/), e [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Você também pode construir sua própria solução, caso em que usaria Efeitos por baixo dos panos, mas também adicionaria lógica para desduplicar solicitações, armazenar respostas em cache e evitar cachoeiras de rede (pré-carregando dados ou elevando os requisitos de dados para rotas).
-=======
-- **If you use a [framework](/learn/start-a-new-react-project#full-stack-frameworks), use its built-in data fetching mechanism.** Modern React frameworks have integrated data fetching mechanisms that are efficient and don't suffer from the above pitfalls.
-- **Otherwise, consider using or building a client-side cache.** Popular open source solutions include [React Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/), and [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) You can build your own solution too, in which case you would use Effects under the hood but also add logic for deduplicating requests, caching responses, and avoiding network waterfalls (by preloading data or hoisting data requirements to routes).
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 Você pode continuar buscando dados diretamente em Efeitos se nenhuma dessas abordagens for adequada a você.
 
@@ -1742,11 +1733,7 @@ function Page({ url, shoppingCart }) {
 
 ### Exibindo conteúdo diferente no servidor e no cliente {/*displaying-different-content-on-the-server-and-the-client*/}
 
-<<<<<<< HEAD
-Se seu aplicativo usa renderização do servidor (diretamente ou por meio de uma [framework](/learn/start-a-new-react-project#production-grade-react-frameworks)), seu componente será renderizado em dois ambientes diferentes. No servidor, ele renderizará para produzir o HTML inicial. No cliente, o React executará o código de renderização novamente para que possa anexar seus manipuladores de eventos a esse HTML. É por isso que, para [hidratação](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) funcionar, sua saída de renderização inicial deve ser idêntica no cliente e no servidor.
-=======
-If your app uses server rendering (either [directly](/reference/react-dom/server) or via a [framework](/learn/start-a-new-react-project#full-stack-frameworks)), your component will render in two different environments. On the server, it will render to produce the initial HTML. On the client, React will run the rendering code again so that it can attach your event handlers to that HTML. This is why, for [hydration](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) to work, your initial render output must be identical on the client and the server.
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
+Se seu aplicativo usa renderização do servidor (diretamente ou por meio de uma [framework](/learn/start-a-new-react-project#full-stack-frameworks)), seu componente será renderizado em dois ambientes diferentes. No servidor, ele renderizará para produzir o HTML inicial. No cliente, o React executará o código de renderização novamente para que possa anexar seus manipuladores de eventos a esse HTML. É por isso que, para [hidratação](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) funcionar, sua saída de renderização inicial deve ser idêntica no cliente e no servidor.
 
 Em raras ocasiões, você pode precisar exibir conteúdo diferente no cliente. Por exemplo, se seu aplicativo ler alguns dados de [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), não é possível fazer isso no servidor. Aqui está como você poderia implementar isso:
 

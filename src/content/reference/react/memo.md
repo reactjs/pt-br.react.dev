@@ -118,11 +118,7 @@ label {
 
 #### Você deve adicionar memo em todo lugar? {/*should-you-add-memo-everywhere*/}
 
-<<<<<<< HEAD
 Se seu aplicativo é como este site, e a maioria das interações são grosseiras (como substituir uma página ou uma seção inteira), a memoização geralmente é desnecessária. Por outro lado, se seu aplicativo é mais como um editor de desenho, e a maioria das interações é granular (como mover formas), então você pode achar a memoização muito útil.
-=======
-If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 Otimizar com `memo` só é valioso quando seu componente re-renderiza frequentemente com as mesmas props exatas, e sua lógica de re-renderização é cara. Se não houver um atraso perceptível quando seu componente re-renderiza, `memo` é desnecessário. Lembre-se de que `memo` é completamente inútil se as props passadas para seu componente são *sempre diferentes*, como se você passasse um objeto ou uma função simples definida durante a renderização. É por isso que você frequentemente precisará de [`useMemo`](/reference/react/useMemo#skipping-re-rendering-of-components) e [`useCallback`](/reference/react/useCallback#skipping-re-rendering-of-components) juntamente com `memo`.
 
@@ -366,17 +362,13 @@ Evite fazer verificações de igualdade profunda dentro de `arePropsEqual` a men
 
 ---
 
-<<<<<<< HEAD
-## Resolução de Problemas {/*troubleshooting*/}
-### Meu componente re-renderiza quando uma prop é um objeto, array ou função {/*my-component-rerenders-when-a-prop-is-an-object-or-array*/}
-=======
-### Do I still need React.memo if I use React Compiler? {/*react-compiler-memo*/}
+### Ainda preciso do React.memo se uso o React Compiler? {/*react-compiler-memo*/}
 
-When you enable [React Compiler](/learn/react-compiler), you typically don't need `React.memo` anymore. The compiler automatically optimizes component re-rendering for you.
+Quando você habilita o [React Compiler](/learn/react-compiler), geralmente não precisa mais do `React.memo`. O compilador otimiza automaticamente a re-renderização de componentes para você.
 
-Here's how it works:
+Veja como funciona:
 
-**Without React Compiler**, you need `React.memo` to prevent unnecessary re-renders:
+**Sem o React Compiler**, você precisa do `React.memo` para evitar re-renderizações desnecessárias:
 
 ```js
 // Parent re-renders every second
@@ -405,7 +397,7 @@ const ExpensiveChild = memo(function ExpensiveChild({ name }) {
 });
 ```
 
-**With React Compiler enabled**, the same optimization happens automatically:
+**Com o React Compiler habilitado**, a mesma otimização acontece automaticamente:
 
 ```js
 // No memo needed - compiler prevents re-renders automatically
@@ -415,7 +407,7 @@ function ExpensiveChild({ name }) {
 }
 ```
 
-Here's the key part of what the React Compiler generates:
+Aqui está a parte principal do que o React Compiler gera:
 
 ```js {6-12}
 function Parent() {
@@ -434,25 +426,24 @@ function Parent() {
 }
 ```
 
-Notice the highlighted lines: The compiler wraps `<ExpensiveChild name="John" />` in a cache check. Since the `name` prop is always `"John"`, this JSX is created once and reused on every parent re-render. This is exactly what `React.memo` does - it prevents the child from re-rendering when its props haven't changed.
+Observe as linhas destacadas: O compilador envolve `<ExpensiveChild name="John" />` em uma verificação de cache. Como a prop `name` é sempre `"John"`, este JSX é criado uma vez e reutilizado em cada re-renderização do pai. Isso é exatamente o que o `React.memo` faz - ele impede que o filho re-renderize quando suas props não mudaram.
 
-The React Compiler automatically:
-1. Tracks that the `name` prop passed to `ExpensiveChild` hasn't changed
-2. Reuses the previously created JSX for `<ExpensiveChild name="John" />`
-3. Skips re-rendering `ExpensiveChild` entirely
+O React Compiler automaticamente:
+1. Rastreia que a prop `name` passada para `ExpensiveChild` não mudou
+2. Reutiliza o JSX previamente criado para `<ExpensiveChild name="John" />`
+3. Pula completamente a re-renderização de `ExpensiveChild`
 
-This means **you can safely remove `React.memo` from your components when using React Compiler**. The compiler provides the same optimization automatically, making your code cleaner and easier to maintain.
+Isso significa que **você pode remover com segurança o `React.memo` de seus componentes ao usar o React Compiler**. O compilador fornece a mesma otimização automaticamente, tornando seu código mais limpo e fácil de manter.
 
 <Note>
 
-The compiler's optimization is actually more comprehensive than `React.memo`. It also memoizes intermediate values and expensive computations within your components, similar to combining `React.memo` with `useMemo` throughout your component tree.
+A otimização do compilador é na verdade mais abrangente que o `React.memo`. Ele também memoiza valores intermediários e computações caras dentro de seus componentes, similar a combinar `React.memo` com `useMemo` por toda a árvore de componentes.
 
 </Note>
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
-### My component re-renders when a prop is an object, array, or function {/*my-component-rerenders-when-a-prop-is-an-object-or-array*/}
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
+## Resolução de Problemas {/*troubleshooting*/}
+### Meu componente re-renderiza quando uma prop é um objeto, array ou função {/*my-component-rerenders-when-a-prop-is-an-object-or-array*/}
 
 O React compara antigas e novas props por igualdade superficial: ou seja, considera se cada nova prop é igual em referência à antiga. Se você criar um novo objeto ou array toda vez que o pai re-renderizar, mesmo que os elementos individuais sejam os mesmos, o React ainda considerará que ele foi alterado. Da mesma forma, se você criar uma nova função ao renderizar o componente pai, o React considerará que ela mudou mesmo que a função tenha a mesma definição. Para evitar isso, [simplifique as props ou memoize as props no componente pai](#minimizing-props-changes).

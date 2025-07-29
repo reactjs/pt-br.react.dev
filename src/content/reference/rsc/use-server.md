@@ -97,11 +97,9 @@ Notavelmente, estes não são suportados:
 
 Os valores de retorno serializáveis suportados são os mesmos que os [props serializáveis](/reference/rsc/use-client#passing-props-from-server-to-client-components) para um Client Component de limite.
 
-<<<<<<< HEAD
+Os valores de retorno serializáveis suportados são os mesmos que os [props serializáveis](/reference/rsc/use-client#serializable-types) para um Client Component de limite.
+
 ## Uso {/*usage*/}
-=======
-Supported serializable return values are the same as [serializable props](/reference/rsc/use-client#serializable-types) for a boundary Client Component.
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
 
 ### Server Functions em formulários {/*server-functions-in-forms*/}
 

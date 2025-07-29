@@ -31,11 +31,7 @@ Para adicionar scripts embutidos ou externos ao seu documento, renderize o [comp
 
 #### Props {/*props*/}
 
-<<<<<<< HEAD
-`<script>` suporta todas as [props comuns de elementos.](/reference/react-dom/components/common#props)
-=======
-`<script>` supports all [common element props.](/reference/react-dom/components/common#common-props)
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
+`<script>` suporta todas as [props comuns de elementos.](/reference/react-dom/components/common#common-props)
 
 Ele deve ter *ou* `children` ou uma prop `src`.
 

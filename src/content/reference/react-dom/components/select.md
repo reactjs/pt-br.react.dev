@@ -36,11 +36,7 @@ Para exibir uma caixa de seleção, renderize o componente [`<select>` nativo do
 
 #### Props {/*props*/}
 
-<<<<<<< HEAD
-`<select>` suporta todas as [props de elementos gerais.](/reference/react-dom/components/common#props)
-=======
-`<select>` supports all [common element props.](/reference/react-dom/components/common#common-props)
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
+`<select>` suporta todas as [props de elementos gerais.](/reference/react-dom/components/common#common-props)
 
 Você pode [tornar uma caixa de seleção controlada](#controlling-a-select-box-with-a-state-variable) passando a prop `value`:
 

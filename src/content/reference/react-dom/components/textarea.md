@@ -30,11 +30,7 @@ Para exibir uma área de texto, renderize o componente [nativo do navegador `<te
 
 #### Props {/*props*/}
 
-<<<<<<< HEAD
-O `<textarea>` suporta todas as  [props comuns de elementos.](/reference/react-dom/components/common#props)
-=======
-`<textarea>` supports all [common element props.](/reference/react-dom/components/common#common-props)
->>>>>>> e07ac94bc2c1ffd817b13930977be93325e5bea9
+O `<textarea>` suporta todas as [props comuns de elementos.](/reference/react-dom/components/common#common-props)
 
 Você pode [transformar uma área de texto em controlada](#controlling-a-text-area-with-a-state-variable) passando uma prop `value`:
 
