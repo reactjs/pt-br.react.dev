@@ -1,74 +1,74 @@
 ---
-title: Installation
+title: Instalação
 ---
 
 <Intro>
-This guide will help you install and configure React Compiler in your React application.
+Este guia irá ajudá-lo a instalar e configurar o React Compiler em sua aplicação React.
 </Intro>
 
 <YouWillLearn>
 
-* How to install React Compiler
-* Basic configuration for different build tools
-* How to verify your setup is working
+* Como instalar o React Compiler
+* Configuração básica para diferentes ferramentas de build
+* Como verificar se sua configuração está funcionando
 
 </YouWillLearn>
 
-## Prerequisites {/*prerequisites*/}
+## Pré-requisitos {/*prerequisites*/}
 
-React Compiler is designed to work best with React 19, but it also supports React 17 and 18. Learn more about [React version compatibility](/reference/react-compiler/target).
+O React Compiler foi projetado para funcionar melhor com React 19, mas também suporta React 17 e 18. Saiba mais sobre [compatibilidade de versão React](/reference/react-compiler/target).
 
 <Note>
-React Compiler is currently in RC. Install it using the `@rc` tag to get the latest release candidate version.
+O React Compiler está atualmente em RC. Instale-o usando a tag `@rc` para obter a versão release candidate mais recente.
 </Note>
 
-## Installation {/*installation*/}
+## Instalação {/*installation*/}
 
-Install React Compiler as a `devDependency`:
+Instale o React Compiler como uma `devDependency`:
 
 <TerminalBlock>
 npm install -D babel-plugin-react-compiler@rc
 </TerminalBlock>
 
-Or with Yarn:
+Ou com Yarn:
 
 <TerminalBlock>
 yarn add -D babel-plugin-react-compiler@rc
 </TerminalBlock>
 
-Or with pnpm:
+Ou com pnpm:
 
 <TerminalBlock>
 pnpm install -D babel-plugin-react-compiler@rc
 </TerminalBlock>
 
-## Basic Setup {/*basic-setup*/}
+## Configuração Básica {/*basic-setup*/}
 
-React Compiler is designed to work by default without any configuration. However, if you need to configure it in special circumstances (for example, to target React versions below 19), refer to the [compiler options reference](/reference/react-compiler/configuration).
+O React Compiler foi projetado para funcionar por padrão sem nenhuma configuração. No entanto, se você precisar configurá-lo em circunstâncias especiais (por exemplo, para atingir versões React abaixo de 19), consulte a [referência de opções do compilador](/reference/react-compiler/configuration).
 
-The setup process depends on your build tool. React Compiler includes a Babel plugin that integrates with your build pipeline.
+O processo de configuração depende da sua ferramenta de build. O React Compiler inclui um plugin Babel que se integra ao seu pipeline de build.
 
 <Pitfall>
-React Compiler must run **first** in your Babel plugin pipeline. The compiler needs the original source information for proper analysis, so it must process your code before other transformations.
+O React Compiler deve executar **primeiro** no seu pipeline de plugins Babel. O compilador precisa das informações do código fonte original para análise adequada, então deve processar seu código antes de outras transformações.
 </Pitfall>
 
 ### Babel {/*babel*/}
 
-Create or update your `babel.config.js`:
+Crie ou atualize seu `babel.config.js`:
 
 ```js {3}
 module.exports = {
   plugins: [
-    'babel-plugin-react-compiler', // must run first!
-    // ... other plugins
+    'babel-plugin-react-compiler', // deve executar primeiro!
+    // ... outros plugins
   ],
-  // ... other config
+  // ... outras configurações
 };
 ```
 
 ### Vite {/*vite*/}
 
-If you use Vite, you can add the plugin to vite-plugin-react:
+Se você usa Vite, pode adicionar o plugin ao vite-plugin-react:
 
 ```js {3,9}
 // vite.config.js
@@ -86,7 +86,7 @@ export default defineConfig({
 });
 ```
 
-Alternatively, if you prefer a separate Babel plugin for Vite:
+Alternativamente, se você preferir um plugin Babel separado para Vite:
 
 <TerminalBlock>
 npm install -D vite-plugin-babel
@@ -112,10 +112,10 @@ export default defineConfig({
 
 ### Next.js {/*usage-with-nextjs*/}
 
-Please refer to the [Next.js docs](https://nextjs.org/docs/app/api-reference/next-config-js/reactCompiler) for more information.
+Por favor, consulte a [documentação do Next.js](https://nextjs.org/docs/app/api-reference/next-config-js/reactCompiler) para mais informações.
 
 ### React Router {/*usage-with-react-router*/}
-Install `vite-plugin-babel`, and add the compiler's Babel plugin to it:
+Instale `vite-plugin-babel` e adicione o plugin Babel do compilador:
 
 <TerminalBlock>
 {`npm install vite-plugin-babel`}
@@ -135,7 +135,7 @@ export default defineConfig({
     babel({
       filter: /\.[jt]sx?$/,
       babelConfig: {
-        presets: ["@babel/preset-typescript"], // if you use TypeScript
+        presets: ["@babel/preset-typescript"], // se você usa TypeScript
         plugins: [
           ["babel-plugin-react-compiler", ReactCompilerConfig],
         ],
@@ -147,36 +147,35 @@ export default defineConfig({
 
 ### Webpack {/*usage-with-webpack*/}
 
-A community webpack loader is [now available here](https://github.com/SukkaW/react-compiler-webpack).
+Um loader webpack da comunidade está [disponível aqui](https://github.com/SukkaW/react-compiler-webpack).
 
 ### Expo {/*usage-with-expo*/}
 
-Please refer to [Expo's docs](https://docs.expo.dev/guides/react-compiler/) to enable and use the React Compiler in Expo apps.
+Por favor, consulte a [documentação do Expo](https://docs.expo.dev/guides/react-compiler/) para habilitar e usar o React Compiler em aplicações Expo.
 
 ### Metro (React Native) {/*usage-with-react-native-metro*/}
 
-React Native uses Babel via Metro, so refer to the [Usage with Babel](#babel) section for installation instructions.
+React Native usa Babel via Metro, então consulte a seção [Uso com Babel](#babel) para instruções de instalação.
 
 ### Rspack {/*usage-with-rspack*/}
 
-Please refer to [Rspack's docs](https://rspack.dev/guide/tech/react#react-compiler) to enable and use the React Compiler in Rspack apps.
+Por favor, consulte a [documentação do Rspack](https://rspack.dev/guide/tech/react#react-compiler) para habilitar e usar o React Compiler em aplicações Rspack.
 
 ### Rsbuild {/*usage-with-rsbuild*/}
 
-Please refer to [Rsbuild's docs](https://rsbuild.dev/guide/framework/react#react-compiler) to enable and use the React Compiler in Rsbuild apps.
+Por favor, consulte a [documentação do Rsbuild](https://rsbuild.dev/guide/framework/react#react-compiler) para habilitar e usar o React Compiler em aplicações Rsbuild.
 
+## Integração com ESLint {/*eslint-integration*/}
 
-## ESLint Integration {/*eslint-integration*/}
+O React Compiler inclui uma regra ESLint que ajuda a identificar código que não pode ser otimizado. Quando a regra ESLint reporta um erro, significa que o compilador pulará a otimização daquele componente ou hook específico. Isso é seguro: o compilador continuará otimizando outras partes da sua base de código. Você não precisa corrigir todas as violações imediatamente. Resolva-as no seu próprio ritmo para aumentar gradualmente o número de componentes otimizados.
 
-React Compiler includes an ESLint rule that helps identify code that can't be optimized. When the ESLint rule reports an error, it means the compiler will skip optimizing that specific component or hook. This is safe: the compiler will continue optimizing other parts of your codebase. You don't need to fix all violations immediately. Address them at your own pace to gradually increase the number of optimized components.
-
-Install the ESLint plugin:
+Instale o plugin ESLint:
 
 <TerminalBlock>
 npm install -D eslint-plugin-react-hooks@rc
 </TerminalBlock>
 
-Then enable the compiler rule in your ESLint configuration:
+Em seguida, habilite a regra do compilador na sua configuração ESLint:
 
 ```js {3}
 // .eslintrc.js
@@ -187,32 +186,32 @@ module.exports = {
 };
 ```
 
-The ESLint rule will:
-- Identify violations of the [Rules of React](/reference/rules)
-- Show which components can't be optimized
-- Provide helpful error messages for fixing issues
+A regra ESLint irá:
+- Identificar violações das [Regras do React](/reference/rules)
+- Mostrar quais componentes não podem ser otimizados
+- Fornecer mensagens de erro úteis para corrigir problemas
 
-## Verify Your Setup {/*verify-your-setup*/}
+## Verificar Sua Configuração {/*verify-your-setup*/}
 
-After installation, verify that React Compiler is working correctly.
+Após a instalação, verifique se o React Compiler está funcionando corretamente.
 
-### Check React DevTools {/*check-react-devtools*/}
+### Verificar React DevTools {/*check-react-devtools*/}
 
-Components optimized by React Compiler will show a "Memo ✨" badge in React DevTools:
+Componentes otimizados pelo React Compiler mostrarão um badge "Memo ✨" no React DevTools:
 
-1. Install the [React Developer Tools](/learn/react-developer-tools) browser extension
-2. Open your app in development mode
-3. Open React DevTools
-4. Look for the ✨ emoji next to component names
+1. Instale a extensão do navegador [React Developer Tools](/learn/react-developer-tools)
+2. Abra sua aplicação em modo de desenvolvimento
+3. Abra o React DevTools
+4. Procure pelo emoji ✨ ao lado dos nomes dos componentes
 
-If the compiler is working:
-- Components will show a "Memo ✨" badge in React DevTools
-- Expensive calculations will be automatically memoized
-- No manual `useMemo` is required
+Se o compilador estiver funcionando:
+- Componentes mostrarão um badge "Memo ✨" no React DevTools
+- Cálculos caros serão automaticamente memoizados
+- Nenhum `useMemo` manual é necessário
 
-### Check Build Output {/*check-build-output*/}
+### Verificar Saída do Build {/*check-build-output*/}
 
-You can also verify the compiler is running by checking your build output. The compiled code will include automatic memoization logic that the compiler adds automatically.
+Você também pode verificar se o compilador está executando verificando a saída do seu build. O código compilado incluirá lógica de memoização automática que o compilador adiciona automaticamente.
 
 ```js
 import { c as _c } from "react/compiler-runtime";
@@ -230,29 +229,29 @@ export default function MyApp() {
 
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### Opting out specific components {/*opting-out-specific-components*/}
+### Excluindo componentes específicos {/*opting-out-specific-components*/}
 
-If a component is causing issues after compilation, you can temporarily opt it out using the `"use no memo"` directive:
+Se um componente está causando problemas após a compilação, você pode temporariamente excluí-lo usando a diretiva `"use no memo"`:
 
 ```js
 function ProblematicComponent() {
   "use no memo";
-  // Component code here
+  // Código do componente aqui
 }
 ```
 
-This tells the compiler to skip optimization for this specific component. You should fix the underlying issue and remove the directive once resolved.
+Isso diz ao compilador para pular a otimização para este componente específico. Você deve corrigir o problema subjacente e remover a diretiva uma vez resolvido.
 
-For more troubleshooting help, see the [debugging guide](/learn/react-compiler/debugging).
+Para mais ajuda na solução de problemas, veja o [guia de depuração](/learn/react-compiler/debugging).
 
-## Next Steps {/*next-steps*/}
+## Próximos Passos {/*next-steps*/}
 
-Now that you have React Compiler installed, learn more about:
+Agora que você tem o React Compiler instalado, saiba mais sobre:
 
-- [React version compatibility](/reference/react-compiler/target) for React 17 and 18
-- [Configuration options](/reference/react-compiler/configuration) to customize the compiler
-- [Incremental adoption strategies](/learn/react-compiler/incremental-adoption) for existing codebases
-- [Debugging techniques](/learn/react-compiler/debugging) for troubleshooting issues
-- [Compiling Libraries guide](/reference/react-compiler/compiling-libraries) for compiling your React library
+- [Compatibilidade de versão React](/reference/react-compiler/target) para React 17 e 18
+- [Opções de configuração](/reference/react-compiler/configuration) para personalizar o compilador
+- [Estratégias de adoção incremental](/learn/react-compiler/incremental-adoption) para bases de código existentes
+- [Técnicas de depuração](/learn/react-compiler/debugging) para solução de problemas
+- [Guia de compilação de bibliotecas](/reference/react-compiler/compiling-libraries) para compilar sua biblioteca React
