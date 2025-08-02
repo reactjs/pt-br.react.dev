@@ -2,32 +2,30 @@
 title: React Compiler
 ---
 
-## Introduction {/*introduction*/}
+## Introdução {/*introduction*/}
 
-Learn [what React Compiler does](/learn/react-compiler/introduction) and how it automatically optimizes your React application by handling memoization for you, eliminating the need for manual `useMemo`, `useCallback`, and `React.memo`.
+Aprenda [o que o React Compiler faz](/learn/react-compiler/introduction) e como ele otimiza automaticamente sua aplicação React lidando com memoização para você, eliminando a necessidade de usar manualmente `useMemo`, `useCallback` e `React.memo`.
 
-## Installation {/*installation*/}
+## Instalação {/*installation*/}
 
-Get started with [installing React Compiler](/learn/react-compiler/installation) and learn how to configure it with your build tools.
+Comece [instalando o React Compiler](/learn/react-compiler/installation) e aprenda como configurá-lo com suas ferramentas de build.
 
+## Adoção Incremental {/*incremental-adoption*/}
 
-## Incremental Adoption {/*incremental-adoption*/}
+Aprenda [estratégias para adotar gradualmente o React Compiler](/learn/react-compiler/incremental-adoption) em sua base de código existente se você não estiver pronto para habilitá-lo em todos os lugares ainda.
 
-Learn [strategies for gradually adopting React Compiler](/learn/react-compiler/incremental-adoption) in your existing codebase if you're not ready to enable it everywhere yet.
+## Depuração e Solução de Problemas {/*debugging-and-troubleshooting*/}
 
-## Debugging and Troubleshooting {/*debugging-and-troubleshooting*/}
+Quando as coisas não funcionam como esperado, use nosso [guia de depuração](/learn/react-compiler/debugging) para entender a diferença entre erros do compilador e problemas de runtime, identificar padrões problemáticos comuns e seguir um fluxo de trabalho sistemático de depuração.
 
-When things don't work as expected, use our [debugging guide](/learn/react-compiler/debugging) to understand the difference between compiler errors and runtime issues, identify common breaking patterns, and follow a systematic debugging workflow.
+## Configuração e Referência {/*configuration-and-reference*/}
 
-## Configuration and Reference {/*configuration-and-reference*/}
+Para opções de configuração detalhadas e referência da API:
 
-For detailed configuration options and API reference:
+- [Opções de Configuração](/reference/react-compiler/configuration) - Todas as opções de configuração do compilador incluindo compatibilidade de versão do React
+- [Diretivas](/reference/react-compiler/directives) - Controle de compilação em nível de função
+- [Compilando Bibliotecas](/reference/react-compiler/compiling-libraries) - Distribuindo bibliotecas pré-compiladas
 
-- [Configuration Options](/reference/react-compiler/configuration) - All compiler configuration options including React version compatibility
-- [Directives](/reference/react-compiler/directives) - Function-level compilation control
-- [Compiling Libraries](/reference/react-compiler/compiling-libraries) - Shipping pre-compiled libraries
+## Recursos adicionais {/*additional-resources*/}
 
-## Additional resources {/*additional-resources*/}
-
-In addition to these docs, we recommend checking the [React Compiler Working Group](https://github.com/reactwg/react-compiler) for additional information and discussion about the compiler.
-
+Além desta documentação, recomendamos verificar o [Grupo de Trabalho do React Compiler](https://github.com/reactwg/react-compiler) para informações adicionais e discussões sobre o compilador.
