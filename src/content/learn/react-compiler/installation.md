@@ -175,6 +175,7 @@ Instale o plugin ESLint:
 npm install -D eslint-plugin-react-hooks@rc
 </TerminalBlock>
 
+<<<<<<< HEAD
 Em seguida, habilite a regra do compilador na sua configuração ESLint:
 
 ```js {3}
@@ -185,6 +186,9 @@ module.exports = {
   },
 };
 ```
+=======
+If you haven't already configured eslint-plugin-react-hooks, follow the [installation instructions in the readme](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md#installation). The compiler rule is enabled by default in the latest RC, so no additional configuration is needed.
+>>>>>>> 2774ddfa0c39b8c2f0563b987dcb90a01ee723cf
 
 A regra ESLint irá:
 - Identificar violações das [Regras do React](/reference/rules)

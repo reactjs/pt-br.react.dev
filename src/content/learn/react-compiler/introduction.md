@@ -154,7 +154,11 @@ Usuários do Next.js podem habilitar o React Compiler invocado pelo swc usando [
 
 ## O que devo fazer sobre useMemo, useCallback e React.memo? {/*what-should-i-do-about-usememo-usecallback-and-reactmemo*/}
 
+<<<<<<< HEAD
 Se você está usando o React Compiler, [`useMemo`](/reference/react/useMemo), [`useCallback`](/reference/react/useCallback) e [`React.memo`](/reference/react/memo) podem ser removidos. O React Compiler adiciona memoização automática de forma mais precisa e granular do que é possível com esses hooks. Se você escolher manter a memoização manual, o React Compiler irá analisá-la e determinar se sua memoização manual corresponde à sua memoização automaticamente inferida. Se não houver correspondência, o compilador escolherá não otimizar esse componente.
+=======
+React Compiler adds automatic memoization more precisely and granularly than is possible with [`useMemo`](/reference/react/useMemo), [`useCallback`](/reference/react/useCallback), and [`React.memo`](/reference/react/memo). If you choose to keep manual memoization, React Compiler will analyze them and determine if your manual memoization matches its automatically inferred memoization. If there isn't a match, the compiler will choose to bail out of optimizing that component.
+>>>>>>> 2774ddfa0c39b8c2f0563b987dcb90a01ee723cf
 
 Isso é feito por precaução, pois um anti-padrão comum com memoização manual é usá-la para correção. Isso significa que sua aplicação depende de valores específicos sendo memoizados para funcionar adequadamente. Por exemplo, para prevenir um loop infinito, você pode ter memoizado alguns valores para impedir que uma chamada `useEffect` seja disparada. Isso quebra as Regras do React, mas como pode ser potencialmente perigoso para o compilador remover automaticamente a memoização manual, o compilador simplesmente não otimizará. Você deve remover manualmente sua memoização escrita à mão e verificar que sua aplicação ainda funciona como esperado.
 
