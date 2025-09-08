@@ -49,7 +49,11 @@ O React pode mover componentes `<style>` para o `<head>` do documento, desduplic
 
 Para optar por esse comportamento, forneça as props `href` e `precedence`. O React fará a desduplicação de estilos se eles tiverem o mesmo `href`. A prop precedence diz ao React onde classificar o nó `<style>` DOM em relação a outros no `<head>` do documento, o que determina qual folha de estilo pode substituir a outra.
 
+<<<<<<< HEAD
 Este tratamento especial vem com duas ressalvas:
+=======
+This special treatment comes with three caveats:
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 * O React ignorará as alterações nas propriedades após a renderização do estilo. (O React emitirá um aviso no desenvolvimento se isso acontecer.)
 * O React removerá todas as propriedades estranhas ao usar a propriedade `precedence` (além de `href` e `precedence`).

@@ -321,7 +321,11 @@ Todas as APIs mencionadas oferecem memoização, mas a diferença é o que elas 
 
 #### `useMemo` {/*deep-dive-use-memo*/}
 
+<<<<<<< HEAD
 Em geral, você deve usar [`useMemo`](/reference/react/useMemo) para armazenar em cache uma computação cara em um Componente Cliente em várias renderizações. Como exemplo, para memoizar uma transformação de dados dentro de um componente.
+=======
+In general, you should use [`useMemo`](/reference/react/useMemo) for caching an expensive computation in a Client Component across renders. As an example, to memoize a transformation of data within a component.
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 ```jsx {4}
 'use client';

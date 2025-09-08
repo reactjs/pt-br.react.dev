@@ -193,7 +193,11 @@ function UpdateName() {
 
 Ao usar `useActionState` com Funções do Servidor, o React também reproduzirá automaticamente as submissões de formulário inseridas antes que a hidratação termine. Isso significa que os usuários podem interagir com seu aplicativo mesmo antes que o aplicativo tenha hidratado.
 
+<<<<<<< HEAD
 Para mais informações, consulte a documentação para [`useActionState`](/reference/react-dom/hooks/useFormState).
+=======
+For more, see the docs for [`useActionState`](/reference/react/useActionState).
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 ### Aprimoramento progressivo com `useActionState` {/*progressive-enhancement-with-useactionstate*/}
 
@@ -217,4 +221,8 @@ function UpdateName() {
 
 Quando o <CodeStep step={2}>permalink</CodeStep> for fornecido para `useActionState`, o React redirecionará para a URL fornecida se o formulário for enviado antes que o bundle JavaScript seja carregado.
 
+<<<<<<< HEAD
 Para mais informações, consulte a documentação para [`useActionState`](/reference/react-dom/hooks/useFormState).
+=======
+For more, see the docs for [`useActionState`](/reference/react/useActionState).
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8

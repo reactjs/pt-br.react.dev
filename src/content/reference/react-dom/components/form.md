@@ -38,7 +38,11 @@ Para criar controles interativos para enviar informações, renderize o [compone
 
 `<form>` suporta todas as [props de elementos comuns.](/reference/react-dom/components/common#common-props)
 
+<<<<<<< HEAD
 [`action`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/form#action): uma URL ou função. Quando uma URL é passada para `action`, o formulário se comportará como o componente de formulário HTML. Quando uma função é passada para `action`, a função irá manipular o envio do formulário. A função passada para `action` pode ser async e será chamada com um único argumento contendo os [dados do formulário](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) do formulário enviado. A prop `action` pode ser substituída por um atributo `formAction` em um componente `<button>`, `<input type="submit">` ou `<input type="image">`.
+=======
+[`action`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#action): a URL or function. When a URL is passed to `action` the form will behave like the HTML form component. When a function is passed to `action` the function will handle the form submission in a Transition following [the Action prop pattern](/reference/react/useTransition#exposing-action-props-from-components). The function passed to `action` may be async and will be called with a single argument containing the [form data](https://developer.mozilla.org/en-US/docs/Web/API/FormData) of the submitted form. The `action` prop can be overridden by a `formAction` attribute on a `<button>`, `<input type="submit">`, or `<input type="image">` component.
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 #### Ressalvas {/*caveats*/}
 
@@ -229,8 +233,13 @@ export async function deliverMessage(message) {
 
 </Sandpack>
 
+<<<<<<< HEAD
 [//]: # 'Remova o comentário da próxima linha e exclua esta linha após a publicação da página de documentação de referência `useOptimistic`'
 [//]: # 'Para saber mais sobre o Hook `useOptimistic`, consulte a [documentação de referência](/reference/react/useOptimistic).'
+=======
+[//]: # 'Uncomment the next line, and delete this line after the `useOptimistic` reference documentation page is published'
+[//]: # 'To learn more about the `useOptimistic` Hook see the [reference documentation](/reference/react/useOptimistic).'
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 ### Lidando com erros de envio de formulário {/*handling-form-submission-errors*/}
 

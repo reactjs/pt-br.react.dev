@@ -32,14 +32,20 @@ Todos os [frameworks React em produção](/learn/start-a-new-react-project#full-
 Para instalar a versão mais recente das definições de tipos do React:
 
 <TerminalBlock>
-npm install @types/react @types/react-dom
+npm install --save-dev @types/react @types/react-dom
 </TerminalBlock>
 
 As seguintes opções do compilador precisam ser definidas em seu `tsconfig.json`:
 
+<<<<<<< HEAD
 1. `dom` precisa ser incluído em [`lib`](https://www.typescriptlang.org/tsconfig/#lib) (Nota: se nenhuma opção de `lib` for especificada, `dom` será incluido por padrão).
 1. [`jsx`](https://www.typescriptlang.org/tsconfig/#jsx) deve ser definido como uma das opções válidas. `preserve` deve ser suficiente para a maioria das aplicações.
   Se você está publicando uma biblioteca, consulte a [documentação do `jsx`](https://www.typescriptlang.org/tsconfig/#jsx) sobre qual valor escolher. 
+=======
+1. `dom` must be included in [`lib`](https://www.typescriptlang.org/tsconfig/#lib) (Note: If no `lib` option is specified, `dom` is included by default).
+2. [`jsx`](https://www.typescriptlang.org/tsconfig/#jsx) must be set to one of the valid options. `preserve` should suffice for most applications.
+  If you're publishing a library, consult the [`jsx` documentation](https://www.typescriptlang.org/tsconfig/#jsx) on what value to choose.
+>>>>>>> d34c6a2c6fa49fc6f64b07aa4fa979d86d41c4e8
 
 ## TypeScript com Componentes React {/*typescript-with-react-components*/}
 
