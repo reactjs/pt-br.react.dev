@@ -1768,7 +1768,11 @@ function setState() {
 
 Se você usar `await` dentro de `startTransition`, pode ver as atualizações acontecerem fora de ordem.
 
+<<<<<<< HEAD
 Neste exemplo, a função `updateQuantity` simula uma solicitação ao servidor para atualizar a quantidade do item no carrinho. Esta função *artificialmente retorna todas as outras solicitações após a anterior* para simular condições de corrida para solicitações de rede.
+=======
+In this example, the `updateQuantity` function simulates a request to the server to update the item's quantity in the cart. This function *artificially returns every other request after the previous* to simulate race conditions for network requests.
+>>>>>>> a5181c291f01896735b65772f156cfde34df20ee
 
 Tente atualizar a quantidade uma vez, depois atualize rapidamente várias vezes. Você pode ver o total incorreto:
 
