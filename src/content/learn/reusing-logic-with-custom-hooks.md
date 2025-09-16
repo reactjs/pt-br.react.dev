@@ -1419,10 +1419,29 @@ Similar a um [sistema de design](https://uxdesign.cc/everything-you-need-to-know
 
 #### O React fornecerá alguma solução interna para busca de dados? {/*will-react-provide-any-built-in-solution-for-data-fetching*/}
 
-Ainda estamos trabalhando nos detalhes, mas esperamos que no futuro você escreva a busca de dados da seguinte forma:
+Hoje, com a API [`use`](/reference/react/use#streaming-data-from-server-to-client), os dados podem ser lidos na renderização passando uma [Promise](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise) para `use`:
+
+```js {1,4,11}
+import { use, Suspense } from "react";
+
+function Message({ messagePromise }) {
+  const messageContent = use(messagePromise);
+  return <p>Aqui está a mensagem: {messageContent}</p>;
+}
+
+export function MessageContainer({ messagePromise }) {
+  return (
+    <Suspense fallback={<p>⌛Baixando mensagem...</p>}>
+      <Message messagePromise={messagePromise} />
+    </Suspense>
+  );
+}
+```
+
+Estamos ainda trabalhando nos detalhes, mas esperamos que no futuro, você escreva a busca de dados assim:
 
 ```js {1,4,6}
-import { use } from 'react'; // Não disponível ainda!
+import { use } from 'react';
 
 function ShippingForm({ country }) {
   const cities = use(fetch(`/api/cities?country=${country}`));

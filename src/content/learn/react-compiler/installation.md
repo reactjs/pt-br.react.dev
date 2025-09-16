@@ -175,16 +175,7 @@ Instale o plugin ESLint:
 npm install -D eslint-plugin-react-hooks@rc
 </TerminalBlock>
 
-Em seguida, habilite a regra do compilador na sua configuração ESLint:
-
-```js {3}
-// .eslintrc.js
-module.exports = {
-  rules: {
-    'react-hooks/react-compiler': 'error',
-  },
-};
-```
+Se você ainda não configurou o eslint-plugin-react-hooks, siga as [instruções de instalação no readme](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md#installation). A regra do compilador está habilitada por padrão no RC mais recente, então nenhuma configuração adicional é necessária.
 
 A regra ESLint irá:
 - Identificar violações das [Regras do React](/reference/rules)

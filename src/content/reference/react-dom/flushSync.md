@@ -130,3 +130,73 @@ Sem `flushSync`, a caixa de diálogo de impressão exibirá `isPrinting` como "n
 Na maior parte do tempo, `flushSync` pode ser evitado, então use `flushSync` como último recurso.
 
 </Pitfall>
+
+---
+
+## Solução de Problemas {/*troubleshooting*/}
+
+### Estou recebendo um erro: "flushSync foi chamado de dentro de um método de ciclo de vida" {/*im-getting-an-error-flushsync-was-called-from-inside-a-lifecycle-method*/}
+
+O React não pode executar `flushSync` no meio de uma renderização. Se você fizer isso, ele não fará nada e avisará:
+
+<ConsoleBlock level="error">
+
+Aviso: flushSync foi chamado de dentro de um método de ciclo de vida. O React não pode fazer flush quando já está renderizando. Considere mover esta chamada para uma tarefa do agendador ou micro tarefa.
+
+</ConsoleBlock>
+
+Isso inclui chamar `flushSync` dentro de:
+
+- renderização de um componente.
+- hooks `useLayoutEffect` ou `useEffect`.
+- métodos de ciclo de vida de componentes de classe.
+
+Por exemplo, chamar `flushSync` em um Effect não fará nada e avisará:
+
+```js
+import { useEffect } from 'react';
+import { flushSync } from 'react-dom';
+
+function MyComponent() {
+  useEffect(() => {
+    // 🚩 Errado: chamando flushSync dentro de um effect
+    flushSync(() => {
+      setSomething(newValue);
+    });
+  }, []);
+
+  return <div>{/* ... */}</div>;
+}
+```
+
+Para corrigir isso, você geralmente quer mover a chamada `flushSync` para um evento:
+
+```js
+function handleClick() {
+  // ✅ Correto: flushSync em manipuladores de evento é seguro
+  flushSync(() => {
+    setSomething(newValue);
+  });
+}
+```
+
+Se for difícil mover para um evento, você pode adiar `flushSync` em uma micro tarefa:
+
+```js {3,7}
+useEffect(() => {
+  // ✅ Correto: adiar flushSync para uma micro tarefa
+  queueMicrotask(() => {
+    flushSync(() => {
+      setSomething(newValue);
+    });
+  });
+}, []);
+```
+
+Isso permitirá que a renderização atual termine e agende outra renderização síncrona para fazer flush das atualizações.
+
+<Pitfall>
+
+`flushSync` pode prejudicar significativamente a performance, mas este padrão específico é ainda pior para a performance. Esgote todas as outras opções antes de chamar `flushSync` em uma micro tarefa como uma saída de emergência.
+
+</Pitfall>
