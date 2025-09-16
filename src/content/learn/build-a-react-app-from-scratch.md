@@ -120,11 +120,7 @@ Para instruções de divisão de código, veja a documentação da sua ferrament
 
 ### Melhorando a Performance da Aplicação {/*improving-application-performance*/}
 
-<<<<<<< HEAD
 Como a ferramenta de build que você seleciona só suporta aplicações de página única (SPAs), você precisará implementar outros [padrões de renderização](https://www.patterns.dev/vanilla/rendering-patterns) como renderização do lado do servidor (SSR), geração de site estático (SSG), e/ou React Server Components (RSC). Mesmo se você não precisar dessas funcionalidades no início, no futuro pode haver algumas rotas que se beneficiariam de SSR, SSG ou RSC.
-=======
-Since the build tool you select only supports single page apps (SPAs), you'll need to implement other [rendering patterns](https://www.patterns.dev/vanilla/rendering-patterns) like server-side rendering (SSR), static site generation (SSG), and/or React Server Components (RSC). Even if you don't need these features at first, in the future there may be some routes that would benefit SSR, SSG or RSC.
->>>>>>> a5181c291f01896735b65772f156cfde34df20ee
 
 * **Aplicações de página única (SPA)** carregam uma única página HTML e atualizam dinamicamente a página conforme o usuário interage com a aplicação. SPAs são mais fáceis de começar, mas podem ter tempos de carregamento inicial mais lentos. SPAs são a arquitetura padrão para a maioria das ferramentas de build.
 

@@ -1419,36 +1419,29 @@ Similar a um [sistema de design](https://uxdesign.cc/everything-you-need-to-know
 
 #### O React fornecerá alguma solução interna para busca de dados? {/*will-react-provide-any-built-in-solution-for-data-fetching*/}
 
-<<<<<<< HEAD
-Ainda estamos trabalhando nos detalhes, mas esperamos que no futuro você escreva a busca de dados da seguinte forma:
-
-```js {1,4,6}
-import { use } from 'react'; // Não disponível ainda!
-=======
-Today, with the [`use`](/reference/react/use#streaming-data-from-server-to-client) API, data can be read in render by passing a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to `use`:
+Hoje, com a API [`use`](/reference/react/use#streaming-data-from-server-to-client), os dados podem ser lidos na renderização passando uma [Promise](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Promise) para `use`:
 
 ```js {1,4,11}
 import { use, Suspense } from "react";
 
 function Message({ messagePromise }) {
   const messageContent = use(messagePromise);
-  return <p>Here is the message: {messageContent}</p>;
+  return <p>Aqui está a mensagem: {messageContent}</p>;
 }
 
 export function MessageContainer({ messagePromise }) {
   return (
-    <Suspense fallback={<p>⌛Downloading message...</p>}>
+    <Suspense fallback={<p>⌛Baixando mensagem...</p>}>
       <Message messagePromise={messagePromise} />
     </Suspense>
   );
 }
 ```
 
-We're still working out the details, but we expect that in the future, you'll write data fetching like this:
+Estamos ainda trabalhando nos detalhes, mas esperamos que no futuro, você escreva a busca de dados assim:
 
 ```js {1,4,6}
 import { use } from 'react';
->>>>>>> a5181c291f01896735b65772f156cfde34df20ee
 
 function ShippingForm({ country }) {
   const cities = use(fetch(`/api/cities?country=${country}`));

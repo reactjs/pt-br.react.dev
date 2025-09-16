@@ -221,11 +221,7 @@ li {
 
 Há um erro no código acima. No entanto, é fácil de perder porque a saída inicial parece correta.
 
-<<<<<<< HEAD
 Esse erro se tornará mais perceptível se o componente `StoryTray` re-renderizar várias vezes. Por exemplo, vamos fazer o `StoryTray` re-renderizar com uma cor de fundo diferente sempre que você passar o mouse sobre ele:
-=======
-This mistake will become more noticeable if the `StoryTray` component re-renders multiple times. For example, let's make the `StoryTray` re-render with a different background color whenever you hover over it:
->>>>>>> a5181c291f01896735b65772f156cfde34df20ee
 
 <Sandpack>
 
@@ -1272,13 +1268,8 @@ Agora, na montagem inicial no StrictMode, os refs callbacks são todos configura
 
 Sem o Strict Mode, foi fácil perder o erro até que você clicou no aplicativo para notar recursos quebrados. O Strict Mode fez com que os erros aparecessem imediatamente, antes de enviá-los para a produção.
 
-<<<<<<< HEAD
 --- 
 ### Corrigindo avisos de descontinuação ativados pelo Strict Mode {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
-=======
----
-### Fixing deprecation warnings enabled by Strict Mode {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
->>>>>>> a5181c291f01896735b65772f156cfde34df20ee
 
 O React avisa se algum componente em qualquer lugar dentro de uma árvore `<StrictMode>` usa uma dessas APIs descontinuadas:
 

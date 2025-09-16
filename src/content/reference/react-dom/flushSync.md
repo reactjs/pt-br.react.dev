@@ -129,33 +129,29 @@ Sem `flushSync`, a caixa de diálogo de impressão exibirá `isPrinting` como "n
 
 Na maior parte do tempo, `flushSync` pode ser evitado, então use `flushSync` como último recurso.
 
-<<<<<<< HEAD
-</Pitfall>
-=======
 </Pitfall>
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I'm getting an error: "flushSync was called from inside a lifecycle method" {/*im-getting-an-error-flushsync-was-called-from-inside-a-lifecycle-method*/}
+### Estou recebendo um erro: "flushSync foi chamado de dentro de um método de ciclo de vida" {/*im-getting-an-error-flushsync-was-called-from-inside-a-lifecycle-method*/}
 
-
-React cannot `flushSync` in the middle of a render. If you do, it will noop and warn:
+O React não pode executar `flushSync` no meio de uma renderização. Se você fizer isso, ele não fará nada e avisará:
 
 <ConsoleBlock level="error">
 
-Warning: flushSync was called from inside a lifecycle method. React cannot flush when React is already rendering. Consider moving this call to a scheduler task or micro task.
+Aviso: flushSync foi chamado de dentro de um método de ciclo de vida. O React não pode fazer flush quando já está renderizando. Considere mover esta chamada para uma tarefa do agendador ou micro tarefa.
 
 </ConsoleBlock>
 
-This includes calling `flushSync` inside:
+Isso inclui chamar `flushSync` dentro de:
 
-- rendering a component.
-- `useLayoutEffect` or `useEffect` hooks.
-- Class component lifecycle methods.
+- renderização de um componente.
+- hooks `useLayoutEffect` ou `useEffect`.
+- métodos de ciclo de vida de componentes de classe.
 
-For example, calling `flushSync` in an Effect will noop and warn:
+Por exemplo, chamar `flushSync` em um Effect não fará nada e avisará:
 
 ```js
 import { useEffect } from 'react';
@@ -163,7 +159,7 @@ import { flushSync } from 'react-dom';
 
 function MyComponent() {
   useEffect(() => {
-    // 🚩 Wrong: calling flushSync inside an effect
+    // 🚩 Errado: chamando flushSync dentro de um effect
     flushSync(() => {
       setSomething(newValue);
     });
@@ -173,23 +169,22 @@ function MyComponent() {
 }
 ```
 
-To fix this, you usually want to move the `flushSync` call to an event:
+Para corrigir isso, você geralmente quer mover a chamada `flushSync` para um evento:
 
 ```js
 function handleClick() {
-  // ✅ Correct: flushSync in event handlers is safe
+  // ✅ Correto: flushSync em manipuladores de evento é seguro
   flushSync(() => {
     setSomething(newValue);
   });
 }
 ```
 
-
-If it's difficult to move to an event, you can defer `flushSync` in a microtask:
+Se for difícil mover para um evento, você pode adiar `flushSync` em uma micro tarefa:
 
 ```js {3,7}
 useEffect(() => {
-  // ✅ Correct: defer flushSync to a microtask
+  // ✅ Correto: adiar flushSync para uma micro tarefa
   queueMicrotask(() => {
     flushSync(() => {
       setSomething(newValue);
@@ -198,11 +193,10 @@ useEffect(() => {
 }, []);
 ```
 
-This will allow the current render to finish and schedule another syncronous render to flush the updates.
+Isso permitirá que a renderização atual termine e agende outra renderização síncrona para fazer flush das atualizações.
 
 <Pitfall>
 
-`flushSync` can significantly hurt performance, but this particular pattern is even worse for performance. Exhaust all other options before calling `flushSync` in a microtask as an escape hatch.
+`flushSync` pode prejudicar significativamente a performance, mas este padrão específico é ainda pior para a performance. Esgote todas as outras opções antes de chamar `flushSync` em uma micro tarefa como uma saída de emergência.
 
 </Pitfall>
->>>>>>> a5181c291f01896735b65772f156cfde34df20ee
