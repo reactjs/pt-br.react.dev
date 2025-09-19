@@ -76,7 +76,7 @@ A palavra-chave `export default` especifica o componente principal no arquivo. S
 
 ## Escrevendo marcações (markup) com JSX {/*writing-markup-with-jsx*/}
 
-A sintaxe de marcação que você viu acima é chamada de *JSX*. Ela é opcional, mas a maioria dos projetos React utiliza JSX pela sua conveniência. Todas as [todas as ferramentas de desenvolvimento que recomendamos](/learn/installation) suportam JSX prontamente.
+A sintaxe de marcação que você viu acima é chamada de *JSX*. Ela é opcional, mas a maioria dos projetos React utiliza JSX pela sua conveniência. [Todas as ferramentas de desenvolvimento que recomendamos](/learn/installation) suportam JSX prontamente.
 
 JSX é mais rigoroso do que HTML. Você precisa fechar as tags, como `<br />`. Além disso, Seu componente não pode retornar várias tags JSX separadas. Você precisa envolvê-las em um elemento pai compartilhado, como um `<div>...</div>` ou um `<>...</>` vazio:
 
