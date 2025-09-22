@@ -928,7 +928,8 @@ Note a variável `ignore` que é inicializada como `false`, e é definida como `
 
 <Sandpack>
 
-```js src/App.js
+{/* TODO(@poteto) - investigate potential false positives in react compiler validation */}
+```js {expectedErrors: {'react-compiler': [9]}} src/App.js
 import { useState, useEffect } from 'react';
 import { fetchBio } from './api.js';
 
@@ -1737,7 +1738,9 @@ Se seu aplicativo usa renderização do servidor (diretamente ou por meio de uma
 
 Em raras ocasiões, você pode precisar exibir conteúdo diferente no cliente. Por exemplo, se seu aplicativo ler alguns dados de [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), não é possível fazer isso no servidor. Aqui está como você poderia implementar isso:
 
-```js
+
+{/* TODO(@poteto) - investigate potential false positives in react compiler validation */}
+```js {expectedErrors: {'react-compiler': [5]}}
 function MyComponent() {
   const [didMount, setDidMount] = useState(false);
 
