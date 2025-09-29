@@ -928,7 +928,8 @@ Note a variável `ignore` que é inicializada como `false`, e é definida como `
 
 <Sandpack>
 
-```js src/App.js
+{/* TODO(@poteto) - investigate potential false positives in react compiler validation */}
+```js {expectedErrors: {'react-compiler': [9]}} src/App.js
 import { useState, useEffect } from 'react';
 import { fetchBio } from './api.js';
 
@@ -1690,11 +1691,17 @@ Agora que você definiu a função `createOptions` dentro do Efeito, o Efeito em
 
 ### Lendo os últimos props e estado de um Efeito {/*reading-the-latest-props-and-state-from-an-effect*/}
 
-<Wip>
+<Canary>
 
+<<<<<<< HEAD
 Esta seção descreve uma **API experimental que ainda não foi lançada** em uma versão estável do React.
+=======
+**The `useEffectEvent` API is currently only available in React’s Canary and Experimental channels.** 
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
-</Wip>
+[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
+
+</Canary>
 
 Por padrão, quando você lê um valor reativo de um Efeito, precisa adicioná-lo como uma dependência. Isso garante que seu Efeito "reaja" a cada mudança desse valor. Para a maioria das dependências, esse é o comportamento que você deseja.
 
@@ -1709,7 +1716,11 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
+<<<<<<< HEAD
 **E se você quiser registrar uma nova visita à página após cada mudança de `url`, mas *não* se apenas o `shoppingCart` mudar?** Você não pode excluir `shoppingCart` das dependências sem quebrar as [regras de reatividade.](#specifying-reactive-dependencies) No entanto, você pode expressar que *não quer* que um trecho de código "reaja" a alterações, mesmo que ele seja chamado de dentro de um Efeito. [Declare um *Evento de Efeito*](/learn/separating-events-from-effects#declaring-an-effect-event) com o Hook [`useEffectEvent`](/reference/react/experimental_useEffectEvent), e mova o código que lê `shoppingCart` para dentro dele:
+=======
+<CanaryBadge /> **What if you want to log a new page visit after every `url` change, but *not* if only the `shoppingCart` changes?** You can't exclude `shoppingCart` from dependencies without breaking the [reactivity rules.](#specifying-reactive-dependencies) However, you can express that you *don't want* a piece of code to "react" to changes even though it is called from inside an Effect. [Declare an *Effect Event*](/learn/separating-events-from-effects#declaring-an-effect-event) with the [`useEffectEvent`](/reference/react/useEffectEvent) Hook, and move the code reading `shoppingCart` inside of it:
+>>>>>>> 49c2d26722fb1b5865ce0221a4cadc71b615e4cf
 
 ```js {2-4,7,8}
 function Page({ url, shoppingCart }) {
@@ -1737,7 +1748,9 @@ Se seu aplicativo usa renderização do servidor (diretamente ou por meio de uma
 
 Em raras ocasiões, você pode precisar exibir conteúdo diferente no cliente. Por exemplo, se seu aplicativo ler alguns dados de [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), não é possível fazer isso no servidor. Aqui está como você poderia implementar isso:
 
-```js
+
+{/* TODO(@poteto) - investigate potential false positives in react compiler validation */}
+```js {expectedErrors: {'react-compiler': [5]}}
 function MyComponent() {
   const [didMount, setDidMount] = useState(false);
 

@@ -206,7 +206,7 @@ Há dois casos comuns nos quais você não precisa de Effects:
 
 Por exemplo, você não precisa de um Effect para ajustar um estado baseado em outro estado:
 
-```js {5-9}
+```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
@@ -462,8 +462,8 @@ Isso não é ideal. Você quer se reconectar ao chat apenas se `roomId` tiver mu
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "canary",
+    "react-dom": "canary",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -478,7 +478,7 @@ Isso não é ideal. Você quer se reconectar ao chat apenas se `roomId` tiver mu
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 
