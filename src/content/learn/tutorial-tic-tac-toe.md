@@ -283,9 +283,9 @@ No CodeSandbox você verá três seções principais:
 
 ![CodeSandbox com código inicial](../images/tutorial/react-starter-code-codesandbox.png)
 
-1. A seção *Arquivos* com uma lista de arquivos como `App.js`, `index.js`, `styles.css` e uma pasta chamada `public`
-1. O *editor de código* onde você verá o código fonte de seu arquivo selecionado
-1. A seção de *navegador* onde você verá como o código que você escreveu será exibido
+1. A seção *Arquivos* com uma lista de arquivos como `App.js`, `index.js`, `styles.css` na pasta `src` e uma pasta chamada `public`
+2. O *editor de código* onde você verá o código fonte de seu arquivo selecionado
+3. A seção de *navegador* onde você verá como o código que você escreveu será exibido
 
 O arquivo `App.js` deve ser selecionado na seção *Arquivos*. Os conteúdos daquele arquivo no *editor de código* devem ser:
 

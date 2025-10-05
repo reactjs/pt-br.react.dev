@@ -50,6 +50,20 @@ const ExpensiveComponent = memo(function ExpensiveComponent({ data, onClick }) {
 });
 ```
 
+<Note>
+
+Esta memoização manual tem um bug sutil que quebra a memoização:
+
+```js [[2, 1, "() => handleClick(item)"]]
+<Item key={item.id} onClick={() => handleClick(item)} />
+```
+
+Mesmo que `handleClick` esteja envolvido em `useCallback`, a função arrow `() => handleClick(item)` cria uma nova função toda vez que o componente renderiza. Isso significa que `Item` sempre receberá uma nova prop `onClick`, quebrando a memoização.
+
+O React Compiler é capaz de otimizar isso corretamente com ou sem a função arrow, garantindo que `Item` só re-renderize quando `props.onClick` mudar.
+
+</Note>
+
 ### Depois do React Compiler {/*after-react-compiler*/}
 
 Com o React Compiler, você escreve o mesmo código sem memoização manual:
@@ -154,7 +168,7 @@ Usuários do Next.js podem habilitar o React Compiler invocado pelo swc usando [
 
 ## O que devo fazer sobre useMemo, useCallback e React.memo? {/*what-should-i-do-about-usememo-usecallback-and-reactmemo*/}
 
-Se você está usando o React Compiler, [`useMemo`](/reference/react/useMemo), [`useCallback`](/reference/react/useCallback) e [`React.memo`](/reference/react/memo) podem ser removidos. O React Compiler adiciona memoização automática de forma mais precisa e granular do que é possível com esses hooks. Se você escolher manter a memoização manual, o React Compiler irá analisá-la e determinar se sua memoização manual corresponde à sua memoização automaticamente inferida. Se não houver correspondência, o compilador escolherá não otimizar esse componente.
+O React Compiler adiciona memoização automática de forma mais precisa e granular do que é possível com [`useMemo`](/reference/react/useMemo), [`useCallback`](/reference/react/useCallback) e [`React.memo`](/reference/react/memo). Se você escolher manter a memoização manual, o React Compiler irá analisá-la e determinar se sua memoização manual corresponde à sua memoização automaticamente inferida. Se não houver correspondência, o compilador escolherá não otimizar esse componente.
 
 Isso é feito por precaução, pois um anti-padrão comum com memoização manual é usá-la para correção. Isso significa que sua aplicação depende de valores específicos sendo memoizados para funcionar adequadamente. Por exemplo, para prevenir um loop infinito, você pode ter memoizado alguns valores para impedir que uma chamada `useEffect` seja disparada. Isso quebra as Regras do React, mas como pode ser potencialmente perigoso para o compilador remover automaticamente a memoização manual, o compilador simplesmente não otimizará. Você deve remover manualmente sua memoização escrita à mão e verificar que sua aplicação ainda funciona como esperado.
 
