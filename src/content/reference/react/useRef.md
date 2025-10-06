@@ -197,7 +197,7 @@ O React espera que o corpo do seu componente [se comporte como uma função pura
 
 Ler ou escrever uma ref **durante a renderização** quebra essas expectativas.
 
-```js {3-4,6-7}
+```js {expectedErrors: {'react-compiler': [4]}} {3-4,6-7}
 function MyComponent() {
   // ...
   // 🚩 Não escreva uma ref durante a renderização

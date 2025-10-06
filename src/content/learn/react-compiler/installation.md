@@ -172,10 +172,14 @@ O React Compiler inclui uma regra ESLint que ajuda a identificar código que nã
 Instale o plugin ESLint:
 
 <TerminalBlock>
-npm install -D eslint-plugin-react-hooks@rc
+npm install -D eslint-plugin-react-hooks@^6.1.1
 </TerminalBlock>
 
+<<<<<<< HEAD
 Se você ainda não configurou o eslint-plugin-react-hooks, siga as [instruções de instalação no readme](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md#installation). A regra do compilador está habilitada por padrão no RC mais recente, então nenhuma configuração adicional é necessária.
+=======
+If you haven't already configured eslint-plugin-react-hooks, follow the [installation instructions in the readme](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md#installation). The compiler rules are available in the `recommended-latest` preset.
+>>>>>>> 11cb6b591571caf5fa2a192117b6a6445c3f2027
 
 A regra ESLint irá:
 - Identificar violações das [Regras do React](/reference/rules)
@@ -241,8 +245,16 @@ Para mais ajuda na solução de problemas, veja o [guia de depuração](/learn/r
 
 Agora que você tem o React Compiler instalado, saiba mais sobre:
 
+<<<<<<< HEAD
 - [Compatibilidade de versão React](/reference/react-compiler/target) para React 17 e 18
 - [Opções de configuração](/reference/react-compiler/configuration) para personalizar o compilador
 - [Estratégias de adoção incremental](/learn/react-compiler/incremental-adoption) para bases de código existentes
 - [Técnicas de depuração](/learn/react-compiler/debugging) para solução de problemas
 - [Guia de compilação de bibliotecas](/reference/react-compiler/compiling-libraries) para compilar sua biblioteca React
+=======
+- [React version compatibility](/reference/react-compiler/target) for React 17 and 18
+- [Configuration options](/reference/react-compiler/configuration) to customize the compiler
+- [Incremental adoption strategies](/learn/react-compiler/incremental-adoption) for existing codebases
+- [Debugging techniques](/learn/react-compiler/debugging) for troubleshooting issues
+- [Compiling Libraries guide](/reference/react-compiler/compiling-libraries) for compiling your React library
+>>>>>>> 11cb6b591571caf5fa2a192117b6a6445c3f2027

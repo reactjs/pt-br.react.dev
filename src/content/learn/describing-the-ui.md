@@ -476,7 +476,7 @@ Escrevendo apenas funções puras, você pode evitar muitos erros e comportament
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5]}}
 let guest = 0;
 
 function Cup() {
