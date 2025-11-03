@@ -34,7 +34,7 @@ Para ajudá-lo a adquirir a intuição correta, vamos dar uma olhada em alguns e
 
 Suponha que você tenha um componente com dois states: `firstName` e `lastName`. Você quer calcular o `fullName` concatenando os dois. Além disso, você gostaria que o `fullName` atualizasse sempre que o `firstName` ou `lastName` mudassem. Seu primeiro instinto pode ser adicionar um state `fullName` e atualizá-la num Effect:
 
-```js {5-9}
+```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
@@ -66,7 +66,7 @@ function Form() {
 
 Este componente calcula `visibleTodos` pegando os `todos` que recebe via props e os filtrando de acordo com com a prop `filter`. Você pode se sentir tentado a armazenar o resultado em state e atualizá-lo com um Effect:
 
-```js {4-8}
+```js {expectedErrors: {'react-compiler': [7]}} {4-8}
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
 
@@ -165,7 +165,7 @@ Observe também que medir o desempenho no desenvolvimento não fornecerá os res
 
 Esse componente `ProfilePage` recebe uma propriedade `userId`. A página contém um input de comentário e você usa um state `comment` para manter seu valor. Um dia, você percebeu um problema: quando você navega de um perfil para outro, o state `comment` não é redefinido. Como resultado, é fácil publicar acidentalmente um comentário no perfil de um usuário errado. Para corrigir o problema, você deseja limpar o state `comment` sempre que o `userId` for alterado:
 
-```js {4-7}
+```js {expectedErrors: {'react-compiler': [6]}} {4-7}
 export default function ProfilePage({ userId }) {
   const [comment, setComment] = useState('');
 
@@ -208,7 +208,7 @@ Perceba que, neste exemplo, somente o componente externo `ProfilePage` é export
 
 Este componente `List` recebe uma lista de `items` como uma prop e mantém o item selecionado no state `selection`. Você deseja redefinir a `selection` para `null` sempre que a prop `items` receber um array diferente:
 
-```js {5-8}
+```js {expectedErrors: {'react-compiler': [7]}} {5-8}
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
@@ -819,7 +819,7 @@ Simplifique esse componente removendo todo o state e os Effects desnecessários.
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [12, 16, 20]}}
 import { useState, useEffect } from 'react';
 import { initialTodos, createTodo } from './todos.js';
 
@@ -1022,7 +1022,7 @@ Uma solução é adicionar uma chamada `useMemo` para armazenar em cache os *tod
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState, useEffect } from 'react';
 import { initialTodos, createTodo, getVisibleTodos } from './todos.js';
 
@@ -1363,7 +1363,7 @@ export default function ContactList({
 }
 ```
 
-```js src/EditContact.js active
+```js {expectedErrors: {'react-compiler': [8, 9]}} src/EditContact.js active
 import { useState, useEffect } from 'react';
 
 export default function EditContact({ savedContact, onSave }) {
