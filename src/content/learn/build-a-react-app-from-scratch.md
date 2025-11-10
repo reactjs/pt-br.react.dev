@@ -33,7 +33,7 @@ O primeiro passo é instalar uma ferramenta de build como `vite`, `parcel`, ou `
 [Vite](https://vite.dev/) é uma ferramenta de build que visa fornecer uma experiência de desenvolvimento mais rápida e enxuta para projetos web modernos.
 
 <TerminalBlock>
-{`npm create vite@latest my-app -- --template react`}
+{`npm create vite@latest my-app -- --template react-ts`}
 </TerminalBlock>
 
 Vite é opinativo e vem com padrões sensatos prontos para uso. Vite tem um rico ecossistema de plugins para suportar fast refresh, JSX, Babel/SWC, e outras funcionalidades comuns. Veja o [plugin React do Vite](https://vite.dev/plugins/#vitejs-plugin-react) ou [plugin React SWC](https://vite.dev/plugins/#vitejs-plugin-react-swc) e [projeto de exemplo React SSR](https://vite.dev/guide/ssr.html#example-projects) para começar.
@@ -95,7 +95,7 @@ Note que buscar dados diretamente nos componentes pode levar a tempos de carrega
 
 Se você está buscando dados da maioria dos backends ou APIs estilo REST, sugerimos usar:
 
-- [React Query](https://react-query.tanstack.com/)
+- [TanStack Query](https://tanstack.com/query/)
 - [SWR](https://swr.vercel.app/)
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 

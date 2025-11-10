@@ -244,7 +244,11 @@ input { margin: 10px; }
 
 </Sandpack>
 
+<<<<<<< HEAD
 Um padrão de UI alternativo comum é *adiar* a atualização da lista de resultados e continuar mostrando os resultados anteriores até que os novos resultados estejam prontos. Chame `useDeferredValue` para passar uma versão adiada da consulta:
+=======
+A common alternative UI pattern is to *defer* updating the list of results and to keep showing the previous results until the new results are ready. Call `useDeferredValue` to pass a deferred version of the query down:
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 ```js {3,11}
 export default function App() {
@@ -420,7 +424,11 @@ input { margin: 10px; }
 
 Você pode pensar que isso acontece em duas etapas:
 
+<<<<<<< HEAD
 1. **Primeiro, o React renderiza novamente com o novo `query` (`"ab"`) mas com o `deferredQuery` antigo (ainda `"a"`)** O valor `deferredQuery`, que você passa para a lista de resultados, é *adiado:* ele "fica para trás" do valor `query`.
+=======
+1. **First, React re-renders with the new `query` (`"ab"`) but with the old `deferredQuery` (still `"a"`).** The `deferredQuery` value, which you pass to the result list, is *deferred:* it "lags behind" the `query` value.
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 2. **Em segundo plano, o React tenta renderizar novamente com *ambos* `query` e `deferredQuery` atualizados para `"ab"`** Se esta nova renderização for concluída, o React exibirá na tela. No entanto, se ele suspender (os resultados de `"ab"` ainda não foram carregados), o React abandonará esta tentativa de renderização e tentará novamente esta nova renderização após o carregamento dos dados. O usuário continuará vendo o valor adiado obsoleto até que os dados estejam prontos.
 
@@ -669,7 +677,7 @@ export default function App() {
 }
 ```
 
-```js src/SlowList.js
+```js {expectedErrors: {'react-compiler': [19, 20]}} src/SlowList.js
 import { memo } from 'react';
 
 const SlowList = memo(function SlowList({ text }) {
@@ -746,7 +754,7 @@ export default function App() {
 }
 ```
 
-```js src/SlowList.js
+```js {expectedErrors: {'react-compiler': [19, 20]}} src/SlowList.js
 import { memo } from 'react';
 
 const SlowList = memo(function SlowList({ text }) {
