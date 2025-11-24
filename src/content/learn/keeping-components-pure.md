@@ -193,7 +193,7 @@ No entanto, está tudo bem porque você os criou *durante a mesma renderização
 
 Embora a programação funcional dependa muito da pureza, em algum ponto, em algum lugar, _alguma coisa_ tem que mudar. Esse é meio que o ponto da programação! Essas mudanças—atualizar a tela, iniciar uma animação, alterar os dados—são chamadas de **efeitos colaterais.** São coisas que acontecem _"ao lado"_, não durante a renderização.
 
-No React, **efeitos colaterais geralmente pertencem dentro de [manipuladores de eventos.](/learn/responding-to-events)** Manipuladores de eventos são funções que o React executa quando você realiza alguma ação—por exemplo, quando você clica em um botão. Mesmo que os manipuladores de eventos sejam definidos *dentro* do seu componente, eles não executam *durante* a renderização! **Então os manipuladores de eventos não precisam ser puros.**
+No React, **efeitos colaterais geralmente ficam dentro de [manipuladores de eventos.](/learn/responding-to-events)** Manipuladores de eventos são funções que o React executa quando você realiza alguma ação—por exemplo, quando você clica em um botão. Mesmo que os manipuladores de eventos sejam definidos *dentro* do seu componente, eles não executam *durante* a renderização! **Então os manipuladores de eventos não precisam ser puros.**
 
 Se você esgotou todas as outras opções e não consegue encontrar o manipulador de eventos correto para seu efeito colateral, você ainda pode anexá-lo ao seu JSX retornado com uma chamada [`useEffect`](/reference/react/useEffect) no seu componente. Isso diz ao React para executá-lo mais tarde, após a renderização, quando efeitos colaterais são permitidos. **No entanto, esta abordagem deve ser seu último recurso.**
 
