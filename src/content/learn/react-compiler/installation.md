@@ -18,28 +18,32 @@ Este guia irá ajudá-lo a instalar e configurar o React Compiler em sua aplica�
 
 O React Compiler foi projetado para funcionar melhor com React 19, mas também suporta React 17 e 18. Saiba mais sobre [compatibilidade de versão React](/reference/react-compiler/target).
 
+<<<<<<< HEAD
 <Note>
 O React Compiler está atualmente em RC. Instale-o usando a tag `@rc` para obter a versão release candidate mais recente.
 </Note>
 
 ## Instalação {/*installation*/}
+=======
+## Installation {/*installation*/}
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 Instale o React Compiler como uma `devDependency`:
 
 <TerminalBlock>
-npm install -D babel-plugin-react-compiler@rc
+npm install -D babel-plugin-react-compiler@latest
 </TerminalBlock>
 
 Ou com Yarn:
 
 <TerminalBlock>
-yarn add -D babel-plugin-react-compiler@rc
+yarn add -D babel-plugin-react-compiler@latest
 </TerminalBlock>
 
 Ou com pnpm:
 
 <TerminalBlock>
-pnpm install -D babel-plugin-react-compiler@rc
+pnpm install -D babel-plugin-react-compiler@latest
 </TerminalBlock>
 
 ## Configuração Básica {/*basic-setup*/}
@@ -118,7 +122,7 @@ Por favor, consulte a [documentação do Next.js](https://nextjs.org/docs/app/ap
 Instale `vite-plugin-babel` e adicione o plugin Babel do compilador:
 
 <TerminalBlock>
-{`npm install vite-plugin-babel`}
+npm install vite-plugin-babel
 </TerminalBlock>
 
 ```js {3-4,16}
@@ -172,10 +176,14 @@ O React Compiler inclui uma regra ESLint que ajuda a identificar código que nã
 Instale o plugin ESLint:
 
 <TerminalBlock>
-npm install -D eslint-plugin-react-hooks@rc
+npm install -D eslint-plugin-react-hooks@latest
 </TerminalBlock>
 
+<<<<<<< HEAD
 Se você ainda não configurou o eslint-plugin-react-hooks, siga as [instruções de instalação no readme](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md#installation). A regra do compilador está habilitada por padrão no RC mais recente, então nenhuma configuração adicional é necessária.
+=======
+If you haven't already configured eslint-plugin-react-hooks, follow the [installation instructions in the readme](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md#installation). The compiler rules are available in the `recommended-latest` preset.
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 A regra ESLint irá:
 - Identificar violações das [Regras do React](/reference/rules)
@@ -241,8 +249,16 @@ Para mais ajuda na solução de problemas, veja o [guia de depuração](/learn/r
 
 Agora que você tem o React Compiler instalado, saiba mais sobre:
 
+<<<<<<< HEAD
 - [Compatibilidade de versão React](/reference/react-compiler/target) para React 17 e 18
 - [Opções de configuração](/reference/react-compiler/configuration) para personalizar o compilador
 - [Estratégias de adoção incremental](/learn/react-compiler/incremental-adoption) para bases de código existentes
 - [Técnicas de depuração](/learn/react-compiler/debugging) para solução de problemas
 - [Guia de compilação de bibliotecas](/reference/react-compiler/compiling-libraries) para compilar sua biblioteca React
+=======
+- [React version compatibility](/reference/react-compiler/target) for React 17 and 18
+- [Configuration options](/reference/react-compiler/configuration) to customize the compiler
+- [Incremental adoption strategies](/learn/react-compiler/incremental-adoption) for existing codebases
+- [Debugging techniques](/learn/react-compiler/debugging) for troubleshooting issues
+- [Compiling Libraries guide](/reference/react-compiler/compiling-libraries) for compiling your React library
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
