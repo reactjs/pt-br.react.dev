@@ -20,7 +20,11 @@ TypeScript é uma forma popular de adicionar definições de tipos à bases de c
 
 ## Instalação {/*installation*/}
 
+<<<<<<< HEAD
 Todos os [frameworks React em produção](/learn/start-a-new-react-project#full-stack-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
+=======
+All [production-grade React frameworks](/learn/creating-a-react-app#full-stack-frameworks) offer support for using TypeScript. Follow the framework specific guide for installation:
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 - [Next.js](https://nextjs.org/docs/app/building-your-application/configuring/typescript)
 - [Remix](https://remix.run/docs/en/1.19.2/guides/typescript)

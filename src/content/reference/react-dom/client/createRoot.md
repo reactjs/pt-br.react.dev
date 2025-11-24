@@ -209,7 +209,11 @@ Quando seu HTML estiver vazio, o usuário verá uma página em branco até que o
 <div id="root"></div>
 ```
 
+<<<<<<< HEAD
 Isso pode parecer muito lento! Para resolver isso, você pode gerar o HTML inicial a partir de seus componentes [no servidor ou durante a build.](/reference/react-dom/server) Então seus visitantes podem ler texto, ver imagens e clicar em links antes que qualquer código JavaScript seja carregado. Recomendamos [usar um framework](/learn/start-a-new-react-project#full-stack-frameworks) que faça essa otimização imediatamente. Dependendo de quando ele é executado, isso é chamado de *server-side rendering (SSR)* ou *static site generation (SSG).*
+=======
+This can feel very slow! To solve this, you can generate the initial HTML from your components [on the server or during the build.](/reference/react-dom/server) Then your visitors can read text, see images, and click links before any of the JavaScript code loads. We recommend [using a framework](/learn/creating-a-react-app#full-stack-frameworks) that does this optimization out of the box. Depending on when it runs, this is called *server-side rendering (SSR)* or *static site generation (SSG).*
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 </Note>
 
