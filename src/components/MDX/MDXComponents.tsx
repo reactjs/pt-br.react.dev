@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
@@ -97,6 +104,10 @@ const Note = ({children}: {children: React.ReactNode}) => (
 
 const Canary = ({children}: {children: React.ReactNode}) => (
   <ExpandableCallout type="canary">{children}</ExpandableCallout>
+);
+
+const RC = ({children}: {children: React.ReactNode}) => (
+  <ExpandableCallout type="rc">{children}</ExpandableCallout>
 );
 
 const Experimental = ({children}: {children: React.ReactNode}) => (
@@ -526,6 +537,7 @@ export const MDXComponents = {
   Math,
   MathI,
   Note,
+  RC,
   Canary,
   Experimental,
   ExperimentalBadge,
