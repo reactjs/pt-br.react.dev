@@ -16,11 +16,15 @@ O React Compiler é uma nova ferramenta de build que otimiza automaticamente sua
 
 </YouWillLearn>
 
+<<<<<<< HEAD
 <Note>
 O React Compiler está atualmente em Release Candidate (RC). Agora recomendamos que todos experimentem o compilador e forneçam feedback. A versão RC mais recente pode ser encontrada com a tag `@rc`.
 </Note>
 
 ## O que o React Compiler faz? {/*what-does-react-compiler-do*/}
+=======
+## What does React Compiler do? {/*what-does-react-compiler-do*/}
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 O React Compiler otimiza automaticamente sua aplicação React em tempo de build. O React é frequentemente rápido o suficiente sem otimização, mas às vezes você precisa memoizar manualmente componentes e valores para manter sua aplicação responsiva. Esta memoização manual é tediosa, fácil de errar e adiciona código extra para manter. O React Compiler faz essa otimização automaticamente para você, liberando você dessa carga mental para que possa focar na construção de funcionalidades.
 
@@ -156,7 +160,11 @@ Encorajamos todos a começar a usar o React Compiler. Embora o compilador ainda 
 
 ### É seguro usar? {/*is-it-safe-to-use*/}
 
+<<<<<<< HEAD
 O React Compiler está agora em RC e foi testado extensivamente em produção. Embora tenha sido usado em produção em empresas como a Meta, implementar o compilador em produção para sua aplicação dependerá da saúde de sua base de código e de quão bem você seguiu as [Regras do React](/reference/rules).
+=======
+React Compiler is now stable and has been tested extensively in production. While it has been used in production at companies like Meta, rolling out the compiler to production for your app will depend on the health of your codebase and how well you've followed the [Rules of React](/reference/rules).
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 ## Quais ferramentas de build são suportadas? {/*what-build-tools-are-supported*/}
 
@@ -168,9 +176,19 @@ Usuários do Next.js podem habilitar o React Compiler invocado pelo swc usando [
 
 ## O que devo fazer sobre useMemo, useCallback e React.memo? {/*what-should-i-do-about-usememo-usecallback-and-reactmemo*/}
 
+<<<<<<< HEAD
 O React Compiler adiciona memoização automática de forma mais precisa e granular do que é possível com [`useMemo`](/reference/react/useMemo), [`useCallback`](/reference/react/useCallback) e [`React.memo`](/reference/react/memo). Se você escolher manter a memoização manual, o React Compiler irá analisá-la e determinar se sua memoização manual corresponde à sua memoização automaticamente inferida. Se não houver correspondência, o compilador escolherá não otimizar esse componente.
 
 Isso é feito por precaução, pois um anti-padrão comum com memoização manual é usá-la para correção. Isso significa que sua aplicação depende de valores específicos sendo memoizados para funcionar adequadamente. Por exemplo, para prevenir um loop infinito, você pode ter memoizado alguns valores para impedir que uma chamada `useEffect` seja disparada. Isso quebra as Regras do React, mas como pode ser potencialmente perigoso para o compilador remover automaticamente a memoização manual, o compilador simplesmente não otimizará. Você deve remover manualmente sua memoização escrita à mão e verificar que sua aplicação ainda funciona como esperado.
+=======
+By default, React Compiler will memoize your code based on its analysis and heuristics. In most cases, this memoization will be as precise, or moreso, than what you may have written.
+
+However, in some cases developers may need more control over memoization. The `useMemo` and `useCallback` hooks can continue to be used with React Compiler as an escape hatch to provide control over which values are memoized. A common use-case for this is if a memoized value is used as an effect dependency, in order to ensure that an effect does not fire repeatedly even when its dependencies do not meaningfully change.
+
+For new code, we recommend relying on the compiler for memoization and using `useMemo`/`useCallback` where needed to achieve precise control.
+
+For existing code, we recommend either leaving existing memoization in place (removing it can change compilation output) or carefully testing before removing the memoization.
+>>>>>>> d271a7ac11d2bf0d6e95ebdfacaf1038421f9be0
 
 ## Experimente o React Compiler {/*try-react-compiler*/}
 
