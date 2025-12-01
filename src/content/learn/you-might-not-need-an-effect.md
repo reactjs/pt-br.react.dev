@@ -26,7 +26,11 @@ Existem dois casos comuns em que você não precisa de Effects:
 * **Você não precisa de Effects para manipular seus dados para renderização.** Por exemplo, digamos que você queira filtrar uma lista antes de exibi-la. Você pode ficar tentado a escrever um Effect que atualiza um state quando a lista for alterada. No entanto, isso é ineficiente. Quando você atualizar o state, o React primeiro executará as funções dos componentes para calcular o que deve estar em tela. Em seguida, o React ["aplica"](/learn/render-and-commit) essas alterações no DOM, atualizando a tela. Depois, o React executará seus Effects. Se seu Effect *também* atualizar o state imediatamente, todo o processo será reiniciado do zero! Para evitar renderizações desnecessárias, transforme todos os dados na raiz de seus componentes. Esse código será reexecutado automaticamente sempre que suas props ou state forem alterados.
 * **Você não precisa de Effects para lidar com eventos do usuário.** Por exemplo, digamos que você queira enviar uma requisição POST para `/api/buy` e mostrar uma notificação quando o usuário comprar um produto. No manipulador de evento de clique do botão Comprar, você sabe exatamente o que aconteceu. Quando um Effect é executado, você não sabe *o que* o usuário fez (por exemplo, qual botão foi clicado). É por isso que você normalmente tratará os eventos do usuário nos manipuladores de evento correspondentes.
 
+<<<<<<< HEAD
 Você *precisa* de Effects para [sincronizar](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) com sistemas externos. Por exemplo, você pode escrever um Effect que mantenha um _widget_ jQuery sincronizado com o state do React. Também é possível buscar dados com Effects: por exemplo, você pode sincronizar os resultados da pesquisa com o termo que você pesquisou. Lembre-se de que [frameworks](/learn/start-a-new-react-project#full-stack-frameworks) modernos oferecem mecanismos internos de busca de dados mais eficientes do que escrever Effects diretamente em seus componentes.
+=======
+You *do* need Effects to [synchronize](/learn/synchronizing-with-effects#what-are-effects-and-how-are-they-different-from-events) with external systems. For example, you can write an Effect that keeps a jQuery widget synchronized with the React state. You can also fetch data with Effects: for example, you can synchronize the search results with the current search query. Keep in mind that modern [frameworks](/learn/creating-a-react-app#full-stack-frameworks) provide more efficient built-in data fetching mechanisms than writing Effects directly in your components.
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 Para ajudá-lo a adquirir a intuição correta, vamos dar uma olhada em alguns exemplos concretos comuns!
 
@@ -34,7 +38,7 @@ Para ajudá-lo a adquirir a intuição correta, vamos dar uma olhada em alguns e
 
 Suponha que você tenha um componente com dois states: `firstName` e `lastName`. Você quer calcular o `fullName` concatenando os dois. Além disso, você gostaria que o `fullName` atualizasse sempre que o `firstName` ou `lastName` mudassem. Seu primeiro instinto pode ser adicionar um state `fullName` e atualizá-la num Effect:
 
-```js {5-9}
+```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
@@ -66,7 +70,7 @@ function Form() {
 
 Este componente calcula `visibleTodos` pegando os `todos` que recebe via props e os filtrando de acordo com com a prop `filter`. Você pode se sentir tentado a armazenar o resultado em state e atualizá-lo com um Effect:
 
-```js {4-8}
+```js {expectedErrors: {'react-compiler': [7]}} {4-8}
 function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState('');
 
@@ -165,7 +169,7 @@ Observe também que medir o desempenho no desenvolvimento não fornecerá os res
 
 Esse componente `ProfilePage` recebe uma propriedade `userId`. A página contém um input de comentário e você usa um state `comment` para manter seu valor. Um dia, você percebeu um problema: quando você navega de um perfil para outro, o state `comment` não é redefinido. Como resultado, é fácil publicar acidentalmente um comentário no perfil de um usuário errado. Para corrigir o problema, você deseja limpar o state `comment` sempre que o `userId` for alterado:
 
-```js {4-7}
+```js {expectedErrors: {'react-compiler': [6]}} {4-7}
 export default function ProfilePage({ userId }) {
   const [comment, setComment] = useState('');
 
@@ -208,7 +212,7 @@ Perceba que, neste exemplo, somente o componente externo `ProfilePage` é export
 
 Este componente `List` recebe uma lista de `items` como uma prop e mantém o item selecionado no state `selection`. Você deseja redefinir a `selection` para `null` sempre que a prop `items` receber um array diferente:
 
-```js {5-8}
+```js {expectedErrors: {'react-compiler': [7]}} {5-8}
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
@@ -437,7 +441,7 @@ function Game() {
     // ✅ Calcular todo o próximo state no manipulador de evento
     setCard(nextCard);
     if (nextCard.gold) {
-      if (goldCardCount <= 3) {
+      if (goldCardCount < 3) {
         setGoldCardCount(goldCardCount + 1);
       } else {
         setGoldCardCount(0);
@@ -757,7 +761,11 @@ Isso garante que, quando seu Effect buscar dados, todas as respostas, exceto a �
 
 Lidar com condições de corrida não é a única dificuldade na implementação da busca de dados. Talvez você também queira pensar em armazenar respostas em cache (para que o usuário possa clicar em Voltar e ver a tela anterior instantaneamente), como buscar dados no servidor (para que o HTML inicial renderizado pelo servidor contenha o conteúdo buscado em vez de um spinner) e como evitar cascatas de rede (para que um filho possa buscar dados sem esperar por todos os pais).
 
+<<<<<<< HEAD
 **Esses problemas se aplicam a qualquer biblioteca de interface do usuário, não apenas ao React. Resolvê-los não é trivial, e é por isso que os [frameworks modernos](/learn/start-a-new-react-project#full-stack-frameworks) fornecem mecanismos internos de busca de dados mais eficientes do que a busca de dados nos Effects.**
+=======
+**These issues apply to any UI library, not just React. Solving them is not trivial, which is why modern [frameworks](/learn/creating-a-react-app#full-stack-frameworks) provide more efficient built-in data fetching mechanisms than fetching data in Effects.**
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 Se você não usa um framework (e não quer criar o seu próprio), mas gostaria de tornar a busca de dados dos Effects mais ergonômica, considere extrair sua lógica de busca em um Hook personalizado, como neste exemplo:
 
@@ -819,7 +827,7 @@ Simplifique esse componente removendo todo o state e os Effects desnecessários.
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [12, 16, 20]}}
 import { useState, useEffect } from 'react';
 import { initialTodos, createTodo } from './todos.js';
 
@@ -1022,7 +1030,7 @@ Uma solução é adicionar uma chamada `useMemo` para armazenar em cache os *tod
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState, useEffect } from 'react';
 import { initialTodos, createTodo, getVisibleTodos } from './todos.js';
 
@@ -1363,7 +1371,7 @@ export default function ContactList({
 }
 ```
 
-```js src/EditContact.js active
+```js {expectedErrors: {'react-compiler': [8, 9]}} src/EditContact.js active
 import { useState, useEffect } from 'react';
 
 export default function EditContact({ savedContact, onSave }) {

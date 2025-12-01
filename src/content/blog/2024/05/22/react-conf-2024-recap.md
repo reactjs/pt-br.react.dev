@@ -112,7 +112,11 @@ Obrigado [Ricky Hanlon](https://www.youtube.com/watch?v=FxTZL2U-uKg&t=1263s) por
 
 Obrigado [Callstack](https://www.callstack.com/) por construir o site da conferência; e a [Kadi Kraman](https://twitter.com/kadikraman) e à equipe [Expo](https://expo.dev/) por construir o aplicativo móvel da conferência.
 
+<<<<<<< HEAD
 Obrigado a todos os patrocinadores que tornaram o evento possível: [Remix](https://remix.run/), [Amazon](https://developer.amazon.com/apps-and-games?cmp=US_2024_05_3P_React-Conf-2024&ch=prtnr&chlast=prtnr&pub=ref&publast=ref&type=org&typelast=org), [MUI](https://mui.com/), [Sentry](https://sentry.io/for/react/?utm_source=sponsored-conf&utm_medium=sponsored-event&utm_campaign=frontend-fy25q2-evergreen&utm_content=logo-reactconf2024-learnmore), [Abbott](https://www.jobs.abbott/software), [Expo](https://expo.dev/), [RedwoodJS](https://redwoodjs.com/) e [Vercel](https://vercel.com).
+=======
+Thank you to all the sponsors who made the event possible: [Remix](https://remix.run/), [Amazon](https://developer.amazon.com/apps-and-games?cmp=US_2024_05_3P_React-Conf-2024&ch=prtnr&chlast=prtnr&pub=ref&publast=ref&type=org&typelast=org), [MUI](https://mui.com/), [Sentry](https://sentry.io/for/react/?utm_source=sponsored-conf&utm_medium=sponsored-event&utm_campaign=frontend-fy25q2-evergreen&utm_content=logo-reactconf2024-learnmore), [Abbott](https://www.jobs.abbott/software), [Expo](https://expo.dev/), [RedwoodJS](https://rwsdk.com/), and [Vercel](https://vercel.com).
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 Obrigado à equipe de AV pelas imagens, palco e som; e ao Westin Hotel por nos hospedar.
 

@@ -2006,7 +2006,11 @@ No entanto, agora imagine que você está navegando entre dois perfis de usuári
 
 Se você usar uma das [APIs de renderização no servidor de streaming](/reference/react-dom/server) (ou um framework que dependa delas), React também usará seus limites de `<Suspense>` para lidar com erros no servidor. Se um componente lançar um erro no servidor, o React não abortará a renderização do servidor. Em vez disso, ele encontrará o componente `<Suspense>` mais próximo acima dele e incluirá seu fallback (como um spinner) no HTML do servidor gerado. O usuário verá um spinner no início.
 
+<<<<<<< HEAD
 No cliente, o React tentará renderizar o mesmo componente novamente. Se ele também gerar erros no cliente, o React lançará o erro e exibirá o [limite de erro](/reference/react/Component#static-getderivedstatefromerror) mais próximo. No entanto, se não gerar erros no cliente, o React não exibirá o erro ao usuário, pois o conteúdo foi exibido com sucesso.
+=======
+On the client, React will attempt to render the same component again. If it errors on the client too, React will throw the error and display the closest [Error Boundary.](/reference/react/Component#static-getderivedstatefromerror) However, if it does not error on the client, React will not display the error to the user since the content was eventually displayed successfully.
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 Você pode usar isso para excluir alguns componentes da renderização no servidor. Para fazer isso, lance um erro no ambiente do servidor e, em seguida, envolva-os em um limite de `<Suspense>` para substituir seu HTML por fallbacks:
 

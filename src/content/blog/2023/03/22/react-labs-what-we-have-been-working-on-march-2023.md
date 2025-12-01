@@ -31,7 +31,11 @@ A maior mudança é que introduzimos [`async` / `await`](https://github.com/reac
 
 Agora que temos a busca de dados bem definida, estamos explorando a outra direção: enviar dados do cliente para o servidor, para que você possa executar mutações no banco de dados e implementar formulários. Estamos fazendo isso permitindo que você passe funções de Server Action através da fronteira servidor/cliente, que o cliente pode então chamar, fornecendo RPC contínuo. Server Actions também oferecem formulários aprimorados progressivamente antes do carregamento do JavaScript.
 
+<<<<<<< HEAD
 React Server Components foi lançado no [Next.js App Router](/learn/start-a-new-react-project#nextjs-app-router). Isso mostra uma profunda integração de um roteador que realmente leva em conta o RSC como um primitivo, mas não é a única maneira de construir um roteador e framework compatíveis com RSC. Há uma clara separação para os recursos fornecidos pela especificação RSC e implementação. React Server Components é destinado a ser uma especificação para componentes que funcionam em frameworks React compatíveis.
+=======
+React Server Components has shipped in [Next.js App Router](/learn/creating-a-react-app#nextjs-app-router). This showcases a deep integration of a router that really buys into RSC as a primitive, but it's not the only way to build a RSC-compatible router and framework. There's a clear separation for features provided by the RSC spec and implementation. React Server Components is meant as a spec for components that work across compatible React frameworks.
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 Geralmente, recomendamos o uso de um framework existente, mas se você precisar construir seu próprio framework personalizado, é possível. Construir seu próprio framework compatível com RSC não é tão fácil quanto gostaríamos, principalmente devido à profunda integração do bundler necessária. A geração atual de bundlers é ótima para uso no cliente, mas não foram projetados com suporte de primeira classe para dividir um único gráfico de módulos entre o servidor e o cliente. É por isso que agora estamos fazendo parceria direta com os desenvolvedores de bundler para integrar os primitivos para RSC.
 
@@ -92,7 +96,11 @@ Desde nossa última atualização, testamos uma versão experimental de pré-ren
 
 ## Transition Tracing {/*transition-tracing*/}
 
+<<<<<<< HEAD
 A API Transition Tracing permite que você detecte quando [React Transitions](/reference/react/useTransition) ficam mais lentas e investigar o porquê de estarem lentas. Após nossa última atualização, concluímos o design inicial da API e publicamos um [RFC](https://github.com/reactjs/rfcs/pull/238). Os recursos básicos também foram implementados. O projeto está atualmente em espera. Agradecemos o feedback sobre o RFC e esperamos retomar seu desenvolvimento para fornecer uma melhor ferramenta de medição de desempenho para React. Isso será particularmente útil com roteadores construídos sobre React Transitions, como o [Next.js App Router](/learn/start-a-new-react-project#nextjs-app-router).
+=======
+The Transition Tracing API lets you detect when [React Transitions](/reference/react/useTransition) become slower and investigate why they may be slow. Following our last update, we have completed the initial design of the API and published an [RFC](https://github.com/reactjs/rfcs/pull/238). The basic capabilities have also been implemented. The project is currently on hold. We welcome feedback on the RFC and look forward to resuming its development to provide a better performance measurement tool for React. This will be particularly useful with routers built on top of React Transitions, like the [Next.js App Router](/learn/creating-a-react-app#nextjs-app-router).
+>>>>>>> 2534424ec6c433cc2c811d5a0bd5a65b75efa5f0
 
 * * *
 Além desta atualização, nossa equipe fez aparições recentes em podcasts e transmissões ao vivo da comunidade para falar mais sobre nosso trabalho e responder a perguntas.
