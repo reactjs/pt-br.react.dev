@@ -206,7 +206,7 @@ Há dois casos comuns nos quais você não precisa de Effects:
 
 Por exemplo, você não precisa de um Effect para ajustar um estado baseado em outro estado:
 
-```js {5-9}
+```js {expectedErrors: {'react-compiler': [8]}} {5-9}
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
@@ -319,6 +319,7 @@ Leia **[Ciclo de vida de Effects reativos](/learn/lifecycle-of-reactive-effects)
 
 ## Separando eventos de Effects {/*separating-events-from-effects*/}
 
+<<<<<<< HEAD
 <Wip>
 
 Essa seção descreve uma **API experimental que ainda não foi lançada** em uma versão estável do React.
@@ -326,6 +327,9 @@ Essa seção descreve uma **API experimental que ainda não foi lançada** em um
 </Wip>
 
 _Handlers_ de eventos só são executados novamente caso uma interação ocorra de novo. Diferentemente de _handlers_ de eventos, Effects resincronizam se qualquer valor lido por eles, como props ou estado, mudarem desde a última renderização. Às vezes, você deseja uma mistura dos dois comportamentos: um Effect que é executado novamente em resposta a alguns valores, mas não a outros.
+=======
+Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if any of the values they read, like props or state, are different than during last render. Sometimes, you want a mix of both behaviors: an Effect that re-runs in response to some values but not others.
+>>>>>>> f9e2c1396769bb5da87db60f9ff03683d18711e2
 
 Todo código dentro de Effects é *reativo*. Ele será executado novamente se algum valor reativo lido por ele se alterar por causa de uma rerrenderização. Por exemplo, esse Effect irá reconectar ao chat se `roomId` ou `theme` tiverem mudado.
 
@@ -462,8 +466,8 @@ Isso não é ideal. Você quer se reconectar ao chat apenas se `roomId` tiver mu
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "latest",
+    "react-dom": "latest",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -478,7 +482,7 @@ Isso não é ideal. Você quer se reconectar ao chat apenas se `roomId` tiver mu
 
 ```js
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection, sendMessage } from './chat.js';
 import { showNotification } from './notifications.js';
 

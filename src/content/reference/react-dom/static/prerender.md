@@ -7,7 +7,7 @@ title: prerender
 `prerender` renderiza uma árvore React em uma string HTML estática usando um [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
 
 ```js
-const {prelude} = await prerender(reactNode, options?)
+const {prelude, postponed} = await prerender(reactNode, options?)
 ```
 
 </Intro>
@@ -31,7 +31,7 @@ Chame `prerender` para renderizar seu app em HTML estático.
 ```js
 import { prerender } from 'react-dom/static';
 
-async function handler(request) {
+async function handler(request, response) {
   const {prelude} = await prerender(<App />, {
     bootstrapScripts: ['/main.js']
   });
@@ -61,20 +61,33 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 #### Retorna {/*returns*/}
 
+<<<<<<< HEAD
 `prerender` retorna uma Promise:
 - Se a renderização for bem-sucedida, a Promise resolverá para um objeto contendo:
   - `prelude`: um [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) de HTML. Você pode usar este stream para enviar uma resposta em chunks, ou você pode ler todo o stream em uma string.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
+=======
+`prerender` returns a Promise:
+- If rendering the is successful, the Promise will resolve to an object containing:
+  - `prelude`: a [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) of HTML. You can use this stream to send a response in chunks, or you can read the entire stream into a string.
+  - `postponed`: a JSON-serializeable, opaque object that can be passed to [`resume`](/reference/react-dom/server/resume) if `prerender` did not finish. Otherwise `null` indicating that the `prelude` contains all the content and no resume is necessary.
+- If rendering fails, the Promise will be rejected. [Use this to output a fallback shell.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
+>>>>>>> f9e2c1396769bb5da87db60f9ff03683d18711e2
 
 #### Ressalvas {/*caveats*/}
 
+<<<<<<< HEAD
 `nonce` não é uma opção disponível ao fazer pré-renderização. Nonces devem ser únicos por requisição e se você usar nonces para proteger sua aplicação com [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP), seria inadequado e inseguro incluir o valor do nonce na própria pré-renderização.
 
+=======
+>>>>>>> f9e2c1396769bb5da87db60f9ff03683d18711e2
 <Note>
 
 ### Quando devo usar `prerender`? {/*when-to-use-prerender*/}
 
 A API estática `prerender` é usada para geração estática do lado do servidor (SSG). Diferente de `renderToString`, `prerender` aguarda todo o carregamento dos dados antes de resolver. Isso o torna adequado para gerar HTML estático para uma página inteira, incluindo dados que precisam ser buscados usando Suspense. Para transmitir conteúdo conforme ele carrega, use uma API de renderização do lado do servidor (SSR) por streaming como [renderToReadableStream](/reference/react-dom/server/renderToReadableStream).
+
+`prerender` can be aborted and later either continued with `resumeAndPrerender` or resumed with `resume` to support partial pre-rendering.
 
 </Note>
 
@@ -310,7 +323,7 @@ async function renderToString() {
 
 Quaisquer limites de Suspense com filhos incompletos serão incluídos no prelude no estado de fallback.
 
----
+This can be used for partial prerendering together with [`resume`](/reference/react-dom/server/resume) or [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender).
 
 ## Solução de problemas {/*troubleshooting*/}
 
