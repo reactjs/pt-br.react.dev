@@ -64,8 +64,15 @@ Expo é mantido pela [Expo (a empresa)](https://expo.dev/about). Construir aplic
 
 Existem outros frameworks emergentes que estão trabalhando em direção à nossa visão de React full-stack:
 
+<<<<<<< HEAD
 - [TanStack Start (Beta)](https://tanstack.com/): TanStack Start é um framework React full-stack alimentado pelo TanStack Router. Ele fornece SSR de documento completo, streaming, funções de servidor, bundling, e mais usando ferramentas como Nitro e Vite.
 - [RedwoodJS](https://redwoodjs.com/): Redwood é um framework React full-stack com muitos pacotes pré-instalados e configuração que torna fácil construir aplicações web full-stack.
+=======
+There are other up-and-coming frameworks that are working towards our full stack React vision:
+
+- [TanStack Start (Beta)](https://tanstack.com/start/): TanStack Start is a full-stack React framework powered by TanStack Router. It provides a full-document SSR, streaming, server functions, bundling, and more using tools like Nitro and Vite.
+- [RedwoodSDK](https://rwsdk.com/): Redwood is a full stack React framework with lots of pre-installed packages and configuration that makes it easy to build full-stack web applications.
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 <DeepDive>
 

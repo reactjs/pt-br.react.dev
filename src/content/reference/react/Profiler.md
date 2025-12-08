@@ -37,7 +37,11 @@ Envolva uma árvore de componentes em um `<Profiler>` para medir seu desempenho 
 
 #### Ressalvas {/*caveats*/}
 
+<<<<<<< HEAD
 * O profiling adiciona uma sobrecarga adicional, então **ele é desativado por padrão na compilação de produção.** Para optar pelo profiling em produção, você precisa habilitar uma [compilação especial de produção com profiling ativado.](https://fb.me/react-profiling)
+=======
+* Profiling adds some additional overhead, so **it is disabled in the production build by default.** To opt into production profiling, you need to enable a [special production build with profiling enabled.](/reference/dev-tools/react-performance-tracks#using-profiling-builds)
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 ---
 
@@ -81,13 +85,20 @@ Para utilizar o `<Profiler>`, é necessário fornecer duas propriedades: um `id`
 
 <Pitfall>
 
+<<<<<<< HEAD
 Profiling adiciona uma sobrecarga adicional, então **ele é desativado por padrão na compilação de produção.** Para optar pelo profiling em produção, você precisa habilitar uma [compilação especial de produção com profiling ativado.](https://fb.me/react-profiling)
+=======
+Profiling adds some additional overhead, so **it is disabled in the production build by default.** To opt into production profiling, you need to enable a [special production build with profiling enabled.](/reference/dev-tools/react-performance-tracks#using-profiling-builds)
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 </Pitfall>
 
 <Note>
 
 `<Profiler>` permite que você colete medições de forma programática. Se estiver procurando por um profiler interativo, experimente a guia Profiler na [Ferramenta de desenvolvedor do React](/learn/react-developer-tools). Ela expõe funcionalidades semelhantes a uma extensão de navegador.
+
+Components wrapped in `<Profiler>` will also be marked in the [Component tracks](/reference/dev-tools/react-performance-tracks#components) of React Performance tracks even in profiling builds.
+In development builds, all components are marked in the Components track regardless of whether they're wrapped in `<Profiler>`.
 
 </Note>
 

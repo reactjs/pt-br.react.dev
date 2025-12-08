@@ -10,7 +10,11 @@ Diretivas são para uso em [Componentes do Servidor React](/reference/rsc/server
 
 <Intro>
 
+<<<<<<< HEAD
 Diretivas fornecem instruções para [bundlers compatíveis com Componentes do Servidor React](/learn/start-a-new-react-project#full-stack-frameworks).
+=======
+Directives provide instructions to [bundlers compatible with React Server Components](/learn/creating-a-react-app#full-stack-frameworks).
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 </Intro>
 

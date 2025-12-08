@@ -4,7 +4,11 @@ title: preinitModule
 
 <Note>
 
+<<<<<<< HEAD
 [Frameworks baseados em React](/learn/start-a-new-react-project) frequentemente tratam o carregamento de recursos para você, então você pode não precisar chamar esta API por conta própria. Consulte a documentação do seu framework para obter detalhes.
+=======
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
+>>>>>>> e22544e68d6fffda33332771efe27034739f35a4
 
 </Note>
 
