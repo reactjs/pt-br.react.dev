@@ -526,34 +526,33 @@ Leia **[Mantendo Seus Componentes Puros](/learn/keeping-components-pure)** para 
 
 </LearnMore>
 
-## Your UI as a tree {/*your-ui-as-a-tree*/}
+## Sua interface de usuário como uma árvore {/*your-ui-as-a-tree*/}
 
-React uses trees to model the relationships between components and modules. 
+O React utiliza árvores para modelar as relações entre componentes e módulos.
 
-A React render tree is a representation of the parent and child relationship between components. 
+Uma árvore de renderização React é uma representação da relação pai-filho entre componentes.
 
-<Diagram name="generic_render_tree" height={250} width={500} alt="A tree graph with five nodes, with each node representing a component. The root node is located at the top the tree graph and is labelled 'Root Component'. It has two arrows extending down to two nodes labelled 'Component A' and 'Component C'. Each of the arrows is labelled with 'renders'. 'Component A' has a single 'renders' arrow to a node labelled 'Component B'. 'Component C' has a single 'renders' arrow to a node labelled 'Component D'.">
+<Diagram name="generic_render_tree" height={250} width={500} alt="A tree graph with five nodes, with each node representing a component. The root node is located at the top the tree graph and is labelled 'Componente raiz'. It has two arrows extending down to two nodes labelled 'Componente A' and 'Componente C'. Each of the arrows is labelled with 'renders'. 'Componente A' has a single 'renders' arrow to a node labelled 'Componente B'. 'Componente C' has a single 'renders' arrow to a node labelled 'Componente D'.">
 
-An example React render tree.
+Um exemplo de árvore de renderização React.
 
 </Diagram>
 
-Components near the top of the tree, near the root component, are considered top-level components. Components with no child components are leaf components. This categorization of components is useful for understanding data flow and rendering performance.
+Os componentes próximos ao topo da árvore, perto do componente raiz, são considerados componentes de nível superior. Componentes sem componentes filhos são componentes folha. Essa categorização de componentes é útil para entender o fluxo de dados e o desempenho de renderização.
 
-Modelling the relationship between JavaScript modules is another useful way to understand your app. We refer to it as a module dependency tree. 
+Modelar o relacionamento entre módulos JavaScript é outra maneira útil de entender seu aplicativo. Chamamos isso de árvore de dependências de módulos.
 
 <Diagram name="generic_dependency_tree" height={250} width={500} alt="A tree graph with five nodes. Each node represents a JavaScript module. The top-most node is labelled 'RootModule.js'. It has three arrows extending to the nodes: 'ModuleA.js', 'ModuleB.js', and 'ModuleC.js'. Each arrow is labelled as 'imports'. 'ModuleC.js' node has a single 'imports' arrow that points to a node labelled 'ModuleD.js'.">
 
-An example module dependency tree.
+Um exemplo de árvore de dependências de módulos.
 
 </Diagram>
 
-A dependency tree is often used by build tools to bundle all the relevant JavaScript code for the client to download and render. A large bundle size regresses user experience for React apps. Understanding the module dependency tree is helpful to debug such issues. 
+Uma árvore de dependências é frequentemente usada por ferramentas de compilação para agrupar todo o código JavaScript relevante para o cliente baixar e renderizar. Um pacote muito grande prejudica a experiência do usuário em aplicativos React. Compreender a árvore de dependências do módulo é útil para depurar esses problemas.
 
 <LearnMore path="/learn/understanding-your-ui-as-a-tree">
 
-Read **[Your UI as a Tree](/learn/understanding-your-ui-as-a-tree)** to learn how to create a render and module dependency trees for a React app and how they're useful mental models for improving user experience and performance.
-
+Leia **[Sua interface de usuário como uma árvore](/learn/understanding-your-ui-as-a-tree)** Aprenda como criar árvores de dependências de renderização e de módulos para um aplicativo React e como elas são modelos mentais úteis para melhorar a experiência do usuário e o desempenho.
 </LearnMore>
 
 
