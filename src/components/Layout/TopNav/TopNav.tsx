@@ -310,7 +310,7 @@ export default function TopNav({
                 )}
                 onClick={onOpenSearch}>
                 <IconSearch className="align-middle me-3 text-gray-30 shrink-0 group-betterhover:hover:text-gray-70" />
-                Search
+                Procurar
                 <span className="hidden ms-auto sm:flex item-center me-1">
                   <Kbd data-platform="mac">⌘</Kbd>
                   <Kbd data-platform="win" wide>
