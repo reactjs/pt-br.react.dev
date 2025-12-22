@@ -214,7 +214,11 @@ Sua aplicação React começa em um componente "raiz". Normalmente, ele é criad
 
 A maioria das aplicações React usa componentes em todos os níveis. Isso significa que você não usará componentes apenas para partes reutilizáveis, como botões, mas também para partes maiores, como barras laterais, listas e até em páginas inteiras! Os componentes são uma maneira prática de organizar o código e o HTML da UI, mesmo que alguns deles sejam usados apenas uma vez.
 
+<<<<<<< HEAD
 Os [Frameworks React](/learn/start-a-new-react-project) levam isso um passo adiante. Em vez de usar um arquivo HTML vazio e deixar o React "assumir" o gerenciamento da página com JavaScript, eles *também* geram o HTML automaticamente a partir de seus componentes React. Isso permite que seu aplicativo mostre algum conteúdo antes que o código JavaScript seja carregado.
+=======
+[React-based frameworks](/learn/creating-a-react-app) take this a step further. Instead of using an empty HTML file and letting React "take over" managing the page with JavaScript, they *also* generate the HTML automatically from your React components. This allows your app to show some content before the JavaScript code loads.
+>>>>>>> 2da4f7fbd90ddc09835c9f85d61fd5644a271abc
 
 Ainda assim, muitos sites usam o React apenas para [adicionar interatividade às páginas HTML existentes.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) Eles têm muitos componentes raiz em vez de um único para toda a página. Você pode usar o React na medida certa para atender as suas necessidades.
 

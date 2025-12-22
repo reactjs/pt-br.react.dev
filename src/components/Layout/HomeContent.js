@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
@@ -242,12 +249,20 @@ export function HomeContent() {
               com um framework
             </Header>
             <Para>
+<<<<<<< HEAD
               React é uma biblioteca. Ele permite que você junte componentes,
               mas não prescreve como fazer roteamento e busca de dados. Para
               construir um aplicativo inteiro com React, recomendamos um
               framework React full stack como{' '}
               <Link href="https://nextjs.org">Next.js</Link> ou{' '}
               <Link href="https://remix.run">Remix</Link>.
+=======
+              React is a library. It lets you put components together, but it
+              doesn’t prescribe how to do routing and data fetching. To build an
+              entire app with React, we recommend a full-stack React framework
+              like <Link href="https://nextjs.org">Next.js</Link> or{' '}
+              <Link href="https://reactrouter.com">React Router</Link>.
+>>>>>>> 2da4f7fbd90ddc09835c9f85d61fd5644a271abc
             </Para>
           </Center>
           <FullBleed>
@@ -264,8 +279,13 @@ export function HomeContent() {
               <CTA
                 color="gray"
                 icon="framework"
+<<<<<<< HEAD
                 href="/learn/start-a-new-react-project">
                 Inicie com um framework
+=======
+                href="/learn/creating-a-react-app">
+                Get started with a framework
+>>>>>>> 2da4f7fbd90ddc09835c9f85d61fd5644a271abc
               </CTA>
             </div>
           </Center>
