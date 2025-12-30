@@ -407,7 +407,7 @@ O primeiro `MyButton` atualiza seu `count` para `1`.
 
 </DiagramGroup>
 
-No entanto, normalment você vai precisar que componentes *compartilhem dados e sempre sejam atualizados juntos*.
+No entanto, normalmente você vai precisar que componentes *compartilhem dados e sempre sejam atualizados juntos*.
 
 Para fazer com que ambos os componentes `MyButton` exibam o mesmo `count` e sejam atualizados juntos, você precisa mover o estado dos botões individuais "para cima", para o componente mais próximo que contenha todos eles.
 
