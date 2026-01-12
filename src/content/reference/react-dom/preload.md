@@ -4,7 +4,11 @@ title: preload
 
 <Note>
 
+<<<<<<< HEAD
 [Frameworks baseados em React](/learn/start-a-new-react-project) frequentemente lidam com o carregamento de recursos para você, então você pode não precisar chamar esta API sozinho. Consulte a documentação de seu framework para obter detalhes.
+=======
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
+>>>>>>> 2da4f7fbd90ddc09835c9f85d61fd5644a271abc
 
 </Note>
 

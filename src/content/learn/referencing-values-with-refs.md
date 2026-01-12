@@ -214,7 +214,7 @@ Se você tentasse implementar isso com um ref, React nunca re-renderizaria o com
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [13]}}
 import { useRef } from 'react';
 
 export default function Counter() {
@@ -317,7 +317,7 @@ Variáveis comuns como `let timeoutID` não "sobrevivem" entre re-renderizaçõe
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useState } from 'react';
 
 export default function Chat() {
@@ -422,7 +422,7 @@ Este botão deveria alternar entre mostrar "On" e "Off". No entanto, ele sempre 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useRef } from 'react';
 
 export default function Toggle() {

@@ -149,7 +149,11 @@ Observe também que medir o desempenho no desenvolvimento não fornecerá os res
 
 #### Você deve adicionar useMemo em todos os lugares? {/*should-you-add-usememo-everywhere*/}
 
+<<<<<<< HEAD
 Se seu app for como este site e a maioria das interações for grosseira (como substituir uma página ou uma seção inteira), a memoization geralmente é desnecessária. Por outro lado, se seu app for mais parecido com um editor de desenho e a maioria das interações for granular (como mover formas), você pode achar a memoization muito útil.
+=======
+If your app is like this site, and most interactions are coarse (like replacing a page or an entire section), memoization is usually unnecessary. On the other hand, if your app is more like a drawing editor, and most interactions are granular (like moving shapes), then you might find memoization very helpful.
+>>>>>>> 2da4f7fbd90ddc09835c9f85d61fd5644a271abc
 
 Otimizar com `useMemo` só é valioso em alguns casos:
 
@@ -715,7 +719,7 @@ export default function TodoList({ todos, theme, tab }) {
 }
 ```
 
-```js src/List.js
+```js {expectedErrors: {'react-compiler': [5, 6]}} src/List.js
 import { memo } from 'react';
 
 const List = memo(function List({ items }) {
@@ -853,7 +857,7 @@ export default function TodoList({ todos, theme, tab }) {
 }
 ```
 
-```js src/List.js
+```js {expectedErrors: {'react-compiler': [5, 6]}} src/List.js
 import { memo } from 'react';
 
 const List = memo(function List({ items }) {
@@ -1124,7 +1128,7 @@ function ChatRoom({ roomId }) {
       serverUrl: 'https://localhost:1234',
       roomId: roomId
     }
-    
+
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -1367,7 +1371,7 @@ Quando você descobrir qual dependência quebra a memoização, encontre uma man
 
 Suponha que o componente `Chart` esteja envolvido em [`memo`](/reference/react/memo). Você quer pular a renderização de cada `Chart` na lista quando o componente `ReportList` renderizar novamente. No entanto, você não pode chamar `useMemo` em um loop:
 
-```js {5-11}
+```js {expectedErrors: {'react-compiler': [6]}} {5-11}
 function ReportList({ items }) {
   return (
     <article>
