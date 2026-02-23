@@ -23,7 +23,7 @@ Aqui está um componente que renderiza a imagem de uma escultura. Ao clicar no b
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [7]}}
 import { sculptureList } from './data.js';
 
 export default function Gallery() {
@@ -1229,7 +1229,7 @@ Quando você digita nos campos de entrada, nada aparece. É como se os valores d
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [6]}}
 export default function Form() {
   let firstName = '';
   let lastName = '';
@@ -1337,7 +1337,7 @@ Existem quaisquer limitações sobre _onde_ Hooks podem ser chamados? Esse compo
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [9]}}
 import { useState } from 'react';
 
 export default function FeedbackForm() {
