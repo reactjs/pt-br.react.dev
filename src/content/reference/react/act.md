@@ -151,7 +151,11 @@ Não se esqueça de que o envio de eventos DOM só funciona quando o contêiner 
 
 ## Solução de problemas {/*troubleshooting*/}
 
+<<<<<<< HEAD
 ### Estou recebendo um erro: "O ambiente de teste atual não está configurado para oferecer suporte a act"(...)" {/*error-the-current-testing-environment-is-not-configured-to-support-act*/}
+=======
+### I'm getting an error: "The current testing environment is not configured to support act(...)" {/*error-the-current-testing-environment-is-not-configured-to-support-act*/}
+>>>>>>> 427f24d694674be458f0fe7cb97ab1c8fe736586
 
 O uso de `act` requer a configuração de `global.IS_REACT_ACT_ENVIRONMENT=true` no seu ambiente de teste. Isso garante que `act` seja usado apenas no ambiente correto.
 
