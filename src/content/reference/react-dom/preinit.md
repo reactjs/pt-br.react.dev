@@ -4,7 +4,11 @@ title: preinit
 
 <Note>
 
+<<<<<<< HEAD
 [Frameworks baseados em React](/learn/start-a-new-react-project) frequentemente tratam o carregamento de recursos para você, então talvez você não precise chamar esta API sozinho. Consulte a documentação do seu framework para mais detalhes.
+=======
+[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
+>>>>>>> 1207ee36e1c7e3f2737d8f1022015473ffa99adf
 
 </Note>
 
