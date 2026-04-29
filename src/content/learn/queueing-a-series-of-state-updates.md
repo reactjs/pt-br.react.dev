@@ -55,7 +55,7 @@ setNumber(0 + 1);
 setNumber(0 + 1);
 ```
 
-Mas há um outro fator em jogo aqui. **O React espera até que *todo* o código nos manipuladores de eventos tenha sido executado antes de processar suas atualizações de estado.** É por isso que a rerrenderização acontece apenas *depois* de todas essas chamadas de `setNumber()`.
+Mas há um outro fator em jogo aqui. **O React espera até que *todo* o código nos manipuladores de eventos tenha sido executado antes de processar suas atualizações de estado.** É por isso que a re-renderização acontece apenas *depois* de todas essas chamadas de `setNumber()`.
 
 Isso pode lembrar um garçom anotando um pedido no restaurante. Um garçom não corre para a cozinha ao mencionar seu primeiro prato! Em vez disso, ele deixa você terminar seu pedido, permite que você faça alterações e até pega pedidos de outras pessoas na mesa.
 
@@ -246,7 +246,7 @@ Para resumir, aqui está como você pode pensar sobre o que você está passando
 * **Uma função atualizadora** (por exemplo, `n => n + 1`) é adicionada à fila.
 * **Qualquer outro valor** (por exemplo, o número `5`) adiciona "substituir por `5`" à fila, ignorando o que já está enfileirado.
 
-Depois que o manipulador de eventos termina, o React acionará uma rerrenderização. Durante a rerrenderização, o React processará a fila. Funções atualizadoras executam durante a renderização, então **funções atualizadoras devem ser [puras](/learn/keeping-components-pure)** e apenas *retornar* o resultado. Não tente definir o state de dentro delas ou executar outros efeitos colaterais. No Modo Estrito, o React irá executar cada função atualizadora duas vezes (mas descartar o segundo resultado) para ajudar você a encontrar erros.
+Depois que o manipulador de eventos termina, o React acionará uma re-renderização. Durante a re-renderização, o React processará a fila. Funções atualizadoras executam durante a renderização, então **funções atualizadoras devem ser [puras](/learn/keeping-components-pure)** e apenas *retornar* o resultado. Não tente definir o state de dentro delas ou executar outros efeitos colaterais. No Modo Estrito, o React irá executar cada função atualizadora duas vezes (mas descartar o segundo resultado) para ajudar você a encontrar erros.
 
 ### Convenções de Nomenclatura {/*naming-conventions*/}
 

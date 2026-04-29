@@ -307,7 +307,7 @@ label, textarea { margin-bottom: 10px; display: block; }
 
 O React mantém os valores do estado "fixos" dentro dos manipuladores de eventos de uma renderização. Você não precisa se preocupar se o estado mudou enquanto o código está sendo executado.
 
-Mas e se você quiser ler o estado mais recente antes de uma rerrenderização? Você vai querer usar uma [função de atualização de estado](/learn/queueing-a-series-of-state-updates), abordado na próxima página!
+Mas e se você quiser ler o estado mais recente antes de uma re-renderização? Você vai querer usar uma [função de atualização de estado](/learn/queueing-a-series-of-state-updates), abordado na próxima página!
 
 <Recap>
 
