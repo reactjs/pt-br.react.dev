@@ -1129,7 +1129,7 @@ export default function Board() {
 
 A função `handleClick` cria uma cópia do array `squares` (`nextSquares`) com o método de Array JavaScript `slice()`. Então, `handleClick` atualiza o array `nextSquares` para adicionar `X` ao primeiro (índice `[0]`) quadrado.
 
-Chamar a função `setSquares` permite que o React saiba que o *state* do componente mudou. Isso irá acionar uma rerrenderização dos componentes que usa o *state* `squares` (`Board`) bem como seus componentes filhos (os componentes `Square` que fazem parte do tabuleiro).
+Chamar a função `setSquares` permite que o React saiba que o *state* do componente mudou. Isso irá acionar uma re-renderização dos componentes que usa o *state* `squares` (`Board`) bem como seus componentes filhos (os componentes `Square` que fazem parte do tabuleiro).
 
 <Note>
 
@@ -1357,7 +1357,7 @@ O resultado é o mesmo mas ao não mutar (alterar os dados subjacentes) diretame
 
 Imutabilidade torna recursos complexos muito mais fáceis de se implementar. Mais tarde neste tutorial, você implementará uma função de "viagem no tempo" a qual permite que você avalie o histórico do jogo e "pule de volta" a movimentos passados. Essa funcionalidade não é específica aos jogos--a habilidade de desfazer e refazer certas ações é um requerimento comum para aplicativos. Evitar a mutação direta de dados permite que você mantenha versões prévias dos dados intactas e as reutilize mais tarde.
 
-Há também outro benefício da imutabilidade. Por padrão, todos os componentes filhos rerrenderizam automaticamente quando o *state* de um componente pai muda. Isso inclui até os componentes filhos que não foram afetados pela mudança. Mesmo que a rerrenderização em si não seja perceptível ao usuário (você não deveria ativamente tentar evitá-la), você pode querer pular a rerrenderização de uma parte da árvore que claramente não foi afetada por razões de performance. Imutabilidade torna muito barato para os componentes compararem se seus dados foram alterados ou não. Você pode aprender mais sobre como o React escolhe quando rerrenderizar um componente na [referência da API `memo`](/reference/react/memo).
+Há também outro benefício da imutabilidade. Por padrão, todos os componentes filhos rerrenderizam automaticamente quando o *state* de um componente pai muda. Isso inclui até os componentes filhos que não foram afetados pela mudança. Mesmo que a re-renderização em si não seja perceptível ao usuário (você não deveria ativamente tentar evitá-la), você pode querer pular a re-renderização de uma parte da árvore que claramente não foi afetada por razões de performance. Imutabilidade torna muito barato para os componentes compararem se seus dados foram alterados ou não. Você pode aprender mais sobre como o React escolhe quando rerrenderizar um componente na [referência da API `memo`](/reference/react/memo).
 
 ### Revezando {/*taking-turns*/}
 
@@ -1851,7 +1851,7 @@ O componente `Board` é completamente controlado pelas *props* passadas a ele pe
 
 O que `handlePlay` deveria fazer quando chamada? Lembre-se que Board costumava chamar `setSquares` com um array atualizado; agora ele passa o array `squares` atualizado a `onPlay`.
 
-A função `handlePlay` precisa atualizar o *state* de `Game` para acionar uma rerrenderização, mas você não tem mais uma função `setSquares` a qual possa chamar--agora você está usando a variável de *state* `history` para armazenar essa informação. Você vai querer atualizar `history` anexando o array atualizado `squares` como uma nova entrada no histórico. Você também gostará de alternar `xIsNext`, assim como Board costumava fazer:
+A função `handlePlay` precisa atualizar o *state* de `Game` para acionar uma re-renderização, mas você não tem mais uma função `setSquares` a qual possa chamar--agora você está usando a variável de *state* `history` para armazenar essa informação. Você vai querer atualizar `history` anexando o array atualizado `squares` como uma nova entrada no histórico. Você também gostará de alternar `xIsNext`, assim como Board costumava fazer:
 
 ```js {4-5}
 export default function Game() {
