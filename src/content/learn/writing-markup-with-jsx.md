@@ -69,10 +69,17 @@ JSX e React são duas coisas separadas. Eles são frequentemente usados juntos, 
 Suponha que você tenha algum HTML (perfeitamente válido):
 
 ```html
+<<<<<<< HEAD
 <h1>Tarefas de Hedy Lamarr</h1>
 <img 
   src="https://i.imgur.com/yXOvdOSs.jpg" 
   alt="Hedy Lamarr" 
+=======
+<h1>Hedy Lamarr's Todos</h1>
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   class="photo"
 >
 <ul>
@@ -100,11 +107,19 @@ Se você copiar e colar do jeito que está, não funcionará:
 ```js
 export default function TodoList() {
   return (
+<<<<<<< HEAD
     // Isso não funciona direito!
     <h1>Tarefas de Hedy Lamarr</h1>
     <img 
       src="https://i.imgur.com/yXOvdOSs.jpg" 
       alt="Hedy Lamarr" 
+=======
+    // This doesn't quite work!
+    <h1>Hedy Lamarr's Todos</h1>
+    <img
+      src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+      alt="Hedy Lamarr"
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
       class="photo"
     >
     <ul>
@@ -140,10 +155,17 @@ Por exemplo, você pode usar um `<div>`:
 
 ```js {1,11}
 <div>
+<<<<<<< HEAD
   <h1>Tarefas de Hedy Lamarr</h1>
   <img 
     src="https://i.imgur.com/yXOvdOSs.jpg" 
     alt="Hedy Lamarr" 
+=======
+  <h1>Hedy Lamarr's Todos</h1>
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
     class="photo"
   >
   <ul>
@@ -156,10 +178,17 @@ Se você não quiser adicionar um `<div>` extra à sua marcação, você pode es
 
 ```js {1,11}
 <>
+<<<<<<< HEAD
   <h1>Tarefas de Hedy Lamarr</h1>
   <img 
     src="https://i.imgur.com/yXOvdOSs.jpg" 
     alt="Hedy Lamarr" 
+=======
+  <h1>Hedy Lamarr's Todos</h1>
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
     class="photo"
   >
   <ul>
@@ -186,9 +215,9 @@ JSX requer que as tags sejam explicitamente fechadas: tags de fechamento automá
 
 ```js {2-6,8-10}
 <>
-  <img 
-    src="https://i.imgur.com/yXOvdOSs.jpg" 
-    alt="Hedy Lamarr" 
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
     class="photo"
    />
   <ul>
@@ -206,9 +235,9 @@ JSX se transforma em JavaScript e atributos escritos em JSX se tornam chaves de 
 É por isso que, no React, muitos atributos HTML e SVG são escritos em camelCase. Por exemplo, em vez de `stroke-width`, você usa `strokeWidth`. Como `class` é uma palavra reservada, no React você escreve `className` em vez disso, nomeado após a [propriedade DOM correspondente](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
 
 ```js {4}
-<img 
-  src="https://i.imgur.com/yXOvdOSs.jpg" 
-  alt="Hedy Lamarr" 
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
   className="photo"
 />
 ```
@@ -233,11 +262,19 @@ Aqui está o seu resultado final:
 export default function TodoList() {
   return (
     <>
+<<<<<<< HEAD
       <h1>Tarefas de Hedy Lamarr</h1>
       <img 
         src="https://i.imgur.com/yXOvdOSs.jpg" 
         alt="Hedy Lamarr" 
         className="photo" 
+=======
+      <h1>Hedy Lamarr's Todos</h1>
+      <img
+        src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+        alt="Hedy Lamarr"
+        className="photo"
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
       />
       <ul>
         <li>Inventar novos semáforos</li>

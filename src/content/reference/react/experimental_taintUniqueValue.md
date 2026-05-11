@@ -76,7 +76,11 @@ experimental_taintUniqueValue(
 
 ### Impedir que um token seja passado para Componentes de Cliente {/*prevent-a-token-from-being-passed-to-client-components*/}
 
+<<<<<<< HEAD
 Para garantir que informações confidenciais, como senhas, tokens de sessão ou outros valores exclusivos, não sejam passados inadvertidamente para Componentes de Cliente, a função `taintUniqueValue` oferece uma camada de proteção. Quando um valor é contaminado, qualquer tentativa de passá-lo para um Componente de Cliente resultará em um erro.
+=======
+To ensure that sensitive information such as passwords, session tokens, or other unique values do not inadvertently get passed to Client Components, the `taintUniqueValue` function provides a layer of protection. When a value is tainted, any attempt to pass it to a Client Component will result in an error.
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 O argumento `lifetime` define a duração em que o valor permanece contaminado. Para valores que devem permanecer contaminados indefinidamente, objetos como [`globalThis`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ou `process` podem servir como argumento `lifetime`. Esses objetos têm um tempo de vida que abrange toda a duração da execução do seu aplicativo.
 
@@ -176,8 +180,13 @@ export function fetchAPI(url) {
 }
 ```
 
+<<<<<<< HEAD
 Às vezes, erros acontecem durante a refatoração e nem todos os seus colegas podem saber sobre isso.
 Para se proteger contra a ocorrência desses erros no futuro, podemos "contaminar" a senha real:
+=======
+Sometimes mistakes happen during refactoring and not all of your colleagues might know about this.
+To protect against this mistakes happening down the line we can "taint" the actual password:
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 ```js
 import "server-only";

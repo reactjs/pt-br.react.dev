@@ -56,7 +56,7 @@ Este exemplo mantém um objeto no state para representar a posição atual do po
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState } from 'react';
 
 export default function MovingDot() {
@@ -200,7 +200,7 @@ setPosition({
 
 A mutação só é um problema quando você altera objetos *existentes* que já estão no state. A mutação de um objeto que você acabou de criar não tem problema porque *nenhum outro código faz referência a ele ainda*. Alterá-lo não afetará acidentalmente algo que depende dele. Isso é chamado de "mutação local". Você pode até mesmo fazer a mutação local [durante a renderização.](/learn/keeping-components-pure#local-mutation-your-components-little-secret) Muito conveniente e completamente aceitável!
 
-</DeepDive>  
+</DeepDive>
 
 ## Copiando objetos com a sintaxe de espalhamento {/*copying-objects-with-the-spread-syntax*/}
 
@@ -210,7 +210,7 @@ Esses campos de entrada não funcionam porque os manipuladores `onChange` altera
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11, 15, 19]}}
 import { useState } from 'react';
 
 export default function Form() {
@@ -296,7 +296,11 @@ setPerson({
 });
 ```
 
+<<<<<<< HEAD
 Agora o formulário funciona!
+=======
+Now the form works!
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 Observe como você não declarou uma variável de state separada para cada campo de entrada. Para formulários grandes, manter todos os dados agrupados em um objeto é muito conveniente -- desde que você os atualize corretamente!
 
@@ -373,7 +377,11 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 </Sandpack>
 
+<<<<<<< HEAD
 Observe que a sintaxe de espalhamento `...` é "rasa" -- ela copia apenas um nível de profundidade. Isso a torna rápida, mas também significa que, se você quiser atualizar uma propriedade aninhada, terá de usá-la mais de uma vez.
+=======
+Note that the `...` spread syntax is "shallow"--it only copies things one level deep. This makes it fast, but it also means that if you want to update a nested property, you'll have to use it more than once.
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 <DeepDive>
 
@@ -456,8 +464,13 @@ const [person, setPerson] = useState({
   name: 'Niki de Saint Phalle',
   artwork: {
     title: 'Blue Nana',
+<<<<<<< HEAD
     city: 'Hamburgo',
     image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+=======
+    city: 'Hamburg',
+    image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   }
 });
 ```
@@ -499,8 +512,13 @@ export default function Form() {
     name: 'Niki de Saint Phalle',
     artwork: {
       title: 'Blue Nana',
+<<<<<<< HEAD
       city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+=======
+      city: 'Hamburg',
+      image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
     }
   });
 
@@ -578,8 +596,8 @@ export default function Form() {
         <br />
         (localizada em {person.artwork.city})
       </p>
-      <img 
-        src={person.artwork.image} 
+      <img
+        src={person.artwork.image}
         alt={person.artwork.title}
       />
     </>
@@ -606,8 +624,13 @@ let obj = {
   name: 'Niki de Saint Phalle',
   artwork: {
     title: 'Blue Nana',
+<<<<<<< HEAD
     city: 'Hamburgo',
     image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+=======
+    city: 'Hamburg',
+    image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
   }
 };
 ```
@@ -617,8 +640,13 @@ No entanto, o "aninhamento" é uma maneira imprecisa de pensar sobre como os obj
 ```js
 let obj1 = {
   title: 'Blue Nana',
+<<<<<<< HEAD
   city: 'Hamburgo',
   image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+=======
+  city: 'Hamburg',
+  image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 };
 
 let obj2 = {
@@ -631,8 +659,13 @@ O objeto `obj1` não está "dentro" do `obj2`. Por exemplo, o `obj3` também pod
 ```js
 let obj1 = {
   title: 'Blue Nana',
+<<<<<<< HEAD
   city: 'Hamburgo',
   image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+=======
+  city: 'Hamburg',
+  image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 };
 
 let obj2 = {
@@ -648,7 +681,7 @@ let obj3 = {
 
 Se você fizesse uma mutação em `obj3.artwork.city`, isso afetaria tanto `obj2.artwork.city` quanto `obj1.city`. Isso ocorre porque `obj3.artwork`, `obj2.artwork` e `obj1` são o mesmo objeto. Isso é difícil de perceber quando você pensa em objetos como "aninhados". Em vez disso, eles são objetos separados "apontando" uns para os outros com propriedades.
 
-</DeepDive>  
+</DeepDive>
 
 ### Escreva uma lógica de atualização concisa com Immer {/*write-concise-update-logic-with-immer*/}
 
@@ -687,8 +720,13 @@ export default function Form() {
     name: 'Niki de Saint Phalle',
     artwork: {
       title: 'Blue Nana',
+<<<<<<< HEAD
       city: 'Hamburgo',
       image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+=======
+      city: 'Hamburg',
+      image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
     }
   });
 
@@ -753,8 +791,8 @@ export default function Form() {
         <br />
         (localizada em {person.artwork.city})
       </p>
-      <img 
-        src={person.artwork.image} 
+      <img
+        src={person.artwork.image}
         alt={person.artwork.title}
       />
     </>
@@ -830,7 +868,7 @@ Sua tarefa é corrigir todos esses erros. Ao corrigi-los, explique por que cada 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [11]}}
 import { useState } from 'react';
 
 export default function Scoreboard() {
@@ -986,7 +1024,7 @@ Se algo inesperado muda, é porque há uma mutação. Encontre a mutação em `A
 
 <Sandpack>
 
-```js src/App.js
+```js {expectedErrors: {'react-compiler': [17]}} src/App.js
 import { useState } from 'react';
 import Background from './Background.js';
 import Box from './Box.js';
@@ -1291,7 +1329,7 @@ Este é o mesmo exemplo com erros do desafio anterior. Desta vez, corrija a muta
 
 <Sandpack>
 
-```js src/App.js
+```js {expectedErrors: {'react-compiler': [18]}} src/App.js
 import { useState } from 'react';
 import { useImmer } from 'use-immer';
 import Background from './Background.js';

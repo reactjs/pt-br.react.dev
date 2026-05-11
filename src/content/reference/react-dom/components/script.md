@@ -40,6 +40,7 @@ Ele deve ter *ou* `children` ou uma prop `src`.
 
 Outras props suportadas:
 
+<<<<<<< HEAD
 * `async`: um boolean. Permite que o navegador adie a execução do script até que o resto do documento tenha sido processado — o comportamento preferido para desempenho.
 *  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus valores possíveis são `anonymous` e `use-credentials`.
 * `fetchPriority`: uma string. Permite que o navegador classifique os scripts em prioridade ao buscar vários scripts ao mesmo tempo. Pode ser  `"high"`, `"low"`, ou `"auto"` (o padrão).
@@ -48,6 +49,16 @@ Outras props suportadas:
 * `nonce`: uma string. Uma [nonce criptográfica para permitir o recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) ao usar uma Política de Segurança de Conteúdo estrita.
 * `referrer`: uma string. Diz [qual cabeçalho Referer enviar](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#referrerpolicy) ao buscar o script e quaisquer recursos que o script buscar por sua vez.
 * `type`: uma string. Diz se o script é um [script clássico, módulo ES ou mapa de importação](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type).
+=======
+* `async`: a boolean. Allows the browser to defer execution of the script until the rest of the document has been processed — the preferred behavior for performance.
+*  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`.
+* `fetchPriority`: a string. Lets the browser rank scripts in priority when fetching multiple scripts at the same time. Can be `"high"`, `"low"`, or `"auto"` (the default).
+* `integrity`: a string. A cryptographic hash of the script, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
+* `noModule`: a boolean. Disables the script in browsers that support ES modules — allowing for a fallback script for browsers that do not.
+* `nonce`: a string. A cryptographic [nonce to allow the resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy.
+* `referrer`: a string. Says [what Referer header to send](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#referrerpolicy) when fetching the script and any resources that the script fetches in turn.
+* `type`: a string. Says whether the script is a [classic script, ES module, or import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type).
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 Props que desativam o [tratamento especial de scripts](#special-rendering-behavior) do React:
 

@@ -337,7 +337,11 @@ import './styles.css';
 import App from './App';
 ```
 
+<<<<<<< HEAD
 As linhas 1 a 5 reúnem todas as peças necessárias:
+=======
+Lines 1-5 bring all the necessary pieces together:
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 - React
 - a biblioteca do React para conversar com navegadores de internet (React DOM)
@@ -551,7 +555,11 @@ export default function Board() {
 }
 ```
 
+<<<<<<< HEAD
 Perceba como diferentes das `div`s do navegador, os componentes `Board` e `Square` pertencem a você e devem começar com uma letra maiúscula.
+=======
+Note how unlike the browser `div`s, your own components `Board` and `Square` must start with a capital letter.
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 Vamos dar uma olhada:
 
@@ -1094,7 +1102,11 @@ function Square({ value, onSquareClick }) {
 }
 ```
 
+<<<<<<< HEAD
 Agora você conectará a *prop* `onSquareClick` a uma função no componente `Board` que você chamará de `handleClick`. Para conectar a *prop* `onSquareClick` a `handleClick` você passará a função à *prop* `onSquareClick` do primeiro componente `Square`:
+=======
+Now you'll connect the `onSquareClick` prop to a function in the `Board` component that you'll name `handleClick`. To connect `onSquareClick` to `handleClick` you'll pass a function to the `onSquareClick` prop of the first `Square` component:
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 ```js {7}
 export default function Board() {
@@ -2073,13 +2085,22 @@ export default function Game() {
 }
 ```
 
+<<<<<<< HEAD
 Você pode ver como seu código deve ficar abaixo. Observe que você deverá ver um erro no console de ferramentas do desenvolvedor que diz:
+=======
+You can see what your code should look like below. Note that you should see an error in the developer tools console that says:
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 <ConsoleBlock level="warning">
 Aviso: cada filho em um array ou iterador deve ter uma propriedade "chave" exclusiva. Verifique o método de renderização de &#96;Game&#96;.
 </ConsoleBlock>
+<<<<<<< HEAD
   
 Você corrigirá esse erro na próxima seção.
+=======
+
+You'll fix this error in the next section.
+>>>>>>> abe931a8cb3aee3e8b15ef7e187214789164162a
 
 <Sandpack>
 
