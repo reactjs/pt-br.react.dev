@@ -1,5 +1,5 @@
 ---
-title: "APIs Legadas do React"
+title: "APIs Descontinuadas do React"
 ---
 
 <Intro>
@@ -10,7 +10,7 @@ Essas APIs são exportadas do pacote `react`, mas não são recomendadas para us
 
 ---
 
-## APIs Legadas {/*legacy-apis*/}
+## APIs Descontinuadas {/*legacy-apis*/}
 
 * [`Children`](/reference/react/Children) permite que você manipule e transforme o JSX recebido como a `children` prop. [Veja as alternativas.](/reference/react/Children#alternatives)
 * [`cloneElement`](/reference/react/cloneElement) permite que você crie um Elemento React usando outro elemento como ponto de partida. [Veja as alternativas.](/reference/react/cloneElement#alternatives)
