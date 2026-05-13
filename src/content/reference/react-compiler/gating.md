@@ -4,7 +4,7 @@ title: gating
 
 <Intro>
 
-The `gating` option enables conditional compilation, allowing you to control when optimized code is used at runtime.
+A opção `gating` habilita a compilação condicional, permitindo que você controle quando o código otimizado é usado em tempo de execução.
 
 </Intro>
 
@@ -21,13 +21,13 @@ The `gating` option enables conditional compilation, allowing you to control whe
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `gating` {/*gating*/}
 
-Configures runtime feature flag gating for compiled functions.
+Configura o gating de flag de recurso em tempo de execução para funções compiladas.
 
-#### Type {/*type*/}
+#### Tipo {/*type*/}
 
 ```
 {
@@ -36,38 +36,38 @@ Configures runtime feature flag gating for compiled functions.
 } | null
 ```
 
-#### Default value {/*default-value*/}
+#### Valor padrão {/*default-value*/}
 
 `null`
 
-#### Properties {/*properties*/}
+#### Propriedades {/*properties*/}
 
-- **`source`**: Module path to import the feature flag from
-- **`importSpecifierName`**: Name of the exported function to import
+- **`source`**: Caminho do módulo para importar a flag de recurso
+- **`importSpecifierName`**: Nome da função exportada para importar
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- The gating function must return a boolean
-- Both compiled and original versions increase bundle size
-- The import is added to every file with compiled functions
+- A função de gating deve retornar um booleano
+- Ambas as versões compiladas e originais aumentam o tamanho do bundle
+- A importação é adicionada a cada arquivo com funções compiladas
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Basic feature flag setup {/*basic-setup*/}
+### Configuração básica de flag de recurso {/*basic-setup*/}
 
-1. Create a feature flag module:
+1. Crie um módulo de flag de recurso:
 
 ```js
 // src/utils/feature-flags.js
 export function shouldUseCompiler() {
-  // your logic here
+  // sua lógica aqui
   return getFeatureFlag('react-compiler-enabled');
 }
 ```
 
-2. Configure the compiler:
+2. Configure o compilador:
 
 ```js
 {
@@ -78,62 +78,62 @@ export function shouldUseCompiler() {
 }
 ```
 
-3. The compiler generates gated code:
+3. O compilador gera código com gating:
 
 ```js
-// Input
+// Entrada
 function Button(props) {
   return <button>{props.label}</button>;
 }
 
-// Output (simplified)
+// Saída (simplificada)
 import { shouldUseCompiler } from './src/utils/feature-flags';
 
 const Button = shouldUseCompiler()
-  ? function Button_optimized(props) { /* compiled version */ }
-  : function Button_original(props) { /* original version */ };
+  ? function Button_optimized(props) { /* versão compilada */ }
+  : function Button_original(props) { /* versão original */ };
 ```
 
-Note that the gating function is evaluated once at module time, so once the JS bundle has been parsed and evaluated the choice of component stays static for the rest of the browser session.
+Observe que a função de gating é avaliada uma vez no tempo do módulo, então, uma vez que o bundle JS foi analisado e avaliado, a escolha do componente permanece estática para o restante da sessão do navegador.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-### Feature flag not working {/*flag-not-working*/}
+### Flag de recurso não funcionando {/*flag-not-working*/}
 
-Verify your flag module exports the correct function:
+Verifique se o seu módulo de flag exporta a função correta:
 
 ```js
-// ❌ Wrong: Default export
+// ❌ Errado: Exportação padrão
 export default function shouldUseCompiler() {
   return true;
 }
 
-// ✅ Correct: Named export matching importSpecifierName
+// ✅ Correto: Exportação nomeada correspondente a importSpecifierName
 export function shouldUseCompiler() {
   return true;
 }
 ```
 
-### Import errors {/*import-errors*/}
+### Erros de importação {/*import-errors*/}
 
-Ensure the source path is correct:
+Certifique-se de que o caminho da fonte está correto:
 
 ```js
-// ❌ Wrong: Relative to babel.config.js
+// ❌ Errado: Relativo a babel.config.js
 {
   source: './src/flags',
   importSpecifierName: 'flag'
 }
 
-// ✅ Correct: Module resolution path
+// ✅ Correto: Caminho de resolução do módulo
 {
   source: '@myapp/feature-flags',
   importSpecifierName: 'flag'
 }
 
-// ✅ Also correct: Absolute path from project root
+// ✅ Também correto: Caminho absoluto da raiz do projeto
 {
   source: './src/utils/flags',
   importSpecifierName: 'flag'
