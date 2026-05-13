@@ -1,11 +1,11 @@
 ---
 title: "use no memo"
-titleForTitleTag: "'use no memo' directive"
+titleForTitleTag: "Diretiva 'use no memo'"
 ---
 
 <Intro>
 
-`"use no memo"` prevents a function from being optimized by React Compiler.
+`"use no memo"` impede que uma função seja otimizada pelo React Compiler.
 
 </Intro>
 
@@ -13,11 +13,11 @@ titleForTitleTag: "'use no memo' directive"
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `"use no memo"` {/*use-no-memo*/}
 
-Add `"use no memo"` at the beginning of a function to prevent React Compiler optimization.
+Adicione `"use no memo"` no início de uma função para impedir a otimização do React Compiler.
 
 ```js {1}
 function MyComponent() {
@@ -26,122 +26,122 @@ function MyComponent() {
 }
 ```
 
-When a function contains `"use no memo"`, the React Compiler will skip it entirely during optimization. This is useful as a temporary escape hatch when debugging or when dealing with code that doesn't work correctly with the compiler.
+Quando uma função contém `"use no memo"`, o React Compiler a ignorará completamente durante a otimização. Isso é útil como uma saída de emergência temporária ao depurar ou ao lidar com código que não funciona corretamente com o compilador.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* `"use no memo"` must be at the very beginning of a function body, before any imports or other code (comments are OK).
-* The directive must be written with double or single quotes, not backticks.
-* The directive must exactly match `"use no memo"` or its alias `"use no forget"`.
-* This directive takes precedence over all compilation modes and other directives.
-* It's intended as a temporary debugging tool, not a permanent solution.
+* `"use no memo"` deve estar no início do corpo de uma função, antes de quaisquer imports ou outro código (comentários são OK).
+* A diretiva deve ser escrita com aspas duplas ou simples, não crases.
+* A diretiva deve corresponder exatamente a `"use no memo"` ou seu alias `"use no forget"`.
+* Esta diretiva tem precedência sobre todos os modos de compilação e outras diretivas.
+* Destina-se a ser uma ferramenta de depuração temporária, não uma solução permanente.
 
-### How `"use no memo"` opts-out of optimization {/*how-use-no-memo-opts-out*/}
+### Como `"use no memo"` desabilita a otimização {/*how-use-no-memo-opts-out*/}
 
-React Compiler analyzes your code at build time to apply optimizations. `"use no memo"` creates an explicit boundary that tells the compiler to skip a function entirely.
+O React Compiler analisa seu código no momento da compilação para aplicar otimizações. `"use no memo"` cria um limite explícito que diz ao compilador para ignorar uma função inteiramente.
 
-This directive takes precedence over all other settings:
-* In `all` mode: The function is skipped despite the global setting
-* In `infer` mode: The function is skipped even if heuristics would optimize it
+Esta diretiva tem precedência sobre todas as outras configurações:
+* No modo `all`: A função é ignorada apesar da configuração global
+* No modo `infer`: A função é ignorada mesmo que a heurística a otimize
 
-The compiler treats these functions as if the React Compiler wasn't enabled, leaving them exactly as written.
+O compilador trata essas funções como se o React Compiler não estivesse habilitado, deixando-as exatamente como foram escritas.
 
-### When to use `"use no memo"` {/*when-to-use*/}
+### Quando usar `"use no memo"` {/*when-to-use*/}
 
-`"use no memo"` should be used sparingly and temporarily. Common scenarios include:
+`"use no memo"` deve ser usado com moderação e temporariamente. Cenários comuns incluem:
 
-#### Debugging compiler issues {/*debugging-compiler*/}
-When you suspect the compiler is causing issues, temporarily disable optimization to isolate the problem:
+#### Depurando problemas do compilador {/*debugging-compiler*/}
+Quando você suspeitar que o compilador está causando problemas, desabilite temporariamente a otimização para isolar o problema:
 
 ```js
 function ProblematicComponent({ data }) {
-  "use no memo"; // TODO: Remove after fixing issue #123
+  "use no memo"; // TODO: Remover após corrigir o problema #123
 
-  // Rules of React violations that weren't statically detected
+  // Violações das Regras do React que não foram detectadas estaticamente
   // ...
 }
 ```
 
-#### Third-party library integration {/*third-party*/}
-When integrating with libraries that might not be compatible with the compiler:
+#### Integração de bibliotecas de terceiros {/*third-party*/}
+Ao integrar com bibliotecas que podem não ser compatíveis com o compilador:
 
 ```js
 function ThirdPartyWrapper() {
   "use no memo";
 
-  useThirdPartyHook(); // Has side effects that compiler might optimize incorrectly
+  useThirdPartyHook(); // Tem efeitos colaterais que o compilador pode otimizar incorretamente
   // ...
 }
 ```
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-The `"use no memo"` directive is placed at the beginning of a function body to prevent React Compiler from optimizing that function:
+A diretiva `"use no memo"` é colocada no início do corpo de uma função para impedir que o React Compiler otimize essa função:
 
 ```js
 function MyComponent() {
   "use no memo";
-  // Function body
+  // Corpo da função
 }
 ```
 
-The directive can also be placed at the top of a file to affect all functions in that module:
+A diretiva também pode ser colocada no topo de um arquivo para afetar todas as funções naquele módulo:
 
 ```js
 "use no memo";
 
-// All functions in this file will be skipped by the compiler
+// Todas as funções neste arquivo serão ignoradas pelo compilador
 ```
 
-`"use no memo"` at the function level overrides the module level directive.
+`"use no memo"` no nível da função substitui a diretiva no nível do módulo.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-### Directive not preventing compilation {/*not-preventing*/}
+### Diretiva não impedindo a compilação {/*not-preventing*/}
 
-If `"use no memo"` isn't working:
+Se `"use no memo"` não estiver funcionando:
 
 ```js
-// ❌ Wrong - directive after code
+// ❌ Errado - diretiva após o código
 function Component() {
   const data = getData();
-  "use no memo"; // Too late!
+  "use no memo"; // Tarde demais!
 }
 
-// ✅ Correct - directive first
+// ✅ Correto - diretiva primeiro
 function Component() {
   "use no memo";
   const data = getData();
 }
 ```
 
-Also check:
-* Spelling - must be exactly `"use no memo"`
-* Quotes - must use single or double quotes, not backticks
+Verifique também:
+* Ortografia - deve ser exatamente `"use no memo"`
+* Aspas - deve usar aspas simples ou duplas, não crases
 
-### Best practices {/*best-practices*/}
+### Melhores práticas {/*best-practices*/}
 
-**Always document why** you're disabling optimization:
+**Sempre documente o porquê** você está desabilitando a otimização:
 
 ```js
-// ✅ Good - clear explanation and tracking
+// ✅ Bom - explicação clara e rastreamento
 function DataProcessor() {
-  "use no memo"; // TODO: Remove after fixing rule of react violation
+  "use no memo"; // TODO: Remover após corrigir a violação da regra do react
   // ...
 }
 
-// ❌ Bad - no explanation
+// ❌ Ruim - sem explicação
 function Mystery() {
   "use no memo";
   // ...
 }
 ```
 
-### See also {/*see-also*/}
+### Veja também {/*see-also*/}
 
-* [`"use memo"`](/reference/react-compiler/directives/use-memo) - Opt into compilation
-* [React Compiler](/learn/react-compiler) - Getting started guide
+* [`"use memo"`](/reference/react-compiler/directives/use-memo) - Optar pela compilação
+* [React Compiler](/learn/react-compiler) - Guia de primeiros passos
