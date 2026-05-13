@@ -1,10 +1,10 @@
 ---
-title: Avisos de Depreciação do react-dom/test-utils
+title: Avisos de Descontinuação do react-dom/test-utils
 ---
 
-## ReactDOMTestUtils.act() warning {/*reactdomtestutilsact-warning*/}
+## Aviso de `ReactDOMTestUtils.act()` {/*reactdomtestutilsact-warning*/}
 
-O `act` de `react-dom/test-utils` foi depreciado em favor do `act` do `react`.
+O `act` de `react-dom/test-utils` foi descontinuado em favor do `act` do `react`.
 
 Antes:
 
