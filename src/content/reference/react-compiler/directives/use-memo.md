@@ -1,17 +1,17 @@
 ---
 title: "use memo"
-titleForTitleTag: "'use memo' directive"
+titleForTitleTag: "Diretiva 'use memo'"
 ---
 
 <Intro>
 
-`"use memo"` marks a function for React Compiler optimization.
+`"use memo"` marca uma função para otimização do React Compiler.
 
 </Intro>
 
 <Note>
 
-In most cases, you don't need `"use memo"`. It's primarily needed in `annotation` mode where you must explicitly mark functions for optimization. In `infer` mode, the compiler automatically detects components and hooks by their naming patterns (PascalCase for components, `use` prefix for hooks). If a component or hook isn't being compiled in `infer` mode, you should fix its naming convention rather than forcing compilation with `"use memo"`.
+Na maioria dos casos, você não precisa de `"use memo"`. Ele é usado principalmente no modo `annotation`, onde você deve marcar explicitamente as funções para otimização. No modo `infer`, o compilador detecta automaticamente componentes e hooks por seus padrões de nomenclatura (PascalCase para componentes, prefixo `use` para hooks). Se um componente ou hook não estiver sendo compilado no modo `infer`, você deve corrigir sua convenção de nomenclatura em vez de forçar a compilação com `"use memo"`.
 
 </Note>
 
@@ -19,11 +19,11 @@ In most cases, you don't need `"use memo"`. It's primarily needed in `annotation
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `"use memo"` {/*use-memo*/}
 
-Add `"use memo"` at the beginning of a function to mark it for React Compiler optimization.
+Adicione `"use memo"` no início de uma função para marcá-la para otimização do React Compiler.
 
 ```js {1}
 function MyComponent() {
@@ -32,59 +32,59 @@ function MyComponent() {
 }
 ```
 
-When a function contains `"use memo"`, the React Compiler will analyze and optimize it during build time. The compiler will automatically memoize values and components to prevent unnecessary re-computations and re-renders.
+Quando uma função contém `"use memo"`, o React Compiler irá analisá-la e otimizá-la durante o tempo de construção. O compilador irá automaticamente memorizar valores e componentes para evitar recomputações e re-renderizações desnecessárias.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* `"use memo"` must be at the very beginning of a function body, before any imports or other code (comments are OK).
-* The directive must be written with double or single quotes, not backticks.
-* The directive must exactly match `"use memo"`.
-* Only the first directive in a function is processed; additional directives are ignored.
-* The effect of the directive depends on your [`compilationMode`](/reference/react-compiler/compilationMode) setting.
+* `"use memo"` deve estar no início do corpo de uma função, antes de quaisquer imports ou outro código (comentários são OK).
+* A diretiva deve ser escrita com aspas duplas ou simples, não crases.
+* A diretiva deve corresponder exatamente a `"use memo"`.
+* Somente a primeira diretiva em uma função é processada; diretivas adicionais são ignoradas.
+* O efeito da diretiva depende da sua configuração de [`compilationMode`](/reference/react-compiler/compilationMode).
 
-### How `"use memo"` marks functions for optimization {/*how-use-memo-marks*/}
+### Como `"use memo"` marca funções para otimização {/*how-use-memo-marks*/}
 
-In a React app that uses the React Compiler, functions are analyzed at build time to determine if they can be optimized. By default, the compiler automatically infers which components to memoize, but this can depend on your [`compilationMode`](/reference/react-compiler/compilationMode) setting if you've set it.
+Em um aplicativo React que usa o React Compiler, as funções são analisadas no tempo de construção para determinar se podem ser otimizadas. Por padrão, o compilador infere automaticamente quais componentes memorizar, mas isso pode depender da sua configuração de [`compilationMode`](/reference/react-compiler/compilationMode) se você a tiver definido.
 
-`"use memo"` explicitly marks a function for optimization, overriding the default behavior:
+`"use memo"` marca explicitamente uma função para otimização, substituindo o comportamento padrão:
 
-* In `annotation` mode: Only functions with `"use memo"` are optimized
-* In `infer` mode: The compiler uses heuristics, but `"use memo"` forces optimization
-* In `all` mode: Everything is optimized by default, making `"use memo"` redundant
+* No modo `annotation`: Somente funções com `"use memo"` são otimizadas
+* No modo `infer`: O compilador usa heurísticas, mas `"use memo"` força a otimização
+* No modo `all`: Tudo é otimizado por padrão, tornando `"use memo"` redundante
 
-The directive creates a clear boundary in your codebase between optimized and non-optimized code, giving you fine-grained control over the compilation process.
+A diretiva cria um limite claro em seu código base entre código otimizado e não otimizado, dando a você controle preciso sobre o processo de compilação.
 
-### When to use `"use memo"` {/*when-to-use*/}
+### Quando usar `"use memo"` {/*when-to-use*/}
 
-You should consider using `"use memo"` when:
+Você deve considerar o uso de `"use memo"` quando:
 
-#### You're using annotation mode {/*annotation-mode-use*/}
-In `compilationMode: 'annotation'`, the directive is required for any function you want optimized:
+#### Você está usando o modo annotation {/*annotation-mode-use*/}
+Em `compilationMode: 'annotation'`, a diretiva é necessária para qualquer função que você deseja otimizar:
 
 ```js
-// ✅ This component will be optimized
+// ✅ Este componente será otimizado
 function OptimizedList() {
   "use memo";
   // ...
 }
 
-// ❌ This component won't be optimized
+// ❌ Este componente não será otimizado
 function SimpleWrapper() {
   // ...
 }
 ```
 
-#### You're gradually adopting React Compiler {/*gradual-adoption*/}
-Start with `annotation` mode and selectively optimize stable components:
+#### Você está adotando gradualmente o React Compiler {/*gradual-adoption*/}
+Comece com o modo `annotation` e otimize seletivamente componentes estáveis:
 
 ```js
-// Start by optimizing leaf components
+// Comece otimizando componentes folha
 function Button({ onClick, children }) {
   "use memo";
   // ...
 }
 
-// Gradually move up the tree as you verify behavior
+// Mova-se gradualmente pela árvore conforme você verifica o comportamento
 function ButtonGroup({ buttons }) {
   "use memo";
   // ...
@@ -93,65 +93,65 @@ function ButtonGroup({ buttons }) {
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Working with different compilation modes {/*compilation-modes*/}
+### Trabalhando com diferentes modos de compilação {/*compilation-modes*/}
 
-The behavior of `"use memo"` changes based on your compiler configuration:
+O comportamento de `"use memo"` muda com base na sua configuração do compilador:
 
 ```js
 // babel.config.js
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
-      compilationMode: 'annotation' // or 'infer' or 'all'
+      compilationMode: 'annotation' // ou 'infer' ou 'all'
     }]
   ]
 };
 ```
 
-#### Annotation mode {/*annotation-mode-example*/}
+#### Modo annotation {/*annotation-mode-example*/}
 ```js
-// ✅ Optimized with "use memo"
+// ✅ Otimizado com "use memo"
 function ProductCard({ product }) {
   "use memo";
   // ...
 }
 
-// ❌ Not optimized (no directive)
+// ❌ Não otimizado (sem diretiva)
 function ProductList({ products }) {
   // ...
 }
 ```
 
-#### Infer mode (default) {/*infer-mode-example*/}
+#### Modo infer (padrão) {/*infer-mode-example*/}
 ```js
-// Automatically memoized because this is named like a Component
+// Automaticamente memorizado porque este é nomeado como um Componente
 function ComplexDashboard({ data }) {
   // ...
 }
 
-// Skipped: Is not named like a Component
+// Ignorado: Não é nomeado como um Componente
 function simpleDisplay({ text }) {
   // ...
 }
 ```
 
-In `infer` mode, the compiler automatically detects components and hooks by their naming patterns (PascalCase for components, `use` prefix for hooks). If a component or hook isn't being compiled in `infer` mode, you should fix its naming convention rather than forcing compilation with `"use memo"`.
+No modo `infer`, o compilador detecta automaticamente componentes e hooks por seus padrões de nomenclatura (PascalCase para componentes, prefixo `use` para hooks). Se um componente ou hook não estiver sendo compilado no modo `infer`, você deve corrigir sua convenção de nomenclatura em vez de forçar a compilação com `"use memo"`.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-### Verifying optimization {/*verifying-optimization*/}
+### Verificando a otimização {/*verifying-optimization*/}
 
-To confirm your component is being optimized:
+Para confirmar que seu componente está sendo otimizado:
 
-1. Check the compiled output in your build
-2. Use React DevTools to check for Memo ✨ badge
+1. Verifique a saída compilada em sua construção
+2. Use o React DevTools para verificar o selo Memo ✨
 
-### See also {/*see-also*/}
+### Veja também {/*see-also*/}
 
-* [`"use no memo"`](/reference/react-compiler/directives/use-no-memo) - Opt out of compilation
-* [`compilationMode`](/reference/react-compiler/compilationMode) - Configure compilation behavior
-* [React Compiler](/learn/react-compiler) - Getting started guide
+* [`"use no memo"`](/reference/react-compiler/directives/use-no-memo) - Desativar a compilação
+* [`compilationMode`](/reference/react-compiler/compilationMode) - Configurar o comportamento da compilação
+* [React Compiler](/learn/react-compiler) - Guia de primeiros passos
