@@ -4,13 +4,13 @@ title: compilationMode
 
 <Intro>
 
-The `compilationMode` option controls how the React Compiler selects which functions to compile.
+A opção `compilationMode` controla como o React Compiler seleciona quais funções compilar.
 
 </Intro>
 
 ```js
 {
-  compilationMode: 'infer' // or 'annotation', 'syntax', 'all'
+  compilationMode: 'infer' // ou 'annotation', 'syntax', 'all'
 }
 ```
 
@@ -18,48 +18,48 @@ The `compilationMode` option controls how the React Compiler selects which funct
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `compilationMode` {/*compilationmode*/}
 
-Controls the strategy for determining which functions the React Compiler will optimize.
+Controla a estratégia para determinar quais funções o React Compiler irá otimizar.
 
-#### Type {/*type*/}
+#### Tipo {/*type*/}
 
 ```
 'infer' | 'syntax' | 'annotation' | 'all'
 ```
 
-#### Default value {/*default-value*/}
+#### Valor padrão {/*default-value*/}
 
 `'infer'`
 
-#### Options {/*options*/}
+#### Opções {/*options*/}
 
-- **`'infer'`** (default): The compiler uses intelligent heuristics to identify React components and hooks:
-  - Functions explicitly annotated with `"use memo"` directive
-  - Functions that are named like components (PascalCase) or hooks (`use` prefix) AND create JSX and/or call other hooks
+- **`'infer'`** (padrão): O compilador usa heurísticas inteligentes para identificar componentes e hooks do React:
+  - Funções explicitamente anotadas com a diretiva `"use memo"`
+  - Funções que são nomeadas como componentes (PascalCase) ou hooks (prefixo `use`) E criam JSX e/ou chamam outros hooks
 
-- **`'annotation'`**: Only compile functions explicitly marked with the `"use memo"` directive. Ideal for incremental adoption.
+- **`'annotation'`**: Compila apenas funções explicitamente marcadas com a diretiva `"use memo"`. Ideal para adoção incremental.
 
-- **`'syntax'`**: Only compile components and hooks that use Flow's [component](https://flow.org/en/docs/react/component-syntax/) and [hook](https://flow.org/en/docs/react/hook-syntax/) syntax.
+- **`'syntax'`**: Compila apenas componentes e hooks que usam a sintaxe de [componente](https://flow.org/en/docs/react/component-syntax/) e [hook](https://flow.org/en/docs/react/hook-syntax/) do Flow.
 
-- **`'all'`**: Compile all top-level functions. Not recommended as it may compile non-React functions.
+- **`'all'`**: Compila todas as funções de nível superior. Não recomendado, pois pode compilar funções que não são do React.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- The `'infer'` mode requires functions to follow React naming conventions to be detected
-- Using `'all'` mode may negatively impact performance by compiling utility functions
-- The `'syntax'` mode requires Flow and won't work with TypeScript
-- Regardless of mode, functions with `"use no memo"` directive are always skipped
+- O modo `'infer'` requer que as funções sigam as convenções de nomenclatura do React para serem detectadas
+- Usar o modo `'all'` pode impactar negativamente o desempenho ao compilar funções utilitárias
+- O modo `'syntax'` requer Flow e não funcionará com TypeScript
+- Independentemente do modo, as funções com a diretiva `"use no memo"` são sempre ignoradas
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Default inference mode {/*default-inference-mode*/}
+### Modo de inferência padrão {/*default-inference-mode*/}
 
-The default `'infer'` mode works well for most codebases that follow React conventions:
+O modo padrão `'infer'` funciona bem para a maioria das bases de código que seguem as convenções do React:
 
 ```js
 {
@@ -67,35 +67,35 @@ The default `'infer'` mode works well for most codebases that follow React conve
 }
 ```
 
-With this mode, these functions will be compiled:
+Com este modo, estas funções serão compiladas:
 
 ```js
-// ✅ Compiled: Named like a component + returns JSX
+// ✅ Compilado: Nomeado como um componente + retorna JSX
 function Button(props) {
   return <button>{props.label}</button>;
 }
 
-// ✅ Compiled: Named like a hook + calls hooks
+// ✅ Compilado: Nomeado como um hook + chama hooks
 function useCounter() {
   const [count, setCount] = useState(0);
   return [count, setCount];
 }
 
-// ✅ Compiled: Explicit directive
+// ✅ Compilado: Diretiva explícita
 function expensiveCalculation(data) {
   "use memo";
   return data.reduce(/* ... */);
 }
 
-// ❌ Not compiled: Not a component/hook pattern
+// ❌ Não compilado: Não é um padrão de componente/hook
 function calculateTotal(items) {
   return items.reduce((a, b) => a + b, 0);
 }
 ```
 
-### Incremental adoption with annotation mode {/*incremental-adoption*/}
+### Adoção incremental com modo de anotação {/*incremental-adoption*/}
 
-For gradual migration, use `'annotation'` mode to only compile marked functions:
+Para migração gradual, use o modo `'annotation'` para compilar apenas funções marcadas:
 
 ```js
 {
@@ -103,10 +103,10 @@ For gradual migration, use `'annotation'` mode to only compile marked functions:
 }
 ```
 
-Then explicitly mark functions to compile:
+Em seguida, marque explicitamente as funções para compilar:
 
 ```js
-// Only this function will be compiled
+// Apenas esta função será compilada
 function ExpensiveList(props) {
   "use memo";
   return (
@@ -118,15 +118,15 @@ function ExpensiveList(props) {
   );
 }
 
-// This won't be compiled without the directive
+// Isso não será compilado sem a diretiva
 function NormalComponent(props) {
   return <div>{props.content}</div>;
 }
 ```
 
-### Using Flow syntax mode {/*flow-syntax-mode*/}
+### Usando o modo de sintaxe do Flow {/*flow-syntax-mode*/}
 
-If your codebase uses Flow instead of TypeScript:
+Se sua base de código usa Flow em vez de TypeScript:
 
 ```js
 {
@@ -134,35 +134,35 @@ If your codebase uses Flow instead of TypeScript:
 }
 ```
 
-Then use Flow's component syntax:
+Em seguida, use a sintaxe de componente do Flow:
 
 ```js
-// Compiled: Flow component syntax
+// Compilado: Sintaxe de componente Flow
 component Button(label: string) {
   return <button>{label}</button>;
 }
 
-// Compiled: Flow hook syntax
+// Compilado: Sintaxe de hook Flow
 hook useCounter(initial: number) {
   const [count, setCount] = useState(initial);
   return [count, setCount];
 }
 
-// Not compiled: Regular function syntax
+// Não compilado: Sintaxe de função regular
 function helper(data) {
   return process(data);
 }
 ```
 
-### Opting out specific functions {/*opting-out*/}
+### Excluindo funções específicas {/*opting-out*/}
 
-Regardless of compilation mode, use `"use no memo"` to skip compilation:
+Independentemente do modo de compilação, use `"use no memo"` para pular a compilação:
 
 ```js
 function ComponentWithSideEffects() {
-  "use no memo"; // Prevent compilation
+  "use no memo"; // Evitar compilação
 
-  // This component has side effects that shouldn't be memoized
+  // Este componente tem efeitos colaterais que não devem ser memorizados
   logToAnalytics('component_rendered');
 
   return <div>Content</div>;
@@ -171,29 +171,29 @@ function ComponentWithSideEffects() {
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-### Component not being compiled in infer mode {/*component-not-compiled-infer*/}
+### Componente não sendo compilado no modo infer {/*component-not-compiled-infer*/}
 
-In `'infer'` mode, ensure your component follows React conventions:
+No modo `'infer'`, certifique-se de que seu componente siga as convenções do React:
 
 ```js
-// ❌ Won't be compiled: lowercase name
+// ❌ Não será compilado: nome em minúsculas
 function button(props) {
   return <button>{props.label}</button>;
 }
 
-// ✅ Will be compiled: PascalCase name
+// ✅ Será compilado: nome PascalCase
 function Button(props) {
   return <button>{props.label}</button>;
 }
 
-// ❌ Won't be compiled: doesn't create JSX or call hooks
+// ❌ Não será compilado: não cria JSX ou chama hooks
 function useData() {
   return window.localStorage.getItem('data');
 }
 
-// ✅ Will be compiled: calls a hook
+// ✅ Será compilado: chama um hook
 function useData() {
   const [data] = useState(() => window.localStorage.getItem('data'));
   return data;
