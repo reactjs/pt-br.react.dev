@@ -1,90 +1,10 @@
 ---
-title: >-
-  ```
-
-  # hydrateRoot
-
-
-  `hydrateRoot()` é uma API que permite renderizar um aplicativo React em um
-  contêiner DOM que já contém o conteúdo renderizado pelo servidor. Ele anexa os
-  manipuladores de eventos ao markup existente.
-
-
-  ```js
-
-  import { hydrateRoot } from 'react-dom/client';
-
-
-  const root = document.getElementById('root');
-
-  hydrateRoot(root, <App />);
-
-  ```
-
-
-  ## Referência
-
-
-  ```js
-
-  hydrateRoot(domNode, element, options?)
-
-  ```
-
-
-  Hidrata um aplicativo React em um contêiner DOM existente.
-
-
-  ### Parâmetros
-
-
-  *   `domNode`: Um nó DOM que foi renderizado pelo servidor.
-
-  *   `element`: O elemento React que você deseja renderizar.
-
-  *   `options`: Um objeto opcional com as seguintes propriedades:
-      *   `onHydrated`: Uma função de callback que é chamada após a hidratação.
-      *   `identifierPrefix`: Uma string prefixo que React usa para IDs gerados internamente. Útil se você tiver vários aplicativos React em uma mesma página. Deve ser único para cada aplicativo.
-
-  ### Retorna
-
-
-  `hydrateRoot()` retorna um objeto com dois métodos:
-
-
-  *   `render()`: Renderiza o elemento React.
-
-  *   `unmount()`: Desmonta a árvore renderizada e remove seus manipuladores de
-  eventos.
-
-
-  ### Observações
-
-
-  *   `hydrateRoot()` é usado para hidratação do lado do cliente. Ele deve ser
-  usado no lado do cliente, e não no lado do servidor.
-
-  *   React tenta anexar manipuladores de eventos ao markup existente. Ele não
-  gera novo markup. Se houver uma incompatibilidade entre o markup renderizado
-  pelo servidor e o que React espera, React irá corrigi-lo e avisá-lo. Isso pode
-  ser lento, então é importante garantir que o markup renderizado pelo servidor
-  corresponda ao que é renderizado no cliente.
-
-  *   Se o contêiner DOM contiver conteúdo que não foi renderizado pelo React,
-  React irá deixá-lo intocado.
-
-  *   Se você precisar atualizar a árvore renderizada, você pode chamar
-  `root.render()`.
-
-  *   Se você precisar desmontar a árvore renderizada, você pode chamar
-  `root.unmount()`.
-
-  ```
+title: hydrateRoot
 ---
-```markdown
+```
 <Intro>
 
-`hydrateRoot` permite que você exiba componentes React dentro de um nó DOM do navegador cujo conteúdo HTML foi previamente gerado por [`react-dom/server`.](/reference/react-dom/server)
+`hydrateRoot` permite que você exiba componentes React dentro de um nó DOM do navegador cujo conteúdo HTML foi gerado anteriormente por [`react-dom/server`.](/reference/react-dom/server)
 
 ```js
 const root = hydrateRoot(domNode, reactNode, options?)
@@ -109,7 +29,7 @@ const domNode = document.getElementById('root');
 const root = hydrateRoot(domNode, reactNode);
 ```
 
-O React se anexará ao HTML que existe dentro do `domNode` e assumirá o controle do gerenciamento do DOM dentro dele. Um aplicativo totalmente construído com React geralmente terá apenas uma chamada `hydrateRoot` com seu componente raiz.
+O React se anexará ao HTML que existe dentro do `domNode` e assumirá o gerenciamento do DOM dentro dele. Um aplicativo totalmente construído com React geralmente terá apenas uma chamada `hydrateRoot` com seu componente raiz.
 
 [Veja mais exemplos abaixo.](#usage)
 
@@ -117,7 +37,7 @@ O React se anexará ao HTML que existe dentro do `domNode` e assumirá o control
 
 * `domNode`: Um [elemento DOM](https://developer.mozilla.org/pt-BR/docs/Web/API/Element) que foi renderizado como o elemento raiz no servidor.
 
-* `reactNode`: O "nó React" usado para renderizar o HTML existente. Isso geralmente será um trecho de JSX como `<App />` que foi renderizado com um método `ReactDOM Server` como `renderToPipeableStream(<App />)`.
+* `reactNode`: O "nó React" usado para renderizar o HTML existente. Este geralmente será um trecho de JSX como `<App />` que foi renderizado com um método `ReactDOM Server` como `renderToPipeableStream(<App />)`.
 
 * **opcional** `options`: Um objeto com opções para esta raiz React.
 
@@ -153,7 +73,7 @@ O React atualizará `<App />` na `root` hidratada.
 
 #### Parâmetros {/*root-render-parameters*/}
 
-* `reactNode`: Um "nó React" que você deseja atualizar. Isso geralmente será um trecho de JSX como `<App />`, mas você também pode passar um elemento React construído com [`createElement()`](/reference/react/createElement), uma string, um número, `null` ou `undefined`.
+* `reactNode`: Um "nó React" que você deseja atualizar. Este geralmente será um trecho de JSX como `<App />`, mas você também pode passar um elemento React construído com [`createElement()`](/reference/react/createElement), uma string, um número, `null` ou `undefined`.
 
 #### Retorna {/*root-render-returns*/}
 
@@ -161,7 +81,7 @@ O React atualizará `<App />` na `root` hidratada.
 
 #### Ressalvas {/*root-render-caveats*/}
 
-* Se você chamar `root.render` antes que a raiz termine a hidratação, o React limpará o conteúdo HTML existente renderizado no servidor e mudará toda a raiz para a renderização do cliente.
+* Se você chamar `root.render` antes que a raiz termine de hidratar, o React limpará o conteúdo HTML existente renderizado no servidor e mudará toda a raiz para a renderização do cliente.
 
 ---
 
@@ -177,7 +97,7 @@ Um aplicativo totalmente construído com React geralmente não terá nenhuma cha
 
 Isso é útil principalmente se o nó DOM da sua raiz React (ou qualquer um de seus ancestrais) puder ser removido do DOM por algum outro código. Por exemplo, imagine um painel de guias jQuery que remove guias inativas do DOM. Se uma guia for removida, tudo dentro dela (incluindo as raízes React dentro) também seria removido do DOM. Você precisa dizer ao React para "parar" de gerenciar o conteúdo da raiz removida chamando `root.unmount`. Caso contrário, os componentes dentro da raiz removida não serão limpos e liberarão recursos como assinaturas.
 
-Chamar `root.unmount` desmontará todos os componentes na raiz e "desanexará" o React do nó DOM raiz, incluindo a remoção de quaisquer manipuladores de eventos ou estado na árvore.
+Chamar `root.unmount` desmontará todos os componentes na raiz e "desanexará" o React do nó DOM da raiz, incluindo a remoção de quaisquer manipuladores de eventos ou estado na árvore.
 
 #### Parâmetros {/*root-unmount-parameters*/}
 
@@ -189,12 +109,11 @@ Chamar `root.unmount` desmontará todos os componentes na raiz e "desanexará" o
 
 #### Ressalvas {/*root-unmount-caveats*/}
 
-* Chamar `root.unmount` desmontará todos os componentes na árvore e "desanexará" o React do nó DOM raiz.
+* Chamar `root.unmount` desmontará todos os componentes na árvore e "desanexará" o React do nó DOM da raiz.
 
 * Depois de chamar `root.unmount`, você não pode chamar `root.render` novamente na raiz. Tentar chamar `root.render` em uma raiz desmontada lançará um erro "Não é possível atualizar uma raiz desmontada".
 
 ---
-```
 
 ## Uso {/*usage*/}
 
@@ -210,7 +129,7 @@ hydrateRoot(document.getElementById('root'), <App />);
 
 Isso hidratará o HTML do servidor dentro do <CodeStep step={1}>nó DOM do navegador</CodeStep> com o <CodeStep step={2}>componente React</CodeStep> para seu aplicativo. Normalmente, você fará isso uma vez na inicialização. Se você usar um framework, ele poderá fazer isso nos bastidores para você.
 
-Para hidratar seu aplicativo, o React "anexará" a lógica dos seus componentes ao HTML gerado inicialmente pelo servidor. A hidratação transforma o snapshot HTML inicial do servidor em um aplicativo totalmente interativo que é executado no navegador.
+Para hidratar seu aplicativo, o React "anexará" a lógica dos seus componentes ao HTML gerado inicialmente do servidor. A hidratação transforma o snapshot HTML inicial do servidor em um aplicativo totalmente interativo que é executado no navegador.
 
 <Sandpack>
 
@@ -269,10 +188,10 @@ As causas mais comuns que levam a erros de hidratação incluem:
 
 * Espaços em branco extras (como quebras de linha) em torno do HTML gerado pelo React dentro do nó raiz.
 * Usar verificações como `typeof window !== 'undefined'` em sua lógica de renderização.
-* Usar APIs somente do navegador, como [`window.matchMedia`](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/matchMedia) em sua lógica de renderização.
+* Usar APIs somente do navegador como [`window.matchMedia`](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/matchMedia) em sua lógica de renderização.
 * Renderizar dados diferentes no servidor e no cliente.
 
-O React se recupera de alguns erros de hidratação, mas **você deve corrigi-los como outros erros.** Na melhor das hipóteses, eles levarão a uma lentidão; na pior das hipóteses, os manipuladores de eventos podem ser anexados aos elementos errados.
+O React se recupera de alguns erros de hidratação, mas **você deve corrigi-los como outros erros.** No melhor dos casos, eles levarão a uma lentidão; no pior dos casos, os manipuladores de eventos podem ser anexados aos elementos errados.
 
 </Pitfall>
 
@@ -313,7 +232,7 @@ hydrateRoot(document, <App />);
 
 ### Suprimindo erros de incompatibilidade de hidratação inevitáveis {/*suppressing-unavoidable-hydration-mismatch-errors*/}
 
-Se o atributo ou conteúdo de texto de um único elemento for inevitavelmente diferente entre o servidor e o cliente (por exemplo, um timestamp), você poderá silenciar o aviso de incompatibilidade de hidratação.
+Se o atributo ou o conteúdo de texto de um único elemento for inevitavelmente diferente entre o servidor e o cliente (por exemplo, um timestamp), você poderá silenciar o aviso de incompatibilidade de hidratação.
 
 Para silenciar os avisos de hidratação em um elemento, adicione `suppressHydrationWarning={true}`:
 
@@ -347,7 +266,7 @@ export default function App() {
 
 </Sandpack>
 
-Isso só funciona em um nível de profundidade e tem a intenção de ser uma saída de emergência. Não use em excesso. O React **não** tentará corrigir o conteúdo de texto incompatível.
+Isso só funciona em um nível de profundidade e tem a intenção de ser uma exceção. Não use em excesso. O React **não** tentará corrigir o conteúdo de texto incompatível.
 
 ---
 
@@ -393,7 +312,7 @@ export default function App() {
 
 </Sandpack>
 
-Dessa forma, a passagem de renderização inicial renderizará o mesmo conteúdo do servidor, evitando incompatibilidades, mas uma passagem adicional acontecerá de forma síncrona logo após a hidratação.
+Dessa forma, a passagem de renderização inicial renderizará o mesmo conteúdo que o servidor, evitando incompatibilidades, mas uma passagem adicional acontecerá de forma síncrona logo após a hidratação.
 
 <Pitfall>
 
@@ -405,16 +324,16 @@ Essa abordagem torna a hidratação mais lenta porque seus componentes precisam 
 
 ### Atualizando um componente raiz hidratado {/*updating-a-hydrated-root-component*/}
 
-Depois que a raiz terminar a hidratação, você pode chamar [`root.render`](#root-render) para atualizar o componente raiz do React. **Ao contrário de [`createRoot`](/reference/react-dom/client/createRoot), você normalmente não precisa fazer isso porque o conteúdo inicial já foi renderizado como HTML.**
+Depois que a raiz terminar de hidratar, você pode chamar [`root.render`](#root-render) para atualizar o componente React raiz. **Ao contrário de [`createRoot`](/reference/react-dom/client/createRoot), você geralmente não precisa fazer isso porque o conteúdo inicial já foi renderizado como HTML.**
 
-Se você chamar `root.render` em algum momento após a hidratação e a estrutura da árvore de componentes corresponder ao que foi renderizado anteriormente, o React [preservará o estado.](/learn/preserving-and-resetting-state) Observe como você pode digitar na entrada, o que significa que as atualizações de chamadas `render` repetidas a cada segundo neste exemplo não são destrutivas:
+Se você chamar `root.render` em algum momento após a hidratação, e a estrutura da árvore de componentes corresponder ao que foi renderizado anteriormente, o React [preservará o estado.](/learn/preserving-and-resetting-state) Observe como você pode digitar na entrada, o que significa que as atualizações de chamadas `render` repetidas a cada segundo neste exemplo não são destrutivas:
 
 <Sandpack>
 
 ```html public/index.html
 <!--
   Todo o conteúdo HTML dentro de <div id="root">...</div> foi
-  gerado renderizando <App /> com react-dom/server.
+  gerado pela renderização de <App /> com react-dom/server.
 -->
 <div id="root"><h1>Olá, mundo! <!-- -->0</h1><input placeholder="Digite algo aqui"/></div>
 ```
@@ -453,7 +372,7 @@ export default function App({counter}) {
 
 ### Registro de erros em produção {/*error-logging-in-production*/}
 
-Por padrão, o React registrará todos os erros no console. Para implementar seu próprio relatório de erros, você pode fornecer as opções de raiz do manipulador de erros opcionais `onUncaughtError`, `onCaughtError` e `onRecoverableError`:
+Por padrão, o React registrará todos os erros no console. Para implementar seu próprio relatório de erros, você pode fornecer as opções de manipulador de erros opcionais da raiz `onUncaughtError`, `onCaughtError` e `onRecoverableError`:
 
 ```js [[1, 7, "onCaughtError"], [2, 7, "error", 1], [3, 7, "errorInfo"], [4, 11, "componentStack", 15]]
 import { hydrateRoot } from "react-dom/client";
@@ -554,11 +473,11 @@ export default function App() {
   return (
     <>
       <button onClick={() => settriggerUncaughtError(true)}>
-        Acionar erro não detectado
+        Acionar erro não capturado
       </button>
       {triggerUncaughtError && <Boom />}
       <button onClick={() => setTriggerCaughtError(true)}>
-        Acionar erro detectado
+        Acionar erro capturado
       </button>
       {triggerCaughtError && (
         <ErrorBoundary>
@@ -578,7 +497,7 @@ export default function App() {
 </head>
 <body>
 <!--
-  Usando propositalmente conteúdo HTML que difere do conteúdo renderizado no servidor para acionar erros recuperáveis.
+  Usando propositadamente conteúdo HTML que difere do conteúdo renderizado no servidor para acionar erros recuperáveis.
 -->
 <div id="root">Conteúdo do servidor antes da hidratação.</div>
 </body>
@@ -598,11 +517,12 @@ Aviso: Você passou um segundo argumento para root.render(...) mas ele aceita ap
 
 </ConsoleBlock>
 
-Para corrigir, passe as opções de raiz para `hydrateRoot(...)`, não `root.render(...)`:
+Para corrigir, passe as opções da raiz para `hydrateRoot(...)`, não `root.render(...)`:
 ```js {2,5}
 // 🚩 Errado: root.render aceita apenas um argumento.
 root.render(App, {onUncaughtError});
 
 // ✅ Correto: passe as opções para createRoot.
 const root = hydrateRoot(container, <App />, {onUncaughtError});
+```
 ```
