@@ -1,10 +1,9 @@
 ---
-title: panicThreshold
+title: limiteDePânico
 ---
-
 <Intro>
 
-A opção `panicThreshold` controla como o React Compiler lida com erros durante a compilação.
+A opção `panicThreshold` controla como o Compilador React lida com erros durante a compilação.
 
 </Intro>
 
@@ -22,7 +21,7 @@ A opção `panicThreshold` controla como o React Compiler lida com erros durante
 
 ### `panicThreshold` {/*panicthreshold*/}
 
-Determina se os erros de compilação devem falhar na construção ou pular a otimização.
+Determina se os erros de compilação devem falhar a build ou pular a otimização.
 
 #### Tipo {/*type*/}
 
@@ -36,16 +35,16 @@ Determina se os erros de compilação devem falhar na construção ou pular a ot
 
 #### Opções {/*options*/}
 
-- **`'none'`** (padrão, recomendado): Pula componentes que não podem ser compilados e continua a construção
-- **`'critical_errors'`**: Falha na construção apenas em erros críticos do compilador
-- **`'all_errors'`**: Falha na construção em qualquer diagnóstico do compilador
+- **`'none'`** (padrão, recomendado): Pula componentes que não podem ser compilados e continua a build.
+- **`'critical_errors'`**: Falha a build apenas em erros críticos do compilador.
+- **`'all_errors'`**: Falha a build em qualquer diagnóstico do compilador.
 
 #### Ressalvas {/*caveats*/}
 
-- Construções de produção sempre devem usar `'none'`
-- Falhas na construção impedem que seu aplicativo seja construído
-- O compilador detecta e pula automaticamente o código problemático com `'none'`
-- Limiares mais altos são úteis apenas durante o desenvolvimento para depuração
+- Builds de produção devem sempre usar `'none'`.
+- Falhas na build impedem que sua aplicação seja construída.
+- O compilador detecta e pula automaticamente código problemático com `'none'`.
+- Limiares mais altos são úteis apenas durante o desenvolvimento para depuração.
 
 ---
 
@@ -53,7 +52,7 @@ Determina se os erros de compilação devem falhar na construção ou pular a ot
 
 ### Configuração de produção (recomendado) {/*production-configuration*/}
 
-Para construções de produção, sempre use `'none'`. Este é o valor padrão:
+Para builds de produção, sempre use `'none'`. Este é o valor padrão:
 
 ```js
 {
@@ -62,12 +61,12 @@ Para construções de produção, sempre use `'none'`. Este é o valor padrão:
 ```
 
 Isso garante:
-- Sua construção nunca falha devido a problemas do compilador
-- Componentes que não podem ser otimizados são executados normalmente
-- O máximo de componentes é otimizado
-- Implantações de produção estáveis
+- Sua build nunca falha devido a problemas do compilador.
+- Componentes que não podem ser otimizados rodam normalmente.
+- O máximo de componentes são otimizados.
+- Implantações de produção estáveis.
 
-### Depuração de desenvolvimento {/*development-debugging*/}
+### Depuração em desenvolvimento {/*development-debugging*/}
 
 Use temporariamente limiares mais rigorosos para encontrar problemas:
 
