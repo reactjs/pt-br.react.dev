@@ -1,6 +1,7 @@
 ---
-title: 'Removendo Dependências de Efeitos'
+title: 'Removing Effect Dependencies'
 ---
+
 <Intro>
 
 Quando você escreve um Effect, o linter verificará se você incluiu todos os valores reativos (como props e estado) que o Effect lê na lista de dependências do seu Effect. Isso garante que seu Effect permaneça sincronizado com as props e o estado mais recentes do seu componente. Dependências desnecessárias podem fazer com que seu Effect seja executado com muita frequência ou até mesmo crie um loop infinito. Siga este guia para revisar e remover dependências desnecessárias dos seus Effects.
