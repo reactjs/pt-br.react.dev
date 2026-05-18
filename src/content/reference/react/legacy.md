@@ -1,6 +1,7 @@
 ---
 title: "APIs Legadas do React"
 ---
+
 <Intro>
 
 Essas APIs são exportadas do pacote `react`, mas não são recomendadas para uso em códigos recém-escritos. Veja as páginas de API individuais vinculadas para as alternativas sugeridas.
