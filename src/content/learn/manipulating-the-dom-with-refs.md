@@ -1,6 +1,7 @@
 ---
-title: 'Manipulando o DOM com Refs'
+title: 'Manipulating the DOM with Refs'
 ---
+
 <Intro>
 
 O React atualiza automaticamente o [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) para corresponder à saída do seu render, então seus componentes não precisarão manipulá-lo com frequência. No entanto, às vezes você pode precisar acessar os elementos DOM gerenciados pelo React — por exemplo, para focar um nó, rolar até ele ou medir seu tamanho e posição. Não há uma maneira integrada de fazer essas coisas no React, então você precisará de uma *ref* para o nó DOM.
