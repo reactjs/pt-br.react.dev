@@ -1,6 +1,7 @@
 ---
-title: Meetups do React
+title: React Meetups
 ---
+
 <Intro>
 
 Você tem um meetup local de React.js? Adicione-o aqui! (Por favor, mantenha a lista em ordem alfabética)
