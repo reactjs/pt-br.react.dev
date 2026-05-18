@@ -1,5 +1,5 @@
 ---
-title: Diretivas
+title: Directives
 ---
 <Intro>
 Diretivas do Compilador React são literais de string especiais que controlam se funções específicas são compiladas.
