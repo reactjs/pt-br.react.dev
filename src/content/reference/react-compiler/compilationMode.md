@@ -1,5 +1,5 @@
 ---
-title: modoDeCompilação
+title: compilationMode
 ---
 <Intro>
 
