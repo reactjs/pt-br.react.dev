@@ -36,8 +36,13 @@ const ref = useRef(0);
 `useRef` retorna um objeto assim:
 
 ```js
+<<<<<<< HEAD
 { 
   current: 0 // o valor que você passou para o useRef
+=======
+{
+  current: 0 // The value you passed to useRef
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 }
 ```
 
@@ -214,7 +219,7 @@ Se você tentasse implementar isso com um ref, React nunca re-renderizaria o com
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [13]}}
 import { useRef } from 'react';
 
 export default function Counter() {
@@ -317,7 +322,7 @@ Variáveis comuns como `let timeoutID` não "sobrevivem" entre re-renderizaçõe
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useState } from 'react';
 
 export default function Chat() {
@@ -422,7 +427,7 @@ Este botão deveria alternar entre mostrar "On" e "Off". No entanto, ele sempre 
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [10]}}
 import { useRef } from 'react';
 
 export default function Toggle() {

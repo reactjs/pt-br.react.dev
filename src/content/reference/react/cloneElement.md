@@ -103,7 +103,7 @@ export default function List({ children }) {
     <div className="List">
       {Children.map(children, (child, index) =>
         cloneElement(child, {
-          isHighlighted: index === selectedIndex 
+          isHighlighted: index === selectedIndex
         })
       )}
 ```
@@ -124,15 +124,15 @@ Ao clonar seus filhos, o `List` pode passar informações extras para cada `Row`
 <List>
   <Row
     title="Cabbage"
-    isHighlighted={true} 
+    isHighlighted={true}
   />
   <Row
     title="Garlic"
-    isHighlighted={false} 
+    isHighlighted={false}
   />
   <Row
     title="Apple"
-    isHighlighted={false} 
+    isHighlighted={false}
   />
 </List>
 ```
@@ -152,7 +152,7 @@ export default function App() {
       {products.map(product =>
         <Row
           key={product.id}
-          title={product.title} 
+          title={product.title}
         />
       )}
     </List>
@@ -169,7 +169,7 @@ export default function List({ children }) {
     <div className="List">
       {Children.map(children, (child, index) =>
         cloneElement(child, {
-          isHighlighted: index === selectedIndex 
+          isHighlighted: index === selectedIndex
         })
       )}
       <hr />
@@ -246,7 +246,11 @@ Clonar children torna difícil dizer como os dados fluem pelo seu app. Tente uma
 
 ### Passando dados com uma render prop {/*passing-data-with-a-render-prop*/}
 
+<<<<<<< HEAD
 Em vez de usar `cloneElement`, considere aceitar uma *render prop* como `renderItem`. Aqui, `List` recebe `renderItem` como uma prop. `List` chama `renderItem` para cada item e passa `isHighlighted` como um argumento:
+=======
+Instead of using `cloneElement`, consider accepting a *render prop* like `renderItem`. Here, `List` receives `renderItem` as a prop. `List` calls `renderItem` for every item and passes `isHighlighted` as an argument:
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 ```js {1,7}
 export default function List({ items, renderItem }) {
@@ -280,15 +284,15 @@ O resultado final é o mesmo que com `cloneElement`:
 <List>
   <Row
     title="Cabbage"
-    isHighlighted={true} 
+    isHighlighted={true}
   />
   <Row
     title="Garlic"
-    isHighlighted={false} 
+    isHighlighted={false}
   />
   <Row
     title="Apple"
-    isHighlighted={false} 
+    isHighlighted={false}
   />
 </List>
 ```

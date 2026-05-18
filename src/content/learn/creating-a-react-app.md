@@ -64,8 +64,15 @@ Expo é mantido pela [Expo (a empresa)](https://expo.dev/about). Construir aplic
 
 Existem outros frameworks emergentes que estão trabalhando em direção à nossa visão de React full-stack:
 
+<<<<<<< HEAD
 - [TanStack Start (Beta)](https://tanstack.com/): TanStack Start é um framework React full-stack alimentado pelo TanStack Router. Ele fornece SSR de documento completo, streaming, funções de servidor, bundling, e mais usando ferramentas como Nitro e Vite.
 - [RedwoodJS](https://redwoodjs.com/): Redwood é um framework React full-stack com muitos pacotes pré-instalados e configuração que torna fácil construir aplicações web full-stack.
+=======
+There are other up-and-coming frameworks that are working towards our full stack React vision:
+
+- [TanStack Start (Beta)](https://tanstack.com/start/): TanStack Start is a full-stack React framework powered by TanStack Router. It provides a full-document SSR, streaming, server functions, bundling, and more using tools like Nitro and Vite.
+- [RedwoodSDK](https://rwsdk.com/): Redwood is a full stack React framework with lots of pre-installed packages and configuration that makes it easy to build full-stack web applications.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <DeepDive>
 
@@ -105,7 +112,11 @@ Server Components e Suspense são funcionalidades do React ao invés de funciona
 
 Se sua aplicação tem restrições que não são bem atendidas pelos frameworks existentes, você prefere construir seu próprio framework, ou apenas quer aprender o básico de uma aplicação React, existem outras opções disponíveis para começar um projeto React do zero.
 
+<<<<<<< HEAD
 Começar do zero te dá mais flexibilidade, mas requer que você faça escolhas sobre quais ferramentas usar para roteamento, busca de dados, e outros padrões de uso comuns. É muito parecido com construir seu próprio framework, ao invés de usar um framework que já existe. Os [frameworks que recomendamos](#full-stack-frameworks) têm soluções integradas para esses problemas.
+=======
+Starting from scratch gives you more flexibility, but does require that you make choices on which tools to use for routing, data fetching, and other common usage patterns.  It's a lot like building your own framework, instead of using a framework that already exists. The [frameworks we recommend](#full-stack-frameworks) have built-in solutions for these problems.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Se você quer construir suas próprias soluções, veja nosso guia para [construir uma aplicação React do Zero](/learn/build-a-react-app-from-scratch) para instruções sobre como configurar um novo projeto React começando com uma ferramenta de build como [Vite](https://vite.dev/), [Parcel](https://parceljs.org/), ou [RSbuild](https://rsbuild.dev/).
 

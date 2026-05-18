@@ -12,7 +12,11 @@ Se sua aplicação tem restrições que não são bem atendidas pelos frameworks
 
 #### Considere usar um framework {/*consider-using-a-framework*/}
 
+<<<<<<< HEAD
 Começar do zero é uma maneira fácil de começar a usar React, mas um compromisso importante a ter em mente é que seguir este caminho é muitas vezes o mesmo que construir seu próprio framework ad hoc. À medida que seus requisitos evoluem, você pode precisar resolver mais problemas semelhantes a frameworks para os quais nossos frameworks recomendados já têm soluções bem desenvolvidas e suportadas.
+=======
+Starting from scratch is an easy way to get started using React, but a major tradeoff to be aware of is that going this route is often the same as building your own adhoc framework. As your requirements evolve, you may need to solve more framework-like problems that our recommended frameworks already have well developed and supported solutions for.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Por exemplo, se no futuro sua aplicação precisar de suporte para renderização do lado do servidor (SSR), geração de site estático (SSG), e/ou React Server Components (RSC), você terá que implementá-los por conta própria. Da mesma forma, futuras funcionalidades do React que requerem integração no nível do framework terão que ser implementadas por você se quiser usá-las.
 
@@ -33,7 +37,7 @@ O primeiro passo é instalar uma ferramenta de build como `vite`, `parcel`, ou `
 [Vite](https://vite.dev/) é uma ferramenta de build que visa fornecer uma experiência de desenvolvimento mais rápida e enxuta para projetos web modernos.
 
 <TerminalBlock>
-{`npm create vite@latest my-app -- --template react`}
+npm create vite@latest my-app -- --template react-ts
 </TerminalBlock>
 
 Vite é opinativo e vem com padrões sensatos prontos para uso. Vite tem um rico ecossistema de plugins para suportar fast refresh, JSX, Babel/SWC, e outras funcionalidades comuns. Veja o [plugin React do Vite](https://vite.dev/plugins/#vitejs-plugin-react) ou [plugin React SWC](https://vite.dev/plugins/#vitejs-plugin-react-swc) e [projeto de exemplo React SSR](https://vite.dev/guide/ssr.html#example-projects) para começar.
@@ -45,7 +49,7 @@ Vite já está sendo usado como ferramenta de build em um dos nossos [frameworks
 [Parcel](https://parceljs.org/) combina uma ótima experiência de desenvolvimento pronta para uso com uma arquitetura escalável que pode levar seu projeto desde o início até aplicações de produção massivas.
 
 <TerminalBlock>
-{`npm install --save-dev parcel`}
+npm install --save-dev parcel
 </TerminalBlock>
 
 Parcel suporta fast refresh, JSX, TypeScript, Flow, e estilização prontos para uso. Veja a [receita React do Parcel](https://parceljs.org/recipes/react/#getting-started) para começar.
@@ -55,7 +59,7 @@ Parcel suporta fast refresh, JSX, TypeScript, Flow, e estilização prontos para
 [Rsbuild](https://rsbuild.dev/) é uma ferramenta de build alimentada pelo Rspack que fornece uma experiência de desenvolvimento perfeita para aplicações React. Vem com padrões cuidadosamente ajustados e otimizações de performance prontas para uso.
 
 <TerminalBlock>
-{`npx create-rsbuild --template react`}
+npx create-rsbuild --template react
 </TerminalBlock>
 
 Rsbuild inclui suporte integrado para funcionalidades React como fast refresh, JSX, TypeScript, e estilização. Veja o [guia React do Rsbuild](https://rsbuild.dev/guide/framework/react) para começar.
@@ -95,7 +99,7 @@ Note que buscar dados diretamente nos componentes pode levar a tempos de carrega
 
 Se você está buscando dados da maioria dos backends ou APIs estilo REST, sugerimos usar:
 
-- [React Query](https://react-query.tanstack.com/)
+- [TanStack Query](https://tanstack.com/query/)
 - [SWR](https://swr.vercel.app/)
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 
@@ -130,12 +134,22 @@ Como a ferramenta de build que você seleciona só suporta aplicações de pági
 
 * **React Server Components (RSC)** permite misturar componentes de build-time, apenas do servidor, e interativos em uma única árvore React. RSC pode melhorar a performance, mas atualmente requer expertise profunda para configurar e manter. Veja os [exemplos RSC do Parcel](https://github.com/parcel-bundler/rsc-examples).
 
+<<<<<<< HEAD
 Suas estratégias de renderização precisam se integrar com seu roteador para que aplicações construídas com seu framework possam escolher a estratégia de renderização no nível de rota. Isso permitirá diferentes estratégias de renderização sem ter que reescrever toda a sua aplicação. Por exemplo, a página de destino da sua aplicação pode se beneficiar de ser gerada estaticamente (SSG), enquanto uma página com um feed de conteúdo pode ter melhor performance com renderização do lado do servidor.
+=======
+Your rendering strategies need to integrate with your router so apps built with your framework can choose the rendering strategy on a per-route level. This will enable different rendering strategies without having to rewrite your whole app. For example, the landing page for your app might benefit from being statically generated (SSG), while a page with a content feed might perform best with server-side rendering.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Usar a estratégia de renderização certa para as rotas certas pode diminuir o tempo que leva para o primeiro byte de conteúdo ser carregado ([Time to First Byte](https://web.dev/articles/ttfb)), o primeiro pedaço de conteúdo renderizar ([First Contentful Paint](https://web.dev/articles/fcp)), e o maior conteúdo visível da aplicação renderizar ([Largest Contentful Paint](https://web.dev/articles/lcp)).
 
 ### E mais... {/*and-more*/}
 
+<<<<<<< HEAD
 Estes são apenas alguns exemplos das funcionalidades que uma nova aplicação precisará considerar ao construir do zero. Muitas limitações que você encontrará podem ser difíceis de resolver, já que cada problema está interconectado com os outros e pode requerer expertise profunda em áreas problemáticas com as quais você pode não estar familiarizado.
 
 Se você não quer resolver esses problemas por conta própria, pode [começar com um framework](/learn/creating-a-react-app) que fornece essas funcionalidades prontas para uso.
+=======
+These are just a few examples of the features a new app will need to consider when building from scratch. Many limitations you'll hit can be difficult to solve as each problem is interconnected with the others and can require deep expertise in problem areas you may not be familiar with.
+
+If you don't want to solve these problems on your own, you can [get started with a framework](/learn/creating-a-react-app) that provides these features out of the box.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb

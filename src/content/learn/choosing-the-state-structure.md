@@ -458,7 +458,11 @@ export default function Menu() {
 
   return (
     <>
+<<<<<<< HEAD
       <h2>Qual o seu lanche de viagem?</h2> 
+=======
+      <h2>What's your travel snack?</h2>
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
       <ul>
         {items.map((item, index) => (
           <li key={item.id}>
@@ -803,8 +807,13 @@ export const initialTravelPlan = {
       childPlaces: []
     }, {
       id: 48,
+<<<<<<< HEAD
       title: 'Monte Verde',
       childPlaces: []      
+=======
+      title: 'Green Hill',
+      childPlaces: []
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
     }]
   }]
 };
@@ -882,7 +891,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botsuana',
@@ -902,7 +911,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Marrocos',
@@ -920,8 +929,13 @@ export const initialTravelPlan = {
   },
   10: {
     id: 10,
+<<<<<<< HEAD
     title: 'Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+=======
+    title: 'Americas',
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   11: {
     id: 11,
@@ -937,7 +951,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canadá',
@@ -965,8 +979,13 @@ export const initialTravelPlan = {
   },
   19: {
     id: 19,
+<<<<<<< HEAD
     title: 'Ásia',
     childIds: [20, 21, 22, 23, 24, 25],   
+=======
+    title: 'Asia',
+    childIds: [20, 21, 22, 23, 24, 25],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   20: {
     id: 20,
@@ -1000,8 +1019,13 @@ export const initialTravelPlan = {
   },
   26: {
     id: 26,
+<<<<<<< HEAD
     title: 'Europa',
     childIds: [27, 28, 29, 30, 31, 32, 33],   
+=======
+    title: 'Europe',
+    childIds: [27, 28, 29, 30, 31, 32, 33],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   27: {
     id: 27,
@@ -1041,7 +1065,7 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [35, 36, 37, 38, 39, 40, 41],   
+    childIds: [35, 36, 37, 38, 39, 40, 41],
   },
   35: {
     id: 35,
@@ -1218,7 +1242,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botsuana',
@@ -1238,7 +1262,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Marrocos',
@@ -1256,8 +1280,13 @@ export const initialTravelPlan = {
   },
   10: {
     id: 10,
+<<<<<<< HEAD
     title: 'Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+=======
+    title: 'Americas',
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   11: {
     id: 11,
@@ -1273,7 +1302,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canadá',
@@ -1301,8 +1330,13 @@ export const initialTravelPlan = {
   },
   19: {
     id: 19,
+<<<<<<< HEAD
     title: 'Ásia',
     childIds: [20, 21, 22, 23, 24, 25],   
+=======
+    title: 'Asia',
+    childIds: [20, 21, 22, 23, 24, 25],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   20: {
     id: 20,
@@ -1336,8 +1370,13 @@ export const initialTravelPlan = {
   },
   26: {
     id: 26,
+<<<<<<< HEAD
     title: 'Europa',
     childIds: [27, 28, 29, 30, 31, 32, 33],   
+=======
+    title: 'Europe',
+    childIds: [27, 28, 29, 30, 31, 32, 33],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   27: {
     id: 27,
@@ -1377,7 +1416,11 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
+<<<<<<< HEAD
     childIds: [36, 37, 38, 39, 40, 41, 42],   
+=======
+    childIds: [35, 36, 37, 38, 39, 40, 41],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   35: {
     id: 35,
@@ -1552,7 +1595,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botsuana',
@@ -1572,7 +1615,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Marrocos',
@@ -1590,8 +1633,13 @@ export const initialTravelPlan = {
   },
   10: {
     id: 10,
+<<<<<<< HEAD
     title: 'Américas',
     childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+=======
+    title: 'Americas',
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   11: {
     id: 11,
@@ -1607,7 +1655,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canadá',
@@ -1635,8 +1683,13 @@ export const initialTravelPlan = {
   },
   19: {
     id: 19,
+<<<<<<< HEAD
     title: 'Ásia',
     childIds: [20, 21, 22, 23, 24, 25],   
+=======
+    title: 'Asia',
+    childIds: [20, 21, 22, 23, 24, 25,],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   20: {
     id: 20,
@@ -1670,8 +1723,13 @@ export const initialTravelPlan = {
   },
   26: {
     id: 26,
+<<<<<<< HEAD
     title: 'Europa',
     childIds: [28, 29, 30, 31, 32, 33, 34],   
+=======
+    title: 'Europe',
+    childIds: [27, 28, 29, 30, 31, 32, 33],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   27: {
     id: 27,
@@ -1711,7 +1769,11 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
+<<<<<<< HEAD
     childIds: [36, 37, 38, 39, 40, 41, 42],   
+=======
+    childIds: [35, 36, 37, 38, 39, 40, 41],
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   },
   35: {
     id: 35,
@@ -1816,6 +1878,7 @@ Por vezes, você também pode reduzir o aninhamento do estado movendo parte do e
 
 <Recap>
 
+<<<<<<< HEAD
 * Se duas variáveis de estado sempre são atualizadas juntas, considere uní-las em uma.
 * Escolha suas variáveis de estado cuidadosamente para evitar criar estados "impossíveis".
 * Estruture seu estado de uma maneira que reduza as chances de você cometer um erro ao atualizá-lo.
@@ -1823,6 +1886,15 @@ Por vezes, você também pode reduzir o aninhamento do estado movendo parte do e
 * Não coloque *props* *dentro de* estados a menos que você queira especificamente impedir atualizações.
 * Para padrões de UI como seleção, mantenha o ID ou o índice no estado em vez do objeto em si.
 * Se atualizar o estado profundamente aninhado for complicado, tente achatá-lo.
+=======
+* If two state variables always update together, consider merging them into one.
+* Choose your state variables carefully to avoid creating "impossible" states.
+* Structure your state in a way that reduces the chances that you'll make a mistake updating it.
+* Avoid redundant and duplicate state so that you don't need to keep it in sync.
+* Don't put props *into* state unless you specifically want to prevent updates.
+* For UI patterns like selection, keep ID or index in state instead of the object itself.
+* If updating deeply nested state is complicated, try flattening it.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 </Recap>
 
@@ -2055,7 +2127,7 @@ export default function TravelPlan() {
   }
 
   return (
-    <>  
+    <>
       <AddItem
         onAddItem={handleAddItem}
       />
@@ -2190,7 +2262,7 @@ export default function TravelPlan() {
   }
 
   return (
-    <>  
+    <>
       <AddItem
         onAddItem={handleAddItem}
       />
@@ -2343,7 +2415,7 @@ export default function Letter({
         isHighlighted ? 'highlighted' : ''
       }
       onFocus={() => {
-        onHover(letter);        
+        onHover(letter);
       }}
       onPointerMove={() => {
         onHover(letter);
@@ -2452,7 +2524,7 @@ export default function Letter({
         isHighlighted ? 'highlighted' : ''
       }
       onFocus={() => {
-        onHover(letter.id);        
+        onHover(letter.id);
       }}
       onPointerMove={() => {
         onHover(letter.id);

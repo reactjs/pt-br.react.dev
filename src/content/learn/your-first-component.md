@@ -62,7 +62,7 @@ Tradicionalmente, na criação de páginas web, os desenvolvedores web estrutura
 export default function Profile() {
   return (
     <img
-      src="https://i.imgur.com/MK3eW3Am.jpg"
+      src="https://react.dev/images/docs/scientists/MK3eW3Am.jpg"
       alt="Katherine Johnson"
     />
   )
@@ -98,7 +98,7 @@ O componente retorna uma tag `<img />` com os atributos `src` e `alt`. O `<img /
 As instruções de retorno podem ser escritas todas em uma linha, como neste componente:
 
 ```js
-return <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />;
+return <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />;
 ```
 
 Mas se seu HTML não estiver na mesma linha que a declaração `return`, você deve colocá-la entre parênteses:
@@ -106,7 +106,7 @@ Mas se seu HTML não estiver na mesma linha que a declaração `return`, você d
 ```js
 return (
   <div>
-    <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
+    <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
   </div>
 );
 ```
@@ -127,7 +127,7 @@ Agora que você definiu seu componente `Profile`, você pode colocá-lo dentro d
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/MK3eW3As.jpg"
+      src="https://react.dev/images/docs/scientists/MK3eW3As.jpg"
       alt="Katherine Johnson"
     />
   );
@@ -162,10 +162,17 @@ E o componente `Profile` contém ainda mais HTML, como a tag `<img />`. No final
 
 ```html
 <section>
+<<<<<<< HEAD
   <h1>Cientistas incríveis</h1>
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
   <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />
+=======
+  <h1>Amazing scientists</h1>
+  <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
+  <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
+  <img src="https://react.dev/images/docs/scientists/MK3eW3As.jpg" alt="Katherine Johnson" />
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 </section>
 ```
 
@@ -214,7 +221,11 @@ Sua aplicação React começa em um componente "raiz". Normalmente, ele é criad
 
 A maioria das aplicações React usa componentes em todos os níveis. Isso significa que você não usará componentes apenas para partes reutilizáveis, como botões, mas também para partes maiores, como barras laterais, listas e até em páginas inteiras! Os componentes são uma maneira prática de organizar o código e o HTML da UI, mesmo que alguns deles sejam usados apenas uma vez.
 
+<<<<<<< HEAD
 Os [Frameworks React](/learn/start-a-new-react-project) levam isso um passo adiante. Em vez de usar um arquivo HTML vazio e deixar o React "assumir" o gerenciamento da página com JavaScript, eles *também* geram o HTML automaticamente a partir de seus componentes React. Isso permite que seu aplicativo mostre algum conteúdo antes que o código JavaScript seja carregado.
+=======
+[React-based frameworks](/learn/creating-a-react-app) take this a step further. Instead of using an empty HTML file and letting React "take over" managing the page with JavaScript, they *also* generate the HTML automatically from your React components. This allows your app to show some content before the JavaScript code loads.
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Ainda assim, muitos sites usam o React apenas para [adicionar interatividade às páginas HTML existentes.](/learn/add-react-to-an-existing-project#using-react-for-a-part-of-your-existing-page) Eles têm muitos componentes raiz em vez de um único para toda a página. Você pode usar o React na medida certa para atender as suas necessidades.
 
@@ -247,7 +258,7 @@ Este sandbox não funciona porque o componente raiz não é exportado:
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/lICfvbD.jpg"
+      src="https://react.dev/images/docs/scientists/lICfvbD.jpg"
       alt="Aklilu Lemma"
     />
   );
@@ -272,7 +283,7 @@ Adicione o prefixo `export default` antes da definição da função, da seguint
 export default function Profile() {
   return (
     <img
-      src="https://i.imgur.com/lICfvbD.jpg"
+      src="https://react.dev/images/docs/scientists/lICfvbD.jpg"
       alt="Aklilu Lemma"
     />
   );
@@ -305,7 +316,7 @@ Você pode receber um erro "Unexpected token" ao tentar corrigir isso. Nesse cas
 ```js
 export default function Profile() {
   return
-    <img src="https://i.imgur.com/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
+    <img src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
 }
 ```
 
@@ -323,7 +334,7 @@ Você pode corrigir esse componente movendo a instrução de retorno para uma li
 
 ```js
 export default function Profile() {
-  return <img src="https://i.imgur.com/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
+  return <img src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg" alt="Katsuko Saruhashi" />;
 }
 ```
 
@@ -340,9 +351,9 @@ Outra opção é envolver o JSX retornado entre parênteses após a declaração
 ```js
 export default function Profile() {
   return (
-    <img 
-      src="https://i.imgur.com/jA8hHMpm.jpg" 
-      alt="Katsuko Saruhashi" 
+    <img
+      src="https://react.dev/images/docs/scientists/jA8hHMpm.jpg"
+      alt="Katsuko Saruhashi"
     />
   );
 }
@@ -366,7 +377,7 @@ Algo está errado com a forma como o componente `Profile` é declarado e usado. 
 function profile() {
   return (
     <img
-      src="https://i.imgur.com/QIrZWGIs.jpg"
+      src="https://react.dev/images/docs/scientists/QIrZWGIs.jpg"
       alt="Alan L. Hart"
     />
   );
@@ -402,7 +413,7 @@ Altere `function profile()` para `function Profile()` e, em seguida, altere cada
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/QIrZWGIs.jpg"
+      src="https://react.dev/images/docs/scientists/QIrZWGIs.jpg"
       alt="Alan L. Hart"
     />
   );

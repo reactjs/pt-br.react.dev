@@ -28,7 +28,11 @@ Para saber o progresso de cada tradução, consulte: [O React já está traduzid
 
 ## Como contribuir {/*how-to-contribute*/}
 
+<<<<<<< HEAD
 Você pode contribuir com os esforços de tradução!
+=======
+You can contribute to the translation efforts!
+>>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 A comunidade conduz o trabalho de tradução da documentação do React em cada fork do react.dev específico para cada idioma. O trabalho de tradução típico envolve a tradução direta de um arquivo Markdown e a criação de um pull request. Clique no link "contribuir" acima para o repositório do GitHub do seu idioma e siga as instruções lá para ajudar nos esforços de tradução.
 
