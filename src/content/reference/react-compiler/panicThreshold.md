@@ -1,5 +1,5 @@
 ---
-title: limiteDePânico
+title: panicThreshold
 ---
 <Intro>
 
