@@ -1,10 +1,9 @@
 ---
-title: compilationMode
+title: modoDeCompilação
 ---
-
 <Intro>
 
-A opção `compilationMode` controla como o React Compiler seleciona quais funções compilar.
+A opção `compilationMode` controla como o Compilador React seleciona quais funções compilar.
 
 </Intro>
 
@@ -22,7 +21,7 @@ A opção `compilationMode` controla como o React Compiler seleciona quais funç
 
 ### `compilationMode` {/*compilationmode*/}
 
-Controla a estratégia para determinar quais funções o React Compiler irá otimizar.
+Controla a estratégia para determinar quais funções o Compilador React otimizará.
 
 #### Tipo {/*type*/}
 
@@ -36,22 +35,22 @@ Controla a estratégia para determinar quais funções o React Compiler irá oti
 
 #### Opções {/*options*/}
 
-- **`'infer'`** (padrão): O compilador usa heurísticas inteligentes para identificar componentes e hooks do React:
+- **`'infer'`** (padrão): O compilador usa heurísticas inteligentes para identificar componentes e hooks React:
   - Funções explicitamente anotadas com a diretiva `"use memo"`
-  - Funções que são nomeadas como componentes (PascalCase) ou hooks (prefixo `use`) E criam JSX e/ou chamam outros hooks
+  - Funções que têm nomes como componentes (PascalCase) ou hooks (`use` prefixo) E criam JSX e/ou chamam outros hooks
 
 - **`'annotation'`**: Compila apenas funções explicitamente marcadas com a diretiva `"use memo"`. Ideal para adoção incremental.
 
 - **`'syntax'`**: Compila apenas componentes e hooks que usam a sintaxe de [componente](https://flow.org/en/docs/react/component-syntax/) e [hook](https://flow.org/en/docs/react/hook-syntax/) do Flow.
 
-- **`'all'`**: Compila todas as funções de nível superior. Não recomendado, pois pode compilar funções que não são do React.
+- **`'all'`**: Compila todas as funções de nível superior. Não recomendado, pois pode compilar funções não-React.
 
 #### Ressalvas {/*caveats*/}
 
-- O modo `'infer'` requer que as funções sigam as convenções de nomenclatura do React para serem detectadas
+- O modo `'infer'` exige que as funções sigam as convenções de nomenclatura do React para serem detectadas
 - Usar o modo `'all'` pode impactar negativamente o desempenho ao compilar funções utilitárias
 - O modo `'syntax'` requer Flow e não funcionará com TypeScript
-- Independentemente do modo, as funções com a diretiva `"use no memo"` são sempre ignoradas
+- Independentemente do modo, funções com a diretiva `"use no memo"` são sempre ignoradas
 
 ---
 
@@ -124,7 +123,7 @@ function NormalComponent(props) {
 }
 ```
 
-### Usando o modo de sintaxe do Flow {/*flow-syntax-mode*/}
+### Usando o modo de sintaxe Flow {/*flow-syntax-mode*/}
 
 Se sua base de código usa Flow em vez de TypeScript:
 
@@ -154,13 +153,13 @@ function helper(data) {
 }
 ```
 
-### Excluindo funções específicas {/*opting-out*/}
+### Otimizando para fora de funções específicas {/*opting-out*/}
 
 Independentemente do modo de compilação, use `"use no memo"` para pular a compilação:
 
 ```js
 function ComponentWithSideEffects() {
-  "use no memo"; // Evitar compilação
+  "use no memo"; // Previne a compilação
 
   // Este componente tem efeitos colaterais que não devem ser memorizados
   logToAnalytics('component_rendered');
@@ -173,7 +172,7 @@ function ComponentWithSideEffects() {
 
 ## Solução de problemas {/*troubleshooting*/}
 
-### Componente não sendo compilado no modo infer {/*component-not-compiled-infer*/}
+### Componente não está sendo compilado no modo infer {/*component-not-compiled-infer*/}
 
 No modo `'infer'`, certifique-se de que seu componente siga as convenções do React:
 
@@ -183,7 +182,7 @@ function button(props) {
   return <button>{props.label}</button>;
 }
 
-// ✅ Será compilado: nome PascalCase
+// ✅ Será compilado: nome em PascalCase
 function Button(props) {
   return <button>{props.label}</button>;
 }
