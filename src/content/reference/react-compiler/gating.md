@@ -1,7 +1,6 @@
 ---
 title: gating
 ---
-
 <Intro>
 
 A opção `gating` habilita a compilação condicional, permitindo que você controle quando o código otimizado é usado em tempo de execução.
@@ -25,7 +24,7 @@ A opção `gating` habilita a compilação condicional, permitindo que você con
 
 ### `gating` {/*gating*/}
 
-Configura o gating de flag de recurso em tempo de execução para funções compiladas.
+Configura o controle de feature flag em tempo de execução para funções compiladas.
 
 #### Tipo {/*type*/}
 
@@ -42,22 +41,22 @@ Configura o gating de flag de recurso em tempo de execução para funções comp
 
 #### Propriedades {/*properties*/}
 
-- **`source`**: Caminho do módulo para importar a flag de recurso
-- **`importSpecifierName`**: Nome da função exportada para importar
+- **`source`**: Caminho do módulo para importar o feature flag.
+- **`importSpecifierName`**: Nome da função exportada a ser importada.
 
 #### Ressalvas {/*caveats*/}
 
-- A função de gating deve retornar um booleano
-- Ambas as versões compiladas e originais aumentam o tamanho do bundle
-- A importação é adicionada a cada arquivo com funções compiladas
+- A função de gating deve retornar um booleano.
+- Tanto a versão compilada quanto a original aumentam o tamanho do bundle.
+- A importação é adicionada a todos os arquivos com funções compiladas.
 
 ---
 
 ## Uso {/*usage*/}
 
-### Configuração básica de flag de recurso {/*basic-setup*/}
+### Configuração básica de feature flag {/*basic-setup*/}
 
-1. Crie um módulo de flag de recurso:
+1. Crie um módulo de feature flag:
 
 ```js
 // src/utils/feature-flags.js
@@ -78,7 +77,7 @@ export function shouldUseCompiler() {
 }
 ```
 
-3. O compilador gera código com gating:
+3. O compilador gera código controlado:
 
 ```js
 // Entrada
@@ -94,13 +93,13 @@ const Button = shouldUseCompiler()
   : function Button_original(props) { /* versão original */ };
 ```
 
-Observe que a função de gating é avaliada uma vez no tempo do módulo, então, uma vez que o bundle JS foi analisado e avaliado, a escolha do componente permanece estática para o restante da sessão do navegador.
+Note que a função de gating é avaliada uma vez no momento da carga do módulo. Assim, uma vez que o bundle JS tenha sido analisado e avaliado, a escolha do componente permanece estática pelo resto da sessão do navegador.
 
 ---
 
 ## Solução de problemas {/*troubleshooting*/}
 
-### Flag de recurso não funcionando {/*flag-not-working*/}
+### Feature flag não funcionando {/*flag-not-working*/}
 
 Verifique se o seu módulo de flag exporta a função correta:
 
@@ -110,7 +109,7 @@ export default function shouldUseCompiler() {
   return true;
 }
 
-// ✅ Correto: Exportação nomeada correspondente a importSpecifierName
+// ✅ Correto: Exportação nomeada correspondendo a importSpecifierName
 export function shouldUseCompiler() {
   return true;
 }
@@ -118,7 +117,7 @@ export function shouldUseCompiler() {
 
 ### Erros de importação {/*import-errors*/}
 
-Certifique-se de que o caminho da fonte está correto:
+Certifique-se de que o caminho da origem está correto:
 
 ```js
 // ❌ Errado: Relativo a babel.config.js
@@ -133,7 +132,7 @@ Certifique-se de que o caminho da fonte está correto:
   importSpecifierName: 'flag'
 }
 
-// ✅ Também correto: Caminho absoluto da raiz do projeto
+// ✅ Também correto: Caminho absoluto a partir da raiz do projeto
 {
   source: './src/utils/flags',
   importSpecifierName: 'flag'
