@@ -1,10 +1,9 @@
 ---
 title: logger
 ---
-
 <Intro>
 
-A opção `logger` fornece registro personalizado para eventos do React Compiler durante a compilação.
+A opção `logger` fornece logging personalizado para eventos do React Compiler durante a compilação.
 
 </Intro>
 
@@ -26,7 +25,7 @@ A opção `logger` fornece registro personalizado para eventos do React Compiler
 
 ### `logger` {/*logger*/}
 
-Configura o registro personalizado para rastrear o comportamento do compilador e depurar problemas.
+Configura o logging personalizado para rastrear o comportamento do compilador e depurar problemas.
 
 #### Tipo {/*type*/}
 
@@ -42,27 +41,27 @@ Configura o registro personalizado para rastrear o comportamento do compilador e
 
 #### Métodos {/*methods*/}
 
-- **`logEvent`**: Chamado para cada evento do compilador com o nome do arquivo e detalhes do evento
+- **`logEvent`**: Chamado para cada evento do compilador com o nome do arquivo e os detalhes do evento
 
-#### Tipos de eventos {/*event-types*/}
+#### Tipos de evento {/*event-types*/}
 
 - **`CompileSuccess`**: Função compilada com sucesso
 - **`CompileError`**: Função ignorada devido a erros
-- **`CompileDiagnostic`**: Informações de diagnóstico não fatais
+- **`CompileDiagnostic`**: Informações diagnósticas não fatais
 - **`CompileSkip`**: Função ignorada por outros motivos
-- **`PipelineError`**: Erro de compilação inesperado
+- **`PipelineError`**: Erro inesperado de compilação
 - **`Timing`**: Informações de tempo de desempenho
 
 #### Ressalvas {/*caveats*/}
 
 - A estrutura do evento pode mudar entre as versões
-- Grandes bases de código geram muitas entradas de registro
+- Bases de código grandes geram muitas entradas de log
 
 ---
 
 ## Uso {/*usage*/}
 
-### Registro básico {/*basic-logging*/}
+### Logging básico {/*basic-logging*/}
 
 Rastreie o sucesso e as falhas da compilação:
 
@@ -86,7 +85,7 @@ Rastreie o sucesso e as falhas da compilação:
 }
 ```
 
-### Registro detalhado de erros {/*detailed-error-logging*/}
+### Logging detalhado de erros {/*detailed-error-logging*/}
 
 Obtenha informações específicas sobre falhas de compilação:
 
