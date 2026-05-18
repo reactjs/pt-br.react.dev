@@ -1,17 +1,10 @@
 ---
 title: "React Labs: No que temos trabalhado – Junho de 2022"
-author: Andrew Clark, Dan Abramov, Jan Kassens, Joseph Savona, Josh Story,
-  Lauren Tan, Luna Ruan, Mengdi Chen, Rick Hanlon, Robert Zhang, Sathya
-  Gunasekaran, Sebastian Markbage, and Xuan Huang
+author: Andrew Clark, Dan Abramov, Jan Kassens, Joseph Savona, Josh Story, Lauren Tan, Luna Ruan, Mengdi Chen, Rick Hanlon, Robert Zhang, Sathya Gunasekaran, Sebastian Markbage, and Xuan Huang
 date: 2022/06/15
-description: O React 18 levou anos para ser desenvolvido e trouxe lições
-  valiosas para a equipe do React. Seu lançamento foi o resultado de muitos anos
-  de pesquisa e exploração de diversos caminhos. Alguns desses caminhos foram
-  bem-sucedidos; muitos outros foram becos sem saída que levaram a novas
-  percepções. Uma lição que aprendemos é que é frustrante para a comunidade
-  esperar por novos recursos sem ter visibilidade sobre esses caminhos que
-  estamos explorando.
+description: O React 18 levou anos para ser desenvolvido e trouxe lições valiosas para a equipe do React. Seu lançamento foi o resultado de muitos anos de pesquisa e exploração de diversos caminhos. Alguns desses caminhos foram bem-sucedidos; muitos outros foram becos sem saída que levaram a novas percepções. Uma lição que aprendemos é que é frustrante para a comunidade esperar por novos recursos sem ter visibilidade sobre esses caminhos que estamos explorando.
 ---
+
 15 de junho de 2022 por [Andrew Clark](https://twitter.com/acdlite), [Dan Abramov](https://bsky.app/profile/danabra.mov), [Jan Kassens](https://twitter.com/kassens), [Joseph Savona](https://twitter.com/en_JS), [Josh Story](https://twitter.com/joshcstory), [Lauren Tan](https://twitter.com/potetotes), [Luna Ruan](https://twitter.com/lunaruan), [Mengdi Chen](https://twitter.com/mengdi_en), [Rick Hanlon](https://twitter.com/rickhanlonii), [Robert Zhang](https://twitter.com/jiaxuanzhang01), [Sathya Gunasekaran](https://twitter.com/_gsathya), [Sebastian Markbåge](https://twitter.com/sebmarkbage), e [Xuan Huang](https://twitter.com/Huxpro)
 
 ---
