@@ -1,5 +1,5 @@
 ---
-title: "useMemo"
+title: "use memo"
 titleForTitleTag: "'use memo' directive"
 ---
 <Intro>
