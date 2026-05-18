@@ -1,6 +1,7 @@
 ---
 title: Ferramenta de desenvolvedor do React
 ---
+
 <Intro>
 
 Use a ferramenta de desenvolvedor do React para inspecionar [componentes](/learn/your-first-component), editar [props](/learn/passing-props-to-a-component) e [estados](/learn/state-a-components-memory), e identificar problemas de performance.
