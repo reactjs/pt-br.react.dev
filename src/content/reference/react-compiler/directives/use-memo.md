@@ -2,6 +2,7 @@
 title: "use memo"
 titleForTitleTag: "'use memo' directive"
 ---
+
 <Intro>
 
 `"use memo"` marca uma função para otimização pelo React Compiler.
@@ -31,7 +32,7 @@ function MeuComponente() {
 }
 ```
 
-Quando uma função contém `"use memo"`, o React Compiler a analisará e otimizará durante o tempo de compilação. O compilador automaticamente memorizará valores e componentes para prevenir recálculos e re-renderizações desnecessárias.
+Quando uma função contém `"use memo"`, o React Compiler a analisará e otimizará em tempo de compilação. O compilador automaticamente memorizará valores e componentes para evitar recomputações e re-renderizações desnecessárias.
 
 #### Ressalvas {/*caveats*/}
 
@@ -43,7 +44,7 @@ Quando uma função contém `"use memo"`, o React Compiler a analisará e otimiz
 
 ### Como `"use memo"` marca funções para otimização {/*how-use-memo-marks*/}
 
-Em um aplicativo React que usa o React Compiler, as funções são analisadas no tempo de compilação para determinar se podem ser otimizadas. Por padrão, o compilador infere automaticamente quais componentes memorizar, mas isso pode depender da sua configuração de [`compilationMode`](/reference/react-compiler/compilationMode), se você a definiu.
+Em um aplicativo React que usa o React Compiler, as funções são analisadas em tempo de compilação para determinar se podem ser otimizadas. Por padrão, o compilador infere automaticamente quais componentes memorizar, mas isso pode depender da sua configuração de [`compilationMode`](/reference/react-compiler/compilationMode), se você a definiu.
 
 `"use memo"` marca explicitamente uma função para otimização, substituindo o comportamento padrão:
 
@@ -123,7 +124,7 @@ function ListaProdutos({ produtos }) {
 }
 ```
 
-#### Modo Infer (padrão) {/*infer-mode-example*/}
+#### Modo infer (padrão) {/*infer-mode-example*/}
 ```js
 // Automaticamente memorizado porque este é nomeado como um Componente
 function DashboardComplexo({ data }) {
@@ -147,10 +148,10 @@ No modo `infer`, o compilador detecta automaticamente componentes e hooks por se
 Para confirmar que seu componente está sendo otimizado:
 
 1. Verifique a saída compilada em seu build.
-2. Use o React DevTools para verificar o selo Memo ✨.
+2. Use o React DevTools para verificar o selo ✨ Memo.
 
 ### Ver também {/*see-also*/}
 
 * [`"use no memo"`](/reference/react-compiler/directives/use-no-memo) - Desativar compilação
 * [`compilationMode`](/reference/react-compiler/compilationMode) - Configurar comportamento de compilação
-* [React Compiler](/learn/react-compiler) - Guia de início rápido
+* [React Compiler](/learn/react-compiler) - Guia de introdução
