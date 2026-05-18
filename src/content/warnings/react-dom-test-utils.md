@@ -1,8 +1,7 @@
 ---
 title: Avisos de Descontinuação do react-dom/test-utils
 ---
-
-## Aviso de `ReactDOMTestUtils.act()` {/*reactdomtestutilsact-warning*/}
+## Aviso do ReactDOMTestUtils.act() {/*reactdomtestutilsact-warning*/}
 
 O `act` de `react-dom/test-utils` foi descontinuado em favor do `act` do `react`.
 
