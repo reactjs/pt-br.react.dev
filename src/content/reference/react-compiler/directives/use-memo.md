@@ -26,7 +26,7 @@ Na maioria dos casos, você não precisa de `"use memo"`. Ele é primariamente n
 Adicione `"use memo"` no início de uma função para marcá-la para otimização pelo React Compiler.
 
 ```js {1}
-function MeuComponente() {
+function MyComponent() {
   "use memo";
   // ...
 }
@@ -63,13 +63,13 @@ Em `compilationMode: 'annotation'`, a diretiva é necessária para qualquer fun�
 
 ```js
 // ✅ Este componente será otimizado
-function ListaOtimizada() {
+function OptimizedList() {
   "use memo";
   // ...
 }
 
 // ❌ Este componente não será otimizado
-function WrapperSimples() {
+function SimpleWrapper() {
   // ...
 }
 ```
@@ -79,13 +79,13 @@ Comece com o modo `annotation` e otimize seletivamente componentes estáveis:
 
 ```js
 // Comece otimizando componentes folha
-function Botao({ onClick, children }) {
+function Button({ onClick, children }) {
   "use memo";
   // ...
 }
 
 // Gradualmente suba na árvore conforme verifica o comportamento
-function GrupoDeBotoes({ botoes }) {
+function ButtonGroup({ buttons }) {
   "use memo";
   // ...
 }
@@ -113,13 +113,13 @@ module.exports = {
 #### Modo de anotação {/*annotation-mode-example*/}
 ```js
 // ✅ Otimizado com "use memo"
-function CartaoProduto({ produto }) {
+function ProductCard({ product }) {
   "use memo";
   // ...
 }
 
 // ❌ Não otimizado (sem diretiva)
-function ListaProdutos({ produtos }) {
+function ProductList({ products }) {
   // ...
 }
 ```
@@ -127,12 +127,12 @@ function ListaProdutos({ produtos }) {
 #### Modo infer (padrão) {/*infer-mode-example*/}
 ```js
 // Automaticamente memorizado porque este é nomeado como um Componente
-function DashboardComplexo({ data }) {
+function ComplexDashboard({ data }) {
   // ...
 }
 
 // Ignorado: Não é nomeado como um Componente
-function exibicaoSimples({ texto }) {
+function simpleDisplay({ text }) {
   // ...
 }
 ```
