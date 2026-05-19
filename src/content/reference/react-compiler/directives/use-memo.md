@@ -132,7 +132,7 @@ function ComplexDashboard({ data }) {
 }
 
 // Ignorado: Não é nomeado como um Componente
-function simpleDisplay({ texto }) {
+function simpleDisplay({ text }) {
   // ...
 }
 ```
