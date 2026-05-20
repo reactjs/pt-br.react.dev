@@ -260,8 +260,8 @@ Props serializáveis incluem:
 	* [undefined](https://developer.mozilla.org/pt-BR/docs/Glossary/Undefined)
 	* [null](https://developer.mozilla.org/pt-BR/docs/Glossary/Null)
 	* [symbol](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Symbol), apenas símbolos registrados no registro global de símbolos via [`Symbol.for`](https://developer.mozilla.org/
-  
-  
+
+
   /docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
 * Iteráveis contendo valores serializáveis
 	* [String](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String)

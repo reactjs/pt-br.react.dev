@@ -409,7 +409,7 @@ As chaves podem vir de diferentes fontes de dados:
 ### Regras das keys {/*rules-of-keys*/}
 
 * **Keys devem ser únicas entre suas irmãs.** Entretanto, é tranquilo usar as mesmas chaves para nós JSX em arrays *diferentes*.
-* **Keys não devem mudar** caso contrário, isso vai contra o seu propósito! Não as gere durante a renderização. 
+* **Keys não devem mudar** caso contrário, isso vai contra o seu propósito! Não as gere durante a renderização.
 
 ### Por que o React precisa de keys? {/*why-does-react-need-keys*/}
 
@@ -888,7 +888,7 @@ Faça uma lista de receitas a partir desse array! Para cada receita no array, ex
 
 <Hint>
 
-Para fazer isto, você precisará realizar duas chamadas ao `map` aninhadas. 
+Para fazer isto, você precisará realizar duas chamadas ao `map` aninhadas.
 
 </Hint>
 

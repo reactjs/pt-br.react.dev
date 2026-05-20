@@ -130,7 +130,7 @@ Entretanto, podemos observar alguns exemplos de como fornecer tipos para hooks.
 
 ### `useState` {/*typing-usestate*/}
 
-O [hook `useState`](/reference/react/useState) irá reutilizar o valor passado como state inicial para determinar qual o tipo o valor deve ser. Por exemplo: 
+O [hook `useState`](/reference/react/useState) irá reutilizar o valor passado como state inicial para determinar qual o tipo o valor deve ser. Por exemplo:
 
 ```ts
 // Tipo inferido como "boolean"

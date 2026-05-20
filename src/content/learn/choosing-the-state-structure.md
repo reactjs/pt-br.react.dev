@@ -2542,7 +2542,7 @@ export default function MailClient() {
         ))}
         <hr />
         <p>
-          <b> 
+          <b>
             Você selecionou {selectedCount} cartas
           </b>
         </p>

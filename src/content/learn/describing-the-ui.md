@@ -187,7 +187,7 @@ Leia **[Escrevendo Tags com JSX](/learn/writing-markup-with-jsx)** para aprender
 
 ## JavaScript entre Chaves no JSX {/*javascript-in-jsx-with-curly-braces*/}
 
-JSX permite que você escreva de maneira análoga ao HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo lugar. Em alguns momentos, você pode querer adicionar alguma lógica JavaScript ou uma propriedade dinâmica em uma tag. Neste tipo de situação, você pode utilizar chaves no JSX para "abrir uma janela" que entenda JavaScript: 
+JSX permite que você escreva de maneira análoga ao HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo lugar. Em alguns momentos, você pode querer adicionar alguma lógica JavaScript ou uma propriedade dinâmica em uma tag. Neste tipo de situação, você pode utilizar chaves no JSX para "abrir uma janela" que entenda JavaScript:
 
 <Sandpack>
 

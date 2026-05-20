@@ -236,7 +236,7 @@ Se o seu linter estiver [configurado para o React,](/learn/editor-setup#linting)
 
 #### Todos os nomes de funções chamadas durante a renderização devem começar com o prefixo use? {/*should-all-functions-called-during-rendering-start-with-the-use-prefix*/}
 
-Não. Funções que não *chamam* Hooks não precisam *ser* Hooks. 
+Não. Funções que não *chamam* Hooks não precisam *ser* Hooks.
 
 Se sua função não chama nenhum Hook, evite o prefixo `use`. Em vez disso, escreva-a como uma função regular *sem* o prefixo `use`. Por exemplo, se a função `useSorted` abaixo não chama Hooks, você pode chamá-la de `getSorted`:
 

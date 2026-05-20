@@ -701,7 +701,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Não fazer nada por 1 ms por item para simular um código extremamente lento  
+    // Não fazer nada por 1 ms por item para simular um código extremamente lento
   }
 
   return (
@@ -1005,7 +1005,7 @@ export default function ContactTab() {
 ```
 
 ```js data.js hidden
-// Observação: a forma como você realiza a busca de dados depende do 
+// Observação: a forma como você realiza a busca de dados depende do
 // framework que você utiliza em conjunto com o Suspense.
 // Normalmente, a lógica de cache estaria dentro de um framework.
 
