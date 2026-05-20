@@ -4,11 +4,7 @@ title: useActionState
 
 <Intro>
 
-<<<<<<< HEAD
-`useActionState` é um Hook que permite que você atualize o estado com base no resultado de uma ação de formulário.
-=======
-`useActionState` is a React Hook that lets you update state with side effects using [Actions](/reference/react/useTransition#functions-called-in-starttransition-are-called-actions).
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+`useActionState` é um Hook do React que permite que você atualize o estado com efeitos colaterais usando [Ações](/reference/react/useTransition#functions-called-in-starttransition-are-called-actions).
 
 ```js
 const [state, dispatchAction, isPending] = useActionState(reducerAction, initialState, permalink?);
@@ -16,15 +12,6 @@ const [state, dispatchAction, isPending] = useActionState(reducerAction, initial
 
 </Intro>
 
-<<<<<<< HEAD
-<Note>
-
-Em versões anteriores do React Canary, esta API fazia parte do React DOM e era chamada de `useFormState`.
-
-</Note>
-
-=======
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 <InlineToc />
 
 ---
@@ -33,13 +20,7 @@ Em versões anteriores do React Canary, esta API fazia parte do React DOM e era 
 
 ### `useActionState(reducerAction, initialState, permalink?)` {/*useactionstate*/}
 
-<<<<<<< HEAD
-{/* TODO T164397693: link to actions documentation once it exists */}
-
-Chame `useActionState` no nível superior do seu componente para criar um estado do componente que é atualizado [quando uma ação de formulário é invocada](/reference/react-dom/components/form). Você passa para o `useActionState` uma função de ação de formulário existente, bem como um estado inicial, e ele retorna uma nova ação que você usa no seu formulário, juntamente com o estado atual do formulário e se a ação ainda está pendente. O estado atual do formulário também é passado para a função que você forneceu.
-=======
-Call `useActionState` at the top level of your component to create state for the result of an Action.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Chame `useActionState` no nível superior do seu componente para criar um estado para o resultado de uma Ação.
 
 ```js
 import { useActionState } from 'react';
@@ -54,77 +35,49 @@ function MyCart({initialState}) {
 }
 ```
 
-<<<<<<< HEAD
-O estado do formulário é o valor retornado pela ação quando o formulário foi enviado pela última vez. Se o formulário ainda não foi enviado, é o estado inicial que você passa.
-
-Quando usado com uma Função de Servidor, `useActionState` permite que a resposta do servidor ao enviar o formulário seja exibida mesmo antes da hidratação ser concluída.
-
 [Veja mais exemplos abaixo.](#usage)
-=======
-[See more examples below.](#usage)
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 #### Parâmetros {/*parameters*/}
 
-<<<<<<< HEAD
-* `fn`: A função a ser chamada quando o formulário é enviado ou o botão pressionado. Quando a função é chamada, ela receberá o estado anterior do formulário (inicialmente o `initialState` que você passa, subsequentemente seu valor de retorno anterior) como seu primeiro argumento, seguido pelos argumentos que uma ação de formulário normalmente recebe.
-* `initialState`: O valor que você deseja que o estado seja inicialmente. Pode ser qualquer valor serializável. Este argumento é ignorado depois que a ação é invocada pela primeira vez.
-* **opcional** `permalink`: Uma string contendo a URL exclusiva da página que este formulário modifica. Para uso em páginas com conteúdo dinâmico (por exemplo: feeds) em conjunto com aprimoramento progressivo: se `fn` é uma [função de servidor](/reference/rsc/server-functions) e o formulário é enviado antes do carregamento do bundle JavaScript, o navegador navegará para a URL de permalink especificada, em vez da URL da página atual. Garanta que o mesmo componente de formulário seja renderizado na página de destino (incluindo a mesma `fn` de ação e `permalink`) para que o React saiba como passar o estado. Uma vez que o formulário tenha sido hidratado, este parâmetro não tem efeito.
-
-{/* TODO T164397693: link to serializable values docs once it exists */}
-=======
-* `reducerAction`: The function to be called when the Action is triggered. When called, it receives the previous state (initially the `initialState` you provided, then its previous return value) as its first argument, followed by the `actionPayload` passed to `dispatchAction`.
-* `initialState`: The value you want the state to be initially. React ignores this argument after `dispatchAction` is invoked for the first time.
-* **optional** `permalink`: A string containing the unique page URL that this form modifies.
-  * For use on pages with [React Server Components](/reference/rsc/server-components) with progressive enhancement.
-  * If `reducerAction` is a [Server Function](/reference/rsc/server-functions) and the form is submitted before the JavaScript bundle loads, the browser will navigate to the specified permalink URL rather than the current page's URL.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+* `reducerAction`: A função a ser chamada quando a Ação é acionada. Quando chamada, ela recebe o estado anterior (inicialmente o `initialState` que você forneceu, depois seu valor de retorno anterior) como seu primeiro argumento, seguido pelo `actionPayload` passado para `dispatchAction`.
+* `initialState`: O valor que você deseja que o estado seja inicialmente. O React ignora este argumento após `dispatchAction` ser invocado pela primeira vez.
+* **opcional** `permalink`: Uma string contendo a URL exclusiva da página que este formulário modifica.
+  * Para uso em páginas com [Componentes de Servidor React](/reference/rsc/server-components) com aprimoramento progressivo.
+  * Se `reducerAction` é uma [Função de Servidor](/reference/rsc/server-functions) e o formulário é enviado antes do carregamento do bundle JavaScript, o navegador navegará para a URL de permalink especificada, em vez da URL da página atual.
 
 #### Retornos {/*returns*/}
 
-<<<<<<< HEAD
-`useActionState` retorna um array com os seguintes valores:
+`useActionState` retorna um array com exatamente três valores:
 
-1. O estado atual. Durante a primeira renderização, ele corresponderá ao `initialState` que você passou. Depois que a ação for invocada, ele corresponderá ao valor retornado pela action.
-2. Uma nova ação que você pode passar como a prop `action` para seu componente `form` ou a prop `formAction` para qualquer componente `button` dentro do formulário. A ação também pode ser chamada manualmente dentro de [`startTransition`](/reference/react/startTransition).
-3. A flag `isPending` que informa se existe uma Transition pendente.
-=======
-`useActionState` returns an array with exactly three values:
-
-1. The current state. During the first render, it will match the `initialState` you passed. After `dispatchAction` is invoked, it will match the value returned by the `reducerAction`.
-2. A `dispatchAction` function that you call inside [Actions](/reference/react/useTransition#functions-called-in-starttransition-are-called-actions).
-3. The `isPending` flag that tells you if any dispatched Actions for this Hook are pending.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+1. O estado atual. Durante a primeira renderização, ele corresponderá ao `initialState` que você passou. Depois que `dispatchAction` for invocado, ele corresponderá ao valor retornado pela `reducerAction`.
+2. Uma função `dispatchAction` que você chama dentro de [Ações](/reference/react/useTransition#functions-called-in-starttransition-are-called-actions).
+3. A flag `isPending` que informa se alguma Ação despachada para este Hook está pendente.
 
 #### Ressalvas {/*caveats*/}
 
-<<<<<<< HEAD
-* Quando usado com um framework que oferece suporte a React Server Components, `useActionState` permite que você torne os formulários interativos antes que o JavaScript tenha sido executado no cliente. Quando usado sem Server Components, é equivalente ao estado local do componente.
-* A função passada para `useActionState` recebe um argumento extra, o estado anterior ou inicial, como seu primeiro argumento. Isso torna sua assinatura diferente do que se fosse usado diretamente como uma ação de formulário sem usar `useActionState`.
-=======
-* `useActionState` is a Hook, so you can only call it **at the top level of your component** or your own Hooks. You can't call it inside loops or conditions. If you need that, extract a new component and move the state into it.
-* React queues and executes multiple calls to `dispatchAction` sequentially. Each call to `reducerAction` receives the result of the previous call.
-* The `dispatchAction` function has a stable identity, so you will often see it omitted from Effect dependencies, but including it will not cause the Effect to fire. If the linter lets you omit a dependency without errors, it is safe to do. [Learn more about removing Effect dependencies.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
-* When using the `permalink` option, ensure the same form component is rendered on the destination page (including the same `reducerAction` and `permalink`) so React knows how to pass the state through. Once the page becomes interactive, this parameter has no effect.
-* When using Server Functions, `initialState` needs to be [serializable](/reference/rsc/use-server#serializable-parameters-and-return-values) (values like plain objects, arrays, strings, and numbers).
-* If `dispatchAction` throws an error, React cancels all queued actions and shows the nearest [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
-* If there are multiple ongoing Actions, React batches them together. This is a limitation that may be removed in a future release.
+* `useActionState` é um Hook, portanto você só pode chamá-lo **no nível superior do seu componente** ou de seus próprios Hooks. Você não pode chamá-lo dentro de loops ou condições. Se precisar disso, extraia um novo componente e mova o estado para ele.
+* O React enfileira e executa múltiplas chamadas para `dispatchAction` sequencialmente. Cada chamada para `reducerAction` recebe o resultado da chamada anterior.
+* A função `dispatchAction` tem uma identidade estável, então você frequentemente a verá omitida das dependências de Efeitos, mas incluí-la não fará o Efeito disparar. Se o linter permitir omitir uma dependência sem erros, é seguro fazê-lo. [Saiba mais sobre remoção de dependências de Efeitos.](/learn/removing-effect-dependencies#move-dynamic-objects-and-functions-inside-your-effect)
+* Ao usar a opção `permalink`, garanta que o mesmo componente de formulário seja renderizado na página de destino (incluindo a mesma `reducerAction` e `permalink`) para que o React saiba como passar o estado. Assim que a página se tornar interativa, este parâmetro não tem efeito.
+* Ao usar Funções de Servidor, `initialState` precisa ser [serializável](/reference/rsc/use-server#serializable-parameters-and-return-values) (valores como objetos simples, arrays, strings e números).
+* Se `dispatchAction` lançar um erro, o React cancela todas as ações enfileiradas e mostra o [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary) mais próximo.
+* Se houver múltiplas Ações em andamento, o React as agrupa. Esta é uma limitação que pode ser removida em uma versão futura.
 
 <Note>
 
-`dispatchAction` must be called from an Action.
+`dispatchAction` deve ser chamado de dentro de uma Ação.
 
-You can wrap it in [`startTransition`](/reference/react/startTransition), or pass it to an [Action prop](/reference/react/useTransition#exposing-action-props-from-components). Calls outside that scope won’t be treated as part of the Transition and [log an error](#async-function-outside-transition) on development mode.
+Você pode envolvê-lo em [`startTransition`](/reference/react/startTransition), ou passá-lo para uma [prop de Ação](/reference/react/useTransition#exposing-action-props-from-components). Chamadas fora desse escopo não serão tratadas como parte da Transition e [registrarão um erro](#async-function-outside-transition) no modo de desenvolvimento.
 
 </Note>
 
 ---
 
-### `reducerAction` function {/*reduceraction*/}
+### Função `reducerAction` {/*reduceraction*/}
 
-The `reducerAction` function passed to `useActionState` receives the previous state and returns a new state.
+A função `reducerAction` passada para `useActionState` recebe o estado anterior e retorna um novo estado.
 
-Unlike reducers in `useReducer`, the `reducerAction` can be async and perform side effects:
+Ao contrário dos reducers em `useReducer`, a `reducerAction` pode ser assíncrona e realizar efeitos colaterais:
 
 ```js
 async function reducerAction(previousState, actionPayload) {
@@ -133,53 +86,46 @@ async function reducerAction(previousState, actionPayload) {
 }
 ```
 
-Each time you call `dispatchAction`, React calls the `reducerAction` with the `actionPayload`. The reducer will perform side effects such as posting data, and return the new state. If `dispatchAction` is called multiple times, React queues and executes them in order so the result of the previous call is passed as `previousState` for the current call.
+Cada vez que você chama `dispatchAction`, o React chama a `reducerAction` com o `actionPayload`. O reducer realizará efeitos colaterais como postar dados e retornará o novo estado. Se `dispatchAction` for chamado várias vezes, o React enfileira e executa-os em ordem, para que o resultado da chamada anterior seja passado como `previousState` para a chamada atual.
 
-#### Parameters {/*reduceraction-parameters*/}
+#### Parâmetros {/*reduceraction-parameters*/}
 
-* `previousState`: The last state. Initially this is equal to the `initialState`. After the first call to `dispatchAction`, it's equal to the last state returned.
+* `previousState`: O último estado. Inicialmente, é igual ao `initialState`. Após a primeira chamada para `dispatchAction`, é igual ao último estado retornado.
 
-* **optional** `actionPayload`: The argument passed to `dispatchAction`. It can be a value of any type. Similar to `useReducer` conventions, it is usually an object with a `type` property identifying it and, optionally, other properties with additional information.
+* **opcional** `actionPayload`: O argumento passado para `dispatchAction`. Pode ser um valor de qualquer tipo. Seguindo as convenções de `useReducer`, geralmente é um objeto com uma propriedade `type` que o identifica e, opcionalmente, outras propriedades com informações adicionais.
 
-#### Returns {/*reduceraction-returns*/}
+#### Retorna {/*reduceraction-returns*/}
 
-`reducerAction` returns the new state, and triggers a Transition to re-render with that state.
+`reducerAction` retorna o novo estado e aciona uma Transition para re-renderizar com esse estado.
 
-#### Caveats {/*reduceraction-caveats*/}
+#### Ressalvas {/*reduceraction-caveats*/}
 
-* `reducerAction` can be sync or async. It can perform sync actions like showing a notification, or async actions like posting updates to a server.
-* `reducerAction` is not invoked twice in `<StrictMode>` since `reducerAction` is designed to allow side effects.
-* The return type of `reducerAction` must match the type of `initialState`. If TypeScript infers a mismatch, you may need to explicitly annotate your state type.
-* If you set state after `await` in the `reducerAction` you currently need to wrap the state update in an additional `startTransition`. See the [startTransition](/reference/react/useTransition#react-doesnt-treat-my-state-update-after-await-as-a-transition) docs for more info.
-* When using Server Functions, `actionPayload` needs to be [serializable](/reference/rsc/use-server#serializable-parameters-and-return-values) (values like plain objects, arrays, strings, and numbers).
+* `reducerAction` pode ser síncrona ou assíncrona. Pode realizar ações síncronas como mostrar uma notificação, ou ações assíncronas como postar atualizações em um servidor.
+* `reducerAction` não é invocada duas vezes no `<StrictMode>` pois `reducerAction` foi projetada para permitir efeitos colaterais.
+* O tipo de retorno de `reducerAction` deve corresponder ao tipo de `initialState`. Se o TypeScript inferir uma incompatibilidade, pode ser necessário anotar explicitamente o tipo de seu estado.
+* Se você definir estado após `await` na `reducerAction`, atualmente você precisa envolver a atualização de estado em um `startTransition` adicional. Veja a documentação de [startTransition](/reference/react/useTransition#react-doesnt-treat-my-state-update-after-await-as-a-transition) para mais informações.
+* Ao usar Funções de Servidor, `actionPayload` precisa ser [serializável](/reference/rsc/use-server#serializable-parameters-and-return-values) (valores como objetos simples, arrays, strings e números).
 
 <DeepDive>
 
-#### Why is it called `reducerAction`? {/*why-is-it-called-reduceraction*/}
+#### Por que se chama `reducerAction`? {/*why-is-it-called-reduceraction*/}
 
-The function passed to `useActionState` is called a *reducer action* because:
+A função passada para `useActionState` é chamada de *reducer action* (ação redutora) porque:
 
-- It *reduces* the previous state into a new state, like `useReducer`.
-- It's an *Action* because it's called inside a Transition and can perform side effects.
+- Ela *reduz* o estado anterior em um novo estado, como `useReducer`.
+- É uma *Ação* porque é chamada dentro de uma Transition e pode realizar efeitos colaterais.
 
-Conceptually, `useActionState` is like `useReducer`, but you can do side effects in the reducer.
+Conceitualmente, `useActionState` é como `useReducer`, mas você pode fazer efeitos colaterais no reducer.
 
 </DeepDive>
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 ---
 
 ## Uso {/*usage*/}
 
-<<<<<<< HEAD
-### Usando informações retornadas por uma ação de formulário {/*using-information-returned-by-a-form-action*/}
+### Adicionando estado a uma Ação {/*adding-state-to-an-action*/}
 
-Chame `useActionState` no nível superior do seu componente para acessar o valor de retorno de uma action da última vez que um formulário foi enviado.
-=======
-### Adding state to an Action {/*adding-state-to-an-action*/}
-
-Call `useActionState` at the top level of your component to create state for the result of an Action.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Chame `useActionState` no nível superior do seu componente para criar um estado para o resultado de uma Ação.
 
 ```js [[1, 7, "count"], [2, 7, "dispatchAction"], [3, 7, "isPending"]]
 import { useActionState } from 'react';
@@ -194,38 +140,13 @@ function Counter() {
 }
 ```
 
-<<<<<<< HEAD
-`useActionState` retorna um array com os seguintes itens:
+`useActionState` retorna um array com exatamente três itens:
 
-1. O <CodeStep step={1}>estado atual</CodeStep> do formulário, que é inicialmente definido como o <CodeStep step={4}>estado inicial</CodeStep> que você forneceu e, após o formulário ser enviado, é definido como o valor de retorno da <CodeStep step={3}>ação</CodeStep> que você forneceu.
-2. Uma <CodeStep step={2}>nova ação</CodeStep> que você passa para o `<form>` como sua prop `action` ou chama manualmente dentro de `startTransition`.
-3. Um <CodeStep step={1}>estado pendente</CodeStep> que você pode utilizar enquanto sua ação está processando.
+1. O <CodeStep step={1}>estado atual</CodeStep>, inicialmente definido como o estado inicial que você forneceu.
+2. O <CodeStep step={2}>dispatcher de ação</CodeStep> que permite acionar a `reducerAction`.
+3. Um <CodeStep step={3}>estado pendente</CodeStep> que informa se a Ação está em progresso.
 
-Quando o formulário é enviado, a função <CodeStep step={3}>ação</CodeStep> que você forneceu será chamada. Seu valor de retorno se tornará o novo <CodeStep step={1}>estado atual</CodeStep> do formulário.
-
-A <CodeStep step={3}>ação</CodeStep> que você fornece também receberá um novo primeiro argumento, ou seja, o <CodeStep step={1}>estado atual</CodeStep> do formulário. Na primeira vez que o formulário for enviado, este será o <CodeStep step={4}>estado inicial</CodeStep> que você forneceu, enquanto com envios subsequentes, será o valor de retorno da última vez que a action foi chamada. O restante dos argumentos são os mesmos de se `useActionState` não tivesse sido usado.
-
-```js [[3, 1, "action"], [1, 1, "currentState"]]
-function action(currentState, formData) {
-  // ...
-  return 'next state';
-}
-```
-
-<Recipes titleText="Exibir informações após o envio de um formulário" titleId="display-information-after-submitting-a-form">
-
-#### Exibir erros de formulário {/*display-form-errors*/}
-
-Para exibir mensagens como uma mensagem de erro ou toast que é retornado por uma Server Function, envolva a ação em uma chamada para `useActionState`.
-=======
-`useActionState` returns an array with exactly three items:
-
-1. The <CodeStep step={1}>current state</CodeStep>, initially set to the initial state you provided.
-2. The <CodeStep step={2}>action dispatcher</CodeStep> that lets you trigger `reducerAction`.
-3. A <CodeStep step={3}>pending state</CodeStep> that tells you whether the Action is in progress.
-
-To call `addToCartAction`, call the <CodeStep step={2}>action dispatcher</CodeStep>. React will queue calls to `addToCartAction` with the previous count.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Para chamar `addToCartAction`, chame o <CodeStep step={2}>dispatcher de ação</CodeStep>. O React enfileirará chamadas para `addToCartAction` com o count anterior.
 
 <Sandpack>
 
@@ -338,33 +259,27 @@ button {
 
 Every time you click "Add Ticket," React queues a call to `addToCartAction`. React shows the pending state until all the tickets are added, and then re-renders with the final state.
 
-<<<<<<< HEAD
-#### Exibir informações estruturadas após o envio de um formulário {/*display-structured-information-after-submitting-a-form*/}
-
-O valor de retorno de uma Server Function pode ser qualquer valor serializável. Por exemplo, pode ser um objeto que inclui um booleano indicando se a ação foi bem-sucedida, uma mensagem de erro ou informações atualizadas.
-=======
 <DeepDive>
 
-#### How `useActionState` queuing works {/*how-useactionstate-queuing-works*/}
+#### Como funciona o enfileiramento do `useActionState` {/*how-useactionstate-queuing-works*/}
 
-Try clicking "Add Ticket" multiple times. Every time you click, a new `addToCartAction` is queued. Since there's an artificial 1 second delay, that means 4 clicks will take ~4 seconds to complete.
+Tente clicar em "Add Ticket" várias vezes. Cada vez que você clica, um novo `addToCartAction` é enfileirado. Como há um atraso artificial de 1 segundo, isso significa que 4 cliques levarão ~4 segundos para serem concluídos.
 
-**This is intentional in the design of `useActionState`.**
+**Isso é intencional no design do `useActionState`.**
 
-We have to wait for the previous result of `addToCartAction` in order to pass the `prevCount` to the next call to `addToCartAction`. That means React has to wait for the previous Action to finish before calling the next Action.
+Temos que aguardar o resultado anterior de `addToCartAction` para passar o `prevCount` para a próxima chamada de `addToCartAction`. Isso significa que o React precisa esperar que a Ação anterior termine antes de chamar a próxima Ação.
 
-You can typically solve this by [using with useOptimistic](/reference/react/useActionState#using-with-useoptimistic) but for more complex cases you may want to consider [cancelling queued actions](#cancelling-queued-actions) or not using `useActionState`.
+Você normalmente pode resolver isso [usando com useOptimistic](/reference/react/useActionState#using-with-useoptimistic), mas para casos mais complexos você pode considerar [cancelar ações enfileiradas](#cancelling-queued-actions) ou não usar `useActionState`.
 
 </DeepDive>
 
 ---
 
-### Using multiple Action types {/*using-multiple-action-types*/}
+### Usando múltiplos tipos de Ação {/*using-multiple-action-types*/}
 
-To handle multiple types, you can pass an argument to `dispatchAction`.
+Para lidar com múltiplos tipos, você pode passar um argumento para `dispatchAction`.
 
-By convention, it is common to write it as a switch statement. For each case in the switch, calculate and return some next state. The argument can have any shape, but it is common to pass objects with a `type` property identifying the action.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Por convenção, é comum escrevê-lo como uma instrução switch. Para cada caso no switch, calcule e retorne algum próximo estado. O argumento pode ter qualquer forma, mas é comum passar objetos com uma propriedade `type` identificando a ação.
 
 <Sandpack>
 
@@ -1465,15 +1380,9 @@ In this example, "Add 10" simulates an API that returns a validation error, whic
 
 ## Solução de problemas {/*troubleshooting*/}
 
-<<<<<<< HEAD
-### Minha action não consegue mais ler os dados do formulário enviado {/*my-action-can-no-longer-read-the-submitted-form-data*/}
+### Minha flag `isPending` não está sendo atualizada {/*ispending-not-updating*/}
 
-Quando você envolve uma action com `useActionState`, ela recebe um argumento extra *como seu primeiro argumento*. Os dados do formulário enviado são, portanto, seu *segundo* argumento em vez de seu primeiro, como seria normalmente. O novo primeiro argumento que é adicionado é o estado atual do formulário.
-=======
-### My `isPending` flag is not updating {/*ispending-not-updating*/}
-
-If you're calling `dispatchAction` manually (not through an Action prop), make sure you wrap the call in [`startTransition`](/reference/react/startTransition):
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Se você estiver chamando `dispatchAction` manualmente (não por meio de uma prop de Ação), certifique-se de envolver a chamada em [`startTransition`](/reference/react/startTransition):
 
 ```js
 import { useActionState, startTransition } from 'react';
@@ -1490,26 +1399,23 @@ function MyComponent() {
 
   // ...
 }
-<<<<<<< HEAD
-```
-=======
 ```
 
-When `dispatchAction` is passed to an Action prop, React automatically wraps it in a Transition.
+Quando `dispatchAction` é passado para uma prop de Ação, o React automaticamente o envolve em uma Transition.
 
 ---
 
-### My Action cannot read form data {/*action-cannot-read-form-data*/}
+### Minha Ação não consegue ler os dados do formulário enviado {/*action-cannot-read-form-data*/}
 
-When you use `useActionState`, the `reducerAction` receives an extra argument as its first argument: the previous or initial state. The submitted form data is therefore its second argument instead of its first.
+Quando você usa `useActionState`, a `reducerAction` recebe um argumento extra como seu primeiro argumento: o estado anterior ou inicial. Os dados do formulário enviado são, portanto, seu *segundo* argumento em vez de seu primeiro.
 
 ```js {2,7}
-// Without useActionState
+// Sem useActionState
 function action(formData) {
   const name = formData.get('name');
 }
 
-// With useActionState
+// Com useActionState
 function action(prevState, formData) {
   const name = formData.get('name');
 }
@@ -1517,13 +1423,13 @@ function action(prevState, formData) {
 
 ---
 
-### My actions are being skipped {/*actions-skipped*/}
+### Minhas ações estão sendo ignoradas {/*actions-skipped*/}
 
-If you call `dispatchAction` multiple times and some of them don't run, it may be because an earlier `dispatchAction` call threw an error.
+Se você chamar `dispatchAction` várias vezes e algumas delas não executarem, pode ser porque uma chamada anterior de `dispatchAction` lançou um erro.
 
-When a `reducerAction` throws, React skips all subsequently queued `dispatchAction` calls.
+Quando uma `reducerAction` lança um erro, o React ignora todas as chamadas de `dispatchAction` subsequentemente enfileiradas.
 
-To handle this, catch errors within your `reducerAction` and return an error state instead of throwing:
+Para lidar com isso, capture erros dentro da sua `reducerAction` e retorne um estado de erro em vez de lançar:
 
 ```js
 async function myReducerAction(prevState, data) {
@@ -1531,7 +1437,7 @@ async function myReducerAction(prevState, data) {
     const result = await submitData(data);
     return { success: true, data: result };
   } catch (error) {
-    // ✅ Return error state instead of throwing
+    // ✅ Retorne o estado de erro em vez de lançar
     return { success: false, error: error.message };
   }
 }
@@ -1539,19 +1445,19 @@ async function myReducerAction(prevState, data) {
 
 ---
 
-### My state doesn't reset {/*reset-state*/}
+### Meu estado não é resetado {/*reset-state*/}
 
-`useActionState` doesn't provide a built-in reset function. To reset the state, you can design your `reducerAction` to handle a reset signal:
+`useActionState` não fornece uma função de reset embutida. Para resetar o estado, você pode projetar sua `reducerAction` para lidar com um sinal de reset:
 
 ```js
 const initialState = { name: '', error: null };
 
 async function formAction(prevState, payload) {
-  // Handle reset
+  // Lidar com reset
   if (payload === null) {
     return initialState;
   }
-  // Normal action logic
+  // Lógica normal de ação
   const result = await submitData(payload);
   return result;
 }
@@ -1561,7 +1467,7 @@ function MyComponent() {
 
   function handleReset() {
     startTransition(() => {
-      dispatchAction(null); // Pass null to trigger reset
+      dispatchAction(null); // Passe null para acionar o reset
     });
   }
 
@@ -1569,13 +1475,13 @@ function MyComponent() {
 }
 ```
 
-Alternatively, you can add a `key` prop to the component using `useActionState` to force it to remount with fresh state, or a `<form>` `action` prop, which resets automatically after submission.
+Alternativamente, você pode adicionar uma prop `key` ao componente que usa `useActionState` para forçá-lo a remontar com estado novo, ou uma prop `action` do `<form>`, que é resetada automaticamente após o envio.
 
 ---
 
-### I'm getting an error: "An async function with useActionState was called outside of a transition." {/*async-function-outside-transition*/}
+### Estou recebendo um erro: "An async function with useActionState was called outside of a transition." {/*async-function-outside-transition*/}
 
-A common mistake is to forget to call `dispatchAction` from inside a Transition:
+Um erro comum é esquecer de chamar `dispatchAction` de dentro de uma Transition:
 
 <ConsoleBlockMulti>
 <ConsoleLogLine level="error">
@@ -1586,14 +1492,14 @@ An async function with useActionState was called outside of a transition. This i
 </ConsoleBlockMulti>
 
 
-This error happens because `dispatchAction` must run inside a Transition:
+Este erro ocorre porque `dispatchAction` deve ser executado dentro de uma Transition:
 
 ```js
 function MyComponent() {
   const [state, dispatchAction, isPending] = useActionState(myAsyncAction, null);
 
   function handleClick() {
-    // ❌ Wrong: calling dispatchAction outside a Transition
+    // ❌ Errado: chamando dispatchAction fora de uma Transition
     dispatchAction();
   }
 
@@ -1601,7 +1507,7 @@ function MyComponent() {
 }
 ```
 
-To fix, either wrap the call in [`startTransition`](/reference/react/startTransition):
+Para corrigir, envolva a chamada em [`startTransition`](/reference/react/startTransition):
 
 ```js
 import { useActionState, startTransition } from 'react';
@@ -1610,7 +1516,7 @@ function MyComponent() {
   const [state, dispatchAction, isPending] = useActionState(myAsyncAction, null);
 
   function handleClick() {
-    // ✅ Correct: wrap in startTransition
+    // ✅ Correto: envolva em startTransition
     startTransition(() => {
       dispatchAction();
     });
@@ -1620,22 +1526,22 @@ function MyComponent() {
 }
 ```
 
-Or pass `dispatchAction` to an Action prop, is call in a Transition:
+Ou passe `dispatchAction` para uma prop de Ação, que é chamada em uma Transition:
 
 ```js
 function MyComponent() {
   const [state, dispatchAction, isPending] = useActionState(myAsyncAction, null);
 
-  // ✅ Correct: action prop wraps in a Transition for you
+  // ✅ Correto: a prop action envolve em uma Transition para você
   return <Button action={dispatchAction}>...</Button>;
 }
 ```
 
 ---
 
-### I'm getting an error: "Cannot update action state while rendering" {/*cannot-update-during-render*/}
+### Estou recebendo um erro: "Cannot update action state while rendering" {/*cannot-update-during-render*/}
 
-You cannot call `dispatchAction` during render:
+Você não pode chamar `dispatchAction` durante a renderização:
 
 <ConsoleBlock level="error">
 
@@ -1643,18 +1549,17 @@ Cannot update action state while rendering.
 
 </ConsoleBlock>
 
-This causes an infinite loop because calling `dispatchAction` schedules a state update, which triggers a re-render, which calls `dispatchAction` again.
+Isso causa um loop infinito porque chamar `dispatchAction` agenda uma atualização de estado, que aciona uma re-renderização, que chama `dispatchAction` novamente.
 
 ```js
 function MyComponent() {
   const [state, dispatchAction, isPending] = useActionState(myAction, null);
 
-  // ❌ Wrong: calling dispatchAction during render
+  // ❌ Errado: chamando dispatchAction durante a renderização
   dispatchAction();
 
   // ...
 }
 ```
 
-To fix, only call `dispatchAction` in response to user events (like form submissions or button clicks).
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Para corrigir, chame `dispatchAction` apenas em resposta a eventos do usuário (como envios de formulário ou cliques de botão).

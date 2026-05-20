@@ -20,13 +20,7 @@ const [optimisticState, setOptimistic] = useOptimistic(value, reducer?);
 
 ### `useOptimistic(value, reducer?)` {/*useoptimistic*/}
 
-<<<<<<< HEAD
-`useOptimistic` é um Hook do React que permite que você mostre um estado diferente enquanto uma ação assíncrona está em andamento. Ele aceita algum estado como argumento e retorna uma cópia desse estado que pode ser diferente durante a duração de uma ação assíncrona, como uma requisição de rede. Você fornece uma função que recebe o estado atual e a entrada para a ação, e retorna o estado otimista a ser usado enquanto a ação está pendente.
-
-Este estado é chamado de estado "otimista" porque geralmente é usado para apresentar imediatamente ao usuário o resultado da execução de uma ação, mesmo que a ação realmente leve tempo para ser concluída.
-=======
-Call `useOptimistic` at the top level of your component to create optimistic state for a value.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Chame `useOptimistic` no nível superior do seu componente para criar estado otimista para um valor.
 
 ```js
 import { useOptimistic } from 'react';
@@ -43,30 +37,21 @@ function MyComponent({name, todos}) {
 
 #### Parâmetros {/*parameters*/}
 
-<<<<<<< HEAD
-*   `state`: o valor a ser retornado inicialmente e sempre que nenhuma ação estiver pendente.
-*   `updateFn(currentState, optimisticValue)`: uma função que recebe o estado atual e o valor otimista passado para `addOptimistic` e retorna o estado otimista resultante. Deve ser uma função pura. `updateFn` recebe dois parâmetros, o `currentState` e o `optimisticValue`. O valor de retorno será o valor mesclado do `currentState` e `optimisticValue`.
+* `value`: O valor retornado quando não há Ações pendentes.
+* **opcional** `reducer(currentState, action)`: A função redutora que especifica como o estado otimista é atualizado. Deve ser pura, deve receber o estado atual e os argumentos da ação redutora, e deve retornar o próximo estado otimista.
 
 #### Retorna {/*returns*/}
 
-*   `optimisticState`: O estado otimista resultante. É igual a `state`, a menos que uma ação esteja pendente, caso em que é igual ao valor retornado por `updateFn`.
-*   `addOptimistic`: `addOptimistic` é a função de dispatch para chamar quando você tem uma atualização otimista. Ele recebe um argumento, `optimisticValue`, de qualquer tipo e chamará o `updateFn` com `state` e `optimisticValue`.
-=======
-* `value`: The value returned when there are no pending Actions.
-* **optional** `reducer(currentState, action)`: The reducer function that specifies how the optimistic state gets updated. It must be pure, should take the current state and reducer action arguments, and should return the next optimistic state.
+`useOptimistic` retorna um array com exatamente dois valores:
 
-#### Returns {/*returns*/}
-
-`useOptimistic` returns an array with exactly two values:
-
-1. `optimisticState`: The current optimistic state. It is equal to `value` unless an Action is pending, in which case it is equal to the state returned by `reducer` (or the value passed to the set function if no `reducer` was provided).
-2. The [`set` function](#setoptimistic) that lets you update the optimistic state to a different value inside an Action.
+1. `optimisticState`: O estado otimista atual. É igual a `value` a menos que uma Ação esteja pendente, caso em que é igual ao estado retornado por `reducer` (ou o valor passado para a função `set` se nenhum `reducer` foi fornecido).
+2. A [função `set`](#setoptimistic) que permite atualizar o estado otimista para um valor diferente dentro de uma Ação.
 
 ---
 
-### `set` functions, like `setOptimistic(optimisticState)` {/*setoptimistic*/}
+### Funções `set`, como `setOptimistic(optimisticState)` {/*setoptimistic*/}
 
-The `set` function returned by `useOptimistic` lets you update the state for the duration of an [Action](reference/react/useTransition#functions-called-in-starttransition-are-called-actions). You can pass the next state directly, or a function that calculates it from the previous state:
+A função `set` retornada por `useOptimistic` permite atualizar o estado pela duração de uma [Ação](reference/react/useTransition#functions-called-in-starttransition-are-called-actions). Você pode passar o próximo estado diretamente, ou uma função que o calcula a partir do estado anterior:
 
 ```js
 const [optimisticLike, setOptimisticLike] = useOptimistic(false);
@@ -81,24 +66,24 @@ function handleClick() {
 }
 ```
 
-#### Parameters {/*setoptimistic-parameters*/}
+#### Parâmetros {/*setoptimistic-parameters*/}
 
-* `optimisticState`: The value that you want the optimistic state to be during an [Action](reference/react/useTransition#functions-called-in-starttransition-are-called-actions). If you provided a `reducer` to `useOptimistic`, this value will be passed as the second argument to your reducer. It can be a value of any type.
-    * If you pass a function as `optimisticState`, it will be treated as an _updater function_. It must be pure, should take the pending state as its only argument, and should return the next optimistic state. React will put your updater function in a queue and re-render your component. During the next render, React will calculate the next state by applying the queued updaters to the previous state similar to [`useState` updaters](/reference/react/useState#setstate-parameters).
+* `optimisticState`: O valor que você quer que o estado otimista tenha durante uma [Ação](reference/react/useTransition#functions-called-in-starttransition-are-called-actions). Se você forneceu um `reducer` para `useOptimistic`, esse valor será passado como segundo argumento para o seu reducer. Pode ser um valor de qualquer tipo.
+    * Se você passar uma função como `optimisticState`, ela será tratada como uma _função atualizadora_. Deve ser pura, deve receber o estado pendente como único argumento, e deve retornar o próximo estado otimista. O React colocará sua função atualizadora em uma fila e re-renderizará o seu componente. Durante a próxima renderização, o React calculará o próximo estado aplicando os atualizadores enfileirados ao estado anterior, de forma similar aos [atualizadores do `useState`](/reference/react/useState#setstate-parameters).
 
-#### Returns {/*setoptimistic-returns*/}
+#### Retorna {/*setoptimistic-returns*/}
 
-`set` functions do not have a return value.
+As funções `set` não têm valor de retorno.
 
-#### Caveats {/*setoptimistic-caveats*/}
+#### Ressalvas {/*setoptimistic-caveats*/}
 
-* The `set` function must be called inside an [Action](reference/react/useTransition#functions-called-in-starttransition-are-called-actions). If you call the setter outside an Action, [React will show a warning](#an-optimistic-state-update-occurred-outside-a-transition-or-action) and the optimistic state will briefly render.
+* A função `set` deve ser chamada dentro de uma [Ação](reference/react/useTransition#functions-called-in-starttransition-are-called-actions). Se você chamar o setter fora de uma Ação, [o React mostrará um aviso](#an-optimistic-state-update-occurred-outside-a-transition-or-action) e o estado otimista será renderizado brevemente.
 
 <DeepDive>
 
-#### How optimistic state works {/*how-optimistic-state-works*/}
+#### Como o estado otimista funciona {/*how-optimistic-state-works*/}
 
-`useOptimistic` lets you show a temporary value while an Action is in progress:
+`useOptimistic` permite mostrar um valor temporário enquanto uma Ação está em andamento:
 
 ```js
 const [value, setValue] = useState('a');
@@ -111,68 +96,57 @@ startTransition(async () => {
 });
 ```
 
-When the setter is called inside an Action, `useOptimistic` will trigger a re-render to show that state while the Action is in progress. Otherwise, the `value` passed to `useOptimistic` is returned.
+Quando o setter é chamado dentro de uma Ação, `useOptimistic` acionará uma re-renderização para mostrar esse estado enquanto a Ação está em andamento. Caso contrário, o `value` passado para `useOptimistic` é retornado.
 
-This state is called the "optimistic" because it is used to immediately present the user with the result of performing an Action, even though the Action actually takes time to complete.
+Esse estado é chamado de "otimista" porque é usado para apresentar imediatamente ao usuário o resultado da execução de uma Ação, mesmo que a Ação leve tempo para ser concluída.
 
-**How the update flows**
+**Como a atualização flui**
 
-1. **Update immediately**: When `setOptimistic('b')` is called, React immediately renders with `'b'`.
+1. **Atualização imediata**: Quando `setOptimistic('b')` é chamado, o React renderiza imediatamente com `'b'`.
 
-2. **(Optional) await in Action**: If you await in the Action, React continues showing `'b'`.
+2. **(Opcional) await na Ação**: Se você usar await na Ação, o React continua mostrando `'b'`.
 
-3. **Transition scheduled**: `setValue(newValue)` schedules an update to the real state.
+3. **Transição agendada**: `setValue(newValue)` agenda uma atualização para o estado real.
 
-4. **(Optional) wait for Suspense**: If `newValue` suspends, React continues showing `'b'`.
+4. **(Opcional) aguardar o Suspense**: Se `newValue` suspender, o React continua mostrando `'b'`.
 
-5. **Single render commit**: Finally, the `newValue` commits for `value` and `optimistic`.
+5. **Commit de renderização única**: Finalmente, o `newValue` é commitado para `value` e `optimistic`.
 
-There's no extra render to "clear" the optimistic state. The optimistic and real state converge in the same render when the Transition completes.
+Não há uma renderização extra para "limpar" o estado otimista. O estado otimista e o real convergem na mesma renderização quando a Transição é concluída.
 
 <Note>
 
-#### Optimistic state is temporary {/*optimistic-state-is-temporary*/}
+#### O estado otimista é temporário {/*optimistic-state-is-temporary*/}
 
-Optimistic state only renders while an Action is in progress, otherwise `value` is rendered.
+O estado otimista só é renderizado enquanto uma Ação está em andamento; caso contrário, `value` é renderizado.
 
-If `saveChanges` returned `'c'`, then both `value` and `optimistic` will be `'c'`, not `'b'`.
+Se `saveChanges` retornou `'c'`, então tanto `value` quanto `optimistic` serão `'c'`, não `'b'`.
 
 </Note>
 
-**How the final state is determined**
+**Como o estado final é determinado**
 
-The `value` argument to `useOptimistic` determines what displays after the Action finishes. How this works depends on the pattern you use:
+O argumento `value` para `useOptimistic` determina o que é exibido após a Ação terminar. Como isso funciona depende do padrão que você usa:
 
-- **Hardcoded values** like `useOptimistic(false)`: After the Action, `state` is still `false`, so the UI shows `false`. This is useful for pending states where you always start from `false`.
+- **Valores fixos** como `useOptimistic(false)`: Após a Ação, `state` ainda é `false`, então a UI mostra `false`. Isso é útil para estados pendentes onde você sempre começa de `false`.
 
-- **Props or state passed in** like `useOptimistic(isLiked)`: If the parent updates `isLiked` during the Action, the new value is used after the Action completes. This is how the UI reflects the result of the Action.
+- **Props ou state passados** como `useOptimistic(isLiked)`: Se o pai atualizar `isLiked` durante a Ação, o novo valor será usado após a Ação ser concluída. É assim que a UI reflete o resultado da Ação.
 
-- **Reducer pattern** like `useOptimistic(items, fn)`: If `items` changes while the Action is pending, React re-runs your `reducer` with the new `items` to recalculate the state. This keeps your optimistic additions on top of the latest data.
+- **Padrão redutor** como `useOptimistic(items, fn)`: Se `items` mudar enquanto a Ação está pendente, o React re-executará seu `reducer` com os novos `items` para recalcular o estado. Isso mantém suas adições otimistas sobre os dados mais recentes.
 
-**What happens when the Action fails**
+**O que acontece quando a Ação falha**
 
-If the Action throws an error, the Transition still ends, and React renders with whatever `value` currently is. Since the parent typically only updates `value` on success, a failure means `value` hasn't changed, so the UI shows what it showed before the optimistic update. You can catch the error to show a message to the user.
+Se a Ação lança um erro, a Transição ainda termina, e o React renderiza com qualquer `value` que esteja atualmente. Como o pai normalmente só atualiza `value` em caso de sucesso, uma falha significa que `value` não mudou, então a UI mostra o que mostrava antes da atualização otimista. Você pode capturar o erro para mostrar uma mensagem ao usuário.
 
 </DeepDive>
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 ---
 
 ## Uso {/*usage*/}
 
-<<<<<<< HEAD
-### Atualizando formulários de forma otimista {/*optimistically-updating-with-forms*/}
+### Adicionando estado otimista a um componente {/*adding-optimistic-state-to-a-component*/}
 
-O Hook `useOptimistic` fornece uma maneira de atualizar a interface do usuário de forma otimista antes que uma operação em segundo plano, como uma requisição de rede, seja concluída. No contexto de formulários, essa técnica ajuda a tornar os aplicativos mais responsivos. Quando um usuário envia um formulário, em vez de esperar pela resposta do servidor para refletir as alterações, a interface é imediatamente atualizada com o resultado esperado.
-
-Por exemplo, quando um usuário digita uma mensagem no formulário e aperta o botão "Enviar", o Hook `useOptimistic` permite que a mensagem apareça imediatamente na lista com um rótulo "Enviando...", mesmo antes que a mensagem seja realmente enviada a um servidor. Essa abordagem "otimista" dá a impressão de velocidade e responsividade. O formulário tenta então enviar a mensagem de verdade em segundo plano. Depois que o servidor confirma que a mensagem foi recebida, o rótulo "Enviando..." é removido.
-
-<Sandpack>
-
-=======
-### Adding optimistic state to a component {/*adding-optimistic-state-to-a-component*/}
-
-Call `useOptimistic` at the top level of your component to declare one or more optimistic states.
+Chame `useOptimistic` no nível superior do seu componente para declarar um ou mais estados otimistas.
 
 ```js [[1, 4, "age"], [1, 5, "name"], [1, 6, "todos"], [2, 4, "optimisticAge"], [2, 5, "optimisticName"], [2, 6, "optimisticTodos"], [3, 4, "setOptimisticAge"], [3, 5, "setOptimisticName"], [3, 6, "setOptimisticTodos"], [4, 6, "reducer"]]
 import { useOptimistic } from 'react';
@@ -184,15 +158,15 @@ function MyComponent({age, name, todos}) {
   // ...
 ```
 
-`useOptimistic` returns an array with exactly two items:
+`useOptimistic` retorna um array com exatamente dois itens:
 
-1. The <CodeStep step={2}>optimistic state</CodeStep>, initially set to the <CodeStep step={1}>value</CodeStep> provided.
-2. The <CodeStep step={3}>set function</CodeStep> that lets you temporarily change the state during an [Action](reference/react/useTransition#functions-called-in-starttransition-are-called-actions).
-   * If a <CodeStep step={4}>reducer</CodeStep> is provided, it will run before returning the optimistic state.
+1. O <CodeStep step={2}>estado otimista</CodeStep>, inicialmente definido como o <CodeStep step={1}>value</CodeStep> fornecido.
+2. A <CodeStep step={3}>função set</CodeStep> que permite alterar temporariamente o estado durante uma [Ação](reference/react/useTransition#functions-called-in-starttransition-are-called-actions).
+   * Se um <CodeStep step={4}>reducer</CodeStep> for fornecido, ele será executado antes de retornar o estado otimista.
 
-To use the <CodeStep step={2}>optimistic state</CodeStep>, call the `set` function inside an Action.
+Para usar o <CodeStep step={2}>estado otimista</CodeStep>, chame a função `set` dentro de uma Ação.
 
-Actions are functions called inside `startTransition`:
+Ações são funções chamadas dentro de `startTransition`:
 
 ```js {3}
 function onAgeChange(e) {
@@ -204,13 +178,13 @@ function onAgeChange(e) {
 }
 ```
 
-React will render the optimistic state `42` first while the `age` remains the current age. The Action waits for POST, and then renders the `newAge` for both `age` and `optimisticAge`.
+O React renderizará o estado otimista `42` primeiro enquanto `age` permanece a idade atual. A Ação aguarda o POST e então renderiza o `newAge` para `age` e `optimisticAge`.
 
-See [How optimistic state works](#how-optimistic-state-works) for a deep dive.
+Veja [Como o estado otimista funciona](#how-optimistic-state-works) para uma análise detalhada.
 
 <Note>
 
-When using [Action props](/reference/react/useTransition#exposing-action-props-from-components), you can call the set function without `startTransition`:
+Ao usar [props de Ação](/reference/react/useTransition#exposing-action-props-from-components), você pode chamar a função set sem `startTransition`:
 
 ```js [[3, 2, "setOptimisticName"]]
 async function submitAction() {
@@ -219,19 +193,19 @@ async function submitAction() {
 }
 ```
 
-This works because Action props are already called inside `startTransition`.
+Isso funciona porque props de Ação já são chamadas dentro de `startTransition`.
 
-For an example, see: [Using optimistic state in Action props](#using-optimistic-state-in-action-props).
+Para um exemplo, veja: [Usando estado otimista em props de Ação](#using-optimistic-state-in-action-props).
 
 </Note>
 
 ---
 
-### Using optimistic state in Action props {/*using-optimistic-state-in-action-props*/}
+### Usando estado otimista em props de Ação {/*using-optimistic-state-in-action-props*/}
 
-In an [Action prop](/reference/react/useTransition#exposing-action-props-from-components), you can call the optimistic setter directly without `startTransition`.
+Em uma [prop de Ação](/reference/react/useTransition#exposing-action-props-from-components), você pode chamar o setter otimista diretamente sem `startTransition`.
 
-This example sets optimistic state inside a `<form>` `submitAction` prop:
+Este exemplo define estado otimista dentro de uma prop `submitAction` de `<form>`:
 
 <Sandpack>
 
@@ -288,31 +262,30 @@ export async function updateName(name) {
 
 </Sandpack>
 
-In this example, when the user submits the form, the `optimisticName` updates immediately to show the `newName` optimistically while the server request is in progress. When the request completes, `name` and `optimisticName` are rendered with the actual `updatedName` from the response.
+Neste exemplo, quando o usuário envia o formulário, `optimisticName` é atualizado imediatamente para mostrar o `newName` de forma otimista enquanto a requisição ao servidor está em andamento. Quando a requisição é concluída, `name` e `optimisticName` são renderizados com o `updatedName` real da resposta.
 
 <DeepDive>
 
-#### Why doesn't this need `startTransition`? {/*why-doesnt-this-need-starttransition*/}
+#### Por que isso não precisa de `startTransition`? {/*why-doesnt-this-need-starttransition*/}
 
-By convention, props called inside `startTransition` are named with "Action".
+Por convenção, props chamadas dentro de `startTransition` são nomeadas com "Action".
 
-Since `submitAction` is named with "Action", you know it's already called inside `startTransition`.
+Como `submitAction` é nomeada com "Action", você sabe que já é chamada dentro de `startTransition`.
 
-See [Exposing `action` prop from components](/reference/react/useTransition#exposing-action-props-from-components) for the Action prop pattern.
+Veja [Expondo a prop `action` de componentes](/reference/react/useTransition#exposing-action-props-from-components) para o padrão de prop de Ação.
 
 </DeepDive>
 
 ---
 
-### Adding optimistic state to Action props {/*adding-optimistic-state-to-action-props*/}
+### Adicionando estado otimista a props de Ação {/*adding-optimistic-state-to-action-props*/}
 
-When creating an [Action prop](/reference/react/useTransition#exposing-action-props-from-components), you can add `useOptimistic` to show immediate feedback.
+Ao criar uma [prop de Ação](/reference/react/useTransition#exposing-action-props-from-components), você pode adicionar `useOptimistic` para mostrar feedback imediato.
 
-Here's a button that shows "Submitting..." while the `action` is pending:
+Aqui está um botão que mostra "Enviando..." enquanto a `action` está pendente:
 
 <Sandpack>
 
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 ```js src/App.js
 import { useState, startTransition } from 'react';
 import Button from './Button';
@@ -669,26 +642,23 @@ export async function addTodo(todo) {
 }
 ```
 
-<<<<<<< HEAD
-</Sandpack>
-=======
 </Sandpack>
 
-The `reducer` receives the current list of todos and the new todo to add. This is important because if the `todos` prop changes while your add is pending (for example, another user added a todo), React will update your optimistic state by re-running the reducer with the updated list. This ensures your new todo is added to the latest list, not an outdated copy.
+O `reducer` recebe a lista atual de todos e o novo todo a adicionar. Isso é importante porque se a prop `todos` mudar enquanto sua adição está pendente (por exemplo, outro usuário adicionou um todo), o React atualizará seu estado otimista re-executando o reducer com a lista atualizada. Isso garante que seu novo todo seja adicionado à lista mais recente, não a uma cópia desatualizada.
 
 <Note>
 
-Each optimistic item includes a `pending: true` flag so you can show loading state for individual items. When the server responds and the parent updates the canonical `todos` list with the saved item, the optimistic state updates to the confirmed item without the pending flag.
+Cada item otimista inclui uma flag `pending: true` para que você possa mostrar o estado de carregamento para itens individuais. Quando o servidor responde e o pai atualiza a lista canônica `todos` com o item salvo, o estado otimista é atualizado para o item confirmado sem a flag pendente.
 
 </Note>
 
 ---
 
-### Handling multiple `action` types {/*handling-multiple-action-types*/}
+### Tratando múltiplos tipos de `action` {/*handling-multiple-action-types*/}
 
-When you need to handle multiple types of optimistic updates (like adding and removing items), use a reducer pattern with `action` objects.
+Quando você precisa tratar múltiplos tipos de atualizações otimistas (como adicionar e remover itens), use um padrão redutor com objetos `action`.
 
-This shopping cart example shows how to handle add and remove with a single reducer:
+Este exemplo de carrinho de compras mostra como tratar adição e remoção com um único reducer:
 
 <Sandpack>
 
@@ -852,15 +822,15 @@ export async function updateQuantity(id, quantity) {
 
 </Sandpack>
 
-The reducer handles three `action` types (`add`, `remove`, `update_quantity`) and returns the new optimistic state for each. Each `action` sets a `pending: true` flag so you can show visual feedback while the [Server Function](/reference/rsc/server-functions) runs.
+O reducer trata três tipos de `action` (`add`, `remove`, `update_quantity`) e retorna o novo estado otimista para cada um. Cada `action` define uma flag `pending: true` para que você possa mostrar feedback visual enquanto a [Função do Servidor](/reference/rsc/server-functions) é executada.
 
 ---
 
-### Optimistic delete with error recovery {/*optimistic-delete-with-error-recovery*/}
+### Exclusão otimista com recuperação de erros {/*optimistic-delete-with-error-recovery*/}
 
-When deleting items optimistically, you should handle the case where the Action fails.
+Ao excluir itens de forma otimista, você deve tratar o caso em que a Ação falha.
 
-This example shows how to display an error message when a delete fails, and the UI automatically rolls back to show the item again.
+Este exemplo mostra como exibir uma mensagem de erro quando uma exclusão falha, e a UI reverte automaticamente para mostrar o item novamente.
 
 <Sandpack>
 
@@ -960,15 +930,15 @@ export async function deleteItem(id) {
 
 </Sandpack>
 
-Try deleting 'Deploy to production'. When the delete fails, the item automatically reappears in the list.
+Tente excluir 'Deploy to production'. Quando a exclusão falha, o item reaparece automaticamente na lista.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-### I'm getting an error: "An optimistic state update occurred outside a Transition or Action" {/*an-optimistic-state-update-occurred-outside-a-transition-or-action*/}
+### Estou recebendo um erro: "An optimistic state update occurred outside a Transition or Action" {/*an-optimistic-state-update-occurred-outside-a-transition-or-action*/}
 
-You may see this error:
+Você pode ver este erro:
 
 <ConsoleBlockMulti>
 
@@ -980,16 +950,16 @@ An optimistic state update occurred outside a Transition or Action. To fix, move
 
 </ConsoleBlockMulti>
 
-The optimistic setter function must be called inside `startTransition`:
+A função setter otimista deve ser chamada dentro de `startTransition`:
 
 ```js
-// 🚩 Incorrect: outside a Transition
+// 🚩 Incorreto: fora de uma Transição
 function handleClick() {
-  setOptimistic(newValue);  // Warning!
+  setOptimistic(newValue);  // Aviso!
   // ...
 }
 
-// ✅ Correct: inside a Transition
+// ✅ Correto: dentro de uma Transição
 function handleClick() {
   startTransition(async () => {
     setOptimistic(newValue);
@@ -997,18 +967,18 @@ function handleClick() {
   });
 }
 
-// ✅ Also correct: inside an Action prop
+// ✅ Também correto: dentro de uma prop de Ação
 function submitAction(formData) {
   setOptimistic(newValue);
   // ...
 }
 ```
 
-When you call the setter outside an Action, the optimistic state will briefly appear and then immediately revert back to the original value. This happens because there's no Transition to "hold" the optimistic state while your Action runs.
+Quando você chama o setter fora de uma Ação, o estado otimista aparecerá brevemente e depois reverterá imediatamente para o valor original. Isso acontece porque não há Transição para "manter" o estado otimista enquanto sua Ação é executada.
 
-### I'm getting an error: "Cannot update optimistic state while rendering" {/*cannot-update-optimistic-state-while-rendering*/}
+### Estou recebendo um erro: "Cannot update optimistic state while rendering" {/*cannot-update-optimistic-state-while-rendering*/}
 
-You may see this error:
+Você pode ver este erro:
 
 <ConsoleBlockMulti>
 
@@ -1020,20 +990,20 @@ Cannot update optimistic state while rendering.
 
 </ConsoleBlockMulti>
 
-This error occurs when you call the optimistic setter during the render phase of a component. You can only call it from event handlers, effects, or other callbacks:
+Este erro ocorre quando você chama o setter otimista durante a fase de renderização de um componente. Você só pode chamá-lo a partir de manipuladores de eventos, efeitos ou outros callbacks:
 
 ```js
-// 🚩 Incorrect: calling during render
+// 🚩 Incorreto: chamando durante a renderização
 function MyComponent({ items }) {
   const [isPending, setPending] = useOptimistic(false);
 
-  // This runs during render - not allowed!
+  // Isso é executado durante a renderização - não permitido!
   setPending(true);
 
   // ...
 }
 
-// ✅ Correct: calling inside startTransition
+// ✅ Correto: chamando dentro de startTransition
 function MyComponent({ items }) {
   const [isPending, setPending] = useOptimistic(false);
 
@@ -1047,7 +1017,7 @@ function MyComponent({ items }) {
   // ...
 }
 
-// ✅ Also correct: calling from an Action
+// ✅ Também correto: chamando a partir de uma Ação
 function MyComponent({ items }) {
   const [isPending, setPending] = useOptimistic(false);
 
@@ -1060,36 +1030,36 @@ function MyComponent({ items }) {
 }
 ```
 
-### My optimistic updates show stale values {/*my-optimistic-updates-show-stale-values*/}
+### Minhas atualizações otimistas mostram valores desatualizados {/*my-optimistic-updates-show-stale-values*/}
 
-If your optimistic state seems to be based on old data, consider using an updater function or reducer to calculate the optimistic state relative to the current state.
+Se o seu estado otimista parece estar baseado em dados antigos, considere usar uma função atualizadora ou reducer para calcular o estado otimista relativo ao estado atual.
 
 ```js
-// May show stale data if state changes during Action
+// Pode mostrar dados desatualizados se o estado mudar durante a Ação
 const [optimistic, setOptimistic] = useOptimistic(count);
-setOptimistic(5);  // Always sets to 5, even if count changed
+setOptimistic(5);  // Sempre define como 5, mesmo se count mudou
 
-// Better: relative updates handle state changes correctly
+// Melhor: atualizações relativas tratam mudanças de estado corretamente
 const [optimistic, adjust] = useOptimistic(count, (current, delta) => current + delta);
-adjust(1);  // Always adds 1 to whatever the current count is
+adjust(1);  // Sempre adiciona 1 ao count atual
 ```
 
-See [Updating state based on the current state](#updating-state-based-on-current-state) for details.
+Veja [Atualizando o estado com base no estado atual](#updating-state-based-on-current-state) para detalhes.
 
-### I don't know if my optimistic update is pending {/*i-dont-know-if-my-optimistic-update-is-pending*/}
+### Não sei se minha atualização otimista está pendente {/*i-dont-know-if-my-optimistic-update-is-pending*/}
 
-To know when `useOptimistic` is pending, you have three options:
+Para saber quando `useOptimistic` está pendente, você tem três opções:
 
-1. **Check if `optimisticValue === value`**
+1. **Verifique se `optimisticValue === value`**
 
 ```js
 const [optimistic, setOptimistic] = useOptimistic(value);
 const isPending = optimistic !== value;
 ```
 
-If the values are not equal, there's a Transition in progress.
+Se os valores não forem iguais, há uma Transição em andamento.
 
-2. **Add a `useTransition`**
+2. **Adicione um `useTransition`**
 
 ```js
 const [isPending, startTransition] = useTransition();
@@ -1101,9 +1071,9 @@ startTransition(() => {
 })
 ```
 
-Since `useTransition` uses `useOptimistic` for `isPending` under the hood, this is equivalent to option 1.
+Como `useTransition` usa `useOptimistic` para `isPending` internamente, isso é equivalente à opção 1.
 
-3. **Add a `pending` flag in your reducer**
+3. **Adicione uma flag `pending` no seu reducer**
 
 ```js
 const [optimistic, addOptimistic] = useOptimistic(
@@ -1112,5 +1082,4 @@ const [optimistic, addOptimistic] = useOptimistic(
 );
 ```
 
-Since each optimistic item has its own flag, you can show loading state for individual items.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Como cada item otimista tem sua própria flag, você pode mostrar o estado de carregamento para itens individuais.

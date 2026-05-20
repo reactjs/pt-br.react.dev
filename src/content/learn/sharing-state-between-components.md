@@ -323,11 +323,7 @@ Para ver como isso funciona na prática com mais alguns componentes, leia [Pensa
 
 #### Entradas sincronizadas {/*synced-inputs*/}
 
-<<<<<<< HEAD
 Essas duas entradas são independentes. Faça com que elas fiquem sincronizadas: a edição de uma entrada deve atualizar a outra entrada com o mesmo texto e vice-versa.
-=======
-These two inputs are independent. Make them stay in sync: editing one input should update the other input with the same text, and vice versa.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <Hint>
 

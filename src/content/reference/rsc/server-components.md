@@ -2,15 +2,6 @@
 title: Componentes de Servidor
 ---
 
-<<<<<<< HEAD
-<RSC>
-
-Componentes de Servidor são para uso em [Componentes do Servidor React](/learn/start-a-new-react-project#full-stack-frameworks).
-
-</RSC>
-
-=======
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 <Intro>
 
 Componentes de Servidor são um novo tipo de Componente que renderiza com antecedência, antes do bundling, em um ambiente separado do seu aplicativo cliente ou servidor SSR.

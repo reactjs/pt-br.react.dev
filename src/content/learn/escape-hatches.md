@@ -232,11 +232,7 @@ function Form() {
 }
 ```
 
-<<<<<<< HEAD
 Entretanto, você *precisa* de Effects para sincronizar com sistemas externos.
-=======
-However, you *do* need Effects to synchronize with external systems.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <LearnMore path="/learn/you-might-not-need-an-effect">
 
@@ -323,17 +319,7 @@ Leia **[Ciclo de vida de Effects reativos](/learn/lifecycle-of-reactive-effects)
 
 ## Separando eventos de Effects {/*separating-events-from-effects*/}
 
-<<<<<<< HEAD
-<Wip>
-
-Essa seção descreve uma **API experimental que ainda não foi lançada** em uma versão estável do React.
-
-</Wip>
-
-_Handlers_ de eventos só são executados novamente caso uma interação ocorra de novo. Diferentemente de _handlers_ de eventos, Effects resincronizam se qualquer valor lido por eles, como props ou estado, mudarem desde a última renderização. Às vezes, você deseja uma mistura dos dois comportamentos: um Effect que é executado novamente em resposta a alguns valores, mas não a outros.
-=======
-Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if any of the values they read, like props or state, are different than during last render. Sometimes, you want a mix of both behaviors: an Effect that re-runs in response to some values but not others.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+_Handlers_ de eventos só são executados novamente caso uma interação ocorra de novo. Diferentemente de _handlers_ de eventos, Effects resincronizam se qualquer valor lido por eles, como props ou estado, forem diferentes desde a última renderização. Às vezes, você deseja uma mistura dos dois comportamentos: um Effect que é executado novamente em resposta a alguns valores, mas não a outros.
 
 Todo código dentro de Effects é *reativo*. Ele será executado novamente se algum valor reativo lido por ele se alterar por causa de uma rerrenderização. Por exemplo, esse Effect irá reconectar ao chat se `roomId` ou `theme` tiverem mudado.
 

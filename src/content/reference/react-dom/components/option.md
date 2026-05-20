@@ -80,7 +80,4 @@ select { margin: 5px; }
 ```
 
 </Sandpack>
-<<<<<<< HEAD
-=======
 
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb

@@ -32,31 +32,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -94,31 +80,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -160,31 +132,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -278,31 +236,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -346,31 +290,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -441,31 +371,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -501,31 +417,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -572,31 +474,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -624,31 +512,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Traje espacial"
         />
-        <Item 
-          isPacked={true} 
+        <Item
+          isPacked={true}
           name="Capacete com folha dourada"
-        />
-        <Item 
-          isPacked={false} 
-          name="Foto de Tam"
-=======
-        <Item
-          isPacked={true}
-          name="Space suit"
-        />
-        <Item
-          isPacked={true}
-          name="Helmet with a golden leaf"
         />
         <Item
           isPacked={false}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -686,31 +560,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          importance={9} 
-          name="Traje espacial"
-        />
-        <Item 
-          importance={0} 
-          name="Capacete com folha dourada"
-        />
-        <Item 
-          importance={6} 
-          name="Foto de Tam"
-=======
         <Item
           importance={9}
-          name="Space suit"
+          name="Traje espacial"
         />
         <Item
           importance={0}
-          name="Helmet with a golden leaf"
+          name="Capacete com folha dourada"
         />
         <Item
           importance={6}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>
@@ -744,31 +604,17 @@ export default function PackingList() {
     <section>
       <h1>Packing List de Sally Ride</h1>
       <ul>
-<<<<<<< HEAD
-        <Item 
-          importance={9} 
-          name="Traje espacial"
-        />
-        <Item 
-          importance={0} 
-          name="Capacete com folha dourada"
-        />
-        <Item 
-          importance={6} 
-          name="Foto de Tam"
-=======
         <Item
           importance={9}
-          name="Space suit"
+          name="Traje espacial"
         />
         <Item
           importance={0}
-          name="Helmet with a golden leaf"
+          name="Capacete com folha dourada"
         />
         <Item
           importance={6}
-          name="Photo of Tam"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+          name="Foto de Tam"
         />
       </ul>
     </section>

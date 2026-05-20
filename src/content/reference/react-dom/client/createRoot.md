@@ -113,11 +113,7 @@ Um app totalmente construído com React geralmente não terá nenhuma chamada pa
 
 Isso é útil principalmente se o nó DOM da sua root React (ou qualquer um de seus ancestrais) puder ser removido do DOM por algum outro código. Por exemplo, imagine um painel de abas jQuery que remove abas inativas do DOM. Se uma aba for removida, tudo dentro dela (incluindo as roots React dentro) também seria removido do DOM. Nesse caso, você precisa dizer ao React para "parar" de gerenciar o conteúdo da root removida chamando `root.unmount`. Caso contrário, os componentes dentro da root removida não saberão como limpar e liberar recursos globais, como assinaturas.
 
-<<<<<<< HEAD
 Chamar `root.unmount` desmontará todos os componentes na root e "desanexará" o React do nó DOM root, incluindo a remoção de quaisquer manipuladores de eventos ou estado na árvore.
-=======
-Calling `root.unmount` will unmount all the components in the root and "detach" React from the root DOM node, including removing any event handlers or state in the tree.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 
 #### Parâmetros {/*root-unmount-parameters*/}
@@ -201,11 +197,7 @@ function Counter() {
 
 </Sandpack>
 
-<<<<<<< HEAD
 **Se seu app for totalmente construído com React, você não deverá precisar criar mais nenhuma root ou chamar [`root.render`](#root-render) novamente.**
-=======
-**If your app is fully built with React, you shouldn't need to create any more roots, or to call [`root.render`](#root-render) again.**
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 A partir deste ponto, o React irá gerenciar o DOM de todo o seu app. Para adicionar mais componentes, [aninhá-los dentro do componente `App`.](/learn/importing-and-exporting-components) Quando você precisar atualizar a UI, cada um de seus componentes pode fazer isso [usando o state.](/reference/react/useState) Quando você precisar exibir conteúdo extra, como um modal ou uma dica de ferramenta (tooltip) fora do nó DOM, [renderize-o com um portal.](/reference/react-dom/createPortal)
 
@@ -217,11 +209,7 @@ Quando seu HTML estiver vazio, o usuário verá uma página em branco até que o
 <div id="root"></div>
 ```
 
-<<<<<<< HEAD
-Isso pode parecer muito lento! Para resolver isso, você pode gerar o HTML inicial a partir de seus componentes [no servidor ou durante a build.](/reference/react-dom/server) Então seus visitantes podem ler texto, ver imagens e clicar em links antes que qualquer código JavaScript seja carregado. Recomendamos [usar um framework](/learn/start-a-new-react-project#full-stack-frameworks) que faça essa otimização imediatamente. Dependendo de quando ele é executado, isso é chamado de *server-side rendering (SSR)* ou *static site generation (SSG).*
-=======
-This can feel very slow! To solve this, you can generate the initial HTML from your components [on the server or during the build.](/reference/react-dom/server) Then your visitors can read text, see images, and click links before any of the JavaScript code loads. We recommend [using a framework](/learn/creating-a-react-app#full-stack-frameworks) that does this optimization out of the box. Depending on when it runs, this is called *server-side rendering (SSR)* or *static site generation (SSG).*
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Isso pode parecer muito lento! Para resolver isso, você pode gerar o HTML inicial a partir de seus componentes [no servidor ou durante a build.](/reference/react-dom/server) Então seus visitantes podem ler texto, ver imagens e clicar em links antes que qualquer código JavaScript seja carregado. Recomendamos [usar um framework](/learn/creating-a-react-app#full-stack-frameworks) que faça essa otimização imediatamente. Dependendo de quando ele é executado, isso é chamado de *server-side rendering (SSR)* ou *static site generation (SSG).*
 
 </Note>
 
@@ -519,13 +507,8 @@ Para corrigir, passe as opções de raiz para `createRoot(...)`, não `root.rend
 // 🚩 Errado: root.render aceita apenas um argumento.
 root.render(App, {onUncaughtError});
 
-<<<<<<< HEAD
 // ✅ Correto: passe opções para createRoot.
-const root = createRoot(container, {onUncaughtError}); 
-=======
-// ✅ Correct: pass options to createRoot.
 const root = createRoot(container, {onUncaughtError});
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 root.render(<App />);
 ```
 

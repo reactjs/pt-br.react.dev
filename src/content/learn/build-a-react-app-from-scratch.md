@@ -12,11 +12,7 @@ Se sua aplicação tem restrições que não são bem atendidas pelos frameworks
 
 #### Considere usar um framework {/*consider-using-a-framework*/}
 
-<<<<<<< HEAD
 Começar do zero é uma maneira fácil de começar a usar React, mas um compromisso importante a ter em mente é que seguir este caminho é muitas vezes o mesmo que construir seu próprio framework ad hoc. À medida que seus requisitos evoluem, você pode precisar resolver mais problemas semelhantes a frameworks para os quais nossos frameworks recomendados já têm soluções bem desenvolvidas e suportadas.
-=======
-Starting from scratch is an easy way to get started using React, but a major tradeoff to be aware of is that going this route is often the same as building your own adhoc framework. As your requirements evolve, you may need to solve more framework-like problems that our recommended frameworks already have well developed and supported solutions for.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Por exemplo, se no futuro sua aplicação precisar de suporte para renderização do lado do servidor (SSR), geração de site estático (SSG), e/ou React Server Components (RSC), você terá que implementá-los por conta própria. Da mesma forma, futuras funcionalidades do React que requerem integração no nível do framework terão que ser implementadas por você se quiser usá-las.
 
@@ -134,22 +130,12 @@ Como a ferramenta de build que você seleciona só suporta aplicações de pági
 
 * **React Server Components (RSC)** permite misturar componentes de build-time, apenas do servidor, e interativos em uma única árvore React. RSC pode melhorar a performance, mas atualmente requer expertise profunda para configurar e manter. Veja os [exemplos RSC do Parcel](https://github.com/parcel-bundler/rsc-examples).
 
-<<<<<<< HEAD
 Suas estratégias de renderização precisam se integrar com seu roteador para que aplicações construídas com seu framework possam escolher a estratégia de renderização no nível de rota. Isso permitirá diferentes estratégias de renderização sem ter que reescrever toda a sua aplicação. Por exemplo, a página de destino da sua aplicação pode se beneficiar de ser gerada estaticamente (SSG), enquanto uma página com um feed de conteúdo pode ter melhor performance com renderização do lado do servidor.
-=======
-Your rendering strategies need to integrate with your router so apps built with your framework can choose the rendering strategy on a per-route level. This will enable different rendering strategies without having to rewrite your whole app. For example, the landing page for your app might benefit from being statically generated (SSG), while a page with a content feed might perform best with server-side rendering.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Usar a estratégia de renderização certa para as rotas certas pode diminuir o tempo que leva para o primeiro byte de conteúdo ser carregado ([Time to First Byte](https://web.dev/articles/ttfb)), o primeiro pedaço de conteúdo renderizar ([First Contentful Paint](https://web.dev/articles/fcp)), e o maior conteúdo visível da aplicação renderizar ([Largest Contentful Paint](https://web.dev/articles/lcp)).
 
 ### E mais... {/*and-more*/}
 
-<<<<<<< HEAD
 Estes são apenas alguns exemplos das funcionalidades que uma nova aplicação precisará considerar ao construir do zero. Muitas limitações que você encontrará podem ser difíceis de resolver, já que cada problema está interconectado com os outros e pode requerer expertise profunda em áreas problemáticas com as quais você pode não estar familiarizado.
 
 Se você não quer resolver esses problemas por conta própria, pode [começar com um framework](/learn/creating-a-react-app) que fornece essas funcionalidades prontas para uso.
-=======
-These are just a few examples of the features a new app will need to consider when building from scratch. Many limitations you'll hit can be difficult to solve as each problem is interconnected with the others and can require deep expertise in problem areas you may not be familiar with.
-
-If you don't want to solve these problems on your own, you can [get started with a framework](/learn/creating-a-react-app) that provides these features out of the box.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb

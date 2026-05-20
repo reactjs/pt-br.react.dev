@@ -4,11 +4,7 @@ title: preload
 
 <Note>
 
-<<<<<<< HEAD
-[Frameworks baseados em React](/learn/start-a-new-react-project) frequentemente lidam com o carregamento de recursos para você, então você pode não precisar chamar esta API sozinho. Consulte a documentação de seu framework para obter detalhes.
-=======
-[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+[Frameworks baseados em React](/learn/creating-a-react-app) frequentemente lidam com o carregamento de recursos para você, então você pode não precisar chamar esta API sozinho. Consulte a documentação de seu framework para obter detalhes.
 
 </Note>
 
@@ -48,7 +44,6 @@ A função `preload` fornece ao navegador uma dica de que ele deve começar a ba
 
 #### Parâmetros {/*parameters*/}
 
-<<<<<<< HEAD
 * `href`: uma string. A URL do recurso que você deseja baixar.
 * `options`: um objeto. Ele contém as seguintes propriedades:
   *  `as`: uma string obrigatória. O tipo de recurso. Seus [valores possíveis](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#as) são `audio`, `document`, `embed`, `fetch`, `font`, `image`, `object`, `script`, `style`, `track`, `video`, `worker`.
@@ -56,23 +51,10 @@ A função `preload` fornece ao navegador uma dica de que ele deve começar a ba
   *  `referrerPolicy`: uma string. O [cabeçalho Referrer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#referrerpolicy) a ser enviado durante a busca. Seus valores possíveis são `no-referrer-when-downgrade` (o padrão), `no-referrer`, `origin`, `origin-when-cross-origin` e `unsafe-url`.
   *  `integrity`: uma string. Um hash criptográfico do recurso, para [verificar sua autenticidade](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
   *  `type`: uma string. O tipo MIME do recurso.
-  *  `nonce`: uma string. Um [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) criptográfico para permitir o recurso ao usar uma Content Security Policy estrita.
+  *  `nonce`: uma string. Um [nonce criptográfico para permitir o recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) ao usar uma Content Security Policy estrita.
   *  `fetchPriority`: uma string. Sugere uma prioridade relativa para buscar o recurso. Os valores possíveis são `auto` (o padrão), `high` e `low`.
   *  `imageSrcSet`: uma string. Para uso somente com `as: "image"`. Especifica o [conjunto de origem da imagem](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
   *  `imageSizes`: uma string. Para uso somente com `as: "image"`. Especifica os [tamanhos da imagem](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
-=======
-* `href`: a string. The URL of the resource you want to download.
-* `options`: an object. It contains the following properties:
-  *  `as`: a required string. The type of resource. Its [possible values](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#as) are `audio`, `document`, `embed`, `fetch`, `font`, `image`, `object`, `script`, `style`, `track`, `video`, `worker`.
-  *  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`. It is required when `as` is set to `"fetch"`.
-  *  `referrerPolicy`: a string. The [Referrer header](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#referrerpolicy) to send when fetching. Its possible values are `no-referrer-when-downgrade` (the default), `no-referrer`, `origin`, `origin-when-cross-origin`, and `unsafe-url`.
-  *  `integrity`: a string. A cryptographic hash of the resource, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
-  *  `type`: a string. The MIME type of the resource.
-  *  `nonce`: a string. A cryptographic [nonce to allow the resource](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy.
-  *  `fetchPriority`: a string. Suggests a relative priority for fetching the resource. The possible values are `auto` (the default), `high`, and `low`.
-  *  `imageSrcSet`: a string. For use only with `as: "image"`. Specifies the [source set of the image](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
-  *  `imageSizes`: a string. For use only with `as: "image"`. Specifies the [sizes of the image](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 #### Retorna {/*returns*/}
 

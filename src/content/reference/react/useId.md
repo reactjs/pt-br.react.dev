@@ -44,13 +44,9 @@ function PasswordField() {
 
 * `useId` é um Hook, então você só pode chamá-lo **no nível superior do seu componente** ou no seus próprios Hooks. Você não pode chamá-lo dentro de loops ou condições. Se precisar, extraia um novo componente e mova o estado para ele.
 
-<<<<<<< HEAD
-* `useId` **não deve ser usado para gerar chaves** em uma lista. [As chaves devem ser geradas a partir de seus dados.](/learn/rendering-lists#where-to-get-your-key)
-=======
-* `useId` **should not be used to generate cache keys** for [use()](/reference/react/use). The ID is stable when a component is mounted but may change during rendering. Cache keys should be generated from your data.
+* `useId` **não deve ser usado para gerar chaves de cache** para [use()](/reference/react/use). O ID é estável quando um componente é montado, mas pode mudar durante a renderização. As chaves de cache devem ser geradas a partir de seus dados.
 
-* `useId` **should not be used to generate keys** in a list. [Keys should be generated from your data.](/learn/rendering-lists#where-to-get-your-key)
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+* `useId` **não deve ser usado para gerar chaves** em uma lista. [As chaves devem ser geradas a partir de seus dados.](/learn/rendering-lists#where-to-get-your-key)
 
 * `useId` currently cannot be used in [async Server Components](/reference/rsc/server-components#async-components-with-server-components).
 
@@ -197,11 +193,7 @@ Dentro do React, `useId` é gerado a partir do "caminho pai" do componente chama
 
 ### Gerando IDs para vários elementos relacionados {/*generating-ids-for-several-related-elements*/}
 
-<<<<<<< HEAD
 Se você precisar fornecer IDs para vários elementos relacionados, você pode chamar `useId` para gerar um prefixo compartilhado para eles:
-=======
-If you need to give IDs to multiple related elements, you can call `useId` to generate a shared prefix for them:
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <Sandpack>
 

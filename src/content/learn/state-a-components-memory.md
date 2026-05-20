@@ -110,13 +110,8 @@ export const sculptureList = [{
 }, {
   name: 'Terracotta Army',
   artist: 'Unknown Artist',
-<<<<<<< HEAD
-  description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consited of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
-  url: 'https://i.imgur.com/HMFmH6m.jpg',
-=======
   description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consisted of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
   url: 'https://react.dev/images/docs/scientists/HMFmH6m.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   alt: '12 terracotta sculptures of solemn warriors, each with a unique facial expression and armor.'
 }, {
   name: 'Lunar Landscape',
@@ -295,13 +290,8 @@ export const sculptureList = [{
 }, {
   name: 'Terracotta Army',
   artist: 'Unknown Artist',
-<<<<<<< HEAD
-  description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consited of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
-  url: 'https://i.imgur.com/HMFmH6m.jpg',
-=======
   description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consisted of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
   url: 'https://react.dev/images/docs/scientists/HMFmH6m.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   alt: '12 terracotta sculptures of solemn warriors, each with a unique facial expression and armor.'
 }, {
   name: 'Lunar Landscape',
@@ -371,11 +361,7 @@ A convenção é nomear esse par como `const [algo, setAlgo]`. Você poderia nom
 
 </Note>
 
-<<<<<<< HEAD
 O único argumento para o `useState` é o **valor inicial** da sua variável de state. Nesse exemplo, o valor inicial de `index` é definido como `0` com `useState(0)`.
-=======
-The only argument to `useState` is the **initial value** of your state variable. In this example, the `index`'s initial value is set to `0` with `useState(0)`.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Toda vez que seu componente é renderizado, `useState` lhe dá um array contendo dois valores:
 
@@ -493,13 +479,8 @@ export const sculptureList = [{
 }, {
   name: 'Terracotta Army',
   artist: 'Unknown Artist',
-<<<<<<< HEAD
-  description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consited of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
-  url: 'https://i.imgur.com/HMFmH6m.jpg',
-=======
   description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consisted of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
   url: 'https://react.dev/images/docs/scientists/HMFmH6m.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   alt: '12 terracotta sculptures of solemn warriors, each with a unique facial expression and armor.'
 }, {
   name: 'Lunar Landscape',
@@ -694,13 +675,8 @@ let sculptureList = [{
 }, {
   name: 'Terracotta Army',
   artist: 'Unknown Artist',
-<<<<<<< HEAD
-  description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consited of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
-  url: 'https://i.imgur.com/HMFmH6m.jpg',
-=======
   description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consisted of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
   url: 'https://react.dev/images/docs/scientists/HMFmH6m.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   alt: '12 terracotta sculptures of solemn warriors, each with a unique facial expression and armor.'
 }, {
   name: 'Lunar Landscape',
@@ -868,13 +844,8 @@ export const sculptureList = [{
 }, {
   name: 'Terracotta Army',
   artist: 'Unknown Artist',
-<<<<<<< HEAD
-  description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consited of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
-  url: 'https://i.imgur.com/HMFmH6m.jpg',
-=======
   description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consisted of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
   url: 'https://react.dev/images/docs/scientists/HMFmH6m.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   alt: '12 terracotta sculptures of solemn warriors, each with a unique facial expression and armor.'
 }, {
   name: 'Lunar Landscape',
@@ -1044,13 +1015,8 @@ export const sculptureList = [{
 }, {
   name: 'Terracotta Army',
   artist: 'Unknown Artist',
-<<<<<<< HEAD
-  description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consited of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
-  url: 'https://i.imgur.com/HMFmH6m.jpg',
-=======
   description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consisted of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
   url: 'https://react.dev/images/docs/scientists/HMFmH6m.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   alt: '12 terracotta sculptures of solemn warriors, each with a unique facial expression and armor.'
 }, {
   name: 'Lunar Landscape',
@@ -1211,13 +1177,8 @@ export const sculptureList = [{
 }, {
   name: 'Terracotta Army',
   artist: 'Unknown Artist',
-<<<<<<< HEAD
-  description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consited of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
-  url: 'https://i.imgur.com/HMFmH6m.jpg',
-=======
   description: 'The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. The army consisted of more than 8,000 soldiers, 130 chariots with 520 horses, and 150 cavalry horses.',
   url: 'https://react.dev/images/docs/scientists/HMFmH6m.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   alt: '12 terracotta sculptures of solemn warriors, each with a unique facial expression and armor.'
 }, {
   name: 'Lunar Landscape',
@@ -1485,11 +1446,7 @@ export default function FeedbackForm() {
 
 Tente mover a segunda chamada `useState` depois da condição `if` e note como isto quebra novamente.
 
-<<<<<<< HEAD
 Se seu *linter* está [configurado para React](/learn/editor-setup#linting), você deve ver um erro de *lint* quando faz um erro como esse. Se você não vê um erro quando tenta código falho localmente, você precisa configurar *linting* para o seu projeto.
-=======
-If your linter is [configured for React](/learn/editor-setup#linting), you should see a lint error when you make a mistake like this. If you don't see an error when you try the faulty code locally, you need to set up linting for your project.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 </Solution>
 

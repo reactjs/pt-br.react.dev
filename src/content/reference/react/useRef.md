@@ -573,11 +573,7 @@ export default function MyInput({ value, onChange }) {
 }
 ```
 
-<<<<<<< HEAD
-E então adicione `ref` para a lista de _props_ que seu componente aceita e passe `ref` como uma prop para o [componente embutido](/reference/react-dom/components/common) relevante como este:
-=======
-And then add `ref` to the list of props your component accepts and pass `ref` as a prop to the relevant child [built-in component](/reference/react-dom/components/common) like this:
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+E então adicione `ref` para a lista de _props_ que seu componente aceita e passe `ref` como uma prop para o [componente embutido](/reference/react-dom/components/common) filho relevante como este:
 
 ```js {1,6}
 function MyInput({ value, onChange, ref }) {

@@ -27,7 +27,6 @@ Você pode já estar familiarizado com um exemplo de funções puras: fórmulas 
 
 Considere esta fórmula matemática: <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math>.
 
-<<<<<<< HEAD
 Se <Math><MathI>x</MathI> = 2</Math> então <Math><MathI>y</MathI> = 4</Math>. Sempre.
 
 Se <Math><MathI>x</MathI> = 3</Math> então <Math><MathI>y</MathI> = 6</Math>. Sempre.
@@ -35,15 +34,6 @@ Se <Math><MathI>x</MathI> = 3</Math> então <Math><MathI>y</MathI> = 6</Math>. S
 Se <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> não será às vezes <Math>9</Math> ou <Math>–1</Math> ou <Math>2.5</Math> dependendo da hora do dia ou do estado do mercado de ações.
 
 Se <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> e <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> será _sempre_ <Math>6</Math>.
-=======
-If <Math><MathI>x</MathI> = 2</Math> then <Math><MathI>y</MathI> = 4</Math>. Always.
-
-If <Math><MathI>x</MathI> = 3</Math> then <Math><MathI>y</MathI> = 6</Math>. Always.
-
-If <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> won't sometimes be <Math>9</Math> or <Math>–1</Math> or <Math>2.5</Math> depending on the time of day or the state of the stock market.
-
-If <Math><MathI>y</MathI> = 2<MathI>x</MathI></Math> and <Math><MathI>x</MathI> = 3</Math>, <MathI>y</MathI> will _always_ be <Math>6</Math>.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Se transformássemos isso em uma função JavaScript, ficaria assim:
 
@@ -62,17 +52,10 @@ React é projetado em torno deste conceito. **React assume que todo componente q
 ```js src/App.js
 function Recipe({ drinkers }) {
   return (
-<<<<<<< HEAD
-    <ol>    
+    <ol>
       <li>Ferva {drinkers} xícaras de água.</li>
       <li>Adicione {drinkers} colheres de chá e {0.5 * drinkers} colheres de especiarias.</li>
       <li>Adicione {0.5 * drinkers} xícaras de leite para ferver e açúcar a gosto.</li>
-=======
-    <ol>
-      <li>Boil {drinkers} cups of water.</li>
-      <li>Add {drinkers} spoons of tea and {0.5 * drinkers} spoons of spice.</li>
-      <li>Add {0.5 * drinkers} cups of milk to boil and sugar to taste.</li>
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
     </ol>
   );
 }
@@ -92,19 +75,11 @@ export default function App() {
 
 </Sandpack>
 
-<<<<<<< HEAD
 Quando você passa `drinkers={2}` para `Recipe`, ela retornará JSX contendo `2 xícaras de água`. Sempre.
-=======
-When you pass `drinkers={2}` to `Recipe`, it will return JSX containing `2 cups of water`. Always.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Se você passar `drinkers={4}`, ela retornará JSX contendo `4 xícaras de água`. Sempre.
 
-<<<<<<< HEAD
 Assim como uma fórmula matemática.
-=======
-Just like a math formula.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Você poderia pensar nos seus componentes como receitas: se você segui-las e não introduzir novos ingredientes durante o processo de cozimento, você obterá o mesmo prato toda vez. Esse "prato" é o JSX que o componente serve ao React para [renderizar.](/learn/render-and-commit)
 
@@ -240,7 +215,6 @@ Todo novo recurso do React que estamos construindo aproveita a pureza. Da busca 
 
 <Recap>
 
-<<<<<<< HEAD
 * Um componente deve ser puro, significando:
   * **Ele cuida apenas dos seus próprios assuntos.** Ele não deve alterar nenhum objeto ou variável que existia antes da renderização.
   * **Mesmas entradas, mesma saída.** Dadas as mesmas entradas, um componente deve sempre retornar o mesmo JSX.
@@ -251,20 +225,7 @@ Todo novo recurso do React que estamos construindo aproveita a pureza. Da busca 
 
 </Recap>
 
-=======
-* A component must be pure, meaning:
-  * **It minds its own business.** It should not change any objects or variables that existed before rendering.
-  * **Same inputs, same output.** Given the same inputs, a component should always return the same JSX.
-* Rendering can happen at any time, so components should not depend on each others' rendering sequence.
-* You should not mutate any of the inputs that your components use for rendering. That includes props, state, and context. To update the screen, ["set" state](/learn/state-a-components-memory) instead of mutating preexisting objects.
-* Strive to express your component's logic in the JSX you return. When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can `useEffect`.
-* Writing pure functions takes a bit of practice, but it unlocks the power of React's paradigm.
 
-</Recap>
-
-
-
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 <Challenges>
 
 #### Conserte um relógio quebrado {/*fix-a-broken-clock*/}

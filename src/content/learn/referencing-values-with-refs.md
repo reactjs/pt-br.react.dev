@@ -36,13 +36,8 @@ const ref = useRef(0);
 `useRef` retorna um objeto assim:
 
 ```js
-<<<<<<< HEAD
-{ 
-  current: 0 // o valor que você passou para o useRef
-=======
 {
-  current: 0 // The value you passed to useRef
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+  current: 0 // o valor que você passou para o useRef
 }
 ```
 

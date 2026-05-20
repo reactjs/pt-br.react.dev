@@ -22,11 +22,7 @@ As Funções do Servidor permitem que Componentes Cliente chamem funções assí
 
 #### Como eu construo suporte para as Funções do Servidor? {/*how-do-i-build-support-for-server-functions*/}
 
-<<<<<<< HEAD
 Embora as Funções do Servidor no React 19 sejam estáveis e não quebrarão entre versões secundárias, as APIs subjacentes usadas para implementar Funções do Servidor em um bundler ou framework de Componentes do Servidor React não seguem semver e podem quebrar entre secundárias no React 19.x.
-=======
-While Server Functions in React 19 are stable and will not break between minor versions, the underlying APIs used to implement Server Functions in a React Server Components bundler or framework do not follow semver and may break between minors in React 19.x.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Para oferecer suporte às Funções do Servidor como um bundler ou framework, recomendamos fixar em uma versão específica do React ou usar o lançamento Canary. Continuaremos trabalhando com bundlers e frameworks para estabilizar as APIs usadas para implementar Funções do Servidor no futuro.
 

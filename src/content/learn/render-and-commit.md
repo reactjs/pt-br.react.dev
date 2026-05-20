@@ -54,13 +54,8 @@ root.render(<Image />);
 export default function Image() {
   return (
     <img
-<<<<<<< HEAD
-      src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica' de Eduardo Catalano: uma gigantesca escultura metálica de flores com pétalas reflexivas"
-=======
       src="https://react.dev/images/docs/scientists/ZF6s192.jpg"
-      alt="'Floralis Genérica' by Eduardo Catalano: a gigantic metallic flower sculpture with reflective petals"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+      alt="'Floralis Genérica' de Eduardo Catalano: uma gigantesca escultura metálica de flores com pétalas reflexivas"
     />
   );
 }
@@ -108,13 +103,8 @@ export default function Gallery() {
 function Image() {
   return (
     <img
-<<<<<<< HEAD
-      src="https://i.imgur.com/ZF6s192.jpg"
-      alt="'Floralis Genérica' de Eduardo Catalano: uma gigantesca escultura metálica de flores com pétalas reflexivas"
-=======
       src="https://react.dev/images/docs/scientists/ZF6s192.jpg"
-      alt="'Floralis Genérica' by Eduardo Catalano: a gigantic metallic flower sculpture with reflective petals"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+      alt="'Floralis Genérica' de Eduardo Catalano: uma gigantesca escultura metálica de flores com pétalas reflexivas"
     />
   );
 }
@@ -134,13 +124,8 @@ img { margin: 0 10px 10px 0; }
 
 </Sandpack>
 
-<<<<<<< HEAD
 * **Durante a renderização inicial,** o React [criará os nós DOM](https://developer.mozilla.org/docs/Web/API/Document/createElement) para `<section>`, `<h1>`, e três tags `<img>`.
 * **Durante uma rerrenderização,** o React calculará quais de suas propriedades, se houver, foram alterados desde a renderização anterior. Ele não fará nada com essa informação até a próxima etapa, a fase de confirmação.
-=======
-* **During the initial render,** React will [create the DOM nodes](https://developer.mozilla.org/docs/Web/API/Document/createElement) for `<section>`, `<h1>`, and three `<img>` tags.
-* **During a re-render,** React will calculate which of their properties, if any, have changed since the previous render. It won't do anything with that information until the next step, the commit phase.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <Pitfall>
 

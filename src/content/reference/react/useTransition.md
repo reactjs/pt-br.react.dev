@@ -97,15 +97,7 @@ function SubmitButton({ submitAction }) {
 
 #### Retorno {/*starttransition-returns*/}
 
-<<<<<<< HEAD
 `startTransition` não possui valor de retorno.
-=======
-* `action`: A function that updates some state by calling one or more [`set` functions](/reference/react/useState#setstate). React calls `action` immediately with no parameters and marks all state updates scheduled synchronously during the `action` function call as Transitions. Any async calls that are awaited in the `action` will be included in the Transition, but currently require wrapping any `set` functions after the `await` in an additional `startTransition` (see [Troubleshooting](#react-doesnt-treat-my-state-update-after-await-as-a-transition)). State updates marked as Transitions will be [non-blocking](#perform-non-blocking-updates-with-actions) and [will not display unwanted loading indicators](#preventing-unwanted-loading-indicators).
-
-#### Returns {/*starttransition-returns*/}
-
-`startTransition` does not return anything.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 #### Caveats {/*starttransition-caveats*/}
 
@@ -167,11 +159,7 @@ function CheckoutForm() {
 }
 ```
 
-<<<<<<< HEAD
 A função passada para `startTransition` é chamada de "Ação". Você pode atualizar o estado e (opcionalmente) realizar efeitos colaterais dentro de uma Ação, e o trabalho será feito em segundo plano sem bloquear as interações do usuário na página. Uma Transição pode incluir várias Ações, e enquanto uma Transição está em andamento, sua interface do usuário permanece responsiva. Por exemplo, se o usuário clicar em uma aba, mas depois mudar de ideia e clicar em outra aba, o segundo clique será imediatamente tratado sem esperar que a primeira atualização termine.
-=======
-The function passed to `startTransition` is called the "Action". You can update state and (optionally) perform side effects within an Action, and the work will be done in the background without blocking user interactions on the page. A Transition can include multiple Actions, and while a Transition is in progress, your UI stays responsive. For example, if the user clicks a tab but then changes their mind and clicks another tab, the second click will be immediately handled without waiting for the first update to finish.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Para dar feedback ao usuário sobre Transições em andamento, o estado `isPending` muda para `true` na primeira chamada para `startTransition`, e permanece `true` até que todas as Ações sejam concluídas e o estado final seja mostrado ao usuário. As Transições garantem que os efeitos colaterais nas Ações sejam concluídos em ordem para [prevenir indicadores de carregamento indesejados](#preventing-unwanted-loading-indicators), e você pode fornecer feedback imediato enquanto a Transição está em andamento com `useOptimistic`.
 
@@ -1254,15 +1242,9 @@ function Router() {
 
 Isso é recomendado por três razões:
 
-<<<<<<< HEAD
-- [As transições são interrompíveis,](#marking-a-state-update-as-a-non-blocking-transition) o que permite que o usuário clique em outro lugar sem esperar a re-renderização ser concluída.
+- [As transições são interrompíveis,](#perform-non-blocking-updates-with-actions) o que permite que o usuário clique em outro lugar sem esperar a re-renderização ser concluída.
 - [As transições evitam indicadores de carregamento indesejados,](#preventing-unwanted-loading-indicators) o que permite que o usuário evite saltos bruscos na navegação.
 - [As transições esperam por todas as ações pendentes](#perform-non-blocking-updates-with-actions) o que permite que o usuário espere que os efeitos colaterais sejam concluídos antes que a nova página seja exibida.
-=======
-- [Transitions are interruptible,](#perform-non-blocking-updates-with-actions) which lets the user click away without waiting for the re-render to complete.
-- [Transitions prevent unwanted loading indicators,](#preventing-unwanted-loading-indicators) which lets the user avoid jarring jumps on navigation.
-- [Transitions wait for all pending actions](#perform-non-blocking-updates-with-actions) which lets the user wait for side effects to complete before the new page is shown.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Aqui está um exemplo simplificado de roteador usando Transições para navegações.
 

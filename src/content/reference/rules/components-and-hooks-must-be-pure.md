@@ -27,13 +27,9 @@ Concretamente, isto significa que a lógica de renderização pode ser executada
 
 #### Como é que o React executa o seu código?? {/*how-does-react-run-your-code*/}
 
-<<<<<<< HEAD
 O React é declarativo: você diz ao React _o que_ renderizar, e o React vai descobrir _como_ melhor exibir isso para o seu usuário. Para fazer isso, o React tem algumas fases onde ele executa seu código. Você não precisa saber sobre todas essas fases para usar bem o React. Mas em um nível alto, você deve saber qual código é executado em um _render_, e o que é executado fora dele.
 
-_Renderização_ refere-se ao cálculo de como deve ser a próxima versão da sua UI. Após a renderização, [Effects](/reference/react/useEffect) são _flushed_ (significando que eles são executados até que não haja mais nenhum) e podem atualizar o cálculo se os Effects tiverem impactos no layout. O React pega esse novo cálculo e o compara com o cálculo usado para criar a versão anterior da sua UI, então _compromete_ apenas as mudanças mínimas necessárias para o [DOM](https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model) (o que o seu usuário realmente vê) para atualizá-lo para a versão mais recente.
-=======
-_Rendering_ refers to calculating what the next version of your UI should look like. After rendering, React takes this new calculation and compares it to the calculation used to create the previous version of your UI. Then React commits just the minimum changes needed to the [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (what your user actually sees) to apply the changes. Finally, [Effects](/learn/synchronizing-with-effects) are flushed (meaning they are run until there are no more left). For more detailed information see the docs for [Render](/learn/render-and-commit) and [Commit and Effect Hooks](/reference/react/hooks#effect-hooks).
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+_Renderização_ refere-se ao cálculo de como deve ser a próxima versão da sua UI. Após a renderização, o React pega esse novo cálculo e o compara com o cálculo usado para criar a versão anterior da sua UI, então _compromete_ apenas as mudanças mínimas necessárias para o [DOM](https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model) (o que o seu usuário realmente vê) para atualizá-lo para a versão mais recente. Em seguida, os [Effects](/learn/synchronizing-with-effects) são _flushed_ (significando que eles são executados até que não haja mais nenhum). Para informações mais detalhadas, veja a documentação sobre [Render](/learn/render-and-commit) e [Commit e Effect Hooks](/reference/react/hooks#effect-hooks).
 
 <DeepDive>
 

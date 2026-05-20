@@ -837,17 +837,7 @@ Sempre que o componente `ChatRoom` é renderizado novamente, ele passa as últim
 
 ### Passando manipuladores de eventos para Hooks personalizados {/*passing-event-handlers-to-custom-hooks*/}
 
-<<<<<<< HEAD
-<Wip>
-
-Esta seção descreve uma **API experimental que ainda não foi lançada** em uma versão estável do React.
-
-</Wip>
-
 Conforme você começa a usar o `useChatRoom` em mais componentes, pode ser desejável permitir que os componentes personalizem seu comportamento. Por exemplo, atualmente, a lógica do que fazer quando uma mensagem chega está codificada diretamente no Hook:
-=======
-As you start using `useChatRoom` in more components, you might want to let components customize its behavior. For example, currently, the logic for what to do when a message arrives is hardcoded inside the Hook:
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 ```js {9-11}
 export function useChatRoom({ serverUrl, roomId }) {

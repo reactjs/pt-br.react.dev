@@ -291,11 +291,7 @@ Suspense **não** detecta quando os dados são buscados dentro de um Effect ou m
 
 A maneira exata como você carregaria os dados no componente `Posts` acima depende do seu framework. Se você usar um framework habilitado para Suspense, encontrará os detalhes em sua documentação de busca de dados.
 
-<<<<<<< HEAD
-A busca de dados habilitada para Suspense sem o uso de um framework opinativo ainda não é suportada. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis ​​e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
-=======
-Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+A busca de dados habilitada para Suspense sem o uso de um framework opinativo ainda não é suportada. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
 
 </Note>
 

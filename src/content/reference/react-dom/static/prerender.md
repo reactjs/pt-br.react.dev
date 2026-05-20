@@ -61,26 +61,17 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 #### Retorna {/*returns*/}
 
-<<<<<<< HEAD
 `prerender` retorna uma Promise:
 - Se a renderização for bem-sucedida, a Promise resolverá para um objeto contendo:
   - `prelude`: um [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) de HTML. Você pode usar este stream para enviar uma resposta em chunks, ou você pode ler todo o stream em uma string.
+  - `postponed`: um objeto opaco serializável em JSON que pode ser passado para [`resume`](/reference/react-dom/server/resume) se `prerender` não terminou. Caso contrário, `null` indicando que o `prelude` contém todo o conteúdo e nenhum resume é necessário.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
-=======
-`prerender` returns a Promise:
-- If rendering the is successful, the Promise will resolve to an object containing:
-  - `prelude`: a [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) of HTML. You can use this stream to send a response in chunks, or you can read the entire stream into a string.
-  - `postponed`: a JSON-serializeable, opaque object that can be passed to [`resume`](/reference/react-dom/server/resume) if `prerender` did not finish. Otherwise `null` indicating that the `prelude` contains all the content and no resume is necessary.
-- If rendering fails, the Promise will be rejected. [Use this to output a fallback shell.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 #### Ressalvas {/*caveats*/}
 
-<<<<<<< HEAD
 `nonce` não é uma opção disponível ao fazer pré-renderização. Nonces devem ser únicos por requisição e se você usar nonces para proteger sua aplicação com [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP), seria inadequado e inseguro incluir o valor do nonce na própria pré-renderização.
 
-=======
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+
 <Note>
 
 ### Quando devo usar `prerender`? {/*when-to-use-prerender*/}

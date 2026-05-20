@@ -46,11 +46,7 @@ function MyInput({ ref }) {
 
 <Note>
 
-<<<<<<< HEAD
-A partir do React 19, [`ref` está disponível como uma prop.](/blog/2024/12/05/react-19#ref-as-a-prop) No React 18 e versões anteriores, era necessário obter a `ref` a partir de [`forwardRef`.](/reference/react/forwardRef) 
-=======
-Starting with React 19, [`ref` is available as a prop.](/blog/2024/12/05/react-19#ref-as-a-prop) In React 18 and earlier, it was necessary to get the `ref` from [`forwardRef`.](/reference/react/forwardRef)
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+A partir do React 19, [`ref` está disponível como uma prop.](/blog/2024/12/05/react-19#ref-as-a-prop) No React 18 e versões anteriores, era necessário obter a `ref` a partir de [`forwardRef`.](/reference/react/forwardRef)
 
 </Note>
 

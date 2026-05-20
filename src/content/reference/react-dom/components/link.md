@@ -151,11 +151,7 @@ export default function SiteMapPage() {
 
 ### Controlando a precedência da folha de estilo {/*controlling-stylesheet-precedence*/}
 
-<<<<<<< HEAD
 As folhas de estilo podem entrar em conflito umas com as outras e, quando entram, o navegador usa aquela que vem por último no documento. O React permite que você controle a ordem das folhas de estilo com a prop `precedence`. Neste exemplo, três componentes renderizam folhas de estilo e aquelas com a mesma precedência são agrupadas no `<head>`.
-=======
-Stylesheets can conflict with each other, and when they do, the browser goes with the one that comes later in the document. React lets you control the order of stylesheets with the `precedence` prop. In this example, three components render stylesheets, and the ones with the same precedence are grouped together in the `<head>`.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <SandpackWithHTMLOutput>
 

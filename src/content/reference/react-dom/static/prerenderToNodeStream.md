@@ -4,11 +4,7 @@ title: prerenderToNodeStream
 
 <Intro>
 
-<<<<<<< HEAD
-`prerenderToNodeStream` renderiza uma árvore React em uma string HTML estática usando um [Node.js Stream.](https://nodejs.org/api/stream.html).
-=======
-`prerenderToNodeStream` renders a React tree to a static HTML string using a [Node.js Stream.](https://nodejs.org/api/stream.html)
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+`prerenderToNodeStream` renderiza uma árvore React em uma string HTML estática usando um [Node.js Stream.](https://nodejs.org/api/stream.html)
 
 ```js
 const {prelude, postponed} = await prerenderToNodeStream(reactNode, options?)
@@ -66,18 +62,11 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 #### Retorna {/*returns*/}
 
-<<<<<<< HEAD
 `prerenderToNodeStream` retorna uma Promise:
 - Se a renderização for bem-sucedida, a Promise será resolvida para um objeto contendo:
   - `prelude`: um [Node.js Stream.](https://nodejs.org/api/stream.html) de HTML. Você pode usar este stream para enviar uma resposta em chunks, ou pode ler o stream inteiro em uma string.
+  - `postponed`: um objeto opaco serializável em JSON que pode ser passado para [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) se `prerenderToNodeStream` não terminou. Caso contrário, `null` indicando que o `prelude` contém todo o conteúdo e nenhum resume é necessário.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-inside-the-shell)
-=======
-`prerenderToNodeStream` returns a Promise:
-- If rendering the is successful, the Promise will resolve to an object containing:
-  - `prelude`: a [Node.js Stream.](https://nodejs.org/api/stream.html) of HTML. You can use this stream to send a response in chunks, or you can read the entire stream into a string.
-  - `postponed`: a JSON-serializeable, opaque object that can be passed to [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) if `prerenderToNodeStream` did not finish. Otherwise `null` indicating that the `prelude` contains all the content and no resume is necessary.
-- If rendering fails, the Promise will be rejected. [Use this to output a fallback shell.](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-inside-the-shell)
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 #### Caveats {/*caveats*/}
 
@@ -99,11 +88,7 @@ A API estática `prerenderToNodeStream` é usada para geração estática do lad
 
 ### Renderizando uma árvore React para um stream de HTML estático {/*rendering-a-react-tree-to-a-stream-of-static-html*/}
 
-<<<<<<< HEAD
 Chame `prerenderToNodeStream` para renderizar sua árvore React em HTML estático em um [Node.js Stream.](https://nodejs.org/api/stream.html):
-=======
-Call `prerenderToNodeStream` to render your React tree to static HTML into a [Node.js Stream](https://nodejs.org/api/stream.html):
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 ```js [[1, 5, "<App />"], [2, 6, "['/main.js']"]]
 import { prerenderToNodeStream } from 'react-dom/static';

@@ -10,14 +10,9 @@ A documentação do React em [react.dev](https://react.dev) fornece informaçõe
 
 Nosso objetivo é manter a documentação atualizada dentro das versões principais e não publicamos versões para cada versão menor ou de correção. Quando uma nova versão principal é lançada, arquivamos a documentação da versão anterior como `x.react.dev`. Veja nossa [política de versionamento](/community/versioning-policy) para mais informações.
 
-<<<<<<< HEAD
 Você pode encontrar um arquivo das versões principais anteriores abaixo.
-## Versão Mais Recente: 19.1 {/*latest-version*/}
-=======
-You can find an archive of previous major versions below.
 
-## Latest version: 19.2 {/*latest-version*/}
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+## Versão Mais Recente: 19.2 {/*latest-version*/}
 
 - [react.dev](https://react.dev) {/*docs-19*/}
 
@@ -311,11 +306,7 @@ Para versões anteriores ao React 15, veja [15.react.dev](https://15.react.dev).
 
 O React foi liberado como código aberto em 29 de maio de 2013. O commit inicial é: [`75897c`: Lançamento público inicial](https://github.com/facebook/react/commit/75897c2dcd1dd3a6ca46284dd37e13d22b4b16b4)
 
-<<<<<<< HEAD
-Veja a primeira postagem no blog: [Por que construímos o React?](https://legacy.reactjs.org/blog/2013/06/05/why-react.html) 
-=======
-See the first blog post: [Why did we build React?](https://legacy.reactjs.org/blog/2013/06/05/why-react.html)
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+Veja a primeira postagem no blog: [Por que construímos o React?](https://legacy.reactjs.org/blog/2013/06/05/why-react.html)
 
 O React foi liberado como código aberto pelo Facebook em Seattle, 2013:
 

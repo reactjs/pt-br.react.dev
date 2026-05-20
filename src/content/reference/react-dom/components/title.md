@@ -36,19 +36,11 @@ Para especificar o título do documento, renderize o [componente `<title>` de na
 
 #### Comportamento de renderização especial {/*special-rendering-behavior*/}
 
-<<<<<<< HEAD
 O React sempre colocará o elemento DOM correspondente ao componente `<title>` dentro do `<head>` do documento, independentemente de onde na árvore React ele for renderizado. O `<head>` é o único lugar válido para `<title>` existir dentro do DOM, mas é conveniente e mantém as coisas compostas se um componente representando uma página específica pode renderizar seu próprio `<title>`.
 
 Há duas exceções a isso:
 * Se `<title>` estiver dentro de um componente `<svg>`, então não há comportamento especial, porque nesse contexto ele não representa o título do documento, mas sim uma [anotação de acessibilidade para esse gráfico SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title).
 * Se o `<title>` tiver uma prop [`itemProp`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemprop), não há comportamento especial, porque nesse caso ele não representa o título do documento, mas sim metadados sobre uma parte específica da página.
-=======
-React will always place the DOM element corresponding to the `<title>` component within the document’s `<head>`, regardless of where in the React tree it is rendered. The `<head>` is the only valid place for `<title>` to exist within the DOM, yet it’s convenient and keeps things composable if a component representing a specific page can render its `<title>` itself.
-
-There are two exception to this:
-* If `<title>` is within an `<svg>` component, then there is no special behavior, because in this context it doesn’t represent the document’s title but rather is an [accessibility annotation for that SVG graphic](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/title).
-* If the `<title>` has an [`itemProp`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/itemprop) prop, there is no special behavior, because in this case it doesn’t represent the document’s title but rather metadata about a specific part of the page.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <Pitfall>
 

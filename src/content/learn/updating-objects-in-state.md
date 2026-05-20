@@ -296,11 +296,7 @@ setPerson({
 });
 ```
 
-<<<<<<< HEAD
 Agora o formulário funciona!
-=======
-Now the form works!
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 Observe como você não declarou uma variável de state separada para cada campo de entrada. Para formulários grandes, manter todos os dados agrupados em um objeto é muito conveniente -- desde que você os atualize corretamente!
 
@@ -377,11 +373,7 @@ input { margin-left: 5px; margin-bottom: 5px; }
 
 </Sandpack>
 
-<<<<<<< HEAD
 Observe que a sintaxe de espalhamento `...` é "rasa" -- ela copia apenas um nível de profundidade. Isso a torna rápida, mas também significa que, se você quiser atualizar uma propriedade aninhada, terá de usá-la mais de uma vez.
-=======
-Note that the `...` spread syntax is "shallow"--it only copies things one level deep. This makes it fast, but it also means that if you want to update a nested property, you'll have to use it more than once.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <DeepDive>
 
@@ -464,13 +456,8 @@ const [person, setPerson] = useState({
   name: 'Niki de Saint Phalle',
   artwork: {
     title: 'Blue Nana',
-<<<<<<< HEAD
     city: 'Hamburgo',
-    image: 'https://i.imgur.com/Sd1AgUOm.jpg',
-=======
-    city: 'Hamburg',
     image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   }
 });
 ```
@@ -512,13 +499,8 @@ export default function Form() {
     name: 'Niki de Saint Phalle',
     artwork: {
       title: 'Blue Nana',
-<<<<<<< HEAD
       city: 'Hamburgo',
-      image: 'https://i.imgur.com/Sd1AgUOm.jpg',
-=======
-      city: 'Hamburg',
       image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
     }
   });
 
@@ -624,13 +606,8 @@ let obj = {
   name: 'Niki de Saint Phalle',
   artwork: {
     title: 'Blue Nana',
-<<<<<<< HEAD
     city: 'Hamburgo',
-    image: 'https://i.imgur.com/Sd1AgUOm.jpg',
-=======
-    city: 'Hamburg',
     image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
   }
 };
 ```
@@ -640,13 +617,8 @@ No entanto, o "aninhamento" é uma maneira imprecisa de pensar sobre como os obj
 ```js
 let obj1 = {
   title: 'Blue Nana',
-<<<<<<< HEAD
   city: 'Hamburgo',
-  image: 'https://i.imgur.com/Sd1AgUOm.jpg',
-=======
-  city: 'Hamburg',
   image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 };
 
 let obj2 = {
@@ -659,13 +631,8 @@ O objeto `obj1` não está "dentro" do `obj2`. Por exemplo, o `obj3` também pod
 ```js
 let obj1 = {
   title: 'Blue Nana',
-<<<<<<< HEAD
   city: 'Hamburgo',
-  image: 'https://i.imgur.com/Sd1AgUOm.jpg',
-=======
-  city: 'Hamburg',
   image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 };
 
 let obj2 = {
@@ -720,13 +687,8 @@ export default function Form() {
     name: 'Niki de Saint Phalle',
     artwork: {
       title: 'Blue Nana',
-<<<<<<< HEAD
       city: 'Hamburgo',
-      image: 'https://i.imgur.com/Sd1AgUOm.jpg',
-=======
-      city: 'Hamburg',
       image: 'https://react.dev/images/docs/scientists/Sd1AgUOm.jpg',
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
     }
   });
 

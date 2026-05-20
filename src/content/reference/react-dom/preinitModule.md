@@ -4,11 +4,7 @@ title: preinitModule
 
 <Note>
 
-<<<<<<< HEAD
-[Frameworks baseados em React](/learn/start-a-new-react-project) frequentemente tratam o carregamento de recursos para você, então você pode não precisar chamar esta API por conta própria. Consulte a documentação do seu framework para obter detalhes.
-=======
-[React-based frameworks](/learn/creating-a-react-app) frequently handle resource loading for you, so you might not have to call this API yourself. Consult your framework's documentation for details.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+[Frameworks baseados em React](/learn/creating-a-react-app) frequentemente tratam o carregamento de recursos para você, então você pode não precisar chamar esta API por conta própria. Consulte a documentação do seu framework para obter detalhes.
 
 </Note>
 
@@ -48,21 +44,12 @@ A função `preinitModule` fornece ao navegador uma dica de que ele deve começa
 
 #### Parâmetros {/*parameters*/}
 
-<<<<<<< HEAD
 * `href`: uma string. A URL do módulo que você deseja baixar e executar.
 * `options`: um objeto. Ele contém as seguintes propriedades:
   *  `as`: uma string obrigatória. Deve ser `'script'`.
   *  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus possíveis valores são `anonymous` e `use-credentials`.
   *  `integrity`: uma string. Uma hash criptográfica do módulo, para [verificar sua autenticidade](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
   *  `nonce`: uma string. Um [nonce criptográfico para permitir o módulo](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) ao usar uma Content Security Policy estrita.
-=======
-* `href`: a string. The URL of the module you want to download and execute.
-* `options`: an object. It contains the following properties:
-  *  `as`: a required string. It must be `'script'`.
-  *  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`.
-  *  `integrity`: a string. A cryptographic hash of the module, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
-  *  `nonce`: a string. A cryptographic [nonce to allow the module](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 #### Retorna {/*returns*/}
 

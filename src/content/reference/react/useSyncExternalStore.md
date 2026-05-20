@@ -107,11 +107,7 @@ Ele retorna o <CodeStep step={3}>snapshot</CodeStep> dos dados na store. Você p
 
 O React usará essas funções para manter seu componente inscrito na store e renderizá-lo novamente em caso de alterações.
 
-<<<<<<< HEAD
 Por exemplo, no sandbox abaixo, `todosStore` é implementado como uma store externa que armazena dados fora do React. O componente `TodosApp` se conecta a essa store externa com o Hook `useSyncExternalStore`.
-=======
-For example, in the sandbox below, `todosStore` is implemented as an external store that stores data outside of React. The `TodosApp` component connects to that external store with the `useSyncExternalStore` Hook.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
 
 <Sandpack>
 
@@ -421,13 +417,8 @@ function ChatIndicator() {
   // ...
 }
 ```
-<<<<<<< HEAD
-  
-O React se reinscreverá em sua store se você passar uma função `subscribe` diferente entre as novas renderizações. Se isso causar problemas de desempenho e você quiser evitar a reinscrição, mova a função `subscribe` para fora:
-=======
 
-React will resubscribe to your store if you pass a different `subscribe` function between re-renders. If this causes performance issues and you'd like to avoid resubscribing, move the `subscribe` function outside:
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+O React se reinscreverá em sua store se você passar uma função `subscribe` diferente entre as novas renderizações. Se isso causar problemas de desempenho e você quiser evitar a reinscrição, mova a função `subscribe` para fora:
 
 ```js {1-4}
 // ✅ Sempre a mesma função, então o React não precisará se inscrever novamente

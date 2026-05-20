@@ -517,13 +517,8 @@ export default function Picture() {
     <div className="background background--active">
       <img
         className="picture"
-<<<<<<< HEAD
         alt="Casas de arco-íris em Kampung Pelangi, Indonésia"
-        src="https://i.imgur.com/5qwVYb1.jpeg"
-=======
-        alt="Rainbow houses in Kampung Pelangi, Indonesia"
         src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
       />
     </div>
   );
@@ -598,13 +593,8 @@ export default function Picture() {
           setIsActive(true);
         }}
         className={pictureClassName}
-<<<<<<< HEAD
         alt="Casas de arco-íris em Kampung Pelangi, Indonésia"
-        src="https://i.imgur.com/5qwVYb1.jpeg"
-=======
-        alt="Rainbow houses in Kampung Pelangi, Indonesia"
         src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
       />
     </div>
   );
@@ -658,13 +648,8 @@ export default function Picture() {
       >
         <img
           className="picture picture--active"
-<<<<<<< HEAD
           alt="Casas de arco-íris em Kampung Pelangi, Indonésia"
-          src="https://i.imgur.com/5qwVYb1.jpeg"
-=======
-          alt="Rainbow houses in Kampung Pelangi, Indonesia"
           src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
           onClick={e => e.stopPropagation()}
         />
       </div>
@@ -674,13 +659,8 @@ export default function Picture() {
     <div className="background background--active">
       <img
         className="picture"
-<<<<<<< HEAD
         alt="Casas de arco-íris em Kampung Pelangi, Indonésia"
-        src="https://i.imgur.com/5qwVYb1.jpeg"
-=======
-        alt="Rainbow houses in Kampung Pelangi, Indonesia"
         src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
         onClick={() => setIsActive(true)}
       />
     </div>

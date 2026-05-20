@@ -29,38 +29,34 @@ Encapsule elementos em `<Fragment>` para agrupá-los juntos em situações em qu
 
 #### Props {/*props*/}
 
-<<<<<<< HEAD
-- **opcional** `key`: Fragments declarados com a sintaxe explícita `<Fragment>` podem ter [keys.](https://pt-br.react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key). 
-=======
-- **optional** `key`: Fragments declared with the explicit `<Fragment>` syntax may have [keys.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
-- <CanaryBadge />  **optional** `ref`: A ref object (e.g. from [`useRef`](/reference/react/useRef)) or [callback function](/reference/react-dom/components/common#ref-callback). React provides a `FragmentInstance` as the ref value that implements methods for interacting with the DOM nodes wrapped by the Fragment.
+- **opcional** `key`: Fragments declarados com a sintaxe explícita `<Fragment>` podem ter [keys.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- <CanaryBadge /> **opcional** `ref`: Um objeto ref (por exemplo, de [`useRef`](/reference/react/useRef)) ou uma [função de callback](/reference/react-dom/components/common#ref-callback). O React fornece um `FragmentInstance` como valor da ref que implementa métodos para interagir com os nós DOM encapsulados pelo Fragment.
 
 ### <CanaryBadge /> FragmentInstance {/*fragmentinstance*/}
 
-When you pass a ref to a fragment, React provides a `FragmentInstance` object with methods for interacting with the DOM nodes wrapped by the fragment:
+Quando você passa uma ref para um fragment, o React fornece um objeto `FragmentInstance` com métodos para interagir com os nós DOM encapsulados pelo fragment:
 
-**Event handling methods:**
-- `addEventListener(type, listener, options?)`: Adds an event listener to all first-level DOM children of the Fragment.
-- `removeEventListener(type, listener, options?)`: Removes an event listener from all first-level DOM children of the Fragment.
-- `dispatchEvent(event)`: Dispatches an event to a virtual child of the Fragment to call any added listeners and can bubble to the DOM parent.
+**Métodos de manipulação de eventos:**
+- `addEventListener(type, listener, options?)`: Adiciona um listener de evento a todos os filhos DOM de primeiro nível do Fragment.
+- `removeEventListener(type, listener, options?)`: Remove um listener de evento de todos os filhos DOM de primeiro nível do Fragment.
+- `dispatchEvent(event)`: Despacha um evento para um filho virtual do Fragment para chamar quaisquer listeners adicionados e pode propagar para o pai DOM.
 
-**Layout methods:**
-- `compareDocumentPosition(otherNode)`: Compares the document position of the Fragment with another node.
-  - If the Fragment has children, the native `compareDocumentPosition` value is returned.
-  - Empty Fragments will attempt to compare positioning within the React tree and include `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC`.
-  - Elements that have a different relationship in the React tree and DOM tree due to portaling or other insertions are `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC`.
-- `getClientRects()`: Returns a flat array of `DOMRect` objects representing the bounding rectangles of all children.
-- `getRootNode()`: Returns the root node containing the Fragment's parent DOM node.
+**Métodos de layout:**
+- `compareDocumentPosition(otherNode)`: Compara a posição no documento do Fragment com outro nó.
+  - Se o Fragment tiver filhos, o valor nativo de `compareDocumentPosition` é retornado.
+  - Fragments vazios tentarão comparar o posicionamento dentro da árvore React e incluirão `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC`.
+  - Elementos que têm uma relação diferente na árvore React e na árvore DOM devido a portais ou outras inserções são `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC`.
+- `getClientRects()`: Retorna um array plano de objetos `DOMRect` representando os retângulos delimitadores de todos os filhos.
+- `getRootNode()`: Retorna o nó raiz contendo o nó DOM pai do Fragment.
 
-**Focus management methods:**
-- `focus(options?)`: Focuses the first focusable DOM node in the Fragment. Focus is attempted on nested children depth-first.
-- `focusLast(options?)`: Focuses the last focusable DOM node in the Fragment. Focus is attempted on nested children depth-first.
-- `blur()`: Removes focus if `document.activeElement` is within the Fragment.
+**Métodos de gerenciamento de foco:**
+- `focus(options?)`: Foca no primeiro nó DOM focável do Fragment. O foco é tentado nos filhos aninhados em profundidade primeiro.
+- `focusLast(options?)`: Foca no último nó DOM focável do Fragment. O foco é tentado nos filhos aninhados em profundidade primeiro.
+- `blur()`: Remove o foco se `document.activeElement` estiver dentro do Fragment.
 
-**Observer methods:**
-- `observeUsing(observer)`: Starts observing the Fragment's DOM children with an IntersectionObserver or ResizeObserver.
-- `unobserveUsing(observer)`: Stops observing the Fragment's DOM children with the specified observer.
->>>>>>> 47e64bf7ad81aab8bacfa791a37816ee869135eb
+**Métodos de observação:**
+- `observeUsing(observer)`: Inicia a observação dos filhos DOM do Fragment com um IntersectionObserver ou ResizeObserver.
+- `unobserveUsing(observer)`: Para a observação dos filhos DOM do Fragment com o observador especificado.
 
 #### Cuidados {/*caveats*/}
 
