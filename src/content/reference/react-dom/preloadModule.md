@@ -4,7 +4,7 @@ title: preloadModule
 
 <Note>
 
-[Frameworks baseados em React](/learn/start-a-new-react-project) frequentemente lidam com o carregamento de recursos para você, então você pode não precisar chamar esta API por conta própria. Consulte a documentação do seu framework para obter detalhes.
+[Frameworks baseados em React](/learn/creating-a-react-app) frequentemente lidam com o carregamento de recursos para você, então você pode não precisar chamar esta API por conta própria. Consulte a documentação do seu framework para obter detalhes.
 
 </Note>
 
@@ -48,7 +48,7 @@ A função `preloadModule` fornece ao navegador uma dica de que ele deve começa
   *  `as`: uma string obrigatória. Deve ser `'script'`.
   *  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus valores possíveis são `anonymous` e `use-credentials`.
   *  `integrity`: uma string. Um hash criptográfico do módulo, para [verificar sua autenticidade](https://developer.mozilla.org/pt-BR/docs/Web/Security/Subresource_Integrity).
-  *  `nonce`: uma string. Um [nonce](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Global_attributes/nonce) criptográfico para permitir o módulo ao usar uma Content Security Policy estrita.
+  *  `nonce`: uma string. Um [nonce criptográfico para permitir o módulo](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Global_attributes/nonce) ao usar uma Content Security Policy estrita.
 
 #### Retorna {/*returns*/}
 

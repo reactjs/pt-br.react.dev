@@ -130,7 +130,7 @@ function ProductPage({ productId, referrer, theme }) {
       orderDetails,
     });
   }
-  
+
   return (
     <div className={theme}>
       {/* ... assim as props do ShippingForm nunca serão as mesmas, e ele será re-renderizado toda vez */}
@@ -207,7 +207,7 @@ A diferença está em *o que* eles permitem que você armazene em cache:
 
 Se você já está familiarizado com [`useMemo`,](/reference/react/useMemo) pode achar útil pensar em `useCallback` assim:
 
-```js
+```js {expectedErrors: {'react-compiler': [3]}}
 // Implementação simplificada (dentro do React)
 function useCallback(fn, dependencies) {
   return useMemo(() => fn, dependencies);
@@ -310,7 +310,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -449,7 +449,7 @@ function post(url, data) {
 }
 ```
 
-```js src/ShippingForm.js
+```js {expectedErrors: {'react-compiler': [7, 8]}} src/ShippingForm.js
 import { memo, useState } from 'react';
 
 const ShippingForm = memo(function ShippingForm({ onSubmit }) {
@@ -867,7 +867,7 @@ Quando você descobrir qual dependência está quebrando a memoização, encontr
 
 Suponha que o componente `Chart` esteja envolto em [`memo`](/reference/react/memo). Você quer pular a re-renderização de cada `Chart` na lista quando o componente `ReportList` re-renderizar. No entanto, você não pode chamar `useCallback` em um loop:
 
-```js {5-14}
+```js {expectedErrors: {'react-compiler': [6]}} {5-14}
 function ReportList({ items }) {
   return (
     <article>

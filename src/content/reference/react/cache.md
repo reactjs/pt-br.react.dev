@@ -1,11 +1,10 @@
 ---
 title: cache
-canary: true
 ---
 
 <RSC>
 
-`cache` é apenas para uso com [Componentes React Server](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components).
+`cache` é apenas para uso com [Componentes React Server](/reference/rsc/server-components).
 
 </RSC>
 
@@ -63,12 +62,10 @@ A otimização de armazenamento em cache de valores de retorno com base nas entr
 
 #### Ressalvas {/*caveats*/}
 
-[//]: # 'TODO: adicionar links para a referência de Componente Servidor/Cliente assim que https://github.com/reactjs/react.dev/pull/6177 for mesclado'
-
 - React invalidará o cache de todas as funções memoizadas para cada solicitação do servidor.
 - Cada chamada para `cache` cria uma nova função. Isso significa que chamar `cache` com a mesma função várias vezes retornará diferentes funções memoizadas que não compartilham o mesmo cache.
 - `cachedFn` também armazenará erros em cache. Se `fn` lançar um erro para determinados argumentos, ele será armazenado em cache e o mesmo erro será relançado quando `cachedFn` for chamado com esses mesmos argumentos.
-- `cache` é para uso somente em [Componentes de Servidor](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components).
+- `cache` é para uso somente em [Componentes de Servidor](/reference/rsc/server-components).
 
 ---
 
@@ -103,6 +100,8 @@ Se o mesmo objeto `user` for renderizado em `Profile` e `TeamReport`, os dois co
 Suponha que `Profile` seja renderizado primeiro. Ele chamará <CodeStep step={1}>`getUserMetrics`</CodeStep> e verificará se há um resultado em cache. Como é a primeira vez que `getUserMetrics` é chamado com esse `user`, haverá uma falha no cache. `getUserMetrics` então chamará `calculateUserMetrics` com esse `user` e gravará o resultado no cache.
 
 Quando `TeamReport` renderizar sua lista de `users` e atingir o mesmo objeto `user`, ele chamará <CodeStep step={2}>`getUserMetrics`</CodeStep> e lerá o resultado do cache.
+
+If `calculateUserMetrics` can be aborted by passing an [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal), you can use [`cacheSignal()`](/reference/react/cacheSignal) to cancel the expensive computation if React has finished rendering. `calculateUserMetrics` may already handle cancellation internally by using `cacheSignal` directly.
 
 <Pitfall>
 
@@ -204,8 +203,6 @@ A <CodeStep step={1}>cidade</CodeStep> atua como uma chave de cache.
 
 <Note>
 
-[//]: # 'TODO: adicionar links para Componentes de Servidor quando mesclado.'
-
 <CodeStep step={3}>Renderização assíncrona</CodeStep> é suportada apenas para Componentes de Servidor.
 
 ```js [[3, 1, "async"], [3, 2, "await"]]
@@ -214,8 +211,8 @@ async function AnimatedWeatherCard({city}) {
 	// ...
 }
 ```
-[//]: # 'TODO: adicionar link e mencionar para usar a documentação quando for mesclado'
-[//]: # 'Para renderizar componentes que usam dados assíncronos em Componentes Cliente, consulte a documentação `use`.'
+
+Para renderizar componentes que usam dados assíncronos em Componentes Cliente, consulte a [documentação de `use()`](/reference/react/use).
 
 </Note>
 
@@ -271,7 +268,7 @@ const getData = cache(fetchData);
 
 async function MyComponent() {
   getData();
-  // ... some computational work  
+  // ... some computational work
   await getData();
   // ...
 }
@@ -323,7 +320,7 @@ Todas as APIs mencionadas oferecem memoização, mas a diferença é o que elas 
 
 Em geral, você deve usar [`useMemo`](/reference/react/useMemo) para armazenar em cache uma computação cara em um Componente Cliente em várias renderizações. Como exemplo, para memoizar uma transformação de dados dentro de um componente.
 
-```jsx {4}
+```jsx {expectedErrors: {'react-compiler': [4]}} {4}
 'use client';
 
 function WeatherReport({record}) {
@@ -379,7 +376,7 @@ Você deve usar [`memo`](reference/react/memo) para impedir que um componente se
 'use client';
 
 function WeatherReport({record}) {
-  const avgTemp = calculateAvg(record); 
+  const avgTemp = calculateAvg(record);
   // ...
 }
 

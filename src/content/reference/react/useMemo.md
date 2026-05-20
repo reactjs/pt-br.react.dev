@@ -715,7 +715,7 @@ export default function TodoList({ todos, theme, tab }) {
 }
 ```
 
-```js src/List.js
+```js {expectedErrors: {'react-compiler': [5, 6]}} src/List.js
 import { memo } from 'react';
 
 const List = memo(function List({ items }) {
@@ -853,7 +853,7 @@ export default function TodoList({ todos, theme, tab }) {
 }
 ```
 
-```js src/List.js
+```js {expectedErrors: {'react-compiler': [5, 6]}} src/List.js
 import { memo } from 'react';
 
 const List = memo(function List({ items }) {
@@ -1124,7 +1124,7 @@ function ChatRoom({ roomId }) {
       serverUrl: 'https://localhost:1234',
       roomId: roomId
     }
-    
+
     const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
@@ -1367,7 +1367,7 @@ Quando você descobrir qual dependência quebra a memoização, encontre uma man
 
 Suponha que o componente `Chart` esteja envolvido em [`memo`](/reference/react/memo). Você quer pular a renderização de cada `Chart` na lista quando o componente `ReportList` renderizar novamente. No entanto, você não pode chamar `useMemo` em um loop:
 
-```js {5-11}
+```js {expectedErrors: {'react-compiler': [6]}} {5-11}
 function ReportList({ items }) {
   return (
     <article>

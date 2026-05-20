@@ -7,7 +7,7 @@ title: prerender
 `prerender` renderiza uma árvore React em uma string HTML estática usando um [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
 
 ```js
-const {prelude} = await prerender(reactNode, options?)
+const {prelude, postponed} = await prerender(reactNode, options?)
 ```
 
 </Intro>
@@ -31,7 +31,7 @@ Chame `prerender` para renderizar seu app em HTML estático.
 ```js
 import { prerender } from 'react-dom/static';
 
-async function handler(request) {
+async function handler(request, response) {
   const {prelude} = await prerender(<App />, {
     bootstrapScripts: ['/main.js']
   });
@@ -64,17 +64,21 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 `prerender` retorna uma Promise:
 - Se a renderização for bem-sucedida, a Promise resolverá para um objeto contendo:
   - `prelude`: um [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) de HTML. Você pode usar este stream para enviar uma resposta em chunks, ou você pode ler todo o stream em uma string.
+  - `postponed`: um objeto opaco serializável em JSON que pode ser passado para [`resume`](/reference/react-dom/server/resume) se `prerender` não terminou. Caso contrário, `null` indicando que o `prelude` contém todo o conteúdo e nenhum resume é necessário.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
 
 #### Ressalvas {/*caveats*/}
 
 `nonce` não é uma opção disponível ao fazer pré-renderização. Nonces devem ser únicos por requisição e se você usar nonces para proteger sua aplicação com [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP), seria inadequado e inseguro incluir o valor do nonce na própria pré-renderização.
 
+
 <Note>
 
 ### Quando devo usar `prerender`? {/*when-to-use-prerender*/}
 
 A API estática `prerender` é usada para geração estática do lado do servidor (SSG). Diferente de `renderToString`, `prerender` aguarda todo o carregamento dos dados antes de resolver. Isso o torna adequado para gerar HTML estático para uma página inteira, incluindo dados que precisam ser buscados usando Suspense. Para transmitir conteúdo conforme ele carrega, use uma API de renderização do lado do servidor (SSR) por streaming como [renderToReadableStream](/reference/react-dom/server/renderToReadableStream).
+
+`prerender` can be aborted and later either continued with `resumeAndPrerender` or resumed with `resume` to support partial pre-rendering.
 
 </Note>
 
@@ -310,7 +314,7 @@ async function renderToString() {
 
 Quaisquer limites de Suspense com filhos incompletos serão incluídos no prelude no estado de fallback.
 
----
+This can be used for partial prerendering together with [`resume`](/reference/react-dom/server/resume) or [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender).
 
 ## Solução de problemas {/*troubleshooting*/}
 

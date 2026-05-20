@@ -214,7 +214,7 @@ Suspense **não** detecta quando os dados são buscados dentro de um Effect ou m
 
 A maneira exata de carregar dados no componente `Albums` acima depende do seu framework. Se você usa um framework habilitado para Suspense, você encontrará os detalhes na documentação de busca de dados dele.
 
-A busca de dados habilitada para Suspense sem o uso de um framework com opinião ainda não é suportada. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis ​​e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
+A busca de dados habilitada para Suspense sem o uso de um framework com opinião ainda não é suportada. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
 
 </Note>
 
@@ -361,9 +361,9 @@ async function getBio() {
     setTimeout(resolve, 1500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -623,9 +623,9 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -902,7 +902,7 @@ Para tornar isso mais óbvio para o usuário, você pode adicionar uma indicaç�
 
 ```js {2}
 <div style={{
-  opacity: query !== deferredQuery ? 0.5 : 1 
+  opacity: query !== deferredQuery ? 0.5 : 1
 }}>
   <SearchResults query={deferredQuery} />
 </div>
@@ -1249,9 +1249,9 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -1373,7 +1373,7 @@ function Router() {
 
   function navigate(url) {
     startTransition(() => {
-      setPage(url);      
+      setPage(url);
     });
   }
   // ...
@@ -1561,9 +1561,9 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
@@ -1872,9 +1872,9 @@ async function getBio() {
     setTimeout(resolve, 500);
   });
 
-  return `The Beatles were an English rock band, 
-    formed in Liverpool in 1960, that comprised 
-    John Lennon, Paul McCartney, George Harrison 
+  return `The Beatles were an English rock band,
+    formed in Liverpool in 1960, that comprised
+    John Lennon, Paul McCartney, George Harrison
     and Ringo Starr.`;
 }
 
