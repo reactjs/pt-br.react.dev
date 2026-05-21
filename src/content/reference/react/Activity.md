@@ -1,15 +1,6 @@
 ---
 title: <Activity>
-version: canary
 ---
-
-<Canary>
-
-**The `<Activity />` API is currently only available in React’s Canary and Experimental channels.** 
-
-[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
-
-</Canary>
 
 <Intro>
 
@@ -52,11 +43,12 @@ In this way, Activity can be thought of as a mechanism for rendering "background
 #### Props {/*props*/}
 
 * `children`: The UI you intend to show and hide.
-* `mode`: A string value of either `'visible'` or `'hidden'`. If omitted, defaults to `'visible'`. 
+* `mode`: A string value of either `'visible'` or `'hidden'`. If omitted, defaults to `'visible'`.
 
 #### Caveats {/*caveats*/}
 
 - If an Activity is rendered inside of a [ViewTransition](/reference/react/ViewTransition), and it becomes visible as a result of an update caused by [startTransition](/reference/react/startTransition), it will activate the ViewTransition's `enter` animation. If it becomes hidden, it will activate its `exit` animation.
+- A *hidden* Activity that just renders text will not render anything rather than rendering hidden text, because there’s no corresponding DOM element to apply visibility changes to. For example, `<Activity mode="hidden"><ComponentThatJustReturnsText /></Activity>` will not produce any output in the DOM for `const ComponentThatJustReturnsText = () => "Hello, World!"`. `<Activity mode="visible"><ComponentThatJustReturnsText /></Activity>` will render visible text.
 
 ---
 
@@ -119,7 +111,7 @@ import { useState } from 'react';
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false)
-  
+
   return (
     <nav>
       <button onClick={() => setIsExpanded(!isExpanded)}>
@@ -170,23 +162,6 @@ h1 {
 }
 .indicator.down {
   rotate: 180deg;
-}
-```
-
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
 }
 ```
 
@@ -215,7 +190,8 @@ and check out the new behavior:
 <Sandpack>
 
 ```js src/App.js active
-import { unstable_Activity as Activity, useState } from 'react';
+import { Activity, useState } from 'react';
+
 import Sidebar from './Sidebar.js';
 
 export default function App() {
@@ -243,7 +219,7 @@ import { useState } from 'react';
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false)
-  
+
   return (
     <nav>
       <button onClick={() => setIsExpanded(!isExpanded)}>
@@ -297,23 +273,6 @@ h1 {
 }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
 Our sidebar's internal state is now restored, without any changes to its implementation.
@@ -328,7 +287,7 @@ In this example, the Contact tab has a `<textarea>` where the user can enter a m
 
 <Sandpack>
 
-```js src/App.js 
+```js src/App.js
 import { useState } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
@@ -408,23 +367,6 @@ b { display: inline-block; margin-right: 10px; }
 .pending { color: #777; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
 This is because we're fully unmounting `Contact` in `App`. When the Contact tab unmounts, the `<textarea>` element's internal DOM state is lost.
@@ -434,7 +376,7 @@ If we switch to using an Activity boundary to show and hide the active tab, we c
 <Sandpack>
 
 ```js src/App.js active
-import { useState, unstable_Activity as Activity } from 'react';
+import { Activity, useState } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
 import Contact from './Contact.js';
@@ -492,7 +434,7 @@ export default function Home() {
 }
 ```
 
-```js src/Contact.js 
+```js src/Contact.js
 export default function Contact() {
   return (
     <div>
@@ -515,23 +457,6 @@ body { height: 275px; }
 button { margin-right: 10px }
 b { display: inline-block; margin-right: 10px; }
 .pending { color: #777; }
-```
-
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
 ```
 
 </Sandpack>
@@ -684,23 +609,6 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
 This is because `App` doesn't mount `Posts` until its tab is active.
@@ -712,7 +620,7 @@ Try clicking the Posts tab now:
 <Sandpack>
 
 ```js src/App.js
-import { useState, Suspense, unstable_Activity as Activity } from 'react';
+import { Activity, useState, Suspense } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
 import Posts from './Posts.js';
@@ -837,23 +745,6 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
 `Posts` was able to prepare itself for a faster render, thanks to the hidden Activity boundary.
@@ -874,7 +765,7 @@ Activity **does not** detect data that is fetched inside an Effect.
 
 The exact way you would load data in the `Posts` component above depends on your framework. If you use a Suspense-enabled framework, you'll find the details in its data fetching documentation.
 
-Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React. 
+Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React.
 
 </Note>
 
@@ -1012,7 +903,7 @@ function Page() {
       </Activity>
     </>
   );
-} 
+}
 ```
 
 ---
@@ -1084,7 +975,7 @@ export default function Home() {
 }
 ```
 
-```js src/Video.js 
+```js src/Video.js
 export default function Video() {
   return (
     <video
@@ -1106,23 +997,6 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
 The video stops playing as expected.
@@ -1136,7 +1010,7 @@ Let's update `App` to hide the inactive tab with a hidden Activity boundary inst
 <Sandpack>
 
 ```js src/App.js active
-import { useState, unstable_Activity as Activity } from 'react';
+import { Activity, useState } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
 import Video from './Video.js';
@@ -1194,7 +1068,7 @@ export default function Home() {
 }
 ```
 
-```js src/Video.js 
+```js src/Video.js
 export default function Video() {
   return (
     <video
@@ -1214,23 +1088,6 @@ button { margin-right: 10px }
 b { display: inline-block; margin-right: 10px; }
 .pending { color: #777; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
-```
-
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
 ```
 
 </Sandpack>
@@ -1270,7 +1127,7 @@ Let's see the new behavior. Try playing the video, switching to the Home tab, th
 <Sandpack>
 
 ```js src/App.js active
-import { useState, unstable_Activity as Activity } from 'react';
+import { Activity, useState } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
 import Video from './Video.js';
@@ -1328,7 +1185,7 @@ export default function Home() {
 }
 ```
 
-```js src/Video.js 
+```js src/Video.js
 import { useRef, useLayoutEffect } from 'react';
 
 export default function Video() {
@@ -1363,23 +1220,6 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
 It works great! Our cleanup function ensures that the video stops playing if it's ever hidden by an Activity boundary, and even better, because the `<video>` tag is never destroyed, the timecode is preserved, and the video itself doesn't need to be initialized or downloaded again when the user switches back to keep watching it.
@@ -1398,7 +1238,7 @@ The most common cases of this will be from the following tags:
 
 Typically, though, most of your React components should already be robust to being hidden by an Activity boundary. And conceptually, you should think of "hidden" Activities as being unmounted.
 
-To eagerly discover other Effects that don't have proper cleanup, which is important not only for Activity boundaries but for many other behaviors in React, we recommend using [`<StrictMode>`](/reference/react/StrictMode). 
+To eagerly discover other Effects that don't have proper cleanup, which is important not only for Activity boundaries but for many other behaviors in React, we recommend using [`<StrictMode>`](/reference/react/StrictMode).
 
 ---
 
@@ -1409,4 +1249,4 @@ When an `<Activity>` is "hidden", all its children's Effects are cleaned up. Con
 
 If you're relying on an Effect mounting to clean up a component's side effects, refactor the Effect to do the work in the returned cleanup function instead.
 
-To eagerly find problematic Effects, we recommend adding [`<StrictMode>`](/reference/react/StrictMode) which will eagerly perform Activity unmounts and mounts to catch any unexpected side-effects. 
+To eagerly find problematic Effects, we recommend adding [`<StrictMode>`](/reference/react/StrictMode) which will eagerly perform Activity unmounts and mounts to catch any unexpected side-effects.

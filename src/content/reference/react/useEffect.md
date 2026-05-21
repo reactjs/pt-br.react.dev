@@ -44,9 +44,9 @@ function ChatRoom({ roomId }) {
 
 #### Parâmetros {/*parameters*/}
 
-* `configurar`: A função com a lógica do seu Efeito. Sua função de configuração também pode opcionalmente retornar uma função de *limpeza*. Quando seu componente é adicionado ao DOM, o React executará sua função de configuração. Após cada re-renderização com dependências alteradas, o React primeiro executará a função de limpeza (se você a forneceu) com os valores antigos e, em seguida, executará sua função de configuração com os novos valores. Após seu componente ser removido do DOM, o React executará sua função de limpeza.
- 
-* **opcional** `dependências`: A lista de todos os valores reativos referenciados dentro do código da `configurar`. Valores reativos incluem props, estado, e todas as variáveis e funções declaradas diretamente dentro do corpo do seu componente. Se seu linter estiver [configurado para React](/learn/editor-setup#linting), ele verificará se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita em linha como `[dep1, dep2, dep3]`. O React comparará cada dependência com seu valor anterior usando a comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se você omitir este argumento, seu Efeito será executado novamente após cada re-renderização do componente. [Veja a diferença entre passar um array de dependências, um array vazio, e nenhuma dependência.](#examples-dependencies)
+* `configurar`: A função com a lógica do seu Efeito. Sua função de configuração também pode opcionalmente retornar uma função de *limpeza*. Quando seu [componente é commitado](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom), o React executará sua função de configuração. Após cada commit com dependências alteradas, o React primeiro executará a função de limpeza (se você a forneceu) com os valores antigos e, em seguida, executará sua função de configuração com os novos valores. Após seu componente ser removido do DOM, o React executará sua função de limpeza.
+
+* **opcional** `dependências`: A lista de todos os valores reativos referenciados dentro do código da `configurar`. Valores reativos incluem props, estado, e todas as variáveis e funções declaradas diretamente dentro do corpo do seu componente. Se seu linter estiver [configurado para React](/learn/editor-setup#linting), ele verificará se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita em linha como `[dep1, dep2, dep3]`. O React comparará cada dependência com seu valor anterior usando a comparação [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se você omitir este argumento, seu Efeito será executado novamente após cada commit do componente. [Veja a diferença entre passar um array de dependências, um array vazio, e nenhuma dependência.](#examples-dependencies)
 
 #### Retorna {/*returns*/}
 
@@ -107,14 +107,14 @@ Você precisa passar dois argumentos para `useEffect`:
 **O React chama suas funções de configuração e limpeza sempre que é necessário, o que pode acontecer várias vezes:**
 
 1. Seu <CodeStep step={1}>código de configuração</CodeStep> é executado quando seu componente é adicionado à página *(montado)*.
-2. Após cada re-renderização do seu componente onde as <CodeStep step={3}>dependências</CodeStep> mudaram:
+2. Após cada commit do seu componente onde as <CodeStep step={3}>dependências</CodeStep> mudaram:
    - Primeiro, seu <CodeStep step={2}>código de limpeza</CodeStep> roda com os antigos props e estado.
    - Então, seu <CodeStep step={1}>código de configuração</CodeStep> roda com os novos props e estado.
 3. Seu <CodeStep step={2}>código de limpeza</CodeStep> é executado mais uma vez após seu componente ser removido da página *(desmontado).*
 
-**Vamos ilustrar essa sequência pelo exemplo acima.**  
+**Vamos ilustrar essa sequência pelo exemplo acima.**
 
-Quando o componente `ChatRoom` acima é adicionado à página, ele se conectará à sala de chat com o `serverUrl` e `roomId` iniciais. Se `serverUrl` ou `roomId` mudarem como resultado de uma re-renderização (por exemplo, se o usuário escolher uma sala de chat diferente em um dropdown), seu Efeito irá *desconectar da sala anterior e conectar à próxima.* Quando o componente `ChatRoom` for removido da página, seu Efeito irá se desconectar mais uma vez.
+Quando o componente `ChatRoom` acima é adicionado à página, ele se conectará à sala de chat com o `serverUrl` e `roomId` iniciais. Se `serverUrl` ou `roomId` mudarem como resultado de um commit (por exemplo, se o usuário escolher uma sala de chat diferente em um dropdown), seu Efeito irá *desconectar da sala anterior e conectar à próxima.* Quando o componente `ChatRoom` for removido da página, seu Efeito irá se desconectar mais uma vez.
 
 **Para [ajudar você a encontrar bugs,](/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) durante o desenvolvimento, o React executa <CodeStep step={1}>configuração</CodeStep> e <CodeStep step={2}>limpeza</CodeStep> uma vez extra antes da <CodeStep step={1}>configuração</CodeStep>.** Este é um teste de estresse que verifica se a lógica do seu Efeito está implementada corretamente. Se isso causar problemas visíveis, sua função de limpeza pode estar faltando alguma lógica. A função de limpeza deve parar ou reverter o que a função de configuração estava fazendo. A regra prática é que o usuário não deve ser capaz de distinguir entre a configuração sendo chamada uma vez (como na produção) e uma sequência de *configuração* → *limpeza* → *configuração* (como no desenvolvimento). [Veja soluções comuns.](/learn/synchronizing-with-effects#how-to-handle-the-effect-firing-twice-in-development)
 
@@ -896,7 +896,7 @@ Neste exemplo, uma função de limpeza não é necessária porque a classe `MapW
 
 ### Buscando dados com Efeitos {/*fetching-data-with-effects*/}
 
-Você pode usar um Efeito para buscar dados para seu componente. Note que [se você usar uma framework,](/learn/start-a-new-react-project#full-stack-frameworks) usar o mecanismo de busca de dados da sua framework será muito mais eficiente do que escrever Efeitos manualmente.
+Você pode usar um Efeito para buscar dados para seu componente. Note que [se você usar uma framework,](/learn/creating-a-react-app#full-stack-frameworks) usar o mecanismo de busca de dados da sua framework será muito mais eficiente do que escrever Efeitos manualmente.
 
 Se você quiser buscar dados de um Efeito manualmente, seu código pode ser assim:
 
@@ -928,7 +928,8 @@ Note a variável `ignore` que é inicializada como `false`, e é definida como `
 
 <Sandpack>
 
-```js src/App.js
+{/* TODO(@poteto) - investigate potential false positives in react compiler validation */}
+```js {expectedErrors: {'react-compiler': [9]}} src/App.js
 import { useState, useEffect } from 'react';
 import { fetchBio } from './api.js';
 
@@ -1048,8 +1049,8 @@ Escrever chamadas `fetch` dentro de Efeitos é uma [maneira popular de buscar da
 
 Esta lista de desvantagens não é específica do React. Ela se aplica a buscar dados ao montar com qualquer biblioteca. Assim como com roteamento, buscar dados não é trivial de fazer bem, então recomendamos as seguintes abordagens:
 
-- **Se você usar uma [framework](/learn/start-a-new-react-project#full-stack-frameworks), utilize seu mecanismo de busca de dados integrado.** Frameworks modernas de React possuem mecanismos integrados de busca de dados que são eficientes e não sofrem com as armadilhas mencionadas acima.
-- **Caso contrário, considere usar ou construir um cache do lado do cliente.** Soluções populares de código aberto incluem [React Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/), e [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Você também pode construir sua própria solução, caso em que usaria Efeitos por baixo dos panos, mas também adicionaria lógica para desduplicar solicitações, armazenar respostas em cache e evitar cachoeiras de rede (pré-carregando dados ou elevando os requisitos de dados para rotas).
+- **Se você usar uma [framework](/learn/creating-a-react-app#full-stack-frameworks), utilize seu mecanismo de busca de dados integrado.** Frameworks modernas de React possuem mecanismos integrados de busca de dados que são eficientes e não sofrem com as armadilhas mencionadas acima.
+- **Caso contrário, considere usar ou construir um cache do lado do cliente.** Soluções populares de código aberto incluem [TanStack Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/), e [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Você também pode construir sua própria solução, caso em que usaria Efeitos por baixo dos panos, mas também adicionaria lógica para desduplicar solicitações, armazenar respostas em cache e evitar cachoeiras de rede (pré-carregando dados ou elevando os requisitos de dados para rotas).
 
 Você pode continuar buscando dados diretamente em Efeitos se nenhuma dessas abordagens for adequada a você.
 
@@ -1081,7 +1082,7 @@ Se `serverUrl` ou `roomId` mudarem, seu Efeito irá reconectar ao chat usando os
 ```js {8}
 function ChatRoom({ roomId }) {
   const [serverUrl, setServerUrl] = useState('https://localhost:1234');
-  
+
   useEffect(() => {
     const connection = createConnection(serverUrl, roomId);
     connection.connect();
@@ -1144,7 +1145,7 @@ useEffect(() => {
 
 #### Passando um array de dependências {/*passing-a-dependency-array*/}
 
-Se você especificar as dependências, seu Efeito será executado **após a renderização inicial _e_ após re-renderizações com dependências alteradas.**
+Se você especificar as dependências, seu Efeito será executado **após o commit inicial _e_ após commits com dependências alteradas.**
 
 ```js {3}
 useEffect(() => {
@@ -1241,7 +1242,7 @@ button { margin-left: 5px; }
 
 #### Passando um array de dependências vazio {/*passing-an-empty-dependency-array*/}
 
-Se seu Efeito realmente não usar nenhum valor reativo, ele executará **apenas após a renderização inicial.**
+Se seu Efeito realmente não usar nenhum valor reativo, ele executará **apenas após o commit inicial.**
 
 ```js {3}
 useEffect(() => {
@@ -1318,7 +1319,7 @@ export function createConnection(serverUrl, roomId) {
 
 #### Não passando nenhuma array de dependências {/*passing-no-dependency-array-at-all*/}
 
-Se você não passar nenhuma array de dependências, seu Efeito será executado **após cada renderização (e re-renderização)** do seu componente.
+Se você não passar nenhuma array de dependências, seu Efeito será executado **após cada commit** do seu componente.
 
 ```js {3}
 useEffect(() => {
@@ -1435,7 +1436,7 @@ function Counter() {
 }
 ```
 
-Como `count` é um valor reativo, deve ser especificado na lista de dependências. No entanto, isso faz com que o Efeito limpe e configure novamente toda vez que o `count` muda. Isso não é ideal. 
+Como `count` é um valor reativo, deve ser especificado na lista de dependências. No entanto, isso faz com que o Efeito limpe e configure novamente toda vez que o `count` muda. Isso não é ideal.
 
 Para corrigir isso, [passe o atualizador de estado `c => c + 1`](/reference/react/useState#updating-state-based-on-the-previous-state) para `setCount`:
 
@@ -1479,7 +1480,7 @@ Agora que você está passando `c => c + 1` em vez de `count + 1`, [seu Efeito n
 
 ### Removendo dependências de objeto desnecessárias {/*removing-unnecessary-object-dependencies*/}
 
-Se seu Efeito depende de um objeto ou uma função criada durante a renderização, ele pode rodar mais frequentemente. Por exemplo, este Efeito reconecta após cada renderização porque o objeto `options` é [diferente a cada renderização:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
+Se seu Efeito depende de um objeto ou uma função criada durante a renderização, ele pode rodar mais frequentemente. Por exemplo, este Efeito reconecta após cada commit porque o objeto `options` é [diferente a cada renderização:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
 
 ```js {6-9,12,15}
 const serverUrl = 'https://localhost:1234';
@@ -1496,7 +1497,7 @@ function ChatRoom({ roomId }) {
     const connection = createConnection(options); // É usado dentro do Efeito
     connection.connect();
     return () => connection.disconnect();
-  }, [options]); // 🚩 Como resultado, essas dependências estão sempre diferentes em re-renderizações
+  }, [options]); // 🚩 Como resultado, essas dependências estão sempre diferentes em cada commit
   // ...
 ```
 
@@ -1582,7 +1583,7 @@ Com essa correção, digitar na entrada não reconecta o chat. Ao contrário de 
 
 ### Removendo dependências de função desnecessárias {/*removing-unnecessary-function-dependencies*/}
 
-Se seu Efeito depende de um objeto ou uma função criada durante a renderização, ele pode rodar mais frequentemente. Por exemplo, este Efeito reconecta após cada renderização porque a função `createOptions` é [diferente a cada renderização:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
+Se seu Efeito depende de um objeto ou uma função criada durante a renderização, ele pode rodar mais frequentemente. Por exemplo, este Efeito reconecta após cada commit porque a função `createOptions` é [diferente a cada renderização:](/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
 
 ```js {4-9,12,16}
 function ChatRoom({ roomId }) {
@@ -1600,11 +1601,11 @@ function ChatRoom({ roomId }) {
     const connection = createConnection();
     connection.connect();
     return () => connection.disconnect();
-  }, [createOptions]); // 🚩 Como resultado, essas dependências estão sempre diferentes em re-renderizações
+  }, [createOptions]); // 🚩 Como resultado, essas dependências estão sempre diferentes em cada commit
   // ...
 ```
 
-Por si só, criar uma função do zero a cada re-renderização não é um problema. Você não precisa otimizar isso. No entanto, se você a usar como uma dependência do seu Efeito, fará com que seu Efeito re-execute após cada re-renderização.
+Por si só, criar uma função do zero a cada re-renderização não é um problema. Você não precisa otimizar isso. No entanto, se você a usar como uma dependência do seu Efeito, fará com que seu Efeito re-execute após cada commit.
 
 Evite usar uma função criada durante a renderização como dependência. Em vez disso, declare-a dentro do Efeito:
 
@@ -1690,12 +1691,6 @@ Agora que você definiu a função `createOptions` dentro do Efeito, o Efeito em
 
 ### Lendo os últimos props e estado de um Efeito {/*reading-the-latest-props-and-state-from-an-effect*/}
 
-<Wip>
-
-Esta seção descreve uma **API experimental que ainda não foi lançada** em uma versão estável do React.
-
-</Wip>
-
 Por padrão, quando você lê um valor reativo de um Efeito, precisa adicioná-lo como uma dependência. Isso garante que seu Efeito "reaja" a cada mudança desse valor. Para a maioria das dependências, esse é o comportamento que você deseja.
 
 **No entanto, às vezes você quer ler os *últimos* props e estado de um Efeito sem "reagir" a eles.** Por exemplo, imagine que você quer registrar o número de itens no carrinho de compras para cada visita à página:
@@ -1709,7 +1704,7 @@ function Page({ url, shoppingCart }) {
 }
 ```
 
-**E se você quiser registrar uma nova visita à página após cada mudança de `url`, mas *não* se apenas o `shoppingCart` mudar?** Você não pode excluir `shoppingCart` das dependências sem quebrar as [regras de reatividade.](#specifying-reactive-dependencies) No entanto, você pode expressar que *não quer* que um trecho de código "reaja" a alterações, mesmo que ele seja chamado de dentro de um Efeito. [Declare um *Evento de Efeito*](/learn/separating-events-from-effects#declaring-an-effect-event) com o Hook [`useEffectEvent`](/reference/react/experimental_useEffectEvent), e mova o código que lê `shoppingCart` para dentro dele:
+**E se você quiser registrar uma nova visita à página após cada mudança de `url`, mas *não* se apenas o `shoppingCart` mudar?** Você não pode excluir `shoppingCart` das dependências sem quebrar as [regras de reatividade.](#specifying-reactive-dependencies) No entanto, você pode expressar que *não quer* que um trecho de código "reaja" a alterações, mesmo que ele seja chamado de dentro de um Efeito. [Declare um *Evento de Efeito*](/learn/separating-events-from-effects#declaring-an-effect-event) com o Hook [`useEffectEvent`](/reference/react/useEffectEvent), e mova o código que lê `shoppingCart` para dentro dele:
 
 ```js {2-4,7,8}
 function Page({ url, shoppingCart }) {
@@ -1733,11 +1728,13 @@ function Page({ url, shoppingCart }) {
 
 ### Exibindo conteúdo diferente no servidor e no cliente {/*displaying-different-content-on-the-server-and-the-client*/}
 
-Se seu aplicativo usa renderização do servidor (diretamente ou por meio de uma [framework](/learn/start-a-new-react-project#full-stack-frameworks)), seu componente será renderizado em dois ambientes diferentes. No servidor, ele renderizará para produzir o HTML inicial. No cliente, o React executará o código de renderização novamente para que possa anexar seus manipuladores de eventos a esse HTML. É por isso que, para [hidratação](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) funcionar, sua saída de renderização inicial deve ser idêntica no cliente e no servidor.
+Se seu aplicativo usa renderização do servidor (diretamente via [referência](/reference/react-dom/server) ou por meio de uma [framework](/learn/creating-a-react-app#full-stack-frameworks)), seu componente será renderizado em dois ambientes diferentes. No servidor, ele renderizará para produzir o HTML inicial. No cliente, o React executará o código de renderização novamente para que possa anexar seus manipuladores de eventos a esse HTML. É por isso que, para [hidratação](/reference/react-dom/client/hydrateRoot#hydrating-server-rendered-html) funcionar, sua saída de renderização inicial deve ser idêntica no cliente e no servidor.
 
 Em raras ocasiões, você pode precisar exibir conteúdo diferente no cliente. Por exemplo, se seu aplicativo ler alguns dados de [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), não é possível fazer isso no servidor. Aqui está como você poderia implementar isso:
 
-```js
+
+{/* TODO(@poteto) - investigate potential false positives in react compiler validation */}
+```js {expectedErrors: {'react-compiler': [5]}}
 function MyComponent() {
   const [didMount, setDidMount] = useState(false);
 
@@ -1778,7 +1775,7 @@ Primeiro, verifique se você não esqueceu de especificar a array de dependênci
 ```js {3}
 useEffect(() => {
   // ...
-}); // 🚩 Sem array de dependência: re-executa após cada renderização!
+}); // 🚩 Sem array de dependência: re-executa após cada commit!
 ```
 
 Se você especificou a array de dependências, mas seu Efeito ainda re-executa em um loop, isso ocorre porque uma de suas dependências é diferente em cada re-renderização.

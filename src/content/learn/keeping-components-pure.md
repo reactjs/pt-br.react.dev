@@ -52,7 +52,7 @@ React é projetado em torno deste conceito. **React assume que todo componente q
 ```js src/App.js
 function Recipe({ drinkers }) {
   return (
-    <ol>    
+    <ol>
       <li>Ferva {drinkers} xícaras de água.</li>
       <li>Adicione {drinkers} colheres de chá e {0.5 * drinkers} colheres de especiarias.</li>
       <li>Adicione {0.5 * drinkers} xícaras de leite para ferver e açúcar a gosto.</li>
@@ -93,7 +93,7 @@ Aqui está um componente que quebra esta regra:
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5]}}
 let guest = 0;
 
 function Cup() {
@@ -224,6 +224,7 @@ Todo novo recurso do React que estamos construindo aproveita a pureza. Da busca 
 * Escrever funções puras exige um pouco de prática, mas desbloqueiam o poder do paradigma do React.
 
 </Recap>
+
 
 <Challenges>
 
@@ -378,7 +379,7 @@ O código com bug está em `Profile.js`. Certifique-se de lê-lo todo de cima a 
 
 <Sandpack>
 
-```js src/Profile.js
+```js {expectedErrors: {'react-compiler': [7]}} src/Profile.js
 import Panel from './Panel.js';
 import { getImageUrl } from './utils.js';
 
@@ -449,7 +450,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -547,7 +548,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -600,7 +601,7 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
@@ -696,7 +697,7 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
@@ -788,7 +789,7 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 

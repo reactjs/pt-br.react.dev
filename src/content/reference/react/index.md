@@ -28,6 +28,7 @@ React-dom contém recursos que são suportados apenas por aplicativos da web (qu
 * [APIs](/reference/react-dom) - O pacote `react-dom` contém métodos suportados apenas em aplicações web.
 * [APIs do cliente](/reference/react-dom/client) - As APIs `react-dom/client` permitem renderizar componentes do React no cliente (no navegador).
 * [APIs de servidor](/reference/react-dom/server) - As APIs `react-dom/server` permitem renderizar componentes React para HTML no servidor.
+* [APIs estáticas](/reference/react-dom/static) - As APIs `react-dom/static` permitem gerar HTML estático para componentes React.
 
 ## React Compiler {/*react-compiler*/}
 
@@ -36,6 +37,12 @@ The React Compiler is a build-time optimization tool that automatically memoizes
 * [Configuration](/reference/react-compiler/configuration) - Configuration options for React Compiler.
 * [Directives](/reference/react-compiler/directives) - Function-level directives to control compilation.
 * [Compiling Libraries](/reference/react-compiler/compiling-libraries) - Guide for shipping pre-compiled library code.
+
+## ESLint Plugin React Hooks {/*eslint-plugin-react-hooks*/}
+
+The [ESLint plugin for React Hooks](/reference/eslint-plugin-react-hooks) helps enforce the Rules of React:
+
+* [Lints](/reference/eslint-plugin-react-hooks) - Detailed documentation for each lint with examples.
 
 ## Rules of React {/*rules-of-react*/}
 

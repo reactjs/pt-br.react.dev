@@ -4,7 +4,7 @@ title: "Hooks DOM embutidos do React"
 
 <Intro>
 
-O pacote `react-dom` contém Hooks que são suportados apenas para aplicações web (que rodam no ambiente DOM do navegador). Estes Hooks não são suportados em ambientes que não são de navegador como aplicativos iOS, Android ou Windows. Se você está procurando por Hooks que são suportados em navegadores web *e outros ambientes* veja [a página de React Hooks](/reference/react). Esta página lista todos os Hooks no pacote `react-dom`.
+O pacote `react-dom` contém Hooks que são suportados apenas para aplicações web (que rodam no ambiente DOM do navegador). Estes Hooks não são suportados em ambientes que não são de navegador como aplicativos iOS, Android ou Windows. Se você está procurando por Hooks que são suportados em navegadores web *e outros ambientes* veja [a página de React Hooks](/reference/react/hooks). Esta página lista todos os Hooks no pacote `react-dom`.
 
 </Intro>
 

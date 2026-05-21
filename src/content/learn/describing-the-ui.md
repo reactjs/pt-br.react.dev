@@ -31,7 +31,7 @@ Aplicações React são construídas a partir de partes isoladas da UI chamadas 
 function Profile() {
   return (
     <img
-      src="https://i.imgur.com/MK3eW3As.jpg"
+      src="https://react.dev/images/docs/scientists/MK3eW3As.jpg"
       alt="Katherine Johnson"
     />
   );
@@ -97,7 +97,7 @@ export default function Gallery() {
 export default function Profile() {
   return (
     <img
-      src="https://i.imgur.com/QIrZWGIs.jpg"
+      src="https://react.dev/images/docs/scientists/QIrZWGIs.jpg"
       alt="Alan L. Hart"
     />
   );
@@ -130,7 +130,7 @@ export default function TodoList() {
     // Isto não vai funcionar!
     <h1>Hedy Lamarr's Todos</h1>
     <img
-      src="https://i.imgur.com/yXOvdOSs.jpg"
+      src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
       alt="Hedy Lamarr"
       class="photo"
     >
@@ -159,7 +159,7 @@ export default function TodoList() {
     <>
       <h1>Hedy Lamarr's Todos</h1>
       <img
-        src="https://i.imgur.com/yXOvdOSs.jpg"
+        src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
         alt="Hedy Lamarr"
         className="photo"
       />
@@ -187,7 +187,7 @@ Leia **[Escrevendo Tags com JSX](/learn/writing-markup-with-jsx)** para aprender
 
 ## JavaScript entre Chaves no JSX {/*javascript-in-jsx-with-curly-braces*/}
 
-JSX permite que você escreva de maneira análoga ao HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo lugar. Em alguns momentos, você pode querer adicionar alguma lógica JavaScript ou uma propriedade dinâmica em uma tag. Neste tipo de situação, você pode utilizar chaves no JSX para "abrir uma janela" que entenda JavaScript: 
+JSX permite que você escreva de maneira análoga ao HTML dentro de um arquivo JavaScript, mantendo a lógica de renderização e o conteúdo no mesmo lugar. Em alguns momentos, você pode querer adicionar alguma lógica JavaScript ou uma propriedade dinâmica em uma tag. Neste tipo de situação, você pode utilizar chaves no JSX para "abrir uma janela" que entenda JavaScript:
 
 <Sandpack>
 
@@ -206,7 +206,7 @@ export default function TodoList() {
       <h1>{person.name}'s Todos</h1>
       <img
         className="avatar"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
+        src="https://react.dev/images/docs/scientists/7vQD0fPs.jpg"
         alt="Gregorio Y. Zara"
       />
       <ul>
@@ -281,7 +281,7 @@ function Card({ children }) {
 ```js src/utils.js
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -436,7 +436,7 @@ export const people = [{
 ```js src/utils.js
 export function getImageUrl(person) {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     's.jpg'
   );
@@ -476,7 +476,7 @@ Escrevendo apenas funções puras, você pode evitar muitos erros e comportament
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5]}}
 let guest = 0;
 
 function Cup() {
