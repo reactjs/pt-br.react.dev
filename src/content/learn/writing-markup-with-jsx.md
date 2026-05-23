@@ -70,9 +70,9 @@ Suponha que você tenha algum HTML (perfeitamente válido):
 
 ```html
 <h1>Tarefas de Hedy Lamarr</h1>
-<img 
-  src="https://i.imgur.com/yXOvdOSs.jpg" 
-  alt="Hedy Lamarr" 
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
   class="photo"
 >
 <ul>
@@ -102,9 +102,9 @@ export default function TodoList() {
   return (
     // Isso não funciona direito!
     <h1>Tarefas de Hedy Lamarr</h1>
-    <img 
-      src="https://i.imgur.com/yXOvdOSs.jpg" 
-      alt="Hedy Lamarr" 
+    <img
+      src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+      alt="Hedy Lamarr"
       class="photo"
     >
     <ul>
@@ -141,9 +141,9 @@ Por exemplo, você pode usar um `<div>`:
 ```js {1,11}
 <div>
   <h1>Tarefas de Hedy Lamarr</h1>
-  <img 
-    src="https://i.imgur.com/yXOvdOSs.jpg" 
-    alt="Hedy Lamarr" 
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
     class="photo"
   >
   <ul>
@@ -157,9 +157,9 @@ Se você não quiser adicionar um `<div>` extra à sua marcação, você pode es
 ```js {1,11}
 <>
   <h1>Tarefas de Hedy Lamarr</h1>
-  <img 
-    src="https://i.imgur.com/yXOvdOSs.jpg" 
-    alt="Hedy Lamarr" 
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
     class="photo"
   >
   <ul>
@@ -186,9 +186,9 @@ JSX requer que as tags sejam explicitamente fechadas: tags de fechamento automá
 
 ```js {2-6,8-10}
 <>
-  <img 
-    src="https://i.imgur.com/yXOvdOSs.jpg" 
-    alt="Hedy Lamarr" 
+  <img
+    src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+    alt="Hedy Lamarr"
     class="photo"
    />
   <ul>
@@ -206,9 +206,9 @@ JSX se transforma em JavaScript e atributos escritos em JSX se tornam chaves de 
 É por isso que, no React, muitos atributos HTML e SVG são escritos em camelCase. Por exemplo, em vez de `stroke-width`, você usa `strokeWidth`. Como `class` é uma palavra reservada, no React você escreve `className` em vez disso, nomeado após a [propriedade DOM correspondente](https://developer.mozilla.org/en-US/docs/Web/API/Element/className):
 
 ```js {4}
-<img 
-  src="https://i.imgur.com/yXOvdOSs.jpg" 
-  alt="Hedy Lamarr" 
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
   className="photo"
 />
 ```
@@ -234,10 +234,10 @@ export default function TodoList() {
   return (
     <>
       <h1>Tarefas de Hedy Lamarr</h1>
-      <img 
-        src="https://i.imgur.com/yXOvdOSs.jpg" 
-        alt="Hedy Lamarr" 
-        className="photo" 
+      <img
+        src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+        alt="Hedy Lamarr"
+        className="photo"
       />
       <ul>
         <li>Inventar novos semáforos</li>

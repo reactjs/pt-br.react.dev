@@ -52,7 +52,7 @@ React é projetado em torno deste conceito. **React assume que todo componente q
 ```js src/App.js
 function Recipe({ drinkers }) {
   return (
-    <ol>    
+    <ol>
       <li>Ferva {drinkers} xícaras de água.</li>
       <li>Adicione {drinkers} colheres de chá e {0.5 * drinkers} colheres de especiarias.</li>
       <li>Adicione {0.5 * drinkers} xícaras de leite para ferver e açúcar a gosto.</li>
@@ -93,7 +93,7 @@ Aqui está um componente que quebra esta regra:
 
 <Sandpack>
 
-```js
+```js {expectedErrors: {'react-compiler': [5]}}
 let guest = 0;
 
 function Cup() {
@@ -193,7 +193,7 @@ No entanto, está tudo bem porque você os criou *durante a mesma renderização
 
 Embora a programação funcional dependa muito da pureza, em algum ponto, em algum lugar, _alguma coisa_ tem que mudar. Esse é meio que o ponto da programação! Essas mudanças—atualizar a tela, iniciar uma animação, alterar os dados—são chamadas de **efeitos colaterais.** São coisas que acontecem _"ao lado"_, não durante a renderização.
 
-No React, **efeitos colaterais geralmente pertencem dentro de [manipuladores de eventos.](/learn/responding-to-events)** Manipuladores de eventos são funções que o React executa quando você realiza alguma ação—por exemplo, quando você clica em um botão. Mesmo que os manipuladores de eventos sejam definidos *dentro* do seu componente, eles não executam *durante* a renderização! **Então os manipuladores de eventos não precisam ser puros.**
+No React, **efeitos colaterais geralmente ficam dentro de [manipuladores de eventos.](/learn/responding-to-events)** Manipuladores de eventos são funções que o React executa quando você realiza alguma ação—por exemplo, quando você clica em um botão. Mesmo que os manipuladores de eventos sejam definidos *dentro* do seu componente, eles não executam *durante* a renderização! **Então os manipuladores de eventos não precisam ser puros.**
 
 Se você esgotou todas as outras opções e não consegue encontrar o manipulador de eventos correto para seu efeito colateral, você ainda pode anexá-lo ao seu JSX retornado com uma chamada [`useEffect`](/reference/react/useEffect) no seu componente. Isso diz ao React para executá-lo mais tarde, após a renderização, quando efeitos colaterais são permitidos. **No entanto, esta abordagem deve ser seu último recurso.**
 
@@ -224,6 +224,7 @@ Todo novo recurso do React que estamos construindo aproveita a pureza. Da busca 
 * Escrever funções puras exige um pouco de prática, mas desbloqueiam o poder do paradigma do React.
 
 </Recap>
+
 
 <Challenges>
 
@@ -378,7 +379,7 @@ O código com bug está em `Profile.js`. Certifique-se de lê-lo todo de cima a 
 
 <Sandpack>
 
-```js src/Profile.js
+```js {expectedErrors: {'react-compiler': [7]}} src/Profile.js
 import Panel from './Panel.js';
 import { getImageUrl } from './utils.js';
 
@@ -449,7 +450,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -547,7 +548,7 @@ export default function App() {
 ```js src/utils.js hidden
 export function getImageUrl(person, size = 's') {
   return (
-    'https://i.imgur.com/' +
+    'https://react.dev/images/docs/scientists/' +
     person.imageId +
     size +
     '.jpg'
@@ -600,7 +601,7 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
@@ -696,7 +697,7 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 
@@ -788,7 +789,7 @@ export default function StoryTray({ stories }) {
 }
 ```
 
-```js src/App.js hidden
+```js {expectedErrors: {'react-compiler': [16]}} src/App.js hidden
 import { useState, useEffect } from 'react';
 import StoryTray from './StoryTray.js';
 

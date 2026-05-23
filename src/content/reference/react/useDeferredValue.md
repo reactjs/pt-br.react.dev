@@ -420,7 +420,7 @@ input { margin: 10px; }
 
 Você pode pensar que isso acontece em duas etapas:
 
-1. **Primeiro, o React renderiza novamente com o novo `query` (`"ab"`) mas com o `deferredQuery` antigo (ainda `"a"`)** O valor `deferredQuery`, que você passa para a lista de resultados, é *adiado:* ele "fica para trás" do valor `query`.
+1. **Primeiro, o React renderiza novamente com o novo `query` (`"ab"`) mas com o `deferredQuery` antigo (ainda `"a"`).** O valor `deferredQuery`, que você passa para a lista de resultados, é *adiado:* ele "fica para trás" do valor `query`.
 
 2. **Em segundo plano, o React tenta renderizar novamente com *ambos* `query` e `deferredQuery` atualizados para `"ab"`** Se esta nova renderização for concluída, o React exibirá na tela. No entanto, se ele suspender (os resultados de `"ab"` ainda não foram carregados), o React abandonará esta tentativa de renderização e tentará novamente esta nova renderização após o carregamento dos dados. O usuário continuará vendo o valor adiado obsoleto até que os dados estejam prontos.
 
@@ -669,7 +669,7 @@ export default function App() {
 }
 ```
 
-```js src/SlowList.js
+```js {expectedErrors: {'react-compiler': [19, 20]}} src/SlowList.js
 import { memo } from 'react';
 
 const SlowList = memo(function SlowList({ text }) {
@@ -746,7 +746,7 @@ export default function App() {
 }
 ```
 
-```js src/SlowList.js
+```js {expectedErrors: {'react-compiler': [19, 20]}} src/SlowList.js
 import { memo } from 'react';
 
 const SlowList = memo(function SlowList({ text }) {

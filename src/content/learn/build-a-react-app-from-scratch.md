@@ -33,7 +33,7 @@ O primeiro passo é instalar uma ferramenta de build como `vite`, `parcel`, ou `
 [Vite](https://vite.dev/) é uma ferramenta de build que visa fornecer uma experiência de desenvolvimento mais rápida e enxuta para projetos web modernos.
 
 <TerminalBlock>
-{`npm create vite@latest my-app -- --template react`}
+npm create vite@latest my-app -- --template react-ts
 </TerminalBlock>
 
 Vite é opinativo e vem com padrões sensatos prontos para uso. Vite tem um rico ecossistema de plugins para suportar fast refresh, JSX, Babel/SWC, e outras funcionalidades comuns. Veja o [plugin React do Vite](https://vite.dev/plugins/#vitejs-plugin-react) ou [plugin React SWC](https://vite.dev/plugins/#vitejs-plugin-react-swc) e [projeto de exemplo React SSR](https://vite.dev/guide/ssr.html#example-projects) para começar.
@@ -45,7 +45,7 @@ Vite já está sendo usado como ferramenta de build em um dos nossos [frameworks
 [Parcel](https://parceljs.org/) combina uma ótima experiência de desenvolvimento pronta para uso com uma arquitetura escalável que pode levar seu projeto desde o início até aplicações de produção massivas.
 
 <TerminalBlock>
-{`npm install --save-dev parcel`}
+npm install --save-dev parcel
 </TerminalBlock>
 
 Parcel suporta fast refresh, JSX, TypeScript, Flow, e estilização prontos para uso. Veja a [receita React do Parcel](https://parceljs.org/recipes/react/#getting-started) para começar.
@@ -55,7 +55,7 @@ Parcel suporta fast refresh, JSX, TypeScript, Flow, e estilização prontos para
 [Rsbuild](https://rsbuild.dev/) é uma ferramenta de build alimentada pelo Rspack que fornece uma experiência de desenvolvimento perfeita para aplicações React. Vem com padrões cuidadosamente ajustados e otimizações de performance prontas para uso.
 
 <TerminalBlock>
-{`npx create-rsbuild --template react`}
+npx create-rsbuild --template react
 </TerminalBlock>
 
 Rsbuild inclui suporte integrado para funcionalidades React como fast refresh, JSX, TypeScript, e estilização. Veja o [guia React do Rsbuild](https://rsbuild.dev/guide/framework/react) para começar.
@@ -95,7 +95,7 @@ Note que buscar dados diretamente nos componentes pode levar a tempos de carrega
 
 Se você está buscando dados da maioria dos backends ou APIs estilo REST, sugerimos usar:
 
-- [React Query](https://react-query.tanstack.com/)
+- [TanStack Query](https://tanstack.com/query/)
 - [SWR](https://swr.vercel.app/)
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 

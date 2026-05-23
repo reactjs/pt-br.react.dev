@@ -1197,7 +1197,7 @@ export default function CatFriends() {
                   console.log('❌ Too many cats in the list!');
                 }
                 return () => {
-                  list.splice(list.indexOf(item));
+                  list.splice(list.indexOf(item), 1);
                   console.log(`❌ Removing cat from the map. Total cats: ${itemsRef.current.length}`);
                 }
               }}
@@ -1268,7 +1268,7 @@ Agora, na montagem inicial no StrictMode, os refs callbacks são todos configura
 
 Sem o Strict Mode, foi fácil perder o erro até que você clicou no aplicativo para notar recursos quebrados. O Strict Mode fez com que os erros aparecessem imediatamente, antes de enviá-los para a produção.
 
---- 
+---
 ### Corrigindo avisos de descontinuação ativados pelo Strict Mode {/*fixing-deprecation-warnings-enabled-by-strict-mode*/}
 
 O React avisa se algum componente em qualquer lugar dentro de uma árvore `<StrictMode>` usa uma dessas APIs descontinuadas:
