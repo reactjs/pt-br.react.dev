@@ -4,55 +4,55 @@ title: globals
 
 <Intro>
 
-Validates against assignment/mutation of globals during render, part of ensuring that [side effects must run outside of render](/reference/rules/components-and-hooks-must-be-pure#side-effects-must-run-outside-of-render).
+Valida a atribuição/mutação de globais durante a renderização, parte de garantir que [efeitos colaterais devem ser executados fora da renderização](/reference/rules/components-and-hooks-must-be-pure#side-effects-must-run-outside-of-render).
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-Global variables exist outside React's control. When you modify them during render, you break React's assumption that rendering is pure. This can cause components to behave differently in development vs production, break Fast Refresh, and make your app impossible to optimize with features like React Compiler.
+Variáveis globais existem fora do controle do React. Quando você as modifica durante a renderização, você quebra a suposição do React de que a renderização é pura. Isso pode fazer com que os componentes se comportem de maneira diferente em desenvolvimento vs. produção, quebrar o Fast Refresh e tornar seu aplicativo impossível de otimizar com recursos como o React Compiler.
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Global counter
+// ❌ Contador global
 let renderCount = 0;
 function Component() {
-  renderCount++; // Mutating global
+  renderCount++; // Mutando global
   return <div>Count: {renderCount}</div>;
 }
 
-// ❌ Modifying window properties
+// ❌ Modificando propriedades do window
 function Component({userId}) {
-  window.currentUser = userId; // Global mutation
+  window.currentUser = userId; // Mutação global
   return <div>User: {userId}</div>;
 }
 
-// ❌ Global array push
+// ❌ Push em array global
 const events = [];
 function Component({event}) {
-  events.push(event); // Mutating global array
+  events.push(event); // Mutando array global
   return <div>Events: {events.length}</div>;
 }
 
-// ❌ Cache manipulation
+// ❌ Manipulação de cache
 const cache = {};
 function Component({id}) {
   if (!cache[id]) {
-    cache[id] = fetchData(id); // Modifying cache during render
+    cache[id] = fetchData(id); // Modificando cache durante a renderização
   }
   return <div>{cache[id]}</div>;
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Use state for counters
+// ✅ Use state para contadores
 function Component() {
   const [clickCount, setClickCount] = useState(0);
 
@@ -67,16 +67,16 @@ function Component() {
   );
 }
 
-// ✅ Use context for global values
+// ✅ Use context para valores globais
 function Component() {
   const user = useContext(UserContext);
   return <div>User: {user.id}</div>;
 }
 
-// ✅ Synchronize external state with React
+// ✅ Sincronize estado externo com React
 function Component({title}) {
   useEffect(() => {
-    document.title = title; // OK in effect
+    document.title = title; // OK no effect
   }, [title]);
 
   return <div>Page: {title}</div>;
