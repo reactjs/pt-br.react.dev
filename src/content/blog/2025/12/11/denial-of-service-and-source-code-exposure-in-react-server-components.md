@@ -2,201 +2,199 @@
 title: "Denial of Service and Source Code Exposure in React Server Components"
 author: The React Team
 date: 2025/12/11
-description: Security researchers have found and disclosed two additional vulnerabilities in React Server Components while attempting to exploit the patches in last week’s critical vulnerability. High vulnerability Denial of Service (CVE-2025-55184), and medium vulnerability Source Code Exposure (CVE-2025-55183)
-
-
+description: Pesquisadores de segurança encontraram e divulgaram duas vulnerabilidades adicionais no React Server Components ao tentar explorar os patches da vulnerabilidade crítica da semana passada. Negação de Serviço de alta vulnerabilidade (CVE-2025-55184) e Exposição de Código-Fonte de média vulnerabilidade (CVE-2025-55183)
 ---
 
-December 11, 2025 by [The React Team](/community/team)
+11 de dezembro de 2025 por [A Equipe do React](/community/team)
 
-_Updated January 26, 2026._
+_Atualizado em 26 de janeiro de 2026._
 
 ---
 
 <Intro>
 
-Security researchers have found and disclosed two additional vulnerabilities in React Server Components while attempting to exploit the patches in last week’s critical vulnerability.
+Pesquisadores de segurança encontraram e divulgaram duas vulnerabilidades adicionais no React Server Components ao tentar explorar os patches da vulnerabilidade crítica da semana passada.
 
-**These new vulnerabilities do not allow for Remote Code Execution.** The patch for React2Shell remains effective at mitigating the Remote Code Execution exploit.
+**Essas novas vulnerabilidades não permitem Execução Remota de Código.** O patch para React2Shell permanece eficaz na mitigação do exploit de Execução Remota de Código.
 
 </Intro>
 
 ---
 
-The new vulnerabilities are disclosed as:
+As novas vulnerabilidades são divulgadas como:
 
-- **Denial of Service - High Severity**: [CVE-2025-55184](https://www.cve.org/CVERecord?id=CVE-2025-55184), [CVE-2025-67779](https://www.cve.org/CVERecord?id=CVE-2025-67779), and [CVE-2026-23864](https://www.cve.org/CVERecord?id=CVE-2026-23864) (CVSS 7.5)
-- **Source Code Exposure - Medium Severity**: [CVE-2025-55183](https://www.cve.org/CVERecord?id=CVE-2025-55183) (CVSS 5.3)
+- **Negação de Serviço - Alta Severidade**: [CVE-2025-55184](https://www.cve.org/CVERecord?id=CVE-2025-55184), [CVE-2025-67779](https://www.cve.org/CVERecord?id=CVE-2025-67779) e [CVE-2026-23864](https://www.cve.org/CVERecord?id=CVE-2026-23864) (CVSS 7.5)
+- **Exposição de Código Fonte - Média Severidade**: [CVE-2025-55183](https://www.cve.org/CVERecord?id=CVE-2025-55183) (CVSS 5.3)
 
-We recommend upgrading immediately due to the severity of the newly disclosed vulnerabilities.
+Recomendamos a atualização imediata devido à severidade das vulnerabilidades recém-divulgadas.
 
 <Note>
 
-#### The patches published earlier are vulnerable. {/*the-patches-published-earlier-are-vulnerable*/}
+#### Os patches publicados anteriormente são vulneráveis. {/*the-patches-published-earlier-are-vulnerable*/}
 
-If you already updated for the previous vulnerabilities, you will need to update again.
+Se você já atualizou para as vulnerabilidades anteriores, precisará atualizar novamente.
 
-If you updated to 19.0.3, 19.1.4, and 19.2.3, [these are incomplete](#additional-fix-published), and you will need to update again.
+Se você atualizou para 19.0.3, 19.1.4 e 19.2.3, [estas estão incompletas](#additional-fix-published), e você precisará atualizar novamente.
 
-Please see [the instructions in the previous post](/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#update-instructions) for upgrade steps.
+Por favor, consulte [as instruções na postagem anterior](/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#update-instructions) para os passos de atualização.
 
 -----
 
-_Updated January 26, 2026._
+_Atualizado em 26 de janeiro de 2026._
 
 </Note>
 
-Further details of these vulnerabilities will be provided after the rollout of the fixes are complete.
+Mais detalhes sobre essas vulnerabilidades serão fornecidos após a conclusão da implantação das correções.
 
-## Immediate Action Required {/*immediate-action-required*/}
+## Ação Imediata Necessária {/*immediate-action-required*/}
 
-These vulnerabilities are present in the same packages and versions as [CVE-2025-55182](/blog/2025/12/03/critical-security-vulnerability-in-react-server-components).
+Essas vulnerabilidades estão presentes nos mesmos pacotes e versões que [CVE-2025-55182](/blog/2025/12/03/critical-security-vulnerability-in-react-server-components).
 
-This includes 19.0.0, 19.0.1, 19.0.2, 19.0.3, 19.1.0, 19.1.1, 19.1.2, 19.1.3, 19.2.0, 19.2.1, 19.2.2, and 19.2.3 of:
+Isso inclui 19.0.0, 19.0.1, 19.0.2, 19.0.3, 19.1.0, 19.1.1, 19.1.2, 19.1.3, 19.2.0, 19.2.1, 19.2.2 e 19.2.3 de:
 
 * [react-server-dom-webpack](https://www.npmjs.com/package/react-server-dom-webpack)
 * [react-server-dom-parcel](https://www.npmjs.com/package/react-server-dom-parcel)
 * [react-server-dom-turbopack](https://www.npmjs.com/package/react-server-dom-turbopack?activeTab=readme)
 
-Fixes were backported to versions 19.0.4, 19.1.5, and 19.2.4. If you are using any of the above packages please upgrade to any of the fixed versions immediately.
+As correções foram retroportadas para as versões 19.0.4, 19.1.5 e 19.2.4. Se você estiver usando qualquer um dos pacotes acima, por favor, atualize para qualquer uma das versões corrigidas imediatamente.
 
-As before, if your app’s React code does not use a server, your app is not affected by these vulnerabilities. If your app does not use a framework, bundler, or bundler plugin that supports React Server Components, your app is not affected by these vulnerabilities.
+Como antes, se o código React do seu aplicativo não usa um servidor, seu aplicativo não é afetado por essas vulnerabilidades. Se seu aplicativo não usa um framework, bundler ou plugin de bundler que suporte React Server Components, seu aplicativo não é afetado por essas vulnerabilidades.
 
 <Note>
 
-#### It’s common for critical CVEs to uncover follow‑up vulnerabilities. {/*its-common-for-critical-cves-to-uncover-followup-vulnerabilities*/}
+#### É comum que CVEs críticos descubram vulnerabilidades de acompanhamento. {/*its-common-for-critical-cves-to-uncover-followup-vulnerabilities*/}
 
-When a critical vulnerability is disclosed, researchers scrutinize adjacent code paths looking for variant exploit techniques to test whether the initial mitigation can be bypassed.
+Quando uma vulnerabilidade crítica é divulgada, pesquisadores examinam caminhos de código adjacentes em busca de técnicas de exploração variantes para testar se a mitigação inicial pode ser contornada.
 
-This pattern shows up across the industry, not just in JavaScript. For example, after [Log4Shell](https://nvd.nist.gov/vuln/detail/cve-2021-44228), additional CVEs ([1](https://nvd.nist.gov/vuln/detail/cve-2021-45046), [2](https://nvd.nist.gov/vuln/detail/cve-2021-45105)) were reported as the community probed the original fix.
+Esse padrão aparece em toda a indústria, não apenas em JavaScript. Por exemplo, após [Log4Shell](https://nvd.nist.gov/vuln/detail/cve-2021-44228), CVEs adicionais ([1](https://nvd.nist.gov/vuln/detail/cve-2021-45046), [2](https://nvd.nist.gov/vuln/detail/cve-2021-45105)) foram relatados à medida que a comunidade investigava a correção original.
 
-Additional disclosures can be frustrating, but they are generally a sign of a healthy response cycle.
+Divulgações adicionais podem ser frustrantes, mas geralmente são um sinal de um ciclo de resposta saudável.
 
 </Note>
 
-### Affected frameworks and bundlers {/*affected-frameworks-and-bundlers*/}
+### Frameworks e bundlers afetados {/*affected-frameworks-and-bundlers*/}
 
-Some React frameworks and bundlers depended on, had peer dependencies for, or included the vulnerable React packages. The following React frameworks & bundlers are affected: [next](https://www.npmjs.com/package/next), [react-router](https://www.npmjs.com/package/react-router), [waku](https://www.npmjs.com/package/waku), [@parcel/rsc](https://www.npmjs.com/package/@parcel/rsc), [@vite/rsc-plugin](https://www.npmjs.com/package/@vitejs/plugin-rsc), and [rwsdk](https://www.npmjs.com/package/rwsdk).
+Alguns frameworks e bundlers React dependiam, tinham dependências `peer` ou incluíam os pacotes React vulneráveis. Os seguintes frameworks e bundlers React são afetados: [next](https://www.npmjs.com/package/next), [react-router](https://www.npmjs.com/package/react-router), [waku](https://www.npmjs.com/package/waku), [@parcel/rsc](https://www.npmjs.com/package/@parcel/rsc), [@vite/rsc-plugin](https://www.npmjs.com/package/@vitejs/plugin-rsc) e [rwsdk](https://www.npmjs.com/package/rwsdk).
 
-Please see [the instructions in the previous post](/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#update-instructions) for upgrade steps.
+Por favor, consulte [as instruções na postagem anterior](/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#update-instructions) para os passos de atualização.
 
-### Hosting Provider Mitigations {/*hosting-provider-mitigations*/}
+### Mitigações de Provedores de Hospedagem {/*hosting-provider-mitigations*/}
 
-As before, we have worked with a number of hosting providers to apply temporary mitigations.
+Como antes, trabalhamos com vários provedores de hospedagem para aplicar mitigações temporárias.
 
-You should not depend on these to secure your app, and still update immediately.
+Você não deve depender delas para proteger seu aplicativo e ainda assim atualizar imediatamente.
 
 ### React Native {/*react-native*/}
 
-For React Native users not using a monorepo or `react-dom`, your `react` version should be pinned in your `package.json`, and there are no additional steps needed.
+Para usuários do React Native que não usam um monorepo ou `react-dom`, sua versão do `react` deve ser fixada em seu `package.json`, e não há passos adicionais necessários.
 
-If you are using React Native in a monorepo, you should update _only_ the impacted packages if they are installed:
+Se você estiver usando React Native em um monorepo, você deve atualizar _apenas_ os pacotes impactados se eles estiverem instalados:
 
 - `react-server-dom-webpack`
 - `react-server-dom-parcel`
 - `react-server-dom-turbopack`
 
-This is required to mitigate the security advisories, but you do not need to update `react` and `react-dom` so this will not cause the version mismatch error in React Native.
+Isso é necessário para mitigar os avisos de segurança, mas você não precisa atualizar `react` e `react-dom`, então isso não causará o erro de incompatibilidade de versão no React Native.
 
-See [this issue](https://github.com/facebook/react-native/issues/54772#issuecomment-3617929832) for more information.
+Veja [este issue](https://github.com/facebook/react-native/issues/54772#issuecomment-3617929832) para mais informações.
 
 ---
 
-## High Severity: Multiple Denial of Service {/*high-severity-multiple-denial-of-service*/}
+## Alta Severidade: Múltiplas Negações de Serviço {/*high-severity-multiple-denial-of-service*/}
 
 **CVEs:** [CVE-2026-23864](https://www.cve.org/CVERecord?id=CVE-2026-23864)
-**Base Score:** 7.5 (High)
-**Date**: January 26, 2026
+**Pontuação Base:** 7.5 (Alta)
+**Data**: 26 de janeiro de 2026
 
-Security researchers discovered additional DoS vulnerabilities still exist in React Server Components.
+Pesquisadores de segurança descobriram que vulnerabilidades adicionais de DoS ainda existem no React Server Components.
 
-The vulnerabilities are triggered by sending specially crafted HTTP requests to Server Function endpoints, and could lead to server crashes, out-of-memory exceptions or excessive CPU usage; depending on the vulnerable code path being exercised, the application configuration and application code.
+As vulnerabilidades são acionadas enviando requisições HTTP especialmente criadas para endpoints de Server Function, e podem levar a travamentos do servidor, exceções de falta de memória ou uso excessivo de CPU; dependendo do caminho de código vulnerável que está sendo exercido, da configuração do aplicativo e do código do aplicativo.
 
-The patches published January 26th mitigate these DoS vulnerabilities.
+Os patches publicados em 26 de janeiro mitigam essas vulnerabilidades de DoS.
 
 <Note>
 
-#### Additional fixes published {/*additional-fix-published*/}
+#### Correções adicionais publicadas {/*additional-fix-published*/}
 
-The original fix addressing the DoS in [CVE-2025-55184](https://www.cve.org/CVERecord?id=CVE-2025-55184) was incomplete.
+A correção original que abordava a DoS em [CVE-2025-55184](https://www.cve.org/CVERecord?id=CVE-2025-55184) estava incompleta.
 
-This left previous versions vulnerable. Versions 19.0.4, 19.1.5, 19.2.4 are safe.
+Isso deixou versões anteriores vulneráveis. As versões 19.0.4, 19.1.5, 19.2.4 são seguras.
 
 -----
 
-_Updated January 26, 2026._
+_Atualizado em 26 de janeiro de 2026._
 
 </Note>
 
 ---
 
-## High Severity: Denial of Service {/*high-severity-denial-of-service*/}
+## Alta Severidade: Negação de Serviço {/*high-severity-denial-of-service*/}
 
-**CVEs:** [CVE-2025-55184](https://www.cve.org/CVERecord?id=CVE-2025-55184) and [CVE-2025-67779](https://www.cve.org/CVERecord?id=CVE-2025-67779)
-**Base Score:** 7.5 (High)
+**CVEs:** [CVE-2025-55184](https://www.cve.org/CVERecord?id=CVE-2025-55184) e [CVE-2025-67779](https://www.cve.org/CVERecord?id=CVE-2025-67779)
+**Pontuação Base:** 7.5 (Alta)
 
-Security researchers have discovered that a malicious HTTP request can be crafted and sent to any Server Functions endpoint that, when deserialized by React, can cause an infinite loop that hangs the server process and consumes CPU. Even if your app does not implement any React Server Function endpoints it may still be vulnerable if your app supports React Server Components.
+Pesquisadores de segurança descobriram que uma requisição HTTP maliciosa pode ser criada e enviada para qualquer endpoint de Server Functions que, ao ser desserializada pelo React, pode causar um loop infinito que trava o processo do servidor e consome CPU. Mesmo que seu aplicativo não implemente nenhum endpoint de React Server Function, ele ainda pode ser vulnerável se seu aplicativo suportar React Server Components.
 
-This creates a vulnerability vector where an attacker may be able to deny users from accessing the product, and potentially have a  performance impact on the server environment.
+Isso cria um vetor de vulnerabilidade onde um atacante pode negar o acesso dos usuários ao produto e potencialmente ter um impacto de desempenho no ambiente do servidor.
 
-The patches published today mitigate by preventing the infinite loop.
+Os patches publicados hoje mitigam prevenindo o loop infinito.
 
-## Medium Severity: Source Code Exposure {/*low-severity-source-code-exposure*/}
+## Média Severidade: Exposição de Código Fonte {/*low-severity-source-code-exposure*/}
 
 **CVE:** [CVE-2025-55183](https://www.cve.org/CVERecord?id=CVE-2025-55183)
-**Base Score**: 5.3 (Medium)
+**Pontuação Base**: 5.3 (Média)
 
-A security researcher has discovered that a malicious HTTP request sent to a vulnerable Server Function may unsafely return the source code of any Server Function. Exploitation requires the existence of a Server Function which explicitly or implicitly exposes a stringified argument:
+Um pesquisador de segurança descobriu que uma requisição HTTP maliciosa enviada a uma Server Function vulnerável pode retornar de forma insegura o código fonte de qualquer Server Function. A exploração requer a existência de uma Server Function que exponha explicitamente ou implicitamente um argumento stringificado:
 
 ```javascript
 'use server';
 
 export async function serverFunction(name) {
   const conn = db.createConnection('SECRET KEY');
-  const user = await conn.createUser(name); // implicitly stringified, leaked in db
+  const user = await conn.createUser(name); // implicitamente stringificado, vazado no db
 
   return {
    id: user.id,
-   message: `Hello, ${name}!` // explicitly stringified, leaked in reply
+   message: `Hello, ${name}!` // explicitamente stringificado, vazado na resposta
   }}
 ```
 
-An attacker may be able to leak the following:
+Um atacante pode vazar o seguinte:
 
 ```txt
 0:{"a":"$@1","f":"","b":"Wy43RxUKdxmr5iuBzJ1pN"}
 1:{"id":"tva1sfodwq","message":"Hello, async function(a){console.log(\"serverFunction\");let b=i.createConnection(\"SECRET KEY\");return{id:(await b.createUser(a)).id,message:`Hello, ${a}!`}}!"}
 ```
 
-The patches published today prevent stringifying the Server Function source code.
+Os patches publicados hoje impedem a stringificação do código fonte da Server Function.
 
 <Note>
 
-#### Only secrets in source code may be exposed. {/*only-secrets-in-source-code-may-be-exposed*/}
+#### Apenas segredos no código fonte podem ser expostos. {/*only-secrets-in-source-code-may-be-exposed*/}
 
-Secrets hardcoded in source code may be exposed, but runtime secrets such as `process.env.SECRET` are not affected.
+Segredos codificados no código fonte podem ser expostos, mas segredos em tempo de execução como `process.env.SECRET` não são afetados.
 
-The scope of the exposed code is limited to the code inside the Server Function, which may include other functions depending on the amount of inlining your bundler provides.
+O escopo do código exposto é limitado ao código dentro da Server Function, que pode incluir outras funções dependendo da quantidade de inlining que seu bundler fornece.
 
-Always verify against production bundles.
+Sempre verifique contra os bundles de produção.
 
 </Note>
 
 ---
 
-## Timeline {/*timeline*/}
-* **December 3rd**: Leak reported to Vercel and [Meta Bug Bounty](https://bugbounty.meta.com/) by [Andrew MacPherson](https://github.com/AndrewMohawk).
-* **December 4th**: Initial DoS reported to [Meta Bug Bounty](https://bugbounty.meta.com/) by [RyotaK](https://ryotak.net).
-* **December 6th**: Both issues confirmed by the React team, and the team began investigating.
-* **December 7th**: Initial fixes created and the React team began verifying and planning new patch.
-* **December 8th**: Affected hosting providers and open source projects notified.
-* **December 10th**: Hosting provider mitigations in place and patches verified.
-* **December 11th**: Additional DoS reported to [Meta Bug Bounty](https://bugbounty.meta.com/) by Shinsaku Nomura.
-* **December 11th**: Patches published and publicly disclosed as [CVE-2025-55183](https://www.cve.org/CVERecord?id=CVE-2025-55183) and [CVE-2025-55184](https://www.cve.org/CVERecord?id=CVE-2025-55184).
-* **December 11th**: Missing DoS case found internally, patched and publicly disclosed as [CVE-2025-67779](https://www.cve.org/CVERecord?id=CVE-2025-67779).
-* **January 26th**: Additional DoS cases found, patched, and publicly disclosed as [CVE-2026-23864](https://www.cve.org/CVERecord?id=CVE-2026-23864).
+## Cronologia {/*timeline*/}
+* **3 de dezembro**: Vazamento relatado à Vercel e [Meta Bug Bounty](https://bugbounty.meta.com/) por [Andrew MacPherson](https://github.com/AndrewMohawk).
+* **4 de dezembro**: DoS inicial relatada ao [Meta Bug Bounty](https://bugbounty.meta.com/) por [RyotaK](https://ryotak.net).
+* **6 de dezembro**: Ambos os problemas confirmados pela equipe do React, e a equipe começou a investigar.
+* **7 de dezembro**: Correções iniciais criadas e a equipe do React começou a verificar e planejar um novo patch.
+* **8 de dezembro**: Provedores de hospedagem afetados e projetos de código aberto notificados.
+* **10 de dezembro**: Mitigações de provedores de hospedagem implementadas e patches verificados.
+* **11 de dezembro**: DoS adicional relatada ao [Meta Bug Bounty](https://bugbounty.meta.com/) por Shinsaku Nomura.
+* **11 de dezembro**: Patches publicados e divulgados publicamente como [CVE-2025-55183](https://www.cve.org/CVERecord?id=CVE-2025-55183) e [CVE-2025-55184](https://www.cve.org/CVERecord?id=CVE-2025-55184).
+* **11 de dezembro**: Caso de DoS ausente encontrado internamente, corrigido e divulgado publicamente como [CVE-2025-67779](https://www.cve.org/CVERecord?id=CVE-2025-67779).
+* **26 de janeiro**: Casos adicionais de DoS encontrados, corrigidos e divulgados publicamente como [CVE-2026-23864](https://www.cve.org/CVERecord?id=CVE-2026-23864).
 ---
 
-## Attribution {/*attribution*/}
+## Atribuição {/*attribution*/}
 
-Thank you to [Andrew MacPherson (AndrewMohawk)](https://github.com/AndrewMohawk) for reporting the Source Code Exposure, [RyotaK](https://ryotak.net) from GMO Flatt Security Inc and Shinsaku Nomura of Bitforest Co., Ltd. for reporting the Denial of Service vulnerabilities. Thank you to [Mufeed VH](https://x.com/mufeedvh) from [Winfunc Research](https://winfunc.com), [Joachim Viide](https://jviide.iki.fi), [RyotaK](https://ryotak.net) from [GMO Flatt Security Inc](https://flatt.tech/en/) and Xiangwei Zhang of Tencent Security YUNDING LAB for reporting the additional DoS vulnerabilities.
+Agradecemos a [Andrew MacPherson (AndrewMohawk)](https://github.com/AndrewMohawk) por relatar a Exposição de Código Fonte, [RyotaK](https://ryotak.net) da GMO Flatt Security Inc e Shinsaku Nomura da Bitforest Co., Ltd. por relatar as vulnerabilidades de Negação de Serviço. Agradecemos a [Mufeed VH](https://x.com/mufeedvh) da [Winfunc Research](https://winfunc.com), [Joachim Viide](https://jviide.iki.fi), [RyotaK](https://ryotak.net) da [GMO Flatt Security Inc](https://flatt.tech/en/) e Xiangwei Zhang da Tencent Security YUNDING LAB por relatar as vulnerabilidades adicionais de DoS.
