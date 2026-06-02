@@ -4,13 +4,13 @@ title: target
 
 <Intro>
 
-The `target` option specifies which React version the compiler should generate code for.
+A opção `target` especifica para qual versão do React o compilador deve gerar o código.
 
 </Intro>
 
 ```js
 {
-  target: '19' // or '18', '17'
+  target: '19' // ou '18', '17'
 }
 ```
 
@@ -18,131 +18,131 @@ The `target` option specifies which React version the compiler should generate c
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `target` {/*target*/}
 
-Configures the React version compatibility for the compiled output.
+Configura a compatibilidade da versão do React para a saída compilada.
 
-#### Type {/*type*/}
+#### Tipo {/*type*/}
 
 ```
 '17' | '18' | '19'
 ```
 
-#### Default value {/*default-value*/}
+#### Valor padrão {/*default-value*/}
 
 `'19'`
 
-#### Valid values {/*valid-values*/}
+#### Valores válidos {/*valid-values*/}
 
-- **`'19'`**: Target React 19 (default). No additional runtime required.
-- **`'18'`**: Target React 18. Requires `react-compiler-runtime` package.
-- **`'17'`**: Target React 17. Requires `react-compiler-runtime` package.
+- **`'19'`**: Destina-se ao React 19 (padrão). Nenhum runtime adicional é necessário.
+- **`'18'`**: Destina-se ao React 18. Requer o pacote `react-compiler-runtime`.
+- **`'17'`**: Destina-se ao React 17. Requer o pacote `react-compiler-runtime`.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- Always use string values, not numbers (e.g., `'17'` not `17`)
-- Don't include patch versions (e.g., use `'18'` not `'18.2.0'`)
-- React 19 includes built-in compiler runtime APIs
-- React 17 and 18 require installing `react-compiler-runtime@latest`
+- Sempre use valores de string, não números (por exemplo, `'17'` e não `17`)
+- Não inclua versões de patch (por exemplo, use `'18'` e não `'18.2.0'`)
+- O React 19 inclui APIs de runtime do compilador integradas
+- React 17 e 18 exigem a instalação de `react-compiler-runtime@latest`
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Targeting React 19 (default) {/*targeting-react-19*/}
+### Destinando-se ao React 19 (padrão) {/*targeting-react-19*/}
 
-For React 19, no special configuration is needed:
+Para o React 19, nenhuma configuração especial é necessária:
 
 ```js
 {
-  // defaults to target: '19'
+  // usa target: '19' por padrão
 }
 ```
 
-The compiler will use React 19's built-in runtime APIs:
+O compilador usará as APIs de runtime nativas do React 19:
 
 ```js
-// Compiled output uses React 19's native APIs
+// A saída compilada usa as APIs nativas do React 19
 import { c as _c } from 'react/compiler-runtime';
 ```
 
-### Targeting React 17 or 18 {/*targeting-react-17-or-18*/}
+### Destinando-se ao React 17 ou 18 {/*targeting-react-17-or-18*/}
 
-For React 17 and React 18 projects, you need two steps:
+Para projetos React 17 e React 18, você precisa de duas etapas:
 
-1. Install the runtime package:
+1. Instale o pacote de runtime:
 
 ```bash
 npm install react-compiler-runtime@latest
 ```
 
-2. Configure the target:
+2. Configure o destino:
 
 ```js
-// For React 18
+// Para React 18
 {
   target: '18'
 }
 
-// For React 17
+// Para React 17
 {
   target: '17'
 }
 ```
 
-The compiler will use the polyfill runtime for both versions:
+O compilador usará o runtime de polyfill para ambas as versões:
 
 ```js
-// Compiled output uses the polyfill
+// A saída compilada usa o polyfill
 import { c as _c } from 'react-compiler-runtime';
 ```
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-### Runtime errors about missing compiler runtime {/*missing-runtime*/}
+### Erros de runtime sobre runtime do compilador ausente {/*missing-runtime*/}
 
-If you see errors like "Cannot find module 'react/compiler-runtime'":
+Se você vir erros como "Cannot find module 'react/compiler-runtime'":
 
-1. Check your React version:
+1. Verifique sua versão do React:
    ```bash
    npm why react
    ```
 
-2. If using React 17 or 18, install the runtime:
+2. Se estiver usando React 17 ou 18, instale o runtime:
    ```bash
    npm install react-compiler-runtime@latest
    ```
 
-3. Ensure your target matches your React version:
+3. Certifique-se de que seu `target` corresponda à sua versão do React:
    ```js
    {
-     target: '18' // Must match your React major version
+     target: '18' // Deve corresponder à sua versão principal do React
    }
    ```
 
-### Runtime package not working {/*runtime-not-working*/}
+### Pacote de runtime não funcionando {/*runtime-not-working*/}
 
-Ensure the runtime package is:
+Certifique-se de que o pacote de runtime esteja:
 
-1. Installed in your project (not globally)
-2. Listed in your `package.json` dependencies
-3. The correct version (`@latest` tag)
-4. Not in `devDependencies` (it's needed at runtime)
+1. Instalado em seu projeto (não globalmente)
+2. Listado nas dependências do seu `package.json`
+3. A versão correta (tag `@latest`)
+4. Não em `devDependencies` (é necessário em tempo de execução)
 
-### Checking compiled output {/*checking-output*/}
+### Verificando a saída compilada {/*checking-output*/}
 
-To verify the correct runtime is being used, note the different import (`react/compiler-runtime` for builtin, `react-compiler-runtime` standalone package for 17/18):
+Para verificar se o runtime correto está sendo usado, observe a importação diferente (`react/compiler-runtime` para integrado, pacote `react-compiler-runtime` autônomo para 17/18):
 
 ```js
-// For React 19 (built-in runtime)
+// Para React 19 (runtime integrado)
 import { c } from 'react/compiler-runtime'
 //                      ^
 
-// For React 17/18 (polyfill runtime)
+// Para React 17/18 (runtime polyfill)
 import { c } from 'react-compiler-runtime'
 //                      ^
 ```
