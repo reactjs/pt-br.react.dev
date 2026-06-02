@@ -2,7 +2,7 @@
 title: RSC Sandbox Test
 ---
 
-## Basic Server Component {/*basic-server-component*/}
+## Componente de Servidor Básico {/*basic-server-component*/}
 
 <SandpackRSC>
 
@@ -14,7 +14,7 @@ export default function App() {
 
 </SandpackRSC>
 
-## Server + Client Components {/*server-client*/}
+## Componentes de Servidor + Cliente {/*server-client*/}
 
 <SandpackRSC>
 
@@ -48,7 +48,7 @@ export default function Counter() {
 
 </SandpackRSC>
 
-## Async Server Component with Suspense {/*async-suspense*/}
+## Componente de Servidor Assíncrono com Suspense {/*async-suspense*/}
 
 <SandpackRSC>
 
@@ -88,9 +88,9 @@ export default async function Albums() {
 
 </SandpackRSC>
 
-## Streaming Proof {/*streaming-proof*/}
+## Prova de Streaming {/*streaming-proof*/}
 
-This demo proves streaming is incremental. The shell renders instantly with a `<Suspense>` fallback. After 2 seconds the async component streams in and replaces it — without re-rendering the outer content. The timestamps show the gap.
+Esta demonstração prova que o streaming é incremental. A "shell" renderiza instantaneamente com um fallback `<Suspense>`. Após 2 segundos, o componente assíncrono é transmitido e o substitui — sem re-renderizar o conteúdo externo. Os timestamps mostram a diferença.
 
 <SandpackRSC>
 
@@ -145,9 +145,9 @@ export default function Timestamp() {
 
 </SandpackRSC>
 
-## Flight Data Types {/*flight-data-types*/}
+## Tipos de Dados de Voo {/*flight-data-types*/}
 
-This demo passes Map, Set, Date, and BigInt from a server component through the Flight stream to a client component, proving the full Flight protocol type system works end-to-end.
+Esta demonstração passa Map, Set, Date e BigInt de um componente de servidor através do stream Flight para um componente de cliente, provando que o sistema de tipos completo do protocolo Flight funciona de ponta a ponta.
 
 <SandpackRSC>
 
@@ -206,9 +206,9 @@ export default function DataViewer({ map, set, date, big }) {
 
 </SandpackRSC>
 
-## Promise Streaming with use() {/*promise-streaming-use*/}
+## Streaming de Promessas com use() {/*promise-streaming-use*/}
 
-The server creates a promise (resolves in 2s) and passes it as a prop through a parent async component that suspends for 3s. When the parent reveals at ~3s, the promise is already resolved — so `use()` returns instantly with no inner fallback. The elapsed time should be ~3000ms (the parent's delay), not ~5000ms (which would mean the promise restarted on the client).
+O servidor cria uma promessa (resolve em 2s) e a passa como prop através de um componente pai assíncrono que suspende por 3s. Quando o pai revela por volta de 3s, a promessa já está resolvida — então `use()` retorna instantaneamente sem um fallback interno. O tempo decorrido deve ser de ~3000ms (o atraso do pai), não ~5000ms (o que significaria que a promessa reiniciou no cliente).
 
 <SandpackRSC>
 
@@ -284,9 +284,9 @@ export default function UserCard({ userPromise, serverTime }) {
 
 </SandpackRSC>
 
-## Flight Data Types in Server Actions {/*flight-data-types-actions*/}
+## Tipos de Dados de Voo em Ações de Servidor {/*flight-data-types-actions*/}
 
-This demo sends Map, Set, Date, and BigInt from a client component *to* a server action via `encodeReply`/`decodeReply`, then verifies the types survived the round trip.
+Esta demonstração envia Map, Set, Date e BigInt de um componente de cliente *para* uma ação de servidor via `encodeReply`/`decodeReply`, e então verifica se os tipos sobreviveram à viagem de ida e volta.
 
 <SandpackRSC>
 
@@ -336,240 +336,4 @@ export async function testTypes(map, set, date, big) {
       ok: set instanceof Set,
       detail: set instanceof Set
         ? 'values: ' + JSON.stringify([...set])
-        : 'received: ' + typeof set,
-    },
-    {
-      label: 'Date',
-      ok: date instanceof Date,
-      detail: date instanceof Date
-        ? date.toISOString()
-        : 'received: ' + typeof date,
-    },
-    {
-      label: 'BigInt',
-      ok: typeof big === 'bigint',
-      detail: typeof big === 'bigint'
-        ? big.toString()
-        : 'received: ' + typeof big,
-    },
-  ];
-}
-
-export async function getResults() {
-  return results;
-}
-```
-
-```js src/TestButton.js
-'use client';
-import { useTransition } from 'react';
-
-export default function TestButton({ testTypes }) {
-  const [pending, startTransition] = useTransition();
-
-  function handleClick() {
-    startTransition(async () => {
-      await testTypes(
-        new Map([['alice', 100], ['bob', 200]]),
-        new Set(['react', 'next', 'remix']),
-        new Date('2025-06-15T12:00:00Z'),
-        9007199254740993n
-      );
-    });
-  }
-
-  return (
-    <button onClick={handleClick} disabled={pending}>
-      {pending ? 'Sending...' : 'Send typed data to server'}
-    </button>
-  );
-}
-```
-
-</SandpackRSC>
-
-## Server Action Mutation + Re-render {/*action-mutation-rerender*/}
-
-The server action mutates server-side data and returns a confirmation string. The updated list is only visible because the framework automatically re-renders the entire server component tree after the action completes — the server component re-reads the data and streams the new UI to the client.
-
-<SandpackRSC>
-
-```js src/App.js
-import { getTodos } from './db';
-import { createTodo } from './actions';
-import AddTodo from './AddTodo';
-
-export default function App() {
-  const todos = getTodos();
-  return (
-    <div>
-      <h1>Todo List</h1>
-      <p style={{ color: '#666', fontSize: 13 }}>
-        This list is rendered by a server component
-        reading server-side data. It only updates because
-        the server re-renders after each action.
-      </p>
-      <ul>
-        {todos.map((todo, i) => (
-          <li key={i}>{todo}</li>
-        ))}
-      </ul>
-      <AddTodo createTodo={createTodo} />
-    </div>
-  );
-}
-```
-
-```js src/db.js
-let todos = ['Buy groceries'];
-
-export function getTodos() {
-  return [...todos];
-}
-
-export function addTodo(text) {
-  todos.push(text);
-}
-```
-
-```js src/actions.js
-'use server';
-import { addTodo } from './db';
-
-export async function createTodo(text) {
-  if (!text) return 'Please enter a todo.';
-  addTodo(text);
-  return 'Added: ' + text;
-}
-```
-
-```js src/AddTodo.js
-'use client';
-import { useState, useTransition } from 'react';
-
-export default function AddTodo({ createTodo }) {
-  const [text, setText] = useState('');
-  const [message, setMessage] = useState('');
-  const [pending, startTransition] = useTransition();
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    startTransition(async () => {
-      const result = await createTodo(text);
-      setMessage(result);
-      setText('');
-    });
-  }
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={text}
-          onChange={e => setText(e.target.value)}
-          placeholder="New todo"
-        />
-        <button disabled={pending}>
-          {pending ? 'Adding...' : 'Add'}
-        </button>
-      </form>
-      {message && (
-        <p style={{ color: '#666', fontSize: 13 }}>
-          Action returned: "{message}"
-        </p>
-      )}
-    </div>
-  );
-}
-```
-
-</SandpackRSC>
-
-## Inline Server Actions {/*inline-server-actions*/}
-
-Server actions defined inline inside a server component with `'use server'` on the function body. The action closes over module-level state and is passed as a prop — no separate `actions.js` file needed.
-
-<SandpackRSC>
-
-```js src/App.js
-import LikeButton from './LikeButton';
-
-let count = 0;
-
-export default function App() {
-  async function addLike() {
-    'use server';
-    count++;
-  }
-
-  return (
-    <div>
-      <h1>Inline Server Actions</h1>
-      <p>Likes: {count}</p>
-      <LikeButton addLike={addLike} />
-    </div>
-  );
-}
-```
-
-```js src/LikeButton.js
-'use client';
-
-export default function LikeButton({ addLike }) {
-  return (
-    <form action={addLike}>
-      <button type="submit">Like</button>
-    </form>
-  );
-}
-```
-
-</SandpackRSC>
-
-## Server Functions {/*server-functions*/}
-
-<SandpackRSC>
-
-```js src/App.js
-import { addLike, getLikeCount } from './actions';
-import LikeButton from './LikeButton';
-
-export default async function App() {
-  const count = await getLikeCount();
-  return (
-    <div>
-      <h1>Server Functions</h1>
-      <p>Likes: {count}</p>
-      <LikeButton addLike={addLike} />
-    </div>
-  );
-}
-```
-
-```js src/actions.js
-'use server';
-
-let count = 0;
-
-export async function addLike() {
-  count++;
-}
-
-export async function getLikeCount() {
-  return count;
-}
-```
-
-```js src/LikeButton.js
-'use client';
-
-export default function LikeButton({ addLike }) {
-  return (
-    <form action={addLike}>
-      <button type="submit">Like</button>
-    </form>
-  );
-}
-```
-
-</SandpackRSC>
+        : 'received
