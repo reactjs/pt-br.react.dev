@@ -4,60 +4,60 @@ title: set-state-in-effect
 
 <Intro>
 
-Validates against calling setState synchronously in an effect, which can lead to re-renders that degrade performance.
+Valida contra a chamada síncrona de `setState` em um efeito, o que pode levar a re-renderizações que degradam o desempenho.
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-Setting state immediately inside an effect forces React to restart the entire render cycle. When you update state in an effect, React must re-render your component, apply changes to the DOM, and then run effects again. This creates an extra render pass that could have been avoided by transforming data directly during render or deriving state from props. Transform data at the top level of your component instead. This code will naturally re-run when props or state change without triggering additional render cycles.
+Definir o estado imediatamente dentro de um efeito força o React a reiniciar todo o ciclo de renderização. Quando você atualiza o estado em um efeito, o React precisa re-renderizar seu componente, aplicar as alterações ao DOM e, em seguida, executar os efeitos novamente. Isso cria uma passagem de renderização extra que poderia ter sido evitada transformando dados diretamente durante a renderização ou derivando o estado das props. Transforme os dados no nível superior do seu componente. Este código será executado novamente naturalmente quando as props ou o estado mudarem, sem acionar ciclos de renderização adicionais.
 
-Synchronous `setState` calls in effects trigger immediate re-renders before the browser can paint, causing performance issues and visual jank. React has to render twice: once to apply the state update, then again after effects run. This double rendering is wasteful when the same result could be achieved with a single render.
+Chamadas síncronas de `setState` em efeitos acionam re-renderizações imediatas antes que o navegador possa pintar, causando problemas de desempenho e lentidão visual. O React precisa renderizar duas vezes: uma para aplicar a atualização de estado e, em seguida, novamente após a execução dos efeitos. Essa renderização dupla é desnecessária quando o mesmo resultado poderia ser alcançado com uma única renderização.
 
-In many cases, you may also not need an effect at all. Please see [You Might Not Need an Effect](/learn/you-might-not-need-an-effect) for more information.
+Em muitos casos, você também pode não precisar de um efeito. Consulte [Você Pode Não Precisar de um Efeito](/learn/you-might-not-need-an-effect) para mais informações.
 
-## Common Violations {/*common-violations*/}
+## Violações Comuns {/*common-violations*/}
 
-This rule catches several patterns where synchronous setState is used unnecessarily:
+Esta regra detecta vários padrões onde `setState` síncrono é usado desnecessariamente:
 
-- Setting loading state synchronously
-- Deriving state from props in effects
-- Transforming data in effects instead of render
+- Definindo estado de carregamento síncronamente
+- Derivando estado de props em efeitos
+- Transformando dados em efeitos em vez de na renderização
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Synchronous setState in effect
+// ❌ setState síncrono em efeito
 function Component({data}) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    setItems(data); // Extra render, use initial state instead
+    setItems(data); // Renderização extra, use o estado inicial em vez disso
   }, [data]);
 }
 
-// ❌ Setting loading state synchronously
+// ❌ Definindo estado de carregamento síncronamente
 function Component() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true); // Synchronous, causes extra render
+    setLoading(true); // Síncrono, causa renderização extra
     fetchData().then(() => setLoading(false));
   }, []);
 }
 
-// ❌ Transforming data in effect
+// ❌ Transformando dados em efeito
 function Component({rawData}) {
   const [processed, setProcessed] = useState([]);
 
   useEffect(() => {
-    setProcessed(rawData.map(transform)); // Should derive in render
+    setProcessed(rawData.map(transform)); // Deve ser derivado na renderização
   }, [rawData]);
 }
 
-// ❌ Deriving state from props
+// ❌ Derivando estado de props
 function Component({selectedId, items}) {
   const [selected, setSelected] = useState(null);
 
@@ -67,12 +67,12 @@ function Component({selectedId, items}) {
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ setState in an effect is fine if the value comes from a ref
+// ✅ setState em um efeito é aceitável se o valor vier de um ref
 function Tooltip() {
   const ref = useRef(null);
   const [tooltipHeight, setTooltipHeight] = useState(0);
@@ -83,11 +83,11 @@ function Tooltip() {
   }, []);
 }
 
-// ✅ Calculate during render
+// ✅ Calcular durante a renderização
 function Component({selectedId, items}) {
   const selected = items.find(i => i.id === selectedId);
   return <div>{selected?.name}</div>;
 }
 ```
 
-**When something can be calculated from the existing props or state, don't put it in state.** Instead, calculate it during rendering. This makes your code faster, simpler, and less error-prone. Learn more in [You Might Not Need an Effect](/learn/you-might-not-need-an-effect).
+**Quando algo pode ser calculado a partir das props ou do estado existentes, não o coloque no estado.** Em vez disso, calcule-o durante a renderização. Isso torna seu código mais rápido, mais simples e menos propenso a erros. Saiba mais em [Você Pode Não Precisar de um Efeito](/learn/you-might-not-need-an-effect).
