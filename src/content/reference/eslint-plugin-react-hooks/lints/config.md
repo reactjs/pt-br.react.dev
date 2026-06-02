@@ -4,44 +4,44 @@ title: config
 
 <Intro>
 
-Validates the compiler [configuration options](/reference/react-compiler/configuration).
+Valida as [opções de configuração](/reference/react-compiler/configuration) do compilador.
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-React Compiler accepts various [configuration options](/reference/react-compiler/configuration)  to control its behavior. This rule validates that your configuration uses correct option names and value types, preventing silent failures from typos or incorrect settings.
+O React Compiler aceita várias [opções de configuração](/reference/react-compiler/configuration) para controlar seu comportamento. Esta regra valida que sua configuração usa nomes de opções e tipos de valor corretos, prevenindo falhas silenciosas por erros de digitação ou configurações incorretas.
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Unknown option name
+// ❌ Nome de opção desconhecido
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
-      compileMode: 'all' // Typo: should be compilationMode
+      compileMode: 'all' // Erro de digitação: deveria ser compilationMode
     }]
   ]
 };
 
-// ❌ Invalid option value
+// ❌ Valor de opção inválido
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
-      compilationMode: 'everything' // Invalid: use 'all' or 'infer'
+      compilationMode: 'everything' // Inválido: use 'all' ou 'infer'
     }]
   ]
 };
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Valid compiler configuration
+// ✅ Configuração de compilador válida
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
@@ -52,38 +52,38 @@ module.exports = {
 };
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### Configuration not working as expected {/*config-not-working*/}
+### Configuração não funciona como esperado {/*config-not-working*/}
 
-Your compiler configuration might have typos or incorrect values:
+Sua configuração do compilador pode ter erros de digitação ou valores incorretos:
 
 ```js
-// ❌ Wrong: Common configuration mistakes
+// ❌ Errado: Erros comuns de configuração
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
-      // Typo in option name
+      // Erro de digitação no nome da opção
       compilationMod: 'all',
-      // Wrong value type
+      // Tipo de valor incorreto
       panicThreshold: true,
-      // Unknown option
+      // Opção desconhecida
       optimizationLevel: 'max'
     }]
   ]
 };
 ```
 
-Check the [configuration documentation](/reference/react-compiler/configuration) for valid options:
+Verifique a [documentação de configuração](/reference/react-compiler/configuration) para opções válidas:
 
 ```js
-// ✅ Better: Valid configuration
+// ✅ Melhor: Configuração válida
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
-      compilationMode: 'all', // or 'infer'
-      panicThreshold: 'none', // or 'critical_errors', 'all_errors'
-      // Only use documented options
+      compilationMode: 'all', // ou 'infer'
+      panicThreshold: 'none', // ou 'critical_errors', 'all_errors'
+      // Use apenas opções documentadas
     }]
   ]
 };
