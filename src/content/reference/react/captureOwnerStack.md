@@ -4,7 +4,7 @@ title: captureOwnerStack
 
 <Intro>
 
-`captureOwnerStack` reads the current Owner Stack in development and returns it as a string if available.
+`captureOwnerStack` lê a Pilha de Proprietários (Owner Stack) atual em desenvolvimento e a retorna como uma string, se disponível.
 
 ```js
 const stack = captureOwnerStack();
@@ -16,11 +16,11 @@ const stack = captureOwnerStack();
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `captureOwnerStack()` {/*captureownerstack*/}
 
-Call `captureOwnerStack` to get the current Owner Stack.
+Chame `captureOwnerStack` para obter a Pilha de Proprietários atual.
 
 ```js {5,5}
 import * as React from 'react';
@@ -33,33 +33,33 @@ function Component() {
 }
 ```
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-`captureOwnerStack` does not take any parameters.
+`captureOwnerStack` não aceita parâmetros.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`captureOwnerStack` returns `string | null`.
+`captureOwnerStack` retorna `string | null`.
 
-Owner Stacks are available in
-- Component render
-- Effects (e.g. `useEffect`)
-- React's event handlers (e.g. `<button onClick={...} />`)
-- React error handlers ([React Root options](/reference/react-dom/client/createRoot#parameters) `onCaughtError`, `onRecoverableError`, and `onUncaughtError`)
+As Pilhas de Proprietários estão disponíveis em:
+- Renderização de componentes
+- Efeitos (ex: `useEffect`)
+- Manipuladores de eventos do React (ex: `<button onClick={...} />`)
+- Manipuladores de erros do React ([Opções do Root do React](/reference/react-dom/client/createRoot#parameters) `onCaughtError`, `onRecoverableError` e `onUncaughtError`)
 
-If no Owner Stack is available, `null` is returned (see [Troubleshooting: The Owner Stack is `null`](#the-owner-stack-is-null)).
+Se nenhuma Pilha de Proprietários estiver disponível, `null` será retornado (veja [Solução de Problemas: A Pilha de Proprietários é `null`](#the-owner-stack-is-null)).
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- Owner Stacks are only available in development. `captureOwnerStack` will always return `null` outside of development.
+- As Pilhas de Proprietários estão disponíveis apenas em desenvolvimento. `captureOwnerStack` sempre retornará `null` fora do ambiente de desenvolvimento.
 
 <DeepDive>
 
-#### Owner Stack vs Component Stack {/*owner-stack-vs-component-stack*/}
+#### Pilha de Proprietários vs. Pilha de Componentes {/*owner-stack-vs-component-stack*/}
 
-The Owner Stack is different from the Component Stack available in React error handlers like [`errorInfo.componentStack` in `onUncaughtError`](/reference/react-dom/client/hydrateRoot#error-logging-in-production).
+A Pilha de Proprietários é diferente da Pilha de Componentes disponível em manipuladores de erros do React, como [`errorInfo.componentStack` em `onUncaughtError`](/reference/react-dom/client/hydrateRoot#error-logging-in-production).
 
-For example, consider the following code:
+Por exemplo, considere o seguinte código:
 
 <Sandpack>
 
@@ -105,11 +105,11 @@ import './styles.css';
 
 createRoot(document.createElement('div'), {
   onUncaughtError: (error, errorInfo) => {
-    // The stacks are logged instead of showing them in the UI directly to
-    // highlight that browsers will apply sourcemaps to the logged stacks.
-    // Note that sourcemapping is only applied in the real browser console not
-    // in the fake one displayed on this page.
-    // Press "fork" to be able to view the sourcemapped stack in a real console.
+    // As pilhas são registradas em log em vez de serem exibidas diretamente na UI para
+    // destacar que os navegadores aplicarão sourcemaps às pilhas registradas em log.
+    // Observe que o sourcemapping é aplicado apenas no console real do navegador, não
+    // no console falso exibido nesta página.
+    // Pressione "fork" para poder visualizar a pilha com sourcemap em um console real.
     console.log(errorInfo.componentStack);
     console.log(captureOwnerStack());
   },
@@ -136,8 +136,8 @@ createRoot(document.createElement('div'), {
 
 </Sandpack>
 
-`SubComponent` would throw an error.
-The Component Stack of that error would be
+`SubComponent` lançaria um erro.
+A Pilha de Componentes desse erro seria:
 
 ```
 at SubComponent
@@ -148,23 +148,23 @@ at React.Suspense
 at App
 ```
 
-However, the Owner Stack would only read
+No entanto, a Pilha de Proprietários leria apenas:
 
 ```
 at Component
 ```
 
-Neither `App` nor the DOM components (e.g. `fieldset`) are considered Owners in this Stack since they didn't contribute to "creating" the node containing `SubComponent`. `App` and DOM components only forwarded the node. `App` just rendered the `children` node as opposed to `Component` which created a node containing `SubComponent` via `<SubComponent />`.
+Nem `App` nem os componentes DOM (ex: `fieldset`) são considerados Proprietários nesta Pilha, pois não contribuíram para "criar" o nó que contém `SubComponent`. `App` e os componentes DOM apenas encaminharam o nó. `App` apenas renderizou o nó `children`, em contraste com `Component`, que criou um nó contendo `SubComponent` através de `<SubComponent />`.
 
-Neither `Navigation` nor `legend` are in the stack at all since it's only a sibling to a node containing `<SubComponent />`.
+Nem `Navigation` nem `legend` estão na pilha, pois são apenas irmãos de um nó que contém `<SubComponent />`.
 
-`SubComponent` is omitted because it's already part of the callstack.
+`SubComponent` é omitido porque já faz parte da pilha de chamadas.
 
 </DeepDive>
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Enhance a custom error overlay {/*enhance-a-custom-error-overlay*/}
+### Aprimorar um overlay de erro personalizado {/*enhance-a-custom-error-overlay*/}
 
 ```js [[1, 5, "console.error"], [4, 7, "captureOwnerStack"]]
 import { captureOwnerStack } from "react";
@@ -175,15 +175,15 @@ console.error = function patchedConsoleError(...args) {
   originalConsoleError.apply(console, args);
   const ownerStack = captureOwnerStack();
   onConsoleError({
-    // Keep in mind that in a real application, console.error can be
-    // called with multiple arguments which you should account for.
+    // Lembre-se que em uma aplicação real, console.error pode ser
+    // chamado com múltiplos argumentos que você deve considerar.
     consoleMessage: args[0],
     ownerStack,
   });
 };
 ```
 
-If you intercept <CodeStep step={1}>`console.error`</CodeStep> calls to highlight them in an error overlay, you can call <CodeStep step={2}>`captureOwnerStack`</CodeStep> to include the Owner Stack.
+Se você interceptar chamadas de <CodeStep step={1}>`console.error`</CodeStep> para destacá-las em um overlay de erro, você pode chamar <CodeStep step={2}>`captureOwnerStack`</CodeStep> para incluir a Pilha de Proprietários.
 
 <Sandpack>
 
@@ -347,13 +347,13 @@ export default function App() {
 
 </Sandpack>
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### The Owner Stack is `null` {/*the-owner-stack-is-null*/}
+### A Pilha de Proprietários é `null` {/*the-owner-stack-is-null*/}
 
-The call of `captureOwnerStack` happened outside of a React controlled function e.g. in a `setTimeout` callback, after a `fetch` call or in a custom DOM event handler. During render, Effects, React event handlers, and React error handlers (e.g. `hydrateRoot#options.onCaughtError`) Owner Stacks should be available.
+A chamada de `captureOwnerStack` ocorreu fora de uma função controlada pelo React, por exemplo, em um callback de `setTimeout`, após uma chamada `fetch` ou em um manipulador de eventos DOM personalizado. Durante a renderização, Efeitos, manipuladores de eventos do React e manipuladores de erros do React (ex: `hydrateRoot#options.onCaughtError`), as Pilhas de Proprietários devem estar disponíveis.
 
-In the example below, clicking the button will log an empty Owner Stack because `captureOwnerStack` was called during a custom DOM event handler. The Owner Stack must be captured earlier e.g. by moving the call of `captureOwnerStack` into the Effect body.
+No exemplo abaixo, clicar no botão registrará uma Pilha de Proprietários vazia porque `captureOwnerStack` foi chamado durante um manipulador de eventos DOM personalizado. A Pilha de Proprietários deve ser capturada anteriormente, por exemplo, movendo a chamada de `captureOwnerStack` para o corpo do Efeito.
 <Sandpack>
 
 ```js
@@ -361,10 +361,10 @@ import {captureOwnerStack, useEffect} from 'react';
 
 export default function App() {
   useEffect(() => {
-    // Should call `captureOwnerStack` here.
+    // Deveria chamar `captureOwnerStack` aqui.
     function handleEvent() {
-      // Calling it in a custom DOM event handler is too late.
-      // The Owner Stack will be `null` at this point.
+      // Chamá-la em um manipulador de eventos DOM personalizado é tarde demais.
+      // A Pilha de Proprietários será `null` neste ponto.
       console.log('Owner Stack: ', captureOwnerStack());
     }
 
@@ -381,14 +381,14 @@ export default function App() {
 
 </Sandpack>
 
-### `captureOwnerStack` is not available {/*captureownerstack-is-not-available*/}
+### `captureOwnerStack` não está disponível {/*captureownerstack-is-not-available*/}
 
-`captureOwnerStack` is only exported in development builds. It will be `undefined` in production builds. If `captureOwnerStack` is used in files that are bundled for production and development, you should conditionally access it from a namespace import.
+`captureOwnerStack` é exportado apenas em builds de desenvolvimento. Será `undefined` em builds de produção. Se `captureOwnerStack` for usado em arquivos que são empacotados para produção e desenvolvimento, você deve acessá-lo condicionalmente a partir de uma importação de namespace.
 
 ```js
-// Don't use named imports of `captureOwnerStack` in files that are bundled for development and production.
+// Não use importações nomeadas de `captureOwnerStack` em arquivos que são empacotados para desenvolvimento e produção.
 import {captureOwnerStack} from 'react';
-// Use a namespace import instead and access `captureOwnerStack` conditionally.
+// Use uma importação de namespace em vez disso e acesse `captureOwnerStack` condicionalmente.
 import * as React from 'react';
 
 if (process.env.NODE_ENV !== 'production') {
