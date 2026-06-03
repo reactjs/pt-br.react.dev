@@ -57,7 +57,7 @@ Se nenhuma Pilha de Proprietários estiver disponível, `null` será retornado (
 
 #### Pilha de Proprietários vs. Pilha de Componentes {/*owner-stack-vs-component-stack*/}
 
-A Pilha de Proprietários é diferente da Pilha de Componentes disponível em manipuladores de erros do React, como `errorInfo.componentStack` em `onUncaughtError` (/reference/react-dom/client/hydrateRoot#error-logging-in-production).
+A Pilha de Proprietários é diferente da Pilha de Componentes disponível em manipuladores de erros do React, como [`errorInfo.componentStack` em `onUncaughtError`](/reference/react-dom/client/hydrateRoot#error-logging-in-production).
 
 Por exemplo, considere o seguinte código:
 
