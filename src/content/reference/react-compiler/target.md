@@ -101,7 +101,7 @@ import { c as _c } from 'react-compiler-runtime';
 
 ---
 
-## Solução de problemas {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
 ### Erros de runtime sobre runtime do compilador ausente {/*missing-runtime*/}
 
