@@ -4,85 +4,85 @@ title: immutability
 
 <Intro>
 
-Validates against mutating props, state, and other values that [are immutable](/reference/rules/components-and-hooks-must-be-pure#props-and-state-are-immutable).
+Valida contra a mutação de props, estado e outros valores que [são imutáveis](/reference/rules/components-and-hooks-must-be-pure#props-and-state-are-immutable).
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-A component’s props and state are immutable snapshots. Never mutate them directly. Instead, pass new props down, and use the setter function from `useState`.
+As props e o estado de um componente são instantâneos imutáveis. Nunca os modifique diretamente. Em vez disso, passe novas props adiante e use a função de atualização do `useState`.
 
-## Common Violations {/*common-violations*/}
+## Violações Comuns {/*common-violations*/}
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
 ```js
-// ❌ Array push mutation
+// ❌ Mutação de push em array
 function Component() {
   const [items, setItems] = useState([1, 2, 3]);
 
   const addItem = () => {
-    items.push(4); // Mutating!
-    setItems(items); // Same reference, no re-render
+    items.push(4); // Mutando!
+    setItems(items); // Mesma referência, sem re-renderização
   };
 }
 
-// ❌ Object property assignment
+// ❌ Atribuição de propriedade de objeto
 function Component() {
   const [user, setUser] = useState({name: 'Alice'});
 
   const updateName = () => {
-    user.name = 'Bob'; // Mutating!
-    setUser(user); // Same reference
+    user.name = 'Bob'; // Mutando!
+    setUser(user); // Mesma referência
   };
 }
 
-// ❌ Sort without spreading
+// ❌ Ordenação sem espalhamento (spread)
 function Component() {
   const [items, setItems] = useState([3, 1, 2]);
 
   const sortItems = () => {
-    setItems(items.sort()); // sort mutates!
+    setItems(items.sort()); // sort muta!
   };
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
 ```js
-// ✅ Create new array
+// ✅ Cria novo array
 function Component() {
   const [items, setItems] = useState([1, 2, 3]);
 
   const addItem = () => {
-    setItems([...items, 4]); // New array
+    setItems([...items, 4]); // Novo array
   };
 }
 
-// ✅ Create new object
+// ✅ Cria novo objeto
 function Component() {
   const [user, setUser] = useState({name: 'Alice'});
 
   const updateName = () => {
-    setUser({...user, name: 'Bob'}); // New object
+    setUser({...user, name: 'Bob'}); // Novo objeto
   };
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I need to add items to an array {/*add-items-array*/}
+### Preciso adicionar itens a um array {/*add-items-array*/}
 
-Mutating arrays with methods like `push()` won't trigger re-renders:
+Mutar arrays com métodos como `push()` não aciona re-renderizações:
 
 ```js
-// ❌ Wrong: Mutating the array
+// ❌ Errado: Mutando o array
 function TodoList() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (id, text) => {
     todos.push({id, text});
-    setTodos(todos); // Same array reference!
+    setTodos(todos); // Mesma referência de array!
   };
 
   return (
@@ -93,16 +93,16 @@ function TodoList() {
 }
 ```
 
-Create a new array instead:
+Crie um novo array em vez disso:
 
 ```js
-// ✅ Better: Create a new array
+// ✅ Melhor: Cria um novo array
 function TodoList() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (id, text) => {
     setTodos([...todos, {id, text}]);
-    // Or: setTodos(todos => [...todos, {id: Date.now(), text}])
+    // Ou: setTodos(todos => [...todos, {id: Date.now(), text}])
   };
 
   return (
@@ -113,12 +113,12 @@ function TodoList() {
 }
 ```
 
-### I need to update nested objects {/*update-nested-objects*/}
+### Preciso atualizar objetos aninhados {/*update-nested-objects*/}
 
-Mutating nested properties doesn't trigger re-renders:
+Mutar propriedades aninhadas não aciona re-renderizações:
 
 ```js
-// ❌ Wrong: Mutating nested object
+// ❌ Errado: Mutando objeto aninhado
 function UserProfile() {
   const [user, setUser] = useState({
     name: 'Alice',
@@ -129,16 +129,16 @@ function UserProfile() {
   });
 
   const toggleTheme = () => {
-    user.settings.theme = 'dark'; // Mutation!
-    setUser(user); // Same object reference
+    user.settings.theme = 'dark'; // Mutação!
+    setUser(user); // Mesma referência de objeto
   };
 }
 ```
 
-Spread at each level that needs updating:
+Use o espalhamento (spread) em cada nível que precisa ser atualizado:
 
 ```js
-// ✅ Better: Create new objects at each level
+// ✅ Melhor: Cria novos objetos em cada nível
 function UserProfile() {
   const [user, setUser] = useState({
     name: 'Alice',
