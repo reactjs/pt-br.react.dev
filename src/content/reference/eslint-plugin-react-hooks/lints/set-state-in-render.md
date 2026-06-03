@@ -4,37 +4,37 @@ title: set-state-in-render
 
 <Intro>
 
-Validates against unconditionally setting state during render, which can trigger additional renders and potential infinite render loops.
+Valida contra a definição incondicional de estado durante a renderização, o que pode acionar renderizações adicionais e potenciais loops de renderização infinitos.
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-Calling `setState` during render unconditionally triggers another render before the current one finishes. This creates an infinite loop that crashes your app.
+Chamar `setState` durante a renderização aciona incondicionalmente outra renderização antes que a atual termine. Isso cria um loop infinito que trava seu aplicativo.
 
-## Common Violations {/*common-violations*/}
+## Violações Comuns {/*common-violations*/}
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
 ```js {expectedErrors: {'react-compiler': [4]}}
-// ❌ Unconditional setState directly in render
+// ❌ setState incondicional diretamente na renderização
 function Component({value}) {
   const [count, setCount] = useState(0);
-  setCount(value); // Infinite loop!
+  setCount(value); // Loop infinito!
   return <div>{count}</div>;
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
 ```js
-// ✅ Derive during render
+// ✅ Derivar durante a renderização
 function Component({items}) {
-  const sorted = [...items].sort(); // Just calculate it in render
+  const sorted = [...items].sort(); // Apenas calcule na renderização
   return <ul>{sorted.map(/*...*/)}</ul>;
 }
 
-// ✅ Set state in event handler
+// ✅ Definir estado no manipulador de eventos
 function Component() {
   const [count, setCount] = useState(0);
   return (
@@ -44,20 +44,20 @@ function Component() {
   );
 }
 
-// ✅ Derive from props instead of setting state
+// ✅ Derivar de props em vez de definir estado
 function Component({user}) {
   const name = user?.name || '';
   const email = user?.email || '';
   return <div>{name}</div>;
 }
 
-// ✅ Conditionally derive state from props and state from previous renders
+// ✅ Derivar condicionalmente estado de props e estado de renderizações anteriores
 function Component({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
 
   const [prevItems, setPrevItems] = useState(items);
-  if (items !== prevItems) { // This condition makes it valid
+  if (items !== prevItems) { // Esta condição a torna válida
     setPrevItems(items);
     setSelection(null);
   }
@@ -65,14 +65,14 @@ function Component({ items }) {
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I want to sync state to a prop {/*clamp-state-to-prop*/}
+### Quero sincronizar o estado com uma prop {/*clamp-state-to-prop*/}
 
-A common problem is trying to "fix" state after it renders. Suppose you want to keep a counter from exceeding a `max` prop:
+Um problema comum é tentar "corrigir" o estado após a renderização. Suponha que você queira impedir que um contador exceda uma prop `max`:
 
 ```js
-// ❌ Wrong: clamps during render
+// ❌ Errado: limita durante a renderização
 function Counter({max}) {
   const [count, setCount] = useState(0);
 
@@ -88,12 +88,12 @@ function Counter({max}) {
 }
 ```
 
-As soon as `count` exceeds `max`, an infinite loop is triggered.
+Assim que `count` exceder `max`, um loop infinito é acionado.
 
-Instead, it's often better to move this logic to the event (the place where the state is first set). For example, you can enforce the maximum at the moment you update state:
+Em vez disso, geralmente é melhor mover essa lógica para o evento (o local onde o estado é definido pela primeira vez). Por exemplo, você pode impor o máximo no momento em que atualiza o estado:
 
 ```js
-// ✅ Clamp when updating
+// ✅ Limita ao atualizar
 function Counter({max}) {
   const [count, setCount] = useState(0);
 
@@ -105,6 +105,6 @@ function Counter({max}) {
 }
 ```
 
-Now the setter only runs in response to the click, React finishes the render normally, and `count` never crosses `max`.
+Agora, o setter só é executado em resposta ao clique, o React termina a renderização normalmente e `count` nunca ultrapassa `max`.
 
-In rare cases, you may need to adjust state based on information from previous renders. For those, follow [this pattern](https://react.dev/reference/react/useState#storing-information-from-previous-renders) of setting state conditionally.
+Em casos raros, você pode precisar ajustar o estado com base em informações de renderizações anteriores. Para esses casos, siga [este padrão](https://react.dev/reference/react/useState#storing-information-from-previous-renders) de definir o estado condicionalmente.
