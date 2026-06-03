@@ -1520,11 +1520,11 @@ Você pode obter efeitos diferentes dependendo de onde escolher colocar o limite
 
 ---
 
-### Otimizando para fora de uma animação {/*opting-out-of-an-animation*/}
+### Desativando uma animação {/*opting-out-of-an-animation*/}
 
 Às vezes, você está envolvendo um componente grande existente, como uma página inteira, e deseja animar algumas atualizações, como a mudança de tema. No entanto, você não quer que todas as atualizações dentro da página inteira sejam animadas com cross-fade quando elas são atualizadas. Especialmente se você estiver adicionando animações incrementalmente.
 
-Você pode usar a classe "none" para otimizar para fora de uma animação. Ao envolver seus filhos em um "none", você pode desativar animações para atualizações neles, enquanto o pai ainda aciona.
+Você pode usar a classe "none" para desativar uma animação. Ao envolver seus filhos em um "none", você pode desativar animações para atualizações neles, enquanto o pai ainda aciona.
 
 ```js
 <ViewTransition>
