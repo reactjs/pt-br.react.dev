@@ -899,7 +899,7 @@ ul, li { margin: 0; padding: 0; }
 
 **O estado ainda "vive" no componente de nível superior `TaskApp`, gerenciado com `useReducer`.** Mas seus `tasks` e `dispatch` agora estão disponíveis para todos os componentes abaixo na árvore, importando e usando esses contextos.
 
-## Mover toda a lógica para um único arquivo {/*moving-all-wiring-into-a-single-file*/}
+## Mover toda a lógica de conexão para um único arquivo {/*moving-all-wiring-into-a-single-file*/}
 
 Você não precisa fazer isso, mas pode simplificar ainda mais os componentes movendo o reducer e o context para um único arquivo. Atualmente, `TasksContext.js` contém apenas duas declarações de context:
 
