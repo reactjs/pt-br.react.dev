@@ -35,7 +35,7 @@ function Component() {
 // ❌ Date.now() para valores
 function Component() {
   const timestamp = Date.now(); // Muda a cada renderização
-  return <div>Criado em: {timestamp}</div>;
+  return <div>Created at: {timestamp}</div>;
 }
 ```
 
@@ -60,7 +60,7 @@ Chamar `Date.now()` durante a renderização torna seu componente impuro:
 ```js {expectedErrors: {'react-compiler': [3]}}
 // ❌ Incorreto: A hora muda a cada renderização
 function Clock() {
-  return <div>Hora atual: {Date.now()}</div>;
+  return <div>Current time: {Date.now()}</div>;
 }
 ```
 
@@ -78,6 +78,6 @@ function Clock() {
     return () => clearInterval(interval);
   }, []);
 
-  return <div>Hora atual: {time}</div>;
+  return <div>Current time: {time}</div>;
 }
 ```
