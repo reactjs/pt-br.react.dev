@@ -4,7 +4,7 @@ title: Preserving and Resetting State
 
 <Intro>
 
-O estado é isolado entre componentes. O React acompanha qual estado pertence a qual componente com base em sua posição na árvore de UI. Você pode controlar quando preservar o estado e quando redefini-lo entre as re-renderizações.
+O estado é isolado entre componentes. O React acompanha qual estado pertence a qual componente com base em sua posição na árvore de UI. Você pode controlar quando preservar o estado e quando redefini-lo entre as renderizações.
 
 </Intro>
 
@@ -86,7 +86,7 @@ label {
 
 </Sandpack>
 
-Veja como eles se parecem como uma árvore:
+Veja como isso se parece em uma árvore:
 
 <DiagramGroup>
 
@@ -248,7 +248,7 @@ label {
 
 </Sandpack>
 
-Note como no momento em que você para de renderizar o segundo contador, seu estado desaparece completamente. Isso ocorre porque, quando o React remove um componente, ele destrói seu estado.
+Note como no momento em que você para de renderizar o segundo contador, seu estado desaparece completamente. Isso ocorre porque quando o React remove um componente, ele destrói seu estado.
 
 <DiagramGroup>
 
@@ -272,7 +272,7 @@ Adicionando um componente
 
 </DiagramGroup>
 
-**O React preserva o estado de um componente enquanto ele estiver sendo renderizado em sua posição na árvore de UI.** Se ele for removido, ou um componente diferente for renderizado na mesma posição, o React descarta seu estado.
+**O React preserva o estado de um componente enquanto ele estiver sendo renderizado em sua posição na árvore de UI.** Se ele for removido, ou um componente diferente for renderizado na mesma posição, o React descartará seu estado.
 
 ## O mesmo componente na mesma posição preserva o estado {/*same-component-at-the-same-position-preserves-state*/}
 
@@ -365,7 +365,7 @@ Quando você marca ou desmarca a caixa de seleção, o estado do contador não �
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_same_component" height={461} width={600} alt="Diagrama com duas seções separadas por uma seta fazendo a transição entre elas. Cada seção contém um layout de componentes com um pai rotulado 'App' contendo uma bolha de estado rotulada isFancy. Este componente tem um filho rotulado 'div', que leva a uma bolha de props contendo isFancy (destacada em roxo) passada para o único filho. O último filho é rotulado 'Counter' e contém uma bolha de estado com o rótulo 'count' e valor 3 em ambos os diagramas. Na seção esquerda do diagrama, nada está destacado e o valor do estado pai isFancy é falso. Na seção direita do diagrama, o valor do estado pai isFancy mudou para true e ele está destacado em amarelo, assim como a bolha de props abaixo, que também mudou seu valor isFancy para true.">
+<Diagram name="preserving_state_same_component" height={461} width={600} alt="Diagrama com duas seções separadas por uma seta fazendo a transição entre elas. Cada seção contém um layout de componentes com um pai rotulado 'App' contendo uma bolha de estado rotulada isFancy. Este componente tem um filho rotulado 'div', que leva a uma bolha de props contendo isFancy (destacada em roxo) passada para o único filho. O último filho é rotulado 'Counter' e contém uma bolha de estado com rótulo 'count' e valor 3 em ambos os diagramas. Na seção esquerda do diagrama, nada está destacado e o valor do estado pai isFancy é falso. Na seção direita do diagrama, o valor do estado pai isFancy mudou para true e está destacado em amarelo, assim como a bolha de props abaixo, que também mudou seu valor isFancy para true.">
 
 Atualizar o estado do `App` não redefine o `Counter` porque o `Counter` permanece na mesma posição
 
@@ -378,7 +378,7 @@ Atualizar o estado do `App` não redefine o `Counter` porque o `Counter` permane
 
 <Pitfall>
 
-Lembre-se de que **é a posição na árvore de UI — não no markup JSX — que importa para o React!** Este componente tem duas cláusulas `return` com tags JSX `<Counter />` diferentes dentro e fora do `if`:
+Lembre-se de que **é a posição na árvore de UI — não no markup JSX — que importa para o React!** Este componente tem duas cláusulas `return` com diferentes tags JSX `<Counter />` dentro e fora do `if`:
 
 <Sandpack>
 
@@ -478,7 +478,7 @@ label {
 
 Você pode esperar que o estado seja redefinido ao marcar a caixa de seleção, mas não é! Isso ocorre porque **ambas essas tags `<Counter />` são renderizadas na mesma posição.** O React não sabe onde você coloca as condições em sua função. Tudo o que ele "vê" é a árvore que você retorna.
 
-Em ambos os casos, o componente `App` retorna um `<div>` com `<Counter />` como primeiro filho. Para o React, esses dois contadores têm o mesmo "endereço": o primeiro filho do primeiro filho da raiz. É assim que o React os associa entre a renderização anterior e a próxima, independentemente de como você estrutura sua lógica.
+Em ambos os casos, o componente `App` retorna um `<div>` com `<Counter />` como o primeiro filho. Para o React, esses dois contadores têm o mesmo "endereço": o primeiro filho do primeiro filho da raiz. É assim que o React os associa entre a renderização anterior e a próxima, independentemente de como você estrutura sua lógica.
 
 </Pitfall>
 
@@ -561,13 +561,13 @@ label {
 
 </Sandpack>
 
-Aqui, você alterna entre tipos de componentes _diferentes_ na mesma posição. Inicialmente, o primeiro filho do `<div>` continha um `Counter`. Mas quando você trocou por um `p`, o React removeu o `Counter` da árvore de UI e destruiu seu estado.
+Aqui, você alterna entre _diferentes_ tipos de componentes na mesma posição. Inicialmente, o primeiro filho do `<div>` continha um `Counter`. Mas quando você o substituiu por um `p`, o React removeu o `Counter` da árvore de UI e destruiu seu estado.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_pt1" height={290} width={753} alt="Diagrama com três seções, com uma seta fazendo a transição entre cada seção. A primeira seção contém um componente React rotulado 'div' com um único filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 3. A seção do meio tem o mesmo pai 'div', mas o componente filho foi excluído, indicado por uma imagem 'poof' amarela. A terceira seção tem o mesmo pai 'div' novamente, agora com um novo filho rotulado 'p', destacado em amarelo.">
+<Diagram name="preserving_state_diff_pt1" height={290} width={753} alt="Diagrama com três seções, com uma seta transicionando cada seção entre elas. A primeira seção contém um componente React rotulado 'div' com um único filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 3. A seção do meio tem o mesmo pai 'div', mas o componente filho foi agora deletado, indicado por uma imagem amarela de 'prova'. A terceira seção tem novamente o mesmo pai 'div', agora com um novo filho rotulado 'p', destacado em amarelo.">
 
-Quando `Counter` muda para `p`, o `Counter` é excluído e o `p` é adicionado
+Quando `Counter` muda para `p`, o `Counter` é deletado e o `p` é adicionado
 
 </Diagram>
 
@@ -575,9 +575,9 @@ Quando `Counter` muda para `p`, o `Counter` é excluído e o `p` é adicionado
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_pt2" height={290} width={753} alt="Diagrama com três seções, com uma seta fazendo a transição entre cada seção. A primeira seção contém um componente React rotulado 'p'. A seção do meio tem o mesmo pai 'div', mas o componente filho foi excluído, indicado por uma imagem 'poof' amarela. A terceira seção tem o mesmo pai 'div' novamente, agora com um novo filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 0, destacado em amarelo.">
+<Diagram name="preserving_state_diff_pt2" height={290} width={753} alt="Diagrama com três seções, com uma seta transicionando cada seção entre elas. A primeira seção contém um componente React rotulado 'p'. A seção do meio tem o mesmo pai 'div', mas o componente filho foi agora deletado, indicado por uma imagem amarela de 'prova'. A terceira seção tem novamente o mesmo pai 'div', agora com um novo filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 0, destacado em amarelo.">
 
-Ao alternar de volta, o `p` é excluído e o `Counter` é adicionado
+Ao voltar, o `p` é deletado e o `Counter` é adicionado
 
 </Diagram>
 
@@ -672,13 +672,13 @@ label {
 
 </Sandpack>
 
-O estado do contador é redefinido quando você clica na caixa de seleção. Embora você renderize um `Counter`, o primeiro filho do `div` muda de uma `section` para um `div`. Quando o `section` filho foi removido do DOM, toda a árvore abaixo dele (incluindo o `Counter` e seu estado) também foi destruída.
+O estado do contador é redefinido quando você clica na caixa de seleção. Embora você renderize um `Counter`, o primeiro filho do `div` muda de uma `section` para um `div`. Quando a `section` filha foi removida do DOM, toda a árvore abaixo dela (incluindo o `Counter` e seu estado) também foi destruída.
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagrama com três seções, com uma seta fazendo a transição entre cada seção. A primeira seção contém um componente React rotulado 'div' com um único filho rotulado 'section', que tem um único filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 3. A seção do meio tem o mesmo pai 'div', mas os componentes filhos foram excluídos, indicado por uma imagem 'poof' amarela. A terceira seção tem o mesmo pai 'div' novamente, agora com um novo filho rotulado 'div', destacado em amarelo, também com um novo filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 0, todos destacados em amarelo.">
+<Diagram name="preserving_state_diff_same_pt1" height={350} width={794} alt="Diagrama com três seções, com uma seta transicionando cada seção entre elas. A primeira seção contém um componente React rotulado 'div' com um único filho rotulado 'section', que tem um único filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 3. A seção do meio tem o mesmo pai 'div', mas os componentes filhos foram agora deletados, indicado por uma imagem amarela de 'prova'. A terceira seção tem novamente o mesmo pai 'div', agora com um novo filho rotulado 'div', destacado em amarelo, também com um novo filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 0, tudo destacado em amarelo.">
 
-Quando `section` muda para `div`, o `section` é excluído e o novo `div` é adicionado
+Quando `section` muda para `div`, a `section` é deletada e o novo `div` é adicionado
 
 </Diagram>
 
@@ -686,9 +686,9 @@ Quando `section` muda para `div`, o `section` é excluído e o novo `div` é adi
 
 <DiagramGroup>
 
-<Diagram name="preserving_state_diff_same_pt2" height={350} width={794} alt="Diagrama com três seções, com uma seta fazendo a transição entre cada seção. A primeira seção contém um componente React rotulado 'div' com um único filho rotulado 'div', que tem um único filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 0. A seção do meio tem o mesmo pai 'div', mas os componentes filhos foram excluídos, indicado por uma imagem 'poof' amarela. A terceira seção tem o mesmo pai 'div' novamente, agora com um novo filho rotulado 'section', destacado em amarelo, também com um novo filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 0, todos destacados em amarelo.">
+<Diagram name="preserving_state_diff_same_pt2" height={350} width={794} alt="Diagrama com três seções, com uma seta transicionando cada seção entre elas. A primeira seção contém um componente React rotulado 'div' com um único filho rotulado 'div', que tem um único filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 0. A seção do meio tem o mesmo pai 'div', mas os componentes filhos foram agora deletados, indicado por uma imagem amarela de 'prova'. A terceira seção tem novamente o mesmo pai 'div', agora com um novo filho rotulado 'section', destacado em amarelo, também com um novo filho rotulado 'Counter' contendo uma bolha de estado rotulada 'count' com valor 0, tudo destacado em amarelo.">
 
-Ao alternar de volta, o `div` é excluído e o novo `section` é adicionado
+Ao alternar de volta, o `div` é deletado e a nova `section` é adicionada
 
 </Diagram>
 
@@ -741,7 +741,7 @@ Toda vez que você clica no botão, o estado do input desaparece! Isso ocorre po
 
 ## Redefinindo o estado na mesma posição {/*resetting-state-at-the-same-position*/}
 
-Por padrão, o React preserva o estado de um componente enquanto ele permanece na mesma posição. Geralmente, é exatamente isso que você deseja, então faz sentido como comportamento padrão. Mas, às vezes, você pode querer redefinir o estado de um componente. Considere este aplicativo que permite que dois jogadores acompanhem suas pontuações em cada turno:
+Por padrão, o React preserva o estado de um componente enquanto ele permanece na mesma posição. Geralmente, é exatamente isso que você deseja, então faz sentido como comportamento padrão. Mas, às vezes, você pode querer redefinir o estado de um componente. Considere este aplicativo que permite que dois jogadores acompanhem suas pontuações a cada turno:
 
 <Sandpack>
 
@@ -811,9 +811,9 @@ h1 {
 
 </Sandpack>
 
-Atualmente, ao trocar de jogador, a pontuação é preservada. Os dois `Counter`s aparecem na mesma posição, então o React os considera o *mesmo* `Counter` cuja prop `person` foi alterada.
+Atualmente, quando você troca de jogador, a pontuação é preservada. Os dois `Counter`s aparecem na mesma posição, então o React os considera o *mesmo* `Counter` cuja prop `person` foi alterada.
 
-Mas conceitualmente, neste aplicativo, eles deveriam ser dois contadores separados. Eles podem aparecer no mesmo lugar na UI, mas um é um contador para Taylor e outro é para Sarah.
+Mas, conceitualmente, neste aplicativo, eles deveriam ser dois contadores separados. Eles podem aparecer no mesmo lugar na interface do usuário, mas um é um contador para Taylor e outro é um contador para Sarah.
 
 Existem duas maneiras de redefinir o estado ao alternar entre eles:
 
@@ -895,7 +895,7 @@ h1 {
 </Sandpack>
 
 * Inicialmente, `isPlayerA` é `true`. Portanto, a primeira posição contém o estado do `Counter`, e a segunda está vazia.
-* Ao clicar no botão "Próximo jogador", a primeira posição é limpa, mas a segunda agora contém um `Counter`.
+* Quando você clica no botão "Próximo jogador", a primeira posição é limpa, mas a segunda agora contém um `Counter`.
 
 <DiagramGroup>
 
@@ -905,13 +905,13 @@ Estado inicial
 
 </Diagram>
 
-<Diagram name="preserving_state_diff_position_p2" height={375} width={504} alt="Diagrama com uma árvore de componentes React. O pai é rotulado 'Scoreboard' com uma bolha de estado rotulada isPlayerA com o valor 'false'. A bolha de estado está destacada em amarelo, indicando que foi alterada. O filho esquerdo é substituído por uma imagem de 'poof' amarela indicando que foi excluído e há um novo filho à direita, destacado em amarelo indicando que foi adicionado. O novo filho é rotulado 'Counter' e contém uma bolha de estado rotulada 'count' com valor 0.">
+<Diagram name="preserving_state_diff_position_p2" height={375} width={504} alt="Diagrama com uma árvore de componentes React. O pai é rotulado 'Scoreboard' com uma bolha de estado rotulada isPlayerA com o valor 'false'. A bolha de estado está destacada em amarelo, indicando que foi alterada. O filho esquerdo é substituído por uma imagem de 'poof' amarela indicando que foi excluído e há um novo filho à direita, destacado em amarelo indicando que foi adicionado. O novo filho é rotulado 'Counter' e contém uma bolha de estado rotulada 'count' com o valor 0.">
 
 Clicando em "próximo"
 
 </Diagram>
 
-<Diagram name="preserving_state_diff_position_p3" height={375} width={504} alt="Diagrama com uma árvore de componentes React. O pai é rotulado 'Scoreboard' com uma bolha de estado rotulada isPlayerA com o valor 'true'. A bolha de estado está destacada em amarelo, indicando que foi alterada. Há um novo filho à esquerda, destacado em amarelo indicando que foi adicionado. O novo filho é rotulado 'Counter' e contém uma bolha de estado rotulada 'count' com valor 0. O filho direito é substituído por uma imagem de 'poof' amarela indicando que foi excluído.">
+<Diagram name="preserving_state_diff_position_p3" height={375} width={504} alt="Diagrama com uma árvore de componentes React. O pai é rotulado 'Scoreboard' com uma bolha de estado rotulada isPlayerA com o valor 'true'. A bolha de estado está destacada em amarelo, indicando que foi alterada. Há um novo filho à esquerda, destacado em amarelo indicando que foi adicionado. O novo filho é rotulado 'Counter' e contém uma bolha de estado rotulada 'count' com o valor 0. O filho direito é substituído por uma imagem de 'poof' amarela indicando que foi excluído.">
 
 Clicando em "próximo" novamente
 
@@ -919,15 +919,15 @@ Clicando em "próximo" novamente
 
 </DiagramGroup>
 
-O estado de cada `Counter` é destruído toda vez que ele é removido do DOM. É por isso que eles resetam toda vez que você clica no botão.
+O estado de cada `Counter` é destruído toda vez que ele é removido do DOM. É por isso que eles são redefinidos toda vez que você clica no botão.
 
-Esta solução é conveniente quando você tem apenas alguns componentes independentes renderizados no mesmo local. Neste exemplo, você tem apenas dois, então não é um incômodo renderizá-los separadamente no JSX.
+Esta solução é conveniente quando você tem apenas alguns componentes independentes renderizados no mesmo lugar. Neste exemplo, você tem apenas dois, então não é um incômodo renderizá-los separadamente no JSX.
 
 ### Opção 2: Redefinindo o estado com uma chave {/*option-2-resetting-state-with-a-key*/}
 
 Há também outra maneira, mais genérica, de redefinir o estado de um componente.
 
-Você pode ter visto `key`s ao [renderizar listas.](/learn/rendering-lists#keeping-list-items-in-order-with-key) As chaves não servem apenas para listas! Você pode usar chaves para fazer o React distinguir entre quaisquer componentes. Por padrão, o React usa a ordem dentro do pai ("primeiro contador", "segundo contador") para discernir entre componentes. Mas as chaves permitem que você diga ao React que este não é apenas um *primeiro* contador, ou um *segundo* contador, mas um contador específico - por exemplo, o contador *de Taylor*. Dessa forma, o React saberá o contador *de Taylor* onde quer que ele apareça na árvore!
+Você pode ter visto `key`s ao [renderizar listas.](/learn/rendering-lists#keeping-list-items-in-order-with-key) As chaves não servem apenas para listas! Você pode usar chaves para fazer o React distinguir entre quaisquer componentes. Por padrão, o React usa a ordem dentro do pai ("primeiro contador", "segundo contador") para discernir entre componentes. Mas as chaves permitem que você diga ao React que este não é apenas um *primeiro* contador ou um *segundo* contador, mas um contador específico - por exemplo, o contador *de Taylor*. Dessa forma, o React saberá o contador *de Taylor* onde quer que ele apareça na árvore!
 
 Neste exemplo, os dois `<Counter />`s não compartilham estado, mesmo que apareçam no mesmo lugar no JSX:
 
@@ -999,7 +999,7 @@ h1 {
 
 </Sandpack>
 
-Alternar entre Taylor e Sarah não preserva o estado. Isso ocorre porque **você deu a eles `key`s diferentes**:
+Alternar entre Taylor e Sarah não preserva o estado. Isso ocorre porque **você deu a eles `key`s diferentes:**
 
 ```js
 {isPlayerA ? (
@@ -1009,11 +1009,11 @@ Alternar entre Taylor e Sarah não preserva o estado. Isso ocorre porque **você
 )}
 ```
 
-Especificar uma `key` diz ao React para usar a própria `key` como parte da posição, em vez de sua ordem dentro do pai. É por isso que, mesmo que você os renderize no mesmo lugar no JSX, o React os vê como dois contadores diferentes, e assim eles nunca compartilharão estado. Toda vez que um contador aparece na tela, seu estado é criado. Toda vez que ele é removido, seu estado é destruído. Alternar entre eles reseta seus estados repetidamente.
+Especificar uma `key` diz ao React para usar a `key` em si como parte da posição, em vez de sua ordem dentro do pai. É por isso que, mesmo que você os renderize no mesmo lugar no JSX, o React os vê como dois contadores diferentes, e assim eles nunca compartilharão estado. Toda vez que um contador aparece na tela, seu estado é criado. Toda vez que ele é removido, seu estado é destruído. Alternar entre eles redefine seu estado repetidamente.
 
 <Note>
 
-Lembre-se que as chaves não são globalmente únicas. Elas apenas especificam a posição *dentro do pai*.
+Lembre-se de que as chaves não são globalmente exclusivas. Elas apenas especificam a posição *dentro do pai*.
 
 </Note>
 
@@ -1116,15 +1116,15 @@ textarea {
 
 </Sandpack>
 
-Tente digitar algo na entrada e, em seguida, pressione "Alice" ou "Bob" para escolher um destinatário diferente. Você notará que o estado da entrada é preservado porque o `<Chat>` é renderizado na mesma posição na árvore.
+Tente digitar algo na entrada e, em seguida, clique em "Alice" ou "Bob" para escolher um destinatário diferente. Você notará que o estado da entrada é preservado porque o `<Chat>` é renderizado na mesma posição na árvore.
 
-**Em muitos aplicativos, este pode ser o comportamento desejado, mas não em um aplicativo de chat!** Você não quer permitir que o usuário envie uma mensagem que já digitou para a pessoa errada devido a um clique acidental. Para corrigir isso, adicione uma `key`:
+**Em muitos aplicativos, este pode ser o comportamento desejado, mas não em um aplicativo de chat!** Você não quer que o usuário envie uma mensagem que já digitou para a pessoa errada devido a um clique acidental. Para corrigir isso, adicione uma `key`:
 
 ```js
 <Chat key={to.id} contact={to} />
 ```
 
-Isso garante que, ao selecionar um destinatário diferente, o componente `<Chat>` será recriado do zero, incluindo qualquer estado na árvore abaixo dele. O React também recriará os elementos DOM em vez de reutilizá-los.
+Isso garante que, quando você selecionar um destinatário diferente, o componente `<Chat>` será recriado do zero, incluindo qualquer estado na árvore abaixo dele. O React também recriará os elementos DOM em vez de reutilizá-los.
 
 Agora, alternar o destinatário sempre limpa o campo de texto:
 
@@ -1227,9 +1227,9 @@ textarea {
 
 Em um aplicativo de chat real, você provavelmente gostaria de recuperar o estado da entrada quando o usuário selecionar o destinatário anterior novamente. Existem algumas maneiras de manter o estado "vivo" para um componente que não está mais visível:
 
-- Você poderia renderizar _todos_ os chats em vez de apenas o atual, mas ocultar todos os outros com CSS. Os chats não seriam removidos da árvore, então seu estado local seria preservado. Essa solução funciona bem para interfaces de usuário simples. Mas pode ficar muito lento se as árvores ocultas forem grandes e contiverem muitos nós DOM.
-- Você poderia [elevar o estado](/learn/sharing-state-between-components) e manter a mensagem pendente para cada destinatário no componente pai. Dessa forma, quando os componentes filhos forem removidos, não importa, pois é o pai que mantém as informações importantes. Esta é a solução mais comum.
-- Você também pode usar uma fonte diferente além do estado do React. Por exemplo, você provavelmente quer que um rascunho de mensagem persista mesmo que o usuário feche acidentalmente a página. Para implementar isso, você pode fazer o componente `Chat` inicializar seu estado lendo do [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), e salvar os rascunhos lá também.
+- Você poderia renderizar _todos_ os chats em vez de apenas o atual, mas ocultar todos os outros com CSS. Os chats não seriam removidos da árvore, então seu estado local seria preservado. Essa solução funciona bem para interfaces simples. Mas pode ficar muito lenta se as árvores ocultas forem grandes e contiverem muitos nós DOM.
+- Você poderia [elevar o estado](/learn/sharing-state-between-components) e manter a mensagem pendente para cada destinatário no componente pai. Dessa forma, quando os componentes filhos forem removidos, não importa, porque é o pai que mantém as informações importantes. Esta é a solução mais comum.
+- Você também pode usar uma fonte diferente além do estado do React. Por exemplo, você provavelmente quer que um rascunho de mensagem persista mesmo que o usuário feche acidentalmente a página. Para implementar isso, você pode fazer o componente `<Chat>` inicializar seu estado lendo do [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) e salvar os rascunhos lá também.
 
 Não importa qual estratégia você escolha, um chat _com Alice_ é conceitualmente distinto de um chat _com Bob_, então faz sentido dar uma `key` à árvore `<Chat>` com base no destinatário atual.
 
@@ -1238,7 +1238,7 @@ Não importa qual estratégia você escolha, um chat _com Alice_ é conceitualme
 <Recap>
 
 - O React mantém o estado enquanto o mesmo componente for renderizado na mesma posição.
-- O estado não é mantido em tags JSX. Ele está associado à posição da árvore onde você colocou esse JSX.
+- O estado não é mantido em tags JSX. Ele está associado à posição na árvore onde você colocou esse JSX.
 - Você pode forçar uma subárvore a redefinir seu estado dando a ela uma chave diferente.
 - Não aninhe definições de componentes, ou você redefinirá o estado acidentalmente.
 
@@ -1248,7 +1248,7 @@ Não importa qual estratégia você escolha, um chat _com Alice_ é conceitualme
 
 <Challenges>
 
-#### Corrigir o texto de entrada desaparecendo {/*fix-disappearing-input-text*/}
+#### Corrigir o texto de entrada que desaparece {/*fix-disappearing-input-text*/}
 
 Este exemplo mostra uma mensagem quando você pressiona o botão. No entanto, pressionar o botão também redefine acidentalmente a entrada. Por que isso acontece? Corrija para que pressionar o botão não redefina o texto da entrada.
 
@@ -1401,13 +1401,13 @@ Dessa forma, `Form` é sempre o segundo filho, então ele permanece na mesma pos
 
 #### Trocar dois campos de formulário {/*swap-two-form-fields*/}
 
-Este formulário permite que você insira o primeiro e o último nome. Ele também tem uma caixa de seleção que controla qual campo vai primeiro. Quando você marca a caixa de seleção, o campo "Last name" aparecerá antes do campo "First name".
+Este formulário permite que você insira o primeiro e o último nome. Ele também tem uma caixa de seleção que controla qual campo vai primeiro. Quando você marca a caixa, o campo "Último nome" aparece antes do campo "Primeiro nome".
 
-Quase funciona, mas há um bug. Se você preencher o campo "First name" e marcar a caixa, o texto permanecerá no primeiro campo (que agora é "Last name"). Corrija para que o texto da entrada também se mova ao reverter a ordem.
+Quase funciona, mas há um bug. Se você preencher a entrada "Primeiro nome" e marcar a caixa, o texto permanecerá na primeira entrada (que agora é "Último nome"). Corrija para que o texto da entrada também se mova quando você inverter a ordem.
 
 <Hint>
 
-Parece que para esses campos, sua posição dentro do pai não é suficiente. Existe alguma maneira de dizer ao React como associar o estado entre as renderizações?
+Parece que, para esses campos, sua posição dentro do pai não é suficiente. Existe alguma maneira de dizer ao React como corresponder o estado entre as renderizações?
 
 </Hint>
 
@@ -1471,7 +1471,7 @@ label { display: block; margin: 10px 0; }
 
 <Solution>
 
-Dê uma `key` a ambos os componentes `<Field>` em ambos os ramos `if` e `else`. Isso diz ao React como "associar" o estado correto para qualquer `<Field>`, mesmo que sua ordem dentro do pai mude:
+Dê uma `key` a ambos os componentes `<Field>` em ambos os ramos `if` e `else`. Isso diz ao React como "combinar" o estado correto para qualquer `<Field>`, mesmo que sua ordem dentro do pai mude:
 
 <Sandpack>
 
@@ -1535,9 +1535,9 @@ label { display: block; margin: 10px 0; }
 
 #### Redefinir um formulário de detalhes {/*reset-a-detail-form*/}
 
-Esta é uma lista de contatos editável. Você pode editar os detalhes do contato selecionado e, em seguida, pressionar "Save" para atualizá-lo ou "Reset" para desfazer suas alterações.
+Esta é uma lista de contatos editável. Você pode editar os detalhes do contato selecionado e, em seguida, pressionar "Salvar" para atualizá-lo, ou "Redefinir" para desfazer suas alterações.
 
-Quando você seleciona um contato diferente (por exemplo, Alice), o estado é atualizado, mas o formulário continua mostrando os detalhes do contato anterior. Corrija para que o formulário seja redefinido quando o contato selecionado mudar.
+Quando você seleciona um contato diferente (por exemplo, Alice), o estado é atualizado, mas o formulário continua exibindo os detalhes do contato anterior. Corrija para que o formulário seja redefinido quando o contato selecionado mudar.
 
 <Sandpack>
 
@@ -1689,7 +1689,7 @@ button {
 
 <Solution>
 
-Dê `key={selectedId}` ao componente `EditContact`. Dessa forma, alternar entre diferentes contatos redefinirá o formulário:
+Dê `key={selectedId}` ao componente `EditContact`. Dessa forma, alternar entre contatos diferentes redefinirá o formulário:
 
 <Sandpack>
 
@@ -1842,9 +1842,9 @@ button {
 
 </Solution>
 
-#### Limpar uma imagem enquanto ela está carregando {/*clear-an-image-while-its-loading*/}
+#### Limpar uma imagem enquanto ela carrega {/*clear-an-image-while-its-loading*/}
 
-Quando você pressiona "Next", o navegador começa a carregar a próxima imagem. No entanto, como ela é exibida na mesma tag `<img>`, por padrão você ainda veria a imagem anterior até que a próxima carregasse. Isso pode ser indesejável se for importante que o texto sempre corresponda à imagem. Altere para que, no momento em que você pressionar "Next", a imagem anterior seja limpa imediatamente.
+Ao pressionar "Próximo", o navegador começa a carregar a próxima imagem. No entanto, como ela é exibida na mesma tag `<img>`, por padrão você ainda veria a imagem anterior até que a próxima carregasse. Isso pode ser indesejável se for importante que o texto sempre corresponda à imagem. Altere para que, no momento em que você pressionar "Próximo", a imagem anterior seja imediatamente limpa.
 
 <Hint>
 
@@ -1918,7 +1918,7 @@ img { width: 150px; height: 150px; }
 
 <Solution>
 
-Você pode fornecer uma `key` à tag `<img>`. Quando essa `key` mudar, o React recriará o nó DOM `<img>` do zero. Isso causa um breve flash quando cada imagem carrega, então não é algo que você queira fazer para cada imagem em seu aplicativo. Mas faz sentido se você quiser garantir que a imagem sempre corresponda ao texto.
+Você pode fornecer uma `key` para a tag `<img>`. Quando essa `key` muda, o React recria o nó DOM `<img>` do zero. Isso causa um breve flash quando cada imagem carrega, então não é algo que você queira fazer para todas as imagens em seu aplicativo. Mas faz sentido se você quiser garantir que a imagem sempre corresponda ao texto.
 
 <Sandpack>
 
@@ -1986,9 +1986,9 @@ img { width: 150px; height: 150px; }
 
 </Solution>
 
-#### Corrigir estado mal posicionado na lista {/*fix-misplaced-state-in-the-list*/}
+#### Corrigir estado mal colocado na lista {/*fix-misplaced-state-in-the-list*/}
 
-Nesta lista, cada `Contact` tem um estado que determina se "Mostrar e-mail" foi pressionado para ele. Pressione "Mostrar e-mail" para Alice e, em seguida, marque a caixa de seleção "Mostrar em ordem inversa". Você notará que é o e-mail de _Taylor_ que está expandido agora, mas o de Alice - que se moveu para o final - aparece recolhido.
+Nesta lista, cada `Contact` tem um estado que determina se "Mostrar e-mail" foi pressionado para ele. Pressione "Mostrar e-mail" para Alice e, em seguida, marque a caixa de seleção "Mostrar em ordem inversa". Você notará que é o e-mail de _Taylor_ que está expandido agora, mas o de Alice - que foi para o final - aparece recolhido.
 
 Corrija para que o estado expandido seja associado a cada contato, independentemente da ordem escolhida.
 
@@ -2016,7 +2016,7 @@ export default function ContactList() {
             setReverse(e.target.checked)
           }}
         />{' '}
-        Mostrar em ordem inversa
+        Show in reverse order
       </label>
       <ul>
         {displayedContacts.map((contact, i) =>
@@ -2050,7 +2050,7 @@ export default function Contact({ contact }) {
       <button onClick={() => {
         setExpanded(!expanded);
       }}>
-        {expanded ? 'Esconder' : 'Mostrar'} e-mail
+        {expanded ? 'Hide' : 'Show'} email
       </button>
     </>
   );
@@ -2115,7 +2115,7 @@ export default function ContactList() {
             setReverse(e.target.checked)
           }}
         />{' '}
-        Mostrar em ordem inversa
+        Show in reverse order
       </label>
       <ul>
         {displayedContacts.map(contact =>
@@ -2149,7 +2149,7 @@ export default function Contact({ contact }) {
       <button onClick={() => {
         setExpanded(!expanded);
       }}>
-        {expanded ? 'Esconder' : 'Mostrar'} e-mail
+        {expanded ? 'Hide' : 'Show'} email
       </button>
     </>
   );
