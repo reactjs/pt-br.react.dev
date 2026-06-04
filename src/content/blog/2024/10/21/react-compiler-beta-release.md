@@ -73,7 +73,7 @@ yarn add -D eslint-plugin-react-compiler@beta
 
 Após a instalação, você pode habilitar o linter [adicionando-o à sua configuração do ESLint](/learn/react-compiler/installation#eslint-integration). Usar o linter ajuda a identificar quebras nas Regras do React, facilitando a adoção do compilador quando ele for totalmente lançado.
 
-## Compatibilidade com Versões Anteriores {/*backwards-compatibility*/}
+## Compatibilidade com versões anteriores {/*backwards-compatibility*/}
 
 O React Compiler produz código que depende de APIs de runtime adicionadas no React 19, mas desde então adicionamos suporte para que o compilador também funcione com React 17 e 18. Se você ainda não está no React 19, na versão Beta, você agora pode experimentar o React Compiler especificando um `target` mínimo em sua configuração do compilador e adicionando `react-compiler-runtime` como uma dependência. [Você pode encontrar a documentação sobre isso aqui](/reference/react-compiler/configuration#react-17-18).
 
@@ -103,7 +103,7 @@ Vimos melhorias notáveis de desempenho em todos esses aplicativos. À medida qu
 
 Também esperávamos ganhos de produtividade do desenvolvedor com o React Compiler. Para medir isso, colaboramos com nossos parceiros de ciência de dados na Meta[^2] para realizar uma análise estatística completa do impacto da memoização manual na produtividade. Antes de implantar o compilador na Meta, descobrimos que apenas cerca de 8% das pull requests do React usavam memoização manual e que essas pull requests levavam de 31 a 46% mais tempo para serem criadas[^3]. Isso confirmou nossa intuição de que a memoização manual introduz sobrecarga cognitiva, e antecipamos que o React Compiler levará a uma autoria e revisão de código mais eficientes. Notavelmente, o React Compiler também garante que *todo* o código seja memoizado por padrão, não apenas os (em nosso caso) 8% onde os desenvolvedores aplicam explicitamente a memoização.
 
-## Roteiro para o Lançamento Estável {/*roadmap-to-stable*/}
+## Roteiro para o lançamento estável {/*roadmap-to-stable*/}
 
 *Este não é um roteiro final e está sujeito a alterações.*
 
