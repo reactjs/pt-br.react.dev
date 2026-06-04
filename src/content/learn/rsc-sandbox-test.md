@@ -90,7 +90,7 @@ export default async function Albums() {
 
 ## Prova de Streaming {/*streaming-proof*/}
 
-Esta demonstração prova que o streaming é incremental. A "shell" renderiza instantaneamente com um fallback `<Suspense>`. Após 2 segundos, o componente assíncrono é transmitido e o substitui — sem re-renderizar o conteúdo externo. Os timestamps mostram a diferença.
+Esta demonstração prova que o streaming é incremental. A estrutura (shell) é renderizada instantaneamente com um fallback do `<Suspense>`. Após 2 segundos, o componente assíncrono é transmitido e o substitui — sem re-renderizar o conteúdo externo. Os timestamps mostram a diferença.
 
 <SandpackRSC>
 
@@ -147,7 +147,7 @@ export default function Timestamp() {
 
 ## Tipos de Dados do Flight {/*flight-data-types*/}
 
-Esta demonstração passa Map, Set, Date e BigInt de um componente de servidor através do stream Flight para um componente de cliente, provando que o sistema de tipos completo do protocolo Flight funciona de ponta a ponta.
+Esta demonstração passa Map, Set, Date e BigInt de um componente de servidor através do stream Flight para um componente cliente, provando que o sistema de tipos completo do protocolo Flight funciona de ponta a ponta.
 
 <SandpackRSC>
 
@@ -206,9 +206,9 @@ export default function DataViewer({ map, set, date, big }) {
 
 </SandpackRSC>
 
-## Streaming de Promessas com use() {/*promise-streaming-use*/}
+## Streaming de Promise com use() {/*promise-streaming-use*/}
 
-O servidor cria uma promessa (resolve em 2s) e a passa como prop através de um componente pai assíncrono que suspende por 3s. Quando o pai revela por volta de 3s, a promessa já está resolvida — então `use()` retorna instantaneamente sem um fallback interno. O tempo decorrido deve ser de ~3000ms (o atraso do pai), não ~5000ms (o que significaria que a promessa reiniciou no cliente).
+O servidor cria uma promise (resolve em 2s) e a passa como prop através de um componente pai assíncrono que suspende por 3s. Quando o pai é revelado em ~3s, a promise já está resolvida — então `use()` retorna instantaneamente sem um fallback interno. O tempo decorrido deve ser de ~3000ms (o atraso do pai), não ~5000ms (o que significaria que a promise reiniciou no cliente).
 
 <SandpackRSC>
 
@@ -286,7 +286,7 @@ export default function UserCard({ userPromise, serverTime }) {
 
 ## Tipos de Dados do Flight em Ações de Servidor {/*flight-data-types-actions*/}
 
-Esta demonstração envia Map, Set, Date e BigInt de um componente de cliente *para* uma ação de servidor via `encodeReply`/`decodeReply`, e então verifica se os tipos sobreviveram à viagem de ida e volta.
+Esta demonstração envia Map, Set, Date e BigInt de um componente cliente *para* uma ação de servidor via `encodeReply`/`decodeReply`, e então verifica se os tipos sobreviveram à viagem de ida e volta.
 
 <SandpackRSC>
 
@@ -336,4 +336,240 @@ export async function testTypes(map, set, date, big) {
       ok: set instanceof Set,
       detail: set instanceof Set
         ? 'values: ' + JSON.stringify([...set])
-        : 'received
+        : 'received: ' + typeof set,
+    },
+    {
+      label: 'Date',
+      ok: date instanceof Date,
+      detail: date instanceof Date
+        ? date.toISOString()
+        : 'received: ' + typeof date,
+    },
+    {
+      label: 'BigInt',
+      ok: typeof big === 'bigint',
+      detail: typeof big === 'bigint'
+        ? big.toString()
+        : 'received: ' + typeof big,
+    },
+  ];
+}
+
+export async function getResults() {
+  return results;
+}
+```
+
+```js src/TestButton.js
+'use client';
+import { useTransition } from 'react';
+
+export default function TestButton({ testTypes }) {
+  const [pending, startTransition] = useTransition();
+
+  function handleClick() {
+    startTransition(async () => {
+      await testTypes(
+        new Map([['alice', 100], ['bob', 200]]),
+        new Set(['react', 'next', 'remix']),
+        new Date('2025-06-15T12:00:00Z'),
+        9007199254740993n
+      );
+    });
+  }
+
+  return (
+    <button onClick={handleClick} disabled={pending}>
+      {pending ? 'Sending...' : 'Send typed data to server'}
+    </button>
+  );
+}
+```
+
+</SandpackRSC>
+
+## Mutação de Ação de Servidor + Re-renderização {/*action-mutation-rerender*/}
+
+A ação de servidor modifica dados no lado do servidor e retorna uma string de confirmação. A lista atualizada só é visível porque o framework re-renderiza automaticamente toda a árvore de componentes do servidor após a conclusão da ação — o componente do servidor relê os dados e transmite a nova UI para o cliente.
+
+<SandpackRSC>
+
+```js src/App.js
+import { getTodos } from './db';
+import { createTodo } from './actions';
+import AddTodo from './AddTodo';
+
+export default function App() {
+  const todos = getTodos();
+  return (
+    <div>
+      <h1>Todo List</h1>
+      <p style={{ color: '#666', fontSize: 13 }}>
+        This list is rendered by a server component
+        reading server-side data. It only updates because
+        the server re-renders after each action.
+      </p>
+      <ul>
+        {todos.map((todo, i) => (
+          <li key={i}>{todo}</li>
+        ))}
+      </ul>
+      <AddTodo createTodo={createTodo} />
+    </div>
+  );
+}
+```
+
+```js src/db.js
+let todos = ['Buy groceries'];
+
+export function getTodos() {
+  return [...todos];
+}
+
+export function addTodo(text) {
+  todos.push(text);
+}
+```
+
+```js src/actions.js
+'use server';
+import { addTodo } from './db';
+
+export async function createTodo(text) {
+  if (!text) return 'Please enter a todo.';
+  addTodo(text);
+  return 'Added: ' + text;
+}
+```
+
+```js src/AddTodo.js
+'use client';
+import { useState, useTransition } from 'react';
+
+export default function AddTodo({ createTodo }) {
+  const [text, setText] = useState('');
+  const [message, setMessage] = useState('');
+  const [pending, startTransition] = useTransition();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    startTransition(async () => {
+      const result = await createTodo(text);
+      setMessage(result);
+      setText('');
+    });
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={text}
+          onChange={e => setText(e.target.value)}
+          placeholder="New todo"
+        />
+        <button disabled={pending}>
+          {pending ? 'Adding...' : 'Add'}
+        </button>
+      </form>
+      {message && (
+        <p style={{ color: '#666', fontSize: 13 }}>
+          Action returned: "{message}"
+        </p>
+      )}
+    </div>
+  );
+}
+```
+
+</SandpackRSC>
+
+## Ações de Servidor Inline {/*inline-server-actions*/}
+
+Ações de servidor definidas inline dentro de um componente de servidor com `'use server'` no corpo da função. A ação fecha sobre o estado do nível do módulo e é passada como prop — nenhum arquivo `actions.js` separado é necessário.
+
+<SandpackRSC>
+
+```js src/App.js
+import LikeButton from './LikeButton';
+
+let count = 0;
+
+export default function App() {
+  async function addLike() {
+    'use server';
+    count++;
+  }
+
+  return (
+    <div>
+      <h1>Inline Server Actions</h1>
+      <p>Likes: {count}</p>
+      <LikeButton addLike={addLike} />
+    </div>
+  );
+}
+```
+
+```js src/LikeButton.js
+'use client';
+
+export default function LikeButton({ addLike }) {
+  return (
+    <form action={addLike}>
+      <button type="submit">Like</button>
+    </form>
+  );
+}
+```
+
+</SandpackRSC>
+
+## Funções de Servidor {/*server-functions*/}
+
+<SandpackRSC>
+
+```js src/App.js
+import { addLike, getLikeCount } from './actions';
+import LikeButton from './LikeButton';
+
+export default async function App() {
+  const count = await getLikeCount();
+  return (
+    <div>
+      <h1>Server Functions</h1>
+      <p>Likes: {count}</p>
+      <LikeButton addLike={addLike} />
+    </div>
+  );
+}
+```
+
+```js src/actions.js
+'use server';
+
+let count = 0;
+
+export async function addLike() {
+  count++;
+}
+
+export async function getLikeCount() {
+  return count;
+}
+```
+
+```js src/LikeButton.js
+'use client';
+
+export default function LikeButton({ addLike }) {
+  return (
+    <form action={addLike}>
+      <button type="submit">Like</button>
+    </form>
+  );
+}
+```
+
+</SandpackRSC>
