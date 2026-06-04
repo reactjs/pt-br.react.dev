@@ -145,7 +145,7 @@ export default function Timestamp() {
 
 </SandpackRSC>
 
-## Tipos de Dados de Voo {/*flight-data-types*/}
+## Tipos de Dados do Flight {/*flight-data-types*/}
 
 Esta demonstração passa Map, Set, Date e BigInt de um componente de servidor através do stream Flight para um componente de cliente, provando que o sistema de tipos completo do protocolo Flight funciona de ponta a ponta.
 
@@ -284,7 +284,7 @@ export default function UserCard({ userPromise, serverTime }) {
 
 </SandpackRSC>
 
-## Tipos de Dados de Voo em Ações de Servidor {/*flight-data-types-actions*/}
+## Tipos de Dados do Flight em Ações de Servidor {/*flight-data-types-actions*/}
 
 Esta demonstração envia Map, Set, Date e BigInt de um componente de cliente *para* uma ação de servidor via `encodeReply`/`decodeReply`, e então verifica se os tipos sobreviveram à viagem de ida e volta.
 
