@@ -58,7 +58,7 @@ function Component() {
 Chamar `Date.now()` durante a renderização torna seu componente impuro:
 
 ```js {expectedErrors: {'react-compiler': [3]}}
-// ❌ Incorreto: A hora muda a cada renderização
+// ❌ Errado: A hora muda a cada renderização
 function Clock() {
   return <div>Current time: {Date.now()}</div>;
 }
