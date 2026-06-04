@@ -739,9 +739,9 @@ Toda vez que você clica no botão, o estado do input desaparece! Isso ocorre po
 
 </Pitfall>
 
-## Resetando o estado na mesma posição {/*resetting-state-at-the-same-position*/}
+## Redefinindo o estado na mesma posição {/*resetting-state-at-the-same-position*/}
 
-Por padrão, o React preserva o estado de um componente enquanto ele permanece na mesma posição. Geralmente, é exatamente isso que você deseja, então faz sentido como comportamento padrão. Mas, às vezes, você pode querer resetar o estado de um componente. Considere este aplicativo que permite que dois jogadores acompanhem suas pontuações em cada turno:
+Por padrão, o React preserva o estado de um componente enquanto ele permanece na mesma posição. Geralmente, é exatamente isso que você deseja, então faz sentido como comportamento padrão. Mas, às vezes, você pode querer redefinir o estado de um componente. Considere este aplicativo que permite que dois jogadores acompanhem suas pontuações em cada turno:
 
 <Sandpack>
 
@@ -815,7 +815,7 @@ Atualmente, ao trocar de jogador, a pontuação é preservada. Os dois `Counter`
 
 Mas conceitualmente, neste aplicativo, eles deveriam ser dois contadores separados. Eles podem aparecer no mesmo lugar na UI, mas um é um contador para Taylor e outro é para Sarah.
 
-Existem duas maneiras de resetar o estado ao alternar entre eles:
+Existem duas maneiras de redefinir o estado ao alternar entre eles:
 
 1. Renderizar componentes em posições diferentes
 2. Dar a cada componente uma identidade explícita com `key`
@@ -923,9 +923,9 @@ O estado de cada `Counter` é destruído toda vez que ele é removido do DOM. É
 
 Esta solução é conveniente quando você tem apenas alguns componentes independentes renderizados no mesmo local. Neste exemplo, você tem apenas dois, então não é um incômodo renderizá-los separadamente no JSX.
 
-### Opção 2: Resetando o estado com uma chave {/*option-2-resetting-state-with-a-key*/}
+### Opção 2: Redefinindo o estado com uma chave {/*option-2-resetting-state-with-a-key*/}
 
-Há também outra maneira, mais genérica, de resetar o estado de um componente.
+Há também outra maneira, mais genérica, de redefinir o estado de um componente.
 
 Você pode ter visto `key`s ao [renderizar listas.](/learn/rendering-lists#keeping-list-items-in-order-with-key) As chaves não servem apenas para listas! Você pode usar chaves para fazer o React distinguir entre quaisquer componentes. Por padrão, o React usa a ordem dentro do pai ("primeiro contador", "segundo contador") para discernir entre componentes. Mas as chaves permitem que você diga ao React que este não é apenas um *primeiro* contador, ou um *segundo* contador, mas um contador específico - por exemplo, o contador *de Taylor*. Dessa forma, o React saberá o contador *de Taylor* onde quer que ele apareça na árvore!
 
@@ -1017,9 +1017,9 @@ Lembre-se que as chaves não são globalmente únicas. Elas apenas especificam a
 
 </Note>
 
-### Resetando um formulário com uma chave {/*resetting-a-form-with-a-key*/}
+### Redefinindo um formulário com uma chave {/*resetting-a-form-with-a-key*/}
 
-Resetar o estado com uma chave é particularmente útil ao lidar com formulários.
+Redefinir o estado com uma chave é particularmente útil ao lidar com formulários.
 
 Neste aplicativo de chat, o componente `<Chat>` contém o estado da entrada de texto:
 
