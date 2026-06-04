@@ -63,7 +63,7 @@ Para saber mais sobre como o compilador otimiza seu código, visite o [Playgroun
 
 </DeepDive>
 
-## Use o React Compiler Hoje {/*use-react-compiler-today*/}
+## Use o React Compiler hoje {/*use-react-compiler-today*/}
 Para instalar o compilador:
 
 npm
@@ -88,10 +88,10 @@ Você pode encontrar mais detalhes sobre o uso do Compilador em [nossa documenta
 ## O que estamos vendo em produção {/*react-compiler-at-meta*/}
 [O compilador já foi lançado em aplicativos como a Meta Quest Store](https://youtu.be/lyEKhv8-3n0?t=3002). Vimos as cargas iniciais e as navegações entre páginas melhorarem em até 12%, enquanto certas interações são mais de 2,5 vezes mais rápidas. O uso de memória permanece neutro mesmo com essas melhorias. Embora seus resultados possam variar, recomendamos experimentar o compilador em seu aplicativo para ver ganhos de desempenho semelhantes.
 
-## Compatibilidade com Versões Anteriores {/*backwards-compatibility*/}
+## Compatibilidade com versões anteriores {/*backwards-compatibility*/}
 Como observado no anúncio Beta, o React Compiler é compatível com React 17 e superior. Se você ainda não está no React 19, pode usar o React Compiler especificando um alvo mínimo em sua configuração do compilador e adicionando `react-compiler-runtime` como uma dependência. Você pode encontrar a documentação sobre isso [aqui](/reference/react-compiler/target#targeting-react-17-or-18).
 
-## Aplique as Regras do React com Linting Powered by Compiler {/*migrating-from-eslint-plugin-react-compiler-to-eslint-plugin-react-hooks*/}
+## Aplique as regras do React com linting powered by compiler {/*migrating-from-eslint-plugin-react-compiler-to-eslint-plugin-react-hooks*/}
 O React Compiler inclui uma regra ESLint que ajuda a identificar código que viola as [Regras do React](/reference/rules). O linter não requer que o compilador seja instalado, portanto, não há risco em atualizar o `eslint-plugin-react-hooks`. Recomendamos que todos atualizem hoje.
 
 Se você já instalou o `eslint-plugin-react-compiler`, agora pode removê-lo e usar o `eslint-plugin-react-hooks@latest`. Muitos agradecimentos a [@michaelfaith](https://bsky.app/profile/michael.faith) por contribuir para esta melhoria!
