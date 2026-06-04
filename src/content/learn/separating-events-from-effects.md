@@ -848,14 +848,14 @@ Leia [Removendo Dependências de Effect](/learn/removing-effect-dependencies) pa
 
 </DeepDive>
 
-### Limitações dos Eventos de Efeito {/*limitations-of-effect-events*/}
+### Limitações dos Eventos de Effect {/*limitations-of-effect-events*/}
 
 Os Eventos de Efeito são muito limitados em como você pode usá-los:
 
 * **Chame-os apenas de dentro de Efeitos.**
 * **Nunca os passe para outros componentes ou Hooks.**
 
-Por exemplo, não declare e passe um Evento de Efeito como este:
+Por exemplo, não declare e passe um Evento de Effect como este:
 
 ```js {4-6,8}
 function Timer() {
@@ -905,7 +905,7 @@ function useTimer(callback, delay) {
     return () => {
       clearInterval(id);
     };
-  }, [delay]); // Não é necessário especificar "onTick" (um Evento de Efeito) como dependência
+  }, [delay]); // Não é necessário especificar "onTick" (um Evento de Effect) como dependência
 }
 ```
 
@@ -1103,7 +1103,7 @@ button { margin: 10px; }
 
 O problema é que o código dentro do Efeito usa a variável de estado `increment`. Como ela é uma dependência do seu Efeito, cada mudança em `increment` faz com que o Efeito se resincronize, o que faz com que o intervalo seja limpo. Se você continuar limpando o intervalo antes que ele tenha a chance de disparar, parecerá que o timer parou.
 
-Para resolver o problema, extraia um Evento de Efeito `onTick` do Efeito:
+Para resolver o problema, extraia um Evento de Effect `onTick` do Efeito:
 
 <Sandpack>
 
@@ -1157,7 +1157,7 @@ button { margin: 10px; }
 
 </Sandpack>
 
-Como `onTick` é um Evento de Efeito, o código dentro dele não é reativo. A mudança em `increment` não aciona nenhum Efeito.
+Como `onTick` é um Evento de Effect, o código dentro dele não é reativo. A mudança em `increment` não aciona nenhum Efeito.
 
 </Solution>
 
@@ -1240,7 +1240,7 @@ button { margin: 10px; }
 
 <Solution>
 
-O problema com o exemplo acima é que ele extraiu um Evento de Efeito chamado `onMount` sem considerar o que o código realmente deveria fazer. Você só deve extrair Eventos de Efeito por um motivo específico: quando você quer tornar uma parte do seu código não reativa. No entanto, a chamada `setInterval` *deve* ser reativa em relação à variável de estado `delay`. Se o `delay` mudar, você quer configurar o intervalo do zero! Para corrigir este código, traga todo o código reativo de volta para dentro do Efeito:
+O problema com o exemplo acima é que ele extraiu um Evento de Effect chamado `onMount` sem considerar o que o código realmente deveria fazer. Você só deve extrair Eventos de Efeito por um motivo específico: quando você quer tornar uma parte do seu código não reativa. No entanto, a chamada `setInterval` *deve* ser reativa em relação à variável de estado `delay`. Se o `delay` mudar, você quer configurar o intervalo do zero! Para corrigir este código, traga todo o código reativo de volta para dentro do Efeito:
 
 <Sandpack>
 
@@ -1318,7 +1318,7 @@ Corrija para que, ao mudar de "general" para "travel" e depois para "music" muit
 
 <Hint>
 
-Seu Efeito sabe em qual sala ele se conectou. Existe alguma informação que você possa querer passar para o seu Evento de Efeito?
+Seu Efeito sabe em qual sala ele se conectou. Existe alguma informação que você possa querer passar para o seu Evento de Effect?
 
 </Hint>
 
@@ -1457,11 +1457,11 @@ label { display: block; margin-top: 10px; }
 
 <Solution>
 
-Dentro do seu Evento de Efeito, `roomId` é o valor *no momento em que o Evento de Efeito foi chamado.*
+Dentro do seu Evento de Effect, `roomId` é o valor *no momento em que o Evento de Effect foi chamado.*
 
-Seu Evento de Efeito é chamado com um atraso de dois segundos. Se você estiver alternando rapidamente da sala de viagens para a sala de música, quando a notificação da sala de viagens aparecer, `roomId` já será `"music"`. É por isso que ambas as notificações dizem "Welcome to music".
+Seu Evento de Effect é chamado com um atraso de dois segundos. Se você estiver alternando rapidamente da sala de viagens para a sala de música, quando a notificação da sala de viagens aparecer, `roomId` já será `"music"`. É por isso que ambas as notificações dizem "Welcome to music".
 
-Para corrigir o problema, em vez de ler o `roomId` *mais recente* dentro do Evento de Efeito, torne-o um parâmetro do seu Evento de Efeito, como `connectedRoomId` abaixo. Em seguida, passe `roomId` do seu Efeito chamando `onConnected(roomId)`:
+Para corrigir o problema, em vez de ler o `roomId` *mais recente* dentro do Evento de Effect, torne-o um parâmetro do seu Evento de Effect, como `connectedRoomId` abaixo. Em seguida, passe `roomId` do seu Efeito chamando `onConnected(roomId)`:
 
 <Sandpack>
 
