@@ -76,7 +76,7 @@ function Component() {
 // ✅ Sincronize estado externo com React
 function Component({title}) {
   useEffect(() => {
-    document.title = title; // OK no effect
+    document.title = title; // OK no efeito
   }, [title]);
 
   return <div>Page: {title}</div>;
