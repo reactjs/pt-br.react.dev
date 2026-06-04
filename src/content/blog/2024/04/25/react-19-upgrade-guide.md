@@ -45,7 +45,7 @@ Se você gostaria de nos ajudar a testar o React 19, siga os passos deste guia d
 
 <Note>
 
-#### O Novo Transform JSX agora é obrigatório {/*new-jsx-transform-is-now-required*/}
+#### O novo transform JSX agora é obrigatório {/*new-jsx-transform-is-now-required*/}
 
 Introduzimos um [novo transform JSX](https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) em 2020 para melhorar o tamanho do bundle e usar JSX sem importar o React. No React 19, adicionamos melhorias adicionais, como o uso de `ref` como prop e melhorias de velocidade do JSX que exigem o novo transform.
 
@@ -256,7 +256,7 @@ class Child extends React.Component {
 #### Removido: refs de string {/*removed-string-refs*/}
 Refs de string foram descontinuadas em [março de 2018 (v16.3.0)](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html).
 
-Componentes de classe suportavam refs de string antes de serem substituídos por callbacks de ref devido a [vários desvantagens](https://github.com/facebook/react/issues/1373). No React 19, estamos removendo refs de string para tornar o React mais simples e fácil de entender.
+Componentes de classe suportavam refs de string antes de serem substituídos por callbacks de ref devido a [várias desvantagens](https://github.com/facebook/react/issues/1373). No React 19, estamos removendo refs de string para tornar o React mais simples e fácil de entender.
 
 Se você ainda estiver usando refs de string em componentes de classe, precisará migrar para callbacks de ref:
 
