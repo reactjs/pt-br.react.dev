@@ -21,7 +21,7 @@ Esta é a nossa terceira versão no último ano, após o React 19 em dezembro e 
 
 ---
 
-## Novos Recursos do React {/*new-react-features*/}
+## Novos recursos do React {/*new-react-features*/}
 
 ### `<Activity />` {/*activity*/}
 
@@ -176,7 +176,7 @@ Veja a documentação da [trilha de Componentes](/reference/dev-tools/react-perf
 
 ---
 
-## Novos Recursos do React DOM {/*new-react-dom-features*/}
+## Novos recursos do React DOM {/*new-react-dom-features*/}
 
 ### Partial Pre-rendering {/*partial-pre-rendering*/}
 
@@ -227,11 +227,11 @@ Além disso, as APIs de prerender agora retornam um estado `postpone` para passa
 
 ---
 
-## Mudanças Notáveis {/*notable-changes*/}
+## Mudanças notáveis {/*notable-changes*/}
 
 ### Agrupamento de Limites Suspense para SSR {/*batching-suspense-boundaries-for-ssr*/}
 
-Corrigimos um bug comportamental onde os limites Suspense se revelariam de forma diferente dependendo se foram renderizados no cliente ou ao fazer streaming do renderização do lado do servidor.
+Corrigimos um bug comportamental onde os limites Suspense se revelariam de forma diferente dependendo se foram renderizados no cliente ou ao fazer streaming da renderização do lado do servidor.
 
 A partir do 19.2, o React agrupará as revelações de limites Suspense renderizados pelo servidor por um curto período, para permitir que mais conteúdo seja revelado em conjunto e se alinhe com o comportamento renderizado pelo cliente.
 
