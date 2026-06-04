@@ -18,15 +18,15 @@ A Fundação React foi oficialmente lançada sob a Linux Foundation.
 
 </BlogCard>
 
-<BlogCard title="Negação de Serviço e Exposição de Código Fonte em Componentes de Servidor React" date="11 de dezembro de 2025" url="/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components">
+<BlogCard title="Negação de Serviço e Exposição de Código Fonte em React Server Components" date="11 de dezembro de 2025" url="/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components">
 
-Pesquisadores de segurança encontraram e divulgaram duas vulnerabilidades adicionais em Componentes de Servidor React ao tentar explorar os patches da vulnerabilidade crítica da semana passada...
+Pesquisadores de segurança encontraram e divulgaram duas vulnerabilidades adicionais em React Server Components ao tentar explorar os patches da vulnerabilidade crítica da semana passada...
 
 </BlogCard>
 
-<BlogCard title="Vulnerabilidade Crítica de Segurança em Componentes de Servidor React" date="3 de dezembro de 2025" url="/blog/2025/12/03/critical-security-vulnerability-in-react-server-components">
+<BlogCard title="Vulnerabilidade Crítica de Segurança em React Server Components" date="3 de dezembro de 2025" url="/blog/2025/12/03/critical-security-vulnerability-in-react-server-components">
 
-Existe uma vulnerabilidade de execução remota de código não autenticada em Componentes de Servidor React. Uma correção foi publicada nas versões 19.0.1, 19.1.2 e 19.2.1. Recomendamos a atualização imediata.
+Existe uma vulnerabilidade de execução remota de código não autenticada em React Server Components. Uma correção foi publicada nas versões 19.0.1, 19.1.2 e 19.2.1. Recomendamos a atualização imediata.
 
 </BlogCard>
 
@@ -104,7 +104,7 @@ Tradicionalmente, novos recursos do React só estavam disponíveis na Meta prime
 
 <BlogCard title="React Labs: O Que Temos Feito – Março de 2023" date="22 de março de 2023" url="/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023">
 
-Em posts do React Labs, escrevemos sobre projetos em pesquisa e desenvolvimento ativo. Desde nossa última atualização, fizemos progressos significativos em Componentes de Servidor React, Carregamento de Ativos, Compilador de Otimização, Renderização Offscreen e Rastreamento de Transição, e gostaríamos de compartilhar o que aprendemos.
+Em posts do React Labs, escrevemos sobre projetos em pesquisa e desenvolvimento ativo. Desde nossa última atualização, fizemos progressos significativos em React Server Components, Carregamento de Ativos, Compilador de Otimização, Renderização Offscreen e Rastreamento de Transição, e gostaríamos de compartilhar o que aprendemos.
 
 </BlogCard>
 
@@ -140,8 +140,8 @@ A equipe do React está animada para compartilhar algumas atualizações:
 - Publicamos um React 18 Alpha para que os autores de bibliotecas possam experimentá-lo e fornecer feedback...
 </BlogCard>
 
-<BlogCard title="Apresentando Componentes de Servidor React com Tamanho Zero de Bundle" date="21 de dezembro de 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
-2020 foi um ano longo. À medida que ele chega ao fim, queríamos compartilhar uma Atualização Especial de Fim de Ano sobre nossa pesquisa em Componentes de Servidor React com tamanho zero de bundle. Para introduzir os Componentes de Servidor React, preparamos uma palestra e uma demonstração. Se desejar, você pode conferi-las durante as festas de fim de ano, ou mais tarde, quando o trabalho recomeçar no ano novo...
+<BlogCard title="Apresentando React Server Components com Tamanho Zero de Bundle" date="21 de dezembro de 2020" url="/blog/2020/12/21/data-fetching-with-react-server-components">
+2020 foi um ano longo. À medida que ele chega ao fim, queríamos compartilhar uma Atualização Especial de Fim de Ano sobre nossa pesquisa em React Server Components com tamanho zero de bundle. Para introduzir os React Server Components, preparamos uma palestra e uma demonstração. Se desejar, você pode conferi-las durante as festas de fim de ano, ou mais tarde, quando o trabalho recomeçar no ano novo...
 </BlogCard>
 
 </div>
