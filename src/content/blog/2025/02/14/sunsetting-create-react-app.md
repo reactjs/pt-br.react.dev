@@ -50,7 +50,7 @@ Esta mensagem de erro só será exibida uma vez por instalação.
 
 Também adicionamos um aviso de descontinuação ao [site](https://create-react-app.dev/) e ao [repositório](https://github.com/facebook/create-react-app) do Create React App. O Create React App continuará funcionando em modo de manutenção, e publicamos uma nova versão do Create React App para funcionar com o React 19.
 
-## Como Migrar para um Framework {/*how-to-migrate-to-a-framework*/}
+## Como migrar para um framework {/*how-to-migrate-to-a-framework*/}
 Recomendamos [criar novos aplicativos React](/learn/creating-a-react-app) com um framework. Todos os frameworks que recomendamos suportam renderização do lado do cliente ([CSR](https://developer.mozilla.org/en-US/docs/Glossary/CSR)) e aplicativos de página única ([SPA](https://developer.mozilla.org/en-US/docs/Glossary/SPA)), e podem ser implantados em um CDN ou serviço de hospedagem estática sem um servidor.
 
 Para aplicativos existentes, estes guias ajudarão você a migrar para uma SPA apenas do lado do cliente:
@@ -59,7 +59,7 @@ Para aplicativos existentes, estes guias ajudarão você a migrar para uma SPA a
 * [Guia de adoção de framework do React Router](https://reactrouter.com/upgrading/component-routes).
 * [Guia de migração do Expo webpack para Expo Router](https://docs.expo.dev/router/migrate/from-expo-webpack/)
 
-## Como Migrar para uma Ferramenta de Build {/*how-to-migrate-to-a-build-tool*/}
+## Como migrar para uma ferramenta de build {/*how-to-migrate-to-a-build-tool*/}
 
 Se seu aplicativo tiver restrições incomuns, ou você preferir resolver esses problemas construindo seu próprio framework, ou apenas quiser aprender como o React funciona do zero, você pode criar sua própria configuração personalizada com React usando Vite, Parcel ou Rsbuild.
 
@@ -85,7 +85,7 @@ No entanto, você sempre pode [construir um aplicativo React do zero](/learn/bui
 
 Continue lendo para saber mais sobre as [limitações das ferramentas de build](#limitations-of-build-tools) e [por que recomendamos frameworks](#why-we-recommend-frameworks).
 
-## Limitações das Ferramentas de Build {/*limitations-of-build-tools*/}
+## Limitações das ferramentas de build {/*limitations-of-build-tools*/}
 
 O Create React App e ferramentas de build como ele facilitam o início da construção de um aplicativo React. Após executar `npx create-react-app my-app`, você obtém um aplicativo React totalmente configurado com um servidor de desenvolvimento, linting e um build de produção.
 
@@ -95,7 +95,7 @@ Por exemplo, se você estiver construindo uma ferramenta administrativa interna,
 export default function App() {
   return (
     <div>
-      <h1>Bem-vindo à Ferramenta Administrativa!</h1>
+      <h1>Welcome to the Admin Tool!</h1>
     </div>
   )
 }
@@ -266,7 +266,7 @@ Todos esses elementos trabalham juntos para criar a [sequência de carregamento]
 
 Resolver cada um desses problemas individualmente no Create React App pode ser difícil, pois cada problema está interconectado com os outros e pode exigir profundo conhecimento em áreas problemáticas com as quais os usuários podem não estar familiarizados. Para resolver esses problemas, os usuários acabam construindo suas próprias soluções personalizadas sobre o Create React App, que era o problema que o Create React App originalmente tentava resolver.
 
-## Por que Recomendamos Frameworks {/*why-we-recommend-frameworks*/}
+## Por que recomendamos frameworks {/*why-we-recommend-frameworks*/}
 
 Embora você possa resolver todas essas peças sozinho em uma ferramenta de build como Create React App, Vite ou Parcel, é difícil fazer isso bem. Assim como o Create React App integrou várias ferramentas de build, você precisa de uma ferramenta para integrar todos esses recursos para fornecer a melhor experiência aos usuários.
 
