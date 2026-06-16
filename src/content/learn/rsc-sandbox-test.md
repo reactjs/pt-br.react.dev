@@ -2,7 +2,7 @@
 title: RSC Sandbox Test
 ---
 
-## Basic Server Component {/*basic-server-component*/}
+## Componente de Servidor Básico {/*basic-server-component*/}
 
 <SandpackRSC>
 
@@ -14,7 +14,7 @@ export default function App() {
 
 </SandpackRSC>
 
-## Server + Client Components {/*server-client*/}
+## Componentes de Servidor + Cliente {/*server-client*/}
 
 <SandpackRSC>
 
@@ -48,7 +48,7 @@ export default function Counter() {
 
 </SandpackRSC>
 
-## Async Server Component with Suspense {/*async-suspense*/}
+## Componente de Servidor Assíncrono com Suspense {/*async-suspense*/}
 
 <SandpackRSC>
 
@@ -88,9 +88,9 @@ export default async function Albums() {
 
 </SandpackRSC>
 
-## Streaming Proof {/*streaming-proof*/}
+## Prova de Streaming {/*streaming-proof*/}
 
-This demo proves streaming is incremental. The shell renders instantly with a `<Suspense>` fallback. After 2 seconds the async component streams in and replaces it — without re-rendering the outer content. The timestamps show the gap.
+Esta demonstração prova que o streaming é incremental. A estrutura (shell) é renderizada instantaneamente com um fallback do `<Suspense>`. Após 2 segundos, o componente assíncrono é transmitido e o substitui — sem re-renderizar o conteúdo externo. Os timestamps mostram a diferença.
 
 <SandpackRSC>
 
@@ -145,9 +145,9 @@ export default function Timestamp() {
 
 </SandpackRSC>
 
-## Flight Data Types {/*flight-data-types*/}
+## Tipos de Dados do Flight {/*flight-data-types*/}
 
-This demo passes Map, Set, Date, and BigInt from a server component through the Flight stream to a client component, proving the full Flight protocol type system works end-to-end.
+Esta demonstração passa Map, Set, Date e BigInt de um componente de servidor através do stream Flight para um componente cliente, provando que o sistema de tipos completo do protocolo Flight funciona de ponta a ponta.
 
 <SandpackRSC>
 
@@ -206,9 +206,9 @@ export default function DataViewer({ map, set, date, big }) {
 
 </SandpackRSC>
 
-## Promise Streaming with use() {/*promise-streaming-use*/}
+## Streaming de Promise com use() {/*promise-streaming-use*/}
 
-The server creates a promise (resolves in 2s) and passes it as a prop through a parent async component that suspends for 3s. When the parent reveals at ~3s, the promise is already resolved — so `use()` returns instantly with no inner fallback. The elapsed time should be ~3000ms (the parent's delay), not ~5000ms (which would mean the promise restarted on the client).
+O servidor cria uma promise (resolve em 2s) e a passa como prop através de um componente pai assíncrono que suspende por 3s. Quando o pai é revelado em ~3s, a promise já está resolvida — então `use()` retorna instantaneamente sem um fallback interno. O tempo decorrido deve ser de ~3000ms (o atraso do pai), não ~5000ms (o que significaria que a promise reiniciou no cliente).
 
 <SandpackRSC>
 
@@ -284,9 +284,9 @@ export default function UserCard({ userPromise, serverTime }) {
 
 </SandpackRSC>
 
-## Flight Data Types in Server Actions {/*flight-data-types-actions*/}
+## Tipos de Dados do Flight em Ações de Servidor {/*flight-data-types-actions*/}
 
-This demo sends Map, Set, Date, and BigInt from a client component *to* a server action via `encodeReply`/`decodeReply`, then verifies the types survived the round trip.
+Esta demonstração envia Map, Set, Date e BigInt de um componente cliente *para* uma ação de servidor via `encodeReply`/`decodeReply`, e então verifica se os tipos sobreviveram à viagem de ida e volta.
 
 <SandpackRSC>
 
@@ -388,9 +388,9 @@ export default function TestButton({ testTypes }) {
 
 </SandpackRSC>
 
-## Server Action Mutation + Re-render {/*action-mutation-rerender*/}
+## Mutação de Ação de Servidor + Re-renderização {/*action-mutation-rerender*/}
 
-The server action mutates server-side data and returns a confirmation string. The updated list is only visible because the framework automatically re-renders the entire server component tree after the action completes — the server component re-reads the data and streams the new UI to the client.
+A ação de servidor modifica dados no lado do servidor e retorna uma string de confirmação. A lista atualizada só é visível porque o framework re-renderiza automaticamente toda a árvore de componentes do servidor após a conclusão da ação — o componente do servidor relê os dados e transmite a nova UI para o cliente.
 
 <SandpackRSC>
 
@@ -485,9 +485,9 @@ export default function AddTodo({ createTodo }) {
 
 </SandpackRSC>
 
-## Inline Server Actions {/*inline-server-actions*/}
+## Ações de Servidor Inline {/*inline-server-actions*/}
 
-Server actions defined inline inside a server component with `'use server'` on the function body. The action closes over module-level state and is passed as a prop — no separate `actions.js` file needed.
+Ações de servidor definidas inline dentro de um componente de servidor com `'use server'` no corpo da função. A ação fecha sobre o estado do nível do módulo e é passada como prop — nenhum arquivo `actions.js` separado é necessário.
 
 <SandpackRSC>
 
@@ -526,7 +526,7 @@ export default function LikeButton({ addLike }) {
 
 </SandpackRSC>
 
-## Server Functions {/*server-functions*/}
+## Funções de Servidor {/*server-functions*/}
 
 <SandpackRSC>
 
