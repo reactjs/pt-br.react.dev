@@ -401,7 +401,7 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
     response.statusCode = 500;
     response.setHeader('content-type', 'text/html');
-    response.send('<h1>Something went wrong</h1>'); 
+    response.send('<h1>Something went wrong</h1>');
   },
   onError(error) {
     console.error(error);
@@ -460,7 +460,7 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
     response.statusCode = 500;
     response.setHeader('content-type', 'text/html');
-    response.send('<h1>Something went wrong</h1>'); 
+    response.send('<h1>Something went wrong</h1>');
   },
   onError(error) {
     console.error(error);
@@ -486,7 +486,7 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
     response.statusCode = 500;
     response.setHeader('content-type', 'text/html');
-    response.send('<h1>Something went wrong</h1>'); 
+    response.send('<h1>Something went wrong</h1>');
   },
   onError(error) {
     didError = true;
@@ -530,7 +530,7 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
    response.statusCode = getStatusCode();
    response.setHeader('content-type', 'text/html');
-   response.send('<h1>Something went wrong</h1>'); 
+   response.send('<h1>Something went wrong</h1>');
   },
   onError(error) {
     didError = true;
@@ -570,13 +570,13 @@ const { pipe } = renderToPipeableStream(<App />, {
   onShellError(error) {
     response.statusCode = 500;
     response.setHeader('content-type', 'text/html');
-    response.send('<h1>Something went wrong</h1>'); 
+    response.send('<h1>Something went wrong</h1>');
   },
   onAllReady() {
     if (isCrawler) {
       response.statusCode = didError ? 500 : 200;
       response.setHeader('content-type', 'text/html');
-      pipe(response);      
+      pipe(response);
     }
   },
   onError(error) {

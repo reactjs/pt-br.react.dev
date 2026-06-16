@@ -4,7 +4,7 @@ title: preload
 
 <Note>
 
-[Frameworks baseados em React](/learn/start-a-new-react-project) frequentemente lidam com o carregamento de recursos para você, então você pode não precisar chamar esta API sozinho. Consulte a documentação de seu framework para obter detalhes.
+[Frameworks baseados em React](/learn/creating-a-react-app) frequentemente lidam com o carregamento de recursos para você, então você pode não precisar chamar esta API sozinho. Consulte a documentação de seu framework para obter detalhes.
 
 </Note>
 
@@ -51,7 +51,7 @@ A função `preload` fornece ao navegador uma dica de que ele deve começar a ba
   *  `referrerPolicy`: uma string. O [cabeçalho Referrer](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link#referrerpolicy) a ser enviado durante a busca. Seus valores possíveis são `no-referrer-when-downgrade` (o padrão), `no-referrer`, `origin`, `origin-when-cross-origin` e `unsafe-url`.
   *  `integrity`: uma string. Um hash criptográfico do recurso, para [verificar sua autenticidade](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
   *  `type`: uma string. O tipo MIME do recurso.
-  *  `nonce`: uma string. Um [nonce](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) criptográfico para permitir o recurso ao usar uma Content Security Policy estrita.
+  *  `nonce`: uma string. Um [nonce criptográfico para permitir o recurso](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) ao usar uma Content Security Policy estrita.
   *  `fetchPriority`: uma string. Sugere uma prioridade relativa para buscar o recurso. Os valores possíveis são `auto` (o padrão), `high` e `low`.
   *  `imageSrcSet`: uma string. Para uso somente com `as: "image"`. Especifica o [conjunto de origem da imagem](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
   *  `imageSizes`: uma string. Para uso somente com `as: "image"`. Especifica os [tamanhos da imagem](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).

@@ -44,6 +44,8 @@ function PasswordField() {
 
 * `useId` é um Hook, então você só pode chamá-lo **no nível superior do seu componente** ou no seus próprios Hooks. Você não pode chamá-lo dentro de loops ou condições. Se precisar, extraia um novo componente e mova o estado para ele.
 
+* `useId` **não deve ser usado para gerar chaves de cache** para [use()](/reference/react/use). O ID é estável quando um componente é montado, mas pode mudar durante a renderização. As chaves de cache devem ser geradas a partir de seus dados.
+
 * `useId` **não deve ser usado para gerar chaves** em uma lista. [As chaves devem ser geradas a partir de seus dados.](/learn/rendering-lists#where-to-get-your-key)
 
 * `useId` currently cannot be used in [async Server Components](/reference/rsc/server-components#async-components-with-server-components).
