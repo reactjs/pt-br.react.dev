@@ -2,10 +2,10 @@
 title: "The React Foundation: A New Home for React Hosted by the Linux Foundation"
 author: Matt Carroll
 date: 2026/02/24
-description: The React Foundation has officially launched, hosted by the Linux Foundation.
+description: A Fundação React foi oficialmente lançada, hospedada pela Linux Foundation.
 ---
 
-February 24, 2026 by [Matt Carroll](https://x.com/mattcarrollcode)
+24 de fevereiro de 2026 por [Matt Carroll](https://x.com/mattcarrollcode)
 
 ---
 
@@ -22,19 +22,19 @@ February 24, 2026 by [Matt Carroll](https://x.com/mattcarrollcode)
 
 <Intro>
 
-The React Foundation has officially launched, hosted by the Linux Foundation.
+A React Foundation foi oficialmente lançada, hospedada pela Linux Foundation.
 
 </Intro>
 
 ---
 
-[In October](/blog/2025/10/07/introducing-the-react-foundation), we announced our intent to form the React Foundation. Today, we're excited to share that the React Foundation has officially launched.
+Em [outubro](/blog/2025/10/07/introducing-the-react-foundation), anunciamos nossa intenção de formar a React Foundation. Hoje, estamos entusiasmados em compartilhar que a React Foundation foi oficialmente lançada.
 
-React, React Native, and supporting projects like JSX are no longer owned by Meta — they are now owned by the React Foundation, an independent foundation hosted by the Linux Foundation. You can read more in the [Linux Foundation's press release](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-react-foundation).
+React, React Native e projetos de suporte como JSX não são mais de propriedade da Meta — agora são de propriedade da React Foundation, uma fundação independente hospedada pela Linux Foundation. Você pode ler mais no [comunicado de imprensa da Linux Foundation](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-react-foundation).
 
-### Founding Members {/*founding-members*/}
+### Membros Fundadores {/*founding-members*/}
 
-The React Foundation has eight Platinum founding members: **Amazon**, **Callstack**, **Expo**, **Huawei**, **Meta**, **Microsoft**, **Software Mansion**, and **Vercel**. **Huawei** has joined since [our announcement in October](/blog/2025/10/07/introducing-the-react-foundation). The React Foundation will be governed by a board of directors composed of representatives from each member, with [Seth Webster](https://sethwebster.com/) serving as executive director.
+A React Foundation tem oito membros fundadores Platinum: **Amazon**, **Callstack**, **Expo**, **Huawei**, **Meta**, **Microsoft**, **Software Mansion** e **Vercel**. A **Huawei** se juntou desde [nosso anúncio em outubro](/blog/2025/10/07/introducing-the-react-foundation). A React Foundation será governada por um conselho de diretores composto por representantes de cada membro, com [Seth Webster](https://sethwebster.com/) atuando como diretor executivo.
 
 <div style={{display: 'flex', justifyContent: 'center', margin: '2rem'}}>
   <picture >
@@ -47,21 +47,21 @@ The React Foundation has eight Platinum founding members: **Amazon**, **Callstac
   </picture>
 </div>
 
-### New Provisional Leadership Council {/*new-provisional-leadership-council*/}
+### Novo Conselho Provisório de Liderança {/*new-provisional-leadership-council*/}
 
-React's technical governance will always be independent from the React Foundation board — React's technical direction will continue to be set by the people who contribute to and maintain React. We have formed a provisional leadership council to determine this structure. We will share an update in the coming months.
+A governança técnica do React sempre será independente do conselho da React Foundation — a direção técnica do React continuará a ser definida pelas pessoas que contribuem e mantêm o React. Formamos um conselho provisório de liderança para determinar essa estrutura. Compartilharemos uma atualização nos próximos meses.
 
-### Next Steps {/*next-steps*/}
+### Próximos Passos {/*next-steps*/}
 
-There is still work to do to complete the transition. In the coming months we will be:
+Ainda há trabalho a ser feito para concluir a transição. Nos próximos meses, estaremos:
 
-* Finalizing the technical governance structure for React
-* Transferring repositories, websites, and other infrastructure to the React Foundation
-* Exploring programs to support the React ecosystem
-* Kicking off planning for the next React Conf
+* Finalizando a estrutura de governança técnica para o React
+* Transferindo repositórios, sites e outra infraestrutura para a React Foundation
+* Explorando programas para apoiar o ecossistema React
+* Iniciando o planejamento para a próxima React Conf
 
-We will share updates as this work progresses.
+Compartilharemos atualizações à medida que este trabalho progredir.
 
-### Thank You {/*thank-you*/}
+### Obrigado {/*thank-you*/}
 
-None of this would be possible without the thousands of contributors who have shaped React over the past decade. Thank you to our founding members, to every contributor who has opened a pull request, filed an issue, or helped someone learn React, and to the millions of developers who build with React every day. The React Foundation exists because of this community, and we're looking forward to building its future together.
+Nada disso seria possível sem os milhares de contribuidores que moldaram o React na última década. Obrigado aos nossos membros fundadores, a cada contribuidor que abriu um pull request, registrou um issue ou ajudou alguém a aprender React, e aos milhões de desenvolvedores que criam com React todos os dias. A React Foundation existe por causa desta comunidade, e estamos ansiosos para construir seu futuro juntos.
