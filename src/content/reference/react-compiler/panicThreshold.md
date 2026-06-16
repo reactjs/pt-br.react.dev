@@ -3,7 +3,7 @@ title: panicThreshold
 ---
 <Intro>
 
-A opção `panicThreshold` controla como o Compilador React lida com erros durante a compilação.
+A opção `panicThreshold` controla como o React Compiler lida com erros durante a compilação.
 
 </Intro>
 
