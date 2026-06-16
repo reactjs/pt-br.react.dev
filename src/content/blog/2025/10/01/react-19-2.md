@@ -5,29 +5,29 @@ date: 2025/10/01
 description: React 19.2 adiciona novos recursos como Activity, React Performance Tracks, useEffectEvent e mais.
 ---
 
-1 de outubro de 2025 por[A Equipe do React](/community/team)
+1 de outubro de 2025 por [A Equipe do React](/community/team)
 
 ---
 
 <Intro>
 
-React 19.2 já está disponível no npm!
+O React 19.2 já está disponível no npm!
 
 </Intro>
 
-Esta é a nossa terceira versão em um ano, seguindo o React 19 em dezembro e o React 19.1 em junho. Neste post, daremos uma visão geral das novas funcionalidades do React 19.2 e destacaremos algumas mudanças notáveis.
+Esta é a nossa terceira versão em um ano, após o React 19 em dezembro e o React 19.1 em junho. Neste post, apresentaremos uma visão geral dos novos recursos do React 19.2 e destacaremos algumas mudanças notáveis.
 
 <InlineToc />
 
 ---
 
-## Novas Funcionalidades do React{/*new-react-features*/}
+## Novos recursos do React {/*new-react-features*/}
 
 ### `<Activity />` {/*activity*/}
 
-`<Activity>`permite que você divida seu app em "atividades" que podem ser controladas e priorizadas.
+`<Activity>` permite que você divida seu aplicativo em "atividades" que podem ser controladas e priorizadas.
 
-Você pode usar Activity como uma alternativa para renderizar condicionalmente partes do seu app:
+Você pode usar Activity como uma alternativa à renderização condicional de partes do seu aplicativo:
 
 ```js
 // Antes
@@ -39,24 +39,24 @@ Você pode usar Activity como uma alternativa para renderizar condicionalmente p
 </Activity>
 ```
 
-No React 19.2, Activity suporta dois modos:`visible`e`hidden`.
+No React 19.2, Activity suporta dois modos: `visible` e `hidden`.
 
-- `hidden`: oculta os children, desmonta efeitos e adia todas as atualizações até que o React não tenha mais nada para processar.
-- `visible`: mostra os children, monta efeitos e permite que as atualizações sejam processadas normalmente.
+- `hidden`: oculta os filhos, desmonta efeitos e adia todas as atualizações até que o React não tenha mais nada para trabalhar.
+- `visible`: exibe os filhos, monta efeitos e permite que as atualizações sejam processadas normalmente.
 
-Isso significa que você pode pré-renderizar e continuar renderizando partes ocultas do app sem impactar o desempenho de qualquer coisa visível na tela.
+Isso significa que você pode pré-renderizar e continuar renderizando partes ocultas do aplicativo sem impactar o desempenho de qualquer coisa visível na tela.
 
-Você pode usar Activity para renderizar partes ocultas do app para as quais um usuário provavelmente navegará em seguida, ou para salvar o estado de partes das quais o usuário se afastou. Isso ajuda a tornar as navegações mais rápidas carregando dados, CSS e imagens em segundo plano, e permite que as navegações de volta mantenham o estado, como campos de entrada.
+Você pode usar Activity para renderizar partes ocultas do aplicativo para as quais um usuário provavelmente navegará em seguida, ou para salvar o estado de partes das quais o usuário navegou. Isso ajuda a tornar as navegações mais rápidas carregando dados, CSS e imagens em segundo plano, e permite que as navegações de volta mantenham o estado, como campos de entrada.
 
 No futuro, planejamos adicionar mais modos ao Activity para diferentes casos de uso.
 
-Para exemplos de como usar Activity, confira a[documentação do Activity](/reference/react/Activity).
+Para exemplos de como usar Activity, confira a [documentação do Activity](/reference/react/Activity).
 
 ---
 
 ### `useEffectEvent` {/*use-effect-event*/}
 
-Um padrão comum com`useEffect`é notificar o código do app sobre algum tipo de "eventos" de um sistema externo. Por exemplo, quando uma sala de chat é conectada, você pode querer exibir uma notificação:
+Um padrão comum com `useEffect` é notificar o código do aplicativo sobre algum tipo de "eventos" de um sistema externo. Por exemplo, quando uma sala de chat é conectada, você pode querer exibir uma notificação:
 
 ```js {5,11}
 function ChatRoom({ roomId, theme }) {
@@ -73,11 +73,11 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
-O problema com o código acima é que uma mudança em quaisquer valores usados dentro de tal "evento" fará com que o Effect circundante seja reexecutado. Por exemplo, mudar o`theme`fará com que a sala de chat reconecte. Isso faz sentido para valores relacionados à lógica do Effect em si, como`roomId`, mas não faz sentido para`theme`.
+O problema com o código acima é que uma mudança em qualquer valor usado em um "evento" como esse fará com que o Effect circundante seja reexecutado. Por exemplo, mudar o `theme` fará com que a sala de chat se reconecte. Isso faz sentido para valores relacionados à lógica do Effect em si, como `roomId`, mas não faz sentido para `theme`.
 
-Para resolver isso, a maioria dos usuários simplesmente desabilita a regra do linter e exclui a dependência. Mas isso pode levar a erros, pois o linter não pode mais ajudá-lo a manter as dependências atualizadas se você precisar atualizar o Effect mais tarde.
+Para resolver isso, a maioria dos usuários simplesmente desabilita a regra do lint e exclui a dependência. Mas isso pode levar a bugs, pois o linter não pode mais ajudá-lo a manter as dependências atualizadas se você precisar atualizar o Effect mais tarde.
 
-Com`useEffectEvent`, você pode separar a parte "evento" dessa lógica do Effect que a emite:
+Com `useEffectEvent`, você pode separar a parte do "evento" dessa lógica do Effect que a emite:
 
 ```js {2,3,4,9}
 function ChatRoom({ roomId, theme }) {
@@ -96,17 +96,17 @@ function ChatRoom({ roomId, theme }) {
   // ...
 ```
 
-Semelhante aos eventos DOM, Effect Events sempre "enxergam" as últimas props e estado.
+Semelhante aos eventos DOM, os Effect Events sempre "enxergam" as últimas props e estado.
 
-**Effect Events devem_ser_declaradas no array de dependências**. Você precisará atualizar para`eslint-plugin-react-hooks@latest`para que o linter não tente inseri-las como dependências. Note que Effect Events só podem ser declaradas no mesmo componente ou Hook que "seu" Effect. Essas restrições são verificadas pelo linter.
+**Effect Events não devem ser declarados no array de dependências**. Você precisará atualizar para `eslint-plugin-react-hooks@latest` para que o linter não tente inseri-los como dependências. Observe que Effect Events só podem ser declarados no mesmo componente ou Hook que "seus" Effects. Essas restrições são verificadas pelo linter.
 
 <Note>
 
-#### Quando usar`useEffectEvent` {/*when-to-use-useeffectevent*/}
+#### Quando usar `useEffectEvent` {/*when-to-use-useeffectevent*/}
 
-Você deve usar`useEffectEvent`para funções que conceitualmente são "eventos" que acontecem de serem disparados por um Effect em vez de um evento do usuário (é isso que o torna um "Effect Event"). Você não precisa encapsular tudo em`useEffectEvent`, ou usá-lo apenas para silenciar o erro do linter, pois isso pode levar a erros.
+Você deve usar `useEffectEvent` para funções que são conceitualmente "eventos" que acontecem de serem disparados por um Effect em vez de um evento do usuário (é isso que o torna um "Effect Event"). Você não precisa envolver tudo em `useEffectEvent`, ou usá-lo apenas para silenciar o erro do lint, pois isso pode levar a bugs.
 
-Para um mergulho profundo sobre como pensar em Event Effects, veja:[Separando Eventos de Effects](/learn/separating-events-from-effects#extracting-non-reactive-logic-out-of-effects).
+Para um mergulho profundo sobre como pensar em Event Effects, veja: [Separando Eventos de Effects](/learn/separating-events-from-effects#extracting-non-reactive-logic-out-of-effects).
 
 </Note>
 
@@ -116,11 +116,11 @@ Para um mergulho profundo sobre como pensar em Event Effects, veja:[Separando Ev
 
 <RSC>
 
-`cacheSignal`é apenas para uso com[React Server Components](/reference/rsc/server-components).
+`cacheSignal` é apenas para uso com [React Server Components](/reference/rsc/server-components).
 
 </RSC>
 
-`cacheSignal`permite que você saiba quando a[`cache()`](/reference/react/cache)vida útil termina:
+`cacheSignal` permite que você saiba quando o tempo de vida do [`cache()`](/reference/react/cache) termina:
 
 ```
 import {cache, cacheSignal} from 'react';
@@ -137,13 +137,13 @@ Isso permite que você limpe ou aborte o trabalho quando o resultado não for ma
 - A renderização foi abortada
 - A renderização falhou
 
-Para mais informações, veja a[`cacheSignal`docs](/reference/react/cacheSignal).
+Para mais informações, veja a [documentação do `cacheSignal`](/reference/react/cacheSignal).
 
 ---
 
-### Trilhas de Performance{/*performance-tracks*/}
+### Performance Tracks {/*performance-tracks*/}
 
-O React 19.2 adiciona um novo conjunto de[trilhas personalizadas](https://developer.chrome.com/docs/devtools/performance/extension)aos perfis de performance do Chrome DevTools para fornecer mais informações sobre o desempenho do seu app React:
+O React 19.2 adiciona um novo conjunto de [tracks personalizados](https://developer.chrome.com/docs/devtools/performance/extension) aos perfis de desempenho do Chrome DevTools para fornecer mais informações sobre o desempenho do seu aplicativo React:
 
 <div style={{display: 'flex', justifyContent: 'center', marginBottom: '1rem'}}>
   <picture >
@@ -156,123 +156,123 @@ O React 19.2 adiciona um novo conjunto de[trilhas personalizadas](https://develo
   </picture>
 </div>
 
-A documentação[React Performance Tracks](/reference/dev-tools/react-performance-tracks)explica tudo o que está incluído nas trilhas, mas aqui está uma visão geral.
+A [documentação do React Performance Tracks](/reference/dev-tools/react-performance-tracks) explica tudo o que está incluído nos tracks, mas aqui está uma visão geral.
 
-#### Scheduler ⚛{/*scheduler-*/}
+#### Scheduler ⚛ {/*scheduler-*/}
 
-A trilha do Scheduler mostra o que o React está processando para diferentes prioridades, como "blocking" para interações do usuário, ou "transition" para atualizações dentro de startTransition. Dentro de cada trilha, você verá o tipo de trabalho sendo realizado, como o evento que agendou uma atualização e quando a renderização dessa atualização ocorreu.
+O track do Scheduler mostra o que o React está trabalhando para diferentes prioridades, como "blocking" para interações do usuário, ou "transition" para atualizações dentro de `startTransition`. Dentro de cada track, você verá o tipo de trabalho sendo realizado, como o evento que agendou uma atualização e quando a renderização dessa atualização ocorreu.
 
-Também mostramos informações como quando uma atualização está bloqueada aguardando uma prioridade diferente, ou quando o React está aguardando o paint antes de continuar. A trilha do Scheduler ajuda você a entender como o React divide seu código em diferentes prioridades e a ordem em que o trabalho foi concluído.
+Também mostramos informações como quando uma atualização está bloqueada esperando por uma prioridade diferente, ou quando o React está esperando pela pintura antes de continuar. O track do Scheduler ajuda você a entender como o React divide seu código em diferentes prioridades e a ordem em que completou o trabalho.
 
-Veja a documentação da[trilha do Scheduler](/reference/dev-tools/react-performance-tracks#scheduler)para ver tudo o que está incluído.
+Veja a [documentação do track Scheduler](/reference/dev-tools/react-performance-tracks#scheduler) para ver tudo o que está incluído.
 
-#### Components ⚛{/*components-*/}
+#### Components ⚛ {/*components-*/}
 
-A trilha de Componentes mostra a árvore de componentes que o React está processando para renderizar ou executar efeitos. Dentro dela, você verá rótulos como "Mount" para quando os filhos montam ou os efeitos são montados, ou "Blocked" para quando a renderização é bloqueada devido à cedência para trabalho fora do React.
+O track de Componentes mostra a árvore de componentes em que o React está trabalhando para renderizar ou executar efeitos. Dentro dele, você verá rótulos como "Mount" para quando os filhos são montados ou efeitos são montados, ou "Blocked" para quando a renderização é bloqueada devido à cedência para trabalho fora do React.
 
-A trilha de Componentes ajuda você a entender quando os componentes são renderizados ou executam efeitos, e o tempo que leva para concluir esse trabalho, para ajudar a identificar problemas de performance.
+O track de Componentes ajuda você a entender quando os componentes são renderizados ou executam efeitos, e o tempo que leva para completar esse trabalho, para ajudar a identificar problemas de desempenho.
 
-Veja a documentação da[trilha de Componentes](/reference/dev-tools/react-performance-tracks#components)para ver tudo o que está incluído.
+Veja a [documentação do track de Componentes](/reference/dev-tools/react-performance-tracks#components) para ver tudo o que está incluído.
 
 ---
 
-## Novos Recursos do React DOM{/*new-react-dom-features*/}
+## Novos recursos do React DOM {/*new-react-dom-features*/}
 
-### Pré-renderização Parcial{/*partial-pre-rendering*/}
+### Pré-renderização Parcial {/*partial-pre-rendering*/}
 
-No 19.2, estamos adicionando uma nova capacidade para pré-renderizar parte do app com antecedência e retomar a renderização mais tarde.
+No 19.2, estamos adicionando uma nova capacidade para pré-renderizar parte do aplicativo com antecedência e retomar a renderização mais tarde.
 
-Este recurso é chamado "Partial Pre-rendering" (Pré-renderização Parcial) e permite pré-renderizar as partes estáticas do seu app e servi-las de uma CDN, e então retomar a renderização da shell para preenchê-la com conteúdo dinâmico mais tarde.
+Este recurso é chamado de "Pré-renderização Parcial" e permite pré-renderizar as partes estáticas do seu aplicativo e servi-las de uma CDN, e depois retomar a renderização do shell para preenchê-lo com conteúdo dinâmico mais tarde.
 
-Para pré-renderizar um app e retomar mais tarde, primeiro chame`prerender`com um`AbortController`:
+Para pré-renderizar um aplicativo para retomar mais tarde, primeiro chame `prerender` com um `AbortController`:
 
 ```
 const {prelude, postponed} = await prerender(<App />, {
   signal: controller.signal,
 });
 
-// Save the postponed state for later
+// Salve o estado postponed para mais tarde
 await savePostponedState(postponed);
 
-// Send prelude to client or CDN.
+// Envie o prelude para o cliente ou CDN.
 ```
 
-Em seguida, você pode retornar a shell`prelude`para o cliente e, mais tarde, chamar`resume`para "retomar" um stream SSR:
+Em seguida, você pode retornar o shell `prelude` para o cliente e, mais tarde, chamar `resume` para "retomar" um stream SSR:
 
 ```
 const postponed = await getPostponedState(request);
 const resumeStream = await resume(<App />, postponed);
 
-// Send stream to client.
+// Envie o stream para o cliente.
 ```
 
-Ou você pode chamar`resumeAndPrerender`para retomar e obter HTML estático para SSG:
+Ou você pode chamar `resumeAndPrerender` para retomar e obter HTML estático para SSG:
 
 ```
 const postponedState = await getPostponedState(request);
 const { prelude } = await resumeAndPrerender(<App />, postponedState);
 
-// Send complete HTML prelude to CDN.
+// Envie o prelude HTML completo para a CDN.
 ```
 
 Para mais informações, veja a documentação das novas APIs:
 - `react-dom/server`
   - [`resume`](/reference/react-dom/server/resume): para Web Streams.
-  - [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream)para Node Streams.
+  - [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) para Node Streams.
 - `react-dom/static`
-  - [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender)para Web Streams.
-  - [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream)para Node Streams.
+  - [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender) para Web Streams.
+  - [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) para Node Streams.
 
-Adicionalmente, as APIs de pré-renderização agora retornam um estado`postpone`para passar para as APIs`resume`.
+Além disso, as APIs de prerender agora retornam um estado `postpone` para passar para as APIs de `resume`.
 
 ---
 
-## Mudanças Notáveis{/*notable-changes*/}
+## Mudanças notáveis {/*notable-changes*/}
 
-### Agrupamento de Limites de Suspense para SSR{/*batching-suspense-boundaries-for-ssr*/}
+### Agrupamento de Limites Suspense para SSR {/*batching-suspense-boundaries-for-ssr*/}
 
-Corrigimos um bug comportamental onde os limites de Suspense se revelariam de forma diferente dependendo se foram renderizados no cliente ou ao fazer streaming a partir da renderização do lado do servidor.
+Corrigimos um bug comportamental onde os limites Suspense seriam revelados de forma diferente dependendo se foram renderizados no cliente ou ao fazer streaming do renderização do lado do servidor.
 
-A partir do 19.2, o React agrupará as revelações de limites de Suspense renderizados pelo servidor por um curto período, para permitir que mais conteúdo seja revelado em conjunto e se alinhe com o comportamento renderizado pelo cliente.
+A partir do 19.2, o React agrupará as revelações de limites Suspense renderizados pelo servidor por um curto período, para permitir que mais conteúdo seja revelado em conjunto e se alinhe com o comportamento renderizado pelo cliente.
 
-<Diagram name="19_2_batching_before" height={162} width={1270} alt="Diagrama com três seções, com uma seta transicionando cada seção entre elas. A primeira seção contém um retângulo de página mostrando um estado de carregamento glimmer com barras desbotadas. O segundo painel mostra a metade superior da página revelada e destacada em azul. O terceiro painel mostra a página inteira revelada e destacada em azul.">
+<Diagram name="19_2_batching_before" height={162} width={1270} alt="Diagrama com três seções, com uma seta transicionando cada seção entre elas. A primeira seção contém um retângulo de página mostrando um estado de carregamento cintilante com barras desbotadas. O segundo painel mostra a metade superior da página revelada e destacada em azul. O terceiro painel mostra a página inteira revelada e destacada em azul.">
 
-Anteriormente, durante a renderização do lado do servidor por streaming, o conteúdo de suspense substituía imediatamente os fallbacks.
-
-</Diagram>
-
-<Diagram name="19_2_batching_after" height={162} width={1270} alt="Diagrama com três seções, com uma seta transicionando cada seção entre elas. A primeira seção contém um retângulo de página mostrando um estado de carregamento glimmer com barras desbotadas. O segundo painel mostra a mesma página. O terceiro painel mostra a página inteira revelada e destacada em azul.">
-
-No React 19.2, os limites de Suspense são agrupados por um curto período de tempo, para permitir a revelação de mais conteúdo em conjunto.
+Anteriormente, durante o streaming da renderização do lado do servidor, o conteúdo suspense substituía imediatamente os fallbacks.
 
 </Diagram>
 
-Este correção também prepara os aplicativos para suportar`<ViewTransition>`para Suspense durante o SSR. Ao revelar mais conteúdo em conjunto, as animações podem ser executadas em lotes maiores de conteúdo e evitar o encadeamento de animações de conteúdo que são transmitidas em fluxo juntas.
+<Diagram name="19_2_batching_after" height={162} width={1270} alt="Diagrama com três seções, com uma seta transicionando cada seção entre elas. A primeira seção contém um retângulo de página mostrando um estado de carregamento cintilante com barras desbotadas. O segundo painel mostra a mesma página. O terceiro painel mostra a página inteira revelada e destacada em azul.">
+
+No React 19.2, os limites suspense são agrupados por um pequeno período, para permitir a revelação de mais conteúdo em conjunto.
+
+</Diagram>
+
+Esta correção também prepara os aplicativos para suportar `<ViewTransition>` para Suspense durante o SSR. Ao revelar mais conteúdo em conjunto, as animações podem ser executadas em lotes maiores de conteúdo e evitar o encadeamento de animações de conteúdo que chegam em streams próximos.
 
 <Note>
 
-O React usa heurísticas para garantir que o throttling não afete as métricas principais da Web e a classificação de pesquisa.
+O React usa heurísticas para garantir que o throttling não impacte os Core Web Vitals e o ranking de busca.
 
-Por exemplo, se o tempo total de carregamento da página estiver se aproximando de 2,5s (que é o tempo considerado "bom" para[LCP](https://web.dev/articles/lcp)), o React parará o agrupamento e revelará o conteúdo imediatamente para que o throttling não seja o motivo para não atingir a métrica.
+Por exemplo, se o tempo total de carregamento da página estiver se aproximando de 2,5s (que é o tempo considerado "bom" para [LCP](https://web.dev/articles/lcp)), o React parará de agrupar e revelará o conteúdo imediatamente para que o throttling não seja o motivo para perder a métrica.
 
 </Note>
 
 ---
 
-### SSR: Suporte a Web Streams para Node{/*ssr-web-streams-support-for-node*/}
+### SSR: Suporte a Web Streams para Node {/*ssr-web-streams-support-for-node*/}
 
 O React 19.2 adiciona suporte a Web Streams para streaming de SSR no Node.js:
-- [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream)está agora disponível para Node.js
-- [`prerender`](/reference/react-dom/static/prerender)está agora disponível para Node.js
+- [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) agora está disponível para Node.js
+- [`prerender`](/reference/react-dom/static/prerender) agora está disponível para Node.js
 
-Assim como as novas APIs de`resume`APIs:
-- [`resume`](/reference/react-dom/server/resume)está disponível para Node.js.
-- [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender)está disponível para Node.js.
+Assim como as novas APIs `resume`:
+- [`resume`](/reference/react-dom/server/resume) está disponível para Node.js.
+- [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender) está disponível para Node.js.
 
 
 <Pitfall>
 
-#### Prefira Node Streams para renderização do lado do servidor no Node.js{/*prefer-node-streams-for-server-side-rendering-in-nodejs*/}
+#### Prefira Node Streams para renderização do lado do servidor no Node.js {/*prefer-node-streams-for-server-side-rendering-in-nodejs*/}
 
 Em ambientes Node.js, ainda recomendamos fortemente o uso das APIs de Node Streams:
 
@@ -287,53 +287,53 @@ Isso ocorre porque os Node Streams são muito mais rápidos que os Web Streams n
 
 ---
 
-### `eslint-plugin-react-hooks`v6{/*eslint-plugin-react-hooks*/}
+### `eslint-plugin-react-hooks` v6 {/*eslint-plugin-react-hooks*/}
 
-Também publicamos`eslint-plugin-react-hooks@latest`com configuração flat por padrão no preset`recommended`, e opção de ativação para novas regras com React Compiler.
+Também publicamos `eslint-plugin-react-hooks@latest` com flat config por padrão no preset `recommended`, e opt-in para novas regras alimentadas pelo React Compiler.
 
-Para continuar usando a configuração legada, você pode mudar para`recommended-legacy`:
+Para continuar usando a configuração legada, você pode mudar para `recommended-legacy`:
 
 ```diff
 - extends: ['plugin:react-hooks/recommended']
 + extends: ['plugin:react-hooks/recommended-legacy']
 ```
 
-Para uma lista completa de regras habilitadas pelo compilador,[confira a documentação do linter](/reference/eslint-plugin-react-hooks#recommended).
+Para uma lista completa de regras habilitadas pelo compilador, [confira a documentação do linter](/reference/eslint-plugin-react-hooks#recommended).
 
-Confira o`eslint-plugin-react-hooks` [changelog para uma lista completa de alterações](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/CHANGELOG.md#610).
-
----
-
-### Atualize o`useId`prefixo padrão{/*update-the-default-useid-prefix*/}
-
-No 19.2, estamos atualizando o`useId`prefixo padrão de`:r:`(19.0.0) ou`«r»`(19.1.0) para`_r_`.
-
-A intenção original de usar um caractere especial que não era válido para seletores CSS era que ele seria improvável de colidir com IDs escritos pelos usuários. No entanto, para suportar View Transitions, precisamos garantir que os IDs gerados por`useId`sejam válidos para`view-transition-name`e nomes XML 1.0.
+Confira o [changelog do `eslint-plugin-react-hooks` para uma lista completa de mudanças](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/CHANGELOG.md#610).
 
 ---
 
-## Changelog{/*changelog*/}
+### Atualização do prefixo padrão `useId` {/*update-the-default-useid-prefix*/}
 
-Outras alterações notáveis
-- `react-dom`: Permite nonce para ser usado em estilos içáveis[#32461](https://github.com/facebook/react/pull/32461)
-- `react-dom`: Avisa sobre o uso de um nó de propriedade do React como Contêiner se ele também tiver conteúdo de texto[#32774](https://github.com/facebook/react/pull/32774)
+No 19.2, atualizamos o prefixo padrão `useId` de `:r:` (19.0.0) ou `«r»` (19.1.0) para `_r_`.
+
+A intenção original de usar um caractere especial que não era válido para seletores CSS era que ele teria pouca probabilidade de colidir com IDs escritos pelos usuários. No entanto, para suportar View Transitions, precisamos garantir que os IDs gerados por `useId` sejam válidos para `view-transition-name` e nomes XML 1.0.
+
+---
+
+## Changelog {/*changelog*/}
+
+Outras mudanças notáveis
+- `react-dom`: Permite que nonce seja usado em estilos içáveis [#32461](https://github.com/facebook/react/pull/32461)
+- `react-dom`: Avisa sobre o uso de um nó de propriedade do React como Container se ele também tiver conteúdo de texto [#32774](https://github.com/facebook/react/pull/32774)
 
 Correções de bugs notáveis
-- `react`: Stringifica o contexto como "SomeContext" em vez de "SomeContext.Provider"[#33507](https://github.com/facebook/react/pull/33507)
-- `react`: Corrige loop infinito de useDeferredValue no evento popstate[#32821](https://github.com/facebook/react/pull/32821)
-- `react`: Corrige um bug quando um valor inicial era passado para useDeferredValue[#34376](https://github.com/facebook/react/pull/34376)
-- `react`: Corrige um crash ao enviar formulários com Client Actions[#33055](https://github.com/facebook/react/pull/33055)
-- `react`: Ocultar/mostrar o conteúdo de limites de suspense desidratados se eles reentrarem em suspense[#32900](https://github.com/facebook/react/pull/32900)
-- `react`: Evitar estouro de pilha em árvores largas durante a Recarga a Quente[#34145](https://github.com/facebook/react/pull/34145)
-- `react`: Melhorar pilhas de componentes em vários locais[#33629](https://github.com/facebook/react/pull/33629),[#33724](https://github.com/facebook/react/pull/33724),[#32735](https://github.com/facebook/react/pull/32735),[#33723](https://github.com/facebook/react/pull/33723)
-- `react`: Corrigir um bug com React.use dentro de Componentes com React.lazy[#33941](https://github.com/facebook/react/pull/33941)
-- `react-dom`: Parar de avisar quando atributos ARIA 1.3 são usados[#34264](https://github.com/facebook/react/pull/34264)
-- `react-dom`: Corrigir um bug com Suspense profundamente aninhado dentro de fallbacks de Suspense[#33467](https://github.com/facebook/react/pull/33467)
-- `react-dom`: Evitar travamento ao entrar em suspense após abortar durante a renderização[#34192](https://github.com/facebook/react/pull/34192)
+- `react`: Stringifica o contexto como "SomeContext" em vez de "SomeContext.Provider" [#33507](https://github.com/facebook/react/pull/33507)
+- `react`: Corrige loop infinito de `useDeferredValue` no evento `popstate` [#32821](https://github.com/facebook/react/pull/32821)
+- `react`: Corrige um bug quando um valor inicial era passado para `useDeferredValue` [#34376](https://github.com/facebook/react/pull/34376)
+- `react`: Corrige um crash ao enviar formulários com Client Actions [#33055](https://github.com/facebook/react/pull/33055)
+- `react`: Oculta/exibe o conteúdo de limites suspense desidratados se eles resuspendem [#32900](https://github.com/facebook/react/pull/32900)
+- `react`: Evita estouro de pilha em árvores largas durante Hot Reload [#34145](https://github.com/facebook/react/pull/34145)
+- `react`: Melhora pilhas de componentes em vários locais [#33629](https://github.com/facebook/react/pull/33629), [#33724](https://github.com/facebook/react/pull/33724), [#32735](https://github.com/facebook/react/pull/32735), [#33723](https://github.com/facebook/react/pull/33723)
+- `react`: Corrige um bug com `React.use` dentro de `React.lazy`-ed Component [#33941](https://github.com/facebook/react/pull/33941)
+- `react-dom`: Para de avisar quando atributos ARIA 1.3 são usados [#34264](https://github.com/facebook/react/pull/34264)
+- `react-dom`: Corrige um bug com Suspense profundamente aninhado dentro de fallbacks de Suspense [#33467](https://github.com/facebook/react/pull/33467)
+- `react-dom`: Evita travamento ao suspender após abortar durante a renderização [#34192](https://github.com/facebook/react/pull/34192)
 
-Para uma lista completa de alterações, por favor, veja o[Changelog](https://github.com/facebook/react/blob/main/CHANGELOG.md).
+Para uma lista completa de mudanças, por favor, veja o [Changelog](https://github.com/facebook/react/blob/main/CHANGELOG.md).
 
 
 ---
 
-_Obrigado a[Ricky Hanlon](https://bsky.app/profile/ricky.fm)por[escrever este post](https://www.youtube.com/shorts/T9X3YkgZRG0),[Dan Abramov](https://bsky.app/profile/danabra.mov),[Matt Carroll](https://twitter.com/mattcarrollcode),[Jack Pope](https://jackpope.me), e[Joe Savona](https://x.com/en_JS)por revisar este post._
+_Obrigado a [Ricky Hanlon](https://bsky.app/profile/ricky.fm) por [escrever este post](https://www.youtube.com/shorts/T9X3YkgZRG0), [Dan Abramov](https://bsky.app/profile/danabra.mov), [Matt Carroll](https://twitter.com/mattcarrollcode), [Jack Pope](https://jackpope.me) e [Joe Savona](https://x.com/en_JS) por revisarem este post._
