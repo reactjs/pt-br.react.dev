@@ -4,67 +4,67 @@ title: purity
 
 <Intro>
 
-Validates that [components/hooks are pure](/reference/rules/components-and-hooks-must-be-pure) by checking that they do not call known-impure functions.
+Valida que [componentes/hooks são puros](/reference/rules/components-and-hooks-must-be-pure) verificando se eles não chamam funções conhecidas como impuras.
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-React components must be pure functions - given the same props, they should always return the same JSX. When components use functions like `Math.random()` or `Date.now()` during render, they produce different output each time, breaking React's assumptions and causing bugs like hydration mismatches, incorrect memoization, and unpredictable behavior.
+Componentes React devem ser funções puras - dadas as mesmas props, eles devem sempre retornar o mesmo JSX. Quando componentes usam funções como `Math.random()` ou `Date.now()` durante a renderização, eles produzem saídas diferentes a cada vez, quebrando as suposições do React e causando erros como incompatibilidades de hidratação, memoização incorreta e comportamento imprevisível.
 
-## Common Violations {/*common-violations*/}
+## Violações Comuns {/*common-violations*/}
 
-In general, any API that returns a different value for the same inputs violates this rule. Usual examples include:
+Em geral, qualquer API que retorna um valor diferente para as mesmas entradas viola esta regra. Exemplos comuns incluem:
 
 - `Math.random()`
 - `Date.now()` / `new Date()`
 - `crypto.randomUUID()`
 - `performance.now()`
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Math.random() in render
+// ❌ Math.random() na renderização
 function Component() {
-  const id = Math.random(); // Different every render
+  const id = Math.random(); // Diferente a cada renderização
   return <div key={id}>Content</div>;
 }
 
-// ❌ Date.now() for values
+// ❌ Date.now() para valores
 function Component() {
-  const timestamp = Date.now(); // Changes every render
+  const timestamp = Date.now(); // Muda a cada renderização
   return <div>Created at: {timestamp}</div>;
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Stable IDs from initial state
+// ✅ IDs estáveis a partir do estado inicial
 function Component() {
   const [id] = useState(() => crypto.randomUUID());
   return <div key={id}>Content</div>;
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I need to show the current time {/*current-time*/}
+### Preciso mostrar a hora atual {/*current-time*/}
 
-Calling `Date.now()` during render makes your component impure:
+Chamar `Date.now()` durante a renderização torna seu componente impuro:
 
 ```js {expectedErrors: {'react-compiler': [3]}}
-// ❌ Wrong: Time changes every render
+// ❌ Errado: A hora muda a cada renderização
 function Clock() {
   return <div>Current time: {Date.now()}</div>;
 }
 ```
 
-Instead, [move the impure function outside of render](/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent):
+Em vez disso, [mova a função impura para fora da renderização](/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent):
 
 ```js
 function Clock() {
