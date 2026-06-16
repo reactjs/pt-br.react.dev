@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
@@ -41,7 +48,13 @@ const getFileName = (filePath: string): string => {
   return filePath.slice(lastIndexOfSlash + 1);
 };
 
-export function NavigationBar({providedFiles}: {providedFiles: Array<string>}) {
+export function NavigationBar({
+  providedFiles,
+  showOpenInCodeSandbox = true,
+}: {
+  providedFiles: Array<string>;
+  showOpenInCodeSandbox?: boolean;
+}) {
   const {sandpack} = useSandpack();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const tabsRef = useRef<HTMLDivElement | null>(null);
@@ -191,7 +204,7 @@ export function NavigationBar({providedFiles}: {providedFiles: Array<string>}) {
         <DownloadButton providedFiles={providedFiles} />
         <ReloadButton onReload={handleReload} />
         <ClearButton onClear={handleClear} />
-        <OpenInCodeSandboxButton />
+        {showOpenInCodeSandbox && <OpenInCodeSandboxButton />}
         {activeFile.endsWith('.tsx') && (
           <OpenInTypeScriptPlaygroundButton
             content={sandpack.files[activeFile]?.code || ''}

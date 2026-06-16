@@ -458,7 +458,7 @@ export default function Menu() {
 
   return (
     <>
-      <h2>Qual o seu lanche de viagem?</h2> 
+      <h2>Qual o seu lanche de viagem?</h2>
       <ul>
         {items.map((item, index) => (
           <li key={item.id}>
@@ -804,7 +804,7 @@ export const initialTravelPlan = {
     }, {
       id: 48,
       title: 'Monte Verde',
-      childPlaces: []      
+      childPlaces: []
     }]
   }]
 };
@@ -882,7 +882,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botsuana',
@@ -902,7 +902,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Marrocos',
@@ -921,7 +921,7 @@ export const initialTravelPlan = {
   10: {
     id: 10,
     title: 'Américas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -937,7 +937,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canadá',
@@ -966,7 +966,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Ásia',
-    childIds: [20, 21, 22, 23, 24, 25],   
+    childIds: [20, 21, 22, 23, 24, 25],
   },
   20: {
     id: 20,
@@ -1001,7 +1001,7 @@ export const initialTravelPlan = {
   26: {
     id: 26,
     title: 'Europa',
-    childIds: [27, 28, 29, 30, 31, 32, 33],   
+    childIds: [27, 28, 29, 30, 31, 32, 33],
   },
   27: {
     id: 27,
@@ -1041,7 +1041,7 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [35, 36, 37, 38, 39, 40, 41],   
+    childIds: [35, 36, 37, 38, 39, 40, 41],
   },
   35: {
     id: 35,
@@ -1218,7 +1218,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botsuana',
@@ -1238,7 +1238,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Marrocos',
@@ -1257,7 +1257,7 @@ export const initialTravelPlan = {
   10: {
     id: 10,
     title: 'Américas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -1273,7 +1273,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canadá',
@@ -1302,7 +1302,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Ásia',
-    childIds: [20, 21, 22, 23, 24, 25],   
+    childIds: [20, 21, 22, 23, 24, 25],
   },
   20: {
     id: 20,
@@ -1337,7 +1337,7 @@ export const initialTravelPlan = {
   26: {
     id: 26,
     title: 'Europa',
-    childIds: [27, 28, 29, 30, 31, 32, 33],   
+    childIds: [27, 28, 29, 30, 31, 32, 33],
   },
   27: {
     id: 27,
@@ -1377,7 +1377,7 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [36, 37, 38, 39, 40, 41, 42],   
+    childIds: [35, 36, 37, 38, 39, 40, 41],
   },
   35: {
     id: 35,
@@ -1552,7 +1552,7 @@ export const initialTravelPlan = {
     id: 2,
     title: 'África',
     childIds: [3, 4, 5, 6 , 7, 8, 9]
-  }, 
+  },
   3: {
     id: 3,
     title: 'Botsuana',
@@ -1572,7 +1572,7 @@ export const initialTravelPlan = {
     id: 6,
     title: 'Madagascar',
     childIds: []
-  }, 
+  },
   7: {
     id: 7,
     title: 'Marrocos',
@@ -1591,7 +1591,7 @@ export const initialTravelPlan = {
   10: {
     id: 10,
     title: 'Américas',
-    childIds: [11, 12, 13, 14, 15, 16, 17, 18],   
+    childIds: [11, 12, 13, 14, 15, 16, 17, 18],
   },
   11: {
     id: 11,
@@ -1607,7 +1607,7 @@ export const initialTravelPlan = {
     id: 13,
     title: 'Barbados',
     childIds: []
-  }, 
+  },
   14: {
     id: 14,
     title: 'Canadá',
@@ -1636,7 +1636,7 @@ export const initialTravelPlan = {
   19: {
     id: 19,
     title: 'Ásia',
-    childIds: [20, 21, 22, 23, 24, 25],   
+    childIds: [20, 21, 22, 23, 24, 25],
   },
   20: {
     id: 20,
@@ -1671,7 +1671,7 @@ export const initialTravelPlan = {
   26: {
     id: 26,
     title: 'Europa',
-    childIds: [28, 29, 30, 31, 32, 33, 34],   
+    childIds: [27, 28, 29, 30, 31, 32, 33],
   },
   27: {
     id: 27,
@@ -1711,7 +1711,7 @@ export const initialTravelPlan = {
   34: {
     id: 34,
     title: 'Oceania',
-    childIds: [36, 37, 38, 39, 40, 41, 42],   
+    childIds: [35, 36, 37, 38, 39, 40, 41],
   },
   35: {
     id: 35,
@@ -1765,7 +1765,7 @@ export const initialTravelPlan = {
   },
   45: {
     id: 45,
-    title: 'Mars',
+    title: 'Marte',
     childIds: [47, 48]
   },
   46: {
@@ -2055,7 +2055,7 @@ export default function TravelPlan() {
   }
 
   return (
-    <>  
+    <>
       <AddItem
         onAddItem={handleAddItem}
       />
@@ -2190,7 +2190,7 @@ export default function TravelPlan() {
   }
 
   return (
-    <>  
+    <>
       <AddItem
         onAddItem={handleAddItem}
       />
@@ -2343,7 +2343,7 @@ export default function Letter({
         isHighlighted ? 'highlighted' : ''
       }
       onFocus={() => {
-        onHover(letter);        
+        onHover(letter);
       }}
       onPointerMove={() => {
         onHover(letter);
@@ -2452,7 +2452,7 @@ export default function Letter({
         isHighlighted ? 'highlighted' : ''
       }
       onFocus={() => {
-        onHover(letter.id);        
+        onHover(letter.id);
       }}
       onPointerMove={() => {
         onHover(letter.id);
@@ -2542,7 +2542,7 @@ export default function MailClient() {
         ))}
         <hr />
         <p>
-          <b> 
+          <b>
             Você selecionou {selectedCount} cartas
           </b>
         </p>
