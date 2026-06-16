@@ -1,10 +1,9 @@
 ---
 title: logger
 ---
-
 <Intro>
 
-The `logger` option provides custom logging for React Compiler events during compilation.
+A opção `logger` fornece logging personalizado para eventos do React Compiler durante a compilação.
 
 </Intro>
 
@@ -22,13 +21,13 @@ The `logger` option provides custom logging for React Compiler events during com
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `logger` {/*logger*/}
 
-Configures custom logging to track compiler behavior and debug issues.
+Configura o logging personalizado para rastrear o comportamento do compilador e depurar problemas.
 
-#### Type {/*type*/}
+#### Tipo {/*type*/}
 
 ```
 {
@@ -36,35 +35,35 @@ Configures custom logging to track compiler behavior and debug issues.
 } | null
 ```
 
-#### Default value {/*default-value*/}
+#### Valor padrão {/*default-value*/}
 
 `null`
 
-#### Methods {/*methods*/}
+#### Métodos {/*methods*/}
 
-- **`logEvent`**: Called for each compiler event with the filename and event details
+- **`logEvent`**: Chamado para cada evento do compilador com o nome do arquivo e os detalhes do evento
 
-#### Event types {/*event-types*/}
+#### Tipos de evento {/*event-types*/}
 
-- **`CompileSuccess`**: Function successfully compiled
-- **`CompileError`**: Function skipped due to errors
-- **`CompileDiagnostic`**: Non-fatal diagnostic information
-- **`CompileSkip`**: Function skipped for other reasons
-- **`PipelineError`**: Unexpected compilation error
-- **`Timing`**: Performance timing information
+- **`CompileSuccess`**: Função compilada com sucesso
+- **`CompileError`**: Função ignorada devido a erros
+- **`CompileDiagnostic`**: Informações diagnósticas não fatais
+- **`CompileSkip`**: Função ignorada por outros motivos
+- **`PipelineError`**: Erro inesperado de compilação
+- **`Timing`**: Informações de tempo de desempenho
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- Event structure may change between versions
-- Large codebases generate many log entries
+- A estrutura do evento pode mudar entre as versões
+- Bases de código grandes geram muitas entradas de log
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Basic logging {/*basic-logging*/}
+### Logging básico {/*basic-logging*/}
 
-Track compilation success and failures:
+Rastreie o sucesso e as falhas da compilação:
 
 ```js
 {
@@ -72,11 +71,11 @@ Track compilation success and failures:
     logEvent(filename, event) {
       switch (event.kind) {
         case 'CompileSuccess': {
-          console.log(`✅ Compiled: ${filename}`);
+          console.log(`✅ Compilado: ${filename}`);
           break;
         }
         case 'CompileError': {
-          console.log(`❌ Skipped: ${filename}`);
+          console.log(`❌ Ignorado: ${filename}`);
           break;
         }
         default: {}
@@ -86,33 +85,32 @@ Track compilation success and failures:
 }
 ```
 
-### Detailed error logging {/*detailed-error-logging*/}
+### Logging detalhado de erros {/*detailed-error-logging*/}
 
-Get specific information about compilation failures:
+Obtenha informações específicas sobre falhas de compilação:
 
 ```js
 {
   logger: {
     logEvent(filename, event) {
       if (event.kind === 'CompileError') {
-        console.error(`\nCompilation failed: ${filename}`);
-        console.error(`Reason: ${event.detail.reason}`);
+        console.error(`\nFalha na compilação: ${filename}`);
+        console.error(`Motivo: ${event.detail.reason}`);
 
         if (event.detail.description) {
-          console.error(`Details: ${event.detail.description}`);
+          console.error(`Detalhes: ${event.detail.description}`);
         }
 
         if (event.detail.loc) {
           const { line, column } = event.detail.loc.start;
-          console.error(`Location: Line ${line}, Column ${column}`);
+          console.error(`Localização: Linha ${line}, Coluna ${column}`);
         }
 
         if (event.detail.suggestions) {
-          console.error('Suggestions:', event.detail.suggestions);
+          console.error('Sugestões:', event.detail.suggestions);
         }
       }
     }
   }
 }
 ```
-
