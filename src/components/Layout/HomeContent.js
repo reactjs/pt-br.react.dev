@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 /*
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
@@ -247,7 +254,7 @@ export function HomeContent() {
               construir um aplicativo inteiro com React, recomendamos um
               framework React full stack como{' '}
               <Link href="https://nextjs.org">Next.js</Link> ou{' '}
-              <Link href="https://remix.run">Remix</Link>.
+              <Link href="https://reactrouter.com">React Router</Link>.
             </Para>
           </Center>
           <FullBleed>
@@ -264,7 +271,7 @@ export function HomeContent() {
               <CTA
                 color="gray"
                 icon="framework"
-                href="/learn/start-a-new-react-project">
+                href="/learn/creating-a-react-app">
                 Inicie com um framework
               </CTA>
             </div>

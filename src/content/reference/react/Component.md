@@ -117,7 +117,7 @@ class Counter extends Component {
 
   handleAgeChange = () => {
     this.setState({
-      age: this.state.age + 1 
+      age: this.state.age + 1
     });
   };
 
@@ -206,7 +206,7 @@ Não existe um equivalente exato para `constructor` em componentes de função. 
 
 Se você definir `componentDidCatch`, o React o chamará quando algum componente filho (incluindo filhos distantes) lançar um erro durante a renderização. Isso permite que você registre esse erro em um serviço de relatório de erros em produção.
 
-Normalmente, ele é usado em conjunto com [`static getDerivedStateFromError`](#static-getderivedstatefromerror), que permite que você atualize o state em resposta a um erro e exiba uma mensagem de erro ao usuário. Um componente com esses métodos é chamado de *limite de erro*.
+Normalmente, ele é usado em conjunto com [`static getDerivedStateFromError`](#static-getderivedstatefromerror), que permite que você atualize o state em resposta a um erro e exiba uma mensagem de erro ao usuário. Um componente com esses métodos é chamado de *Error Boundary*.
 
 [Veja um exemplo.](#catching-rendering-errors-with-an-error-boundary)
 
@@ -930,7 +930,7 @@ Definir `defaultProps` em componentes de classe é semelhante a usar [valores pa
 
 Se você definir `static getDerivedStateFromError`, o React o chamará quando um componente filho (incluindo filhos distantes) lançar um erro durante a renderização. Isso permite que você exiba uma mensagem de erro em vez de limpar a UI.
 
-Normalmente, ele é usado em conjunto com [`componentDidCatch`](#componentdidcatch), que permite enviar o relatório de erro para algum serviço de análise. Um componente com esses métodos é chamado de *borda de erro*.
+Normalmente, ele é usado em conjunto com [`componentDidCatch`](#componentdidcatch), que permite enviar o relatório de erro para algum serviço de análise. Um componente com esses métodos é chamado de *Error Boundary*.
 
 [Veja um exemplo.](#catching-rendering-errors-with-an-error-boundary)
 
@@ -1096,7 +1096,7 @@ export default class Counter extends Component {
 
   handleAgeChange = () => {
     this.setState({
-      age: this.state.age + 1 
+      age: this.state.age + 1
     });
   };
 
@@ -1121,7 +1121,7 @@ export default class Counter extends Component {
 button { display: block; margin-top: 10px; }
 ```
 
-</Sandpack> 
+</Sandpack>
 
 <Pitfall>
 
@@ -1225,7 +1225,7 @@ export default class ChatRoom extends Component {
       this.state.serverUrl,
       this.props.roomId
     );
-    this.connection.connect();    
+    this.connection.connect();
   }
 
   destroyConnection() {
@@ -1285,11 +1285,21 @@ Recomendamos definir componentes como funções em vez de classes. [Veja como mi
 
 ---
 
-### Capturando erros de renderização com um limite de erro {/*catching-rendering-errors-with-an-error-boundary*/}
+### Capturando erros de renderização com um Error Boundary {/*catching-rendering-errors-with-an-error-boundary*/}
 
-Por padrão, se seu aplicativo lançar um erro durante a renderização, o React removerá sua UI da tela. Para evitar isso, você pode encapsular uma parte da sua UI em um *limite de erro*. Um limite de erro é um componente especial que permite que você mostre alguma UI de fallback em vez da parte que travou — por exemplo, uma mensagem de erro.
+Por padrão, se seu aplicativo lançar um erro durante a renderização, o React removerá sua UI da tela. Para evitar isso, você pode encapsular uma parte da sua UI em um *Error Boundary*. Um Error Boundary é um componente especial que permite que você mostre alguma UI de fallback em vez da parte que travou — por exemplo, uma mensagem de erro.
 
-Para implementar um componente de limite de erro, você precisa fornecer [`static getDerivedStateFromError`](#static-getderivedstatefromerror) que permite que você atualize o estado em resposta a um erro e exiba uma mensagem de erro ao usuário. Você também pode implementar opcionalmente [`componentDidCatch`](#componentdidcatch) para adicionar alguma lógica extra, por exemplo, para registrar o erro em um serviço de análise.
+<Note>
+Error Boundaries não capturam erros para:
+
+- Manipuladores de eventos [(saiba mais)](/learn/responding-to-events)
+- [Renderização no servidor](/reference/react-dom/server)
+- Erros lançados no próprio Error Boundary (em vez de em seus filhos)
+- Código assíncrono (ex: callbacks de `setTimeout` ou `requestAnimationFrame`); uma exceção é o uso da função [`startTransition`](/reference/react/useTransition#starttransition) retornada pelo Hook [`useTransition`](/reference/react/useTransition). Erros lançados dentro da função de transição são capturados por Error Boundaries [(saiba mais)](/reference/react/useTransition#displaying-an-error-to-users-with-error-boundary)
+
+</Note>
+
+Para implementar um componente Error Boundary, você precisa fornecer [`static getDerivedStateFromError`](#static-getderivedstatefromerror) que permite que você atualize o estado em resposta a um erro e exiba uma mensagem de erro ao usuário. Você também pode implementar opcionalmente [`componentDidCatch`](#componentdidcatch) para adicionar alguma lógica extra, por exemplo, para registrar o erro em um serviço de análise.
 
 With [`captureOwnerStack`](/reference/react/captureOwnerStack) you can include the Owner Stack during development.
 
@@ -1342,11 +1352,11 @@ Então você pode encapsular uma parte da sua árvore de componentes com ele:
 
 Se `Profile` ou seu componente filho lançarem um erro, `ErrorBoundary` "capturará" esse erro, exibirá uma UI de fallback com a mensagem de erro que você forneceu e enviará um relatório de erro de produção para seu serviço de relatório de erro.
 
-Você não precisa encapsular cada componente em um limite de erro separado. Quando você pensa sobre a [granularidade dos limites de erro,](https://www.brandondail.com/posts/fault-tolerance-react) considere onde faz sentido exibir uma mensagem de erro. Por exemplo, em um aplicativo de mensagens, faz sentido colocar um limite de erro ao redor da lista de conversas. Também faz sentido colocar um ao redor de cada mensagem individual. No entanto, não faria sentido colocar um limite em cada avatar.
+Você não precisa encapsular cada componente em um Error Boundary separado. Quando você pensa sobre a [granularidade dos Error Boundaries,](https://www.brandondail.com/posts/fault-tolerance-react) considere onde faz sentido exibir uma mensagem de erro. Por exemplo, em um aplicativo de mensagens, faz sentido colocar um Error Boundary ao redor da lista de conversas. Também faz sentido colocar um ao redor de cada mensagem individual. No entanto, não faria sentido colocar um ao redor de cada avatar.
 
 <Note>
 
-Atualmente, não há como escrever um limite de erro como um componente de função. No entanto, você não precisa escrever a classe de limite de erro sozinho. Por exemplo, você pode usar [`react-error-boundary`](https://github.com/bvaughn/react-error-boundary) em vez disso.
+Atualmente, não há como escrever um Error Boundary como um componente de função. No entanto, você não precisa escrever a classe de Error Boundary sozinho. Por exemplo, você pode usar [`react-error-boundary`](https://github.com/bvaughn/react-error-boundary) em vez disso.
 
 </Note>
 
@@ -1447,7 +1457,7 @@ export default class Counter extends Component {
 
   handleAgeChange = (e) => {
     this.setState({
-      age: this.state.age + 1 
+      age: this.state.age + 1
     });
   };
 
@@ -1614,7 +1624,7 @@ export default class ChatRoom extends Component {
       this.state.serverUrl,
       this.props.roomId
     );
-    this.connection.connect();    
+    this.connection.connect();
   }
 
   destroyConnection() {
@@ -1803,7 +1813,7 @@ class Panel extends Component {
         <h1>{this.props.title}</h1>
         {this.props.children}
       </section>
-    );    
+    );
   }
 }
 
