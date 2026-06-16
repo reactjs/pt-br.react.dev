@@ -1,16 +1,15 @@
 ---
 title: panicThreshold
 ---
-
 <Intro>
 
-The `panicThreshold` option controls how the React Compiler handles errors during compilation.
+A opção `panicThreshold` controla como o React Compiler lida com erros durante a compilação.
 
 </Intro>
 
 ```js
 {
-  panicThreshold: 'none' // Recommended
+  panicThreshold: 'none' // Recomendado
 }
 ```
 
@@ -18,42 +17,42 @@ The `panicThreshold` option controls how the React Compiler handles errors durin
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `panicThreshold` {/*panicthreshold*/}
 
-Determines whether compilation errors should fail the build or skip optimization.
+Determina se os erros de compilação devem falhar a build ou pular a otimização.
 
-#### Type {/*type*/}
+#### Tipo {/*type*/}
 
 ```
 'none' | 'critical_errors' | 'all_errors'
 ```
 
-#### Default value {/*default-value*/}
+#### Valor padrão {/*default-value*/}
 
 `'none'`
 
-#### Options {/*options*/}
+#### Opções {/*options*/}
 
-- **`'none'`** (default, recommended): Skip components that can't be compiled and continue building
-- **`'critical_errors'`**: Fail the build only on critical compiler errors
-- **`'all_errors'`**: Fail the build on any compiler diagnostic
+- **`'none'`** (padrão, recomendado): Pula componentes que não podem ser compilados e continua a build.
+- **`'critical_errors'`**: Falha a build apenas em erros críticos do compilador.
+- **`'all_errors'`**: Falha a build em qualquer diagnóstico do compilador.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- Production builds should always use `'none'`
-- Build failures prevent your application from building
-- The compiler automatically detects and skips problematic code with `'none'`
-- Higher thresholds are only useful during development for debugging
+- Builds de produção devem sempre usar `'none'`.
+- Falhas na build impedem que sua aplicação seja construída.
+- O compilador detecta e pula automaticamente código problemático com `'none'`.
+- Limiares mais altos são úteis apenas durante o desenvolvimento para depuração.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Production configuration (recommended) {/*production-configuration*/}
+### Configuração de produção (recomendado) {/*production-configuration*/}
 
-For production builds, always use `'none'`. This is the default value:
+Para builds de produção, sempre use `'none'`. Este é o valor padrão:
 
 ```js
 {
@@ -61,15 +60,15 @@ For production builds, always use `'none'`. This is the default value:
 }
 ```
 
-This ensures:
-- Your build never fails due to compiler issues
-- Components that can't be optimized run normally
-- Maximum components get optimized
-- Stable production deployments
+Isso garante:
+- Sua build nunca falha devido a problemas do compilador.
+- Componentes que não podem ser otimizados rodam normalmente.
+- O máximo de componentes são otimizados.
+- Implantações de produção estáveis.
 
-### Development debugging {/*development-debugging*/}
+### Depuração em desenvolvimento {/*development-debugging*/}
 
-Temporarily use stricter thresholds to find issues:
+Use temporariamente limiares mais rigorosos para encontrar problemas:
 
 ```js
 const isDevelopment = process.env.NODE_ENV === 'development';
