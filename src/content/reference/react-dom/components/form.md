@@ -278,7 +278,7 @@ export default function Search() {
 
 Exibir uma mensagem de erro de envio de formulário antes que o bundle JavaScript seja carregado para aprimoramento progressivo exige que:
 
-1. `<form>` seja renderizado por um [Server Component](/reference/rsc/use-client)
+1. `<form>` seja renderizado por um [Client Component](/reference/rsc/use-client)
 1. a função passada para a prop `action` do `<form>` seja uma [Server Function](/reference/rsc/server-functions)
 1. o Hook `useActionState` seja usado para exibir a mensagem de erro
 

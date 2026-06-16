@@ -4,7 +4,7 @@ title: APIs estáticas do React DOM
 
 <Intro>
 
-As APIs `react-dom/static` permitem que você gere HTML estático para componentes React. Elas têm funcionalidade limitada em comparação com as APIs de streaming. Um [framework](/learn/start-a-new-react-project#full-stack-frameworks) pode chamá-las para você. A maioria dos seus componentes não precisa importá-las ou usá-las.
+As APIs `react-dom/static` permitem que você gere HTML estático para componentes React. Elas têm funcionalidade limitada em comparação com as APIs de streaming. Um [framework](/learn/creating-a-react-app#full-stack-frameworks) pode chamá-las para você. A maioria dos seus componentes não precisa importá-las ou usá-las.
 
 </Intro>
 
@@ -15,6 +15,9 @@ As APIs `react-dom/static` permitem que você gere HTML estático para component
 Esses métodos estão disponíveis apenas em ambientes com [Web Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), que inclui navegadores, Deno e alguns modernos runtimes de borda:
 
 * [`prerender`](/reference/react-dom/static/prerender) renderiza uma árvore React para HTML estático com um [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
+* <ExperimentalBadge /> [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender) continua uma árvore React pré-renderizada para HTML estático com um [Readable Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+
+Node.js também inclui esses métodos para compatibilidade, mas eles não são recomendados devido ao pior desempenho. Use as [APIs dedicadas do Node.js](#static-apis-for-nodejs-streams) em vez disso.
 
 ---
 
@@ -23,3 +26,4 @@ Esses métodos estão disponíveis apenas em ambientes com [Web Streams](https:/
 Esses métodos estão disponíveis apenas em ambientes com [Node.js Streams](https://nodejs.org/api/stream.html):
 
 * [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) renderiza uma árvore React para HTML estático com um [Node.js Stream.](https://nodejs.org/api/stream.html)
+* <ExperimentalBadge /> [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) continua uma árvore React pré-renderizada para HTML estático com um [Node.js Stream.](https://nodejs.org/api/stream.html)

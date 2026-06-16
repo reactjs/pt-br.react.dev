@@ -37,7 +37,7 @@ Comece desenhando caixas ao redor de cada componente e subcomponente no mockup e
 
 Dependendo do seu background, você pode pensar sobre dividir um design em componentes de diferentes maneiras:
 
-* **Programação**--use as mesmas técnicas para decidir se você deve criar uma nova função ou objeto. Uma dessas técnicas é o [princípio da responsabilidade única](https://en.wikipedia.org/wiki/Single_responsibility_principle), ou seja, um componente deve idealmente fazer apenas uma coisa. Se ele acabar crescendo, deve ser decomposto em subcomponentes menores.
+* **Programação**--use as mesmas técnicas para decidir se você deve criar uma nova função ou objeto. Uma dessas técnicas é a [separação de responsabilidades](https://en.wikipedia.org/wiki/Separation_of_concerns), ou seja, um componente deve idealmente se preocupar apenas com uma coisa. Se ele acabar crescendo, deve ser decomposto em subcomponentes menores.
 * **CSS**--considere para o que você faria seletores de classe. (No entanto, os componentes são um pouco menos granulares.)
 * **Design**--considere como você organizaria as camadas do design.
 
@@ -75,7 +75,7 @@ Agora que você identificou os componentes no mockup, organize-os em uma hierarq
 
 Agora que você tem sua hierarquia de componentes, é hora de implementar sua aplicação. A abordagem mais direta é construir uma versão que renderiza a UI a partir do seu modelo de dados sem adicionar qualquer interatividade... ainda! É frequentemente mais fácil construir a versão estática primeiro e adicionar interatividade depois. Construir uma versão estática requer muito digitação e nenhum pensamento, mas adicionar interatividade requer muito pensamento e pouca digitação.
 
-Para construir uma versão estática de sua aplicação que renderiza seu modelo de dados, você vai querer construir [componentes](/learn/your-first-component) que reutilizam outros componentes e passam dados usando [props.](/learn/passing-props-to-a-component) Props são uma forma de passar dados de pai para filho. (Se você está familiarizado com o conceito de [state](/learn/state-a-components-memory), não use state de forma alguma para construir esta versão estática. State é reservado apenas para interatividade, ou seja, dados that change over time. Como esta é uma versão estática da aplicação, você não precisa dele.)
+Para construir uma versão estática de sua aplicação que renderiza seu modelo de dados, você vai querer construir [componentes](/learn/your-first-component) que reutilizam outros componentes e passam dados usando [props.](/learn/passing-props-to-a-component) Props são uma forma de passar dados de pai para filho. (Se você está familiarizado com o conceito de [state](/learn/state-a-components-memory), não use state de forma alguma para construir esta versão estática. State é reservado apenas para interatividade, ou seja, dados que mudam ao longo to tempo. Como esta é uma versão estática da aplicação, você não precisa dele.)
 
 Você pode construir "de cima para baixo" começando com a construção dos componentes mais altos na hierarquia (como `FilterableProductTable`) ou "de baixo para cima" trabalhando a partir de componentes mais baixos (como `ProductRow`). Em exemplos mais simples, é geralmente mais fácil ir de cima para baixo, e em projetos maiores, é mais fácil ir de baixo para cima.
 
@@ -278,17 +278,17 @@ Adicione state ao componente com o [`useState()` Hook.](/reference/react/useStat
 ```js
 function FilterableProductTable({ products }) {
   const [filterText, setFilterText] = useState('');
-  const [inStockOnly, setInStockOnly] = useState(false);  
+  const [inStockOnly, setInStockOnly] = useState(false);
 ```
 
 Em seguida, passe `filterText` e `inStockOnly` para `ProductTable` e `SearchBar` como props:
 
 ```js
 <div>
-  <SearchBar 
-    filterText={filterText} 
+  <SearchBar
+    filterText={filterText}
     inStockOnly={inStockOnly} />
-  <ProductTable 
+  <ProductTable
     products={products}
     filterText={filterText}
     inStockOnly={inStockOnly} />
@@ -308,10 +308,10 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly} />
-      <ProductTable 
+      <ProductTable
         products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
@@ -389,13 +389,13 @@ function ProductTable({ products, filterText, inStockOnly }) {
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} 
+      <input
+        type="text"
+        value={filterText}
         placeholder="Search..."/>
       <label>
-        <input 
-          type="checkbox" 
+        <input
+          type="checkbox"
           checked={inStockOnly} />
         {' '}
         Only show products in stock
@@ -451,9 +451,9 @@ No sandbox acima, `ProductTable` e `SearchBar` leem as props `filterText` e `inS
 function SearchBar({ filterText, inStockOnly }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} 
+      <input
+        type="text"
+        value={filterText}
         placeholder="Search..."/>
 ```
 
@@ -463,7 +463,7 @@ No entanto, você ainda não adicionou nenhum código para responder às ações
 
 Atualmente sua aplicação renderiza corretamente com props e state fluindo pela hierarquia. Mas para alterar o state de acordo com a entrada do usuário, você precisará suportar dados fluindo no outro sentido: os componentes de formulário profundos na hierarquia precisam atualizar o state em `FilterableProductTable`.
 
-O React torna este fluxo de dados explícito, mas requer um pouco mais de digitação do que vinculação de dados bidirecional. Se você tentar digitar ou marcar a caixa no exemplo acima, verá que o React ignora sua entrada. Isso é intencional. Ao escrever `<input value={filterText} />`, você definiu a prop `value` do `input` para sempre ser igual ao state `filterText` passado de `FilterableProductTable`. Como o state `filterText` nunca é definido, a entrada nunca muda.
+Atualmente sua aplicação renderiza corretamente com props e state fluindo pela hierarquia. Mas para alterar o state de acordo com a entrada do usuário, você precisará suportar dados fluindo no outro sentido: os componentes de formulário profundos na hierarquia precisam atualizar o state em `FilterableProductTable`.
 
 Você quer fazer com que sempre que o usuário altere as entradas do formulário, o state atualize para refletir essas mudanças. O state é possuído por `FilterableProductTable`, então apenas ele pode chamar `setFilterText` e `setInStockOnly`. Para permitir que `SearchBar` atualize o state de `FilterableProductTable`, você precisa passar essas funções para `SearchBar`:
 
@@ -474,8 +474,8 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
+      <SearchBar
+        filterText={filterText}
         inStockOnly={inStockOnly}
         onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
@@ -518,13 +518,13 @@ function FilterableProductTable({ products }) {
 
   return (
     <div>
-      <SearchBar 
-        filterText={filterText} 
-        inStockOnly={inStockOnly} 
-        onFilterTextChange={setFilterText} 
+      <SearchBar
+        filterText={filterText}
+        inStockOnly={inStockOnly}
+        onFilterTextChange={setFilterText}
         onInStockOnlyChange={setInStockOnly} />
-      <ProductTable 
-        products={products} 
+      <ProductTable
+        products={products}
         filterText={filterText}
         inStockOnly={inStockOnly} />
     </div>
@@ -606,14 +606,14 @@ function SearchBar({
 }) {
   return (
     <form>
-      <input 
-        type="text" 
-        value={filterText} placeholder="Search..." 
+      <input
+        type="text"
+        value={filterText} placeholder="Search..."
         onChange={(e) => onFilterTextChange(e.target.value)} />
       <label>
-        <input 
-          type="checkbox" 
-          checked={inStockOnly} 
+        <input
+          type="checkbox"
+          checked={inStockOnly}
           onChange={(e) => onInStockOnlyChange(e.target.checked)} />
         {' '}
         Only show products in stock
