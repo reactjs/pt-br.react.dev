@@ -6,7 +6,7 @@ title: Configuration
 
 Esta página lista todas as opções de configuração disponíveis no React Compiler.
 
-</Note>
+</Intro>
 
 <Note>
 
@@ -29,7 +29,7 @@ module.exports = {
 
 ---
 
-## Controle de Compilação {/*compilation-control*/}
+## Controle de compilação {/*compilation-control*/}
 
 Estas opções controlam *o quê* o compilador otimiza e *como* ele seleciona componentes e hooks para compilar.
 
@@ -43,7 +43,7 @@ Estas opções controlam *o quê* o compilador otimiza e *como* ele seleciona co
 
 ---
 
-## Compatibilidade de Versão {/*version-compatibility*/}
+## Compatibilidade de versão {/*version-compatibility*/}
 
 A configuração da versão do React garante que o compilador gere código compatível com sua versão do React.
 
@@ -58,7 +58,7 @@ A configuração da versão do React garante que o compilador gere código compa
 
 ---
 
-## Tratamento de Erros {/*error-handling*/}
+## Tratamento de erros {/*error-handling*/}
 
 Estas opções controlam como o compilador responde a código que não segue as [Regras do React](/reference/rules).
 
@@ -93,7 +93,7 @@ Opções de log e análise ajudam você a entender o que o compilador está faze
 
 ---
 
-## Flags de Funcionalidade {/*feature-flags*/}
+## Flags de funcionalidade {/*feature-flags*/}
 
 A compilação condicional permite que você controle quando o código otimizado é usado.
 
@@ -110,7 +110,7 @@ A compilação condicional permite que você controle quando o código otimizado
 
 ---
 
-## Padrões Comuns de Configuração {/*common-patterns*/}
+## Padrões comuns de configuração {/*common-patterns*/}
 
 ### Configuração padrão {/*default-configuration*/}
 
@@ -139,7 +139,7 @@ npm install react-compiler-runtime@latest
 }
 ```
 
-### Adoção Incremental {/*incremental-adoption*/}
+### Adoção incremental {/*incremental-adoption*/}
 
 Comece com diretórios específicos e expanda gradualmente:
 
