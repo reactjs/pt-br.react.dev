@@ -33,7 +33,7 @@ function MessageComponent({ messagePromise }) {
 
 Ao contrário dos React Hooks, `use` pode ser chamado dentro de loops e instruções condicionais como `if`. Como os React Hooks, a função que chama `use` deve ser um Componente ou Hook.
 
-Quando chamado com uma Promise, a API `use` se integra com [`Suspense`](/reference/react/Suspense) e [error boundaries](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). O componente que chama `use` *suspende* enquanto a Promise passada para `use` está pendente. Se o componente que chama `use` for encapsulado em um limite Suspense, o fallback será exibido. Uma vez que a Promise for resolvida, o fallback Suspense é substituído pelos componentes renderizados usando os dados retornados pela API `use`. Se a Promise passada para `use` for rejeitada, o fallback do Error Boundary mais próximo será exibido.
+Quando chamado com uma Promise, a API `use` se integra com [`Suspense`](/reference/react/Suspense) e [Error Boundaries](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). O componente que chama `use` *suspende* enquanto a Promise passada para `use` está pendente. Se o componente que chama `use` for encapsulado em um limite Suspense, o fallback será exibido. Uma vez que a Promise for resolvida, o fallback Suspense é substituído pelos componentes renderizados usando os dados retornados pela API `use`. Se a Promise passada para `use` for rejeitada, o fallback do Error Boundary mais próximo será exibido.
 
 [Veja mais exemplos abaixo.](#usage)
 
@@ -64,7 +64,7 @@ import { use } from 'react';
 
 function Button() {
   const theme = use(ThemeContext);
-  // ... 
+  // ...
 ```
 
 `use` retorna o <CodeStep step={2}>valor do contexto</CodeStep> para o <CodeStep step={1}>contexto</CodeStep> que você passou. Para determinar o valor do contexto, o React pesquisa na árvore de componentes e encontra **o provider de contexto mais próximo acima** para aquele contexto específico.
@@ -320,16 +320,16 @@ Mas usar `await` em um [Server Component](/reference/rsc/server-components) bloq
 
 Em alguns casos, uma Promise passada para `use` pode ser rejeitada. Você pode lidar com Promises rejeitadas de duas formas:
 
-1. [Exibir um erro para os usuários com um error boundary.](#displaying-an-error-to-users-with-error-boundary)
+1. [Exibir um erro para os usuários com um Error Boundary.](#displaying-an-error-to-users-with-error-boundary)
 2. [Fornecer um valor alternativo com `Promise.catch`](#providing-an-alternative-value-with-promise-catch)
 
 <Pitfall>
 `use` não pode ser chamado em um bloco try-catch. Em vez de um bloco try-catch [envolva seu componente em um Error Boundary](#displaying-an-error-to-users-with-error-boundary), ou [forneça um valor alternativo para usar com o método `.catch` da Promise](#providing-an-alternative-value-with-promise-catch).
 </Pitfall>
 
-#### Exibindo um erro para os usuários com um error boundary {/*displaying-an-error-to-users-with-error-boundary*/}
+#### Exibindo um erro para os usuários com um Error Boundary {/*displaying-an-error-to-users-with-error-boundary*/}
 
-Se você deseja exibir um erro para seus usuários quando uma Promise é rejeitada, pode usar um [error boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar um error boundary, envolva o componente onde você está chamando a API `use` em um error boundary. Se a Promise passada para `use` for rejeitada, o fallback para o error boundary será exibido.
+Se você deseja exibir um erro para seus usuários quando uma Promise é rejeitada, pode usar um [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar um Error Boundary, envolva o componente onde você está chamando a API `use` em um Error Boundary. Se a Promise passada para `use` for rejeitada, o fallback para o Error Boundary será exibido.
 
 <Sandpack>
 
@@ -440,7 +440,7 @@ Para usar o método <CodeStep step={1}>`catch`</CodeStep> da Promise, chame <Cod
 
 ### "Suspense Exception: This is not a real error!" {/*suspense-exception-error*/}
 
-Você está chamando `use` fora de um Componente ou função Hook do React, ou chamando `use` em um bloco try-catch. Se você estiver chamando `use` dentro de um bloco try-catch, envolva seu componente em um error boundary, ou chame o `catch` da Promise para capturar o erro e resolver a Promise com outro valor. [Veja estes exemplos](#dealing-with-rejected-promises).
+Você está chamando `use` fora de um Componente ou função Hook do React, ou chamando `use` em um bloco try-catch. Se você estiver chamando `use` dentro de um bloco try-catch, envolva seu componente em um Error Boundary, ou chame o `catch` da Promise para capturar o erro e resolver a Promise com outro valor. [Veja estes exemplos](#dealing-with-rejected-promises).
 
 Se você estiver chamando `use` fora de um Componente ou função Hook do React, mova a chamada `use` para um Componente ou função Hook do React.
 
@@ -456,7 +456,7 @@ Em vez disso, chame `use` fora de quaisquer fechamentos de componente, onde a fu
 
 ```jsx
 function MessageComponent({messagePromise}) {
-  // ✅ `use` está sendo chamado de um componente. 
+  // ✅ `use` está sendo chamado de um componente.
   const message = use(messagePromise);
   // ...
 ```

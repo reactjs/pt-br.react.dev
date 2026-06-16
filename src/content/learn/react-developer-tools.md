@@ -11,7 +11,7 @@ Use a ferramenta de desenvolvedor do React para inspecionar [componentes](/learn
 
 <YouWillLearn>
 
-* Como instalar React Developer Tools
+* Como instalar o React Developer Tools
 
 </YouWillLearn>
 

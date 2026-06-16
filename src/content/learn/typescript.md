@@ -20,7 +20,7 @@ TypeScript é uma forma popular de adicionar definições de tipos à bases de c
 
 ## Instalação {/*installation*/}
 
-Todos os [frameworks React em produção](/learn/start-a-new-react-project#full-stack-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
+Todos os [frameworks React em produção](/learn/creating-a-react-app#full-stack-frameworks) oferecem suporte para o uso de TypeScript. Siga o guia específico do framework para instalação:
 
 - [Next.js](https://nextjs.org/docs/app/building-your-application/configuring/typescript)
 - [Remix](https://remix.run/docs/en/1.19.2/guides/typescript)
@@ -130,7 +130,7 @@ Entretanto, podemos observar alguns exemplos de como fornecer tipos para hooks.
 
 ### `useState` {/*typing-usestate*/}
 
-O [hook `useState`](/reference/react/useState) irá reutilizar o valor passado como state inicial para determinar qual o tipo o valor deve ser. Por exemplo: 
+O [hook `useState`](/reference/react/useState) irá reutilizar o valor passado como state inicial para determinar qual o tipo o valor deve ser. Por exemplo:
 
 ```ts
 // Tipo inferido como "boolean"

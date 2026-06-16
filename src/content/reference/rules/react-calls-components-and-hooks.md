@@ -21,7 +21,7 @@ function BlogPost() {
 }
 ```
 
-```js {2}
+```js {expectedErrors: {'react-compiler': [2]}} {2}
 function BlogPost() {
   return <Layout>{Article()}</Layout>; // 🔴 Ruim: Nunca os chame diretamente
 }
@@ -51,7 +51,7 @@ Quebrar essa regra fará com que o React não otimize automaticamente seu compon
 
 Os Hooks devem ser o mais "estáticos" possível. Isso significa que você não deve mudá-los dinamicamente. Por exemplo, isso significa que você não deve escrever Hooks de alta ordem:
 
-```js {2}
+```js {expectedErrors: {'react-compiler': [2, 3]}} {2}
 function ChatInput() {
   const useDataWithLogging = withLogging(useData); // 🔴 Ruim: não escreva Hooks de alta ordem
   const data = useDataWithLogging();
@@ -74,7 +74,7 @@ function useDataWithLogging() {
 
 Os Hooks também não devem ser usados dinamicamente: por exemplo, em vez de fazer injeção de dependência em um componente passando um Hook como valor:
 
-```js {2}
+```js {expectedErrors: {'react-compiler': [2]}} {2}
 function ChatInput() {
   return <Button useData={useDataWithLogging} /> // 🔴 Ruim: não passe Hooks como props
 }
