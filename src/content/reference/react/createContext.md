@@ -32,7 +32,7 @@ const ThemeContext = createContext('light');
 
 #### Parâmetros {/*parameters*/}
 
-* `defaultValue`: O valor que você quer que o contexto tenha quando não há um provedor de contexto correspondente na árvore acima do componente que lê o contexto. Se você não tem um valor padrão significativo, especifique `null`. O valor padrão é um "último recurso" reserva. Ele é estático e nunca muda com o tempo. 
+* `defaultValue`: O valor que você quer que o contexto tenha quando não há um provedor de contexto correspondente na árvore acima do componente que lê o contexto. Se você não tem um valor padrão significativo, especifique `null`. O valor padrão é um "último recurso" reserva. Ele é estático e nunca muda com o tempo.
 
 #### Retornos {/*returns*/}
 
@@ -64,7 +64,7 @@ function App() {
 
 <Note>
 
-Starting in React 19, you can render `<SomeContext>` as a provider. 
+Starting in React 19, you can render `<SomeContext>` as a provider.
 
 In older versions of React, use `<SomeContext.Provider>`.
 

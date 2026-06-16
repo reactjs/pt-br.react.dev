@@ -28,23 +28,30 @@ React-dom contém recursos que são suportados apenas por aplicativos da web (qu
 * [APIs](/reference/react-dom) - O pacote `react-dom` contém métodos suportados apenas em aplicações web.
 * [APIs do cliente](/reference/react-dom/client) - As APIs `react-dom/client` permitem renderizar componentes do React no cliente (no navegador).
 * [APIs de servidor](/reference/react-dom/server) - As APIs `react-dom/server` permitem renderizar componentes React para HTML no servidor.
+* [APIs estáticas](/reference/react-dom/static) - As APIs `react-dom/static` permitem gerar HTML estático para componentes React.
 
 ## React Compiler {/*react-compiler*/}
 
-The React Compiler is a build-time optimization tool that automatically memoizes your React components and values:
+O React Compiler é uma ferramenta de otimização em tempo de compilação que memoriza automaticamente seus componentes e valores React:
 
-* [Configuration](/reference/react-compiler/configuration) - Configuration options for React Compiler.
-* [Directives](/reference/react-compiler/directives) - Function-level directives to control compilation.
-* [Compiling Libraries](/reference/react-compiler/compiling-libraries) - Guide for shipping pre-compiled library code.
+* [Configuração](/reference/react-compiler/configuration) - Opções de configuração para o React Compiler.
+* [Diretivas](/reference/react-compiler/directives) - Diretivas em nível de função para controlar a compilação.
+* [Compilando Bibliotecas](/reference/react-compiler/compiling-libraries) - Guia para distribuir código de biblioteca pré-compilado.
 
-## Rules of React {/*rules-of-react*/}
+## ESLint Plugin React Hooks {/*eslint-plugin-react-hooks*/}
 
-React has idioms — or rules — for how to express patterns in a way that is easy to understand and yields high-quality applications:
+O [ESLint plugin para React Hooks](/reference/eslint-plugin-react-hooks) ajuda a impor as Regras do React:
 
-* [Components and Hooks must be pure](/reference/rules/components-and-hooks-must-be-pure) – Purity makes your code easier to understand, debug, and allows React to automatically optimize your components and hooks correctly.
-* [React calls Components and Hooks](/reference/rules/react-calls-components-and-hooks) – React is responsible for rendering components and hooks when necessary to optimize the user experience.
-* [Rules of Hooks](/reference/rules/rules-of-hooks) – Hooks are defined using JavaScript functions, but they represent a special type of reusable UI logic with restrictions on where they can be called.
+* [Lints](/reference/eslint-plugin-react-hooks) - Documentação detalhada para cada lint com exemplos.
 
-## Legacy APIs {/*legacy-apis*/}
+## Regras do React {/*rules-of-react*/}
 
-* [Legacy APIs](/reference/react/legacy) - Exportado do pacote `react`, mas não recomendado para uso em código recém-escrito.
+React tem idiomas — ou regras — sobre como expressar padrões de uma forma que seja fácil de entender e gere aplicativos de alta qualidade:
+
+* [Componentes e Hooks devem ser puros](/reference/rules/components-and-hooks-must-be-pure) – A pureza torna seu código mais fácil de entender, depurar e permite que o React otimize automaticamente seus componentes e hooks corretamente.
+* [React chama Componentes e Hooks](/reference/rules/react-calls-components-and-hooks) – O React é responsável por renderizar componentes e hooks quando necessário para otimizar a experiência do usuário.
+* [Regras dos Hooks](/reference/rules/rules-of-hooks) – Hooks são definidos usando funções JavaScript, mas representam um tipo especial de lógica de UI reutilizável com restrições sobre onde podem ser chamados.
+
+## APIs Legadas {/*legacy-apis*/}
+
+* [APIs Legadas](/reference/react/legacy) - Exportado do pacote `react`, mas não recomendado para uso em código recém-escrito.
