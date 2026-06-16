@@ -62,7 +62,7 @@
       "canary": true,
       "routes": [
         {
-          "title": "Introduction",
+          "title": "Introdução",
           "path": "/learn/react-compiler/introduction"
         },
         {
@@ -85,8 +85,8 @@
     },
     {
       "title": "Descrevendo a IU",
-      "tags": [],
       "path": "/learn/describing-the-ui",
+      "tags": ["foundation"],
       "routes": [
         {
           "title": "Seu Primeiro Componente",
@@ -121,7 +121,7 @@
           "path": "/learn/keeping-components-pure"
         },
         {
-          "title": "Your UI as a Tree",
+          "title": "Sua interface de usuário como uma árvore",
           "path": "/learn/understanding-your-ui-as-a-tree"
         }
       ]
