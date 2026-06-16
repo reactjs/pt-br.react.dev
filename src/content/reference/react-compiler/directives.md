@@ -1,14 +1,13 @@
 ---
 title: Directives
 ---
-
 <Intro>
-React Compiler directives are special string literals that control whether specific functions are compiled.
+Diretivas do Compilador React são literais de string especiais que controlam se funções específicas são compiladas.
 </Intro>
 
 ```js
 function MyComponent() {
-  "use memo"; // Opt this component into compilation
+  "use memo"; // Otimiza este componente para compilação
   return <div>{/* ... */}</div>;
 }
 ```
@@ -17,86 +16,86 @@ function MyComponent() {
 
 ---
 
-## Overview {/*overview*/}
+## Visão Geral {/*overview*/}
 
-React Compiler directives provide fine-grained control over which functions are optimized by the compiler. They are string literals placed at the beginning of a function body or at the top of a module.
+Diretivas do Compilador React fornecem controle granular sobre quais funções são otimizadas pelo compilador. Elas são literais de string colocadas no início do corpo de uma função ou no topo de um módulo.
 
-### Available directives {/*available-directives*/}
+### Diretivas disponíveis {/*available-directives*/}
 
-* **[`"use memo"`](/reference/react-compiler/directives/use-memo)** - Opts a function into compilation
-* **[`"use no memo"`](/reference/react-compiler/directives/use-no-memo)** - Opts a function out of compilation
+* **[`"use memo"`](/reference/react-compiler/directives/use-memo)** - Otimiza uma função para compilação
+* **[`"use no memo"`](/reference/react-compiler/directives/use-no-memo)** - Impede a otimização de uma função para compilação
 
-### Quick comparison {/*quick-comparison*/}
+### Comparação rápida {/*quick-comparison*/}
 
-| Directive | Purpose | When to use |
+| Diretiva | Propósito | Quando usar |
 |-----------|---------|-------------|
-| [`"use memo"`](/reference/react-compiler/directives/use-memo) | Force compilation | When using `annotation` mode or to override `infer` mode heuristics |
-| [`"use no memo"`](/reference/react-compiler/directives/use-no-memo) | Prevent compilation | Debugging issues or working with incompatible code |
+| [`"use memo"`](/reference/react-compiler/directives/use-memo) | Forçar compilação | Ao usar o modo `annotation` ou para substituir heurísticas do modo `infer` |
+| [`"use no memo"`](/reference/react-compiler/directives/use-no-memo) | Prevenir compilação | Para depurar problemas ou trabalhar com código incompatível |
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Function-level directives {/*function-level*/}
+### Diretivas em nível de função {/*function-level*/}
 
-Place directives at the beginning of a function to control its compilation:
+Coloque diretivas no início de uma função para controlar sua compilação:
 
 ```js
-// Opt into compilation
+// Otimiza para compilação
 function OptimizedComponent() {
   "use memo";
-  return <div>This will be optimized</div>;
+  return <div>Isso será otimizado</div>;
 }
 
-// Opt out of compilation
+// Impede a otimização para compilação
 function UnoptimizedComponent() {
   "use no memo";
-  return <div>This won't be optimized</div>;
+  return <div>Isso não será otimizado</div>;
 }
 ```
 
-### Module-level directives {/*module-level*/}
+### Diretivas em nível de módulo {/*module-level*/}
 
-Place directives at the top of a file to affect all functions in that module:
+Coloque diretivas no topo de um arquivo para afetar todas as funções nesse módulo:
 
 ```js
-// At the very top of the file
+// No topo do arquivo
 "use memo";
 
-// All functions in this file will be compiled
+// Todas as funções neste arquivo serão compiladas
 function Component1() {
-  return <div>Compiled</div>;
+  return <div>Compilado</div>;
 }
 
 function Component2() {
-  return <div>Also compiled</div>;
+  return <div>Também compilado</div>;
 }
 
-// Can be overridden at function level
+// Pode ser substituído em nível de função
 function Component3() {
-  "use no memo"; // This overrides the module directive
-  return <div>Not compiled</div>;
+  "use no memo"; // Isso substitui a diretiva do módulo
+  return <div>Não compilado</div>;
 }
 ```
 
-### Compilation modes interaction {/*compilation-modes*/}
+### Interação com modos de compilação {/*compilation-modes*/}
 
-Directives behave differently depending on your [`compilationMode`](/reference/react-compiler/compilationMode):
+As diretivas se comportam de maneira diferente dependendo do seu [`compilationMode`](/reference/react-compiler/compilationMode):
 
-* **`annotation` mode**: Only functions with `"use memo"` are compiled
-* **`infer` mode**: Compiler decides what to compile, directives override decisions
-* **`all` mode**: Everything is compiled, `"use no memo"` can exclude specific functions
+* **Modo `annotation`**: Apenas funções com `"use memo"` são compiladas
+* **Modo `infer`**: O compilador decide o que compilar; as diretivas substituem as decisões
+* **Modo `all`**: Tudo é compilado; `"use no memo"` pode excluir funções específicas
 
 ---
 
-## Best practices {/*best-practices*/}
+## Melhores práticas {/*best-practices*/}
 
-### Use directives sparingly {/*use-sparingly*/}
+### Use diretivas com moderação {/*use-sparingly*/}
 
-Directives are escape hatches. Prefer configuring the compiler at the project level:
+Diretivas são "escape hatches" (saídas de emergência). Prefira configurar o compilador no nível do projeto:
 
 ```js
-// ✅ Good - project-wide configuration
+// ✅ Bom - configuração para todo o projeto
 {
   plugins: [
     ['babel-plugin-react-compiler', {
@@ -105,70 +104,70 @@ Directives are escape hatches. Prefer configuring the compiler at the project le
   ]
 }
 
-// ⚠️ Use directives only when needed
+// ⚠️ Use diretivas apenas quando necessário
 function SpecialCase() {
-  "use no memo"; // Document why this is needed
+  "use no memo"; // Documente por que isso é necessário
   // ...
 }
 ```
 
-### Document directive usage {/*document-usage*/}
+### Documente o uso de diretivas {/*document-usage*/}
 
-Always explain why a directive is used:
+Sempre explique por que uma diretiva está sendo usada:
 
 ```js
-// ✅ Good - clear explanation
+// ✅ Bom - explicação clara
 function DataGrid() {
-  "use no memo"; // TODO: Remove after fixing issue with dynamic row heights (JIRA-123)
-  // Complex grid implementation
+  "use no memo"; // TODO: Remover após corrigir problema com alturas de linha dinâmicas (JIRA-123)
+  // Implementação complexa de grade
 }
 
-// ❌ Bad - no explanation
+// ❌ Ruim - sem explicação
 function Mystery() {
   "use no memo";
   // ...
 }
 ```
 
-### Plan for removal {/*plan-removal*/}
+### Planeje a remoção {/*plan-removal*/}
 
-Opt-out directives should be temporary:
+Diretivas de exclusão devem ser temporárias:
 
-1. Add the directive with a TODO comment
-2. Create a tracking issue
-3. Fix the underlying problem
-4. Remove the directive
+1. Adicione a diretiva com um comentário TODO
+2. Crie um issue de rastreamento
+3. Corrija o problema subjacente
+4. Remova a diretiva
 
 ```js
 function TemporaryWorkaround() {
-  "use no memo"; // TODO: Remove after upgrading ThirdPartyLib to v2.0
+  "use no memo"; // TODO: Remover após atualizar ThirdPartyLib para v2.0
   return <ThirdPartyComponent />;
 }
 ```
 
 ---
 
-## Common patterns {/*common-patterns*/}
+## Padrões comuns {/*common-patterns*/}
 
-### Gradual adoption {/*gradual-adoption*/}
+### Adoção gradual {/*gradual-adoption*/}
 
-When adopting the React Compiler in a large codebase:
+Ao adotar o Compilador React em uma base de código grande:
 
 ```js
-// Start with annotation mode
+// Comece com o modo annotation
 {
   compilationMode: 'annotation'
 }
 
-// Opt in stable components
+// Otimize componentes estáveis
 function StableComponent() {
   "use memo";
-  // Well-tested component
+  // Componente bem testado
 }
 
-// Later, switch to infer mode and opt out problematic ones
+// Mais tarde, mude para o modo infer e otimize componentes problemáticos
 function ProblematicComponent() {
-  "use no memo"; // Fix issues before removing
+  "use no memo"; // Corrija os problemas antes de remover
   // ...
 }
 ```
@@ -176,23 +175,23 @@ function ProblematicComponent() {
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-For specific issues with directives, see the troubleshooting sections in:
+Para problemas específicos com diretivas, consulte as seções de solução de problemas em:
 
-* [`"use memo"` troubleshooting](/reference/react-compiler/directives/use-memo#troubleshooting)
-* [`"use no memo"` troubleshooting](/reference/react-compiler/directives/use-no-memo#troubleshooting)
+* [Solução de problemas de `"use memo"`](/reference/react-compiler/directives/use-memo#troubleshooting)
+* [Solução de problemas de `"use no memo"`](/reference/react-compiler/directives/use-no-memo#troubleshooting)
 
-### Common issues {/*common-issues*/}
+### Problemas comuns {/*common-issues*/}
 
-1. **Directive ignored**: Check placement (must be first) and spelling
-2. **Compilation still happens**: Check `ignoreUseNoForget` setting
-3. **Module directive not working**: Ensure it's before all imports
+1. **Diretiva ignorada**: Verifique a posição (deve ser a primeira) e a ortografia
+2. **Compilação ainda ocorre**: Verifique a configuração `ignoreUseNoForget`
+3. **Diretiva de módulo não funciona**: Certifique-se de que ela esteja antes de todas as importações
 
 ---
 
-## See also {/*see-also*/}
+## Veja também {/*see-also*/}
 
-* [`compilationMode`](/reference/react-compiler/compilationMode) - Configure how the compiler chooses what to optimize
-* [`Configuration`](/reference/react-compiler/configuration) - Full compiler configuration options
-* [React Compiler documentation](https://react.dev/learn/react-compiler) - Getting started guide
+* [`compilationMode`](/reference/react-compiler/compilationMode) - Configure como o compilador escolhe o que otimizar
+* [`Configuration`](/reference/react-compiler/configuration) - Opções completas de configuração do compilador
+* [Documentação do Compilador React](https://react.dev/learn/react-compiler) - Guia de início rápido
