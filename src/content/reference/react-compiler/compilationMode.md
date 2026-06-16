@@ -3,7 +3,7 @@ title: compilationMode
 ---
 <Intro>
 
-A opção `compilationMode` controla como o Compilador React seleciona quais funções compilar.
+A opção `compilationMode` controla como o React Compiler seleciona quais funções compilar.
 
 </Intro>
 
@@ -21,7 +21,7 @@ A opção `compilationMode` controla como o Compilador React seleciona quais fun
 
 ### `compilationMode` {/*compilationmode*/}
 
-Controla a estratégia para determinar quais funções o Compilador React otimizará.
+Controla a estratégia para determinar quais funções o React Compiler otimizará.
 
 #### Tipo {/*type*/}
 
@@ -153,7 +153,7 @@ function helper(data) {
 }
 ```
 
-### Otimizando para fora de funções específicas {/*opting-out*/}
+### Desativando funções específicas {/*opting-out*/}
 
 Independentemente do modo de compilação, use `"use no memo"` para pular a compilação:
 
