@@ -59,7 +59,7 @@ Embora inicialmente tenhamos focado em Server Actions para transferência de dad
 
 As Ações agora estão disponíveis no canal Canary e serão lançadas na próxima versão do React.
 
-## Novos Recursos no React Canary {/*new-features-in-react-canary*/}
+## Novos recursos no React Canary {/*new-features-in-react-canary*/}
 
 Introduzimos [React Canaries](/blog/2023/05/03/react-canaries) como uma opção para adotar recursos estáveis individuais assim que seu design estiver próximo de ser finalizado, antes de serem lançados em uma versão semver estável.
 
@@ -81,7 +81,7 @@ Antes de podermos lançar um conjunto de recursos para o canal Estável, precisa
 
 O conjunto atual de recursos no React Canary está completo e pronto para ser lançado.
 
-## A Próxima Versão Principal do React {/*the-next-major-version-of-react*/}
+## A vróxima versão principal do React {/*the-next-major-version-of-react*/}
 
 Após alguns anos de iteração, `react@canary` está agora pronto para ser lançado para `react@latest`. Os novos recursos mencionados acima são compatíveis com qualquer ambiente em que seu aplicativo seja executado, fornecendo tudo o que é necessário para uso em produção. Como Asset Loading e Document Metadata podem ser uma mudança disruptiva para alguns aplicativos, a próxima versão do React será uma versão principal: **React 19**.
 
