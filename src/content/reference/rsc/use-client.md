@@ -41,7 +41,7 @@ export default function RichTextEditor({ timestamp, text }) {
 }
 ```
 
-Quando um arquivo marcado com `'use client'` é importado de um Componente do Servidor, [empacotadores compatíveis](/learn/start-a-new-react-project#full-stack-frameworks) tratarão a importação do módulo como uma fronteira entre código executado no servidor e código executado no cliente.
+Quando um arquivo marcado com `'use client'` é importado de um Componente do Servidor, [empacotadores compatíveis](/learn/creating-a-react-app#full-stack-frameworks) tratarão a importação do módulo como uma fronteira entre código executado no servidor e código executado no cliente.
 
 Como dependências de `RichTextEditor`, `formatDate` e `Button` também serão avaliados no cliente, independentemente de seus módulos conterem uma diretiva `'use client'`. Note que um único módulo pode ser avaliado no servidor quando importado de código do servidor e no cliente quando importado de código do cliente.
 
@@ -260,8 +260,8 @@ Props serializáveis incluem:
 	* [undefined](https://developer.mozilla.org/pt-BR/docs/Glossary/Undefined)
 	* [null](https://developer.mozilla.org/pt-BR/docs/Glossary/Null)
 	* [symbol](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Symbol), apenas símbolos registrados no registro global de símbolos via [`Symbol.for`](https://developer.mozilla.org/
-  
-  
+
+
   /docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
 * Iteráveis contendo valores serializáveis
 	* [String](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String)

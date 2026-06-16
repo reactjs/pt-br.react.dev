@@ -177,7 +177,7 @@ Durante a próxima renderização, o React percorre a fila de states:
 | "substituir por `5`" | `0` (não usado) | `5` |
 | `n => n + 1` | `5` | `5 + 1 = 6` |
 
-O React armazena `6` como o resultado final e o retorna de `useState`. 
+O React armazena `6` como o resultado final e o retorna de `useState`.
 
 <Note>
 
@@ -303,7 +303,7 @@ export default function RequestTracker() {
         Concluídos: {completed}
       </h3>
       <button onClick={handleClick}>
-        Comprar     
+        Comprar
       </button>
     </>
   );
@@ -347,7 +347,7 @@ export default function RequestTracker() {
         Concluídos: {completed}
       </h3>
       <button onClick={handleClick}>
-        Comprar     
+        Comprar
       </button>
     </>
   );

@@ -1,30 +1,24 @@
 ---
-title: unstable_addTransitionType
-version: experimental
+title: addTransitionType
+version: canary
 ---
 
-<Experimental>
+<Canary>
 
-**This API is experimental and is not available in a stable version of React yet.**
+**A API `addTransitionType` está atualmente disponível apenas nos canais Canary e Experimental do React.**
 
-You can try it by upgrading React packages to the most recent experimental version:
+[Saiba mais sobre os canais de lançamento do React aqui.](/community/versioning-policy#all-release-channels)
 
-- `react@experimental`
-- `react-dom@experimental`
-- `eslint-plugin-react-hooks@experimental`
-
-Experimental versions of React may contain bugs. Don't use them in production.
-
-</Experimental>
+</Canary>
 
 <Intro>
 
-`unstable_addTransitionType` lets you specify the cause of a transition.
+`addTransitionType` permite que você especifique a causa de uma transição.
 
 
 ```js
 startTransition(() => {
-  unstable_addTransitionType('my-transition-type');
+  addTransitionType('my-transition-type');
   setState(newState);
 });
 ```
@@ -35,38 +29,38 @@ startTransition(() => {
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `addTransitionType` {/*addtransitiontype*/}
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-- `type`: The type of transition to add. This can be any string.
+- `type`: O tipo de transição a ser adicionado. Pode ser qualquer string.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`startTransition` does not return anything.
+`addTransitionType` não retorna nada.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- If multiple transitions are combined, all Transition Types are collected. You can also add more than one type to a Transition.
-- Transition Types are reset after each commit. This means a `<Suspense>` fallback will associate the types after a `startTransition`, but revealing the content does not.
+- Se múltiplas transições forem combinadas, todos os Tipos de Transição são coletados. Você também pode adicionar mais de um tipo a uma Transição.
+- Os Tipos de Transição são redefinidos após cada commit. Isso significa que um fallback de `<Suspense>` associará os tipos após um `startTransition`, mas a revelação do conteúdo não.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Adding the cause of a transition {/*adding-the-cause-of-a-transition*/}
+### Adicionando a causa de uma transição {/*adding-the-cause-of-a-transition*/}
 
-Call `addTransitionType` inside of `startTransition` to indicate the cause of a transition:
+Chame `addTransitionType` dentro de `startTransition` para indicar a causa de uma transição:
 
-``` [[1, 6, "unstable_addTransitionType"], [2, 5, "startTransition", [3, 6, "'submit-click'"]]
-import { startTransition, unstable_addTransitionType } from 'react';
+```js [[1, 6, "addTransitionType"], [2, 5, "startTransition", [3, 6, "'submit-click'"]]]
+import { startTransition, addTransitionType } from 'react';
 
 function Submit({action) {
   function handleClick() {
     startTransition(() => {
-      unstable_addTransitionType('submit-click');
+      addTransitionType('submit-click');
       action();
     });
   }
@@ -76,22 +70,22 @@ function Submit({action) {
 
 ```
 
-When you call <CodeStep step={1}>addTransitionType</CodeStep> inside the scope of <CodeStep step={2}>startTransition</CodeStep>, React will associate <CodeStep step={3}>submit-click</CodeStep> as one of the causes for the Transition.
+Quando você chama <CodeStep step={1}>addTransitionType</CodeStep> dentro do escopo de <CodeStep step={2}>startTransition</CodeStep>, o React associará <CodeStep step={3}>submit-click</CodeStep> como uma das causas para a Transição.
 
-Currently, Transition Types can be used to customize different animations based on what caused the Transition. You have three different ways to choose from for how to use them:
+Atualmente, os Tipos de Transição podem ser usados para personalizar diferentes animações com base no que causou a Transição. Você tem três maneiras diferentes de escolher como usá-los:
 
-- [Customize animations using browser view transition types](#customize-animations-using-browser-view-transition-types)
-- [Customize animations using `View Transition` Class](#customize-animations-using-view-transition-class)
-- [Customize animations using `ViewTransition` events](#customize-animations-using-viewtransition-events) 
+- [Personalizar animações usando tipos de transição de visualização do navegador](#customize-animations-using-browser-view-transition-types)
+- [Personalizar animações usando a Classe `View Transition`](#customize-animations-using-view-transition-class)
+- [Personalizar animações usando eventos `ViewTransition`](#customize-animations-using-viewtransition-events)
 
-In the future, we plan to support more use cases for using the cause of a transition.
+No futuro, planejamos dar suporte a mais casos de uso para a causa de uma transição.
 
 ---
-### Customize animations using browser view transition types {/*customize-animations-using-browser-view-transition-types*/}
+### Personalizar animações usando tipos de transição de visualização do navegador {/*customize-animations-using-browser-view-transition-types*/}
 
-When a [`ViewTransition`](/reference/react/ViewTransition) activates from a transition, React adds all the Transition Types as browser [view transition types](https://www.w3.org/TR/css-view-transitions-2/#active-view-transition-pseudo-examples) to the element.
+Quando uma [`ViewTransition`](/reference/react/ViewTransition) é ativada a partir de uma transição, o React adiciona todos os Tipos de Transição como [tipos de transição de visualização](https://www.w3.org/TR/css-view-transitions-2/#active-view-transition-pseudo-examples) do navegador ao elemento.
 
-This allows you to customize different animations based on CSS scopes:
+Isso permite que você personalize diferentes animações com base em escopos CSS:
 
 ```js [11]
 function Component() {
@@ -103,7 +97,7 @@ function Component() {
 }
 
 startTransition(() => {
-  unstable_addTransitionType('my-transition-type');
+  addTransitionType('my-transition-type');
   setShow(true);
 });
 ```
@@ -118,9 +112,9 @@ startTransition(() => {
 
 ---
 
-### Customize animations using `View Transition` Class {/*customize-animations-using-view-transition-class*/}
+### Personalizar animações usando a Classe `View Transition` {/*customize-animations-using-view-transition-class*/}
 
-You can customize animations for an activated `ViewTransition` based on type by passing an object to the View Transition Class:
+Você pode personalizar animações para uma `ViewTransition` ativada com base no tipo, passando um objeto para a Classe View Transition:
 
 ```js
 function Component() {
@@ -135,14 +129,14 @@ function Component() {
 
 // ...
 startTransition(() => {
-  unstable_addTransitionType('my-transition-type');
+  addTransitionType('my-transition-type');
   setState(newState);
 });
 ```
 
-If multiple types match, then they're joined together. If no types match then the special "default" entry is used instead. If any type has the value "none" then that wins and the ViewTransition is disabled (not assigned a name).
+Se múltiplos tipos corresponderem, eles serão unidos. Se nenhum tipo corresponder, a entrada especial "default" será usada em vez disso. Se algum tipo tiver o valor "none", ele prevalecerá e a ViewTransition será desabilitada (não terá um nome atribuído).
 
-These can be combined with enter/exit/update/layout/share props to match based on kind of trigger and Transition Type.
+Estes podem ser combinados com as props enter/exit/update/layout/share para corresponder com base no tipo de gatilho e Tipo de Transição.
 
 ```js
 <ViewTransition enter={{
@@ -157,9 +151,9 @@ exit={{
 
 ---
 
-### Customize animations using `ViewTransition` events {/*customize-animations-using-viewtransition-events*/}
+### Personalizar animações usando eventos `ViewTransition` {/*customize-animations-using-viewtransition-events*/}
 
-You can imperatively customize animations for an activated `ViewTransition` based on type using View Transition events:
+Você pode personalizar imperativamente animações para uma `ViewTransition` ativada com base no tipo usando eventos View Transition:
 
 ```
 <ViewTransition onUpdate={(inst, types) => {
@@ -173,10 +167,4 @@ You can imperatively customize animations for an activated `ViewTransition` base
 }}>
 ```
 
-This allows you to pick different imperative Animations based on the cause.
-
----
-
-## Troubleshooting {/*troubleshooting*/}
-
-### TODO {/*todo2*/}
+Isso permite que você escolha diferentes Animações imperativas com base na causa.
