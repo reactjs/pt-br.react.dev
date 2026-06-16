@@ -197,7 +197,7 @@ O React espera que o corpo do seu componente [se comporte como uma função pura
 
 Ler ou escrever uma ref **durante a renderização** quebra essas expectativas.
 
-```js {3-4,6-7}
+```js {expectedErrors: {'react-compiler': [4]}} {3-4,6-7}
 function MyComponent() {
   // ...
   // 🚩 Não escreva uma ref durante a renderização
@@ -573,7 +573,7 @@ export default function MyInput({ value, onChange }) {
 }
 ```
 
-E então adicione `ref` para a lista de _props_ que seu componente aceita e passe `ref` como uma prop para o [componente embutido](/reference/react-dom/components/common) relevante como este:
+E então adicione `ref` para a lista de _props_ que seu componente aceita e passe `ref` como uma prop para o [componente embutido](/reference/react-dom/components/common) filho relevante como este:
 
 ```js {1,6}
 function MyInput({ value, onChange, ref }) {

@@ -2078,7 +2078,8 @@ Você pode ver como seu código deve ficar abaixo. Observe que você deverá ver
 <ConsoleBlock level="warning">
 Aviso: cada filho em um array ou iterador deve ter uma propriedade "chave" exclusiva. Verifique o método de renderização de &#96;Game&#96;.
 </ConsoleBlock>
-  
+
+
 Você corrigirá esse erro na próxima seção.
 
 <Sandpack>

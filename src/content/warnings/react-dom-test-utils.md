@@ -2,9 +2,9 @@
 title: Avisos de Depreciação do react-dom/test-utils
 ---
 
-## ReactDOMTestUtils.act() warning {/*reactdomtestutilsact-warning*/}
+## Aviso do ReactDOMTestUtils.act() {/*reactdomtestutilsact-warning*/}
 
-O `act` de `react-dom/test-utils` foi depreciado em favor do `act` do `react`.
+O `act` de `react-dom/test-utils` foi descontinuado em favor do `act` do `react`.
 
 Antes:
 
@@ -18,7 +18,7 @@ Depois:
 import {act} from 'react';
 ```
 
-## Resto das APIs do ReactDOMTestUtils {/*rest-of-reactdomtestutils-apis*/}
+## Restante das APIs do ReactDOMTestUtils {/*rest-of-reactdomtestutils-apis*/}
 
 Todas as APIs, exceto `act`, foram removidas.
 

@@ -422,9 +422,9 @@ Um tipo de manipulador de eventos para os eventos da [API HTML Drag and Drop](ht
 
 * `e`: Um [objeto de evento React](#react-event-object) com estas propriedades extras [`DragEvent`](https://developer.mozilla.org/en-US/docs/Web/API/DragEvent):
   * [`dataTransfer`](https://developer.mozilla.org/en-US/docs/Web/API/DragEvent/dataTransfer)
-  
+
     Ele também inclui as propriedades [`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) herdadas:
-    
+
   * [`altKey`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/altKey)
   * [`button`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button)
   * [`buttons`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/buttons)
@@ -611,7 +611,7 @@ Um tipo de manipulador de eventos para [eventos de ponteiro.](https://developer.
   * [`width`](https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent/width)
 
   Ele também inclui as propriedades [`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) herdadas:
-  
+
   * [`altKey`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/altKey)
   * [`button`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/button)
   * [`buttons`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/buttons)
@@ -791,7 +791,7 @@ import Avatar from './Avatar.js';
 
 const user = {
   name: 'Hedy Lamarr',
-  imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
+  imageUrl: 'https://react.dev/images/docs/scientists/yXOvdOSs.jpg',
   imageSize: 90,
 };
 
