@@ -119,8 +119,8 @@ Você pode usar o [`eslint-plugin-react-hooks` plugin](https://www.npmjs.com/pac
 
 Não chame Hooks de funções JavaScript regulares. Em vez disso, você pode:
 
-✅ Chamar Hooks de componentes de função React.  
-✅ Chamar Hooks de [Hooks personalizados](/learn/reusing-logic-with-custom-hooks#extracting-your-own-custom-hook-from-a-component).  
+✅ Chamar Hooks de componentes de função React.
+✅ Chamar Hooks de [Hooks personalizados](/learn/reusing-logic-with-custom-hooks#extracting-your-own-custom-hook-from-a-component).
 
 Seguindo essa regra, você garante que toda a lógica com estado em um componente seja claramente visível a partir do seu código fonte.
 

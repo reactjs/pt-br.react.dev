@@ -4,10 +4,10 @@ title: prerenderToNodeStream
 
 <Intro>
 
-`prerenderToNodeStream` renderiza uma árvore React em uma string HTML estática usando um [Node.js Stream.](https://nodejs.org/api/stream.html).
+`prerenderToNodeStream` renderiza uma árvore React em uma string HTML estática usando um [Node.js Stream.](https://nodejs.org/api/stream.html)
 
 ```js
-const {prelude} = await prerenderToNodeStream(reactNode, options?)
+const {prelude, postponed} = await prerenderToNodeStream(reactNode, options?)
 ```
 
 </Intro>
@@ -65,6 +65,7 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 `prerenderToNodeStream` retorna uma Promise:
 - Se a renderização for bem-sucedida, a Promise será resolvida para um objeto contendo:
   - `prelude`: um [Node.js Stream.](https://nodejs.org/api/stream.html) de HTML. Você pode usar este stream para enviar uma resposta em chunks, ou pode ler o stream inteiro em uma string.
+  - `postponed`: um objeto opaco serializável em JSON que pode ser passado para [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) se `prerenderToNodeStream` não terminou. Caso contrário, `null` indicando que o `prelude` contém todo o conteúdo e nenhum resume é necessário.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-inside-the-shell)
 
 #### Caveats {/*caveats*/}
@@ -76,6 +77,8 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 ### Quando devo usar `prerenderToNodeStream`? {/*when-to-use-prerender*/}
 
 A API estática `prerenderToNodeStream` é usada para geração estática do lado do servidor (SSG). Diferente de `renderToString`, `prerenderToNodeStream` espera que todos os dados sejam carregados antes de serem resolvidos. Isso o torna adequado para gerar HTML estático para uma página completa, incluindo dados que precisam ser buscados usando Suspense. Para stream de conteúdo conforme ele carrega, use uma API de renderização do lado do servidor (SSR) em streaming como [renderToReadableStream](/reference/react-dom/server/renderToReadableStream).
+
+`prerenderToNodeStream` can be aborted and resumed later with `resumeToPipeableStream` to support partial pre-rendering.
 
 </Note>
 
@@ -311,7 +314,7 @@ async function renderToString() {
 
 Quaisquer limites de Suspense com filhos incompletos serão incluídos no prelude no estado de fallback.
 
----
+This can be used for partial prerendering together with [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) or [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream).
 
 ## Solução de problemas {/*troubleshooting*/}
 
