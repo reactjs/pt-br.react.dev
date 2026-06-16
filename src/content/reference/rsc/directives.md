@@ -10,7 +10,7 @@ Diretivas são para uso em [Componentes do Servidor React](/reference/rsc/server
 
 <Intro>
 
-Diretivas fornecem instruções para [bundlers compatíveis com Componentes do Servidor React](/learn/start-a-new-react-project#full-stack-frameworks).
+Diretivas fornecem instruções para [bundlers compatíveis com Componentes do Servidor React](/learn/creating-a-react-app#full-stack-frameworks).
 
 </Intro>
 

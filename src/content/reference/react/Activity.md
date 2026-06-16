@@ -1,19 +1,10 @@
 ---
 title: <Activity>
-version: canary
 ---
-
-<Canary>
-
-**The `<Activity />` API is currently only available in React’s Canary and Experimental channels.** 
-
-[Learn more about React’s release channels here.](/community/versioning-policy#all-release-channels)
-
-</Canary>
 
 <Intro>
 
-`<Activity>` lets you hide and restore the UI and internal state of its children.
+`<Activity>` permite ocultar e restaurar a interface do usuário e o estado interno de seus filhos.
 
 ```js
 <Activity mode={visibility}>
@@ -27,11 +18,11 @@ version: canary
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `<Activity>` {/*activity*/}
 
-You can use Activity to hide part of your application:
+Você pode usar Activity para ocultar parte de sua aplicação:
 
 ```js [[1, 1, "\\"hidden\\""], [2, 2, "<Sidebar />"], [3, 1, "\\"visible\\""]]
 <Activity mode={isShowingSidebar ? "visible" : "hidden"}>
@@ -39,32 +30,33 @@ You can use Activity to hide part of your application:
 </Activity>
 ```
 
-When an Activity boundary is <CodeStep step={1}>hidden</CodeStep>, React will visually hide <CodeStep step={2}>its children</CodeStep> using the `display: "none"` CSS property. It will also destroy their Effects, cleaning up any active subscriptions.
+Quando um limite de Activity é <CodeStep step={1}>ocultado</CodeStep>, o React ocultará visualmente <CodeStep step={2}>seus filhos</CodeStep> usando a propriedade CSS `display: "none"`. Ele também destruirá seus Efeitos, limpando quaisquer assinaturas ativas.
 
-While hidden, children still re-render in response to new props, albeit at a lower priority than the rest of the content.
+Enquanto ocultos, os filhos ainda são renderizados em resposta a novas props, embora com uma prioridade menor do que o restante do conteúdo.
 
-When the boundary becomes <CodeStep step={3}>visible</CodeStep> again, React will reveal the children with their previous state restored, and re-create their Effects.
+Quando o limite se torna <CodeStep step={3}>visível</CodeStep> novamente, o React revelará os filhos com seu estado anterior restaurado e recriará seus Efeitos.
 
-In this way, Activity can be thought of as a mechanism for rendering "background activity". Rather than completely discarding content that's likely to become visible again, you can use Activity to maintain and restore that content's UI and internal state, while ensuring that your hidden content has no unwanted side effects.
+Dessa forma, Activity pode ser pensado como um mecanismo para renderizar "atividade em segundo plano". Em vez de descartar completamente o conteúdo que provavelmente se tornará visível novamente, você pode usar Activity para manter e restaurar a interface do usuário e o estado interno desse conteúdo, garantindo que seu conteúdo oculto não tenha efeitos colaterais indesejados.
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
 #### Props {/*props*/}
 
-* `children`: The UI you intend to show and hide.
-* `mode`: A string value of either `'visible'` or `'hidden'`. If omitted, defaults to `'visible'`. 
+* `children`: A interface do usuário que você pretende mostrar e ocultar.
+* `mode`: Um valor de string `'visible'` ou `'hidden'`. Se omitido, o padrão é `'visible'`.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- If an Activity is rendered inside of a [ViewTransition](/reference/react/ViewTransition), and it becomes visible as a result of an update caused by [startTransition](/reference/react/startTransition), it will activate the ViewTransition's `enter` animation. If it becomes hidden, it will activate its `exit` animation.
+- Se um Activity for renderizado dentro de uma [ViewTransition](/reference/react/ViewTransition), e se tornar visível como resultado de uma atualização causada por [startTransition](/reference/react/startTransition), ele ativará a animação `enter` da ViewTransition. Se se tornar oculto, ativará sua animação `exit`.
+- Um Activity *oculto* que apenas renderiza texto não renderizará nada em vez de renderizar texto oculto, pois não há um elemento DOM correspondente para aplicar alterações de visibilidade. Por exemplo, `<Activity mode="hidden"><ComponentThatJustReturnsText /></Activity>` não produzirá nenhuma saída no DOM para `const ComponentThatJustReturnsText = () => "Hello, World!"`. `<Activity mode="visible"><ComponentThatJustReturnsText /></Activity>` renderizará texto visível.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Restoring the state of hidden components {/*restoring-the-state-of-hidden-components*/}
+### Restaurando o estado de componentes ocultos {/*restoring-the-state-of-hidden-components*/}
 
-In React, when you want to conditionally show or hide a component, you typically mount or unmount it based on that condition:
+No React, quando você deseja mostrar ou ocultar um componente condicionalmente, você normalmente o monta ou desmonta com base nessa condição:
 
 ```jsx
 {isShowingSidebar && (
@@ -72,9 +64,9 @@ In React, when you want to conditionally show or hide a component, you typically
 )}
 ```
 
-But unmounting a component destroys its internal state, which is not always what you want.
+Mas desmontar um componente destrói seu estado interno, o que nem sempre é o que você deseja.
 
-When you hide a component using an Activity boundary instead, React will "save" its state for later:
+Quando você oculta um componente usando um limite de Activity em vez disso, o React "salvará" seu estado para mais tarde:
 
 ```jsx
 <Activity mode={isShowingSidebar ? "visible" : "hidden"}>
@@ -82,11 +74,11 @@ When you hide a component using an Activity boundary instead, React will "save" 
 </Activity>
 ```
 
-This makes it possible to hide and then later restore components in the state they were previously in.
+Isso torna possível ocultar e, em seguida, restaurar componentes no estado em que estavam anteriormente.
 
-The following example has a sidebar with an expandable section. You can press "Overview" to reveal the three subitems below it. The main app area also has a button that hides and shows the sidebar.
+O exemplo a seguir tem uma barra lateral com uma seção expansível. Você pode pressionar "Overview" para revelar os três subitens abaixo dela. A área principal do aplicativo também tem um botão que oculta e mostra a barra lateral.
 
-Try expanding the Overview section, and then toggling the sidebar closed then open:
+Tente expandir a seção Overview e, em seguida, alternar a barra lateral para fechada e depois aberta:
 
 <Sandpack>
 
@@ -119,7 +111,7 @@ import { useState } from 'react';
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false)
-  
+
   return (
     <nav>
       <button onClick={() => setIsExpanded(!isExpanded)}>
@@ -173,49 +165,33 @@ h1 {
 }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-The Overview section always starts out collapsed. Because we unmount the sidebar when `isShowingSidebar` flips to `false`, all its internal state is lost.
+A seção Overview sempre começa recolhida. Como desmontamos a barra lateral quando `isShowingSidebar` muda para `false`, todo o seu estado interno é perdido.
 
-This is a perfect use case for Activity. We can preserve the internal state of our sidebar, even when visually hiding it.
+Este é um caso de uso perfeito para Activity. Podemos preservar o estado interno de nossa barra lateral, mesmo ao ocultá-la visualmente.
 
-Let's replace the conditional rendering of our sidebar with an Activity boundary:
+Vamos substituir a renderização condicional de nossa barra lateral por um limite de Activity:
 
 ```jsx {7,9}
-// Before
+// Antes
 {isShowingSidebar && (
   <Sidebar />
 )}
 
-// After
+// Depois
 <Activity mode={isShowingSidebar ? 'visible' : 'hidden'}>
   <Sidebar />
 </Activity>
 ```
 
-and check out the new behavior:
+e verificar o novo comportamento:
 
 <Sandpack>
 
 ```js src/App.js active
-import { unstable_Activity as Activity, useState } from 'react';
+import { Activity, useState } from 'react';
+
 import Sidebar from './Sidebar.js';
 
 export default function App() {
@@ -243,7 +219,7 @@ import { useState } from 'react';
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false)
-  
+
   return (
     <nav>
       <button onClick={() => setIsExpanded(!isExpanded)}>
@@ -297,38 +273,21 @@ h1 {
 }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-Our sidebar's internal state is now restored, without any changes to its implementation.
+O estado interno de nossa barra lateral agora é restaurado, sem nenhuma alteração em sua implementação.
 
 ---
 
-### Restoring the DOM of hidden components {/*restoring-the-dom-of-hidden-components*/}
+### Restaurando o DOM de componentes ocultos {/*restoring-the-dom-of-hidden-components*/}
 
-Since Activity boundaries hide their children using `display: none`, their children's DOM is also preserved when hidden. This makes them great for maintaining ephemeral state in parts of the UI that the user is likely to interact with again.
+Como os limites de Activity ocultam seus filhos usando `display: none`, o DOM de seus filhos também é preservado quando oculto. Isso os torna ideais para manter o estado efêmero em partes da interface do usuário com as quais o usuário provavelmente interagirá novamente.
 
-In this example, the Contact tab has a `<textarea>` where the user can enter a message. If you enter some text, change to the Home tab, then change back to the Contact tab, the draft message is lost:
+Neste exemplo, a aba Contato tem um `<textarea>` onde o usuário pode digitar uma mensagem. Se você digitar algum texto, mudar para a aba Home e depois voltar para a aba Contato, a mensagem rascunhada será perdida:
 
 <Sandpack>
 
-```js src/App.js 
+```js src/App.js
 import { useState } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
@@ -408,33 +367,16 @@ b { display: inline-block; margin-right: 10px; }
 .pending { color: #777; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-This is because we're fully unmounting `Contact` in `App`. When the Contact tab unmounts, the `<textarea>` element's internal DOM state is lost.
+Isso ocorre porque estamos desmontando completamente `Contact` em `App`. Quando a aba Contato é desmontada, o estado DOM interno do elemento `<textarea>` é perdido.
 
-If we switch to using an Activity boundary to show and hide the active tab, we can preserve the state of each tab's DOM. Try entering text and switching tabs again, and you'll see the draft message is no longer reset:
+Se mudarmos para usar um limite de Activity para mostrar e ocultar a aba ativa, podemos preservar o estado DOM de cada aba. Tente digitar texto e alternar as abas novamente, e você verá que a mensagem rascunhada não é mais redefinida:
 
 <Sandpack>
 
 ```js src/App.js active
-import { useState, unstable_Activity as Activity } from 'react';
+import { Activity, useState } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
 import Contact from './Contact.js';
@@ -492,7 +434,7 @@ export default function Home() {
 }
 ```
 
-```js src/Contact.js 
+```js src/Contact.js
 export default function Contact() {
   return (
     <div>
@@ -517,34 +459,17 @@ b { display: inline-block; margin-right: 10px; }
 .pending { color: #777; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-Again, the Activity boundary let us preserve the Contact tab's internal state without changing its implementation.
+Novamente, o limite de Activity nos permitiu preservar o estado interno da aba Contato sem alterar sua implementação.
 
 ---
 
-### Pre-rendering content that's likely to become visible {/*pre-rendering-content-thats-likely-to-become-visible*/}
+### Pré-renderizando conteúdo que provavelmente se tornará visível {/*pre-rendering-content-thats-likely-to-become-visible*/}
 
-So far, we've seen how Activity can hide some content that the user has interacted with, without discarding that content's ephemeral state.
+Até agora, vimos como Activity pode ocultar algum conteúdo com o qual o usuário interagiu, sem descartar o estado efêmero desse conteúdo.
 
-But Activity boundaries can also be used to _prepare_ content that the user has yet to see for the first time:
+Mas os limites de Activity também podem ser usados para _preparar_ conteúdo que o usuário ainda não viu pela primeira vez:
 
 ```jsx [[1, 1, "\\"hidden\\""]]
 <Activity mode="hidden">
@@ -552,13 +477,13 @@ But Activity boundaries can also be used to _prepare_ content that the user has 
 </Activity>
 ```
 
-When an Activity boundary is <CodeStep step={1}>hidden</CodeStep> during its initial render, its children won't be visible on the page — but they will _still be rendered_, albeit at a lower priority than the visible content, and without mounting their Effects.
+Quando um limite de Activity é <CodeStep step={1}>ocultado</CodeStep> durante sua renderização inicial, seus filhos não serão visíveis na página — mas eles _ainda serão renderizados_, embora com uma prioridade menor do que o conteúdo visível, e sem montar seus Efeitos.
 
-This _pre-rendering_ allows the children to load any code or data they need ahead of time, so that later, when the Activity boundary becomes visible, the children can appear faster with reduced loading times.
+Essa _pré-renderização_ permite que os filhos carreguem qualquer código ou dados de que precisam com antecedência, para que, mais tarde, quando o limite de Activity se tornar visível, os filhos possam aparecer mais rapidamente com tempos de carregamento reduzidos.
 
-Let's look at an example.
+Vamos ver um exemplo.
 
-In this demo, the Posts tab loads some data. If you press it, you'll see a Suspense fallback displayed while the data is being fetched:
+Nesta demonstração, a aba Posts carrega alguns dados. Se você a pressionar, verá um fallback de Suspense exibido enquanto os dados estão sendo buscados:
 
 <Sandpack>
 
@@ -684,35 +609,18 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-This is because `App` doesn't mount `Posts` until its tab is active.
+Isso ocorre porque `App` não monta `Posts` até que sua aba esteja ativa.
 
-If we update `App` to use an Activity boundary to show and hide the active tab, `Posts` will be pre-rendered when the app first loads, allowing it to fetch its data before it becomes visible.
+Se atualizarmos `App` para usar um limite de Activity para mostrar e ocultar a aba ativa, `Posts` será pré-renderizado quando o aplicativo for carregado pela primeira vez, permitindo que ele busque seus dados antes de se tornar visível.
 
-Try clicking the Posts tab now:
+Tente clicar na aba Posts agora:
 
 <Sandpack>
 
 ```js src/App.js
-import { useState, Suspense, unstable_Activity as Activity } from 'react';
+import { Activity, useState, Suspense } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
 import Posts from './Posts.js';
@@ -837,55 +745,37 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-`Posts` was able to prepare itself for a faster render, thanks to the hidden Activity boundary.
+`Posts` foi capaz de se preparar para uma renderização mais rápida, graças ao limite de Activity oculto.
 
 ---
 
-Pre-rendering components with hidden Activity boundaries is a powerful way to reduce loading times for parts of the UI that the user is likely to interact with next.
+A pré-renderização de componentes com limites de Activity ocultos é uma maneira poderosa de reduzir os tempos de carregamento para partes da interface do usuário com as quais o usuário provavelmente interagirá em seguida.
 
 <Note>
 
-**Only Suspense-enabled data sources will be fetched during pre-rendering.** They include:
+**Apenas fontes de dados habilitadas para Suspense serão buscadas durante a pré-renderização.** Elas incluem:
 
-- Data fetching with Suspense-enabled frameworks like [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) and [Next.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)
-- Lazy-loading component code with [`lazy`](/reference/react/lazy)
-- Reading the value of a cached Promise with [`use`](/reference/react/use)
+- Busca de dados com frameworks habilitados para Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) e [Next.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)
+- Carregamento preguiçoso de código de componente com [`lazy`](/reference/react/lazy)
+- Leitura do valor de uma Promise em cache com [`use`](/reference/react/use)
 
-Activity **does not** detect data that is fetched inside an Effect.
+Activity **não** detecta dados que são buscados dentro de um Effect.
 
-The exact way you would load data in the `Posts` component above depends on your framework. If you use a Suspense-enabled framework, you'll find the details in its data fetching documentation.
+A maneira exata como você buscaria dados no componente `Posts` acima depende do seu framework. Se você usar um framework habilitado para Suspense, encontrará os detalhes em sua documentação de busca de dados.
 
-Suspense-enabled data fetching without the use of an opinionated framework is not yet supported. The requirements for implementing a Suspense-enabled data source are unstable and undocumented. An official API for integrating data sources with Suspense will be released in a future version of React. 
+A busca de dados habilitada para Suspense sem o uso de um framework opinativo ainda não é suportada. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
 
 </Note>
 
 ---
 
+### Acelerando interações durante o carregamento da página {/*speeding-up-interactions-during-page-load*/}
 
-### Speeding up interactions during page load {/*speeding-up-interactions-during-page-load*/}
+O React inclui uma otimização de desempenho "por baixo dos panos" chamada Hidratação Seletiva. Ela funciona hidratando o HTML inicial de seu aplicativo _em blocos_, permitindo que alguns componentes se tornem interativos mesmo que outros componentes na página ainda não tenham carregado seu código ou dados.
 
-React includes an under-the-hood performance optimization called Selective Hydration. It works by hydrating your app's initial HTML _in chunks_, enabling some components to become interactive even if other components on the page haven't loaded their code or data yet.
-
-Suspense boundaries participate in Selective Hydration, because they naturally divide your component tree into units that are independent from one another:
+Os limites de Suspense participam da Hidratação Seletiva, pois naturalmente dividem sua árvore de componentes em unidades que são independentes umas das outras:
 
 ```jsx
 function Page() {
@@ -901,13 +791,13 @@ function Page() {
 }
 ```
 
-Here, `MessageComposer` can be fully hydrated during the initial render of the page, even before `Chats` is mounted and starts to fetch its data.
+Aqui, `MessageComposer` pode ser totalmente hidratado durante a renderização inicial da página, mesmo antes de `Chats` ser montado e começar a buscar seus dados.
 
-So by breaking up your component tree into discrete units, Suspense allows React to hydrate your app's server-rendered HTML in chunks, enabling parts of your app to become interactive as fast as possible.
+Portanto, ao dividir sua árvore de componentes em unidades discretas, o Suspense permite que o React hidrate o HTML renderizado pelo servidor de seu aplicativo em blocos, permitindo que partes de seu aplicativo se tornem interativas o mais rápido possível.
 
-But what about pages that don't use Suspense?
+Mas e as páginas que não usam Suspense?
 
-Take this tabs example:
+Veja este exemplo de abas:
 
 ```jsx
 function Page() {
@@ -933,9 +823,9 @@ function Page() {
 }
 ```
 
-Here, React must hydrate the entire page all at once. If `Home` or `Video` are slower to render, they could make the tab buttons feel unresponsive during hydration.
+Aqui, o React deve hidratar a página inteira de uma vez. Se `Home` ou `Video` forem mais lentos para renderizar, eles podem fazer com que os botões de aba pareçam não responsivos durante a hidratação.
 
-Adding Suspense around the active tab would solve this:
+Adicionar Suspense em torno da aba ativa resolveria isso:
 
 ```jsx {13,20}
 function Page() {
@@ -963,11 +853,11 @@ function Page() {
 }
 ```
 
-...but it would also change the UI, since the `Placeholder` fallback would be displayed on the initial render.
+...mas também mudaria a interface do usuário, já que o fallback `Placeholder` seria exibido na renderização inicial.
 
-Instead, we can use Activity. Since Activity boundaries show and hide their children, they already naturally divide the component tree into independent units. And just like Suspense, this feature allows them to participate in Selective Hydration.
+Em vez disso, podemos usar Activity. Como os limites de Activity mostram e ocultam seus filhos, eles já dividem naturalmente a árvore de componentes em unidades independentes. E assim como o Suspense, esse recurso permite que eles participem da Hidratação Seletiva.
 
-Let's update our example to use Activity boundaries around the active tab:
+Vamos atualizar nosso exemplo para usar limites de Activity em torno da aba ativa:
 
 ```jsx {13-18}
 function Page() {
@@ -993,13 +883,13 @@ function Page() {
 }
 ```
 
-Now our initial server-rendered HTML looks the same as it did in the original version, but thanks to Activity, React can hydrate the tab buttons first, before it even mounts `Home` or `Video`.
+Agora, nosso HTML inicial renderizado pelo servidor se parece com a versão original, mas graças ao Activity, o React pode hidratar os botões de aba primeiro, antes mesmo de montar `Home` ou `Video`.
 
 ---
 
-Thus, in addition to hiding and showing content, Activity boundaries help improve your app's performance during hydration by letting React know which parts of your page can become interactive in isolation.
+Assim, além de ocultar e mostrar conteúdo, os limites de Activity ajudam a melhorar o desempenho de seu aplicativo durante a hidratação, informando ao React quais partes de sua página podem se tornar interativas isoladamente.
 
-And even if your page doesn't ever hide part of its content, you can still add always-visible Activity boundaries to improve hydration performance:
+E mesmo que sua página nunca oculte parte de seu conteúdo, você ainda pode adicionar limites de Activity sempre visíveis para melhorar o desempenho da hidratação:
 
 ```jsx
 function Page() {
@@ -1012,20 +902,20 @@ function Page() {
       </Activity>
     </>
   );
-} 
+}
 ```
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### My hidden components have unwanted side effects {/*my-hidden-components-have-unwanted-side-effects*/}
+### Meus componentes ocultos têm efeitos colaterais indesejados {/*my-hidden-components-have-unwanted-side-effects*/}
 
-An Activity boundary hides its content by setting `display: none` on its children and cleaning up any of their Effects. So, most well-behaved React components that properly clean up their side effects will already be robust to being hidden by Activity.
+Um limite de `Activity` oculta seu conteúdo definindo `display: none` em seus filhos e limpando quaisquer Efeitos deles. Portanto, a maioria dos componentes React bem comportados que limpam adequadamente seus efeitos colaterais já será robusta para ser ocultada por `Activity`.
 
-But there _are_ some situations where a hidden component behaves differently than an unmounted one. Most notably, since a hidden component's DOM is not destroyed, any side effects from that DOM will persist, even after the component is hidden.
+Mas existem algumas situações em que um componente oculto se comporta de maneira diferente de um desmontado. Notavelmente, como o DOM de um componente oculto não é destruído, quaisquer efeitos colaterais desse DOM persistirão, mesmo após o componente ser ocultado.
 
-As an example, consider a `<video>` tag. Typically it doesn't require any cleanup, because even if you're playing a video, unmounting the tag stops the video and audio from playing in the browser. Try playing the video and then pressing Home in this demo:
+Como exemplo, considere uma tag `<video>`. Normalmente, ela não requer nenhuma limpeza, pois mesmo que você esteja reproduzindo um vídeo, desmontar a tag para a reprodução de vídeo e áudio no navegador. Tente reproduzir o vídeo e depois pressione Home nesta demonstração:
 
 <Sandpack>
 
@@ -1084,7 +974,7 @@ export default function Home() {
 }
 ```
 
-```js src/Video.js 
+```js src/Video.js
 export default function Video() {
   return (
     <video
@@ -1106,37 +996,20 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-The video stops playing as expected.
+O vídeo para de tocar como esperado.
 
-Now, let's say we wanted to preserve the timecode where the user last watched, so that when they tab back to the video, it doesn't start over from the beginning again.
+Agora, digamos que quiséssemos preservar o timecode em que o usuário assistiu pela última vez, para que, quando ele voltasse para o vídeo, ele não recomeçasse do início novamente.
 
-This is a great use case for Activity!
+Este é um ótimo caso de uso para `Activity`!
 
-Let's update `App` to hide the inactive tab with a hidden Activity boundary instead of unmounting it, and see how the demo behaves this time:
+Vamos atualizar `App` para ocultar a aba inativa com um limite de `Activity` oculto em vez de desmontá-la, e ver como a demonstração se comporta desta vez:
 
 <Sandpack>
 
 ```js src/App.js active
-import { useState, unstable_Activity as Activity } from 'react';
+import { Activity, useState } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
 import Video from './Video.js';
@@ -1194,7 +1067,7 @@ export default function Home() {
 }
 ```
 
-```js src/Video.js 
+```js src/Video.js
 export default function Video() {
   return (
     <video
@@ -1216,28 +1089,11 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-Whoops! The video and audio continue to play even after it's been hidden, because the tab's `<video>` element is still in the DOM.
+Ops! O vídeo e o áudio continuam tocando mesmo depois de terem sido ocultados, porque o elemento `<video>` da aba ainda está no DOM.
 
-To fix this, we can add an Effect with a cleanup function that pauses the video:
+Para corrigir isso, podemos adicionar um Efeito com uma função de limpeza que pausa o vídeo:
 
 ```jsx {2,4-10,14}
 export default function VideoTab() {
@@ -1263,14 +1119,14 @@ export default function VideoTab() {
 }
 ```
 
-We call `useLayoutEffect` instead of `useEffect` because conceptually the clean-up code is tied to the component's UI being visually hidden. If we used a regular effect, the code could be delayed by (say) a re-suspending Suspense boundary or a View Transition.
+Chamamos `useLayoutEffect` em vez de `useEffect` porque conceitualmente o código de limpeza está vinculado à ocultação visual da interface do usuário do componente. Se usássemos um efeito regular, o código poderia ser atrasado por (por exemplo) um limite de Suspense de re-suspensão ou uma Transição de Visualização.
 
-Let's see the new behavior. Try playing the video, switching to the Home tab, then back to the Video tab:
+Vamos ver o novo comportamento. Tente reproduzir o vídeo, mudar para a aba Home e depois voltar para a aba Vídeo:
 
 <Sandpack>
 
 ```js src/App.js active
-import { useState, unstable_Activity as Activity } from 'react';
+import { Activity, useState } from 'react';
 import TabButton from './TabButton.js';
 import Home from './Home.js';
 import Video from './Video.js';
@@ -1328,7 +1184,7 @@ export default function Home() {
 }
 ```
 
-```js src/Video.js 
+```js src/Video.js
 import { useRef, useLayoutEffect } from 'react';
 
 export default function Video() {
@@ -1363,50 +1219,33 @@ b { display: inline-block; margin-right: 10px; }
 video { width: 300px; margin-top: 10px; aspect-ratio: 16/9; }
 ```
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest",
-    "toastify-js": "1.12.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 </Sandpack>
 
-It works great! Our cleanup function ensures that the video stops playing if it's ever hidden by an Activity boundary, and even better, because the `<video>` tag is never destroyed, the timecode is preserved, and the video itself doesn't need to be initialized or downloaded again when the user switches back to keep watching it.
+Funciona muito bem! Nossa função de limpeza garante que o vídeo pare de tocar se for ocultado por um limite de `Activity`, e ainda melhor, como a tag `<video>` nunca é destruída, o timecode é preservado, e o próprio vídeo não precisa ser inicializado ou baixado novamente quando o usuário volta para continuar assistindo.
 
-This is a great example of using Activity to preserve ephemeral DOM state for parts of the UI that become hidden, but the user is likely to interact with again soon.
+Este é um ótimo exemplo de uso de `Activity` para preservar o estado efêmero do DOM para partes da interface do usuário que se tornam ocultas, mas com as quais o usuário provavelmente interagirá novamente em breve.
 
 ---
 
-Our example illustrates that for certain tags like `<video>`, unmounting and hiding have different behavior. If a component renders DOM that has a side effect, and you want to prevent that side effect when an Activity boundary hides it, add an Effect with a return function to clean it up.
+Nosso exemplo ilustra que para certas tags como `<video>`, desmontar e ocultar têm comportamentos diferentes. Se um componente renderiza um DOM que tem um efeito colateral, e você deseja impedir esse efeito colateral quando um limite de `Activity` o oculta, adicione um Efeito com uma função de retorno para limpá-lo.
 
-The most common cases of this will be from the following tags:
+Os casos mais comuns disso serão das seguintes tags:
 
   - `<video>`
   - `<audio>`
   - `<iframe>`
 
-Typically, though, most of your React components should already be robust to being hidden by an Activity boundary. And conceptually, you should think of "hidden" Activities as being unmounted.
+Normalmente, porém, a maioria dos seus componentes React já deve ser robusta para ser ocultada por um limite de `Activity`. E conceitualmente, você deve pensar em `Activity` "ocultas" como sendo desmontadas.
 
-To eagerly discover other Effects that don't have proper cleanup, which is important not only for Activity boundaries but for many other behaviors in React, we recommend using [`<StrictMode>`](/reference/react/StrictMode). 
+Para descobrir proativamente outros Efeitos que não possuem limpeza adequada, o que é importante não apenas para os limites de `Activity`, mas para muitos outros comportamentos no React, recomendamos o uso de [`<StrictMode>`](/reference/react/StrictMode).
 
 ---
 
 
-### My hidden components have Effects that aren't running {/*my-hidden-components-have-effects-that-arent-running*/}
+### Meus componentes ocultos têm Efeitos que não estão sendo executados {/*my-hidden-components-have-effects-that-arent-running*/}
 
-When an `<Activity>` is "hidden", all its children's Effects are cleaned up. Conceptually, the children are unmounted, but React saves their state for later. This is a feature of Activity because it means subscriptions won't be active for hidden parts of the UI, reducing the amount of work needed for hidden content.
+Quando um `<Activity>` é "oculto", todos os Efeitos de seus filhos são limpos. Conceitualmente, os filhos são desmontados, mas o React salva seu estado para mais tarde. Este é um recurso do `Activity`, pois significa que as assinaturas não estarão ativas para partes ocultas da interface do usuário, reduzindo a quantidade de trabalho necessária para o conteúdo oculto.
 
-If you're relying on an Effect mounting to clean up a component's side effects, refactor the Effect to do the work in the returned cleanup function instead.
+Se você está contando com a montagem de um Efeito para limpar os efeitos colaterais de um componente, refatore o Efeito para fazer o trabalho na função de limpeza retornada em vez disso.
 
-To eagerly find problematic Effects, we recommend adding [`<StrictMode>`](/reference/react/StrictMode) which will eagerly perform Activity unmounts and mounts to catch any unexpected side-effects. 
+Para encontrar proativamente Efeitos problemáticos, recomendamos adicionar [`<StrictMode>`](/reference/react/StrictMode), que executará proativamente desmontagens e montagens de `Activity` para capturar quaisquer efeitos colaterais inesperados.

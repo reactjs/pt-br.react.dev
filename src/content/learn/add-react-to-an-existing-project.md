@@ -20,7 +20,7 @@ Digamos que você tenha um aplicativo da web existente em `example.com` constru�
 
 Veja como recomendamos configurá-lo:
 
-1. **Construa a parte React do seu aplicativo** usando um dos [frameworks baseados em React](/learn/start-a-new-react-project).
+1. **Construa a parte React do seu aplicativo** usando um dos [frameworks baseados em React](/learn/creating-a-react-app).
 2. **Especifique `/some-app` como o *caminho base*** na configuração do seu framework (veja como: [Next.js](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath), [Gatsby](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/path-prefix/)).
 3. **Configure seu servidor ou um proxy** para que todas as solicitações em `/some-app/` sejam tratadas pelo seu aplicativo React.
 
@@ -149,7 +149,7 @@ root.render(<NavigationBar />);
 
 Observe como o conteúdo HTML original de `index.html` é preservado, mas o seu próprio componente React `NavigationBar` agora aparece dentro do `<nav id="navigation" />` do seu HTML. Leia a documentação de uso do [`createRoot`](/reference/react-dom/client/createRoot#rendering-a-page-partially-built-with-react) para aprender mais sobre como renderizar componentes React dentro de uma página HTML existente.
 
-Quando você adota o React em um projeto existente, é comum começar com pequenos componentes interativos (como botões) e, gradualmente, "subir de nível" até que eventualmente toda a sua página seja construída com React. Se você chegar a esse ponto, recomendamos migrar para [um framework React](/learn/start-a-new-react-project) imediatamente para aproveitar ao máximo o React.
+Quando você adota o React em um projeto existente, é comum começar com pequenos componentes interativos (como botões) e, gradualmente, "subir de nível" até que eventualmente toda a sua página seja construída com React. Se você chegar a esse ponto, recomendamos migrar para [um framework React](/learn/creating-a-react-app) imediatamente para aproveitar ao máximo o React.
 
 ## Usando o React Native em um aplicativo móvel nativo existente {/*using-react-native-in-an-existing-native-mobile-app*/}
 

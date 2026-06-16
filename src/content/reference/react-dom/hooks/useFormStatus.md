@@ -133,7 +133,7 @@ Em vez disso, chame `useFormStatus` de dentro de um componente que está localiz
 ```js
 function Submit() {
   // ✅ `pending` will be derived from the form that wraps the Submit component
-  const { pending } = useFormStatus(); 
+  const { pending } = useFormStatus();
   return <button disabled={pending}>...</button>;
 }
 

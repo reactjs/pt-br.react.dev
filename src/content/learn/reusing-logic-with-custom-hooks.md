@@ -236,7 +236,7 @@ Se o seu linter estiver [configurado para o React,](/learn/editor-setup#linting)
 
 #### Todos os nomes de funções chamadas durante a renderização devem começar com o prefixo use? {/*should-all-functions-called-during-rendering-start-with-the-use-prefix*/}
 
-Não. Funções que não *chamam* Hooks não precisam *ser* Hooks. 
+Não. Funções que não *chamam* Hooks não precisam *ser* Hooks.
 
 Se sua função não chama nenhum Hook, evite o prefixo `use`. Em vez disso, escreva-a como uma função regular *sem* o prefixo `use`. Por exemplo, se a função `useSorted` abaixo não chama Hooks, você pode chamá-la de `getSorted`:
 
@@ -837,12 +837,6 @@ Sempre que o componente `ChatRoom` é renderizado novamente, ele passa as últim
 
 ### Passando manipuladores de eventos para Hooks personalizados {/*passing-event-handlers-to-custom-hooks*/}
 
-<Wip>
-
-Esta seção descreve uma **API experimental que ainda não foi lançada** em uma versão estável do React.
-
-</Wip>
-
 Conforme você começa a usar o `useChatRoom` em mais componentes, pode ser desejável permitir que os componentes personalizem seu comportamento. Por exemplo, atualmente, a lógica do que fazer quando uma mensagem chega está codificada diretamente no Hook:
 
 ```js {9-11}
@@ -985,7 +979,7 @@ export default function ChatRoom({ roomId }) {
 
 ```js src/useChatRoom.js
 import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 import { createConnection } from './chat.js';
 
 export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {
@@ -1070,8 +1064,8 @@ export function showNotification(message, theme = 'dark') {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "latest",
+    "react-dom": "latest",
     "react-scripts": "latest",
     "toastify-js": "1.12.0"
   },
@@ -1666,7 +1660,7 @@ export default function App() {
 
 ```js src/useFadeIn.js active
 import { useState, useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export function useFadeIn(ref, duration) {
   const [isRunning, setIsRunning] = useState(true);
@@ -1713,22 +1707,6 @@ html, body { min-height: 300px; }
   text-align: center;
   font-size: 50px;
   background-image: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-}
-```
-
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
 }
 ```
 
@@ -2205,22 +2183,6 @@ Parece que o seu Hook `useInterval` aceita um ouvinte de evento como argumento. 
 
 <Sandpack>
 
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
-
 ```js
 import { useCounter } from './useCounter.js';
 import { useInterval } from './useInterval.js';
@@ -2252,7 +2214,7 @@ export function useCounter(delay) {
 
 ```js src/useInterval.js
 import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export function useInterval(onTick, delay) {
   useEffect(() => {
@@ -2275,22 +2237,6 @@ Isso permitirá que você omita `onTick` das dependências do seu Effect. O Effe
 Com essa alteração, ambos os intervalos funcionam como esperado e não interferem um no outro:
 
 <Sandpack>
-
-```json package.json hidden
-{
-  "dependencies": {
-    "react": "experimental",
-    "react-dom": "experimental",
-    "react-scripts": "latest"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
 
 
 ```js
@@ -2324,7 +2270,7 @@ export function useCounter(delay) {
 
 ```js src/useInterval.js active
 import { useEffect } from 'react';
-import { experimental_useEffectEvent as useEffectEvent } from 'react';
+import { useEffectEvent } from 'react';
 
 export function useInterval(callback, delay) {
   const onTick = useEffectEvent(callback);

@@ -59,7 +59,7 @@ import { useContext } from 'react';
 
 function Button() {
   const theme = useContext(ThemeContext);
-  // ... 
+  // ...
 ```
 
 `useContext` retorna o <CodeStep step={2}>valor do contexto</CodeStep> para o <CodeStep step={1}>contexto</CodeStep> que você passou. Para determinar o valor do contexto, o React pesquisa na árvore de componentes e encontra **o provedor de contexto mais próximo acima** para esse contexto específico.
@@ -844,7 +844,7 @@ export default function AddTask() {
           type: 'added',
           id: nextId++,
           text: text,
-        }); 
+        });
       }}>Adicionar</button>
     </>
   );
@@ -1291,7 +1291,7 @@ export const LevelContext = createContext(0);
 
 Você pode passar qualquer valor via contexto, incluindo objetos e funções.
 
-```js [[2, 10, "{ currentUser, login }"]] 
+```js [[2, 10, "{ currentUser, login }"]]
 function MyApp() {
   const [currentUser, setCurrentUser] = useState(null);
 
