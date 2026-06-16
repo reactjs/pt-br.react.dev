@@ -46,7 +46,7 @@ function EmptyNote () {
   async function createNoteAction() {
     // Função do Servidor
     'use server';
-    
+
     await db.notes.create();
   }
 
@@ -59,8 +59,8 @@ Quando o React renderiza o Componente do Servidor `EmptyNote`, ele criará uma r
 ```js {5}
 "use client";
 
-export default function Button({onClick}) { 
-  console.log(onClick); 
+export default function Button({onClick}) {
+  console.log(onClick);
   // {$$typeof: Symbol.for("react.server.reference"), $$id: 'createNoteAction'}
   return <button onClick={() => onClick()}>Create Empty Note</button>
 }
@@ -132,7 +132,7 @@ function UpdateName() {
       }
     })
   }
-  
+
   return (
     <form action={submitAction}>
       <input type="text" name="name" disabled={isPending}/>

@@ -595,7 +595,7 @@ export default function TabButton({ action, children, isActive }) {
     <button onClick={() => {
       startTransition(async () => {
         // await the action that's passed in.
-        // This allows it to be either sync or async. 
+        // This allows it to be either sync or async.
         await action();
       });
     }}>
@@ -662,7 +662,7 @@ export default function TabButton({ action, children, isActive }) {
     <button onClick={async () => {
       startTransition(async () => {
         // await the action that's passed in.
-        // This allows it to be either sync or async. 
+        // This allows it to be either sync or async.
         await action();
       });
     }}>
@@ -680,7 +680,7 @@ export default function AboutTab() {
 }
 ```
 
-```js src/PostsTab.js
+```js {expectedErrors: {'react-compiler': [19, 20]}} src/PostsTab.js
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
@@ -701,7 +701,7 @@ const PostsTab = memo(function PostsTab() {
 function SlowPost({ index }) {
   let startTime = performance.now();
   while (performance.now() - startTime < 1) {
-    // Não fazer nada por 1 ms por item para simular um código extremamente lento  
+    // Não fazer nada por 1 ms por item para simular um código extremamente lento
   }
 
   return (
@@ -740,7 +740,7 @@ b { display: inline-block; margin-right: 10px; }
 
 <Note>
 
-When exposing an `action` prop from a component, you should `await` it inside the transition. 
+When exposing an `action` prop from a component, you should `await` it inside the transition.
 
 This allows the `action` callback to be either synchronous or asynchronous without requiring an additional `startTransition` to wrap the `await` in the action.
 
@@ -835,7 +835,7 @@ export default function AboutTab() {
 }
 ```
 
-```js src/PostsTab.js
+```js {expectedErrors: {'react-compiler': [19, 20]}} src/PostsTab.js
 import { memo } from 'react';
 
 const PostsTab = memo(function PostsTab() {
@@ -1005,7 +1005,7 @@ export default function ContactTab() {
 ```
 
 ```js data.js hidden
-// Observação: a forma como você realiza a busca de dados depende do 
+// Observação: a forma como você realiza a busca de dados depende do
 // framework que você utiliza em conjunto com o Suspense.
 // Normalmente, a lógica de cache estaria dentro de um framework.
 
@@ -1242,7 +1242,7 @@ function Router() {
 
 Isso é recomendado por três razões:
 
-- [As transições são interrompíveis,](#marking-a-state-update-as-a-non-blocking-transition) o que permite que o usuário clique em outro lugar sem esperar a re-renderização ser concluída.
+- [As transições são interrompíveis,](#perform-non-blocking-updates-with-actions) o que permite que o usuário clique em outro lugar sem esperar a re-renderização ser concluída.
 - [As transições evitam indicadores de carregamento indesejados,](#preventing-unwanted-loading-indicators) o que permite que o usuário evite saltos bruscos na navegação.
 - [As transições esperam por todas as ações pendentes](#perform-non-blocking-updates-with-actions) o que permite que o usuário espere que os efeitos colaterais sejam concluídos antes que a nova página seja exibida.
 
@@ -1800,7 +1800,7 @@ export default function App({}) {
   const [isPending, startTransition] = useTransition();
   // Store the actual quantity in separate state to show the mismatch.
   const [clientQuantity, setClientQuantity] = useState(1);
-  
+
   const updateQuantityAction = newQuantity => {
     setClientQuantity(newQuantity);
 
@@ -1835,7 +1835,7 @@ export default function Item({action}) {
     startTransition(async () => {
       await action(e.target.value);
     });
-  }  
+  }
   return (
     <div className="item">
       <span>Eras Tour Tickets</span>
@@ -2001,7 +2001,7 @@ export default function Item({action}) {
     startTransition(() => {
       action(e.target.value);
     });
-  }  
+  }
   return (
     <div className="item">
       <span>Eras Tour Tickets</span>

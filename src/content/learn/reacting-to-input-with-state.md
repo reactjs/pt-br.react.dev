@@ -1,5 +1,5 @@
 ---
-title: Reagindo à entrada de dados com state 
+title: Reagindo à entrada de dados com state
 ---
 
 <Intro>
@@ -81,7 +81,7 @@ function disable(el) {
 }
 
 function submitForm(answer) {
-   // Simula que está acessando a rede. 
+   // Simula que está acessando a rede.
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (answer.toLowerCase() === 'istanbul') {
@@ -208,7 +208,7 @@ export default function Form({
     <>
       <h2>Questionário sobre cidades</h2>
       <p>
-        Em qual cidade há um outdoor que transforma ar em água potável? 
+        Em qual cidade há um outdoor que transforma ar em água potável?
       </p>
       <form>
         <textarea disabled={
@@ -452,7 +452,7 @@ export default function Form() {
           answer.length === 0 ||
           status === 'submitting'
         }>
-          Enviar 
+          Enviar
         </button>
         {error !== null &&
           <p className="Error">
@@ -465,7 +465,7 @@ export default function Form() {
 }
 
 function submitForm(answer) {
-  // Simula que está acessando a rede. 
+  // Simula que está acessando a rede.
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       let shouldError = answer.toLowerCase() !== 'lima'
@@ -518,7 +518,7 @@ export default function Picture() {
       <img
         className="picture"
         alt="Casas de arco-íris em Kampung Pelangi, Indonésia"
-        src="https://i.imgur.com/5qwVYb1.jpeg"
+        src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
       />
     </div>
   );
@@ -594,7 +594,7 @@ export default function Picture() {
         }}
         className={pictureClassName}
         alt="Casas de arco-íris em Kampung Pelangi, Indonésia"
-        src="https://i.imgur.com/5qwVYb1.jpeg"
+        src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
       />
     </div>
   );
@@ -649,7 +649,7 @@ export default function Picture() {
         <img
           className="picture picture--active"
           alt="Casas de arco-íris em Kampung Pelangi, Indonésia"
-          src="https://i.imgur.com/5qwVYb1.jpeg"
+          src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
           onClick={e => e.stopPropagation()}
         />
       </div>
@@ -660,7 +660,7 @@ export default function Picture() {
       <img
         className="picture"
         alt="Casas de arco-íris em Kampung Pelangi, Indonésia"
-        src="https://i.imgur.com/5qwVYb1.jpeg"
+        src="https://react.dev/images/docs/scientists/5qwVYb1.jpeg"
         onClick={() => setIsActive(true)}
       />
     </div>
@@ -1045,10 +1045,10 @@ function setIsEditing(value) {
 function updateDOM() {
   if (isEditing) {
     editButton.textContent = 'Salvar Perfil';
-    // TODO: exibir entradas, ocultar conteúdo 
+    // TODO: exibir entradas, ocultar conteúdo
   } else {
     editButton.textContent = 'Editar Perfil';
-    // TODO: ocultar entradas, exibir conteúdo 
+    // TODO: ocultar entradas, exibir conteúdo
   }
   // TODO: atualizar os rótulos de texto
 }

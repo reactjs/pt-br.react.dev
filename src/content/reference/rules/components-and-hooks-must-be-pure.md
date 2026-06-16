@@ -29,7 +29,7 @@ Concretamente, isto significa que a lógica de renderização pode ser executada
 
 O React é declarativo: você diz ao React _o que_ renderizar, e o React vai descobrir _como_ melhor exibir isso para o seu usuário. Para fazer isso, o React tem algumas fases onde ele executa seu código. Você não precisa saber sobre todas essas fases para usar bem o React. Mas em um nível alto, você deve saber qual código é executado em um _render_, e o que é executado fora dele.
 
-_Renderização_ refere-se ao cálculo de como deve ser a próxima versão da sua UI. Após a renderização, [Effects](/reference/react/useEffect) são _flushed_ (significando que eles são executados até que não haja mais nenhum) e podem atualizar o cálculo se os Effects tiverem impactos no layout. O React pega esse novo cálculo e o compara com o cálculo usado para criar a versão anterior da sua UI, então _compromete_ apenas as mudanças mínimas necessárias para o [DOM](https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model) (o que o seu usuário realmente vê) para atualizá-lo para a versão mais recente.
+_Renderização_ refere-se ao cálculo de como deve ser a próxima versão da sua UI. Após a renderização, o React pega esse novo cálculo e o compara com o cálculo usado para criar a versão anterior da sua UI, então _compromete_ apenas as mudanças mínimas necessárias para o [DOM](https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model) (o que o seu usuário realmente vê) para atualizá-lo para a versão mais recente. Em seguida, os [Effects](/learn/synchronizing-with-effects) são _flushed_ (significando que eles são executados até que não haja mais nenhum). Para informações mais detalhadas, veja a documentação sobre [Render](/learn/render-and-commit) e [Commit e Effect Hooks](/reference/react/hooks#effect-hooks).
 
 <DeepDive>
 
@@ -211,7 +211,7 @@ Você pode pensar nos valores de props e state como snapshots que são atualizad
 ### Não alterar Props {/*props*/}
 As props são imutáveis porque, se as alterar, a aplicação produzirá resultados inconsistentes, o que pode ser difícil de depurar, uma vez que pode ou não funcionar, dependendo das circunstâncias.
 
-```js {2}
+```js {expectedErrors: {'react-compiler': [2]}} {2}
 function Post({ item }) {
   item.url = new Url(item.url, base); // 🔴 Mau: nunca alterar diretamente as props
   return <Link url={item.url}>{item.title}</Link>;
@@ -234,7 +234,7 @@ const [stateVariable, setter] = useState(0);
 
 Em vez de atualizar a variável de estado no local, precisamos atualizá-la usando a função setter que é retornada por `useState`. Alterar valores na variável state não faz com que o componente seja atualizado, deixando seus usuários com uma UI desatualizada. Usar a função setter informa ao React que o state foi alterado e que precisamos enfileirar uma nova renderização para atualizar a interface do usuário.
 
-```js {5}
+```js {expectedErrors: {'react-compiler': [2, 5]}} {5}
 function Counter() {
   const [count, setCount] = useState(0);
 
@@ -272,7 +272,7 @@ function Counter() {
 
 Uma vez que os valores são passados para um hook, não deve modificá-los. Como os props em JSX, os valores tornam-se imutáveis quando passados para um hook.
 
-```js {4}
+```js {expectedErrors: {'react-compiler': [4]}} {4}
 function useIconStyle(icon) {
   const theme = useContext(ThemeContext);
   if (icon.enabled) {
@@ -333,7 +333,7 @@ Não altere os valores depois de eles terem sido usados no JSX. Mova a mutação
 
 Quando você usa JSX em uma expressão, o React pode avaliar avidamente o JSX antes que o componente termine de renderizar. Isso significa que mutar valores depois que eles foram passados para o JSX pode levar a UIs desatualizadas, já que o React não saberá atualizar a saída do componente.
 
-```js {4}
+```js {expectedErrors: {'react-compiler': [4]}} {4}
 function Page({ colour }) {
   const styles = { colour, size: "large" };
   const header = <Header styles={styles} />;
