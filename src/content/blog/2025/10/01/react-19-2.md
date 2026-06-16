@@ -231,7 +231,7 @@ Além disso, as APIs de prerender agora retornam um estado `postpone` para passa
 
 ### Agrupamento de Limites Suspense para SSR {/*batching-suspense-boundaries-for-ssr*/}
 
-Corrigimos um bug comportamental onde os limites Suspense seriam revelados de forma diferente dependendo se foram renderizados no cliente ou ao fazer streaming do renderização do lado do servidor.
+Corrigimos um bug comportamental onde os limites Suspense seriam revelados de forma diferente dependendo se foram renderizados no cliente ou ao fazer streaming da renderização do lado do servidor.
 
 A partir do 19.2, o React agrupará as revelações de limites Suspense renderizados pelo servidor por um curto período, para permitir que mais conteúdo seja revelado em conjunto e se alinhe com o comportamento renderizado pelo cliente.
 
