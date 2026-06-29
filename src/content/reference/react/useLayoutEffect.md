@@ -47,7 +47,11 @@ function Tooltip() {
 
 #### Parâmetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `setup`: A função com a lógica do seu *Effect* (efeito). Sua função de configuração também pode opcionalmente retornar uma função de limpeza (*cleanup*). Antes que o seu [componente faça commit](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom), o React executará a sua função de configuração. Após cada commit com as dependências alteradas, o React primeiro executará a função de limpeza (se fornecida) com os valores antigos e, em seguida, executará a sua função de configuração com os novos valores. Antes que o seu componente seja removido do DOM, o React executará a sua função de limpeza.
+=======
+* `setup`: The function with your Effect's logic. Your setup function may also optionally return a *cleanup* function. After your [component commits](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom) to the DOM and before the browser repaints the screen, React will run your setup function. After every commit with changed dependencies, React will first run the cleanup function (if you provided it) with the old values, and then run your setup function with the new values. Before your component is removed from the DOM, React will run your cleanup function.
+>>>>>>> 152a471aa9ac2f6f0f3e64c04f39da790d40cf61
 
 * **opcional** `dependencies`: A lista de todos os valores reativos referenciados dentro do código de `setup`. Valores reativos incluem *props*, *states* e todas as variáveis e funções declaradas diretamente no *body* do seu componente. Se o seu linter estiver [configurado para o React](/learn/editor-setup#linting), ele verificará se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita inline, como por exemplo: `[dep1, dep2, dep3]`. O React fará uma comparação de cada dependência com seu valor anterior usando o [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se você omitir esse argumento, seu *Effect* (efeito) será executado novamente após cada commit do componente.
 
