@@ -1007,7 +1007,11 @@ Derivar o estado leva a um código prolixo e dificulta a reflexão sobre seus co
 
 #### Ressalvas {/*static-getderivedstatefromprops-caveats*/}
 
+<<<<<<< HEAD
 - Este método é disparado em *cada* renderização, independentemente da causa. Isso é diferente de [`UNSAFE_componentWillReceiveProps`](#unsafe_cmoponentwillreceiveprops), que só é disparado quando os pais causam uma nova renderização e não como resultado de um `setState` local.
+=======
+- This method is fired on *every* render, regardless of the cause. This is different from [`UNSAFE_componentWillReceiveProps`](#unsafe_componentwillreceiveprops), which only fires when the parent causes a re-render and not as a result of a local `setState`.
+>>>>>>> 6be2b020a0cabf2fd6dbff5c42c399b8ac323bca
 
 - Este método não tem acesso à instância do componente. Se você quiser, poderá reutilizar algum código entre `static getDerivedStateFromProps` e os outros métodos de classe, extraindo funções puras das props e do estado do componente fora da definição da classe.
 
