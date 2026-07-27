@@ -13,7 +13,11 @@ description: Como compartilhamos na publicação, React 18 apresenta novos recur
 
 Como compartilhamos no [post de lançamento](/blog/2022/03/29/react-v18), React 18 apresenta recursos impulsionados por nosso novo renderizador concorrente, com uma estratégia de adoção gradual para aplicativos existentes. Neste artigo, vamos guiá-lo através das etapas para a atualização para o React 18.
 
+<<<<<<< HEAD
 Por favor, [relate quaisquer problemas](https://github.com/facebook/react/issues/new/choose) que você encontrar ao atualizar para React 18.
+=======
+Please [report any issues](https://github.com/react/react/issues/new/choose) you encounter while upgrading to React 18.
+>>>>>>> 7b6c3ceb9dd97249e9dce4a8a94e61aed6424698
 
 </Intro>
 
@@ -314,11 +318,19 @@ Se você precisar oferecer suporte ao Internet Explorer, recomendamos que você 
 
 ### React {/*react*/}
 
+<<<<<<< HEAD
 * **Os componentes agora podem renderizar `undefined`:** O React não avisa mais se você retornar `undefined` de um componente. Isso torna os valores de retorno de componentes permitidos consistentes com os valores que são permitidos no meio de uma árvore de componentes. Sugerimos o uso de um linter para evitar erros como esquecer uma declaração `return` antes do JSX.
 * **Em testes, os avisos `act` agora são opt-in:** Se você estiver executando testes ponta a ponta, os avisos `act` são desnecessários. Introduzimos um mecanismo [opt-in](https://github.com/reactwg/react-18/discussions/102) para que você possa habilitá-los apenas para testes de unidade, onde são úteis e benéficos.
 * **Sem aviso sobre `setState` em componentes desmontados:** Anteriormente, o React avisava sobre vazamentos de memória quando você chamava `setState` em um componente desmontado. Este aviso foi adicionado para assinaturas, mas as pessoas encontram principalmente isso em cenários em que a configuração do state está ok, e as soluções alternativas tornam o código pior. [Removemos](https://github.com/facebook/react/pull/22114) este aviso.
 * **Sem supressão de logs do console:** Quando você usa o Modo estrito, o React renderiza cada componente duas vezes para ajudá-lo a encontrar efeitos colaterais inesperados. No React 17, suprimimos os logs do console para uma das duas renderizações para facilitar a leitura dos logs. Em resposta ao [feedback da comunidade](https://github.com/facebook/react/issues/21783) sobre isso ser confuso, removemos a supressão. Em vez disso, se você tiver o React DevTools instalado, as renderizações do segundo log serão exibidas em cinza e haverá uma opção (desativada por padrão) para suprimi-las completamente.
 * **Uso de memória aprimorado:** O React agora limpa mais campos internos na desmontagem, tornando o impacto de vazamentos de memória não corrigidos que podem existir no código do seu aplicativo menos grave.
+=======
+* **Components can now render `undefined`:** React no longer warns if you return `undefined` from a component. This makes the allowed component return values consistent with values that are allowed in the middle of a component tree. We suggest to use a linter to prevent mistakes like forgetting a `return` statement before JSX.
+* **In tests, `act` warnings are now opt-in:** If you're running end-to-end tests, the `act` warnings are unnecessary. We've introduced an [opt-in](https://github.com/reactwg/react-18/discussions/102) mechanism so you can enable them only for unit tests where they are useful and beneficial.
+* **No warning about `setState` on unmounted components:** Previously, React warned about memory leaks when you call `setState` on an unmounted component. This warning was added for subscriptions, but people primarily run into it in scenarios where setting state is fine, and workarounds make the code worse. We've [removed](https://github.com/react/react/pull/22114) this warning.
+* **No suppression of console logs:** When you use Strict Mode, React renders each component twice to help you find unexpected side effects. In React 17, we've suppressed console logs for one of the two renders to make the logs easier to read. In response to [community feedback](https://github.com/react/react/issues/21783) about this being confusing, we've removed the suppression. Instead, if you have React DevTools installed, the second log's renders will be displayed in grey, and there will be an option (off by default) to suppress them completely.
+* **Improved memory usage:** React now cleans up more internal fields on unmount, making the impact from unfixed memory leaks that may exist in your application code less severe.
+>>>>>>> 7b6c3ceb9dd97249e9dce4a8a94e61aed6424698
 
 ### React DOM Server {/*react-dom-server*/}
 
@@ -327,4 +339,8 @@ Se você precisar oferecer suporte ao Internet Explorer, recomendamos que você 
 
 ## Changelog {/*changelog*/}
 
+<<<<<<< HEAD
 Você pode visualizar o [changelog completo aqui](https://github.com/facebook/react/blob/main/CHANGELOG.md).
+=======
+You can view the [full changelog here](https://github.com/react/react/blob/main/CHANGELOG.md).
+>>>>>>> 7b6c3ceb9dd97249e9dce4a8a94e61aed6424698

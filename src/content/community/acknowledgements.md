@@ -4,7 +4,11 @@ title: Reconhecimentos
 
 <Intro>
 
+<<<<<<< HEAD
 O React foi originalmente criado por [Jordan Walke.](https://github.com/jordwalke) Hoje, o React tem uma [equipe dedicada em tempo integral trabalhando nele](/community/team), bem como mais de mil [colaboradores de código aberto.](https://github.com/facebook/react/graphs/contributors)
+=======
+React was originally created by [Jordan Walke.](https://github.com/jordwalke) Today, React has a [dedicated full-time team working on it](/community/team), as well as over a thousand [open source contributors.](https://github.com/react/react/graphs/contributors)
+>>>>>>> 7b6c3ceb9dd97249e9dce4a8a94e61aed6424698
 
 </Intro>
 

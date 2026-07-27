@@ -131,12 +131,21 @@ Se você é o autor de um framework, biblioteca, ferramenta de desenvolvedor ou 
 
     Ou yarn:
 
+<<<<<<< HEAD
     ```console
     yarn upgrade react@canary react-dom@canary
     ```
 *   Execute sua suíte de testes em relação aos pacotes atualizados.
 *   Se tudo passar, ótimo! Você pode esperar que seu projeto funcione com o próximo lançamento secundário do React.
 *   Se algo quebrar inesperadamente, avise-nos [abrindo uma issue](https://github.com/facebook/react/issues).
+=======
+  ```console
+  yarn upgrade react@canary react-dom@canary
+  ```
+- Run your test suite against the updated packages.
+- If everything passes, great! You can expect that your project will work with the next minor React release.
+- If something breaks unexpectedly, please let us know by [filing an issue](https://github.com/react/react/issues).
+>>>>>>> 7b6c3ceb9dd97249e9dce4a8a94e61aed6424698
 
 Um projeto que usa este fluxo de trabalho é o Next.js. Você pode consultar sua [configuração do CircleCI](https://github.com/zeit/next.js/blob/c0a1c0f93966fe33edd93fb53e5fafb0dcd80a9e/.circleci/config.yml) como exemplo.
 
@@ -166,4 +175,8 @@ Se um recurso não estiver documentado, eles podem ser acompanhados por um [RFC]
 
 Postaremos no [blog do React](/blog) quando estivermos prontos para anunciar novos experimentos, mas isso não significa que divulgaremos todos os experimentos.
 
+<<<<<<< HEAD
 Você sempre pode consultar o [histórico](https://github.com/facebook/react/commits/main) do nosso repositório público do GitHub para obter uma lista abrangente de alterações.
+=======
+You can always refer to our public GitHub repository's [history](https://github.com/react/react/commits/main) for a comprehensive list of changes.
+>>>>>>> 7b6c3ceb9dd97249e9dce4a8a94e61aed6424698

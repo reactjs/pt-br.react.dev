@@ -189,7 +189,11 @@ Instale o plugin ESLint:
 npm install -D eslint-plugin-react-hooks@latest
 </TerminalBlock>
 
+<<<<<<< HEAD
 Se você ainda não configurou o eslint-plugin-react-hooks, siga as [instruções de instalação no readme](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md#installation). As regras do compilador estão disponíveis no preset `recommended-latest`.
+=======
+If you haven't already configured eslint-plugin-react-hooks, follow the [installation instructions in the readme](https://github.com/react/react/blob/main/packages/eslint-plugin-react-hooks/README.md#installation). The compiler rules are available in the `recommended-latest` preset.
+>>>>>>> 7b6c3ceb9dd97249e9dce4a8a94e61aed6424698
 
 A regra ESLint irá:
 - Identificar violações das [Regras do React](/reference/rules)
