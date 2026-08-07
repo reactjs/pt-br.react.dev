@@ -23,7 +23,7 @@ export function ReloadButton({onReload}: ReloadButtonProps) {
       title="Keep your edits and reload sandbox"
       type="button">
       <IconRestart className="inline mx-1 relative" />
-      <span className="hidden md:block">Reload</span>
+      <span className="hidden md:block">Recarregar</span>
     </button>
   );
 }
