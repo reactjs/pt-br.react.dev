@@ -3596,7 +3596,6 @@ eslint-plugin-jsx-a11y@^6.4.1:
 
 "eslint-plugin-local-rules@link:eslint-local-rules":
   version "0.0.0"
-  uid ""
 
 eslint-plugin-react-compiler@^19.0.0-beta-e552027-20250112:
   version "19.0.0-beta-e552027-20250112"
@@ -5955,9 +5954,9 @@ mz@^2.7.0:
     thenify-all "^1.0.0"
 
 nanoid@^3.3.6:
-  version "3.3.6"
-  resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.3.6.tgz"
-  integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
+  version "3.3.18"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.18.tgz#f66a2de1199ffde0fcf21c8a5f13106b1c081913"
+  integrity sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w==
 
 natural-compare@^1.4.0:
   version "1.4.0"
