@@ -131,7 +131,11 @@ export default defineConfig([
 }
 ```
 
+<<<<<<< HEAD
 Para habilitar as regras do React Compiler, recomendamos usar o preset `recommended`. Você também pode conferir o [README](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/README.md) para mais instruções. Aqui estão alguns exemplos que apresentamos no React Conf:
+=======
+To enable React Compiler rules, we recommend using the `recommended` preset. You can also check out the [README](https://github.com/react/react/blob/main/packages/eslint-plugin-react-hooks/README.md) for more instructions. Here are a few examples we featured at React Conf:
+>>>>>>> c7d6b700038c63d1aaf2c649af1aefe01ebbacac
 
 - Capturando padrões de `setState` que causam loops de renderização com [`set-state-in-render`](/reference/eslint-plugin-react-hooks/lints/set-state-in-render).
 - Sinalizando trabalho caro dentro de efeitos via [`set-state-in-effect`](/reference/eslint-plugin-react-hooks/lints/set-state-in-effect).
