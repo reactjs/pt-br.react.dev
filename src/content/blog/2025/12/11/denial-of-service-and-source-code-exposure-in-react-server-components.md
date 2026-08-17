@@ -96,7 +96,11 @@ Se você estiver usando React Native em um monorepo, você deve atualizar _apena
 
 Isso é necessário para mitigar os avisos de segurança, mas você não precisa atualizar `react` e `react-dom`, então isso não causará o erro de incompatibilidade de versão no React Native.
 
+<<<<<<< HEAD
 Veja [este issue](https://github.com/facebook/react-native/issues/54772#issuecomment-3617929832) para mais informações.
+=======
+See [this issue](https://github.com/react/react-native/issues/54772#issuecomment-3617929832) for more information.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 ---
 

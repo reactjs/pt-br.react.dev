@@ -16,7 +16,11 @@ Essas bibliotecas foram projetadas antes que as regras de memoização do React 
 
 ## Detalhes da Regra {/*rule-details*/}
 
+<<<<<<< HEAD
 Algumas bibliotecas usam padrões que não são suportados pelo React. Quando o linter detecta usos dessas APIs de uma [lista conhecida](https://github.com/facebook/react/blob/main/compiler/packages/babel-plugin-react-compiler/src/HIR/DefaultModuleTypeProvider.ts), ele as sinaliza sob esta regra. Isso significa que o Compilador React pode pular automaticamente componentes que usam essas APIs incompatíveis, a fim de evitar a quebra do seu aplicativo.
+=======
+Some libraries use patterns that aren't supported by React. When the linter detects usages of these APIs from a [known list](https://github.com/react/react/blob/main/compiler/packages/babel-plugin-react-compiler/src/HIR/DefaultModuleTypeProvider.ts), it flags them under this rule. This means that React Compiler can automatically skip over components that use these incompatible APIs, in order to avoid breaking your app.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
 
 ```js
 // Exemplo de como a memoização quebra com essas bibliotecas
@@ -135,4 +139,8 @@ function Component() {
 }
 ```
 
+<<<<<<< HEAD
 Algumas outras bibliotecas ainda não possuem APIs alternativas que sejam compatíveis com o modelo de memoização do React. Se o linter não pular automaticamente seus componentes ou hooks que chamam essas APIs, por favor, [abra uma issue](https://github.com/facebook/react/issues) para que possamos adicioná-la ao linter.
+=======
+Some other libraries do not yet have alternative APIs that are compatible with React's memoization model. If the linter doesn't automatically skip over your components or hooks that call these APIs, please [file an issue](https://github.com/react/react/issues) so we can add it to the linter.
+>>>>>>> 383a1e9239c8c084a16a19daa4fc2a7ad04e2a3a
