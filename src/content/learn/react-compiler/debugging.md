@@ -43,10 +43,17 @@ Siga estes passos quando encontrar problemas:
 
 ### Erros de Compilação do Compilador {/*compiler-build-errors*/}
 
+<<<<<<< HEAD
 Se você encontrar um erro do compilador que quebra inesperadamente sua compilação, isso provavelmente é um bug no compilador. Reporte-o para o repositório [facebook/react](https://github.com/facebook/react/issues) com:
 - A mensagem de erro
 - O código que causou o erro
 - Suas versões do React e do compilador
+=======
+If you encounter a compiler error that unexpectedly breaks your build, this is likely a bug in the compiler. Report it to the [react/react](https://github.com/react/react/issues) repository with:
+- The error message
+- The code that caused the error
+- Your React and compiler versions
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 ### Problemas em Tempo de Execução {/*runtime-issues*/}
 
@@ -78,6 +85,7 @@ Você também pode tentar remover a memoização manual (useMemo, useCallback, m
 
 Se você acredita que encontrou um bug do compilador:
 
+<<<<<<< HEAD
 1. **Verifique se não é uma violação das Regras do React** - Verifique com o ESLint
 2. **Crie uma reprodução mínima** - Isole o problema em um exemplo pequeno
 3. **Teste sem o compilador** - Confirme que o problema só ocorre com a compilação
@@ -86,6 +94,16 @@ Se você acredita que encontrou um bug do compilador:
    - Código de reprodução mínima
    - Comportamento esperado vs atual
    - Qualquer mensagem de erro
+=======
+1. **Verify it's not a Rules of React violation** - Check with ESLint
+2. **Create a minimal reproduction** - Isolate the issue in a small example
+3. **Test without the compiler** - Confirm the issue only occurs with compilation
+4. **File an [issue](https://github.com/react/react/issues/new?template=compiler_bug_report.yml)**:
+   - React and compiler versions
+   - Minimal reproduction code
+   - Expected vs actual behavior
+   - Any error messages
+>>>>>>> 7c36f7ac329fe3cf2e11222edce9a535158c2cab
 
 ## Próximos Passos {/*next-steps*/}
 
