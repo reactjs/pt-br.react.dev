@@ -436,8 +436,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -576,8 +576,8 @@ function Counter() {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -800,8 +800,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -1034,8 +1034,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -1235,8 +1235,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -1264,7 +1264,11 @@ Isso significa que durante uma atualização, que causa muito relayout, ele não
 
 ### Animando conteúdo do Suspense {/*animating-from-suspense-content*/}
 
+<<<<<<< HEAD
 Como qualquer Transição, o React espera pelos dados e por novos CSS (`<link rel="stylesheet" precedence="...">`) antes de executar a animação. Além disso, as ViewTransitions também esperam até 500ms para que novas fontes sejam carregadas antes de iniciar a animação, para evitar que elas pisquem posteriormente. Pelo mesmo motivo, uma imagem envolvida por uma ViewTransition esperará o carregamento da imagem.
+=======
+Like any Transition, React waits for data and new CSS (`<link rel="stylesheet" precedence="...">`) before running the animation. In addition to this, ViewTransitions also wait up to 500ms for new fonts to load before starting the animation to avoid them flickering in later. For the same reason, an image wrapped in ViewTransition will wait for the image to load. See examples of [waiting for a font](/reference/react/Suspense#waiting-for-a-font-to-load) and [waiting for an image](/reference/react/Suspense#waiting-for-an-image-to-load) on the Suspense page.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 Se estiver dentro de uma nova instância de `Suspense boundary`, o fallback será exibido primeiro. Após o `Suspense boundary` carregar completamente, ele aciona a `<ViewTransition>` para animar a revelação do conteúdo.
 
@@ -1497,8 +1501,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -1728,8 +1732,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -1974,8 +1978,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -2303,8 +2307,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -2529,8 +2533,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
@@ -2774,8 +2778,8 @@ button:hover {
 ```json package.json hidden
 {
   "dependencies": {
-    "react": "canary",
-    "react-dom": "canary",
+    "react": "19.3.0-canary-eb8feb71-20260814",
+    "react-dom": "19.3.0-canary-eb8feb71-20260814",
     "react-scripts": "latest"
   }
 }
