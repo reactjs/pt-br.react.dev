@@ -150,7 +150,11 @@ A equipe do React está animada para compartilhar algumas atualizações:
 
 ### Todas as notas de lançamento {/*all-release-notes*/}
 
+<<<<<<< HEAD
 Nem todo lançamento do React merece um post próprio, mas você pode encontrar um changelog detalhado para cada lançamento no arquivo [`CHANGELOG.md`](https://github.com/facebook/react/blob/main/CHANGELOG.md) no repositório do React, bem como na página [Releases](https://github.com/facebook/react/releases).
+=======
+Not every React release deserves its own blog post, but you can find a detailed changelog for every release in the [`CHANGELOG.md`](https://github.com/react/react/blob/main/CHANGELOG.md) file in the React repository, as well as on the [Releases](https://github.com/react/react/releases) page.
+>>>>>>> f3d9794fc31f4a3faf7e863984d37f4ae86b3290
 
 ---
 

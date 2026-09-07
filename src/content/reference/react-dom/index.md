@@ -30,6 +30,12 @@ Essas APIs podem ser usadas para tornar os aplicativos mais rápidos, pré-carre
 * [`preinit`](/reference/react-dom/preinit) permite que você busque e avalie um script externo ou busque e insira uma folha de estilo.
 * [`preinitModule`](/reference/react-dom/preinitModule) permite que você busque e avalie um módulo ESM.
 
+## Server Rendering APIs {/*server-rendering-apis*/}
+
+This API controls how components render on the server:
+
+* <CanaryBadge /> [`browser`](/reference/react-dom/browser) lets you mark a component as browser-only during server rendering.
+
 ---
 
 ## Pontos de entrada {/*entry-points*/}
