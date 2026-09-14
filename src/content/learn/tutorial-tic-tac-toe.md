@@ -899,6 +899,7 @@ body {
 
 ### Ferramentas do Desenvolvedor React {/*react-developer-tools*/}
 
+<<<<<<< HEAD
 As DevTools do React permitem que você cheque as *props* e o *state* de seus componentes React. Você pode encontrar a aba de DevTools do React na parte inferior da seção *navegador* no CodeSandbox:
 
 ![React DevTools no CodeSandbox](../images/tutorial/codesandbox-devtools.png)
@@ -906,12 +907,26 @@ As DevTools do React permitem que você cheque as *props* e o *state* de seus co
 Para inspecionar um componente em particular na tela, use o botão no canto superior esquerdo das DevTools do React:
 
 ![Selecionando componente na página com as DevTools do React](../images/tutorial/devtools-select.gif)
+=======
+React Developer Tools let you check the props and the state of your React components. It is available as a [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), and [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil) browser extension.
 
-<Note>
+After you install it, a new *Components* tab will appear in your browser Developer Tools for sites using React. If you're following along in CodeSandbox, you'd need to first open your sandbox preview in a new tab:
 
+![opening in new tab](../images/tutorial/sandbox-new-tab.png)
+
+Then, on the preview page, open your browser's DevTools and find the *Components* tab:
+>>>>>>> 8efce7853d0fc59e615ed1c253799cf1798b8428
+
+![components tab](../images/tutorial/components-tab.png)
+
+<<<<<<< HEAD
 Para desenvolvimento local, as DevTools do React estão disponíveis como extensões de navegador para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), e [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil). Instale-as, e a aba *Components* irá aparecer nas ferramentas de desenvolvedor do seu navegador para sites utilizando React.
+=======
+To inspect a particular component on the screen, use the button in the top left corner of the Components tab:
 
-</Note>
+![inspecting with devtools](../images/tutorial/devtools-inspect.gif)
+>>>>>>> 8efce7853d0fc59e615ed1c253799cf1798b8428
+
 
 ## Completando o jogo {/*completing-the-game*/}
 
