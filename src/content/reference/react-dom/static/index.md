@@ -14,8 +14,13 @@ As APIs `react-dom/static` permitem que você gere HTML estático para component
 
 Esses métodos estão disponíveis apenas em ambientes com [Web Streams](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API), que inclui navegadores, Deno e alguns modernos runtimes de borda:
 
+<<<<<<< HEAD
 * [`prerender`](/reference/react-dom/static/prerender) renderiza uma árvore React para HTML estático com um [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
 * <ExperimentalBadge /> [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender) continua uma árvore React pré-renderizada para HTML estático com um [Readable Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+=======
+* [`prerender`](/reference/react-dom/static/prerender) renders a React tree to static HTML with a [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
+* [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender) continues a prerendered React tree to static HTML with a [Readable Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+>>>>>>> 8efce7853d0fc59e615ed1c253799cf1798b8428
 
 Node.js também inclui esses métodos para compatibilidade, mas eles não são recomendados devido ao pior desempenho. Use as [APIs dedicadas do Node.js](#static-apis-for-nodejs-streams) em vez disso.
 
@@ -23,7 +28,14 @@ Node.js também inclui esses métodos para compatibilidade, mas eles não são r
 
 ## APIs estáticas para Node.js Streams {/*static-apis-for-nodejs-streams*/}
 
+<<<<<<< HEAD
 Esses métodos estão disponíveis apenas em ambientes com [Node.js Streams](https://nodejs.org/api/stream.html):
+=======
+These methods are only available in the environments with [Node.js Streams](https://nodejs.org/api/stream.html):
+
+* [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) renders a React tree to static HTML with a [Node.js Stream.](https://nodejs.org/api/stream.html)
+* [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) continues a prerendered React tree to static HTML with a [Node.js Stream.](https://nodejs.org/api/stream.html)
+>>>>>>> 8efce7853d0fc59e615ed1c253799cf1798b8428
 
 * [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) renderiza uma árvore React para HTML estático com um [Node.js Stream.](https://nodejs.org/api/stream.html)
 * <ExperimentalBadge /> [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) continua uma árvore React pré-renderizada para HTML estático com um [Node.js Stream.](https://nodejs.org/api/stream.html)

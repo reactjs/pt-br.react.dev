@@ -10,11 +10,22 @@ Em adição aos [Hooks](/reference/react/hooks) e [Componentes](/reference/react
 
 ---
 
+<<<<<<< HEAD
 * [`createContext`](/reference/react/createContext) permite que você defina e forneça contexto para os componentes filhos. Usado com [`useContext`](/reference/react/useContext).
 * [`lazy`](/reference/react/lazy) permite adiar o carregamento do código de um componente até que ele seja renderizado pela primeira vez.
 * [`memo`](/reference/react/memo) permite que seu componente pule re-renderizações com as mesmas props. Usado com [`useMemo`](/reference/react/useMemo) e [`useCallback`](/reference/react/useCallback).
 * [`startTransition`](/reference/react/startTransition) permite que você marque uma atualização de estado como não urgente. Semelhante a [`useTransition`](/reference/react/useTransition).
 * [`act`](/reference/react/act) permite que você envolva renderizações e interações em testes para garantir que as atualizações tenham sido processadas antes de fazer asserções.
+=======
+* [`createContext`](/reference/react/createContext) lets you define and provide context to the child components. Used with [`useContext`.](/reference/react/useContext)
+* [`lazy`](/reference/react/lazy) lets you defer loading a component's code until it's rendered for the first time.
+* [`memo`](/reference/react/memo) lets your component skip re-renders with same props. Used with [`useMemo`](/reference/react/useMemo) and [`useCallback`.](/reference/react/useCallback)
+* [`startTransition`](/reference/react/startTransition) lets you mark a state update as non-urgent. Similar to [`useTransition`.](/reference/react/useTransition)
+* [`act`](/reference/react/act) lets you wrap renders and interactions in tests to ensure updates have processed before making assertions.
+* [`cache`](/reference/react/cache) lets you cache the result of a data fetch or computation.
+* [`cacheSignal`](/reference/react/cacheSignal) lets you know when the `cache()` lifetime is over.
+* [`captureOwnerStack`](/reference/react/captureOwnerStack) reads the current Owner Stack in development and returns it as a string if available.
+>>>>>>> 8efce7853d0fc59e615ed1c253799cf1798b8428
 
 ---
 
@@ -22,13 +33,23 @@ Em adição aos [Hooks](/reference/react/hooks) e [Componentes](/reference/react
 
 *Resources* podem ser acessados por um componente sem tê-los como parte de seu estado. Por exemplo, um componente pode ler uma mensagem de uma Promise ou ler informações de estilo de um context.
 
+<<<<<<< HEAD
 Para ler um valor de um recurso, use esta API:
 
 * [`use`](/reference/react/use) permite que você leia o valor de um recurso como um [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) ou [context](/learn/passing-data-deeply-with-context).
+=======
+You can pass these types of resources to [`use`](/reference/react/use):
+
+* A [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to read its resolved value.
+* A [context](/learn/passing-data-deeply-with-context) to read its value.
+* The value returned by [`browser`](/reference/react-dom/browser) to mark a component as browser-only during server rendering.
+
+>>>>>>> 8efce7853d0fc59e615ed1c253799cf1798b8428
 ```js
 function MessageComponent({ messagePromise }) {
   const message = use(messagePromise);
   const theme = use(ThemeContext);
+  use(browser());
   // ...
 }
 ```
