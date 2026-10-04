@@ -4,7 +4,7 @@ title: Construindo a UI
 
 <Intro>
 
-React é uma biblioteca JavaScript para renderizar interfaces de usuário (UI). A interface do usuário é construída a partir de pequenas unidades, como botões, texto e imagens. O React permite combiná-los em *componentes.* encaixáveis ​​e reutilizáveis. De sites a aplicativos de telefone, tudo na tela pode ser dividido em componentes. Neste capítulo, você aprenderá a criar, personalizar e exibir componentes React condicionalmente.
+React é uma biblioteca JavaScript para renderizar interfaces de usuário (UI). A interface do usuário é construída a partir de pequenas unidades, como botões, texto e imagens. O React permite combiná-los em *componentes* encaixáveis ​​e reutilizáveis. De sites a aplicativos de telefone, tudo na tela pode ser dividido em componentes. Neste capítulo, você aprenderá a criar, personalizar e exibir componentes React condicionalmente.
 
 </Intro>
 
@@ -318,7 +318,7 @@ Leia **[Passando Props para um Componente](/learn/passing-props-to-a-component)*
 
 Frequentemente você vai precisar exibir diferentes conteúdos nos seus componentes de acordo com certas condições. No React, você pode renderizar JSX condicionalmente utilizando uma sintaxe parecida com JavaScript, que usa o comando `if`, e operadores lógicos `&&` e `? :`.
 
-Neste exemplo, o operador JavaScript `&&` é utilizado para renderizar condicionalmente um marcação de 'concluído':
+Neste exemplo, o operador JavaScript `&&` é utilizado para renderizar condicionalmente uma marcação de 'concluído':
 
 
 <Sandpack>
@@ -460,7 +460,7 @@ h2 { font-size: 20px; }
 
 <LearnMore path="/learn/rendering-lists">
 
-Leia **[Renderizando Listas](/learn/rendering-lists)** para aprender como renderizar uma lista de compomentes e como escolher uma chave para cada item da lista.
+Leia **[Renderizando Listas](/learn/rendering-lists)** para aprender como renderizar uma lista de componentes e como escolher uma chave para cada item da lista.
 
 </LearnMore>
 
@@ -498,7 +498,7 @@ export default function TeaSet() {
 
 </Sandpack>
 
-Você pode tornar esse componente puro passando uma prop ao invés de modificar uma variável pré-existente:
+Você pode tornar esse componente puro passando uma prop em vez de modificar uma variável preexistente:
 
 <Sandpack>
 
@@ -561,4 +561,4 @@ Read **[Your UI as a Tree](/learn/understanding-your-ui-as-a-tree)** to learn ho
 
 Navegue para a página [Seu Primeiro Componente](/learn/your-first-component) para começar a ler esse capítulo página por página!
 
-Ou, se você já tem familirialidade com estes tópicos, por quê não ler sobre [Adicionando Interatividade](/learn/adding-interactivity)?
+Ou, se você já tem familiaridade com estes tópicos, por que não ler sobre [Adicionando Interatividade](/learn/adding-interactivity)?
