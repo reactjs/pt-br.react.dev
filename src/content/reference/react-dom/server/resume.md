@@ -43,12 +43,22 @@ async function handler(request, writable) {
 
 #### Parâmetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `reactNode`: O nó React com o qual você chamou `prerender`. Por exemplo, um elemento JSX como `<App />`. Espera-se que ele represente o documento inteiro, então o componente `App` deve renderizar a tag `<html>`.
 * `postponedState`: O objeto opaco `postpone` retornado por uma [API de prerender](/reference/react-dom/static/index), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
 * **opcional** `options`: Um objeto com opções de streaming.
   * **opcional** `nonce`: Uma string [`nonce`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#nonce) para permitir scripts para [`script-src` Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
   * **opcional** `signal`: Um [sinal de abortar](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a renderização do servidor](#aborting-server-rendering) e renderizar o restante no cliente.
   * **opcional** `onError`: Um callback que é acionado sempre que ocorre um erro no servidor, seja [recuperável](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-outside-the-shell) ou [não.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell) Por padrão, isso apenas chama `console.error`. Se você o substituir para [registrar relatórios de falha,](/reference/react-dom/server/renderToReadableStream#logging-crashes-on-the-server) certifique-se de ainda chamar `console.error`.
+=======
+* `reactNode`: The React node you called `prerender` with. For example, a JSX element like `<App />`. It is expected to represent the entire document, so the `App` component should render the `<html>` tag.
+* `postponedState`: The opaque `postpone` object returned from a [prerender API](/reference/react-dom/static/index), loaded from wherever you stored it (e.g. redis, a file, or S3).
+* **optional** `options`: An object with streaming options.
+  * **optional** `nonce`: A [`nonce`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#nonce) string to allow scripts for [`script-src` Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
+  * **optional** `signal`: An [abort signal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that lets you [abort server rendering](#aborting-server-rendering) and render the rest on the client.
+  * **optional** `onBrowserBailout`: A callback React calls when it recovers from [`browser()`](/reference/react-dom/browser) by leaving a Suspense fallback for the browser to replace. It receives an `Error` describing the browser-only render and an `errorInfo` object containing the `componentStack`. If a reason was passed to `browser`, it is available as `error.cause`. By default, React does nothing. [See how to report browser-only rendering.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
+  * **optional** `onError`: A callback that fires whenever there is a server error, whether [recoverable](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-outside-the-shell) or [not.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell) By default, this only calls `console.error`. If you override it to [log crash reports,](/reference/react-dom/server/renderToReadableStream#logging-crashes-on-the-server) make sure that you still call `console.error`.
+>>>>>>> 8c68ae8d2410abe59f351195780c6f8ea9f50904
 
 
 #### Retorna {/*returns*/}
@@ -201,10 +211,18 @@ main(document.getElementById("container"));
 export async function flushReadableStreamToFrame(readable, frame) {
   const document = frame.contentWindow.document;
   const decoder = new TextDecoder();
-  for await (const chunk of readable) {
-    const partialHTML = decoder.decode(chunk);
+  const reader = readable.getReader();
+
+  while (true) {
+    const {done, value} = await reader.read();
+    if (done) {
+      break;
+    }
+    const partialHTML = decoder.decode(value, {stream: true});
     document.write(partialHTML);
   }
+
+  document.write(decoder.decode());
 }
 
 // This doesn't need to be an error.
@@ -232,5 +250,10 @@ export function sleep(timeoutMS) {
 
 ### Leitura adicional {/*further-reading*/}
 
+<<<<<<< HEAD
 Resuming se comporta como `renderToReadableStream`. Para mais exemplos, confira a [seção de uso de `renderToReadableStream`](/reference/react-dom/server/renderToReadableStream#usage).
 A [seção de uso de `prerender`](/reference/react-dom/static/prerender#usage) inclui exemplos de como usar `prerender` especificamente.
+=======
+Resuming behaves like `renderToReadableStream`. For more examples, check out the [usage section of `renderToReadableStream`](/reference/react-dom/server/renderToReadableStream#usage).
+The [usage section of `prerender`](/reference/react-dom/static/prerender#usage) includes examples of how to use `prerender` specifically.
+>>>>>>> 8c68ae8d2410abe59f351195780c6f8ea9f50904

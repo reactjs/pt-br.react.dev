@@ -91,7 +91,11 @@ Como seu código é pré-compilado, os usuários de sua biblioteca não precisar
 
 Anunciamos anteriormente o [Grupo de Trabalho do React Compiler](https://github.com/reactwg/react-compiler), apenas por convite, na React Conf para fornecer feedback, fazer perguntas e colaborar no lançamento experimental do compilador.
 
+<<<<<<< HEAD
 A partir de hoje, juntamente com o lançamento Beta do React Compiler, estamos abrindo a adesão ao Grupo de Trabalho para todos. O objetivo do Grupo de Trabalho do React Compiler é preparar o ecossistema para uma adoção suave e gradual do React Compiler por aplicativos e bibliotecas existentes. Por favor, continue enviando relatórios de bugs no [repositório do React](https://github.com/facebook/react), mas deixe seus feedbacks, perguntas ou ideias no [fórum de discussão do Grupo de Trabalho](https://github.com/reactwg/react-compiler/discussions).
+=======
+From today, together with the Beta release of React Compiler, we are opening up Working Group membership to everyone. The goal of the React Compiler Working Group is to prepare the ecosystem for a smooth, gradual adoption of React Compiler by existing applications and libraries. Please continue to file bug reports in the [React repo](https://github.com/react/react), but please leave feedback, ask questions, or share ideas in the [Working Group discussion forum](https://github.com/reactwg/react-compiler/discussions).
+>>>>>>> 8c68ae8d2410abe59f351195780c6f8ea9f50904
 
 A equipe principal também usará o repositório de discussões para compartilhar nossas descobertas de pesquisa. À medida que o Lançamento Estável se aproxima, qualquer informação importante também será postada neste fórum.
 
@@ -126,7 +130,11 @@ Obrigado a [Sathya Gunasekaran](https://twitter.com/_gsathya), [Joe Savona](http
 
 ---
 
+<<<<<<< HEAD
 [^1]: Obrigado a [@nikeee](https://github.com/facebook/react/pulls?q=is%3Apr+author%3Anikeee), [@henryqdineen](https://github.com/facebook/react/pulls?q=is%3Apr+author%3Ahenryqdineen), [@TrickyPi](https://github.com/facebook/react/pulls?q=is%3Apr+author%3ATrickyPi) e vários outros por suas contribuições para o compilador.
+=======
+[^1]: Thanks [@nikeee](https://github.com/react/react/pulls?q=is%3Apr+author%3Anikeee), [@henryqdineen](https://github.com/react/react/pulls?q=is%3Apr+author%3Ahenryqdineen), [@TrickyPi](https://github.com/react/react/pulls?q=is%3Apr+author%3ATrickyPi), and several others for their contributions to the compiler.
+>>>>>>> 8c68ae8d2410abe59f351195780c6f8ea9f50904
 
 [^2]: Obrigado a [Vaishali Garg](https://www.linkedin.com/in/vaishaligarg09) por liderar este estudo sobre o React Compiler na Meta e por revisar este post.
 
