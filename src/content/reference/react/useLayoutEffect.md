@@ -47,7 +47,11 @@ function Tooltip() {
 
 #### Parâmetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `setup`: A função com a lógica do seu *Effect* (efeito). Sua função de configuração também pode opcionalmente retornar uma função de limpeza (*cleanup*). Antes que o seu [componente faça commit](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom), o React executará a sua função de configuração. Após cada commit com as dependências alteradas, o React primeiro executará a função de limpeza (se fornecida) com os valores antigos e, em seguida, executará a sua função de configuração com os novos valores. Antes que o seu componente seja removido do DOM, o React executará a sua função de limpeza.
+=======
+* `setup`: The function with your Effect's logic. Your setup function may also optionally return a *cleanup* function. After your [component commits](/learn/render-and-commit#step-3-react-commits-changes-to-the-dom) to the DOM and before the browser repaints the screen, React will run your setup function. After every commit with changed dependencies, React will first run the cleanup function (if you provided it) with the old values, and then run your setup function with the new values. Before your component is removed from the DOM, React will run your cleanup function.
+>>>>>>> 046f17d04295ba047bb5739026b4ac3110f17028
 
 * **opcional** `dependencies`: A lista de todos os valores reativos referenciados dentro do código de `setup`. Valores reativos incluem *props*, *states* e todas as variáveis e funções declaradas diretamente no *body* do seu componente. Se o seu linter estiver [configurado para o React](/learn/editor-setup#linting), ele verificará se cada valor reativo está corretamente especificado como uma dependência. A lista de dependências deve ter um número constante de itens e ser escrita inline, como por exemplo: `[dep1, dep2, dep3]`. O React fará uma comparação de cada dependência com seu valor anterior usando o [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is). Se você omitir esse argumento, seu *Effect* (efeito) será executado novamente após cada commit do componente.
 
@@ -735,7 +739,13 @@ No entanto, se encontrar esse problema, você possui essas opções:
 
 - Substituir o `useLayoutEffect` pelo [`useEffect`.](/reference/react/useEffect) Isso informa ao React que é aceitável exibir o resultado da renderização inicial sem bloquear a construção (porque o HTML original ficará visível antes de seu *Effect* (efeito) ser executado).
 
+<<<<<<< HEAD
 - [Marque seu componente como exclusivo para o cliente.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content) Isso diz ao React para substituir seu conteúdo até o limite mais próximo de [`<Suspense>`](/reference/react/Suspense) por uma carga de fallback (por exemplo, um *spinner* ou um *glimmer*) durante a renderização no lado do servidor.
+=======
+- Alternatively, call [`use(browser())`](/reference/react/use#use-browser) to mark the component as browser-only. React will replace its content up to the closest [`<Suspense>`](/reference/react/Suspense) boundary with a loading fallback (for example, a spinner or a glimmer) during server rendering.
+
+- Alternatively, [mark your component as client-only.](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content) This tells React to replace its content up to the closest `<Suspense>` boundary with a loading fallback during server rendering.
+>>>>>>> 046f17d04295ba047bb5739026b4ac3110f17028
 
 - Você também pode renderizar um componente com `useLayoutEffect` somente após a hidratação. Mantenha um *state* (estado) booleano `isMounted` que é iniciado como `false`, e defina-o como `true` dentro de uma chamada de `useEffect`. Sua lógica de renderização pode ser algo semelhante a isso: `return isMounted ? <RealContent /> : <FallbackContent />`. No lado servidor e durante a hidratação, o usuário verá `FallbackContent` que não deve chamar o `useLayoutEffect`.  Então, o React substituirá isso por `RealContent`  que é executado apenas no lado do cliente e pode incluir chamadas de `useLayoutEffect`.
 
