@@ -45,7 +45,11 @@ Em seguida, na palestra principal, [Josh Story](https://twitter.com/joshcstory) 
 - [React for Two Computers](https://www.youtube.com/watch?v=T8TZQ6k4SLE&t=18825s) por [Dan Abramov](https://bsky.app/profile/danabra.mov)
 - [And Now You Understand React Server Components](https://www.youtube.com/watch?v=0ckOUBiuxVY&t=11256s) por [Kent C. Dodds](https://twitter.com/kentcdodds)
 
+<<<<<<< HEAD
 Finalmente, encerramos a palestra principal com [Joe Savona](https://twitter.com/en_JS), [Sathya Gunasekaran](https://twitter.com/_gsathya) e [Mofei Zhang](https://twitter.com/zmofei) anunciando que o React Compiler agora é [Open Source](https://github.com/facebook/react/pull/29061) e compartilhando uma versão experimental do React Compiler para experimentar.
+=======
+Finally, we ended the keynote with [Joe Savona](https://twitter.com/en_JS), [Sathya Gunasekaran](https://twitter.com/_gsathya), and [Mofei Zhang](https://twitter.com/zmofei) announcing that the React Compiler is now [Open Source](https://github.com/react/react/pull/29061), and sharing an experimental version of the React Compiler to try out.
+>>>>>>> 046f17d04295ba047bb5739026b4ac3110f17028
 
 Para obter mais informações sobre como usar o Compiler e como ele funciona, confira [os documentos](/learn/react-compiler) e estas palestras:
 
