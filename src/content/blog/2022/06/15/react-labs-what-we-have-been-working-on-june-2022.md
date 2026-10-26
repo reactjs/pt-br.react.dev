@@ -69,7 +69,11 @@ Atualmente, o React possui duas ferramentas de profiling. O [Profiler original](
 
 Percebemos que os desenvolvedores não acham muito útil saber sobre commits lentos individuais ou componentes fora de contexto. É mais útil saber o que realmente causa os commits lentos. E que os desenvolvedores querem ser capazes de rastrear interações específicas (por exemplo, um clique de botão, um carregamento inicial ou uma navegação de página) para observar regressões de desempenho e entender por que uma interação foi lenta e como corrigi-la.
 
+<<<<<<< HEAD
 Anteriormente, tentamos resolver esse problema criando uma [API de Rastreamento de Interação](https://gist.github.com/bvaughn/8de925562903afd2e7a12554adcdda16), mas ela tinha algumas falhas de design fundamentais que reduziram a precisão do rastreamento de por que uma interação era lenta e, às vezes, resultavam em interações que nunca terminavam. Acabamos [removendo essa API](https://github.com/facebook/react/pull/20037) devido a esses problemas.
+=======
+We previously tried to solve this issue by creating an [Interaction Tracing API](https://gist.github.com/bvaughn/8de925562903afd2e7a12554adcdda16), but it had some fundamental design flaws that reduced the accuracy of tracking why an interaction was slow and sometimes resulted in interactions never ending. We ended up [removing this API](https://github.com/react/react/pull/20037) because of these issues.
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
 
 Estamos trabalhando em uma nova versão para a API de Rastreamento de Interação (provisoriamente chamada de Rastreamento de Transições, pois é iniciada via `startTransition`) que resolve esses problemas.
 

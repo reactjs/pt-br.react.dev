@@ -51,7 +51,11 @@ Todos podem ler as discussões no [repositório do React 18 Working Group](https
 
 Como esperamos um aumento inicial de interesse no Grupo de Trabalho, apenas os membros convidados poderão criar ou comentar em tópicos. No entanto, os tópicos são totalmente visíveis ao público, para que todos tenham acesso às mesmas informações. Acreditamos que este é um bom compromisso entre a criação de um ambiente produtivo para os membros do grupo de trabalho, mantendo a transparência com a comunidade em geral.
 
+<<<<<<< HEAD
 Como sempre, você pode enviar relatórios de erros, perguntas e feedback geral para nosso [rastreador de problemas](https://github.com/facebook/react/issues).
+=======
+As always, you can submit bug reports, questions, and general feedback to our [issue tracker](https://github.com/react/react/issues).
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
 
 ## Como experimentar o React 18 Alpha hoje {/*how-to-try-react-18-alpha-today*/}
 

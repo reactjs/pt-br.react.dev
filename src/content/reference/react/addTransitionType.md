@@ -1,8 +1,8 @@
 ---
 title: addTransitionType
-version: canary
 ---
 
+<<<<<<< HEAD
 <Canary>
 
 **A API `addTransitionType` está atualmente disponível apenas nos canais Canary e Experimental do React.**
@@ -11,6 +11,8 @@ version: canary
 
 </Canary>
 
+=======
+>>>>>>> ae5e48074d4f73f1e349eda2a66841f9a959023e
 <Intro>
 
 `addTransitionType` permite que você especifique a causa de uma transição.
