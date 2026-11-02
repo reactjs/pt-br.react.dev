@@ -43,12 +43,22 @@ A função `preloadModule` fornece ao navegador uma dica de que ele deve começa
 
 #### Parâmetros {/*parameters*/}
 
+<<<<<<< HEAD
 * `href`: uma string. A URL do módulo que você deseja baixar.
 * `options`: um objeto. Ele contém as seguintes propriedades:
   *  `as`: uma string obrigatória. Deve ser `'script'`.
   *  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus valores possíveis são `anonymous` e `use-credentials`.
   *  `integrity`: uma string. Um hash criptográfico do módulo, para [verificar sua autenticidade](https://developer.mozilla.org/pt-BR/docs/Web/Security/Subresource_Integrity).
   *  `nonce`: uma string. Um [nonce criptográfico para permitir o módulo](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Global_attributes/nonce) ao usar uma Content Security Policy estrita.
+=======
+* `href`: a string. The URL of the module you want to download.
+* `options`: an object. It contains the following properties:
+  *  `as`: a required string. It must be `'script'`.
+  *  `crossOrigin`: a string. The [CORS policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) to use. Its possible values are `anonymous` and `use-credentials`.
+  *  `integrity`: a string. A cryptographic hash of the module, to [verify its authenticity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
+  *  `nonce`: a string. A cryptographic [nonce to allow the module](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) when using a strict Content Security Policy.
+  *  `fetchPriority`: a string. Suggests a [relative priority](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/fetchpriority) for fetching the resource; possible values are `auto` (default), `high`, and `low`.
+>>>>>>> 0821e7d9428a6c58c922765b891bbffba9ed6249
 
 #### Retorna {/*returns*/}
 
