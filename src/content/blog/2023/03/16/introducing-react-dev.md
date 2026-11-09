@@ -41,8 +41,13 @@ Quando lançamos o React Hooks em 2018, os documentos do Hooks assumiram que o l
 
 **A nova documentação ensina React com Hooks desde o início.** A documentação está dividida em duas seções principais:
 
+<<<<<<< HEAD
 * **[Aprenda React](/learn)** é um curso individualizado que ensina React do zero.
 * **[Referências de API](/reference)** fornece os detalhes e exemplos de uso para cada API React.
+=======
+* **[Learn React](/learn)** is a self-paced course that teaches React from scratch.
+* **[API Reference](/reference/react)** provides the details and usage examples for every React API.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Vamos ver mais detalhadamente o que pode encontrar em cada seção.
 
@@ -459,11 +464,19 @@ Confirmamos com os desenvolvedores de navegadores que esta representação é 10
 
 Na [API de Referência](/reference/react), cada API React tem agora uma página dedicada. Isso inclui todos os tipos de APIs:
 
+<<<<<<< HEAD
 - Hooks incorporados como [`useState`](/reference/react/useState).
 - Componentes incorporados como [`<Suspense>`](/reference/react/Suspense).
 - Componentes do navegador incorporados como [`<input>`](/reference/react-dom/components/input).
 - APIs orientadas para frameworks como[`renderToPipeableStream`](/reference/react-dom/server/renderToReadableStream).
 - Outras APIs do React como [`memo`](/reference/react/memo).
+=======
+- Built-in Hooks like [`useState`](/reference/react/useState).
+- Built-in components like [`<Suspense>`](/reference/react/Suspense).
+- Built-in browser components like [`<input>`](/reference/react-dom/components/input).
+- Framework-oriented APIs like [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream).
+- Other React APIs like [`memo`](/reference/react/memo).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Você perceberá que cada página de API é dividida em pelo menos dois segmentos: *Referência* e *Uso*.
 
@@ -607,7 +620,11 @@ button { display: block; margin-top: 10px; }
 
 </Recipes>
 
+<<<<<<< HEAD
 Algumas páginas da API também incluem [Solução de problemas](/reference/react/useEffect#troubleshooting) (para problemas comuns) e [Alternativas](/reference/react-dom/findDOMNode#alternatives) (para APIs obsoletas).
+=======
+Some API pages also include [Troubleshooting](/reference/react/useEffect#troubleshooting) (for common problems) and [Alternatives](https://18.react.dev/reference/react-dom/findDOMNode#alternatives) (for deprecated APIs).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Esperamos que esta abordagem torne a referência da API útil não só como uma forma de procurar um argumento, mas também como uma forma de ver todas as coisas diferentes que pode fazer com uma determinada API - e como esta se liga às outras.
 

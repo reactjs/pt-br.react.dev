@@ -533,7 +533,7 @@ root.render(<App />);
 ```
 
 ```js
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { createConnection } from './chat.js';
 
 const serverUrl = 'https://localhost:1234';
@@ -1253,7 +1253,11 @@ li {
 
 </Sandpack>
 
+<<<<<<< HEAD
 Agora, na montagem inicial no StrictMode, os refs callbacks são todos configurados, limpos e configurados novamente:
+=======
+Now on initial mount in StrictMode, the ref callbacks are all setup, cleaned up, and setup again:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```
 ...

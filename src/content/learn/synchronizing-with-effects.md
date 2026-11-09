@@ -732,8 +732,13 @@ Escrever chamadas `fetch` dentro de Effects é uma [maneira popular de buscar da
 
 Esta lista de desvantagens não é específica do React. Ela se aplica à busca de dados na montagem com qualquer biblioteca. Assim como no roteamento, buscar dados não é trivial de fazer bem, então recomendamos as seguintes abordagens:
 
+<<<<<<< HEAD
 - **Se você usa um [framework](/learn/creating-a-react-app#full-stack-frameworks), use seu mecanismo de busca de dados embutido.** Frameworks React modernos têm mecanismos de busca de dados integrados que são eficientes e não sofrem das armadilhas acima.
 - **Caso contrário, considere usar ou construir um cache do lado do cliente.** Soluções populares de código aberto incluem [TanStack Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/) e [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Você também pode construir sua própria solução, caso em que usaria Effects internamente, mas adicionaria lógica para deduplicar requisições, armazenar em cache respostas e evitar quedas de rede (pré-carregando dados ou elevando requisitos de dados para rotas).
+=======
+- **If you use a [framework](/learn/creating-a-react-app#full-stack-frameworks), use its built-in data fetching mechanism.** Modern React frameworks have integrated data fetching mechanisms that are efficient and don't suffer from the above pitfalls.
+- **Otherwise, consider using or building a client-side cache.** Popular open source solutions include [TanStack Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/), and [React Router](https://reactrouter.com/). You can build your own solution too, in which case you would use Effects under the hood, but add logic for deduplicating requests, caching responses, and avoiding network waterfalls (by preloading data or hoisting data requirements to routes).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Você pode continuar buscando dados diretamente em Effects se nenhuma dessas abordagens for adequada para você.
 

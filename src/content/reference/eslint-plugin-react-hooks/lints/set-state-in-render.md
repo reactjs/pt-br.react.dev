@@ -107,4 +107,8 @@ function Counter({max}) {
 
 Agora, o setter só é executado em resposta ao clique, o React termina a renderização normalmente e `count` nunca ultrapassa `max`.
 
+<<<<<<< HEAD
 Em casos raros, você pode precisar ajustar o estado com base em informações de renderizações anteriores. Para esses casos, siga [este padrão](https://react.dev/reference/react/useState#storing-information-from-previous-renders) de definir o estado condicionalmente.
+=======
+In rare cases, you may need to adjust state based on information from previous renders. For those, follow [this pattern](/reference/react/useState#storing-information-from-previous-renders) of setting state conditionally.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3

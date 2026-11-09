@@ -90,7 +90,7 @@ O React exibirá `<App />` na `root` e assumirá o gerenciamento do DOM dentro d
 
 * Se você chamar `render` na mesma root mais de uma vez, o React atualizará o DOM conforme necessário para refletir o último JSX que você passou. O React decidirá quais partes do DOM podem ser reutilizadas e quais precisam ser recriadas por meio de ["combinação"](/learn/preserving-and-resetting-state) com a árvore renderizada anteriormente. Chamar `render` na mesma root novamente é semelhante a chamar a função [`set` (/reference/react/useState#setstate) no componente root: o React evita atualizações desnecessárias do DOM.
 
-* Although rendering is synchronous once it starts, `root.render(...)` is not. This means code after `root.render()` may run before any effects (`useLayoutEffect`, `useEffect`) of that specific render are fired. This is usually fine and rarely needs adjustment. In rare cases where effect timing matters, you can wrap `root.render(...)` in [`flushSync`](https://react.dev/reference/react-dom/flushSync) to ensure the initial render runs fully synchronously.
+* Although rendering is synchronous once it starts, `root.render(...)` is not. This means code after `root.render()` may run before any effects (`useLayoutEffect`, `useEffect`) of that specific render are fired. This is usually fine and rarely needs adjustment. In rare cases where effect timing matters, you can wrap `root.render(...)` in [`flushSync`](/reference/react-dom/flushSync) to ensure the initial render runs fully synchronously.
 
   ```js
   const root = createRoot(document.getElementById('root'));
@@ -379,7 +379,11 @@ A opção <CodeStep step={1}>onCaughtError</CodeStep> é uma função chamada co
 1. O <CodeStep step={2}>error</CodeStep> que foi gerado.
 2. 2. Um objeto <CodeStep step={3}>errorInfo</CodeStep> que contém o <CodeStep step={4}>componentStack</CodeStep> do erro.
 
+<<<<<<< HEAD
 Junto com `onUncaughtError` e `onRecoverableError`, você pode implementar seu próprio sistema de relatórios de erros:
+=======
+Together with `onUncaughtError` and `onRecoverableError`, you can implement your own error reporting system:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 <Sandpack>
 
@@ -419,7 +423,7 @@ const container = document.getElementById("root");
 const root = createRoot(container, {
   // Keep in mind to remove these options in development to leverage
   // React's default handlers or implement your own overlay for development.
-  // The handlers are only specfied unconditionally here for demonstration purposes.
+  // The handlers are only specified unconditionally here for demonstration purposes.
   onCaughtError: onCaughtErrorProd,
   onRecoverableError: onRecoverableErrorProd,
   onUncaughtError: onUncaughtErrorProd,

@@ -135,7 +135,11 @@ O nó raiz em uma árvore de renderização do React é o [componente raiz](/lea
 
 #### Onde estão as tags HTML na árvore de renderização? {/*where-are-the-html-elements-in-the-render-tree*/}
 
+<<<<<<< HEAD
 Você notará na árvore de renderização acima que não há menção das tags HTML que cada componente renderiza. Isso ocorre porque a árvore de renderização é composta apenas de [componentes](learn/your-first-component#components-ui-building-blocks) React.
+=======
+You'll notice in the above render tree, there is no mention of the HTML tags that each component renders. This is because the render tree is only composed of React [components](/learn/your-first-component#components-ui-building-blocks).
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 React, como uma biblioteca de UI, é agnóstico à plataforma. Em react.dev, mostramos exemplos que renderizam na web, que usa marcação HTML como seus primitivos de UI. Mas um aplicativo React poderia renderizar em uma plataforma móvel ou desktop, que pode usar diferentes primitivos de UI como [UIView](https://developer.apple.com/documentation/uikit/uiview) ou [FrameworkElement](https://learn.microsoft.com/en-us/dotnet/api/system.windows.frameworkelement?view=windowsdesktop-7.0).
 

@@ -79,7 +79,11 @@ function Component({user}) {
 }
 ```
 
+<<<<<<< HEAD
 Se o efeito colateral sincroniza o estado do React com algum estado externo (ou vice-versa), use `useEffect`:
+=======
+If the side effect synchronizes React state with some external state (or vice versa), use `useEffect`:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```js
 // ✅ Bom: Sincronização em useEffect

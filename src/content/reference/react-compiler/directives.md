@@ -192,6 +192,12 @@ Para problemas específicos com diretivas, consulte as seções de solução de 
 
 ## Veja também {/*see-also*/}
 
+<<<<<<< HEAD
 * [`compilationMode`](/reference/react-compiler/compilationMode) - Configure como o compilador escolhe o que otimizar
 * [`Configuration`](/reference/react-compiler/configuration) - Opções completas de configuração do compilador
 * [Documentação do Compilador React](https://react.dev/learn/react-compiler) - Guia de início rápido
+=======
+* [`compilationMode`](/reference/react-compiler/compilationMode) - Configure how the compiler chooses what to optimize
+* [`Configuration`](/reference/react-compiler/configuration) - Full compiler configuration options
+* [React Compiler documentation](/learn/react-compiler) - Getting started guide
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
