@@ -335,7 +335,11 @@ function MyComponent() {
 
 </Note>
 
+<<<<<<< HEAD
 O [hook `useMemo`](/reference/react/useMemo) cria/reacessa um valor memoizado de uma chamada de função, executando-a novamente apenas quando as dependências passadas como segundo parâmetro mudarem. O resultado da chamada do hook é inferido pelo valor retornado pela função do primeiro parâmetro. Você pode ser mais explícito informando um tipo como argumento para o hook.
+=======
+The [`useMemo`](/reference/react/useMemo) Hooks will create/re-access a memoized value from a function call, re-running the function only when dependencies passed as the 2nd parameter are changed. The result of calling the Hook is inferred from the return value from the function in the first parameter. You can be more explicit by providing a type argument to the Hook.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```ts
 // O tipo de visibleTodos é inferido pelo retorno do valor de filterTodos

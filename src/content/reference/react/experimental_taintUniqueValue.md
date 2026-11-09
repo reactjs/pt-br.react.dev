@@ -90,7 +90,11 @@ experimental_taintUniqueValue(
 );
 ```
 
+<<<<<<< HEAD
 Se o tempo de vida do valor contaminado estiver ligado a um objeto, o `lifetime` deve ser o objeto que encapsula o valor. Isso garante que o valor contaminado permaneça protegido durante a vida útil do objeto encapsulador.
+=======
+If the tainted value's lifespan is tied to an object, the `lifetime` should be the object that encapsulates the value. This ensures the tainted value remains protected for the lifetime of the encapsulating object.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```js
 import {experimental_taintUniqueValue} from 'react';
@@ -128,7 +132,11 @@ const uppercasePassword = password.toUpperCase() // `uppercasePassword` não est
 
 Neste exemplo, a constante `password` está contaminada. Então `password` é usado para criar um novo valor `uppercasePassword` chamando o método `toUpperCase` em `password`. O `uppercasePassword` recém-criado não está contaminado.
 
+<<<<<<< HEAD
 Outras formas semelhantes de derivar novos valores de valores contaminados, como concatená-lo em uma string maior, convertê-lo para base64 ou retornar uma substring, criam valores não contaminados.
+=======
+Other similar ways of deriving new values from tainted values like concatenating it into a larger string, converting it to base64, or returning a substring create untainted values.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 A contaminação só protege contra erros simples, como passar explicitamente valores secretos para o cliente. Erros na chamada de `taintUniqueValue`, como usar um armazenamento global fora do React, sem o objeto de tempo de vida correspondente, podem fazer com que o valor contaminado se torne não contaminado. A contaminação é uma camada de proteção; um aplicativo seguro terá várias camadas de proteção, APIs bem projetadas e padrões de isolamento.
 

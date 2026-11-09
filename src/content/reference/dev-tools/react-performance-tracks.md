@@ -140,8 +140,13 @@ Em builds de desenvolvimento, ao clicar em uma entrada de renderização de comp
 
 A trilha de Requisições do Servidor visualiza todas as Promises que eventualmente acabam em um Componente de Servidor React. Isso inclui quaisquer operações `async`, como chamar `fetch` ou operações de arquivo assíncronas do Node.js.
 
+<<<<<<< HEAD
 O React tentará combinar Promises que são iniciadas a partir de código de terceiros em um único span que representa a duração de toda a operação que bloqueia o código de primeira parte.
 Por exemplo, um método de biblioteca de terceiros chamado `getUser` que chama `fetch` internamente várias vezes será representado como um único span chamado `getUser`, em vez de mostrar múltiplos spans `fetch`.
+=======
+React will try to combine Promises that are started from inside third-party code into a single span representing the duration of the entire operation blocking 1st party code.
+For example, a third party library method called `getUser` that calls `fetch` internally multiple times will be represented as a single span called `getUser`, instead of showing multiple `fetch` spans.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Clicar em spans mostrará um trace de pilha de onde a Promise foi criada, bem como uma visualização do valor para o qual a Promise foi resolvida, se disponível.
 
@@ -155,5 +160,10 @@ Se você aguardar uma Promise, o React exibirá a duração dessa Promise. Para 
 
 Cores diferentes são usadas para indicar a duração da renderização do componente. Quanto mais escura a cor, maior a duração.
 
+<<<<<<< HEAD
 O grupo de trilhas de Componentes do Servidor sempre conterá uma trilha "Primary". Se o React for capaz de renderizar Componentes do Servidor concorrentemente, ele exibirá trilhas "Parallel" adicionais.
 Se mais de 8 Componentes do Servidor forem renderizados concorrentemente, o React os associará à última trilha "Parallel" em vez de adicionar mais trilhas.
+=======
+The Server Components track group will always contain a "Primary" track. If React is able to render Server Components concurrently, it will display additional "Parallel" tracks.
+If more than 8 Server Components are rendered concurrently, React will associate them with the last "Parallel" track instead of adding more tracks.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3

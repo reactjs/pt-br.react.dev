@@ -825,7 +825,7 @@ const initialTasks = [
 ```
 
 ```js src/AddTask.js
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useTasksDispatch } from './TasksContext.js';
 
 export default function AddTask() {
@@ -854,7 +854,7 @@ let nextId = 3;
 ```
 
 ```js src/TaskList.js
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useTasks, useTasksDispatch } from './TasksContext.js';
 
 export default function TaskList() {
@@ -1365,7 +1365,11 @@ Você pode ter um provedor sem um `value` na árvore:
 
 Se você esquecer de especificar `value`, é como passar `value={undefined}`.
 
+<<<<<<< HEAD
 Você pode também ter usado acidentalmente um nome de prop diferente por engano:
+=======
+You may have also used a different prop name by mistake:
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 ```js {1,2}
 // 🚩 Não funciona: a prop deve ser chamada "value"

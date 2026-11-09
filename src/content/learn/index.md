@@ -336,7 +336,11 @@ function MyButton() {
 }
 ```
 
+<<<<<<< HEAD
 O React chamará novamente a função do seu componente. Desta vez, `count` será `1`. Depois será `2`. E assim por diante.
+=======
+Calling `setCount` tells React to call your component function again. This is called a *re-render*. This time, `count` will be `1`. Then it will be `2`. And so on.
+>>>>>>> f5fa1e82edacdf8c6bfc4dfd9cf52029a96d5fd3
 
 Se você renderizar o mesmo componente várias vezes, cada um terá seu próprio estado. Clique em cada botão separadamente:
 
