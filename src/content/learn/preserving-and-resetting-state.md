@@ -18,7 +18,11 @@ O estado é isolado entre componentes. O React acompanha qual estado pertence a 
 
 ## O estado está vinculado a uma posição na árvore de renderização {/*state-is-tied-to-a-position-in-the-tree*/}
 
+<<<<<<< HEAD
 O React constrói [árvores de renderização](learn/understanding-your-ui-as-a-tree#the-render-tree) para a estrutura de componentes em sua UI.
+=======
+React builds [render trees](/learn/understanding-your-ui-as-a-tree#the-render-tree) for the component structure in your UI.
+>>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 Quando você dá estado a um componente, pode pensar que o estado "vive" dentro do componente. Mas o estado é, na verdade, mantido dentro do React. O React associa cada pedaço de estado que está mantendo ao componente correto pela sua posição na árvore de renderização.
 
