@@ -342,16 +342,16 @@ Quando o botão é clicado, `setIsPending(true)` usa o estado otimista para most
 Esse padrão mostra automaticamente um estado pendente, não importa como a prop `action` seja usada com `Button`:
 
 ```js
-// Mostra o estado pendente para uma atualização de estado
+// Mostra o state pendente para uma atualização de state
 <Button action={() => { setState(c => c + 1) }} />
 
-// Mostra o estado pendente para uma navegação
+// Mostra o state pendente para uma navegação
 <Button action={() => { navigate('/done') }} />
 
-// Mostra o estado pendente para um POST
+// Mostra o state pendente para um POST
 <Button action={async () => { await fetch(/* ... */) }} />
 
-// Mostra o estado pendente para qualquer combinação
+// Mostra o state pendente para qualquer combinação
 <Button action={async () => {
   setState(c => c + 1);
   await fetch(/* ... */);
@@ -553,7 +553,7 @@ setOptimistic(current => !current);
 
 ```js
 const [optimistic, dispatch] = useOptimistic(value, (current, action) => {
-  // Calcula o próximo estado com base no estado atual e na action
+  // Calcula o próximo state com base no state atual e na action
 });
 dispatch(action);
 ```
