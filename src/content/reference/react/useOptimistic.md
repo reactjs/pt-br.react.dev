@@ -337,21 +337,21 @@ export async function submitForm() {
 
 </Sandpack>
 
-When the button is clicked, `setIsPending(true)` uses optimistic state to immediately show "Submitting..." and disable the button. When the Action is done, `isPending` is rendered as `false` automatically.
+Quando o botão é clicado, `setIsPending(true)` usa o estado otimista para mostrar imediatamente "Submitting..." e desabilitar o botão. Quando a Ação termina, `isPending` é renderizado como `false` automaticamente.
 
-This pattern automatically shows a pending state however `action` prop is used with `Button`:
+Esse padrão mostra automaticamente um estado pendente, não importa como a prop `action` seja usada com `Button`:
 
 ```js
-// Show pending state for a state update
+// Mostra o estado pendente para uma atualização de estado
 <Button action={() => { setState(c => c + 1) }} />
 
-// Show pending state for a navigation
+// Mostra o estado pendente para uma navegação
 <Button action={() => { navigate('/done') }} />
 
-// Show pending state for a POST
+// Mostra o estado pendente para um POST
 <Button action={async () => { await fetch(/* ... */) }} />
 
-// Show pending state for any combination
+// Mostra o estado pendente para qualquer combinação
 <Button action={async () => {
   setState(c => c + 1);
   await fetch(/* ... */);
@@ -359,23 +359,23 @@ This pattern automatically shows a pending state however `action` prop is used w
 }} />
 ```
 
-The pending state will be shown until everything in the `action` prop is finished.
+O estado pendente vai ser exibido até que tudo na prop `action` termine.
 
 <Note>
 
-You can also use [`useTransition`](/reference/react/useTransition) to get pending state via `isPending`.
+Você também pode usar [`useTransition`](/reference/react/useTransition) para obter o estado pendente via `isPending`.
 
-The difference is that `useTransition` gives you the `startTransition` function, while `useOptimistic` works with any Transition. Use whichever fits your component's needs.
+A diferença é que `useTransition` fornece a função `startTransition`, enquanto `useOptimistic` funciona com qualquer Transição. Use o que fizer mais sentido para o seu componente.
 
 </Note>
 
 ---
 
-### Updating props or state optimistically {/*updating-props-or-state-optimistically*/}
+### Atualizando props ou estado de forma otimista {/*updating-props-or-state-optimistically*/}
 
-You can wrap props or state in `useOptimistic` to update it immediately while an Action is in progress.
+Você pode envolver props ou estado em `useOptimistic` para atualizá-los imediatamente enquanto uma Ação está em andamento.
 
-In this example, `LikeButton` receives `isLiked` as a prop and immediately toggles it when clicked:
+Neste exemplo, `LikeButton` recebe `isLiked` como prop e o alterna imediatamente quando clicado:
 
 <Sandpack>
 
@@ -420,7 +420,7 @@ export default function App() {
 ```js src/actions.js hidden
 export async function toggleLike(value) {
   return await new Promise((res) => setTimeout(() => res(value), 1000));
-  // In a real app, this would update the server
+  // Em um app real, isto atualizaria o servidor
 }
 ```
 
@@ -432,29 +432,29 @@ import './styles.css';
 import App from './App';
 
 const root = createRoot(document.getElementById('root'));
-// Not using StrictMode so double render logs are not shown.
+// Sem StrictMode, para que os logs da renderização dupla não apareçam.
 root.render(<App />);
 ```
 
 </Sandpack>
 
-When the button is clicked, `setOptimisticIsLiked` immediately updates the displayed state to show the heart as liked. Meanwhile, `await toggleLike` runs in the background. When the `await` completes, `setIsLiked` parent updates the "real" `isLiked` state, and the optimistic state is rendered to match this new value.
+Quando o botão é clicado, `setOptimisticIsLiked` atualiza imediatamente o estado exibido para mostrar o coração como curtido. Enquanto isso, `await toggleLike` é executado em segundo plano. Quando o `await` termina, o `setIsLiked` do componente pai atualiza o estado `isLiked` "real", e o estado otimista é renderizado de acordo com esse novo valor.
 
 <Note>
 
-This example reads from `optimisticIsLiked` to calculate the next value. This works when the base state won't change, but if the base state might change while your Action is pending, you may want to use a state updater or the reducer.
+Este exemplo lê `optimisticIsLiked` para calcular o próximo valor. Isso funciona quando o estado base não vai mudar, mas, se o estado base puder mudar enquanto a sua Ação está pendente, talvez seja melhor usar uma função atualizadora ou o reducer.
 
-See [Updating state based on the current state](#updating-state-based-on-current-state) for an example.
+Veja [Atualizando o estado com base no estado atual](#updating-state-based-on-current-state) para um exemplo.
 
 </Note>
 
 ---
 
-### Updating multiple values together {/*updating-multiple-values-together*/}
+### Atualizando vários valores juntos {/*updating-multiple-values-together*/}
 
-When an optimistic update affects multiple related values, use a reducer to update them together. This ensures the UI stays consistent.
+Quando uma atualização otimista afeta vários valores relacionados, use um reducer para atualizá-los juntos. Isso garante que a UI permaneça consistente.
 
-Here's a follow button that updates both the follow state and follower count:
+Aqui está um botão de seguir que atualiza tanto o estado de seguir quanto a contagem de seguidores:
 
 <Sandpack>
 
@@ -533,48 +533,48 @@ export async function unfollowUser(name) {
 
 </Sandpack>
 
-The reducer receives the new `isFollowing` value and calculates both the new follow state and the updated follower count in a single update. This ensures the button text and count always stay in sync.
+O reducer recebe o novo valor de `isFollowing` e calcula tanto o novo estado de seguir quanto a contagem de seguidores atualizada em uma única atualização. Isso garante que o texto do botão e a contagem fiquem sempre sincronizados.
 
 
 <DeepDive>
 
-#### Choosing between updaters and reducers {/*choosing-between-updaters-and-reducers*/}
+#### Escolhendo entre funções atualizadoras e reducers {/*choosing-between-updaters-and-reducers*/}
 
-`useOptimistic` supports two patterns for calculating state based on current state:
+`useOptimistic` suporta dois padrões para calcular o estado com base no estado atual:
 
-**Updater functions** work like [useState updaters](/reference/react/useState#updating-state-based-on-the-previous-state). Pass a function to the setter:
+**Funções atualizadoras** funcionam como as [funções atualizadoras do useState](/reference/react/useState#updating-state-based-on-the-previous-state). Passe uma função para o setter:
 
 ```js
 const [optimistic, setOptimistic] = useOptimistic(value);
 setOptimistic(current => !current);
 ```
 
-**Reducers** separate the update logic from the setter call:
+**Reducers** separam a lógica de atualização da chamada do setter:
 
 ```js
 const [optimistic, dispatch] = useOptimistic(value, (current, action) => {
-  // Calculate next state based on current and action
+  // Calcula o próximo estado com base no estado atual e na action
 });
 dispatch(action);
 ```
 
-**Use updaters** for calculations where the setter call naturally describes the update. This is similar to using `setState(prev => ...)` with `useState`.
+**Use funções atualizadoras** para cálculos em que a chamada do setter descreve naturalmente a atualização. É parecido com usar `setState(prev => ...)` com `useState`.
 
-**Use reducers** when you need to pass data to the update (like which item to add) or when handling multiple types of updates with a single hook.
+**Use reducers** quando precisar passar dados para a atualização (como qual item adicionar) ou quando tratar vários tipos de atualização com um único Hook.
 
-**Why use a reducer?**
+**Por que usar um reducer?**
 
-Reducers are essential when the base state might change while your Transition is pending. If `todos` changes while your add is pending (for example, another user added a todo), React will re-run your reducer with the new `todos` to recalculate what to show. This ensures your new todo is added to the latest list, not an outdated copy.
+Reducers são essenciais quando o estado base pode mudar enquanto a sua Transição está pendente. Se `todos` mudar enquanto a sua adição está pendente (por exemplo, outro usuário adicionou um todo), o React vai executar o seu reducer de novo com o novo `todos` para recalcular o que mostrar. Isso garante que o seu novo todo seja adicionado à lista mais recente, e não a uma cópia desatualizada.
 
-An updater function like `setOptimistic(prev => [...prev, newItem])` would only see the state from when the Transition started, missing any updates that happened during the async work.
+Uma função atualizadora como `setOptimistic(prev => [...prev, newItem])` só veria o estado do momento em que a Transição começou, perdendo quaisquer atualizações que tenham acontecido durante o trabalho assíncrono.
 
 </DeepDive>
 
 ---
 
-### Optimistically adding to a list {/*optimistically-adding-to-a-list*/}
+### Adicionando itens a uma lista de forma otimista {/*optimistically-adding-to-a-list*/}
 
-When you need to optimistically add items to a list, use a `reducer`:
+Quando você precisar adicionar itens a uma lista de forma otimista, use um `reducer`:
 
 <Sandpack>
 
@@ -637,7 +637,7 @@ export default function TodoList({ todos, addTodoAction }) {
 ```js src/actions.js hidden
 export async function addTodo(todo) {
   await new Promise((res) => setTimeout(res, 1000));
-  // In a real app, this would save to the server
+  // Em um app real, isto salvaria no servidor
   return { ...todo, pending: false };
 }
 ```
@@ -921,7 +921,7 @@ export default function ItemList({ items, deleteAction }) {
 ```js src/actions.js hidden
 export async function deleteItem(id) {
   await new Promise((res) => setTimeout(res, 1000));
-  // Item 3 always fails to demonstrate error recovery
+  // O item 3 sempre falha, para demonstrar a recuperação de erros
   if (id === 3) {
     throw new Error('Cannot delete. Permission denied.');
   }
