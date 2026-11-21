@@ -199,7 +199,7 @@ export default function App({}) {
   const [isPending, startTransition] = useTransition();
 
   const updateQuantityAction = async newQuantity => {
-    // Para acessar o estado pendente de uma transição,
+    // Para acessar o state pendente de uma transição,
     // chame startTransition novamente.
     startTransition(async () => {
       const savedQuantity = await updateQuantity(newQuantity);
@@ -303,7 +303,7 @@ export async function updateQuantity(newQuantity) {
 
 </Sandpack>
 
-Este é um exemplo básico para demonstrar como as Ações funcionam, mas ele não trata requisições que terminam fora de ordem. Ao atualizar a quantidade várias vezes, é possível que as requisições anteriores terminem depois das posteriores, fazendo a quantidade ser atualizada fora de ordem. Esta é uma limitação conhecida que vamos corrigir no futuro (veja [Solução de problemas](#my-state-updates-in-transitions-are-out-of-order) abaixo).
+Este é um exemplo básico para demonstrar como as Ações funcionam, mas ele não trata requisições que terminam fora de ordem. Ao atualizar a quantidade várias vezes, é possível que as requisições anteriores terminem depois das posteriores, fazendo a quantidade ser atualizada fora de ordem. Esta é uma limitação conhecida que vamos corrigir no futuro (veja [Solução de Problemas](#my-state-updates-in-transitions-are-out-of-order) abaixo).
 
 Para casos de uso comuns, o React fornece abstrações embutidas, como:
 - [`useActionState`](/reference/react/useActionState)
@@ -348,7 +348,7 @@ export default function App({}) {
   const [isPending, setIsPending] = useState(false);
 
   const onUpdateQuantity = async newQuantity => {
-    // Define o estado isPending manualmente.
+    // Define o state isPending manualmente.
     setIsPending(true);
     const savedQuantity = await updateQuantity(newQuantity);
     setIsPending(false);
@@ -476,7 +476,7 @@ export default function App({}) {
 
   const onUpdateQuantity = async event => {
     const newQuantity = event.target.value;
-    // Define o estado isPending manualmente.
+    // Define o state isPending manualmente.
     setIsPending(true);
     const savedQuantity = await updateQuantity(newQuantity);
     setIsPending(false);
@@ -1798,13 +1798,13 @@ import Total from "./Total";
 export default function App({}) {
   const [quantity, setQuantity] = useState(1);
   const [isPending, startTransition] = useTransition();
-  // Guarda a quantidade real em um estado separado para mostrar a divergência.
+  // Guarda a quantidade real em um state separado para mostrar a divergência.
   const [clientQuantity, setClientQuantity] = useState(1);
 
   const updateQuantityAction = newQuantity => {
     setClientQuantity(newQuantity);
 
-    // Acessa o estado pendente da transição,
+    // Acessa o state pendente da transição,
     // envolvendo em startTransition novamente.
     startTransition(async () => {
       const savedQuantity = await updateQuantity(newQuantity);
@@ -1969,13 +1969,13 @@ import Item from "./Item";
 import Total from "./Total";
 
 export default function App({}) {
-  // Guarda a quantidade real em um estado separado para mostrar a divergência.
+  // Guarda a quantidade real em um state separado para mostrar a divergência.
   const [clientQuantity, setClientQuantity] = useState(1);
   const [quantity, updateQuantityAction, isPending] = useActionState(
     async (prevState, payload) => {
       setClientQuantity(payload);
       const savedQuantity = await updateQuantity(payload);
-      return savedQuantity; // Retorna a nova quantidade para atualizar o estado
+      return savedQuantity; // Retorna a nova quantidade para atualizar o state
     },
     1 // Quantidade inicial
   );
