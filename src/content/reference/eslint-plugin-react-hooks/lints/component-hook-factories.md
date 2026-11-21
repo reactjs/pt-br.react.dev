@@ -4,27 +4,27 @@ title: component-hook-factories
 
 <Intro>
 
-Validates against higher order functions defining nested components or hooks. Components and hooks should be defined at the module level.
+Valida contra funções de ordem superior que definem componentes ou hooks aninhados. Componentes e hooks devem ser definidos no nível do módulo.
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-Defining components or hooks inside other functions creates new instances on every call. React treats each as a completely different component, destroying and recreating the entire component tree, losing all state, and causing performance problems.
+Definir componentes ou hooks dentro de outras funções cria novas instâncias a cada chamada. O React trata cada uma como um componente completamente diferente, destruindo e recriando toda a árvore de componentes, perdendo todo o estado e causando problemas de desempenho.
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js {expectedErrors: {'react-compiler': [14]}}
-// ❌ Factory function creating components
+// ❌ Função factory criando componentes
 function createComponent(defaultValue) {
   return function Component() {
     // ...
   };
 }
 
-// ❌ Component defined inside component
+// ❌ Componente definido dentro de outro componente
 function Parent() {
   function Child() {
     // ...
@@ -33,7 +33,7 @@ function Parent() {
   return <Child />;
 }
 
-// ❌ Hook factory function
+// ❌ Função factory de hook
 function createCustomHook(endpoint) {
   return function useData() {
     // ...
@@ -41,30 +41,30 @@ function createCustomHook(endpoint) {
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Component defined at module level
+// ✅ Componente definido no nível do módulo
 function Component({ defaultValue }) {
   // ...
 }
 
-// ✅ Custom hook at module level
+// ✅ Hook personalizado no nível do módulo
 function useData(endpoint) {
   // ...
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I need dynamic component behavior {/*dynamic-behavior*/}
+### Preciso de comportamento dinâmico no componente {/*dynamic-behavior*/}
 
-You might think you need a factory to create customized components:
+Você pode achar que precisa de uma factory para criar componentes personalizados:
 
 ```js
-// ❌ Wrong: Factory pattern
+// ❌ Errado: padrão factory
 function makeButton(color) {
   return function Button({children}) {
     return (
@@ -79,10 +79,10 @@ const RedButton = makeButton('red');
 const BlueButton = makeButton('blue');
 ```
 
-Pass [JSX as children](/learn/passing-props-to-a-component#passing-jsx-as-children) instead:
+Em vez disso, passe [JSX como `children`](/learn/passing-props-to-a-component#passing-jsx-as-children):
 
 ```js
-// ✅ Better: Pass JSX as children
+// ✅ Melhor: passe JSX como children
 function Button({color, children}) {
   return (
     <button style={{backgroundColor: color}}>
@@ -94,8 +94,8 @@ function Button({color, children}) {
 function App() {
   return (
     <>
-      <Button color="red">Red</Button>
-      <Button color="blue">Blue</Button>
+      <Button color="red">Vermelho</Button>
+      <Button color="blue">Azul</Button>
     </>
   );
 }
