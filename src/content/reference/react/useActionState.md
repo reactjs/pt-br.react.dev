@@ -1215,12 +1215,12 @@ function Checkout() {
     async (prevState, quantity) => {
       const result = await addToCart(prevState.count, quantity);
       if (result.error) {
-        // Retorne o erro da API como estado
+        // Retorne o erro da API como state
         return {...prevState, error: `Could not add quanitiy ${quantity}: ${result.error}`};
       }
 
       if (!isPending) {
-        // Limpe o estado de erro no primeiro dispatch.
+        // Limpe o state de erro no primeiro dispatch.
         return {count: result.count, error: null};
       }
 
