@@ -94,8 +94,8 @@ function Button({color, children}) {
 function App() {
   return (
     <>
-      <Button color="red">Vermelho</Button>
-      <Button color="blue">Azul</Button>
+      <Button color="red">Red</Button>
+      <Button color="blue">Blue</Button>
     </>
   );
 }
