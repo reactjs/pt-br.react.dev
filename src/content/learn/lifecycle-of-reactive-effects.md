@@ -379,15 +379,15 @@ Se `serverUrl` fosse uma variável de estado, ele seria reativo. Valores reativo
 
 ```js {2,5,10}
 function ChatRoom({ roomId }) { // Props mudam ao longo do tempo
-  const [serverUrl, setServerUrl] = useState('https://localhost:1234'); // O estado pode mudar ao longo do tempo
+  const [serverUrl, setServerUrl] = useState('https://localhost:1234'); // O state pode mudar ao longo do tempo
 
   useEffect(() => {
-    const connection = createConnection(serverUrl, roomId); // O seu Effect lê props e estado
+    const connection = createConnection(serverUrl, roomId); // O seu Effect lê props e state
     connection.connect();
     return () => {
       connection.disconnect();
     };
-  }, [roomId, serverUrl]); // Então você diz ao React que este Effect "depende de" props e estado
+  }, [roomId, serverUrl]); // Então você diz ao React que este Effect "depende de" props e state
   // ...
 }
 ```
