@@ -257,7 +257,7 @@ button {
 
 </Sandpack>
 
-Every time you click "Add Ticket," React queues a call to `addToCartAction`. React shows the pending state until all the tickets are added, and then re-renders with the final state.
+Cada vez que você clica em "Add Ticket", o React enfileira uma chamada para `addToCartAction`. O React mostra o estado pendente até que todos os ingressos sejam adicionados e então renderiza novamente com o estado final.
 
 <DeepDive>
 
@@ -428,29 +428,29 @@ hr {
 
 </Sandpack>
 
-When you click to increase or decrease the quantity, an `"ADD"` or `"REMOVE"` is dispatched. In the `reducerAction`, different APIs are called to update the quantity.
+Quando você clica para aumentar ou diminuir a quantidade, um `"ADD"` ou `"REMOVE"` é despachado. Na `reducerAction`, APIs diferentes são chamadas para atualizar a quantidade.
 
-In this example, we use the pending state of the Actions to replace both the quantity and the total. If you want to provide immediate feedback, such as immediately updating the quantity, you can use `useOptimistic`.
+Neste exemplo, usamos o estado pendente das Ações para substituir tanto a quantidade quanto o total. Se você quiser dar um feedback imediato, como atualizar a quantidade na hora, pode usar `useOptimistic`.
 
 <DeepDive>
 
-#### How is `useActionState` different from `useReducer`? {/*useactionstate-vs-usereducer*/}
+#### Qual é a diferença entre `useActionState` e `useReducer`? {/*useactionstate-vs-usereducer*/}
 
-You might notice this example looks a lot like `useReducer`, but they serve different purposes:
+Você pode notar que este exemplo se parece muito com `useReducer`, mas eles servem a propósitos diferentes:
 
-- **Use `useReducer`** to manage state of your UI. The reducer must be pure.
+- **Use `useReducer`** para gerenciar o estado da sua UI. O reducer deve ser puro.
 
-- **Use `useActionState`** to manage state of your Actions. The reducer can perform side effects.
+- **Use `useActionState`** para gerenciar o estado das suas Ações. O reducer pode executar efeitos colaterais.
 
-You can think of `useActionState` as `useReducer` for side effects from user Actions. Since it computes the next Action to take based on the previous Action, it has to [order the calls sequentially](/reference/react/useActionState#how-useactionstate-queuing-works). If you want to perform Actions in parallel, use `useState` and `useTransition` directly.
+Você pode pensar em `useActionState` como um `useReducer` para efeitos colaterais de Ações do usuário. Como ele calcula a próxima Ação a executar com base na Ação anterior, ele precisa [ordenar as chamadas sequencialmente](/reference/react/useActionState#how-useactionstate-queuing-works). Se você quiser executar Ações em paralelo, use `useState` e `useTransition` diretamente.
 
 </DeepDive>
 
 ---
 
-### Using with `useOptimistic` {/*using-with-useoptimistic*/}
+### Usando com `useOptimistic` {/*using-with-useoptimistic*/}
 
-You can combine `useActionState` with [`useOptimistic`](/reference/react/useOptimistic) to show immediate UI feedback:
+Você pode combinar `useActionState` com [`useOptimistic`](/reference/react/useOptimistic) para mostrar um feedback imediato na UI:
 
 
 <Sandpack>
@@ -605,16 +605,16 @@ hr {
 </Sandpack>
 
 
-`setOptimisticCount` immediately updates the quantity, and `dispatchAction()` queues the `updateCartAction`. A pending indicator appears on both the quantity and total to give the user feedback that their update is still being applied.
+`setOptimisticCount` atualiza a quantidade imediatamente, e `dispatchAction()` enfileira a `updateCartAction`. Um indicador pendente aparece tanto na quantidade quanto no total para avisar o usuário de que a atualização ainda está sendo aplicada.
 
 ---
 
 
-### Using with Action props {/*using-with-action-props*/}
+### Usando com props de Ação {/*using-with-action-props*/}
 
-When you pass the `dispatchAction` function to a component that exposes an [Action prop](/reference/react/useTransition#exposing-action-props-from-components), you don't need to call `startTransition` or `useOptimistic` yourself.
+Quando você passa a função `dispatchAction` para um componente que expõe uma [prop de Ação](/reference/react/useTransition#exposing-action-props-from-components), não precisa chamar `startTransition` nem `useOptimistic` você mesmo.
 
-This example shows using the `increaseAction` and `decreaseAction` props of a QuantityStepper component:
+Este exemplo mostra o uso das props `increaseAction` e `decreaseAction` de um componente QuantityStepper:
 
 <Sandpack>
 
@@ -791,13 +791,13 @@ hr {
 
 </Sandpack>
 
-Since `<QuantityStepper>` has built-in support for transitions, pending state, and optimistically updating the count, you just need to tell the Action _what_ to change, and _how_ to change it is handled for you.
+Como `<QuantityStepper>` já tem suporte embutido a Transitions, estado pendente e atualização otimista da contagem, você só precisa dizer à Ação _o que_ mudar; _como_ mudar fica por conta dele.
 
 ---
 
-### Cancelling queued Actions {/*cancelling-queued-actions*/}
+### Cancelando Ações enfileiradas {/*cancelling-queued-actions*/}
 
-You can use an `AbortController` to cancel pending Actions:
+Você pode usar um `AbortController` para cancelar Ações pendentes:
 
 <Sandpack>
 
@@ -1016,23 +1016,23 @@ hr {
 
 </Sandpack>
 
-Try clicking increase or decrease multiple times, and notice that the total updates within 1 second no matter how many times you click. This works because it uses an `AbortController` to "complete" the previous Action so the next Action can proceed.
+Tente clicar em aumentar ou diminuir várias vezes e observe que o total é atualizado em até 1 segundo, não importa quantas vezes você clique. Isso funciona porque o exemplo usa um `AbortController` para "concluir" a Ação anterior, de modo que a próxima Ação possa prosseguir.
 
 <Pitfall>
 
-Aborting an Action isn't always safe.
+Abortar uma Ação nem sempre é seguro.
 
-For example, if the Action performs a mutation (like writing to a database), aborting the network request doesn't undo the server-side change. This is why `useActionState` doesn't abort by default. It's only safe when you know the side effect can be safely ignored or retried.
+Por exemplo, se a Ação executa uma mutação (como escrever em um banco de dados), abortar a requisição de rede não desfaz a mudança no lado do servidor. É por isso que `useActionState` não aborta por padrão. Só é seguro quando você sabe que o efeito colateral pode ser ignorado ou repetido com segurança.
 
 </Pitfall>
 
 ---
 
-### Using with `<form>` Action props {/*use-with-a-form*/}
+### Usando com props de Ação do `<form>` {/*use-with-a-form*/}
 
-You can pass the `dispatchAction` function as the `action` prop to a `<form>`.
+Você pode passar a função `dispatchAction` como a prop `action` de um `<form>`.
 
-When used this way, React automatically wraps the submission in a Transition, so you don't need to call `startTransition` yourself. The `reducerAction` receives the previous state and the submitted `FormData`:
+Quando usada dessa forma, o React envolve automaticamente o envio em uma Transition, então você não precisa chamar `startTransition` você mesmo. A `reducerAction` recebe o estado anterior e o `FormData` enviado:
 
 <Sandpack>
 
@@ -1182,25 +1182,25 @@ hr {
 
 </Sandpack>
 
-In this example, when the user clicks the stepper arrows, the button submits the form and `useActionState` calls `updateCartAction` with the form data. The example uses `useOptimistic` to immediately show the new quantity while the server confirms the update.
+Neste exemplo, quando o usuário clica nas setas do seletor de quantidade, o botão envia o formulário e `useActionState` chama `updateCartAction` com os dados do formulário. O exemplo usa `useOptimistic` para mostrar a nova quantidade imediatamente enquanto o servidor confirma a atualização.
 
 <RSC>
 
-When used with a [Server Function](/reference/rsc/server-functions), `useActionState` allows the server's response to be shown before hydration (when React attaches to server-rendered HTML) completes. You can also use the optional `permalink` parameter for progressive enhancement (allowing the form to work before JavaScript loads) on pages with dynamic content. This is typically handled by your framework for you.
+Quando usado com uma [Função de Servidor](/reference/rsc/server-functions), `useActionState` permite que a resposta do servidor seja exibida antes que a hidratação (quando o React se conecta ao HTML renderizado no servidor) termine. Você também pode usar o parâmetro opcional `permalink` para aprimoramento progressivo (permitindo que o formulário funcione antes de o JavaScript carregar) em páginas com conteúdo dinâmico. Normalmente, o seu framework cuida disso para você.
 
 </RSC>
 
-See the [`<form>`](/reference/react-dom/components/form#handle-form-submission-with-a-server-function) docs for more information on using Actions with forms.
+Veja a documentação de [`<form>`](/reference/react-dom/components/form#handle-form-submission-with-a-server-function) para mais informações sobre o uso de Ações com formulários.
 
 ---
 
-### Handling errors {/*handling-errors*/}
+### Tratando erros {/*handling-errors*/}
 
-There are two ways to handle errors with `useActionState`.
+Há duas formas de tratar erros com `useActionState`.
 
-For known errors, such as "quantity not available" validation errors from your backend, you can return it as part of your `reducerAction` state and display it in the UI.
+Para erros conhecidos, como erros de validação do seu backend do tipo "quantidade indisponível", você pode retorná-los como parte do estado da sua `reducerAction` e exibi-los na UI.
 
-For unknown errors, such as `undefined is not a function`, you can throw an error. React will cancel all queued Actions and shows the nearest [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary) by rethrowing the error from the `useActionState` hook.
+Para erros desconhecidos, como `undefined is not a function`, você pode lançar um erro. O React cancelará todas as Ações enfileiradas e mostrará o [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary) mais próximo, relançando o erro a partir do Hook `useActionState`.
 
 <Sandpack>
 
@@ -1215,16 +1215,16 @@ function Checkout() {
     async (prevState, quantity) => {
       const result = await addToCart(prevState.count, quantity);
       if (result.error) {
-        // Return the error from the API as state
+        // Retorne o erro da API como estado
         return {...prevState, error: `Could not add quanitiy ${quantity}: ${result.error}`};
       }
 
       if (!isPending) {
-        // Clear the error state for the first dispatch.
+        // Limpe o estado de erro no primeiro dispatch.
         return {count: result.count, error: null};
       }
 
-      // Return the new count, and any errors that happened.
+      // Retorne a nova contagem e quaisquer erros que tenham ocorrido.
       return {count: result.count, error: prevState.error};
 
 
@@ -1373,7 +1373,7 @@ button {
 
 </Sandpack>
 
-In this example, "Add 10" simulates an API that returns a validation error, which `updateCartAction` stores in state and displays inline. "Add NaN" results in an invalid count, so `updateCartAction` throws, which propagates through `useActionState` to the `ErrorBoundary` and shows a reset UI.
+Neste exemplo, "Add 10" simula uma API que retorna um erro de validação, que `updateCartAction` guarda no estado e exibe junto ao formulário. "Add NaN" gera uma contagem inválida, então `updateCartAction` lança um erro, que se propaga por `useActionState` até o `ErrorBoundary` e mostra uma UI para reiniciar.
 
 
 ---
@@ -1391,7 +1391,7 @@ function MyComponent() {
   const [state, dispatchAction, isPending] = useActionState(myAction, null);
 
   function handleClick() {
-    // ✅ Correct: wrap in startTransition
+    // ✅ Correto: envolva em startTransition
     startTransition(() => {
       dispatchAction();
     });
