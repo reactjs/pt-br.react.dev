@@ -395,7 +395,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -604,14 +604,14 @@ export function Router({ children }) {
     });
   }
   function navigate(url) {
-    // Atualiza o estado do roteador em uma transição.
+    // Atualiza o state do roteador em uma transição.
     startTransition(() => {
       go(url);
     });
   }
 
   function navigateBack(url) {
-    // Atualiza o estado do roteador em uma transição.
+    // Atualiza o state do roteador em uma transição.
     startTransition(() => {
       go(url);
     });
@@ -1593,7 +1593,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -1773,7 +1773,7 @@ export function Router({ children }) {
   const [isPending, startTransition] = useTransition();
 
   function navigate(url) {
-    // Atualiza o estado do roteador em uma transição.
+    // Atualiza o state do roteador em uma transição.
     startTransition(() => {
       go(url);
     });
@@ -2807,7 +2807,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -3016,14 +3016,14 @@ export function Router({ children }) {
     });
   }
   function navigate(url) {
-    // Atualiza o estado do roteador em uma transição.
+    // Atualiza o state do roteador em uma transição.
     startTransition(() => {
       go(url);
     });
   }
 
   function navigateBack(url) {
-    // Atualiza o estado do roteador em uma transição.
+    // Atualiza o state do roteador em uma transição.
     startTransition(() => {
       go(url);
     });
@@ -4001,7 +4001,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -4210,14 +4210,14 @@ export function Router({ children }) {
     });
   }
   function navigate(url) {
-    // Atualiza o estado do roteador em uma transição.
+    // Atualiza o state do roteador em uma transição.
     startTransition(() => {
       go(url);
     });
   }
 
   function navigateBack(url) {
-    // Atualiza o estado do roteador em uma transição.
+    // Atualiza o state do roteador em uma transição.
     startTransition(() => {
       go(url);
     });
@@ -5263,7 +5263,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -6535,7 +6535,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -7856,7 +7856,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -9183,7 +9183,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -10498,7 +10498,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -11551,7 +11551,7 @@ export default function App() {
   return (
     // View Transitions sabem lidar com Activity
     <ViewTransition>
-      {/* Renderiza Home em Activity para não perdermos o estado */}
+      {/* Renderiza Home em Activity para não perdermos o state */}
       <Activity mode={url === '/' ? 'visible' : 'hidden'}>
         <Home />
       </Activity>
@@ -11869,7 +11869,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
@@ -13207,7 +13207,7 @@ import {useState} from 'react';
 import {Heart} from './Icons';
 
 // Uma gambiarra, já que não temos um backend de verdade.
-// Diferente do estado local, isto sobrevive à filtragem dos vídeos.
+// Diferente do state local, isto sobrevive à filtragem dos vídeos.
 const likedVideos = new Set();
 
 export default function LikeButton({video}) {
