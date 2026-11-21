@@ -80,7 +80,7 @@ No React 19, estamos adicionando suporte ao uso de funções assíncronas em tra
 Por exemplo, você pode usar `useTransition` para lidar com o estado pendente por você:
 
 ```js
-// Usando o estado pendente das Ações
+// Usando o state pendente das Ações
 function UpdateName({}) {
   const [name, setName] = useState("");
   const [error, setError] = useState(null);
