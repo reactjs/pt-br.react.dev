@@ -65,9 +65,9 @@ Se seu aplicativo tiver restrições incomuns, ou você preferir resolver esses 
 
 Para aplicativos existentes, estes guias ajudarão você a migrar para uma ferramenta de build:
 
-* [Guia de migração do Vite para Create React App](https://www.robinwieruch.de/vite-create-react-app/)
-* [Guia de migração do Parcel para Create React App](https://parceljs.org/migration/cra/)
-* [Guia de migração do Rsbuild para Create React App](https://rsbuild.dev/guide/migration/cra)
+* [Guia de migração do Create React App para o Vite](https://www.robinwieruch.de/vite-create-react-app/)
+* [Guia de migração do Create React App para o Parcel](https://parceljs.org/migration/cra/)
+* [Guia de migração do Create React App para o Rsbuild](https://rsbuild.dev/guide/migration/cra)
 
 Para ajudar a começar com Vite, Parcel ou Rsbuild, adicionamos nova documentação para [Criando um Aplicativo React do Zero](/learn/build-a-react-app-from-scratch).
 
@@ -284,7 +284,7 @@ Os frameworks que recomendamos oferecem a opção de criar um aplicativo [render
 
 Em alguns casos, CSR é a escolha certa para uma página, mas muitas vezes não é. Mesmo que a maior parte do seu aplicativo seja renderizada no lado do cliente, muitas vezes há páginas individuais que podem se beneficiar de recursos de renderização no servidor, como [geração de site estático (SSG)](https://developer.mozilla.org/en-US/docs/Glossary/SSG) ou [renderização no lado do servidor (SSR)](https://developer.mozilla.org/en-US/docs/Glossary/SSR), por exemplo, uma página de Termos de Serviço ou documentação.
 
-A renderização no servidor geralmente envia menos JavaScript para o cliente e um documento HTML completo, o que produz uma [Primeira Pintura de Conteúdo (FCP)](https://web.dev/articles/fcp) mais rápida, reduzindo o [Tempo Total de Bloqueio (TBT)](https://web.dev/articles/tbt), que também pode diminuir o [Interação para Próxima Pintura (INP)](https://web.dev/articles/inp). É por isso que a [equipe do Chrome tem incentivado](https://web.dev/articles/rendering-on-the-web) os desenvolvedores a considerar a renderização estática ou no lado do servidor em vez de uma abordagem totalmente no lado do cliente para alcançar o melhor desempenho possível.
+A renderização no servidor geralmente envia menos JavaScript para o cliente e um documento HTML completo, o que produz uma [Primeira Pintura de Conteúdo (FCP)](https://web.dev/articles/fcp) mais rápida, reduzindo o [Tempo Total de Bloqueio (TBT)](https://web.dev/articles/tbt), que também pode diminuir a [Interação para Próxima Pintura (INP)](https://web.dev/articles/inp). É por isso que a [equipe do Chrome tem incentivado](https://web.dev/articles/rendering-on-the-web) os desenvolvedores a considerar a renderização estática ou no lado do servidor em vez de uma abordagem totalmente no lado do cliente para alcançar o melhor desempenho possível.
 
 Existem compromissos ao usar um servidor, e ele nem sempre é a melhor opção para todas as páginas. Gerar páginas no servidor incorre em custos adicionais e leva tempo para gerar, o que pode aumentar o [Tempo para o Primeiro Byte (TTFB)](https://web.dev/articles/ttfb). Os aplicativos com melhor desempenho conseguem escolher a estratégia de renderização correta em uma base por página, com base nos compromissos de cada estratégia.
 
