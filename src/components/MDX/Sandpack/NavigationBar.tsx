@@ -117,7 +117,10 @@ export function NavigationBar({
      *
      * Plus, it should only prompt if there's any file changes
      */
-    if (sandpack.editorState === 'dirty' && confirm('Limpar todas as alterações?')) {
+    if (
+      sandpack.editorState === 'dirty' &&
+      confirm('Limpar todas as alterações?')
+    ) {
       sandpack.resetAllFiles();
     }
     refresh();

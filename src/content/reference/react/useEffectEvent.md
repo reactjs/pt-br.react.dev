@@ -105,7 +105,7 @@ useEffect(() => {
 }, [roomId]);
 ```
 
-Como `onConnected` é um <CodeStep step={1}>Evento de Efeito</CodeStep>, `muted` e `onConnect` não estão nas dependências do Efeito.
+Como `onConnected` é um <CodeStep step={1}>Evento de Efeito</CodeStep>, `muted` e `onConnected` não estão nas dependências do Efeito.
 
 <Pitfall>
 
@@ -258,7 +258,7 @@ Marque a caixa de seleção e mova o cursor. O ponto responde imediatamente ao e
 
 ---
 
-### Evitar reconexões a sistemas externos {/*avoid-reconnecting-to-external-systems*/}
+### Evitar reconexões a sistemas externos {/*showing-a-notification-without-reconnecting*/}
 
 Um caso de uso comum para `useEffectEvent` é quando você quer fazer algo em resposta a um Efeito, mas esse "algo" depende de um valor ao qual você não quer reagir.
 

@@ -786,7 +786,8 @@ Se você definir `UNSAFE_componentWillReceiveProps`, o React irá chamá-lo quan
 
 [Veja exemplos de como migrar de lifecycles inseguros.](https://legacy.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props)
 
-#### Parâmetros {/*unsafe_componentwillreceiveprops-parameters*/}```text {/*parâmetros-unsafe_componentwillreceiveprops-parameterstext*/}
+#### Parâmetros {/*unsafe_componentwillreceiveprops-parameters*/}
+
 - `nextProps`: As próximas props que o componente está prestes a receber de seu componente pai. Compare `nextProps` com [`this.props`](#props) para determinar o que mudou.
 - `nextContext`: O próximo contexto que o componente está prestes a receber do provedor mais próximo. Compare `nextContext` com [`this.context`](#context) para determinar o que mudou. Disponível somente se você especificar [`static contextType`](#static-contexttype).
 
@@ -1007,7 +1008,7 @@ Derivar o estado leva a um código prolixo e dificulta a reflexão sobre seus co
 
 #### Ressalvas {/*static-getderivedstatefromprops-caveats*/}
 
-- Este método é disparado em *cada* renderização, independentemente da causa. Isso é diferente de [`UNSAFE_componentWillReceiveProps`](#unsafe_cmoponentwillreceiveprops), que só é disparado quando os pais causam uma nova renderização e não como resultado de um `setState` local.
+- Este método é disparado em *cada* renderização, independentemente da causa. Isso é diferente de [`UNSAFE_componentWillReceiveProps`](#unsafe_componentwillreceiveprops), que só é disparado quando o pai causa uma nova renderização e não como resultado de um `setState` local.
 
 - Este método não tem acesso à instância do componente. Se você quiser, poderá reutilizar algum código entre `static getDerivedStateFromProps` e os outros métodos de classe, extraindo funções puras das props e do estado do componente fora da definição da classe.
 

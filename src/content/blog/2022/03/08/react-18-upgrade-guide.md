@@ -13,7 +13,7 @@ description: Como compartilhamos na publicação, React 18 apresenta novos recur
 
 Como compartilhamos no [post de lançamento](/blog/2022/03/29/react-v18), React 18 apresenta recursos impulsionados por nosso novo renderizador concorrente, com uma estratégia de adoção gradual para aplicativos existentes. Neste artigo, vamos guiá-lo através das etapas para a atualização para o React 18.
 
-Por favor, [relate quaisquer problemas](https://github.com/facebook/react/issues/new/choose) que você encontrar ao atualizar para React 18.
+Por favor, [relate quaisquer problemas](https://github.com/react/react/issues/new/choose) que você encontrar ao atualizar para React 18.
 
 </Intro>
 
@@ -316,8 +316,8 @@ Se você precisar oferecer suporte ao Internet Explorer, recomendamos que você 
 
 * **Os componentes agora podem renderizar `undefined`:** O React não avisa mais se você retornar `undefined` de um componente. Isso torna os valores de retorno de componentes permitidos consistentes com os valores que são permitidos no meio de uma árvore de componentes. Sugerimos o uso de um linter para evitar erros como esquecer uma declaração `return` antes do JSX.
 * **Em testes, os avisos `act` agora são opt-in:** Se você estiver executando testes ponta a ponta, os avisos `act` são desnecessários. Introduzimos um mecanismo [opt-in](https://github.com/reactwg/react-18/discussions/102) para que você possa habilitá-los apenas para testes de unidade, onde são úteis e benéficos.
-* **Sem aviso sobre `setState` em componentes desmontados:** Anteriormente, o React avisava sobre vazamentos de memória quando você chamava `setState` em um componente desmontado. Este aviso foi adicionado para assinaturas, mas as pessoas encontram principalmente isso em cenários em que a configuração do state está ok, e as soluções alternativas tornam o código pior. [Removemos](https://github.com/facebook/react/pull/22114) este aviso.
-* **Sem supressão de logs do console:** Quando você usa o Modo estrito, o React renderiza cada componente duas vezes para ajudá-lo a encontrar efeitos colaterais inesperados. No React 17, suprimimos os logs do console para uma das duas renderizações para facilitar a leitura dos logs. Em resposta ao [feedback da comunidade](https://github.com/facebook/react/issues/21783) sobre isso ser confuso, removemos a supressão. Em vez disso, se você tiver o React DevTools instalado, as renderizações do segundo log serão exibidas em cinza e haverá uma opção (desativada por padrão) para suprimi-las completamente.
+* **Sem aviso sobre `setState` em componentes desmontados:** Anteriormente, o React avisava sobre vazamentos de memória quando você chamava `setState` em um componente desmontado. Este aviso foi adicionado para assinaturas, mas as pessoas encontram principalmente isso em cenários em que a configuração do state está ok, e as soluções alternativas tornam o código pior. [Removemos](https://github.com/react/react/pull/22114) este aviso.
+* **Sem supressão de logs do console:** Quando você usa o Modo estrito, o React renderiza cada componente duas vezes para ajudá-lo a encontrar efeitos colaterais inesperados. No React 17, suprimimos os logs do console para uma das duas renderizações para facilitar a leitura dos logs. Em resposta ao [feedback da comunidade](https://github.com/react/react/issues/21783) sobre isso ser confuso, removemos a supressão. Em vez disso, se você tiver o React DevTools instalado, as renderizações do segundo log serão exibidas em cinza e haverá uma opção (desativada por padrão) para suprimi-las completamente.
 * **Uso de memória aprimorado:** O React agora limpa mais campos internos na desmontagem, tornando o impacto de vazamentos de memória não corrigidos que podem existir no código do seu aplicativo menos grave.
 
 ### React DOM Server {/*react-dom-server*/}
@@ -327,4 +327,4 @@ Se você precisar oferecer suporte ao Internet Explorer, recomendamos que você 
 
 ## Changelog {/*changelog*/}
 
-Você pode visualizar o [changelog completo aqui](https://github.com/facebook/react/blob/main/CHANGELOG.md).
+Você pode visualizar o [changelog completo aqui](https://github.com/react/react/blob/main/CHANGELOG.md).

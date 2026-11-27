@@ -44,6 +44,7 @@ O React se anexará ao HTML que existe dentro do `domNode` e assumirá o gerenci
   * **opcional** `onUncaughtError`: Callback chamado quando um erro é lançado e não é capturado por um Error Boundary. Chamado com o `error` que foi lançado e um objeto `errorInfo` contendo o `componentStack`.
   * **opcional** `onRecoverableError`: Callback chamado quando o React se recupera automaticamente de erros. Chamado com o `error` que o React lança e um objeto `errorInfo` contendo o `componentStack`. Alguns erros recuperáveis podem incluir a causa original do erro como `error.cause`.
   * **opcional** `identifierPrefix`: Um prefixo de string que o React usa para IDs gerados por [`useId`.](/reference/react/useId) Útil para evitar conflitos ao usar várias raízes na mesma página. Deve ser o mesmo prefixo usado no servidor.
+  * **opcional** `formState`: O estado do formulário de um envio de formulário tratado por uma [Server Function](/reference/rsc/server-functions). Se a página foi renderizada no servidor em resposta ao envio de um formulário que usa [`useActionState`](/reference/react/useActionState) com um `permalink`, passe o estado do formulário resultante para que `useActionState` retorne o estado enviado em vez do `initialState`. Deve ser o mesmo valor que o `formState` passado para o [renderizador do servidor.](/reference/react-dom/server/renderToPipeableStream#parameters) Normalmente, isso é repassado pelo seu framework.
 
 
 #### Retorna {/*returns*/}
@@ -122,7 +123,7 @@ Chamar `root.unmount` desmontará todos os componentes na raiz e "desanexará" o
 
 ### Hidratando HTML renderizado pelo servidor {/*hydrating-server-rendered-html*/}
 
-Se o HTML do seu aplicativo foi gerado por [`react-dom/server`](/reference/react-dom/client/createRoot), você precisa *hidratá-lo* no cliente.
+Se o HTML do seu aplicativo foi gerado por [`react-dom/server`](/reference/react-dom/server), você precisa *hidratá-lo* no cliente.
 
 ```js [[1, 3, "document.getElementById('root')"], [2, 3, "<App />"]]
 import { hydrateRoot } from 'react-dom/client';
@@ -273,6 +274,8 @@ Isso funciona apenas em um nível de profundidade e destina-se a ser uma saída 
 
 ---
 
+{/* TODO: Remove this subsection when browser is available in Stable. */}
+
 ### Lidando com conteúdo diferente no cliente e no servidor {/*handling-different-client-and-server-content*/}
 
 Se você precisar intencionalmente renderizar algo diferente no servidor e no cliente, pode fazer uma renderização em duas passagens. Componentes que renderizam algo diferente no cliente podem ler uma [variável de estado](/reference/react/useState) como `isClient`, que você pode definir como `true` em um [Effect](/reference/react/useEffect):
@@ -317,6 +320,10 @@ export default function App() {
 </Sandpack>
 
 Dessa forma, a passagem de renderização inicial renderizará o mesmo conteúdo do servidor, evitando incompatibilidades, mas uma passagem adicional ocorrerá de forma síncrona logo após a hidratação.
+
+Use essa abordagem quando você quiser que o conteúdo renderizado no cliente seja diferente do HTML inicial renderizado no servidor.
+
+Se um componente deve ser renderizado apenas no navegador, chame [`use(browser())`](/reference/react/use#use-browser) em vez de esperar por um Effect.
 
 <Pitfall>
 

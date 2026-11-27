@@ -257,7 +257,7 @@ button {
 
 </Sandpack>
 
-Every time you click "Add Ticket," React queues a call to `addToCartAction`. React shows the pending state until all the tickets are added, and then re-renders with the final state.
+Toda vez que você clica em "Add Ticket", o React enfileira uma chamada para `addToCartAction`. O React mostra o estado pendente até que todos os ingressos sejam adicionados e, em seguida, renderiza novamente com o estado final.
 
 <DeepDive>
 
@@ -811,20 +811,20 @@ export default function Checkout() {
   const abortRef = useRef(null);
   const [count, dispatchAction, isPending] = useActionState(updateCartAction, 0);
 
-  async function addAction() {
+  function addAction() {
     if (abortRef.current) {
       abortRef.current.abort();
     }
     abortRef.current = new AbortController();
-    await dispatchAction({ type: 'ADD', signal: abortRef.current.signal });
+    dispatchAction({ type: 'ADD', signal: abortRef.current.signal });
   }
 
-  async function removeAction() {
+  function removeAction() {
     if (abortRef.current) {
       abortRef.current.abort();
     }
     abortRef.current = new AbortController();
-    await dispatchAction({ type: 'REMOVE', signal: abortRef.current.signal });
+    dispatchAction({ type: 'REMOVE', signal: abortRef.current.signal });
   }
 
   return (
@@ -1184,13 +1184,70 @@ hr {
 
 In this example, when the user clicks the stepper arrows, the button submits the form and `useActionState` calls `updateCartAction` with the form data. The example uses `useOptimistic` to immediately show the new quantity while the server confirms the update.
 
+#### Exibindo erros de validação e preservando os valores do formulário {/*displaying-validation-errors-and-preserving-form-values*/}
+
+Retorne os erros de validação e os valores enviados a partir da Action para exibir um erro sem limpar os campos afetados. Tente enviar um nome com menos de três caracteres:
+
+<Sandpack>
+
+```js src/App.js active
+import { useActionState } from 'react';
+import { updateName } from './api.js';
+
+const initialState = {
+  error: null,
+  submitted: null,
+};
+
+export default function UpdateName() {
+  const [state, submitAction, isPending] = useActionState(
+    updateName,
+    initialState
+  );
+
+  return (
+    <form action={submitAction}>
+      <label>
+        Name:{' '}
+        <input
+          name="name"
+          defaultValue={state.submitted?.get('name') ?? ''}
+          disabled={isPending}
+        />
+      </label>
+      <button type="submit" disabled={isPending}>Save</button>
+      {state.error && <p>{state.error}</p>}
+    </form>
+  );
+}
+```
+
+```js src/api.js
+export async function updateName(previousState, formData) {
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  const name = formData.get('name');
+  if (typeof name !== 'string' || name.trim().length < 3) {
+    return {
+      error: 'Name must be at least three characters long',
+      submitted: formData,
+    };
+  }
+  return {
+    error: null,
+    submitted: null,
+  };
+}
+```
+
+</Sandpack>
+
+Quando a validação falha, `updateName` retorna um erro e o `FormData` enviado. O componente usa o nome enviado como o novo `defaultValue` do input, então o reset automático de formulário do React o preserva. Quando a validação é bem-sucedida, `submitted` é `null`, então o reset automático limpa o campo.
+
 <RSC>
 
-When used with a [Server Function](/reference/rsc/server-functions), `useActionState` allows the server's response to be shown before hydration (when React attaches to server-rendered HTML) completes. You can also use the optional `permalink` parameter for progressive enhancement (allowing the form to work before JavaScript loads) on pages with dynamic content. This is typically handled by your framework for you.
+O exemplo acima executa `updateName` no navegador. Para exibir o erro e preservar o nome enviado antes de o JavaScript carregar, transforme `updateName` em uma [Server Function](/reference/rsc/server-functions). Continue passando `submitAction` para a prop `action` do formulário. Assim, o React consegue exibir o valor retornado pela Server Function antes de a hidratação terminar. Veja [preservando os valores do formulário antes de o JavaScript carregar](/reference/react-dom/components/form#preserving-form-values-before-javascript-loads) para a configuração. Em páginas com conteúdo dinâmico, você também pode usar o parâmetro opcional [`permalink`](#parameters) para aprimoramento progressivo.
 
 </RSC>
-
-See the [`<form>`](/reference/react-dom/components/form#handle-form-submission-with-a-server-function) docs for more information on using Actions with forms.
 
 ---
 
@@ -1200,7 +1257,7 @@ There are two ways to handle errors with `useActionState`.
 
 For known errors, such as "quantity not available" validation errors from your backend, you can return it as part of your `reducerAction` state and display it in the UI.
 
-For unknown errors, such as `undefined is not a function`, you can throw an error. React will cancel all queued Actions and shows the nearest [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary) by rethrowing the error from the `useActionState` hook.
+Para erros desconhecidos, como `undefined is not a function`, você pode lançar um erro. O React cancelará todas as Actions enfileiradas e mostrará o [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary) mais próximo, relançando o erro a partir do Hook `useActionState`.
 
 <Sandpack>
 
@@ -1216,7 +1273,7 @@ function Checkout() {
       const result = await addToCart(prevState.count, quantity);
       if (result.error) {
         // Return the error from the API as state
-        return {...prevState, error: `Could not add quanitiy ${quantity}: ${result.error}`};
+        return {...prevState, error: `Could not add quantity ${quantity}: ${result.error}`};
       }
 
       if (!isPending) {

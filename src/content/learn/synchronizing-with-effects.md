@@ -733,7 +733,7 @@ Escrever chamadas `fetch` dentro de Effects é uma [maneira popular de buscar da
 Esta lista de desvantagens não é específica do React. Ela se aplica à busca de dados na montagem com qualquer biblioteca. Assim como no roteamento, buscar dados não é trivial de fazer bem, então recomendamos as seguintes abordagens:
 
 - **Se você usa um [framework](/learn/creating-a-react-app#full-stack-frameworks), use seu mecanismo de busca de dados embutido.** Frameworks React modernos têm mecanismos de busca de dados integrados que são eficientes e não sofrem das armadilhas acima.
-- **Caso contrário, considere usar ou construir um cache do lado do cliente.** Soluções populares de código aberto incluem [TanStack Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/) e [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Você também pode construir sua própria solução, caso em que usaria Effects internamente, mas adicionaria lógica para deduplicar requisições, armazenar em cache respostas e evitar quedas de rede (pré-carregando dados ou elevando requisitos de dados para rotas).
+- **Caso contrário, considere usar ou construir um cache do lado do cliente.** Soluções populares de código aberto incluem [TanStack Query](https://tanstack.com/query/latest), [useSWR](https://swr.vercel.app/) e [React Router](https://reactrouter.com/). Você também pode construir sua própria solução, caso em que usaria Effects internamente, mas adicionaria lógica para deduplicar requisições, armazenar em cache respostas e evitar cascatas de rede (pré-carregando dados ou elevando requisitos de dados para rotas).
 
 Você pode continuar buscando dados diretamente em Effects se nenhuma dessas abordagens for adequada para você.
 

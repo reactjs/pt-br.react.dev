@@ -532,7 +532,7 @@ O React utiliza árvores para modelar as relações entre componentes e módulos
 
 Uma árvore de renderização React é uma representação da relação pai-filho entre componentes.
 
-<Diagram name="generic_render_tree" height={250} width={500} alt="A tree graph with five nodes, with each node representing a component. The root node is located at the top the tree graph and is labelled 'Componente raiz'. It has two arrows extending down to two nodes labelled 'Componente A' and 'Componente C'. Each of the arrows is labelled with 'renders'. 'Componente A' has a single 'renders' arrow to a node labelled 'Componente B'. 'Componente C' has a single 'renders' arrow to a node labelled 'Componente D'.">
+<Diagram name="generic_render_tree" height={250} width={500} alt="Um gráfico em árvore com cinco nós, em que cada nó representa um componente. O nó raiz está localizado no topo do gráfico em árvore e é rotulado 'Root Component'. Ele tem duas setas que descem até dois nós rotulados 'Component A' e 'Component C'. Cada uma das setas é rotulada com 'renders'. 'Component A' tem uma única seta 'renders' para um nó rotulado 'Component B'. 'Component C' tem uma única seta 'renders' para um nó rotulado 'Component D'.">
 
 Um exemplo de árvore de renderização React.
 
@@ -548,7 +548,7 @@ Um exemplo de árvore de dependências de módulos.
 
 </Diagram>
 
-Uma árvore de dependências é frequentemente usada por ferramentas de compilação para agrupar todo o código JavaScript relevante para o cliente baixar e renderizar. Um pacote muito grande prejudica a experiência do usuário em aplicativos React. Compreender a árvore de dependências do módulo é útil para depurar esses problemas.
+Uma árvore de dependências é frequentemente usada por ferramentas de compilação para agrupar todo o código JavaScript relevante para o cliente baixar e renderizar. Um bundle muito grande prejudica a experiência do usuário em aplicativos React. Compreender a árvore de dependências de módulos é útil para depurar esses problemas.
 
 <LearnMore path="/learn/understanding-your-ui-as-a-tree">
 

@@ -143,7 +143,7 @@ No entanto, se `expensivelyProcessAReallyLargeArrayOfObjects` é verdadeiramente
 - O React Compiler apenas memoiza componentes e hooks React, não toda função
 - A memoização do React Compiler não é compartilhada entre múltiplos componentes ou hooks
 
-Então se `expensivelyProcessAReallyLargeArrayOfObjects` fosse usado em muitos componentes diferentes, mesmo se os mesmos itens exatos fossem passados, esse cálculo caro seria executado repetidamente. Recomendamos [fazer profiling](reference/react/useMemo#how-to-tell-if-a-calculation-is-expensive) primeiro para ver se realmente é tão caro antes de tornar o código mais complicado.
+Então se `expensivelyProcessAReallyLargeArrayOfObjects` fosse usado em muitos componentes diferentes, mesmo se os mesmos itens exatos fossem passados, esse cálculo caro seria executado repetidamente. Recomendamos [fazer profiling](/reference/react/useMemo#how-to-tell-if-a-calculation-is-expensive) primeiro para ver se realmente é tão caro antes de tornar o código mais complicado.
 </DeepDive>
 
 ## Devo experimentar o compilador? {/*should-i-try-out-the-compiler*/}

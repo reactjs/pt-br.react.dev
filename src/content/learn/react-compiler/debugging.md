@@ -43,7 +43,7 @@ Siga estes passos quando encontrar problemas:
 
 ### Erros de Compilação do Compilador {/*compiler-build-errors*/}
 
-Se você encontrar um erro do compilador que quebra inesperadamente sua compilação, isso provavelmente é um bug no compilador. Reporte-o para o repositório [facebook/react](https://github.com/facebook/react/issues) com:
+Se você encontrar um erro do compilador que quebra inesperadamente sua compilação, isso provavelmente é um bug no compilador. Reporte-o para o repositório [react/react](https://github.com/react/react/issues) com:
 - A mensagem de erro
 - O código que causou o erro
 - Suas versões do React e do compilador
@@ -81,7 +81,7 @@ Se você acredita que encontrou um bug do compilador:
 1. **Verifique se não é uma violação das Regras do React** - Verifique com o ESLint
 2. **Crie uma reprodução mínima** - Isole o problema em um exemplo pequeno
 3. **Teste sem o compilador** - Confirme que o problema só ocorre com a compilação
-4. **Abra uma [issue](https://github.com/facebook/react/issues/new?template=compiler_bug_report.yml)**:
+4. **Abra uma [issue](https://github.com/react/react/issues/new?template=compiler_bug_report.yml)**:
    - Versões do React e do compilador
    - Código de reprodução mínima
    - Comportamento esperado vs atual

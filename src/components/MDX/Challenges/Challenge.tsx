@@ -69,15 +69,15 @@ export function Challenge({
         {currentChallenge.hint ? (
           <div>
             <Button className="me-2" onClick={toggleHint} active={showHint}>
-              <IconHint />{' '}
+              <IconHint className="me-1.5" />{' '}
               {showHint ? 'Ocultar dica' : 'Exibir dica'}
             </Button>
             <Button
               className="me-2"
               onClick={toggleSolution}
               active={showSolution}>
-              <IconSolution />{' '}
-              {showSolution ? 'Ocultar Solução' : 'Exibir Solução'}
+              <IconSolution className="me-1.5" />{' '}
+              {showSolution ? 'Ocultar solução' : 'Exibir solução'}
             </Button>
           </div>
         ) : (
@@ -86,8 +86,8 @@ export function Challenge({
               className="me-2"
               onClick={toggleSolution}
               active={showSolution}>
-              <IconSolution />{' '}
-              {showSolution ? 'Ocultar Solução' : 'Exibir Solução'}
+              <IconSolution className="me-1.5" />{' '}
+              {showSolution ? 'Ocultar solução' : 'Exibir solução'}
             </Button>
           )
         )}
@@ -101,7 +101,7 @@ export function Challenge({
             )}
             onClick={handleClickNextChallenge}
             active>
-            Next {isRecipes ? 'Example' : 'Challenge'}
+            Próximo {isRecipes ? 'exemplo' : 'desafio'}
             <IconArrowSmall displayDirection="end" className="block ms-1.5" />
           </Button>
         )}

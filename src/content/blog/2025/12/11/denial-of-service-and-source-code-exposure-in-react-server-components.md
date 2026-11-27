@@ -74,7 +74,7 @@ Divulgações adicionais podem ser frustrantes, mas geralmente são um sinal de 
 
 ### Frameworks e bundlers afetados {/*affected-frameworks-and-bundlers*/}
 
-Alguns frameworks e bundlers React dependiam, tinham dependências `peer` ou incluíam os pacotes React vulneráveis. Os seguintes frameworks e bundlers React são afetados: [next](https://www.npmjs.com/package/next), [react-router](https://www.npmjs.com/package/react-router), [waku](https://www.npmjs.com/package/waku), [@parcel/rsc](https://www.npmjs.com/package/@parcel/rsc), [@vite/rsc-plugin](https://www.npmjs.com/package/@vitejs/plugin-rsc) e [rwsdk](https://www.npmjs.com/package/rwsdk).
+Alguns frameworks e bundlers React dependiam, tinham dependências `peer` ou incluíam os pacotes React vulneráveis. Os seguintes frameworks e bundlers React são afetados: [next](https://www.npmjs.com/package/next), [react-router](https://www.npmjs.com/package/react-router), [waku](https://www.npmjs.com/package/waku), [@parcel/rsc](https://www.npmjs.com/package/@parcel/rsc), [@vitejs/plugin-rsc](https://www.npmjs.com/package/@vitejs/plugin-rsc) e [rwsdk](https://www.npmjs.com/package/rwsdk).
 
 Por favor, consulte [as instruções na postagem anterior](/blog/2025/12/03/critical-security-vulnerability-in-react-server-components#update-instructions) para os passos de atualização.
 
@@ -96,7 +96,7 @@ Se você estiver usando React Native em um monorepo, você deve atualizar _apena
 
 Isso é necessário para mitigar os avisos de segurança, mas você não precisa atualizar `react` e `react-dom`, então isso não causará o erro de incompatibilidade de versão no React Native.
 
-Veja [este issue](https://github.com/facebook/react-native/issues/54772#issuecomment-3617929832) para mais informações.
+Veja [este issue](https://github.com/react/react-native/issues/54772#issuecomment-3617929832) para mais informações.
 
 ---
 

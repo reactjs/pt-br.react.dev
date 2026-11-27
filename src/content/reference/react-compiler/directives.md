@@ -194,4 +194,4 @@ Para problemas específicos com diretivas, consulte as seções de solução de 
 
 * [`compilationMode`](/reference/react-compiler/compilationMode) - Configure como o compilador escolhe o que otimizar
 * [`Configuration`](/reference/react-compiler/configuration) - Opções completas de configuração do compilador
-* [Documentação do Compilador React](https://react.dev/learn/react-compiler) - Guia de início rápido
+* [Documentação do Compilador React](/learn/react-compiler) - Guia de início rápido

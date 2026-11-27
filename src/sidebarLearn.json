@@ -85,8 +85,8 @@
     },
     {
       "title": "Descrevendo a IU",
-      "path": "/learn/describing-the-ui",
       "tags": [],
+      "path": "/learn/describing-the-ui",
       "routes": [
         {
           "title": "Seu Primeiro Componente",

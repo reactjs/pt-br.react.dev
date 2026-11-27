@@ -20,7 +20,7 @@ export function ClearButton({onClear}: ClearButtonProps) {
     <button
       className="text-sm text-primary dark:text-primary-dark inline-flex items-center hover:text-link duration-100 ease-in transition mx-1"
       onClick={onClear}
-      title="Limpar todas as edições e recarregar a sandbox."
+      title="Limpar todas as edições e recarregar a sandbox"
       type="button">
       <IconClose className="inline mx-1 relative" />
       <span className="hidden md:block">Limpar</span>

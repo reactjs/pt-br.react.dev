@@ -42,7 +42,7 @@ Quando lançamos o React Hooks em 2018, os documentos do Hooks assumiram que o l
 **A nova documentação ensina React com Hooks desde o início.** A documentação está dividida em duas seções principais:
 
 * **[Aprenda React](/learn)** é um curso individualizado que ensina React do zero.
-* **[Referências de API](/reference)** fornece os detalhes e exemplos de uso para cada API React.
+* **[Referências de API](/reference/react)** fornece os detalhes e exemplos de uso para cada API React.
 
 Vamos ver mais detalhadamente o que pode encontrar em cada seção.
 
@@ -462,7 +462,7 @@ Na [API de Referência](/reference/react), cada API React tem agora uma página 
 - Hooks incorporados como [`useState`](/reference/react/useState).
 - Componentes incorporados como [`<Suspense>`](/reference/react/Suspense).
 - Componentes do navegador incorporados como [`<input>`](/reference/react-dom/components/input).
-- APIs orientadas para frameworks como[`renderToPipeableStream`](/reference/react-dom/server/renderToReadableStream).
+- APIs orientadas para frameworks como [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream).
 - Outras APIs do React como [`memo`](/reference/react/memo).
 
 Você perceberá que cada página de API é dividida em pelo menos dois segmentos: *Referência* e *Uso*.
@@ -607,7 +607,7 @@ button { display: block; margin-top: 10px; }
 
 </Recipes>
 
-Algumas páginas da API também incluem [Solução de problemas](/reference/react/useEffect#troubleshooting) (para problemas comuns) e [Alternativas](/reference/react-dom/findDOMNode#alternatives) (para APIs obsoletas).
+Algumas páginas da API também incluem [Solução de problemas](/reference/react/useEffect#troubleshooting) (para problemas comuns) e [Alternativas](https://18.react.dev/reference/react-dom/findDOMNode#alternatives) (para APIs obsoletas).
 
 Esperamos que esta abordagem torne a referência da API útil não só como uma forma de procurar um argumento, mas também como uma forma de ver todas as coisas diferentes que pode fazer com uma determinada API - e como esta se liga às outras.
 

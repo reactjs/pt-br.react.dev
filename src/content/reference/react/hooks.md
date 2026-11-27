@@ -18,6 +18,7 @@ Para adicionar *state* a um componente, use um destes Hooks:
 
 * [`useState`](/reference/react/useState) declara uma variável de *state* que você pode atualizar diretamente.
 * [`useReducer`](/reference/react/useReducer) declara uma variável de *state* com a lógica de atualização dentro de uma [função reducer.](/learn/extracting-state-logic-into-a-reducer)
+* [`useOptimistic`](/reference/react/useOptimistic) permite que você mostre um *state* diferente enquanto uma ação assíncrona está pendente.
 
 ```js
 function ImageGallery() {

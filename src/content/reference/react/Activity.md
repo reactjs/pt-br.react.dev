@@ -755,17 +755,7 @@ A pré-renderização de componentes com limites de Activity ocultos é uma mane
 
 <Note>
 
-**Apenas fontes de dados habilitadas para Suspense serão buscadas durante a pré-renderização.** Elas incluem:
-
-- Busca de dados com frameworks habilitados para Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) e [Next.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense)
-- Carregamento preguiçoso de código de componente com [`lazy`](/reference/react/lazy)
-- Leitura do valor de uma Promise em cache com [`use`](/reference/react/use)
-
-Activity **não** detecta dados que são buscados dentro de um Effect.
-
-A maneira exata como você buscaria dados no componente `Posts` acima depende do seu framework. Se você usar um framework habilitado para Suspense, encontrará os detalhes em sua documentação de busca de dados.
-
-A busca de dados habilitada para Suspense sem o uso de um framework opinativo ainda não é suportada. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
+Apenas dados lidos de uma fonte que [ativa um limite de Suspense](/reference/react/Suspense#what-activates-a-suspense-boundary), como uma Promise lida com [`use`](/reference/react/use), são buscados durante a pré-renderização. Activity não detecta dados buscados dentro de um Effect.
 
 </Note>
 
