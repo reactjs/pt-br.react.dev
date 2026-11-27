@@ -626,7 +626,8 @@ img { width: 200px; height: 200px; }
 
 <Solution />
 
-#### Lista (array) {/*list-array*/}```md {/*lista-array-list-arraymd*/}
+#### Lista (array) {/*list-array*/}
+
 Neste exemplo, a variável de estado `todos` contém um array. Cada manipulador de botões chama `setTodos` com a próxima versão desse array. A sintaxe de espalhamento `[...todos]`, `todos.map()` e `todos.filter()` garante que o array de estado seja substituído em vez de mutado.
 
 <Sandpack>
@@ -792,7 +793,7 @@ ul, li { margin: 0; padding: 0; }
 
 <Solution />
 
-#### Escrevendo lógica de atualização concisa com Immer {/*escrevendo-logica-de-atualizacao-concisa-com-immer*/}
+#### Escrevendo lógica de atualização concisa com Immer {/*writing-concise-update-logic-with-immer*/}
 
 Se atualizar arrays e objetos sem mutação parecer tedioso, você pode usar uma biblioteca como [Immer](https://github.com/immerjs/use-immer) para reduzir o código repetitivo. Immer permite que você escreva um código conciso como se estivesse mutando objetos, mas por baixo dos panos, ele executa atualizações imutáveis:
 
@@ -909,7 +910,7 @@ O React pode [chamar suas inicializadoras duas vezes](#my-initializer-or-updater
 
 <Recipes titleText="A diferença entre passar uma inicializadora e passar o estado inicial diretamente" titleId="examples-initializer">
 
-#### Passando a função inicializadora {/*passando-a-funcao-inicializadora*/}
+#### Passando a função inicializadora {/*passing-the-initializer-function*/}
 
 Este exemplo passa a função inicializadora, então a função `createInitialTodos` só é executada durante a inicialização. Ela não é executada quando o componente é renderizado novamente, como quando você digita no input.
 
@@ -962,7 +963,7 @@ export default function TodoList() {
 
 <Solution />
 
-#### Passando o estado inicial diretamente {/*passando-o-estado-inicial-diretamente*/}
+#### Passando o estado inicial diretamente {/*passing-the-initial-state-directly*/}
 
 Este exemplo **não** passa a função inicializadora, então a função `createInitialTodos` é executada em cada renderização, como quando você digita no input. Não há diferença observável no comportamento, mas esse código é menos eficiente.
 
@@ -1019,7 +1020,7 @@ export default function TodoList() {
 
 ---
 
-### Redefinindo o estado com uma chave {/*redefinindo-o-estado-com-uma-chave*/}
+### Redefinindo o estado com uma chave {/*resetting-state-with-a-key*/}
 
 Você geralmente encontrará o atributo `key` ao [renderizar listas.](/learn/rendering-lists) No entanto, ele também serve a outro propósito.
 
