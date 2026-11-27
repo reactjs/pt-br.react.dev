@@ -4,53 +4,53 @@ title: gating
 
 <Intro>
 
-Validates configuration of [gating mode](/reference/react-compiler/gating).
+Valida a configuração do [modo de gating](/reference/react-compiler/gating).
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-Gating mode lets you gradually adopt React Compiler by marking specific components for optimization. This rule ensures your gating configuration is valid so the compiler knows which components to process.
+O modo de gating permite adotar o React Compiler gradualmente, marcando componentes específicos para otimização. Esta regra garante que sua configuração de gating seja válida para que o compilador saiba quais componentes processar.
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Missing required fields
+// ❌ Campos obrigatórios ausentes
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
       gating: {
         importSpecifierName: '__experimental_useCompiler'
-        // Missing 'source' field
+        // Campo 'source' ausente
       }
     }]
   ]
 };
 
-// ❌ Invalid gating type
+// ❌ Tipo de gating inválido
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
-      gating: '__experimental_useCompiler' // Should be object
+      gating: '__experimental_useCompiler' // Deveria ser um objeto
     }]
   ]
 };
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Complete gating configuration
+// ✅ Configuração de gating completa
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
       gating: {
-        importSpecifierName: 'isCompilerEnabled', // exported function name
-        source: 'featureFlags' // module name
+        importSpecifierName: 'isCompilerEnabled', // nome da função exportada
+        source: 'featureFlags' // nome do módulo
       }
     }]
   ]
@@ -61,11 +61,11 @@ export function isCompilerEnabled() {
   // ...
 }
 
-// ✅ No gating (compile everything)
+// ✅ Sem gating (compila tudo)
 module.exports = {
   plugins: [
     ['babel-plugin-react-compiler', {
-      // No gating field - compiles all components
+      // Sem o campo gating - compila todos os componentes
     }]
   ]
 };
