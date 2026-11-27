@@ -321,9 +321,9 @@ export default function App() {
 
 Dessa forma, a passagem de renderização inicial renderizará o mesmo conteúdo do servidor, evitando incompatibilidades, mas uma passagem adicional ocorrerá de forma síncrona logo após a hidratação.
 
-Use this approach when you want the client-rendered content to be different from the initial server-rendered HTML.
+Use essa abordagem quando você quiser que o conteúdo renderizado no cliente seja diferente do HTML inicial renderizado no servidor.
 
-If a component should render only in the browser, call [`use(browser())`](/reference/react/use#use-browser) instead of waiting for an Effect.
+Se um componente deve ser renderizado apenas no navegador, chame [`use(browser())`](/reference/react/use#use-browser) em vez de esperar por um Effect.
 
 <Pitfall>
 

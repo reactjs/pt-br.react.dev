@@ -1,17 +1,17 @@
 ---
-title: React DevTools for agents
+title: React DevTools para agentes
 version: experimental
 ---
 
 <Experimental>
 
-**`react-devtools-cdt-mcp` is experimental.** It is built on the [experimental third-party developer tools API](https://developer.chrome.com/blog/devtools-for-agents-3p-tools) in [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp), and both its tools and their output may change between releases.
+**`react-devtools-cdt-mcp` é experimental.** Ele é construído sobre a [API experimental de ferramentas de desenvolvedor de terceiros](https://developer.chrome.com/blog/devtools-for-agents-3p-tools) do [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp), e tanto suas ferramentas quanto a saída delas podem mudar entre releases.
 
 </Experimental>
 
 <Intro>
 
-`react-devtools-cdt-mcp` gives AI coding agents the same view of your app that React DevTools gives you: the component tree, props, hooks, owners, source locations, and render timing.
+`react-devtools-cdt-mcp` dá aos agentes de programação com IA a mesma visão do seu app que o React DevTools dá a você: a árvore de componentes, props, Hooks, owners, localizações no código-fonte e tempos de renderização.
 
 ```js
 import 'react-devtools-cdt-mcp/register';
@@ -23,23 +23,23 @@ import 'react-devtools-cdt-mcp/register';
 
 ---
 
-## Overview {/*overview*/}
+## Visão geral {/*overview*/}
 
-Coding agents that drive a browser through [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) can click, take snapshots, and read the DOM, but the DOM doesn't tell them which component rendered a button, what state it holds, or why an interaction was slow.
+Agentes de programação que controlam um navegador por meio do [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) podem clicar, tirar snapshots e ler o DOM, mas o DOM não diz a eles qual componente renderizou um botão, qual state ele guarda ou por que uma interação foi lenta.
 
-`react-devtools-cdt-mcp` is a small browser library that you import into the page you're debugging. It registers a group of React tools with the page. When Chrome DevTools MCP connects to that page, it discovers the tools automatically, and your agent can call them like any other MCP tool.
+`react-devtools-cdt-mcp` é uma pequena biblioteca de navegador que você importa na página que está depurando. Ela registra um grupo de ferramentas do React na página. Quando o Chrome DevTools MCP se conecta a essa página, ele descobre as ferramentas automaticamente, e seu agente pode chamá-las como qualquer outra ferramenta MCP.
 
 <Note>
 
-`react-devtools-cdt-mcp` is **not** an MCP server, and it doesn't go in your MCP client config. It runs inside your page. The only MCP server you configure is Chrome DevTools MCP.
+`react-devtools-cdt-mcp` **não** é um servidor MCP e não entra na configuração do seu cliente MCP. Ele roda dentro da sua página. O único servidor MCP que você configura é o Chrome DevTools MCP.
 
 </Note>
 
 ---
 
-## Setup {/*setup*/}
+## Configuração {/*setup*/}
 
-#### Install the package {/*install-the-package*/}
+#### Instale o pacote {/*install-the-package*/}
 
 <TerminalBlock>
 
@@ -47,9 +47,9 @@ npm install --save-dev react-devtools-cdt-mcp
 
 </TerminalBlock>
 
-#### Import it before React {/*import-it-before-react*/}
+#### Importe-o antes do React {/*import-it-before-react*/}
 
-Import the `register` entry point at the very top of your app's entry file, **before** anything imports `react-dom`:
+Importe o ponto de entrada `register` logo no início do arquivo de entrada do seu app, **antes** de qualquer coisa que importe `react-dom`:
 
 ```js {1}
 import 'react-devtools-cdt-mcp/register';
@@ -60,31 +60,31 @@ import App from './App';
 createRoot(document.getElementById('root')).render(<App />);
 ```
 
-`react-devtools-cdt-mcp` has to load before React does. If you import it after React, the tools won't see your components.
+`react-devtools-cdt-mcp` precisa ser carregado antes do React. Se você importá-lo depois do React, as ferramentas não verão seus componentes.
 
 <Pitfall>
 
-`react-devtools-cdt-mcp` connects to React the same way the React DevTools extension does, and makes React report every commit to it. This slows down your app, so only include it in development builds.
+`react-devtools-cdt-mcp` se conecta ao React da mesma forma que a extensão React DevTools e faz com que o React reporte cada commit a ele. Isso deixa seu app mais lento, então inclua-o apenas em builds de desenvolvimento.
 
 </Pitfall>
 
-#### Set up Chrome DevTools MCP {/*set-up-chrome-devtools-mcp*/}
+#### Configure o Chrome DevTools MCP {/*set-up-chrome-devtools-mcp*/}
 
-Your agent needs [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) with [third-party developer tools](https://developer.chrome.com/blog/devtools-for-agents-3p-tools) enabled. Follow the [Chrome DevTools MCP docs](https://github.com/ChromeDevTools/chrome-devtools-mcp#getting-started) to set it up. Once your agent opens a page that imports `react-devtools-cdt-mcp/register`, it can list and call the React tools.
+Seu agente precisa do [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) com as [ferramentas de desenvolvedor de terceiros](https://developer.chrome.com/blog/devtools-for-agents-3p-tools) habilitadas. Siga a [documentação do Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp#getting-started) para configurá-lo. Assim que seu agente abrir uma página que importa `react-devtools-cdt-mcp/register`, ele poderá listar e chamar as ferramentas do React.
 
 ---
 
-## Try it {/*try-it*/}
+## Experimente {/*try-it*/}
 
-You don't need an agent to see what the tools return. The sandbox below imports `react-devtools-cdt-mcp/register` exactly as you would in your app, and adds a small **tool console** under the app. The console discovers the React tools the same way Chrome DevTools MCP does, by dispatching the `devtoolstooldiscovery` event, and lets you call them by hand.
+Você não precisa de um agente para ver o que as ferramentas retornam. O sandbox abaixo importa `react-devtools-cdt-mcp/register` exatamente como você faria no seu app e adiciona um pequeno **console de ferramentas** abaixo do app. O console descobre as ferramentas do React da mesma forma que o Chrome DevTools MCP, disparando o evento `devtoolstooldiscovery`, e permite que você as chame manualmente.
 
-Pick a tool, edit the JSON parameters, and press **Run tool**. Here's a debugging session to follow, playing the agent's part:
+Escolha uma ferramenta, edite os parâmetros JSON e pressione **Run tool**. Aqui está uma sessão de depuração para você seguir, fazendo o papel do agente:
 
-1. **Find a component.** Run `react_find_components` with `{"name": "Row"}`. Each result has a `uid`, like `"r12"`, that the other tools accept.
-2. **Inspect it.** Run `react_get_component_by_uid` with one of those uids and `"includeHooks": true` to see its props and hooks.
-3. **Start from the screen.** Choose `react_get_component_by_dom_element`, press **Pick element**, and click a product in the list to get the host component that rendered it.
-4. **Profile an interaction.** Run `react_start_profiling`, click **Add to cart** in the app, then run `react_stop_profiling`.
-5. **See what rendered.** Run `react_get_trace_overview`, then `react_get_commit_report` for commit `0` to see which components rendered in that commit and how long each one took.
+1. **Encontre um componente.** Execute `react_find_components` com `{"name": "Row"}`. Cada resultado tem um `uid`, como `"r12"`, que as outras ferramentas aceitam.
+2. **Inspecione-o.** Execute `react_get_component_by_uid` com um desses uids e `"includeHooks": true` para ver suas props e Hooks.
+3. **Comece pela tela.** Escolha `react_get_component_by_dom_element`, pressione **Pick element** e clique em um produto da lista para obter o componente host que o renderizou.
+4. **Faça o profiling de uma interação.** Execute `react_start_profiling`, clique em **Add to cart** no app e depois execute `react_stop_profiling`.
+5. **Veja o que foi renderizado.** Execute `react_get_trace_overview` e depois `react_get_commit_report` para o commit `0` para ver quais componentes foram renderizados nesse commit e quanto tempo cada um levou.
 
 <Sandpack>
 
@@ -161,9 +161,9 @@ mountToolConsole();
 ```
 
 ```js src/ToolConsole.js hidden
-// A tiny stand-in for chrome-devtools-mcp. It discovers the React tool group
-// the same way chrome-devtools-mcp does (the `devtoolstooldiscovery` event)
-// and lets you call the tools by hand.
+// Um pequeno substituto para o chrome-devtools-mcp. Ele descobre o grupo de
+// ferramentas do React da mesma forma que o chrome-devtools-mcp (o evento
+// `devtoolstooldiscovery`) e permite que você chame as ferramentas manualmente.
 function discoverToolGroup() {
   let toolGroup = null;
   const event = new Event('devtoolstooldiscovery');
@@ -325,40 +325,40 @@ ul { padding-left: 20px; max-height: 160px; overflow: auto; }
 
 <Note>
 
-The tool console in this sandbox stands in for Chrome DevTools MCP so you can try the tools on this page. In your own app, you don't write any of this code: Chrome DevTools MCP discovers the tools and your agent decides which ones to call.
+O console de ferramentas deste sandbox substitui o Chrome DevTools MCP para que você possa experimentar as ferramentas nesta página. No seu próprio app, você não escreve nada desse código: o Chrome DevTools MCP descobre as ferramentas e seu agente decide quais chamar.
 
 </Note>
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
-### Tools {/*tools*/}
+### Ferramentas {/*tools*/}
 
-`react-devtools-cdt-mcp` registers a tool group called `react`. Your agent calls these tools through Chrome DevTools MCP.
+`react-devtools-cdt-mcp` registra um grupo de ferramentas chamado `react`. Seu agente chama essas ferramentas por meio do Chrome DevTools MCP.
 
-* `react_get_component_tree`: Returns a snapshot of the component tree.
-* `react_find_components`: Finds components by name.
-* `react_get_component_by_uid`: Returns a component's props and Hooks.
-* `react_get_component_by_dom_element`: Returns the React host component for a DOM element.
-* `react_get_parent_stack`: Returns where a component is mounted in the tree.
-* `react_get_owner_stack`: Returns the components that created a component in their JSX.
-* `react_get_owner_stack_trace`: Returns the owner stack of a component as a stack trace.
-* `react_get_component_source`: Returns where a component is defined.
-* `react_start_profiling`: Starts recording render timing.
-* `react_stop_profiling`: Stops recording render timing.
-* `react_get_trace_overview`: Returns a summary of every commit in a recording.
-* `react_get_commit_report`: Returns which components rendered in a commit and how long each took.
+* `react_get_component_tree`: Retorna um snapshot da árvore de componentes.
+* `react_find_components`: Encontra componentes pelo nome.
+* `react_get_component_by_uid`: Retorna as props e os Hooks de um componente.
+* `react_get_component_by_dom_element`: Retorna o componente host do React para um elemento DOM.
+* `react_get_parent_stack`: Retorna onde um componente está montado na árvore.
+* `react_get_owner_stack`: Retorna os componentes que criaram um componente em seu JSX.
+* `react_get_owner_stack_trace`: Retorna a owner stack de um componente como um stack trace.
+* `react_get_component_source`: Retorna onde um componente está definido.
+* `react_start_profiling`: Começa a gravar os tempos de renderização.
+* `react_stop_profiling`: Para de gravar os tempos de renderização.
+* `react_get_trace_overview`: Retorna um resumo de cada commit em uma gravação.
+* `react_get_commit_report`: Retorna quais componentes foram renderizados em um commit e quanto tempo cada um levou.
 
-Components are identified by short, stable uids like `"r5"`. A uid stays the same across every tool and across re-renders, but not across page reloads.
+Os componentes são identificados por uids curtos e estáveis, como `"r5"`. Um uid permanece o mesmo em todas as ferramentas e entre re-renderizações, mas não entre recarregamentos da página.
 
-Every tool returns a plain, serializable object. If a tool fails, it returns an object with an `error` message instead.
+Toda ferramenta retorna um objeto simples e serializável. Se uma ferramenta falhar, ela retorna, em vez disso, um objeto com uma mensagem `error`.
 
 ---
 
 ### `register(target?)` {/*register*/}
 
-Call `register` to install the React DevTools hook and register the React tools with Chrome DevTools MCP yourself, instead of importing `react-devtools-cdt-mcp/register`.
+Chame `register` para instalar o hook do React DevTools e registrar você mesmo as ferramentas do React no Chrome DevTools MCP, em vez de importar `react-devtools-cdt-mcp/register`.
 
 ```js
 import { register } from 'react-devtools-cdt-mcp';
@@ -366,42 +366,42 @@ import { register } from 'react-devtools-cdt-mcp';
 register();
 ```
 
-#### Parameters {/*register-parameters*/}
+#### Parâmetros {/*register-parameters*/}
 
-* **optional** `target`: The global object to install the hook on. Defaults to `globalThis`.
+* **opcional** `target`: O objeto global no qual o hook será instalado. O padrão é `globalThis`.
 
-#### Returns {/*register-returns*/}
+#### Retorna {/*register-returns*/}
 
-`register` returns an object with two properties:
+`register` retorna um objeto com duas propriedades:
 
-* `facade`: The installed React DevTools hook and the state the tools read from.
-* `unregister`: A function that stops registering the React tools with Chrome DevTools MCP.
+* `facade`: O hook do React DevTools instalado e o state que as ferramentas leem.
+* `unregister`: Uma função que para de registrar as ferramentas do React no Chrome DevTools MCP.
 
-#### Caveats {/*register-caveats*/}
+#### Ressalvas {/*register-caveats*/}
 
-* Call `register` before React initializes, or React won't connect to the hook.
-* Calling `register` again for the same `target` returns the existing registration.
+* Chame `register` antes de o React ser inicializado, ou o React não se conectará ao hook.
+* Chamar `register` novamente para o mesmo `target` retorna o registro existente.
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-#### My agent doesn't see any React tools {/*my-agent-doesnt-see-any-react-tools*/}
+#### Meu agente não vê nenhuma ferramenta do React {/*my-agent-doesnt-see-any-react-tools*/}
 
-Check that [third-party developer tools](https://developer.chrome.com/blog/devtools-for-agents-3p-tools) are enabled in your Chrome DevTools MCP setup. Then check that the page selected in Chrome DevTools MCP imports `react-devtools-cdt-mcp/register`. The tools are discovered per page, when the page loads or is selected.
+Verifique se as [ferramentas de desenvolvedor de terceiros](https://developer.chrome.com/blog/devtools-for-agents-3p-tools) estão habilitadas na sua configuração do Chrome DevTools MCP. Depois, verifique se a página selecionada no Chrome DevTools MCP importa `react-devtools-cdt-mcp/register`. As ferramentas são descobertas por página, quando a página é carregada ou selecionada.
 
-#### The component tree is empty {/*the-component-tree-is-empty*/}
+#### A árvore de componentes está vazia {/*the-component-tree-is-empty*/}
 
-`react-devtools-cdt-mcp/register` was imported after React initialized. Move the import to the very first line of your entry file, before any import that loads `react-dom`.
+`react-devtools-cdt-mcp/register` foi importado depois que o React foi inicializado. Mova o import para a primeira linha do seu arquivo de entrada, antes de qualquer import que carregue `react-dom`.
 
-#### I'm getting an error about a browser-like environment {/*im-getting-an-error-about-a-browser-like-environment*/}
+#### Estou recebendo um erro sobre um ambiente semelhante a um navegador {/*im-getting-an-error-about-a-browser-like-environment*/}
 
-`react-devtools-cdt-mcp/register` throws if it's imported outside a browser, for example during server rendering or in tests. Import it only from client-side code, or call `register()` from the package root yourself where it's safe.
+`react-devtools-cdt-mcp/register` lança um erro se for importado fora de um navegador, por exemplo, durante a renderização no servidor ou em testes. Importe-o apenas a partir de código do lado do cliente, ou chame você mesmo `register()` a partir da raiz do pacote onde for seguro.
 
-#### Source locations and owner stacks are empty {/*source-locations-and-owner-stacks-are-empty*/}
+#### As localizações no código-fonte e as owner stacks estão vazias {/*source-locations-and-owner-stacks-are-empty*/}
 
-This data only exists in development builds of React. Make sure you're running your app's development server rather than a production build.
+Esses dados só existem nos builds de desenvolvimento do React. Certifique-se de que você está executando o servidor de desenvolvimento do seu app, e não um build de produção.
 
-#### A uid stopped working {/*a-uid-stopped-working*/}
+#### Um uid parou de funcionar {/*a-uid-stopped-working*/}
 
-Uids don't survive page reloads. After a reload, get fresh uids with `react_get_component_tree` or `react_find_components`.
+Uids não sobrevivem a recarregamentos da página. Depois de recarregar, obtenha novos uids com `react_get_component_tree` ou `react_find_components`.

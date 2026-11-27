@@ -257,7 +257,7 @@ button {
 
 </Sandpack>
 
-Every time you click "Add Ticket", React queues a call to `addToCartAction`. React shows the pending state until all the tickets are added, and then re-renders with the final state.
+Toda vez que você clica em "Add Ticket", o React enfileira uma chamada para `addToCartAction`. O React mostra o estado pendente até que todos os ingressos sejam adicionados e, em seguida, renderiza novamente com o estado final.
 
 <DeepDive>
 
@@ -1184,9 +1184,9 @@ hr {
 
 In this example, when the user clicks the stepper arrows, the button submits the form and `useActionState` calls `updateCartAction` with the form data. The example uses `useOptimistic` to immediately show the new quantity while the server confirms the update.
 
-#### Displaying validation errors and preserving form values {/*displaying-validation-errors-and-preserving-form-values*/}
+#### Exibindo erros de validação e preservando os valores do formulário {/*displaying-validation-errors-and-preserving-form-values*/}
 
-Return validation errors and submitted values from the Action to display an error without clearing the affected fields. Try submitting a name with fewer than three characters:
+Retorne os erros de validação e os valores enviados a partir da Action para exibir um erro sem limpar os campos afetados. Tente enviar um nome com menos de três caracteres:
 
 <Sandpack>
 
@@ -1241,11 +1241,11 @@ export async function updateName(previousState, formData) {
 
 </Sandpack>
 
-When validation fails, `updateName` returns an error and the submitted `FormData`. The component uses the submitted name as the input's new `defaultValue`, so React's automatic form reset preserves it. When validation succeeds, `submitted` is `null`, so the automatic reset clears the field.
+Quando a validação falha, `updateName` retorna um erro e o `FormData` enviado. O componente usa o nome enviado como o novo `defaultValue` do input, então o reset automático de formulário do React o preserva. Quando a validação é bem-sucedida, `submitted` é `null`, então o reset automático limpa o campo.
 
 <RSC>
 
-The example above runs `updateName` in the browser. To display the error and preserve the submitted name before JavaScript loads, make `updateName` a [Server Function](/reference/rsc/server-functions). Keep passing `submitAction` to the form's `action` prop. React can then display the Server Function's returned value before hydration completes. See [preserving form values before JavaScript loads](/reference/react-dom/components/form#preserving-form-values-before-javascript-loads) for the setup. On pages with dynamic content, you can also use the optional [`permalink`](#parameters) parameter for progressive enhancement.
+O exemplo acima executa `updateName` no navegador. Para exibir o erro e preservar o nome enviado antes de o JavaScript carregar, transforme `updateName` em uma [Server Function](/reference/rsc/server-functions). Continue passando `submitAction` para a prop `action` do formulário. Assim, o React consegue exibir o valor retornado pela Server Function antes de a hidratação terminar. Veja [preservando os valores do formulário antes de o JavaScript carregar](/reference/react-dom/components/form#preserving-form-values-before-javascript-loads) para a configuração. Em páginas com conteúdo dinâmico, você também pode usar o parâmetro opcional [`permalink`](#parameters) para aprimoramento progressivo.
 
 </RSC>
 
@@ -1257,7 +1257,7 @@ There are two ways to handle errors with `useActionState`.
 
 For known errors, such as "quantity not available" validation errors from your backend, you can return it as part of your `reducerAction` state and display it in the UI.
 
-For unknown errors, such as `undefined is not a function`, you can throw an error. React will cancel all queued Actions and show the nearest [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary) by rethrowing the error from the `useActionState` hook.
+Para erros desconhecidos, como `undefined is not a function`, você pode lançar um erro. O React cancelará todas as Actions enfileiradas e mostrará o [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary) mais próximo, relançando o erro a partir do Hook `useActionState`.
 
 <Sandpack>
 

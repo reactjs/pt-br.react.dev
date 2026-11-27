@@ -82,7 +82,7 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 A API estática `prerender` é usada para geração estática do lado do servidor (SSG). Diferente de `renderToString`, `prerender` aguarda todo o carregamento dos dados antes de resolver. Isso o torna adequado para gerar HTML estático para uma página inteira, incluindo dados que precisam ser buscados usando Suspense. Para transmitir conteúdo conforme ele carrega, use uma API de renderização do lado do servidor (SSR) por streaming como [renderToReadableStream](/reference/react-dom/server/renderToReadableStream).
 
-`prerender` can be aborted and later either continued with `resumeAndPrerender` or resumed with `resume` to support partial pre-rendering.
+`prerender` pode ser abortado e, depois, continuado com `resumeAndPrerender` ou retomado com `resume` para dar suporte à pré-renderização parcial.
 
 </Note>
 
@@ -308,7 +308,7 @@ async function renderToString() {
 
 Quaisquer limites de Suspense com filhos incompletos serão incluídos no prelude no estado de fallback.
 
-This can be used for partial prerendering together with [`resume`](/reference/react-dom/server/resume) or [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender).
+Isso pode ser usado para pré-renderização parcial junto com [`resume`](/reference/react-dom/server/resume) ou [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender).
 
 ## Solução de problemas {/*troubleshooting*/}
 

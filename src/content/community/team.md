@@ -8,7 +8,7 @@ O desenvolvimento do React é liderado por colaboradores de empresas e comunidad
 
 </Intro>
 
-React work is organized into working groups, each responsible for an area of the project such as Server, DOM, Fiber, Docs & Community, Compiler, DevX, and React Native. Each working group is represented on the React Leadership Council, which coordinates direction across the project.
+O trabalho no React é organizado em grupos de trabalho, cada um responsável por uma área do projeto, como Server, DOM, Fiber, Docs & Community, Compiler, DevX e React Native. Cada grupo de trabalho é representado no Conselho de Liderança do React (React Leadership Council), que coordena a direção de todo o projeto.
 
 ## Conselho de Liderança {/*leadership-council*/}
 
@@ -115,14 +115,14 @@ React work is organized into working groups, each responsible for an area of the
 </TeamMember>
 
 <TeamMember name="Jimmy Lai" permalink="jimmy-lai" photo="/images/team/jimmy-lai.jpg" github="feedthejim" title="Engineering Director, Next.js at Vercel">
-    Like many others, Jimmy started programming with the hopes of being able to work in the gaming industry. Fast forward a few years, he somehow decided that React and JavaScript were pretty fun and that helping other developers build fast experiences was a more interesting life goal. After starting his career at Meta, working on product infrastructure and (briefly) on React Native, Jimmy now works at Vercel, where he helps his team build Next.js. He sadly does not get much time for video games anymore.
+    Como muitos outros, Jimmy começou a programar na esperança de conseguir trabalhar na indústria de games. Alguns anos depois, ele de alguma forma decidiu que React e JavaScript eram bem divertidos e que ajudar outros desenvolvedores a construir experiências rápidas era um objetivo de vida mais interessante. Depois de começar sua carreira na Meta, trabalhando em infraestrutura de produto e (brevemente) no React Native, Jimmy agora trabalha na Vercel, onde ajuda sua equipe a construir o Next.js. Infelizmente, ele não tem mais muito tempo para videogames.
 </TeamMember>
 
 <TeamMember name="Seth Webster" permalink="seth-webster" photo="/images/team/seth.jpg" github="sethwebster" twitter="sethwebster" threads="sethwebster" personal="sethwebster.com" title="Executive Director, React Foundation, Chief Developer Evangelist at Expo">
-    Seth started programming as a kid growing up in Tucson, AZ. After school, he was bitten by the music bug and was a touring musician for about 10 years before returning to *work*, starting with Intuit. In his spare time, he loves [taking pictures](https://www.sethwebster.com) and flying for animal rescues in the northeastern United States.
+    Seth começou a programar quando criança crescendo em Tucson, AZ. Depois da escola, ele foi picado pelo vírus da música e foi um músico em turnê por cerca de 10 anos antes de retornar ao *trabalho*, começando com a Intuit. Em seu tempo livre, ele adora [tirar fotos](https://www.sethwebster.com) e voar para resgates de animais no nordeste dos Estados Unidos.
 </TeamMember>
 
-## Emeritus {/*emeritus*/}
+## Eméritos {/*emeritus*/}
 
 <TeamMember name="Joe Savona" permalink="joe-savona" photo="/images/team/joe.jpg" github="josephsavona" twitter="en_JS" threads="joesavona" title="Engineer at Meta">
     Joe planejava se formar em matemática e filosofia, mas entrou na ciência da computação depois de escrever simulações de física no Matlab. Antes do React, ele trabalhou no Relay, RSocket.js e na linguagem de programação Skip. Embora ele não esteja construindo algum tipo de sistema reativo, ele gosta de correr, estudar japonês e passar tempo com sua família.

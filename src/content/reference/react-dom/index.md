@@ -31,11 +31,11 @@ Essas APIs podem ser usadas para tornar os aplicativos mais rápidos, pré-carre
 * [`preinit`](/reference/react-dom/preinit) permite que você busque e avalie um script externo ou busque e insira uma folha de estilo.
 * [`preinitModule`](/reference/react-dom/preinitModule) permite que você busque e avalie um módulo ESM.
 
-## Server Rendering APIs {/*server-rendering-apis*/}
+## APIs de Renderização no Servidor {/*server-rendering-apis*/}
 
-This API controls how components render on the server:
+Esta API controla como os componentes são renderizados no servidor:
 
-* [`browser`](/reference/react-dom/browser) lets you mark a component as browser-only during server rendering.
+* [`browser`](/reference/react-dom/browser) permite marcar um componente como exclusivo do navegador durante a renderização no servidor.
 
 ---
 

@@ -269,23 +269,23 @@ function Profile() {
 }
 ```
 
-Reading the value requires two `use` calls because the context value itself isn't awaited. See [Before you use context](/learn/passing-data-deeply-with-context#before-you-use-context) for alternatives to consider before reaching for context.
+Ler o valor exige duas chamadas a `use` porque o próprio valor do contexto não é aguardado. Veja [Antes de usar contexto](/learn/passing-data-deeply-with-context#before-you-use-context) para conhecer alternativas a considerar antes de recorrer ao contexto.
 
-Wrap the components that read the Promise in a [Suspense](/reference/react/Suspense) boundary so only that subtree suspends while the Promise is pending. See [Usage (Promises)](#usage-promises) below for more on reading Promises with `use`.
+Envolva os componentes que leem a Promise em um limite de [Suspense](/reference/react/Suspense) para que apenas essa subárvore suspenda enquanto a Promise estiver pendente. Veja [Uso (Promises)](#usage-promises) abaixo para saber mais sobre como ler Promises com `use`.
 
 <Pitfall>
 
-When this pattern is used with [Server Components](/reference/rsc/server-components), refetching the Promise requires refetching the Server Component that sets the Promise in context. Avoid setting the Promise in context high in the tree, since that would refetch large parts of the app unnecessarily.
+Quando esse padrão é usado com [Server Components](/reference/rsc/server-components), buscar a Promise novamente exige buscar novamente o Server Component que define a Promise no contexto. Evite definir a Promise no contexto em um ponto alto da árvore, pois isso faria com que grandes partes do app fossem buscadas novamente sem necessidade.
 
 </Pitfall>
 
 ---
 
-## Usage (Promises) {/*usage-promises*/}
+## Uso (Promises) {/*usage-promises*/}
 
-### Reading a Promise with `use` {/*reading-a-promise-with-use*/}
+### Lendo uma Promise com `use` {/*reading-a-promise-with-use*/}
 
-Call `use` with a Promise to read its resolved value. The component will [suspend](/reference/react/Suspense) while the Promise is pending.
+Chame `use` com uma Promise para ler o seu valor resolvido. O componente vai [suspender](/reference/react/Suspense) enquanto a Promise estiver pendente.
 
 ```js [[1, 4, "use(albumsPromise)"]]
 import { use } from 'react';
@@ -304,13 +304,13 @@ function Albums({ albumsPromise }) {
 }
 ```
 
-Wrap the component that calls <CodeStep step={1}>`use`</CodeStep> in a [Suspense](/reference/react/Suspense) boundary so React can show a fallback while the Promise is pending. The closest Suspense boundary above the suspending component shows its fallback. Once the Promise resolves, React reads the value with `use` and replaces the fallback with the rendered component.
+Envolva o componente que chama <CodeStep step={1}>`use`</CodeStep> em um limite de [Suspense](/reference/react/Suspense) para que o React possa mostrar um fallback enquanto a Promise estiver pendente. O limite de Suspense mais próximo acima do componente que suspendeu mostra o seu fallback. Assim que a Promise for resolvida, o React lê o valor com `use` e substitui o fallback pelo componente renderizado.
 
-<Recipes titleText="Reading a Promise with use vs fetching in an Effect" titleId="examples-promise">
+<Recipes titleText="Lendo uma Promise com use vs. buscando dados em um Effect" titleId="examples-promise">
 
-#### Fetching data with `use` {/*fetching-data-with-use*/}
+#### Buscando dados com `use` {/*fetching-data-with-use*/}
 
-In this example, `Albums` calls `use` with a cached Promise. The component suspends while the Promise is pending, and React displays the nearest Suspense fallback. Rejected Promises propagate to the nearest [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary).
+Neste exemplo, `Albums` chama `use` com uma Promise em cache. O componente suspende enquanto a Promise está pendente, e o React exibe o fallback do Suspense mais próximo. Promises rejeitadas se propagam para o [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary) mais próximo.
 
 <Sandpack>
 
@@ -348,9 +348,9 @@ function Loading() {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: a forma como você faria a busca de dados depende do
+// framework que você usa junto com o Suspense.
+// Normalmente, a lógica de cache ficaria dentro de um framework.
 
 let cache = new Map();
 
@@ -370,7 +370,7 @@ async function getData(url) {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Adicione um atraso falso para tornar a espera perceptível.
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -411,9 +411,9 @@ async function getAlbums() {
 
 <Solution />
 
-#### Fetching data with `useEffect` {/*fetching-data-with-useeffect*/}
+#### Buscando dados com `useEffect` {/*fetching-data-with-useeffect*/}
 
-Before `use`, a common approach was to fetch data in an Effect and update state when the data arrives. Compared to `use`, this approach requires managing loading and error states manually. For more details on why fetching in an Effect is discouraged, see [You Might Not Need an Effect](/learn/you-might-not-need-an-effect#fetching-data).
+Antes de `use`, uma abordagem comum era buscar dados em um Effect e atualizar o estado quando os dados chegassem. Em comparação com `use`, essa abordagem exige gerenciar manualmente os estados de carregamento e de erro. Para mais detalhes sobre por que buscar dados em um Effect não é recomendado, veja [Você Pode Não Precisar de um Effect](/learn/you-might-not-need-an-effect#fetching-data).
 
 <Sandpack>
 
@@ -460,7 +460,7 @@ export default function App() {
 
 ```js src/data.js hidden
 export async function fetchAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Adicione um atraso falso para tornar a espera perceptível.
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -493,22 +493,22 @@ export async function fetchAlbums() {
 
 <Pitfall>
 
-##### Promises passed to `use` must be cached {/*promises-must-cached*/}
+##### Promises passadas para `use` devem estar em cache {/*promises-must-cached*/}
 
-Promises created during render are recreated on every render, which causes React to show the Suspense fallback repeatedly and prevents content from appearing.
+Promises criadas durante a renderização são recriadas a cada renderização, o que faz o React mostrar o fallback do Suspense repetidamente e impede que o conteúdo apareça.
 
 ```js
 function Albums() {
-  // 🔴 `fetch` creates a new Promise on every render.
+  // 🔴 `fetch` cria uma nova Promise a cada renderização.
   const albums = use(fetch('/albums'));
   // ...
 }
 ```
 
-Instead, pass a Promise from a cache, a [Suspense-enabled framework](/reference/react/Suspense#suspense-enabled-frameworks), or a Server Component:
+Em vez disso, passe uma Promise vinda de um cache, de um [framework habilitado para Suspense](/reference/react/Suspense#suspense-enabled-frameworks) ou de um Server Component:
 
 ```js
-// ✅ fetchData reads the Promise from a cache.
+// ✅ fetchData lê a Promise de um cache.
 const albums = use(fetchData('/albums'));
 ```
 
@@ -516,34 +516,34 @@ const albums = use(fetchData('/albums'));
 
 <DeepDive>
 
-#### Why are Promises recreated on every render? {/*why-promises-recreated*/}
+#### Por que as Promises são recriadas a cada renderização? {/*why-promises-recreated*/}
 
-[React doesn't preserve state for renders that suspended before mounting](/reference/react/Suspense#caveats). After each suspension, React retries rendering from scratch, so any Promise created during render is recreated.
+[O React não preserva o estado de renderizações que suspenderam antes da montagem](/reference/react/Suspense#caveats). Após cada suspensão, o React tenta renderizar novamente do zero, então qualquer Promise criada durante a renderização é recriada.
 
-Common ways a Promise can be unintentionally recreated during render:
+Formas comuns de uma Promise ser recriada sem querer durante a renderização:
 
 ```js
 function Albums() {
-  // 🔴 `fetch` creates a new Promise on every render.
+  // 🔴 `fetch` cria uma nova Promise a cada renderização.
   const albums = use(fetch('/albums'));
 
-  // 🔴 Uncached `async` function calls create a new Promise on every render.
+  // 🔴 Chamadas a funções `async` sem cache criam uma nova Promise a cada renderização.
   const albums = use((async () => {
     const res = await fetch('/albums');
     return res.json();
   })());
 
-  // 🔴 Adding `.then` returns a new Promise on every render,
-  // even if `fetchData` is cached.
+  // 🔴 Adicionar `.then` retorna uma nova Promise a cada renderização,
+  // mesmo que `fetchData` esteja em cache.
   const albums = use(fetchData('/albums').then(res => res.json()));
   // ...
 }
 ```
 
-Ideally, Promises are created before rendering, such as in an event handler, a route loader, or a Server Component, and passed to the component that calls `use`. Fetching lazily in render delays network requests and can create waterfalls.
+O ideal é que as Promises sejam criadas antes da renderização, como em um manipulador de eventos, em um loader de rota ou em um Server Component, e passadas para o componente que chama `use`. Buscar dados de forma tardia durante a renderização atrasa as requisições de rede e pode criar cascatas (waterfalls).
 
 ```js
-// ✅ fetchData reads the Promise from a cache.
+// ✅ fetchData lê a Promise de um cache.
 const albums = use(fetchData('/albums'));
 ```
 
@@ -551,12 +551,12 @@ const albums = use(fetchData('/albums'));
 
 ---
 
-### Caching Promises for Client Components {/*caching-promises-for-client-components*/}
+### Armazenando Promises em cache para Client Components {/*caching-promises-for-client-components*/}
 
-Promises passed to `use` in Client Components must be cached so the same Promise instance is reused across re-renders. If a new Promise is created directly in render, React will display the Suspense fallback on every re-render.
+Promises passadas para `use` em Client Components devem estar em cache para que a mesma instância de Promise seja reutilizada entre re-renderizações. Se uma nova Promise for criada diretamente na renderização, o React exibirá o fallback do Suspense a cada re-renderização.
 
 ```js
-// ✅ Cache the Promise so the same one is reused across renders
+// ✅ Armazene a Promise em cache para que a mesma seja reutilizada entre renderizações
 let cache = new Map();
 
 export function fetchData(url) {
@@ -567,15 +567,15 @@ export function fetchData(url) {
 }
 ```
 
-The `fetchData` function returns the same Promise each time it's called with the same URL. When `use` receives the same Promise on a re-render, it reads the already-resolved value synchronously without suspending.
+A função `fetchData` retorna a mesma Promise toda vez que é chamada com a mesma URL. Quando `use` recebe a mesma Promise em uma re-renderização, ele lê o valor já resolvido de forma síncrona, sem suspender.
 
 <Note>
 
-The way you cache Promises depends on the framework you use with Suspense. Frameworks typically provide built-in caching mechanisms. If you don't use a framework, you can use a simple module-level cache like the one above, or a [Suspense-enabled data source](/reference/react/Suspense#what-activates-a-suspense-boundary).
+A forma como você armazena Promises em cache depende do framework que você usa com o Suspense. Frameworks geralmente oferecem mecanismos de cache integrados. Se você não usa um framework, pode usar um cache simples no nível do módulo, como o mostrado acima, ou uma [fonte de dados habilitada para Suspense](/reference/react/Suspense#what-activates-a-suspense-boundary).
 
 </Note>
 
-In the example below, clicking "Re-render" updates state in `App` and triggers a re-render. Because `fetchData` returns the same cached Promise, `Albums` reads the value synchronously instead of showing the Suspense fallback again.
+No exemplo abaixo, clicar em "Re-render" atualiza o estado em `App` e dispara uma re-renderização. Como `fetchData` retorna a mesma Promise em cache, `Albums` lê o valor de forma síncrona em vez de mostrar o fallback do Suspense novamente.
 
 <Sandpack>
 
@@ -613,9 +613,9 @@ function Albums() {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: a forma como você faria a busca de dados depende do
+// framework que você usa junto com o Suspense.
+// Normalmente, a lógica de cache ficaria dentro de um framework.
 
 let cache = new Map();
 
@@ -635,7 +635,7 @@ async function getData(url) {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Adicione um atraso falso para tornar a espera perceptível.
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -660,9 +660,9 @@ async function getAlbums() {
 
 <DeepDive>
 
-#### How to implement a promise cache {/*how-to-implement-a-promise-cache*/}
+#### Como implementar um cache de Promises {/*how-to-implement-a-promise-cache*/}
 
-A basic cache stores the Promise keyed by URL so the same instance is reused across renders. To also avoid unnecessary Suspense fallbacks when data is already available, you can set `status` and `value` (or `reason`) fields on the Promise. React checks these fields when `use` is called: if `status` is `'fulfilled'`, it reads `value` synchronously without suspending. If `status` is `'rejected'`, it throws `reason`. If the field is missing or `'pending'`, it suspends.
+Um cache básico armazena a Promise usando a URL como chave, para que a mesma instância seja reutilizada entre renderizações. Para também evitar fallbacks desnecessários do Suspense quando os dados já estão disponíveis, você pode definir os campos `status` e `value` (ou `reason`) na Promise. O React verifica esses campos quando `use` é chamado: se `status` for `'fulfilled'`, ele lê `value` de forma síncrona, sem suspender. Se `status` for `'rejected'`, ele lança `reason`. Se o campo estiver ausente ou for `'pending'`, ele suspende.
 
 ```js
 let cache = new Map();
@@ -687,21 +687,21 @@ function fetchData(url) {
 }
 ```
 
-This is primarily useful for library authors building Suspense-compatible data layers. React will set the `status` field itself on Promises that don't have it, but setting it yourself avoids an extra render when the data is already available.
+Isso é útil principalmente para autores de bibliotecas que constroem camadas de dados compatíveis com Suspense. O próprio React define o campo `status` em Promises que não o possuem, mas defini-lo você mesmo evita uma renderização extra quando os dados já estão disponíveis.
 
-This cache pattern is the foundation for [re-fetching data](#re-fetching-data-in-client-components) (where changing the cache key triggers a new fetch) and [preloading data on hover](#preloading-data-on-hover) (where calling `fetchData` early means the Promise may already be resolved by the time `use` reads it).
+Esse padrão de cache é a base para [buscar dados novamente](#re-fetching-data-in-client-components) (em que mudar a chave do cache dispara uma nova busca) e para [pré-carregar dados ao passar o mouse](#preloading-data-on-hover) (em que chamar `fetchData` antecipadamente significa que a Promise pode já estar resolvida quando `use` a ler).
 
 </DeepDive>
 
 <Pitfall>
 
-##### Don't skip calling `use` based on whether a Promise is already settled. {/*conditional-use*/}
+##### Não deixe de chamar `use` com base em uma Promise já estar finalizada. {/*conditional-use*/}
 
-Unlike other hooks, `use` can be called inside conditions and loops — but it must always be called for the Promise itself. Never read `promise.status` or `promise.value` directly to bypass `use`; always pass the Promise to `use` and let React handle it.
+Ao contrário de outros Hooks, `use` pode ser chamado dentro de condições e loops — mas ele sempre deve ser chamado para a própria Promise. Nunca leia `promise.status` ou `promise.value` diretamente para contornar `use`; sempre passe a Promise para `use` e deixe o React lidar com ela.
 
 
 ```js
-// 🔴 Don't bypass `use` by reading promise status directly
+// 🔴 Não contorne `use` lendo o status da Promise diretamente
 if (promise.status === 'fulfilled') {
   return promise.value;
 }
@@ -709,19 +709,19 @@ const value = use(promise);
 ```
 
 ```js
-// ✅ Pass the promise to `use` and let React track the promise
+// ✅ Passe a Promise para `use` e deixe o React acompanhá-la
 const value = use(promise);
 ```
 
-Bypassing `use` this way can break React Suspense optimizations and Suspense features for React DevTools. You can `use(promise)` conditionally, but don't conditionally `use(promise)` based on the promise itself.
+Contornar `use` dessa forma pode quebrar otimizações do Suspense no React e recursos de Suspense no React DevTools. Você pode chamar `use(promise)` condicionalmente, mas não condicione a chamada de `use(promise)` à própria Promise.
 
 </Pitfall>
 
 ---
 
-### Re-fetching data in Client Components {/*re-fetching-data-in-client-components*/}
+### Buscando dados novamente em Client Components {/*re-fetching-data-in-client-components*/}
 
-To refresh data at the same URL (for example, with a "Refresh" button), invalidate the cache entry and start a new fetch inside a [`startTransition`](/reference/react/startTransition). Store the resulting Promise in state to trigger a re-render. While the new Promise is pending, React keeps showing the existing content because the update is inside a Transition.
+Para atualizar os dados na mesma URL (por exemplo, com um botão "Refresh"), invalide a entrada do cache e inicie uma nova busca dentro de um [`startTransition`](/reference/react/startTransition). Armazene a Promise resultante no estado para disparar uma re-renderização. Enquanto a nova Promise estiver pendente, o React continua mostrando o conteúdo existente, porque a atualização está dentro de uma Transition.
 
 ```js
 function App() {
@@ -737,7 +737,7 @@ function App() {
 }
 ```
 
-`refetchData` clears the old cache entry and starts a new fetch at the same URL. Storing the resulting Promise in state triggers a re-render inside the Transition. On re-render, `Albums` receives the new Promise and `use` suspends on it while React keeps showing the old content.
+`refetchData` limpa a entrada antiga do cache e inicia uma nova busca na mesma URL. Armazenar a Promise resultante no estado dispara uma re-renderização dentro da Transition. Na re-renderização, `Albums` recebe a nova Promise e `use` suspende nela enquanto o React continua mostrando o conteúdo antigo.
 
 <Sandpack>
 
@@ -794,9 +794,9 @@ function Loading() {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: a forma como você faria a busca de dados depende do
+// framework que você usa junto com o Suspense.
+// Normalmente, a lógica de cache ficaria dentro de um framework.
 
 let cache = new Map();
 
@@ -821,7 +821,7 @@ async function getData(url) {
 }
 
 async function getAlbums() {
-  // Add a fake delay to make waiting noticeable.
+  // Adicione um atraso falso para tornar a espera perceptível.
   await new Promise(resolve => {
     setTimeout(resolve, 1000);
   });
@@ -858,15 +858,15 @@ button { margin-bottom: 10px; }
 
 <Note>
 
-Frameworks that support Suspense typically provide their own caching and invalidation mechanisms. The custom cache above is useful for understanding the pattern, but in practice prefer your framework's data fetching solution.
+Frameworks com suporte a Suspense geralmente oferecem seus próprios mecanismos de cache e invalidação. O cache personalizado acima é útil para entender o padrão, mas, na prática, prefira a solução de busca de dados do seu framework.
 
 </Note>
 
 ---
 
-### Preloading data on hover {/*preloading-data-on-hover*/}
+### Pré-carregando dados ao passar o mouse {/*preloading-data-on-hover*/}
 
-You can start loading data before it's needed by calling `fetchData` during a hover event. Since `fetchData` caches the Promise, the data may already be available by the time the user clicks. If the Promise has resolved by the time `use` reads it, React renders the component immediately without showing a Suspense fallback.
+Você pode começar a carregar dados antes de precisar deles chamando `fetchData` durante um evento de hover. Como `fetchData` armazena a Promise em cache, os dados podem já estar disponíveis quando o usuário clicar. Se a Promise já tiver sido resolvida quando `use` a ler, o React renderiza o componente imediatamente, sem mostrar um fallback do Suspense.
 
 ```js
 <button
@@ -879,7 +879,7 @@ You can start loading data before it's needed by calling `fetchData` during a ho
 >
 ```
 
-In this example, hovering over an artist button starts fetching their albums in the background. Without hovering first, clicking shows a loading fallback. Try hovering over a button for a moment before clicking to see the difference.
+Neste exemplo, passar o mouse sobre o botão de um artista começa a buscar os álbuns dele em segundo plano. Sem passar o mouse antes, clicar mostra um fallback de carregamento. Experimente passar o mouse sobre um botão por um momento antes de clicar para ver a diferença.
 
 <Sandpack>
 
@@ -944,18 +944,18 @@ export default function Albums({ artistId }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: a forma como você faria a busca de dados depende do
+// framework que você usa junto com o Suspense.
+// Normalmente, a lógica de cache ficaria dentro de um framework.
 
 let cache = new Map();
 
 export function fetchData(url) {
   if (!cache.has(url)) {
     const promise = getData(url);
-    // Set status fields so React can read the value
-    // synchronously if the Promise resolves before
-    // `use` is called (e.g. when preloading on hover).
+    // Define os campos de status para que o React possa ler o valor
+    // de forma síncrona se a Promise for resolvida antes de
+    // `use` ser chamado (por exemplo, ao pré-carregar no hover).
     promise.status = 'pending';
     promise.then(
       value => {
@@ -985,7 +985,7 @@ async function getData(url) {
 }
 
 async function getAlbums(artistId) {
-  // Add a fake delay to make waiting noticeable.
+  // Adicione um atraso falso para tornar a espera perceptível.
   await new Promise(resolve => {
     setTimeout(resolve, 800);
   });
@@ -1044,9 +1044,9 @@ button { margin-right: 10px; }
 
 ---
 
-### Streaming data from server to client {/*streaming-data-from-server-to-client*/}
+### Streaming de dados do servidor para o cliente {/*streaming-data-from-server-to-client*/}
 
-Data can be streamed from the server to the client by passing a Promise as a prop from a Server Component to a Client Component.
+Os dados podem ser transmitidos do servidor para o cliente passando uma Promise como prop de um Server Component para um Client Component.
 
 ```js
 import { fetchMessage } from './lib.js';
@@ -1260,9 +1260,9 @@ function Albums({ albumsPromise }) {
 ```
 
 ```js src/data.js hidden
-// Note: the way you would do data fetching depends on
-// the framework that you use together with Suspense.
-// Normally, the caching logic would be inside a framework.
+// Nota: a forma como você faria a busca de dados depende do
+// framework que você usa junto com o Suspense.
+// Normalmente, a lógica de cache ficaria dentro de um framework.
 
 let cache = new Map();
 let retried = false;
@@ -1281,11 +1281,11 @@ export function refetchData(url) {
 }
 
 async function getData(url) {
-  // Add a fake delay to make the loading state visible.
+  // Adicione um atraso falso para tornar o estado de carregamento visível.
   await new Promise(resolve => setTimeout(resolve, 1000));
   if (url === '/the-beatles/albums') {
-    // Fail the first attempt to demonstrate the Error Boundary,
-    // then succeed on retry.
+    // Falha na primeira tentativa para demonstrar o Error Boundary
+    // e tem sucesso na nova tentativa.
     if (!retried) {
       throw new Error('Example Error: Failed to fetch albums');
     }
@@ -1328,11 +1328,11 @@ async function getData(url) {
 
 ## Uso (Navegador) {/*usage-browser*/}
 
-### Rendering a component only in the browser {/*rendering-a-component-only-in-the-browser*/}
+### Renderizando um componente apenas no navegador {/*rendering-a-component-only-in-the-browser*/}
 
-Pass the value returned by [`browser`](/reference/react-dom/browser) to `use` inside a component that should only render in the browser.
+Passe o valor retornado por [`browser`](/reference/react-dom/browser) para `use` dentro de um componente que deve ser renderizado apenas no navegador.
 
-Click **Reload** to see the loading fallback in the initial HTML. After hydration, React displays the draft loaded from `localStorage`.
+Clique em **Reload** para ver o fallback de carregamento no HTML inicial. Após a hidratação, o React exibe o rascunho carregado do `localStorage`.
 
 <Sandpack>
 
@@ -1410,7 +1410,7 @@ async function main(frame) {
   const stream = await renderToReadableStream(<Document />);
   await flushReadableStreamToFrame(stream, frame);
 
-  // Wait so both the fallback and hydrated content are visible.
+  // Aguarda para que tanto o fallback quanto o conteúdo hidratado fiquem visíveis.
   await new Promise(resolve => setTimeout(resolve, 1200));
   hydrateRoot(frame.contentDocument, <Document />);
 }
@@ -1482,7 +1482,7 @@ Durante a renderização no servidor, `use(browser())` suspende o componente e o
 
 ## Solução de problemas {/*troubleshooting*/}
 
-### I'm getting an error: "Suspense Exception: This is not a real error!" {/*suspense-exception-error*/}
+### Estou recebendo um erro: "Suspense Exception: This is not a real error!" {/*suspense-exception-error*/}
 
 Você está chamando `use` dentro de um bloco try-catch. `use` lança internamente para se integrar ao Suspense, então não pode ser envolvido em try-catch. Em vez disso, envolva o componente que chama `use` em um [Error Boundary](#displaying-an-error-with-an-error-boundary) para tratar os erros.
 
@@ -1497,17 +1497,17 @@ function Albums({ albumsPromise }) {
   // ...
 ```
 
-Instead, wrap the component in an Error Boundary:
+Em vez disso, envolva o componente em um Error Boundary:
 
 ```jsx
 function Albums({ albumsPromise }) {
-  // ✅ Call `use` without try-catch
+  // ✅ Chame `use` sem try-catch
   const albums = use(albumsPromise);
   // ...
 ```
 
 ```jsx
-// ✅ Use an Error Boundary to handle errors
+// ✅ Use um Error Boundary para tratar os erros
 <ErrorBoundary fallback={<p>Error</p>}>
   <Albums albumsPromise={albumsPromise} />
 </ErrorBoundary>
@@ -1515,25 +1515,25 @@ function Albums({ albumsPromise }) {
 
 ---
 
-### I'm getting a warning: "A component was suspended by an uncached promise" {/*uncached-promise-error*/}
+### Estou recebendo um aviso: "A component was suspended by an uncached promise" {/*uncached-promise-error*/}
 
-The Promise passed to `use` is not cached, so React cannot reuse it across re-renders.
+A Promise passada para `use` não está em cache, então o React não consegue reutilizá-la entre re-renderizações.
 
-This commonly happens when calling `fetch` or an `async` function directly in render:
+Isso costuma acontecer ao chamar `fetch` ou uma função `async` diretamente na renderização:
 
 ```js
 function Albums() {
-  // 🔴 This creates a new Promise on every render
+  // 🔴 Isso cria uma nova Promise a cada renderização
   const albums = use(fetch('/albums'));
   // ...
 }
 ```
 
-To fix this, cache the Promise so the same instance is reused:
+Para corrigir isso, armazene a Promise em cache para que a mesma instância seja reutilizada:
 
 ```js
-// ✅ fetchData returns the same Promise for the same URL
+// ✅ fetchData retorna a mesma Promise para a mesma URL
 const albums = use(fetchData('/albums'));
 ```
 
-See [caching Promises for Client Components](#caching-promises-for-client-components) for more details.
+Veja [armazenando Promises em cache para Client Components](#caching-promises-for-client-components) para mais detalhes.

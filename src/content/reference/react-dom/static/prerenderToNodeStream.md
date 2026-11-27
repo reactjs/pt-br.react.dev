@@ -72,9 +72,9 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
   - `postponed`: um objeto opaco serializável em JSON que pode ser passado para [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) se `prerenderToNodeStream` não terminou. Caso contrário, `null` indicando que o `prelude` contém todo o conteúdo e nenhum resume é necessário.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToPipeableStream#recovering-from-errors-inside-the-shell)
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-`nonce` is not an available option when prerendering. Nonces must be unique per request and if you use nonces to secure your application with [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP) it would be inappropriate and insecure to include the nonce value in the prerender itself.
+`nonce` não é uma opção disponível ao fazer pré-renderização. Nonces devem ser únicos por requisição e se você usar nonces para proteger sua aplicação com [CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP), seria inadequado e inseguro incluir o valor do nonce na própria pré-renderização.
 
 <Note>
 
@@ -82,7 +82,7 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 A API estática `prerenderToNodeStream` é usada para geração estática do lado do servidor (SSG). Diferente de `renderToString`, `prerenderToNodeStream` espera que todos os dados sejam carregados antes de serem resolvidos. Isso o torna adequado para gerar HTML estático para uma página completa, incluindo dados que precisam ser buscados usando Suspense. Para stream de conteúdo conforme ele carrega, use uma API de renderização do lado do servidor (SSR) em streaming como [renderToReadableStream](/reference/react-dom/server/renderToReadableStream).
 
-`prerenderToNodeStream` can be aborted and resumed later with `resumeToPipeableStream` to support partial pre-rendering.
+`prerenderToNodeStream` pode ser abortado e retomado depois com `resumeToPipeableStream` para dar suporte à pré-renderização parcial.
 
 </Note>
 
@@ -308,7 +308,7 @@ async function renderToString() {
 
 Quaisquer limites de Suspense com filhos incompletos serão incluídos no prelude no estado de fallback.
 
-This can be used for partial prerendering together with [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) or [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream).
+Isso pode ser usado para pré-renderização parcial junto com [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) ou [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream).
 
 ## Solução de problemas {/*troubleshooting*/}
 

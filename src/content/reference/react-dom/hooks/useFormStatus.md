@@ -115,9 +115,9 @@ export async function submitForm(query) {
 
 ---
 
-### Display a pending state with an `onSubmit` handler {/*display-a-pending-state-with-an-onsubmit-handler*/}
+### Exibir um estado pendente com um manipulador `onSubmit` {/*display-a-pending-state-with-an-onsubmit-handler*/}
 
-If you need to handle form submission in an `onSubmit` event handler instead of passing a function to the [`<form action>` prop](/reference/react-dom/components/form#handle-form-submission-with-an-action-prop), call [`event.preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) and [start a Transition](/reference/react/startTransition) in the same event handler. A component inside the form can then use `useFormStatus` to read the pending state while the Action is running.
+Se você precisar manipular o envio do formulário em um manipulador de eventos `onSubmit` em vez de passar uma função para a [prop `<form action>`](/reference/react-dom/components/form#handle-form-submission-with-an-action-prop), chame [`event.preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) e [inicie uma Transition](/reference/react/startTransition) no mesmo manipulador de eventos. Um componente dentro do formulário pode então usar `useFormStatus` para ler o estado pendente enquanto a Action está em execução.
 
 <Sandpack>
 
@@ -169,7 +169,7 @@ export async function submitForm(formData) {
 
 </Sandpack>
 
-Unlike a function passed to the `<form action>` prop, handling submission this way [does not automatically reset the form](/reference/react-dom/components/form#other-ways-to-control-form-resets).
+Ao contrário de uma função passada para a prop `<form action>`, manipular o envio dessa forma [não redefine o formulário automaticamente](/reference/react-dom/components/form#other-ways-to-control-form-resets).
 
 
 <Pitfall>

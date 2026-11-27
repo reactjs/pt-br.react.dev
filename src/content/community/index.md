@@ -16,16 +16,16 @@ Antes de participar das comunidades do React, [leia nosso Código de Conduta.](h
 
 Stack Overflow é um fórum popular para fazer perguntas sobre código ou para caso você esteja travado em um erro específico. Leia as [perguntas existentes](https://stackoverflow.com/questions/tagged/reactjs) marcadas com **reactjs** ou [faça a sua](https://stackoverflow.com/questions/ask?tags=reactjs)!
 
-## Popular Discussion Forums {/*popular-discussion-forums*/}
+## Fóruns de Discussão Populares {/*popular-discussion-forums*/}
 
-There are many online forums which are a great place for discussion about best practices and application architecture as well as the future of React. If you have an answerable code-level question, Stack Overflow is usually a better fit.
+Existem muitos fóruns online que são ótimos lugares para discutir boas práticas e arquitetura de aplicações, assim como o futuro do React. Se você tiver uma pergunta objetiva sobre código, o Stack Overflow geralmente é a melhor opção.
 
-Each community consists of many thousands of React users.
+Cada comunidade é formada por muitos milhares de usuários de React.
 
-* [DEV's React community](https://dev.to/t/react)
-* [Hashnode's React community](https://hashnode.com/n/reactjs)
-* [Reactiflux online chat](https://discord.gg/reactiflux)
-* [Reddit's React community](https://www.reddit.com/r/reactjs/)
+* [Comunidade React do DEV](https://dev.to/t/react)
+* [Comunidade React do Hashnode](https://hashnode.com/n/reactjs)
+* [Chat online do Reactiflux](https://discord.gg/reactiflux)
+* [Comunidade React do Reddit](https://www.reddit.com/r/reactjs/)
 
 ## Notícias {/*news*/}
 

@@ -229,7 +229,7 @@ async function getAlbums() {
 
 </Sandpack>
 
-By contrast, code that fetches data outside of `use`, such as inside an Effect, does not activate the boundary:
+Por outro lado, código que busca dados fora de `use`, como dentro de um Effect, não ativa o limite:
 
 <Sandpack>
 
@@ -397,7 +397,7 @@ async function getAlbums() {
 
 </Sandpack>
 
-During streaming server rendering, a boundary also activates while its HTML is still streaming in. With any streaming server rendering API, React sends [the shell](/reference/react-dom/server/renderToPipeableStream#specifying-what-goes-into-the-shell) with the `fallback` first, then streams in each boundary's HTML and swaps out its `fallback` as that content arrives. Press "Render the page" to watch the page stream in:
+Durante a renderização no servidor com streaming, um limite também é ativado enquanto seu HTML ainda está chegando via streaming. Com qualquer API de renderização no servidor com streaming, o React envia primeiro [o shell](/reference/react-dom/server/renderToPipeableStream#specifying-what-goes-into-the-shell) com o `fallback`, depois faz o streaming do HTML de cada limite e substitui o `fallback` correspondente à medida que esse conteúdo chega. Pressione "Render the page" para ver a página chegar via streaming:
 
 <Sandpack>
 

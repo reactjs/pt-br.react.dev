@@ -159,19 +159,19 @@ export async function addComment(formData) {
 
 <DeepDive>
 
-#### Passing extra data to an Action {/*passing-extra-data-to-an-action*/}
+#### Passando dados extras para uma Action {/*passing-extra-data-to-an-action*/}
 
-An Action receives the submitted [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData). To include data the user did not enter, such as an ID from props, use one of these approaches:
+Uma Action recebe o [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) enviado. Para incluir dados que o usuário não digitou, como um ID vindo das props, use uma destas abordagens:
 
-* **Hidden fields** add the value to `FormData`. The value appears in the HTML, and `formData.get` returns a string. Users can submit the form before JavaScript loads.
-* **Binding with `bind`** passes the value as an argument to a Server Function, before `formData`. The argument keeps its type, so a number stays a number. It must be [serializable](/reference/rsc/use-server#serializable-parameters-and-return-values). Users can submit the form before JavaScript loads.
-* **A function in the component** reads props and state directly. It runs after JavaScript loads, then calls a Server Function with those values.
+* **Campos ocultos** adicionam o valor ao `FormData`. O valor aparece no HTML, e `formData.get` retorna uma string. Os usuários podem enviar o formulário antes que o JavaScript seja carregado.
+* **Fazer o bind com `bind`** passa o valor como argumento para uma Server Function, antes de `formData`. O argumento mantém o seu tipo, então um número continua sendo um número. Ele deve ser [serializável](/reference/rsc/use-server#serializable-parameters-and-return-values). Os usuários podem enviar o formulário antes que o JavaScript seja carregado.
+* **Uma função no componente** lê as props e o estado diretamente. Ela é executada depois que o JavaScript é carregado e então chama uma Server Function com esses valores.
 
-The client sends hidden field values and bound arguments. Check on the server that the logged-in user is allowed to perform the Action. See [Security considerations](/reference/rsc/use-server#security).
+O cliente envia os valores dos campos ocultos e os argumentos vinculados. Verifique no servidor se o usuário autenticado tem permissão para executar a Action. Veja [Considerações de segurança](/reference/rsc/use-server#security).
 
-#### Hidden fields {/*passing-extra-data-hidden-fields*/}
+#### Campos ocultos {/*passing-extra-data-hidden-fields*/}
 
-In a Server Component, render an `<input type="hidden">` with a `name` and `value`. React includes that value in the `FormData` passed to the Action.
+Em um Server Component, renderize um `<input type="hidden">` com `name` e `value`. O React inclui esse valor no `FormData` passado para a Action.
 
 ```jsx
 // Server Component
@@ -191,11 +191,11 @@ function AddToCart({ productId }) {
 }
 ```
 
-React includes a submit button's `name` and `value` in `FormData` when that button submits the form.
+O React inclui o `name` e o `value` de um botão de envio no `FormData` quando esse botão envia o formulário.
 
-#### Binding with `bind` {/*passing-extra-data-bind*/}
+#### Fazendo o bind com `bind` {/*passing-extra-data-bind*/}
 
-In a Server Component, call [`bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) on the Server Function and pass the bound function to `action`. Pass `null` as the first argument to `bind`. Each argument after `null` comes before the `formData` argument React passes when the form is submitted.
+Em um Server Component, chame [`bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) na Server Function e passe a função vinculada para `action`. Passe `null` como primeiro argumento de `bind`. Cada argumento depois de `null` vem antes do argumento `formData` que o React passa quando o formulário é enviado.
 
 ```jsx
 // Server Component
@@ -443,7 +443,7 @@ export async function signup(previousState, formData) {
 }
 ```
 
-In a Client Component, pass the Server Function to `useActionState`. Pass the returned Action to the form's `action` prop and render the returned state:
+Em um Client Component, passe a Server Function para `useActionState`. Passe a Action retornada para a prop `action` do formulário e renderize o estado retornado:
 
 ```js
 // Signup.js
@@ -465,17 +465,17 @@ export default function Signup() {
 }
 ```
 
-If the form is submitted before JavaScript loads, React includes the Server Function's returned error message in the server-rendered response.
+Se o formulário for enviado antes que o JavaScript seja carregado, o React inclui a mensagem de erro retornada pela Server Function na resposta renderizada no servidor.
 
 ---
 
-### Preserving form values after an Action {/*preserve-form-values-after-an-action*/}
+### Preservando os valores do formulário após uma Action {/*preserve-form-values-after-an-action*/}
 
-When a function passed to `action` or `formAction` completes without throwing, React resets the form's [uncontrolled fields](/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form). You may want to keep the submitted values after saving edits, or when the Action returns a [validation error](/reference/react/useActionState#displaying-validation-errors-and-preserving-form-values).
+Quando uma função passada para `action` ou `formAction` é concluída sem lançar um erro, o React redefine os [campos não controlados](/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form) do formulário. Talvez você queira manter os valores enviados depois de salvar edições, ou quando a Action retornar um [erro de validação](/reference/react/useActionState#displaying-validation-errors-and-preserving-form-values).
 
-To preserve those values, you can store them with [`useState`](/reference/react/useState) and pass them to each field's [`defaultValue`](/reference/react-dom/components/input#providing-an-initial-value-for-an-input). Update the state when the Action finishes. React applies the updated defaults before resetting the form, so the fields keep those values.
+Para preservar esses valores, você pode armazená-los com [`useState`](/reference/react/useState) e passá-los para o [`defaultValue`](/reference/react-dom/components/input#providing-an-initial-value-for-an-input) de cada campo. Atualize o estado quando a Action terminar. O React aplica os valores padrão atualizados antes de redefinir o formulário, então os campos mantêm esses valores.
 
-Try changing the title and clicking **Save**. In this example, [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) shows "Saving..." during a simulated one-second request. Then `setTitle` updates the saved title and preserves it in the input.
+Experimente alterar o título e clicar em **Save**. Neste exemplo, [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) mostra "Saving..." durante uma requisição simulada de um segundo. Em seguida, `setTitle` atualiza o título salvo e o preserva no input.
 
 <Sandpack>
 
@@ -669,10 +669,10 @@ export default function ArticleForm() {
 
 ---
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de problemas {/*troubleshooting*/}
 
-### My form fields are cleared after submission {/*my-form-fields-are-cleared-after-submission*/}
+### Os campos do meu formulário são limpos após o envio {/*my-form-fields-are-cleared-after-submission*/}
 
-When a function passed to `action` or `formAction` succeeds, React resets the form's uncontrolled fields to their default values. Text fields without a `defaultValue` become empty. Returning a validation error instead of throwing also triggers this reset.
+Quando uma função passada para `action` ou `formAction` é bem-sucedida, o React redefine os campos não controlados do formulário para seus valores padrão. Campos de texto sem `defaultValue` ficam vazios. Retornar um erro de validação em vez de lançá-lo também dispara essa redefinição.
 
-To keep a submitted value, store it in state and pass it to the field's `defaultValue`. See [Preserving form values after an Action](#preserve-form-values-after-an-action) for examples, or [preserving values when validation fails](/reference/react/useActionState#displaying-validation-errors-and-preserving-form-values).
+Para manter um valor enviado, armazene-o no estado e passe-o para o `defaultValue` do campo. Veja [Preservando os valores do formulário após uma Action](#preserve-form-values-after-an-action) para exemplos, ou [preservando valores quando a validação falha](/reference/react/useActionState#displaying-validation-errors-and-preserving-form-values).

@@ -4,7 +4,7 @@ title: requestFormReset
 
 <Intro>
 
-`requestFormReset` lets you reset a React-managed form after an Action or Transition finishes.
+`requestFormReset` permite que você redefina um formulário gerenciado pelo React após a conclusão de uma Action ou Transition.
 
 ```js
 requestFormReset(form)
@@ -16,11 +16,11 @@ requestFormReset(form)
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `requestFormReset(form)` {/*requestformreset*/}
 
-Call `requestFormReset` to request that a form resets after the current Action or Transition completes.
+Chame `requestFormReset` para solicitar que um formulário seja redefinido após a conclusão da Action ou Transition atual.
 
 ```js
 import { startTransition } from 'react';
@@ -35,30 +35,30 @@ function handleSubmit(form) {
 }
 ```
 
-[See more examples below.](#usage)
+[Veja mais exemplos abaixo.](#usage)
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-* `form`: an [HTML form element](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement) rendered by React.
+* `form`: um [elemento de formulário HTML](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement) renderizado pelo React.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`requestFormReset` returns nothing.
+`requestFormReset` não retorna nada.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-* Pass a form element that is rendered by React. Passing a non-form element, or a form not managed by React, throws an error.
-* `requestFormReset` is intended for Actions and Transitions. If called outside an Action or Transition, React warns in development and performs a synchronous reset.
-* `requestFormReset` is useful when you implement form submission logic yourself (for example with `onSubmit` + `startTransition`) and still want React's form reset behavior.
-* This API requests a reset for uncontrolled form fields. For controlled fields, handle resets by updating state, such as in `onReset`.
+* Passe um elemento de formulário renderizado pelo React. Passar um elemento que não seja um formulário, ou um formulário não gerenciado pelo React, lança um erro.
+* `requestFormReset` foi feito para Actions e Transitions. Se for chamado fora de uma Action ou Transition, o React emite um aviso em desenvolvimento e executa uma redefinição síncrona.
+* `requestFormReset` é útil quando você mesmo implementa a lógica de envio do formulário (por exemplo, com `onSubmit` + `startTransition`) e ainda quer o comportamento de redefinição de formulário do React.
+* Esta API solicita a redefinição de campos de formulário não controlados. Para campos controlados, trate a redefinição atualizando o state, por exemplo, em `onReset`.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Requesting a reset in a custom form Action {/*requesting-a-reset-in-a-custom-form-action*/}
+### Solicitando uma redefinição em uma Action de formulário personalizada {/*requesting-a-reset-in-a-custom-form-action*/}
 
-React [automatically resets uncontrolled fields after a successful `<form action={...}>` submission](/reference/react-dom/components/form#handle-form-submission-with-an-action-prop). When you implement submission manually, you can opt into the same behavior by calling `requestFormReset`.
+O React [redefine automaticamente os campos não controlados após um envio bem-sucedido de `<form action={...}>`](/reference/react-dom/components/form#handle-form-submission-with-an-action-prop). Quando você implementa o envio manualmente, pode optar pelo mesmo comportamento chamando `requestFormReset`.
 
 ```js
 import { startTransition } from 'react';
@@ -86,4 +86,4 @@ function SearchForm() {
 }
 ```
 
-If your submission uses the built-in `<form action={...}>` behavior, you don't need to call `requestFormReset` manually.
+Se o seu envio usa o comportamento nativo de `<form action={...}>`, você não precisa chamar `requestFormReset` manualmente.
