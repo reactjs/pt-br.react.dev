@@ -31,7 +31,7 @@ module.exports = {
 
 ## Controle de compilação {/*compilation-control*/}
 
-Estas opções controlam *o quê* o compilador otimiza e *como* ele seleciona componentes e hooks para compilar.
+Estas opções controlam *o que* o compilador otimiza e *como* ele seleciona componentes e hooks para compilar.
 
 * [`compilationMode`](/reference/react-compiler/compilationMode) controla a estratégia para selecionar funções a serem compiladas (por exemplo, todas as funções, apenas as anotadas ou detecção inteligente).
 
@@ -62,12 +62,12 @@ A configuração da versão do React garante que o compilador gere código compa
 
 Estas opções controlam como o compilador responde a código que não segue as [Regras do React](/reference/rules).
 
-[`panicThreshold`](/reference/react-compiler/panicThreshold) determina se deve falhar na compilação ou pular componentes problemáticos.
+[`panicThreshold`](/reference/react-compiler/panicThreshold) determina se a build deve falhar ou se componentes problemáticos devem ser pulados.
 
 ```js
 // Recomendado para produção
 {
-  panicThreshold: 'none' // Pula componentes com erros em vez de falhar na compilação
+  panicThreshold: 'none' // Pula componentes com erros em vez de fazer a build falhar
 }
 ```
 
