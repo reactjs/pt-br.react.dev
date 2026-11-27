@@ -4,70 +4,70 @@ title: preserve-manual-memoization
 
 <Intro>
 
-Validates that existing manual memoization is preserved by the compiler. React Compiler will only compile components and hooks if its inference [matches or exceeds the existing manual memoization](/learn/react-compiler/introduction#what-should-i-do-about-usememo-usecallback-and-reactmemo).
+Valida que a memoização manual existente é preservada pelo compilador. O React Compiler compilará componentes e hooks apenas se sua inferência [corresponder ou exceder a memoização manual existente](/learn/react-compiler/introduction#what-should-i-do-about-usememo-usecallback-and-reactmemo).
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-React Compiler preserves your existing `useMemo`, `useCallback`, and `React.memo` calls. If you've manually memoized something, the compiler assumes you had a good reason and won't remove it. However, incomplete dependencies prevent the compiler from understanding your code's data flow and applying further optimizations.
+O React Compiler preserva suas chamadas existentes de `useMemo`, `useCallback` e `React.memo`. Se você memoizou algo manualmente, o compilador assume que você teve um bom motivo e não o removerá. No entanto, dependências incompletas impedem o compilador de entender o fluxo de dados do seu código e aplicar otimizações adicionais.
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Missing dependencies in useMemo
+// ❌ Dependências ausentes em useMemo
 function Component({ data, filter }) {
   const filtered = useMemo(
     () => data.filter(filter),
-    [data] // Missing 'filter' dependency
+    [data] // Dependência 'filter' ausente
   );
 
   return <List items={filtered} />;
 }
 
-// ❌ Missing dependencies in useCallback
+// ❌ Dependências ausentes em useCallback
 function Component({ onUpdate, value }) {
   const handleClick = useCallback(() => {
     onUpdate(value);
-  }, [onUpdate]); // Missing 'value'
+  }, [onUpdate]); // 'value' ausente
 
   return <button onClick={handleClick}>Update</button>;
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Complete dependencies
+// ✅ Dependências completas
 function Component({ data, filter }) {
   const filtered = useMemo(
     () => data.filter(filter),
-    [data, filter] // All dependencies included
+    [data, filter] // Todas as dependências incluídas
   );
 
   return <List items={filtered} />;
 }
 
-// ✅ Or let the compiler handle it
+// ✅ Ou deixe o compilador lidar com isso
 function Component({ data, filter }) {
-  // No manual memoization needed
+  // Nenhuma memoização manual necessária
   const filtered = data.filter(filter);
   return <List items={filtered} />;
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### Should I remove my manual memoization? {/*remove-manual-memoization*/}
+### Devo remover minha memoização manual? {/*remove-manual-memoization*/}
 
-You might wonder if React Compiler makes manual memoization unnecessary:
+Você pode se perguntar se o React Compiler torna a memoização manual desnecessária:
 
 ```js
-// Do I still need this?
+// Eu ainda preciso disso?
 function Component({items, sortBy}) {
   const sorted = useMemo(() => {
     return [...items].sort((a, b) => {
@@ -79,10 +79,10 @@ function Component({items, sortBy}) {
 }
 ```
 
-You can safely remove it if using React Compiler:
+Você pode removê-la com segurança se estiver usando o React Compiler:
 
 ```js
-// ✅ Better: Let the compiler optimize
+// ✅ Melhor: Deixe o compilador otimizar
 function Component({items, sortBy}) {
   const sorted = [...items].sort((a, b) => {
     return a[sortBy] - b[sortBy];

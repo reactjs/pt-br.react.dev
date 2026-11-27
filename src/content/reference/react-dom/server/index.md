@@ -15,7 +15,7 @@ As APIs do `react-dom/server` permitem renderizar componentes React no lado do s
 Esses métodos estão disponíveis apenas em ambientes com [Web Streams](https://developer.mozilla.org/pt-BR/docs/Web/API/Streams_API), que incluem navegadores, Deno, e alguns edge runtimes modernos:
 
 * [`renderToReadableStream`](/reference/react-dom/server/renderToReadableStream) renderiza uma árvore React em uma [Readable Web Stream.](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
-* [`resume`](/reference/react-dom/server/renderToPipeableStream) retoma o [`prerender`](/reference/react-dom/static/prerender) para uma [Readable Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+* [`resume`](/reference/react-dom/server/resume) retoma o [`prerender`](/reference/react-dom/static/prerender) para uma [Readable Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
 
 
 <Note>
@@ -30,7 +30,7 @@ Node.js também inclui esses métodos para compatibilidade, mas eles não são r
 Esses métodos estão disponíveis apenas nos ambientes com [Node.js Streams:](https://nodejs.org/api/stream.html)
 
 * [`renderToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) renderiza uma árvore React em um [Node.js Stream](https://nodejs.org/api/stream.html) pipeable.
-* [`resumeToPipeableStream`](/reference/react-dom/server/renderToPipeableStream) retoma o [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) para um [Node.js Stream](https://nodejs.org/api/stream.html) pipeable.
+* [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) retoma o [`prerenderToNodeStream`](/reference/react-dom/static/prerenderToNodeStream) para um [Node.js Stream](https://nodejs.org/api/stream.html) pipeable.
 
 ---
 

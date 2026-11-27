@@ -4,13 +4,13 @@ title: cacheSignal
 
 <RSC>
 
-`cacheSignal` is currently only used with [React Server Components](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components).
+`cacheSignal` é atualmente usado apenas com [React Server Components](/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components).
 
 </RSC>
 
 <Intro>
 
-`cacheSignal` allows you to know when the `cache()` lifetime is over.
+`cacheSignal` permite que você saiba quando o tempo de vida do `cache()` terminou.
 
 ```js
 const signal = cacheSignal();
@@ -22,11 +22,11 @@ const signal = cacheSignal();
 
 ---
 
-## Reference {/*reference*/}
+## Referência {/*reference*/}
 
 ### `cacheSignal` {/*cachesignal*/}
 
-Call `cacheSignal` to get an `AbortSignal`.
+Chame `cacheSignal` para obter um `AbortSignal`.
 
 ```js {3,7}
 import {cacheSignal} from 'react';
@@ -35,32 +35,32 @@ async function Component() {
 }
 ```
 
-When React has finished rendering, the `AbortSignal` will be aborted. This allows you to cancel any in-flight work that is no longer needed.
-Rendering is considered finished when:
-- React has successfully completed rendering
-- the render was aborted
-- the render has failed
+Quando o React terminar de renderizar, o `AbortSignal` será abortado. Isso permite que você cancele qualquer trabalho em andamento que não seja mais necessário.
+A renderização é considerada concluída quando:
+- O React concluiu a renderização com sucesso
+- a renderização foi abortada
+- a renderização falhou
 
-#### Parameters {/*parameters*/}
+#### Parâmetros {/*parameters*/}
 
-This function does not accept any parameters.
+Esta função não aceita parâmetros.
 
-#### Returns {/*returns*/}
+#### Retorna {/*returns*/}
 
-`cacheSignal` returns an `AbortSignal` if called during rendering. Otherwise `cacheSignal()` returns `null`.
+`cacheSignal` retorna um `AbortSignal` se chamado durante a renderização. Caso contrário, `cacheSignal()` retorna `null`.
 
-#### Caveats {/*caveats*/}
+#### Ressalvas {/*caveats*/}
 
-- `cacheSignal` is currently for use in [React Server Components](/reference/rsc/server-components) only. In Client Components, it will always return `null`. In the future it will also be used for Client Component when a client cache refreshes or invalidates. You should not assume it'll always be null on the client.
-- If called outside of rendering, `cacheSignal` will return `null` to make it clear that the current scope isn't cached forever.
+- `cacheSignal` é atualmente apenas para uso em [React Server Components](/reference/rsc/server-components). Em Client Components, ele sempre retornará `null`. No futuro, ele também será usado para Client Components quando um cache do cliente for atualizado ou invalidado. Você não deve assumir que ele sempre será nulo no cliente.
+- Se chamado fora da renderização, `cacheSignal` retornará `null` para deixar claro que o escopo atual não é cacheado para sempre.
 
 ---
 
-## Usage {/*usage*/}
+## Uso {/*usage*/}
 
-### Cancel in-flight requests {/*cancel-in-flight-requests*/}
+### Cancelar requisições em andamento {/*cancel-in-flight-requests*/}
 
-Call <CodeStep step={1}>`cacheSignal`</CodeStep> to abort in-flight requests.
+Chame <CodeStep step={1}>`cacheSignal`</CodeStep> para abortar requisições em andamento.
 
 ```js [[1, 4, "cacheSignal()"]]
 import {cache, cacheSignal} from 'react';
@@ -71,11 +71,11 @@ async function Component() {
 ```
 
 <Pitfall>
-You can't use `cacheSignal` to abort async work that was started outside of rendering e.g.
+Você não pode usar `cacheSignal` para abortar trabalho assíncrono que foi iniciado fora da renderização, por exemplo:
 
 ```js
 import {cacheSignal} from 'react';
-// 🚩 Pitfall: The request will not actually be aborted if the rendering of `Component` is finished.
+// 🚩 Armadilha: A requisição não será realmente abortada se a renderização de `Component` for concluída.
 const response = fetch(url, { signal: cacheSignal() });
 async function Component() {
   await response;
@@ -83,9 +83,9 @@ async function Component() {
 ```
 </Pitfall>
 
-### Ignore errors after React has finished rendering {/*ignore-errors-after-react-has-finished-rendering*/}
+### Ignorar erros após o React ter terminado a renderização {/*ignore-errors-after-react-has-finished-rendering*/}
 
-If a function throws, it may be due to cancellation (e.g. <CodeStep step={1}>the Database connection</CodeStep> has been closed). You can use the <CodeStep step={2}>`aborted` property</CodeStep> to check if the error was due to cancellation or a real error. You may want to <CodeStep step={3}>ignore errors</CodeStep> that were due to cancellation.
+Se uma função lançar um erro, pode ser devido a um cancelamento (por exemplo, a conexão do <CodeStep step={1}>Banco de Dados</CodeStep> foi fechada). Você pode usar a propriedade <CodeStep step={2}>`aborted`</CodeStep> para verificar se o erro foi devido a um cancelamento ou a um erro real. Você pode querer <CodeStep step={3}>ignorar erros</CodeStep> que foram devido a cancelamento.
 
 ```js [[1, 2, "./database"], [2, 8, "cacheSignal()?.aborted"], [3, 12, "return null"]]
 import {cacheSignal} from "react";
@@ -96,7 +96,7 @@ async function getData(id) {
      return await queryDatabase(id);
   } catch (x) {
      if (!cacheSignal()?.aborted) {
-        // only log if it's a real error and not due to cancellation
+        // apenas registre se for um erro real e não devido a cancelamento
        logError(x);
      }
      return null;
@@ -106,7 +106,7 @@ async function getData(id) {
 async function Component({id}) {
   const data = await getData(id);
   if (data === null) {
-    return <div>No data available</div>;
+    return <div>Nenhum dado disponível</div>;
   }
   return <div>{data.name}</div>;
 }

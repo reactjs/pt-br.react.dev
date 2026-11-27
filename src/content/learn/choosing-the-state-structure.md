@@ -2495,7 +2495,7 @@ li { border-radius: 5px; }
 
 </Solution>
 
-#### Implemente seleção múltipla {/*implemente-selecao-multipla*/}
+#### Implemente seleção múltipla {/*implement-multiple-selection*/}
 
 Neste exemplo, cada `Letter` tem uma *prop* `isSelected` e um manipulador `onToggle` que a marca como selecionada. Isso funciona, mas o estado é armazenado como um `selectedId` (ou `null` ou um ID), então apenas uma letra pode ser selecionada em um determinado momento.
 

@@ -136,7 +136,7 @@ Se você é o autor de um framework, biblioteca, ferramenta de desenvolvedor ou 
     ```
 *   Execute sua suíte de testes em relação aos pacotes atualizados.
 *   Se tudo passar, ótimo! Você pode esperar que seu projeto funcione com o próximo lançamento secundário do React.
-*   Se algo quebrar inesperadamente, avise-nos [abrindo uma issue](https://github.com/facebook/react/issues).
+*   Se algo quebrar inesperadamente, avise-nos [abrindo uma issue](https://github.com/react/react/issues).
 
 Um projeto que usa este fluxo de trabalho é o Next.js. Você pode consultar sua [configuração do CircleCI](https://github.com/zeit/next.js/blob/c0a1c0f93966fe33edd93fb53e5fafb0dcd80a9e/.circleci/config.yml) como exemplo.
 
@@ -166,4 +166,4 @@ Se um recurso não estiver documentado, eles podem ser acompanhados por um [RFC]
 
 Postaremos no [blog do React](/blog) quando estivermos prontos para anunciar novos experimentos, mas isso não significa que divulgaremos todos os experimentos.
 
-Você sempre pode consultar o [histórico](https://github.com/facebook/react/commits/main) do nosso repositório público do GitHub para obter uma lista abrangente de alterações.
+Você sempre pode consultar o [histórico](https://github.com/react/react/commits/main) do nosso repositório público do GitHub para obter uma lista abrangente de alterações.

@@ -300,7 +300,7 @@ Para continuar usando a configuração legada, você pode mudar para `recommende
 
 Para uma lista completa de regras habilitadas pelo compilador, [confira a documentação do linter](/reference/eslint-plugin-react-hooks#recommended).
 
-Confira o [changelog do `eslint-plugin-react-hooks` para uma lista completa de mudanças](https://github.com/facebook/react/blob/main/packages/eslint-plugin-react-hooks/CHANGELOG.md#610).
+Confira o [changelog do `eslint-plugin-react-hooks` para uma lista completa de mudanças](https://github.com/react/react/blob/main/packages/eslint-plugin-react-hooks/CHANGELOG.md#610).
 
 ---
 
@@ -315,23 +315,23 @@ A intenção original de usar um caractere especial que não era válido para se
 ## Changelog {/*changelog*/}
 
 Outras mudanças notáveis
-- `react-dom`: Permite que nonce seja usado em estilos içáveis [#32461](https://github.com/facebook/react/pull/32461)
-- `react-dom`: Avisa sobre o uso de um nó de propriedade do React como Container se ele também tiver conteúdo de texto [#32774](https://github.com/facebook/react/pull/32774)
+- `react-dom`: Permite que nonce seja usado em estilos içáveis [#32461](https://github.com/react/react/pull/32461)
+- `react-dom`: Avisa sobre o uso de um nó de propriedade do React como Container se ele também tiver conteúdo de texto [#32774](https://github.com/react/react/pull/32774)
 
 Correções de bugs notáveis
-- `react`: Stringifica o contexto como "SomeContext" em vez de "SomeContext.Provider" [#33507](https://github.com/facebook/react/pull/33507)
-- `react`: Corrige loop infinito de `useDeferredValue` no evento `popstate` [#32821](https://github.com/facebook/react/pull/32821)
-- `react`: Corrige um bug quando um valor inicial era passado para `useDeferredValue` [#34376](https://github.com/facebook/react/pull/34376)
-- `react`: Corrige um crash ao enviar formulários com Client Actions [#33055](https://github.com/facebook/react/pull/33055)
-- `react`: Oculta/exibe o conteúdo de limites suspense desidratados se eles resuspendem [#32900](https://github.com/facebook/react/pull/32900)
-- `react`: Evita estouro de pilha em árvores largas durante Hot Reload [#34145](https://github.com/facebook/react/pull/34145)
-- `react`: Melhora pilhas de componentes em vários locais [#33629](https://github.com/facebook/react/pull/33629), [#33724](https://github.com/facebook/react/pull/33724), [#32735](https://github.com/facebook/react/pull/32735), [#33723](https://github.com/facebook/react/pull/33723)
-- `react`: Corrige um bug com `React.use` dentro de um componente carregado com `React.lazy` [#33941](https://github.com/facebook/react/pull/33941)
-- `react-dom`: Para de avisar quando atributos ARIA 1.3 são usados [#34264](https://github.com/facebook/react/pull/34264)
-- `react-dom`: Corrige um bug com Suspense profundamente aninhado dentro de fallbacks de Suspense [#33467](https://github.com/facebook/react/pull/33467)
-- `react-dom`: Evita travamento ao suspender após abortar durante a renderização [#34192](https://github.com/facebook/react/pull/34192)
+- `react`: Stringifica o contexto como "SomeContext" em vez de "SomeContext.Provider" [#33507](https://github.com/react/react/pull/33507)
+- `react`: Corrige loop infinito de `useDeferredValue` no evento `popstate` [#32821](https://github.com/react/react/pull/32821)
+- `react`: Corrige um bug quando um valor inicial era passado para `useDeferredValue` [#34376](https://github.com/react/react/pull/34376)
+- `react`: Corrige um crash ao enviar formulários com Client Actions [#33055](https://github.com/react/react/pull/33055)
+- `react`: Oculta/exibe o conteúdo de limites suspense desidratados se eles resuspendem [#32900](https://github.com/react/react/pull/32900)
+- `react`: Evita estouro de pilha em árvores largas durante Hot Reload [#34145](https://github.com/react/react/pull/34145)
+- `react`: Melhora pilhas de componentes em vários locais [#33629](https://github.com/react/react/pull/33629), [#33724](https://github.com/react/react/pull/33724), [#32735](https://github.com/react/react/pull/32735), [#33723](https://github.com/react/react/pull/33723)
+- `react`: Corrige um bug com `React.use` dentro de um componente carregado com `React.lazy` [#33941](https://github.com/react/react/pull/33941)
+- `react-dom`: Para de avisar quando atributos ARIA 1.3 são usados [#34264](https://github.com/react/react/pull/34264)
+- `react-dom`: Corrige um bug com Suspense profundamente aninhado dentro de fallbacks de Suspense [#33467](https://github.com/react/react/pull/33467)
+- `react-dom`: Evita travamento ao suspender após abortar durante a renderização [#34192](https://github.com/react/react/pull/34192)
 
-Para uma lista completa de mudanças, por favor, veja o [Changelog](https://github.com/facebook/react/blob/main/CHANGELOG.md).
+Para uma lista completa de mudanças, por favor, veja o [Changelog](https://github.com/react/react/blob/main/CHANGELOG.md).
 
 
 ---

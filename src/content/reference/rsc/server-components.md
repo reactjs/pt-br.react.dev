@@ -100,7 +100,7 @@ Sem Componentes de Servidor, é comum buscar dados dinâmicos no cliente em um E
 ```js
 // bundle.js
 function Note({id}) {
-  const [note, setNote] = useState('');
+  const [note, setNote] = useState(null);
   // NOTE: loads *after* first render.
   useEffect(() => {
     fetch(`/api/notes/${id}`).then(data => {
@@ -108,10 +108,14 @@ function Note({id}) {
     });
   }, [id]);
 
+  if (!note) {
+    return null;
+  }
+
   return (
     <div>
       <Author id={note.authorId} />
-      <p>{note}</p>
+      <p>{note.content}</p>
     </div>
   );
 }
@@ -155,7 +159,7 @@ async function Note({id}) {
   return (
     <div>
       <Author id={note.authorId} />
-      <p>{note}</p>
+      <p>{note.content}</p>
     </div>
   );
 }
@@ -178,6 +182,39 @@ O bundler então combina os dados, Componentes de Servidor renderizados e Compon
 ```
 
 Componentes de Servidor podem ser feitos dinâmicos re-buscando-os de um servidor, onde eles podem acessar os dados e renderizar novamente. Essa nova arquitetura de aplicação combina o modelo mental simples de “requisição/resposta” de Apps Multi-Página server-centric com a interatividade contínua de Apps Single-Page client-centric, dando a você o melhor dos dois mundos.
+
+### Renderizando um provedor de contexto em um Componente de Servidor {/*rendering-a-context-provider-in-a-server-component*/}
+
+Componentes de Servidor não podem criar contexto, mas podem renderizar um provedor de contexto importado de um módulo de Componente Cliente.
+
+Crie e exporte o contexto a partir de um arquivo com a diretiva [`'use client'`](/reference/rsc/use-client):
+
+```js
+// user-context.js
+'use client';
+import { createContext } from 'react';
+
+export const UserContext = createContext(null);
+```
+
+Em seguida, importe e renderize o contexto diretamente de um Componente de Servidor:
+
+```js
+// server-component.js
+import { UserContext } from './user-context';
+
+export async function Layout({ children }) {
+  const currentUser = await getCurrentUser();
+
+  return (
+    <UserContext value={currentUser}>
+      {children}
+    </UserContext>
+  );
+}
+```
+
+Componentes Cliente renderizados dentro desse provedor podem ler seu valor com [`use`](/reference/react/use) ou [`useContext`](/reference/react/useContext).
 
 ### Adicionando interatividade aos Componentes de Servidor {/*adding-interactivity-to-server-components*/}
 
@@ -268,7 +305,7 @@ async function Page({id}) {
   const commentsPromise = db.comments.get(note.id);
   return (
     <div>
-      {note}
+      <p>{note.content}</p>
       <Suspense fallback={<p>Loading Comments...</p>}>
         <Comments commentsPromise={commentsPromise} />
       </Suspense>

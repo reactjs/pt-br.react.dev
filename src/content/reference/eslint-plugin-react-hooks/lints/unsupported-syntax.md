@@ -4,92 +4,92 @@ title: unsupported-syntax
 
 <Intro>
 
-Validates against syntax that React Compiler does not support. If you need to, you can still use this syntax outside of React, such as in a standalone utility function.
+Valida contra sintaxes que o React Compiler não suporta. Se necessário, você ainda pode usar essa sintaxe fora do React, como em uma função utilitária independente.
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-React Compiler needs to statically analyze your code to apply optimizations. Features like `eval` and `with` make it impossible to statically understand what the code does at compile time, so the compiler can't optimize components that use them.
+O React Compiler precisa analisar estaticamente seu código para aplicar otimizações. Recursos como `eval` e `with` tornam impossível entender estaticamente o que o código faz em tempo de compilação, portanto, o compilador não pode otimizar componentes que os utilizam.
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Using eval in component
+// ❌ Usando eval em um componente
 function Component({ code }) {
-  const result = eval(code); // Can't be analyzed
+  const result = eval(code); // Não pode ser analisado
   return <div>{result}</div>;
 }
 
-// ❌ Using with statement
+// ❌ Usando a declaração with
 function Component() {
-  with (Math) { // Changes scope dynamically
+  with (Math) { // Altera o escopo dinamicamente
     return <div>{sin(PI / 2)}</div>;
   }
 }
 
-// ❌ Dynamic property access with eval
+// ❌ Acesso dinâmico a propriedades com eval
 function Component({propName}) {
   const value = eval(`props.${propName}`);
   return <div>{value}</div>;
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Use normal property access
+// ✅ Usa acesso normal a propriedades
 function Component({propName, props}) {
-  const value = props[propName]; // Analyzable
+  const value = props[propName]; // Analisável
   return <div>{value}</div>;
 }
 
-// ✅ Use standard Math methods
+// ✅ Usa métodos padrão do Math
 function Component() {
   return <div>{Math.sin(Math.PI / 2)}</div>;
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I need to evaluate dynamic code {/*evaluate-dynamic-code*/}
+### Preciso avaliar código dinâmico {/*evaluate-dynamic-code*/}
 
-You might need to evaluate user-provided code:
+Você pode precisar avaliar código fornecido pelo usuário:
 
 ```js {expectedErrors: {'react-compiler': [3]}}
-// ❌ Wrong: eval in component
+// ❌ Errado: eval em um componente
 function Calculator({expression}) {
-  const result = eval(expression); // Unsafe and unoptimizable
+  const result = eval(expression); // Inseguro e não otimizável
   return <div>Result: {result}</div>;
 }
 ```
 
-Use a safe expression parser instead:
+Use um analisador de expressões seguro em vez disso:
 
 ```js
-// ✅ Better: Use a safe parser
-import {evaluate} from 'mathjs'; // or similar library
+// ✅ Melhor: Usa um analisador seguro
+import {evaluate} from 'mathjs'; // ou biblioteca similar
 
 function Calculator({expression}) {
   const [result, setResult] = useState(null);
 
   const calculate = () => {
     try {
-      // Safe mathematical expression evaluation
+      // Avaliação segura de expressões matemáticas
       setResult(evaluate(expression));
     } catch (error) {
-      setResult('Invalid expression');
+      setResult('Expressão inválida');
     }
   };
 
   return (
     <div>
-      <button onClick={calculate}>Calculate</button>
-      {result && <div>Result: {result}</div>}
+      <button onClick={calculate}>Calcular</button>
+      {result && <div>Resultado: {result}</div>}
     </div>
   );
 }
@@ -97,6 +97,6 @@ function Calculator({expression}) {
 
 <Note>
 
-Never use `eval` with user input - it's a security risk. Use dedicated parsing libraries for specific use cases like mathematical expressions, JSON parsing, or template evaluation.
+Nunca use `eval` com entrada do usuário - é um risco de segurança. Use bibliotecas de análise dedicadas para casos de uso específicos, como expressões matemáticas, análise de JSON ou avaliação de templates.
 
 </Note>

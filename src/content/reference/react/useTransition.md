@@ -659,7 +659,7 @@ export default function TabButton({ action, children, isActive }) {
     return <b className="pending">{children}</b>;
   }
   return (
-    <button onClick={async () => {
+    <button onClick={() => {
       startTransition(async () => {
         // await the action that's passed in.
         // This allows it to be either sync or async.
@@ -734,6 +734,10 @@ export default function ContactTab() {
 button { margin-right: 10px }
 b { display: inline-block; margin-right: 10px; }
 .pending { color: #777; }
+.items {
+  max-height: 300px;
+  overflow: auto;
+}
 ```
 
 </Sandpack>
@@ -889,6 +893,10 @@ export default function ContactTab() {
 button { margin-right: 10px }
 b { display: inline-block; margin-right: 10px; }
 .pending { color: #777; }
+.items {
+  max-height: 300px;
+  overflow: auto;
+}
 ```
 
 </Sandpack>
@@ -1555,7 +1563,7 @@ main {
 
 ### Exibindo um erro para usuários com um limite de erro {/*displaying-an-error-to-users-with-error-boundary*/}
 
-Se uma função passada para `startTransition` lançar um erro, você pode exibir um erro para o seu usuário com um [limite de erro](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar um limite de erro, envolva o componente onde você está chamando o `useTransition` em um limite de erro. Uma vez que a função passada para `startTransition` gerar um erro, o fallback para o limite de erro será exibido.
+Se uma função passada para `startTransition` lançar um erro ou retornar uma Promise rejeitada, você pode exibir um erro para o seu usuário com um [limite de erro](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar um limite de erro, envolva o componente onde você está chamando o `useTransition` em um limite de erro. Uma vez que a função passada para `startTransition` gerar um erro, o fallback para o limite de erro será exibido.
 
 <Sandpack>
 
@@ -1671,7 +1679,7 @@ startTransition(() => {
 });
 ```
 
-A função que você passa para `startTransition` deve ser síncrona. Você não pode marcar uma atualização como uma Transição desta forma:
+A função que você passa para `startTransition` pode ser síncrona ou assíncrona. No entanto, atualizações agendadas em um callback de `setTimeout` não são marcadas como Transições:
 
 ```js
 startTransition(() => {
@@ -1725,7 +1733,7 @@ Esta é uma limitação do JavaScript devido ao React perder o escopo do context
 
 ### Desejo acessar chamar  `useTransition` de fora de um componente. {/*i-want-to-call-usetransition-from-outside-a-component*/}
 
-Você não pode chamar `useTransition` fora de um componente porque ele é um Hook.  Neste caso, utilize o método independente [`startTransition`](/reference/react/startTransition) Ele funciona da mesma forma, mas não fornece o indicador `isPending`.
+Você não pode chamar `useTransition` fora de um componente porque ele é um Hook. Neste caso, a função independente [`startTransition`](/reference/react/startTransition) pode marcar atualizações de state como Transições. Ela não fornece o indicador `isPending`. Como a função independente não está associada a um componente, um limite de erro (Error Boundary) não consegue tratar erros da sua Transição.
 
 ---
 

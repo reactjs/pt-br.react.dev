@@ -50,6 +50,7 @@ A função `preinitModule` fornece ao navegador uma dica de que ele deve começa
   *  `crossOrigin`: uma string. A [política CORS](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) a ser usada. Seus possíveis valores são `anonymous` e `use-credentials`.
   *  `integrity`: uma string. Uma hash criptográfica do módulo, para [verificar sua autenticidade](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity).
   *  `nonce`: uma string. Um [nonce criptográfico para permitir o módulo](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) ao usar uma Content Security Policy estrita.
+  *  `fetchPriority`: uma string. Sugere uma [prioridade relativa](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/fetchpriority) para a busca do recurso; os valores possíveis são `auto` (padrão), `high` e `low`.
 
 #### Retorna {/*returns*/}
 

@@ -4,83 +4,83 @@ title: refs
 
 <Intro>
 
-Validates correct usage of refs, not reading/writing during render. See the "pitfalls" section in [`useRef()` usage](/reference/react/useRef#usage).
+Valida o uso correto de refs, não lendo/escrevendo durante a renderização. Veja a seção "armadilhas" em [`useRef()` usage](/reference/react/useRef#usage).
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-Refs hold values that aren't used for rendering. Unlike state, changing a ref doesn't trigger a re-render. Reading or writing `ref.current` during render breaks React's expectations. Refs might not be initialized when you try to read them, and their values can be stale or inconsistent.
+Refs armazenam valores que não são usados para renderização. Diferente do state, a alteração de uma ref não dispara uma re-renderização. Ler ou escrever `ref.current` durante a renderização quebra as expectativas do React. Refs podem não estar inicializadas quando você tenta lê-las, e seus valores podem estar desatualizados ou inconsistentes.
 
-## How It Detects Refs {/*how-it-detects-refs*/}
+## Como Detecta Refs {/*how-it-detects-refs*/}
 
-The lint only applies these rules to values it knows are refs. A value is inferred as a ref when the compiler sees any of the following patterns:
+A lint aplica estas regras apenas a valores que ela sabe serem refs. Um valor é inferido como ref quando o compilador vê qualquer um dos seguintes padrões:
 
-- Returned from `useRef()` or `React.createRef()`.
+- Retornado de `useRef()` ou `React.createRef()`.
 
   ```js
   const scrollRef = useRef(null);
   ```
 
-- An identifier named `ref` or ending in `Ref` that reads from or writes to `.current`.
+- Um identificador chamado `ref` ou que termina com `Ref` que lê ou escreve em `.current`.
 
   ```js
   buttonRef.current = node;
   ```
 
-- Passed through a JSX `ref` prop (for example `<div ref={someRef} />`).
+- Passado através de uma prop JSX `ref` (por exemplo, `<div ref={someRef} />`).
 
   ```jsx
   <input ref={inputRef} />
   ```
 
-Once something is marked as a ref, that inference follows the value through assignments, destructuring, or helper calls. This lets the lint surface violations even when `ref.current` is accessed inside another function that received the ref as an argument.
+Uma vez que algo é marcado como ref, essa inferência segue o valor através de atribuições, desestruturação ou chamadas de helper. Isso permite que a lint aponte violações mesmo quando `ref.current` é acessado dentro de outra função que recebeu a ref como argumento.
 
-## Common Violations {/*common-violations*/}
+## Violações Comuns {/*common-violations*/}
 
-- Reading `ref.current` during render
-- Updating `refs` during render
-- Using `refs` for values that should be state
+- Lendo `ref.current` durante a renderização
+- Atualizando `refs` durante a renderização
+- Usando `refs` para valores que deveriam ser state
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Reading ref during render
+// ❌ Lendo ref durante a renderização
 function Component() {
   const ref = useRef(0);
-  const value = ref.current; // Don't read during render
+  const value = ref.current; // Não leia durante a renderização
   return <div>{value}</div>;
 }
 
-// ❌ Modifying ref during render
+// ❌ Modificando ref durante a renderização
 function Component({value}) {
   const ref = useRef(null);
-  ref.current = value; // Don't modify during render
+  ref.current = value; // Não modifique durante a renderização
   return <div />;
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Read ref in effects/handlers
+// ✅ Leia ref em effects/handlers
 function Component() {
   const ref = useRef(null);
 
   useEffect(() => {
     if (ref.current) {
-      console.log(ref.current.offsetWidth); // OK in effect
+      console.log(ref.current.offsetWidth); // OK no effect
     }
   });
 
   return <div ref={ref} />;
 }
 
-// ✅ Use state for UI values
+// ✅ Use state para valores de UI
 function Component() {
   const [count, setCount] = useState(0);
 
@@ -91,25 +91,25 @@ function Component() {
   );
 }
 
-// ✅ Lazy initialization of ref value
+// ✅ Inicialização preguiçosa do valor da ref
 function Component() {
   const ref = useRef(null);
 
-  // Initialize only once on first use
+  // Inicializa apenas uma vez no primeiro uso
   if (ref.current === null) {
-    ref.current = expensiveComputation(); // OK - lazy initialization
+    ref.current = expensiveComputation(); // OK - inicialização preguiçosa
   }
 
   const handleClick = () => {
-    console.log(ref.current); // Use the initialized value
+    console.log(ref.current); // Usa o valor inicializado
   };
 
   return <button onClick={handleClick}>Click</button>;
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### The lint flagged my plain object with `.current` {/*plain-object-current*/}
+### A lint sinalizou meu objeto simples com `.current` {/*plain-object-current*/}
 
-The name heuristic intentionally treats `ref.current` and `fooRef.current` as real refs. If you're modeling a custom container object, pick a different name (for example, `box`) or move the mutable value into state. Renaming avoids the lint because the compiler stops inferring it as a ref.
+A heurística de nome intencionalmente trata `ref.current` e `fooRef.current` como refs reais. Se você está modelando um objeto contêiner personalizado, escolha um nome diferente (por exemplo, `box`) ou mova o valor mutável para o state. Renomear evita a lint porque o compilador para de inferi-lo como uma ref.

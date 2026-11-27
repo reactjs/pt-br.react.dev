@@ -54,7 +54,7 @@ No exemplo acima, `Submit` usa essa informação para desabilitar os cliques no 
 
 Um objeto `status` com as seguintes propriedades:
 
-* `pending`: Um booleano. Se `true`, isso significa que o `<form>` pai está pendente de envio. Caso contrário, `false`.
+* `pending`: Um booleano. `true` enquanto o `<form>` pai está enviando uma Action ou [executando uma Transition a partir de `onSubmit`](#display-a-pending-state-with-an-onsubmit-handler). Caso contrário, `false`.
 
 * `data`: Um objeto implementando a [`FormData interface`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) que contém os dados que o `<form>` pai está enviando. Se não houver envio ativo ou nenhum `<form>` pai, ele será `null`.
 
@@ -72,7 +72,7 @@ Um objeto `status` com as seguintes propriedades:
 
 ## Uso {/*usage*/}
 
-### Exibir um estado pendente durante o envio do formulário {/*display-a-pending-state-during-form-submission*/}
+### Exibir um estado pendente com uma prop `action` {/*display-a-pending-state-during-form-submission*/}
 
 Para exibir um estado pendente enquanto um formulário está enviando, você pode chamar o Hook `useFormStatus` em um componente renderizado em um `<form>` e ler a propriedade `pending` retornada.
 
@@ -112,6 +112,65 @@ export async function submitForm(query) {
 }
 ```
 </Sandpack>
+
+---
+
+### Exibir um estado pendente com um manipulador `onSubmit` {/*display-a-pending-state-with-an-onsubmit-handler*/}
+
+Se você precisar manipular o envio do formulário em um manipulador de eventos `onSubmit` em vez de passar uma função para a [prop `<form action>`](/reference/react-dom/components/form#handle-form-submission-with-an-action-prop), chame [`event.preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) e [inicie uma Transition](/reference/react/startTransition) no mesmo manipulador de eventos. Um componente dentro do formulário pode então usar `useFormStatus` para ler o estado pendente enquanto a Action está em execução.
+
+<Sandpack>
+
+```js src/App.js
+import { startTransition } from 'react';
+import { useFormStatus } from 'react-dom';
+import { submitForm } from './submitForm.js';
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <button type='submit' disabled={pending}>
+      {pending ? 'Submitting...' : 'Submit'}
+    </button>
+  );
+}
+
+function Form({ submitAction }) {
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    startTransition(async () => {
+      await submitAction(formData);
+    });
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input name='query' />
+      <SubmitButton />
+    </form>
+  );
+}
+
+export default function App() {
+  async function submitAction(formData) {
+    await submitForm(formData);
+  }
+
+  return <Form submitAction={submitAction} />;
+}
+```
+
+```js src/submitForm.js hidden
+export async function submitForm(formData) {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+}
+```
+
+</Sandpack>
+
+Ao contrário de uma função passada para a prop `<form action>`, manipular o envio dessa forma [não redefine o formulário automaticamente](/reference/react-dom/components/form#other-ways-to-control-form-resets).
+
 
 <Pitfall>
 

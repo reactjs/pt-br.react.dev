@@ -34,7 +34,7 @@ As Funções do Servidor podem ser criadas em Componentes do Servidor e passadas
 
 ## Uso {/*usage*/}
 
-### Criando uma Função do Servidor de um Componente do Servidor {/*creating-a-server-function-from-a-server-component*/}
+### Criando uma Função do Servidor em um Componente do Servidor {/*creating-a-server-function-from-a-server-component*/}
 
 Componentes do Servidor podem definir Funções do Servidor com a diretiva `"use server"`:
 
@@ -42,7 +42,7 @@ Componentes do Servidor podem definir Funções do Servidor com a diretiva `"use
 // Componente do Servidor
 import Button from './Button';
 
-function EmptyNote () {
+function EmptyNote() {
   async function createNoteAction() {
     // Função do Servidor
     'use server';
@@ -50,7 +50,7 @@ function EmptyNote () {
     await db.notes.create();
   }
 
-  return <Button onClick={createNoteAction}/>;
+  return <Button onClick={createNoteAction} />;
 }
 ```
 
@@ -62,45 +62,48 @@ Quando o React renderiza o Componente do Servidor `EmptyNote`, ele criará uma r
 export default function Button({onClick}) {
   console.log(onClick);
   // {$$typeof: Symbol.for("react.server.reference"), $$id: 'createNoteAction'}
-  return <button onClick={() => onClick()}>Create Empty Note</button>
+  return <button onClick={() => onClick()}>Create Empty Note</button>;
 }
 ```
 
 Para mais informações, consulte a documentação para [`"use server"`](/reference/rsc/use-server).
 
-### Importando Funções do Servidor de Componentes Cliente {/*importing-server-functions-from-client-components*/}
+### Importando uma Função do Servidor em um Componente Cliente {/*importing-server-functions-from-client-components*/}
 
 Componentes Cliente podem importar Funções do Servidor de arquivos que usam a diretiva `"use server"`:
 
-```js [[1, 3, "createNote"]]
+```js [[1, 4, "createNote"]]
+// actions.js
 "use server";
 
 export async function createNote() {
   await db.notes.create();
 }
-
 ```
 
 Quando o bundler constrói o Componente Cliente `EmptyNote`, ele criará uma referência à função `createNote` no bundle. Quando o `button` for clicado, o React enviará uma requisição para o servidor para executar a função `createNote` usando a referência fornecida:
 
-```js [[1, 2, "createNote"], [1, 5, "createNote"], [1, 7, "createNote"]]
+```js [[1, 4, "createNote"], [1, 7, "createNote"], [1, 9, "createNote"]]
+// EmptyNote.js
 "use client";
+
 import {createNote} from './actions';
 
 function EmptyNote() {
   console.log(createNote);
   // {$$typeof: Symbol.for("react.server.reference"), $$id: 'createNote'}
-  <button onClick={() => createNote()} />
+  return <button onClick={() => createNote()}>Create Empty Note</button>;
 }
 ```
 
 Para mais informações, consulte a documentação para [`"use server"`](/reference/rsc/use-server).
 
-### Funções do Servidor com Ações {/*server-functions-with-actions*/}
+### Chamando uma Função do Servidor a partir de uma Ação {/*server-functions-with-actions*/}
 
 Funções do Servidor podem ser chamadas de Ações no cliente:
 
-```js [[1, 3, "updateName"]]
+```js [[1, 4, "updateName"]]
+// actions.js
 "use server";
 
 export async function updateName(name) {
@@ -108,12 +111,15 @@ export async function updateName(name) {
     return {error: 'Name is required'};
   }
   await db.users.updateName(name);
+  return {error: null};
 }
 ```
 
-```js [[1, 3, "updateName"], [1, 13, "updateName"], [2, 11, "submitAction"],  [2, 23, "submitAction"]]
+```js [[1, 5, "updateName"], [1, 15, "updateName"], [2, 13, "submitAction"], [2, 28, "submitAction"]]
+// UpdateName.js
 "use client";
 
+import {useState, useTransition} from 'react';
 import {updateName} from './actions';
 
 function UpdateName() {
@@ -122,37 +128,60 @@ function UpdateName() {
 
   const [isPending, startTransition] = useTransition();
 
-  const submitAction = async () => {
+  function submitAction() {
     startTransition(async () => {
       const {error} = await updateName(name);
-      if (error) {
+      // State updates after await aren't automatically marked as Transitions,
+      // so wrap them in another startTransition.
+      startTransition(() => {
         setError(error);
-      } else {
-        setName('');
-      }
-    })
+        if (!error) {
+          setName('');
+        }
+      });
+    });
   }
 
   return (
     <form action={submitAction}>
-      <input type="text" name="name" disabled={isPending}/>
+      <input
+        type="text"
+        name="name"
+        value={name}
+        onChange={event => setName(event.target.value)}
+        disabled={isPending}
+      />
       {error && <span>Failed: {error}</span>}
     </form>
-  )
+  );
 }
 ```
 
 Isso permite que você acesse o estado `isPending` da Função do Servidor, encapsulando-a em uma Ação no cliente.
 
-Para mais informações, consulte a documentação para [Chamando uma Função do Servidor fora de `<form>`](/reference/rsc/use-server#calling-a-server-function-outside-of-form)
+Para mais informações, consulte a documentação para [Chamando uma Função do Servidor fora de `<form>`](/reference/rsc/use-server#calling-a-server-function-outside-of-form).
 
-### Funções do Servidor com Ações de Formulário {/*using-server-functions-with-form-actions*/}
+### Passando uma Função do Servidor para a prop `action` de `<form>` {/*using-server-functions-with-form-actions*/}
 
 Funções do Servidor funcionam com os novos recursos de Formulário no React 19.
 
-Você pode passar uma Função do Servidor para um Formulário para automaticamente enviar o formulário ao servidor:
+Passe uma Função do Servidor para a prop `action` de `<form>` para enviar o formulário ao servidor. O React passa o [`FormData`](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) enviado para a Função do Servidor como seu primeiro argumento:
 
-```js [[1, 3, "updateName"], [1, 7, "updateName"]]
+```js [[1, 4, "updateName"]]
+// actions.js
+"use server";
+
+export async function updateName(formData) {
+  const name = formData.get('name');
+  if (typeof name !== 'string' || !name) {
+    throw new Error('Name is required');
+  }
+  await db.users.updateName(name);
+}
+```
+
+```js [[1, 4, "updateName"], [1, 8, "updateName"]]
+// UpdateName.js
 "use client";
 
 import {updateName} from './actions';
@@ -162,21 +191,37 @@ function UpdateName() {
     <form action={updateName}>
       <input type="text" name="name" />
     </form>
-  )
+  );
 }
 ```
 
-Quando a submissão do Formulário for bem-sucedida, o React redefinirá automaticamente o formulário. Você pode adicionar `useActionState` para acessar o estado pendente, a última resposta ou para oferecer suporte a aprimoramento progressivo.
+Quando a Função do Servidor passada para a prop `action` de `<form>` for bem-sucedida, o React redefinirá automaticamente os campos não controlados do formulário. Os usuários podem enviar o formulário antes que o bundle JavaScript seja carregado. Use `useActionState` para acessar o estado pendente da Ação e o valor retornado mais recente.
 
 Para mais informações, consulte a documentação para [Funções do Servidor em Formulários](/reference/rsc/use-server#server-functions-in-forms).
 
-### Funções do Servidor com `useActionState` {/*server-functions-with-use-action-state*/}
+### Chamando uma Função do Servidor com `useActionState` {/*server-functions-with-use-action-state*/}
 
-Você pode chamar Funções do Servidor com `useActionState` para o caso comum em que você só precisa acessar o estado pendente da ação e a última resposta retornada:
+Chame uma Função do Servidor com `useActionState` para acessar o estado pendente da Ação e o valor retornado mais recente. A Função do Servidor recebe o estado anterior como primeiro argumento e o [`FormData`](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) enviado como segundo argumento. Seu valor de retorno se torna o próximo estado:
 
-```js [[1, 3, "updateName"], [1, 6, "updateName"], [2, 6, "submitAction"], [2, 9, "submitAction"]]
+```js [[1, 4, "updateName"]]
+// actions.js
+"use server";
+
+export async function updateName(previousState, formData) {
+  const name = formData.get('name');
+  if (typeof name !== 'string' || !name) {
+    return {error: 'Name is required'};
+  }
+  await db.users.updateName(name);
+  return {error: null};
+}
+```
+
+```js [[1, 5, "updateName"], [1, 8, "updateName"], [2, 8, "submitAction"], [2, 11, "submitAction"]]
+// UpdateName.js
 "use client";
 
+import {useActionState} from 'react';
 import {updateName} from './actions';
 
 function UpdateName() {
@@ -184,28 +229,32 @@ function UpdateName() {
 
   return (
     <form action={submitAction}>
-      <input type="text" name="name" disabled={isPending}/>
+      <input type="text" name="name" disabled={isPending} />
       {state.error && <span>Failed: {state.error}</span>}
     </form>
   );
 }
 ```
 
-Ao usar `useActionState` com Funções do Servidor, o React também reproduzirá automaticamente as submissões de formulário inseridas antes que a hidratação termine. Isso significa que os usuários podem interagir com seu aplicativo mesmo antes que o aplicativo tenha hidratado.
+Quando a função passada para `useActionState` é uma Função do Servidor, os usuários podem enviar o formulário antes que a hidratação termine. O React pode exibir o valor retornado pela Função do Servidor antes que o JavaScript seja carregado.
 
 Para mais informações, consulte a documentação para [`useActionState`](/reference/react/useActionState).
 
-### Aprimoramento progressivo com `useActionState` {/*progressive-enhancement-with-useactionstate*/}
+Para manter os valores enviados ou controlar quando o formulário é redefinido, consulte [Preservando os valores do formulário após uma Ação](/reference/react-dom/components/form#preserve-form-values-after-an-action).
+
+### Oferecendo suporte a aprimoramento progressivo com `useActionState` {/*progressive-enhancement-with-useactionstate*/}
 
 Funções do Servidor também oferecem suporte a aprimoramento progressivo com o terceiro argumento de `useActionState`.
 
-```js [[1, 3, "updateName"], [1, 6, "updateName"], [2, 6, "/name/update"], [3, 6, "submitAction"], [3, 9, "submitAction"]]
+```js [[1, 5, "updateName"], [1, 8, "updateName"], [2, 8, "/name/update"], [3, 8, "submitAction"], [3, 11, "submitAction"]]
+// UpdateName.js
 "use client";
 
+import {useActionState} from 'react';
 import {updateName} from './actions';
 
 function UpdateName() {
-  const [, submitAction] = useActionState(updateName, null, `/name/update`);
+  const [, submitAction] = useActionState(updateName, {error: null}, `/name/update`);
 
   return (
     <form action={submitAction}>
@@ -215,6 +264,6 @@ function UpdateName() {
 }
 ```
 
-Quando o <CodeStep step={2}>permalink</CodeStep> for fornecido para `useActionState`, o React redirecionará para a URL fornecida se o formulário for enviado antes que o bundle JavaScript seja carregado.
+Se você passar o <CodeStep step={2}>`permalink`</CodeStep> para `useActionState`, o navegador navegará para essa URL quando o formulário for enviado antes que o bundle JavaScript seja carregado. No destino, renderize o mesmo componente de formulário com a mesma Função do Servidor e o mesmo `permalink` para que o React possa passar o estado retornado para ele.
 
 Para mais informações, consulte a documentação para [`useActionState`](/reference/react/useActionState).

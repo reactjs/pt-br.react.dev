@@ -28,7 +28,7 @@ Estas props especiais do React são suportadas para todos os componentes nativos
 
 * `children`: Um nó React (um elemento, uma string, um número, [um portal,](/reference/react-dom/createPortal) um nó vazio como `null`, `undefined` e booleanos, ou um array de outros nós React). Especifica o conteúdo dentro do componente. Quando você usa JSX, você geralmente especificará a prop `children` implicitamente ao aninhar tags como `<div><span /></div>`.
 
-* `dangerouslySetInnerHTML`: Um objeto do formulário `{ __html: '<p>some html</p>' } ` com uma string HTML bruta dentro. Substitui a propriedade [`innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) do nó DOM e exibe o HTML passado dentro. Isso deve ser usado com extrema cautela! Se o HTML dentro não for confiável (por exemplo, se for baseado em dados do usuário), você corre o risco de introduzir uma vulnerabilidade [XSS](https://pt.wikipedia.org/wiki/Cross-site_scripting). [Leia mais sobre o uso de `dangerouslySetInnerHTML`.](#dangerously-setting-the-inner-html)
+* `dangerouslySetInnerHTML`: Um objeto no formato `{ __html: '<p>some html</p>' }` com uma string HTML bruta ou um valor [`TrustedHTML`](https://developer.mozilla.org/en-US/docs/Web/API/TrustedHTML) dentro. Substitui a propriedade [`innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) do nó DOM e exibe o HTML passado dentro. Isso deve ser usado com extrema cautela! Se o HTML dentro não for confiável (por exemplo, se for baseado em dados do usuário), você corre o risco de introduzir uma vulnerabilidade [XSS](https://pt.wikipedia.org/wiki/Cross-site_scripting). [Leia mais sobre o uso de `dangerouslySetInnerHTML`.](#dangerously-setting-the-inner-html)
 
 * `ref`: Um objeto ref de [`useRef`](/reference/react/useRef) ou [`createRef`](/reference/react/createRef), ou uma [`ref` função callback,](#ref-callback) ou uma string para [refs legados.](https://reactjs.org/docs/refs-and-the-dom.html#legacy-api-string-refs) Seu ref será preenchido com o elemento DOM para este nó. [Leia mais sobre como manipular o DOM com refs.](#manipulating-a-dom-node-with-a-ref)
 
@@ -36,7 +36,7 @@ Estas props especiais do React são suportadas para todos os componentes nativos
 
 * `suppressHydrationWarning`: Um booleano. Se você usar [renderização no servidor,](/reference/react-dom/server) normalmente há um aviso quando o servidor e o cliente renderizam conteúdo diferente. Em alguns casos raros (como timestamps), é muito difícil ou impossível garantir uma correspondência exata. Se você definir `suppressHydrationWarning` como `true`, o React não o avisará sobre incompatibilidades nos atributos e no conteúdo desse elemento. Ele só funciona em um nível de profundidade e é projetado para ser usado como uma porta de saída. Não use em excesso. [Leia sobre como suprimir erros de hidratação.](/reference/react-dom/client/hydrateRoot#suppressing-unavoidable-hydration-mismatch-errors)
 
-* `style`: Um objeto com estilos CSS, por exemplo, `{ fontWeight: 'bold', margin: 20 }`. Semelhante à propriedade [`style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style), os nomes das propriedades CSS precisam ser escritos como `camelCase`, por exemplo, `fontWeight` em vez de `font-weight`. Você pode passar strings ou números como valores. Se você passar um número, como `width: 100`, o React anexará automaticamente `px` ("pixels") ao valor, a menos que seja uma [propriedade sem unidade.](https://github.com/facebook/react/blob/81d4ee9ca5c405dce62f64e61506b8e155f38d8d/packages/react-dom-bindings/src/shared/CSSProperty.js#L8-L57) Recomendamos que você use `style` apenas para estilos dinâmicos nos quais você não conhece os valores do estilo com antecedência. Em outros casos, aplicar classes CSS simples com `className` é mais eficiente. [Leia mais sobre `className` e `style`.](#applying-css-styles)
+* `style`: Um objeto com estilos CSS, por exemplo, `{ fontWeight: 'bold', margin: 20 }`. Semelhante à propriedade [`style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) do DOM, os nomes das propriedades CSS precisam ser escritos como `camelCase`, por exemplo, `fontWeight` em vez de `font-weight`. Você pode passar strings ou números como valores. Se você passar um número, como `width: 100`, o React anexará automaticamente `px` ("pixels") ao valor, a menos que seja uma [propriedade sem unidade.](https://github.com/react/react/blob/81d4ee9ca5c405dce62f64e61506b8e155f38d8d/packages/react-dom-bindings/src/shared/CSSProperty.js#L8-L57) Recomendamos que você use `style` apenas para estilos dinâmicos nos quais você não conhece os valores do estilo com antecedência. Em outros casos, aplicar classes CSS simples com `className` é mais eficiente. [Leia mais sobre `className` e `style`.](#applying-css-styles)
 
 Essas props DOM padrão também são suportadas para todos os componentes nativos:
 
@@ -258,7 +258,7 @@ Em vez de um objeto ref (como o que é retornado por [`useRef`](/reference/react
 
 Quando o nó DOM `<div>` é adicionado à tela, React chamará seu callback `ref` com o `node` DOM como argumento. Quando esse nó DOM `<div>` for removido, React chamará sua função de limpeza retornada do callback.
 
-React também chamará seu callback `ref` sempre que você passar um callback `ref` *diferente*. No exemplo acima, `(node) => { ... }` é uma função diferente a cada renderização. Quando seu componente renderizar novamente, a função *anterior* será chamada com `null` como argumento, e a função *seguinte* será chamada com o nó DOM.
+React também chamará seu callback `ref` sempre que você passar um callback `ref` *diferente*. No exemplo acima, `(node) => { ... }` é uma função diferente a cada renderização. Quando seu componente renderizar novamente, a função de limpeza retornada pela função *anterior* será chamada, e a função *seguinte* será chamada com o nó DOM. Se nenhuma função de limpeza for retornada, a função *anterior* será chamada com `null` como argumento.
 
 #### Parâmetros {/*ref-callback-parameters*/}
 
@@ -920,7 +920,7 @@ Para casos de uso mais avançados, o atributo `ref` também aceita uma [função
 
 ### Definindo perigosamente o HTML interno {/*dangerously-setting-the-inner-html*/}
 
-Você pode passar uma string HTML bruta para um elemento da seguinte forma:
+Você pode passar uma string HTML bruta ou um valor [`TrustedHTML`](https://developer.mozilla.org/en-US/docs/Web/API/TrustedHTML) para um elemento da seguinte forma:
 
 ```js
 const markup = { __html: '<p>some raw html</p>' };
@@ -928,6 +928,8 @@ return <div dangerouslySetInnerHTML={markup} />;
 ```
 
 **Isto é perigoso. Como acontece com a propriedade [`innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) DOM subjacente, você deve ter extrema cautela! A menos que a marcação seja proveniente de uma fonte totalmente confiável, é trivial introduzir uma vulnerabilidade [XSS](https://pt.wikipedia.org/wiki/Cross-site_scripting) dessa maneira.**
+
+Se o seu site aplica [Trusted Types](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API), passe como `__html` um valor `TrustedHTML` criado pela sua política de segurança. O React passa o valor para o navegador sem convertê-lo em string, permitindo que o navegador o valide. Sua política ainda deve garantir que qualquer entrada usada para criar o valor seja confiável e sanitizada.
 
 Por exemplo, se você usar uma biblioteca Markdown que converte Markdown em HTML, você confia que seu analisador não contenha bugs, e o usuário só vê sua própria entrada, você pode exibir o HTML resultante assim:
 

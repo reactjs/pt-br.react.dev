@@ -53,7 +53,7 @@ Não. Create React App foi descontinuado. Para mais informações, veja [Sunsett
 
 </Note>
 
-## Próximos passos {/*próximos-passos*/}
+## Próximos passos {/*next-steps*/}
 
 Vá para o guia de [Início Rápido](/learn) para um tour pelos conceitos mais importantes de React que você encontrará no dia a dia.
 

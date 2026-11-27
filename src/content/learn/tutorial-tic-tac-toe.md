@@ -899,19 +899,20 @@ body {
 
 ### Ferramentas do Desenvolvedor React {/*react-developer-tools*/}
 
-As DevTools do React permitem que você cheque as *props* e o *state* de seus componentes React. Você pode encontrar a aba de DevTools do React na parte inferior da seção *navegador* no CodeSandbox:
+As Ferramentas do Desenvolvedor React (React Developer Tools) permitem que você cheque as *props* e o *state* de seus componentes React. Elas estão disponíveis como extensão de navegador para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) e [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil).
 
-![React DevTools no CodeSandbox](../images/tutorial/codesandbox-devtools.png)
+Depois de instalá-las, uma nova aba *Components* aparecerá nas ferramentas de desenvolvedor do seu navegador para sites que utilizam React. Se você estiver acompanhando pelo CodeSandbox, primeiro precisará abrir a pré-visualização do seu sandbox em uma nova aba:
 
-Para inspecionar um componente em particular na tela, use o botão no canto superior esquerdo das DevTools do React:
+![abrindo em uma nova aba](../images/tutorial/sandbox-new-tab.png)
 
-![Selecionando componente na página com as DevTools do React](../images/tutorial/devtools-select.gif)
+Em seguida, na página de pré-visualização, abra as DevTools do seu navegador e encontre a aba *Components*:
 
-<Note>
+![components tab](../images/tutorial/components-tab.png)
 
-Para desenvolvimento local, as DevTools do React estão disponíveis como extensões de navegador para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/), e [Edge](https://microsoftedge.microsoft.com/addons/detail/react-developer-tools/gpphkfbcpidddadnkolkpfckpihlkkil). Instale-as, e a aba *Components* irá aparecer nas ferramentas de desenvolvedor do seu navegador para sites utilizando React.
+Para inspecionar um componente em particular na tela, use o botão no canto superior esquerdo da aba Components:
 
-</Note>
+![inspecionando com as devtools](../images/tutorial/devtools-inspect.gif)
+
 
 ## Completando o jogo {/*completing-the-game*/}
 
@@ -1137,7 +1138,7 @@ JavaScript suporta [closures](https://developer.mozilla.org/pt-BR/docs/Web/JavaS
 
 </Note>
 
-Agora você pode adicionar X's ao tabuleiro... mas apenas no quadrado superior esquerdo. A sua função `handleClick` está codificada a atualizar o índice do quadrado superior esquerdo (`0`). Vamos atualizar `handleClick` para que seja capaz de atualizar qualquer quadrado. Adicione um argumento `i` à função `handleClick` que recebe o índice de qual quadrado atualizar:
+Agora você pode adicionar X's ao tabuleiro... mas apenas no quadrado superior esquerdo. A sua função `handleClick` está codificada para atualizar o índice do quadrado superior esquerdo (`0`). Vamos atualizar `handleClick` para que seja capaz de atualizar qualquer quadrado. Adicione um parâmetro `i` à função `handleClick` que recebe o índice do quadrado a ser atualizado:
 
 ```js {4,6}
 export default function Board() {

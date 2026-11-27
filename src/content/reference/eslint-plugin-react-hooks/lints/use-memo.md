@@ -4,36 +4,36 @@ title: use-memo
 
 <Intro>
 
-Validates that the `useMemo` hook is used with a return value. See [`useMemo` docs](/reference/react/useMemo) for more information.
+Valida que o hook `useMemo` é usado com um valor de retorno. Veja a [documentação do `useMemo`](/reference/react/useMemo) para mais informações.
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-`useMemo` is for computing and caching expensive values, not for side effects. Without a return value, `useMemo` returns `undefined`, which defeats its purpose and likely indicates you're using the wrong hook.
+`useMemo` serve para computar e cachear valores custosos, não para efeitos colaterais. Sem um valor de retorno, `useMemo` retorna `undefined`, o que frustra seu propósito e provavelmente indica que você está usando o hook errado.
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js {expectedErrors: {'react-compiler': [3]}}
-// ❌ No return value
+// ❌ Sem valor de retorno
 function Component({ data }) {
   const processed = useMemo(() => {
     data.forEach(item => console.log(item));
-    // Missing return!
+    // Falta o retorno!
   }, [data]);
 
-  return <div>{processed}</div>; // Always undefined
+  return <div>{processed}</div>; // Sempre undefined
 }
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
-// ✅ Returns computed value
+// ✅ Retorna valor computado
 function Component({ data }) {
   const processed = useMemo(() => {
     return data.map(item => item * 2);
@@ -43,52 +43,52 @@ function Component({ data }) {
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I need to run side effects when dependencies change {/*side-effects*/}
+### Preciso executar efeitos colaterais quando as dependências mudam {/*side-effects*/}
 
-You might try to use `useMemo` for side effects:
+Você pode tentar usar `useMemo` para efeitos colaterais:
 
 {/* TODO(@poteto) fix compiler validation to check for unassigned useMemos */}
 ```js {expectedErrors: {'react-compiler': [4]}}
-// ❌ Wrong: Side effects in useMemo
+// ❌ Errado: Efeitos colaterais em useMemo
 function Component({user}) {
-  // No return value, just side effect
+  // Sem valor de retorno, apenas efeito colateral
   useMemo(() => {
     analytics.track('UserViewed', {userId: user.id});
   }, [user.id]);
 
-  // Not assigned to a variable
+  // Não atribuído a uma variável
   useMemo(() => {
     return analytics.track('UserViewed', {userId: user.id});
   }, [user.id]);
 }
 ```
 
-If the side effect needs to happen in response to user interaction, it's best to colocate the side effect with the event:
+Se o efeito colateral precisar acontecer em resposta a uma interação do usuário, é melhor colocar o efeito colateral junto ao evento:
 
 ```js
-// ✅ Good: Side effects in event handlers
+// ✅ Bom: Efeitos colaterais em manipuladores de eventos
 function Component({user}) {
   const handleClick = () => {
     analytics.track('ButtonClicked', {userId: user.id});
-    // Other click logic...
+    // Outra lógica de clique...
   };
 
-  return <button onClick={handleClick}>Click me</button>;
+  return <button onClick={handleClick}>Clique em mim</button>;
 }
 ```
 
-If the side effect sychronizes React state with some external state (or vice versa), use `useEffect`:
+Se o efeito colateral sincroniza o estado do React com algum estado externo (ou vice-versa), use `useEffect`:
 
 ```js
-// ✅ Good: Synchronization in useEffect
+// ✅ Bom: Sincronização em useEffect
 function Component({theme}) {
   useEffect(() => {
     localStorage.setItem('preferredTheme', theme);
     document.body.className = theme;
   }, [theme]);
 
-  return <div>Current theme: {theme}</div>;
+  return <div>Tema atual: {theme}</div>;
 }
 ```

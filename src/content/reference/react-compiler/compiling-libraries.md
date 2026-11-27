@@ -3,28 +3,28 @@ title: Compiling Libraries
 ---
 
 <Intro>
-This guide helps library authors understand how to use React Compiler to ship optimized library code to their users.
+Este guia ajuda os autores de bibliotecas a entender como usar o React Compiler para enviar código de biblioteca otimizado para seus usuários.
 </Intro>
 
 <InlineToc />
 
-## Why Ship Compiled Code? {/*why-ship-compiled-code*/}
+## Por que Enviar Código Compilado? {/*why-ship-compiled-code*/}
 
-As a library author, you can compile your library code before publishing to npm. This provides several benefits:
+Como autor de uma biblioteca, você pode compilar o código da sua biblioteca antes de publicá-lo no npm. Isso oferece vários benefícios:
 
-- **Performance improvements for all users** - Your library users get optimized code even if they aren't using React Compiler yet
-- **No configuration required by users** - The optimizations work out of the box
-- **Consistent behavior** - All users get the same optimized version regardless of their build setup
+- **Melhorias de performance para todos os usuários** - Seus usuários da biblioteca recebem código otimizado, mesmo que ainda não estejam usando o React Compiler.
+- **Nenhuma configuração exigida pelos usuários** - As otimizações funcionam "out of the box".
+- **Comportamento consistente** - Todos os usuários recebem a mesma versão otimizada, independentemente da configuração de build.
 
-## Setting Up Compilation {/*setting-up-compilation*/}
+## Configurando a Compilação {/*setting-up-compilation*/}
 
-Add React Compiler to your library's build process:
+Adicione o React Compiler ao processo de build da sua biblioteca:
 
 <TerminalBlock>
 npm install -D babel-plugin-react-compiler@latest
 </TerminalBlock>
 
-Configure your build tool to compile your library. For example, with Babel:
+Configure sua ferramenta de build para compilar sua biblioteca. Por exemplo, com Babel:
 
 ```js
 // babel.config.js
@@ -32,17 +32,17 @@ module.exports = {
   plugins: [
     'babel-plugin-react-compiler',
   ],
-  // ... other config
+  // ... outra configuração
 };
 ```
 
-## Backwards Compatibility {/*backwards-compatibility*/}
+## Compatibilidade com Versões Anteriores {/*backwards-compatibility*/}
 
-If your library supports React versions below 19, you'll need additional configuration:
+Se sua biblioteca suporta versões do React anteriores à 19, você precisará de configuração adicional:
 
-### 1. Install the runtime package {/*install-runtime-package*/}
+### 1. Instale o pacote de runtime {/*install-runtime-package*/}
 
-We recommend installing react-compiler-runtime as a direct dependency:
+Recomendamos instalar o `react-compiler-runtime` como uma dependência direta:
 
 <TerminalBlock>
 npm install react-compiler-runtime@latest
@@ -59,48 +59,48 @@ npm install react-compiler-runtime@latest
 }
 ```
 
-### 2. Configure the target version {/*configure-target-version*/}
+### 2. Configure a versão de destino {/*configure-target-version*/}
 
-Set the minimum React version your library supports:
+Defina a versão mínima do React que sua biblioteca suporta:
 
 ```js
 {
-  target: '17', // Minimum supported React version
+  target: '17', // Versão mínima suportada do React
 }
 ```
 
-## Testing Strategy {/*testing-strategy*/}
+## Estratégia de Testes {/*testing-strategy*/}
 
-Test your library both with and without compilation to ensure compatibility. Run your existing test suite against the compiled code, and also create a separate test configuration that bypasses the compiler. This helps catch any issues that might arise from the compilation process and ensures your library works correctly in all scenarios.
+Teste sua biblioteca com e sem compilação para garantir a compatibilidade. Execute sua suíte de testes existente contra o código compilado e também crie uma configuração de teste separada que ignore o compilador. Isso ajuda a capturar quaisquer problemas que possam surgir do processo de compilação e garante que sua biblioteca funcione corretamente em todos os cenários.
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### Library doesn't work with older React versions {/*library-doesnt-work-with-older-react-versions*/}
+### A biblioteca não funciona com versões mais antigas do React {/*library-doesnt-work-with-older-react-versions*/}
 
-If your compiled library throws errors in React 17 or 18:
+Se sua biblioteca compilada gerar erros no React 17 ou 18:
 
-1. Verify you've installed `react-compiler-runtime` as a dependency
-2. Check that your `target` configuration matches your minimum supported React version
-3. Ensure the runtime package is included in your published bundle
+1. Verifique se você instalou `react-compiler-runtime` como uma dependência.
+2. Verifique se sua configuração `target` corresponde à sua versão mínima suportada do React.
+3. Certifique-se de que o pacote de runtime esteja incluído no seu bundle publicado.
 
-### Compilation conflicts with other Babel plugins {/*compilation-conflicts-with-other-babel-plugins*/}
+### Conflitos de compilação com outros plugins do Babel {/*compilation-conflicts-with-other-babel-plugins*/}
 
-Some Babel plugins may conflict with React Compiler:
+Alguns plugins do Babel podem entrar em conflito com o React Compiler:
 
-1. Place `babel-plugin-react-compiler` early in your plugin list
-2. Disable conflicting optimizations in other plugins
-3. Test your build output thoroughly
+1. Coloque `babel-plugin-react-compiler` no início da sua lista de plugins.
+2. Desative otimizações conflitantes em outros plugins.
+3. Teste minuciosamente a saída do seu build.
 
-### Runtime module not found {/*runtime-module-not-found*/}
+### Módulo de runtime não encontrado {/*runtime-module-not-found*/}
 
-If users see "Cannot find module 'react-compiler-runtime'":
+Se os usuários virem "Cannot find module 'react-compiler-runtime'":
 
-1. Ensure the runtime is listed in `dependencies`, not `devDependencies`
-2. Check that your bundler includes the runtime in the output
-3. Verify the package is published to npm with your library
+1. Certifique-se de que o runtime esteja listado em `dependencies`, não em `devDependencies`.
+2. Verifique se seu bundler inclui o runtime na saída.
+3. Verifique se o pacote foi publicado no npm junto com sua biblioteca.
 
-## Next Steps {/*next-steps*/}
+## Próximos Passos {/*next-steps*/}
 
-- Learn about [debugging techniques](/learn/react-compiler/debugging) for compiled code
-- Check the [configuration options](/reference/react-compiler/configuration) for all compiler options
-- Explore [compilation modes](/reference/react-compiler/compilationMode) for selective optimization
+- Saiba mais sobre [técnicas de depuração](/learn/react-compiler/debugging) para código compilado.
+- Verifique as [opções de configuração](/reference/react-compiler/configuration) para todas as opções do compilador.
+- Explore [modos de compilação](/reference/react-compiler/compilationMode) para otimização seletiva.

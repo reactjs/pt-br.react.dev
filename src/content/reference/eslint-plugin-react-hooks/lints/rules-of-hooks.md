@@ -4,89 +4,89 @@ title: rules-of-hooks
 
 <Intro>
 
-Validates that components and hooks follow the [Rules of Hooks](/reference/rules/rules-of-hooks).
+Valida se os componentes e hooks seguem as [Regras dos Hooks](/reference/rules/rules-of-hooks).
 
 </Intro>
 
-## Rule Details {/*rule-details*/}
+## Detalhes da Regra {/*rule-details*/}
 
-React relies on the order in which hooks are called to correctly preserve state between renders. Each time your component renders, React expects the exact same hooks to be called in the exact same order. When hooks are called conditionally or in loops, React loses track of which state corresponds to which hook call, leading to bugs like state mismatches and "Rendered fewer/more hooks than expected" errors.
+O React depende da ordem em que os hooks são chamados para preservar corretamente o estado entre as renderizações. Cada vez que seu componente é renderizado, o React espera que os mesmos hooks sejam chamados na mesma ordem. Quando os hooks são chamados condicionalmente ou em loops, o React perde o controle de qual estado corresponde a qual chamada de hook, levando a bugs como inconsistências de estado e erros de "Rendered fewer/more hooks than expected".
 
-## Common Violations {/*common-violations*/}
+## Violações Comuns {/*common-violations*/}
 
-These patterns violate the Rules of Hooks:
+Estes padrões violam as Regras dos Hooks:
 
-- **Hooks in conditions** (`if`/`else`, ternary, `&&`/`||`)
-- **Hooks in loops** (`for`, `while`, `do-while`)
-- **Hooks after early returns**
-- **Hooks in callbacks/event handlers**
-- **Hooks in async functions**
-- **Hooks in class methods**
-- **Hooks at module level**
+- **Hooks em condições** (`if`/`else`, ternário, `&&`/`||`)
+- **Hooks em loops** (`for`, `while`, `do-while`)
+- **Hooks após retornos antecipados**
+- **Hooks em callbacks/manipuladores de eventos**
+- **Hooks em funções assíncronas**
+- **Hooks em métodos de classe**
+- **Hooks no nível do módulo**
 
 <Note>
 
-### `use` hook {/*use-hook*/}
+### Hook `use` {/*use-hook*/}
 
-The `use` hook is different from other React hooks. You can call it conditionally and in loops:
+O hook `use` é diferente de outros hooks do React. Você pode chamá-lo condicionalmente e em loops:
 
 ```js
-// ✅ `use` can be conditional
+// ✅ `use` pode ser condicional
 if (shouldFetch) {
   const data = use(fetchPromise);
 }
 
-// ✅ `use` can be in loops
+// ✅ `use` pode estar em loops
 for (const promise of promises) {
   results.push(use(promise));
 }
 ```
 
-However, `use` still has restrictions:
-- Can't be wrapped in try/catch
-- Must be called inside a component or hook
+No entanto, `use` ainda tem restrições:
+- Não pode ser envolvido em try/catch
+- Deve ser chamado dentro de um componente ou hook
 
-Learn more: [`use` API Reference](/reference/react/use)
+Saiba mais: [Referência da API `use`](/reference/react/use)
 
 </Note>
 
-### Invalid {/*invalid*/}
+### Inválido {/*invalid*/}
 
-Examples of incorrect code for this rule:
+Exemplos de código incorreto para esta regra:
 
 ```js
-// ❌ Hook in condition
+// ❌ Hook em condição
 if (isLoggedIn) {
   const [user, setUser] = useState(null);
 }
 
-// ❌ Hook after early return
+// ❌ Hook após retorno antecipado
 if (!data) return <Loading />;
 const [processed, setProcessed] = useState(data);
 
-// ❌ Hook in callback
+// ❌ Hook em callback
 <button onClick={() => {
   const [clicked, setClicked] = useState(false);
 }}/>
 
-// ❌ `use` in try/catch
+// ❌ `use` em try/catch
 try {
   const data = use(promise);
 } catch (e) {
-  // error handling
+  // tratamento de erro
 }
 
-// ❌ Hook at module level
-const globalState = useState(0); // Outside component
+// ❌ Hook no nível do módulo
+const globalState = useState(0); // Fora do componente
 ```
 
-### Valid {/*valid*/}
+### Válido {/*valid*/}
 
-Examples of correct code for this rule:
+Exemplos de código correto para esta regra:
 
 ```js
 function Component({ isSpecial, shouldFetch, fetchPromise }) {
-  // ✅ Hooks at top level
+  // ✅ Hooks no nível superior
   const [count, setCount] = useState(0);
   const [name, setName] = useState('');
 
@@ -95,7 +95,7 @@ function Component({ isSpecial, shouldFetch, fetchPromise }) {
   }
 
   if (shouldFetch) {
-    // ✅ `use` can be conditional
+    // ✅ `use` pode ser condicional
     const data = use(fetchPromise);
     return <div>{data}</div>;
   }
@@ -104,14 +104,14 @@ function Component({ isSpecial, shouldFetch, fetchPromise }) {
 }
 ```
 
-## Troubleshooting {/*troubleshooting*/}
+## Solução de Problemas {/*troubleshooting*/}
 
-### I want to fetch data based on some condition {/*conditional-data-fetching*/}
+### Quero buscar dados com base em alguma condição {/*conditional-data-fetching*/}
 
-You're trying to conditionally call useEffect:
+Você está tentando chamar `useEffect` condicionalmente:
 
 ```js
-// ❌ Conditional hook
+// ❌ Hook condicional
 if (isLoggedIn) {
   useEffect(() => {
     fetchUserData();
@@ -119,10 +119,10 @@ if (isLoggedIn) {
 }
 ```
 
-Call the hook unconditionally, check condition inside:
+Chame o hook incondicionalmente, verifique a condição dentro dele:
 
 ```js
-// ✅ Condition inside hook
+// ✅ Condição dentro do hook
 useEffect(() => {
   if (isLoggedIn) {
     fetchUserData();
@@ -132,18 +132,18 @@ useEffect(() => {
 
 <Note>
 
-There are better ways to fetch data rather than in a useEffect. Consider using TanStack Query, useSWR, or React Router 6.4+ for data fetching. These solutions handle deduplicating requests, caching responses, and avoiding network waterfalls.
+Existem maneiras melhores de buscar dados do que em um `useEffect`. Considere usar TanStack Query, useSWR ou React Router 6.4+ para buscar dados. Essas soluções lidam com a deduplicação de requisições, cache de respostas e evitam "waterfalls" de rede.
 
-Learn more: [Fetching Data](/learn/synchronizing-with-effects#fetching-data)
+Saiba mais: [Buscando Dados](/learn/synchronizing-with-effects#fetching-data)
 
 </Note>
 
-### I need different state for different scenarios {/*conditional-state-initialization*/}
+### Preciso de estados diferentes para cenários diferentes {/*conditional-state-initialization*/}
 
-You're trying to conditionally initialize state:
+Você está tentando inicializar o estado condicionalmente:
 
 ```js
-// ❌ Conditional state
+// ❌ Estado condicional
 if (userType === 'admin') {
   const [permissions, setPermissions] = useState(adminPerms);
 } else {
@@ -151,18 +151,18 @@ if (userType === 'admin') {
 }
 ```
 
-Always call useState, conditionally set the initial value:
+Sempre chame `useState`, defina o valor inicial condicionalmente:
 
 ```js
-// ✅ Conditional initial value
+// ✅ Valor inicial condicional
 const [permissions, setPermissions] = useState(
   userType === 'admin' ? adminPerms : userPerms
 );
 ```
 
-## Options {/*options*/}
+## Opções {/*options*/}
 
-You can configure custom effect hooks using shared ESLint settings (available in `eslint-plugin-react-hooks` 6.1.1 and later):
+Você pode configurar hooks de efeito personalizados usando configurações compartilhadas do ESLint (disponíveis no `eslint-plugin-react-hooks` 6.1.1 e posterior):
 
 ```js
 {
@@ -174,6 +174,6 @@ You can configure custom effect hooks using shared ESLint settings (available in
 }
 ```
 
-- `additionalEffectHooks`: Regex pattern matching custom hooks that should be treated as effects. This allows `useEffectEvent` and similar event functions to be called from your custom effect hooks.
+- `additionalEffectHooks`: Padrão Regex que corresponde a hooks personalizados que devem ser tratados como efeitos. Isso permite que `useEffectEvent` e funções de evento semelhantes sejam chamados a partir de seus hooks de efeito personalizados.
 
-This shared configuration is used by both `rules-of-hooks` and `exhaustive-deps` rules, ensuring consistent behavior across all hook-related linting.
+Esta configuração compartilhada é usada pelas regras `rules-of-hooks` e `exhaustive-deps`, garantindo um comportamento consistente em toda a verificação de linting relacionada a hooks.

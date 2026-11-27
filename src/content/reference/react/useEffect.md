@@ -1049,8 +1049,8 @@ Escrever chamadas `fetch` dentro de Efeitos é uma [maneira popular de buscar da
 
 Esta lista de desvantagens não é específica do React. Ela se aplica a buscar dados ao montar com qualquer biblioteca. Assim como com roteamento, buscar dados não é trivial de fazer bem, então recomendamos as seguintes abordagens:
 
-- **Se você usar uma [framework](/learn/creating-a-react-app#full-stack-frameworks), utilize seu mecanismo de busca de dados integrado.** Frameworks modernas de React possuem mecanismos integrados de busca de dados que são eficientes e não sofrem com as armadilhas mencionadas acima.
-- **Caso contrário, considere usar ou construir um cache do lado do cliente.** Soluções populares de código aberto incluem [TanStack Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/), e [React Router 6.4+.](https://beta.reactrouter.com/en/main/start/overview) Você também pode construir sua própria solução, caso em que usaria Efeitos por baixo dos panos, mas também adicionaria lógica para desduplicar solicitações, armazenar respostas em cache e evitar cachoeiras de rede (pré-carregando dados ou elevando os requisitos de dados para rotas).
+- **Se você usar um [framework](/learn/creating-a-react-app#full-stack-frameworks), utilize seu mecanismo de busca de dados integrado.** Frameworks modernos de React possuem mecanismos integrados de busca de dados que são eficientes e não sofrem com as armadilhas mencionadas acima.
+- **Caso contrário, considere usar ou construir um cache do lado do cliente.** Soluções populares de código aberto incluem [TanStack Query](https://tanstack.com/query/latest/), [useSWR](https://swr.vercel.app/) e [React Router](https://reactrouter.com/). Você também pode construir sua própria solução, caso em que usaria Efeitos por baixo dos panos, mas também adicionaria lógica para desduplicar solicitações, armazenar respostas em cache e evitar cachoeiras de rede (pré-carregando dados ou elevando os requisitos de dados para rotas).
 
 Você pode continuar buscando dados diretamente em Efeitos se nenhuma dessas abordagens for adequada a você.
 
@@ -1598,7 +1598,7 @@ function ChatRoom({ roomId }) {
 
   useEffect(() => {
     const options = createOptions(); // É usada dentro do Efeito
-    const connection = createConnection();
+    const connection = createConnection(options);
     connection.connect();
     return () => connection.disconnect();
   }, [createOptions]); // 🚩 Como resultado, essas dependências estão sempre diferentes em cada commit
