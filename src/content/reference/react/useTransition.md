@@ -99,7 +99,7 @@ function SubmitButton({ submitAction }) {
 
 `startTransition` não possui valor de retorno.
 
-#### Caveats {/*starttransition-caveats*/}
+#### Ressalvas {/*starttransition-caveats*/}
 
 * `useTransition`  é um Hook, portanto, deve ser chamado dentro de componentes ou Hooks personalizados. Se você precisar iniciar uma transição em outro lugar (por exemplo, a partir de uma biblioteca de dados), chame a função independente [`startTransition`](/reference/react/startTransition) em vez disso.
 
@@ -199,8 +199,8 @@ export default function App({}) {
   const [isPending, startTransition] = useTransition();
 
   const updateQuantityAction = async newQuantity => {
-    // To access the pending state of a transition,
-    // call startTransition again.
+    // Para acessar o state pendente de uma transição,
+    // chame startTransition novamente.
     startTransition(async () => {
       const savedQuantity = await updateQuantity(newQuantity);
       startTransition(() => {
@@ -225,7 +225,7 @@ import { startTransition } from "react";
 
 export default function Item({action}) {
   function handleChange(event) {
-    // To expose an action prop, await the callback in startTransition.
+    // Para expor uma prop action, use await no callback dentro de startTransition.
     startTransition(async () => {
       await action(event.target.value);
     })
@@ -266,7 +266,7 @@ export default function Total({quantity, isPending}) {
 ```js src/api.js
 export async function updateQuantity(newQuantity) {
   return new Promise((resolve, reject) => {
-    // Simulate a slow network request.
+    // Simula uma requisição de rede lenta.
     setTimeout(() => {
       resolve(newQuantity);
     }, 2000);
@@ -303,14 +303,14 @@ export async function updateQuantity(newQuantity) {
 
 </Sandpack>
 
-This is a basic example to demonstrate how Actions work, but this example does not handle requests completing out of order. When updating the quantity multiple times, it's possible for the previous requests to finish after later requests causing the quantity to update out of order. This is a known limitation that we will fix in the future (see [Troubleshooting](#my-state-updates-in-transitions-are-out-of-order) below).
+Este é um exemplo básico para demonstrar como as Ações funcionam, mas ele não trata requisições que terminam fora de ordem. Ao atualizar a quantidade várias vezes, é possível que as requisições anteriores terminem depois das posteriores, fazendo a quantidade ser atualizada fora de ordem. Esta é uma limitação conhecida que vamos corrigir no futuro (veja [Solução de Problemas](#my-state-updates-in-transitions-are-out-of-order) abaixo).
 
-For common use cases, React provides built-in abstractions such as:
+Para casos de uso comuns, o React fornece abstrações embutidas, como:
 - [`useActionState`](/reference/react/useActionState)
-- [`<form>` actions](/reference/react-dom/components/form)
-- [Server Functions](/reference/rsc/server-functions)
+- [Ações de `<form>`](/reference/react-dom/components/form)
+- [Funções de Servidor](/reference/rsc/server-functions)
 
-These solutions handle request ordering for you. When using Transitions to build your own custom hooks or libraries that manage async state transitions, you have greater control over the request ordering, but you must handle it yourself.
+Essas soluções tratam a ordem das requisições por você. Ao usar Transições para construir os seus próprios Hooks personalizados ou bibliotecas que gerenciam transições de estado assíncronas, você tem mais controle sobre a ordem das requisições, mas precisa tratá-la você mesmo.
 
 <Solution />
 
@@ -348,7 +348,7 @@ export default function App({}) {
   const [isPending, setIsPending] = useState(false);
 
   const onUpdateQuantity = async newQuantity => {
-    // Manually set the isPending State.
+    // Define o state isPending manualmente.
     setIsPending(true);
     const savedQuantity = await updateQuantity(newQuantity);
     setIsPending(false);
@@ -408,7 +408,7 @@ export default function Total({quantity, isPending}) {
 ```js src/api.js
 export async function updateQuantity(newQuantity) {
   return new Promise((resolve, reject) => {
-    // Simulate a slow network request.
+    // Simula uma requisição de rede lenta.
     setTimeout(() => {
       resolve(newQuantity);
     }, 2000);
@@ -445,7 +445,7 @@ export async function updateQuantity(newQuantity) {
 
 </Sandpack>
 
-A common solution to this problem is to prevent the user from making changes while the quantity is updating:
+Uma solução comum para esse problema é impedir que o usuário faça alterações enquanto a quantidade está sendo atualizada:
 
 <Sandpack>
 
@@ -476,7 +476,7 @@ export default function App({}) {
 
   const onUpdateQuantity = async event => {
     const newQuantity = event.target.value;
-    // Manually set the isPending state.
+    // Define o state isPending manualmente.
     setIsPending(true);
     const savedQuantity = await updateQuantity(newQuantity);
     setIsPending(false);
@@ -534,7 +534,7 @@ export default function Total({quantity, isPending}) {
 ```js src/api.js
 export async function updateQuantity(newQuantity) {
   return new Promise((resolve, reject) => {
-    // Simulate a slow network request.
+    // Simula uma requisição de rede lenta.
     setTimeout(() => {
       resolve(newQuantity);
     }, 2000);
@@ -571,7 +571,7 @@ export async function updateQuantity(newQuantity) {
 
 </Sandpack>
 
-This solution makes the app feel slow, because the user must wait each time they update the quantity. It's possible to add more complex handling manually to allow the user to interact with the UI while the quantity is updating, but Actions handle this case with a straight-forward built-in API.
+Essa solução deixa o app lento, porque o usuário precisa esperar toda vez que atualiza a quantidade. É possível adicionar manualmente um tratamento mais complexo para permitir que o usuário interaja com a UI enquanto a quantidade está sendo atualizada, mas as Ações tratam esse caso com uma API embutida e direta.
 
 <Solution />
 
@@ -594,8 +594,8 @@ export default function TabButton({ action, children, isActive }) {
   return (
     <button onClick={() => {
       startTransition(async () => {
-        // await the action that's passed in.
-        // This allows it to be either sync or async.
+        // usa await na action recebida.
+        // Isso permite que ela seja síncrona ou assíncrona.
         await action();
       });
     }}>
@@ -661,8 +661,8 @@ export default function TabButton({ action, children, isActive }) {
   return (
     <button onClick={() => {
       startTransition(async () => {
-        // await the action that's passed in.
-        // This allows it to be either sync or async.
+        // usa await na action recebida.
+        // Isso permite que ela seja síncrona ou assíncrona.
         await action();
       });
     }}>
@@ -744,9 +744,9 @@ b { display: inline-block; margin-right: 10px; }
 
 <Note>
 
-When exposing an `action` prop from a component, you should `await` it inside the transition.
+Ao expor uma prop `action` a partir de um componente, você deve usar `await` nela dentro da transição.
 
-This allows the `action` callback to be either synchronous or asynchronous without requiring an additional `startTransition` to wrap the `await` in the action.
+Isso permite que o callback `action` seja síncrono ou assíncrono, sem exigir um `startTransition` adicional para envolver o `await` na ação.
 
 </Note>
 
@@ -1221,7 +1221,7 @@ b { display: inline-block; margin-right: 10px; }
 
 </Sandpack>
 
-[Read more about using Transitions with Suspense.](/reference/react/Suspense#preventing-already-revealed-content-from-hiding)
+[Leia mais sobre como usar Transições com Suspense.](/reference/react/Suspense#preventing-already-revealed-content-from-hiding)
 
 <Note>
 
@@ -1594,8 +1594,8 @@ function AddCommentButton() {
       disabled={pending}
       onClick={() => {
         startTransition(() => {
-          // Intentionally not passing a comment
-          // so error gets thrown
+          // Intencionalmente não passa um comentário
+          // para que o erro seja lançado
           addComment();
         });
       }}
@@ -1710,7 +1710,7 @@ Quando você usa `await` dentro de uma função `startTransition`, as atualizaç
 ```js
 startTransition(async () => {
   await someAsyncFunction();
-  // ❌ Not using startTransition after await
+  // ❌ Sem usar startTransition depois do await
   setPage('/about');
 });
 ```
@@ -1720,7 +1720,7 @@ No entanto, isso funciona em vez disso:
 ```js
 startTransition(async () => {
   await someAsyncFunction();
-  // ✅ Using startTransition *after* await
+  // ✅ Usando startTransition *depois* do await
   startTransition(() => {
     setPage('/about');
   });
@@ -1806,14 +1806,14 @@ import Total from "./Total";
 export default function App({}) {
   const [quantity, setQuantity] = useState(1);
   const [isPending, startTransition] = useTransition();
-  // Store the actual quantity in separate state to show the mismatch.
+  // Guarda a quantidade real em um state separado para mostrar a divergência.
   const [clientQuantity, setClientQuantity] = useState(1);
 
   const updateQuantityAction = newQuantity => {
     setClientQuantity(newQuantity);
 
-    // Access the pending state of the transition,
-    // by wrapping in startTransition again.
+    // Acessa o state pendente da transição,
+    // envolvendo em startTransition novamente.
     startTransition(async () => {
       const savedQuantity = await updateQuantity(newQuantity);
       startTransition(() => {
@@ -1839,7 +1839,7 @@ import {startTransition} from 'react';
 
 export default function Item({action}) {
   function handleChange(e) {
-    // Update the quantity in an Action.
+    // Atualiza a quantidade em uma Ação.
     startTransition(async () => {
       await action(e.target.value);
     });
@@ -1895,7 +1895,7 @@ export async function updateQuantity(newName) {
       setTimeout(() => {
         firstRequest = true;
         resolve(newName);
-        // Simulate every other request being slower
+        // Simula que uma a cada duas requisições é mais lenta
       }, 1000);
     } else {
       setTimeout(() => {
@@ -1951,7 +1951,7 @@ Quando clicar várias vezes, é possível que as solicitações anteriores sejam
 Isso é esperado, porque Ações dentro de uma Transição não garantem a ordem de execução. Para casos de uso comuns, o React fornece abstrações de nível superior como [`useActionState`](/reference/react/useActionState) e ações de [`<form>`](/reference/react-dom/components/form) que lidam com a ordenação para você. Para casos de uso avançados, você precisará implementar sua própria lógica de fila e abortar para lidar com isso.
 
 
-Example of `useActionState` handling execution order:
+Exemplo de `useActionState` tratando a ordem de execução:
 
 <Sandpack>
 
@@ -1977,15 +1977,15 @@ import Item from "./Item";
 import Total from "./Total";
 
 export default function App({}) {
-  // Store the actual quantity in separate state to show the mismatch.
+  // Guarda a quantidade real em um state separado para mostrar a divergência.
   const [clientQuantity, setClientQuantity] = useState(1);
   const [quantity, updateQuantityAction, isPending] = useActionState(
     async (prevState, payload) => {
       setClientQuantity(payload);
       const savedQuantity = await updateQuantity(payload);
-      return savedQuantity; // Return the new quantity to update the state
+      return savedQuantity; // Retorna a nova quantidade para atualizar o state
     },
-    1 // Initial quantity
+    1 // Quantidade inicial
   );
 
   return (
@@ -2005,7 +2005,7 @@ import {startTransition} from 'react';
 
 export default function Item({action}) {
   function handleChange(e) {
-    // Update the quantity in an Action.
+    // Atualiza a quantidade em uma Ação.
     startTransition(() => {
       action(e.target.value);
     });
@@ -2061,7 +2061,7 @@ export async function updateQuantity(newName) {
       setTimeout(() => {
         firstRequest = true;
         resolve(newName);
-        // Simulate every other request being slower
+        // Simula que uma a cada duas requisições é mais lenta
       }, 1000);
     } else {
       setTimeout(() => {
