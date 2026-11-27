@@ -95,9 +95,9 @@ Notavelmente, estes não são suportados:
 * Símbolos não registrados globalmente, ex. `Symbol('meu novo símbolo')`
 * Eventos de manipuladores de eventos
 
-Os valores de retorno serializáveis suportados são os mesmos que os [props serializáveis](/reference/rsc/use-client#passing-props-from-server-to-client-components) para um Client Component de limite.
+Os valores de retorno serializáveis suportados são os mesmos que os [props serializáveis](/reference/rsc/use-client#serializable-types) para um Client Component de limite.
 
-Os valores de retorno serializáveis suportados são os mesmos que os [props serializáveis](/reference/rsc/use-client#passing-props-from-server-to-client-components) para um Client Component de limite.
+Os valores de retorno serializáveis suportados são os mesmos que os [props serializáveis](/reference/rsc/use-client#serializable-types) para um Client Component de limite.
 
 ## Uso {/*usage*/}
 

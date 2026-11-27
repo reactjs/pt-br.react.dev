@@ -52,7 +52,7 @@ Essas props do `<textarea>` são relevantes tanto para áreas de texto não cont
 * [`form`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#form): Uma string. Especifica o `id` do `<form>` ao qual esta entrada pertence. Se omitido, é o formulário pai mais próximo.
 * [`maxLength`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#maxlength): Um número. Especifica o comprimento máximo do texto.
 * [`minLength`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#minlength): Um número. Especifica o comprimento mínimo do texto.
-* [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name): Uma string. Especifica o nome para esta entrada que é [enviada com o formulário.](#reading-the-textarea-value-when-submitting-a-form)
+* [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name): Uma string. Especifica o nome para esta entrada que é [enviada com o formulário.](#reading-the-text-area-value-when-submitting-a-form)
 * `onChange`: Uma função de [`Event` handler](/reference/react-dom/components/common#event-handler). Necessário para [áreas de texto controladas.](#controlling-a-text-area-with-a-state-variable) Dispara imediatamente quando o valor da entrada é alterado pelo usuário (por exemplo, ele dispara a cada pressionamento de tecla). Comporta-se como o evento [`input` ](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLElement/input_event) do navegador.
 * `onChangeCapture`: Uma versão de `onChange` que dispara na [fase de captura.](/learn/responding-to-events#capture-phase-events)
 * [`onInput`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event): Uma função de [`Event` handler](/reference/react-dom/components/common#event-handler). Dispara imediatamente quando o valor é alterado pelo usuário. Por razões históricas, no React é idiomático usar `onChange` em vez disso, que funciona de forma semelhante.
@@ -183,7 +183,7 @@ Ao contrário do HTML, passar um texto inicial como `<textarea>Algum conteúdo</
 
 ---
 
-### Lendo o valor da área de texto ao enviar um formulário {/*reading-the-textarea-value-when-submitting-a-form*/}
+### Lendo o valor da área de texto ao enviar um formulário {/*reading-the-text-area-value-when-submitting-a-form*/}
 
 Adicione um [`<form>`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/form) em torno de sua textarea com um [`<button type="submit">`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/button) dentro. Ele chamará seu manipulador de eventos `<form onSubmit>`. Por padrão, o navegador enviará os dados do formulário para o URL atual e atualizará a página. Você pode substituir esse comportamento chamando `e.preventDefault()`. Leia os dados do formulário com [`new FormData(e.target)`](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData).
 <Sandpack>

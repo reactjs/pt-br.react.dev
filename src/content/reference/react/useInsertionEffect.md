@@ -64,7 +64,7 @@ function useCSS(rule) {
 
 ## Utilização {/*usage*/}
 
-### Injetar os estilos dinâmicos em bibliotecas CSS-em-JS {/*injecting-dynamic-styles-from-css-em-js-libraries*/}
+### Injetar os estilos dinâmicos em bibliotecas CSS-em-JS {/*injecting-dynamic-styles-from-css-in-js-libraries*/}
 
 Tradicionalmente, você estilizaria componentes React usando CSS simples.
 
@@ -132,7 +132,7 @@ function useCSS(rule) {
 
 <DeepDive>
 
-#### Como isso é melhor do que injetar estilos durante a renderização ou useLayoutEffect? {/*how-is-this-better-than-emjecting-styles-during-rendering-or-uselayouteffect*/}
+#### Como isso é melhor do que injetar estilos durante a renderização ou useLayoutEffect? {/*how-is-this-better-than-injecting-styles-during-rendering-or-uselayouteffect*/}
 
 Caso insira estilos durante a renderização e o React esteja a executar uma [atualização não bloqueante,](/reference/react/useTransition#perform-non-blocking-updates-with-actions) o navegador irá recalcular os estilos a cada frame enquanto renderiza uma estrutura de componentes, o que pode ser **extremamente lento**.
 
