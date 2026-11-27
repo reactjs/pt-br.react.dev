@@ -104,7 +104,7 @@ Semelhante aos eventos DOM, os Effect Events sempre "enxergam" as últimas props
 
 #### Quando usar `useEffectEvent` {/*when-to-use-useeffectevent*/}
 
-Você deve usar `useEffectEvent` para funções que são conceitualmente "eventos" que acontecem de serem disparados por um Effect em vez de um evento do usuário (é isso que o torna um "Effect Event"). Você não precisa envolver tudo em `useEffectEvent`, ou usá-lo apenas para silenciar o erro do lint, pois isso pode levar a bugs.
+Você deve usar `useEffectEvent` para funções que são conceitualmente "eventos" que, por acaso, são disparados por um Effect em vez de um evento do usuário (é isso que o torna um "Effect Event"). Você não precisa envolver tudo em `useEffectEvent`, ou usá-lo apenas para silenciar o erro do lint, pois isso pode levar a bugs.
 
 Para um mergulho profundo sobre como pensar em Event Effects, veja: [Separando Eventos de Effects](/learn/separating-events-from-effects#extracting-non-reactive-logic-out-of-effects).
 
@@ -160,7 +160,7 @@ A [documentação do React Performance Tracks](/reference/dev-tools/react-perfor
 
 #### Scheduler ⚛ {/*scheduler-*/}
 
-O track do Scheduler mostra o que o React está trabalhando para diferentes prioridades, como "blocking" para interações do usuário, ou "transition" para atualizações dentro de `startTransition`. Dentro de cada track, você verá o tipo de trabalho sendo realizado, como o evento que agendou uma atualização e quando a renderização dessa atualização ocorreu.
+O track do Scheduler mostra em que o React está trabalhando para diferentes prioridades, como "blocking" para interações do usuário, ou "transition" para atualizações dentro de `startTransition`. Dentro de cada track, você verá o tipo de trabalho sendo realizado, como o evento que agendou uma atualização e quando a renderização dessa atualização ocorreu.
 
 Também mostramos informações como quando uma atualização está bloqueada esperando por uma prioridade diferente, ou quando o React está esperando pela pintura antes de continuar. O track do Scheduler ajuda você a entender como o React divide seu código em diferentes prioridades e a ordem em que completou o trabalho.
 
@@ -326,7 +326,7 @@ Correções de bugs notáveis
 - `react`: Oculta/exibe o conteúdo de limites suspense desidratados se eles resuspendem [#32900](https://github.com/facebook/react/pull/32900)
 - `react`: Evita estouro de pilha em árvores largas durante Hot Reload [#34145](https://github.com/facebook/react/pull/34145)
 - `react`: Melhora pilhas de componentes em vários locais [#33629](https://github.com/facebook/react/pull/33629), [#33724](https://github.com/facebook/react/pull/33724), [#32735](https://github.com/facebook/react/pull/32735), [#33723](https://github.com/facebook/react/pull/33723)
-- `react`: Corrige um bug com `React.use` dentro de `React.lazy`-ed Component [#33941](https://github.com/facebook/react/pull/33941)
+- `react`: Corrige um bug com `React.use` dentro de um componente carregado com `React.lazy` [#33941](https://github.com/facebook/react/pull/33941)
 - `react-dom`: Para de avisar quando atributos ARIA 1.3 são usados [#34264](https://github.com/facebook/react/pull/34264)
 - `react-dom`: Corrige um bug com Suspense profundamente aninhado dentro de fallbacks de Suspense [#33467](https://github.com/facebook/react/pull/33467)
 - `react-dom`: Evita travamento ao suspender após abortar durante a renderização [#34192](https://github.com/facebook/react/pull/34192)
