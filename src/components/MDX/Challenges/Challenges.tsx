@@ -88,7 +88,9 @@ export function Challenges({
   children,
   isRecipes,
   noTitle,
-  titleText = isRecipes ? 'Try out some examples' : 'Try out some challenges',
+  titleText = isRecipes
+    ? 'Experimente alguns exemplos'
+    : 'Experimente alguns desafios',
   titleId = isRecipes ? 'examples' : 'challenges',
 }: ChallengesProps) {
   const challenges = parseChallengeContents(children);
