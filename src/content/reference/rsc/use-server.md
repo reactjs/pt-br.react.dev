@@ -140,7 +140,7 @@ Para atualizar a UI com base no resultado de uma Server Function ao mesmo tempo 
 // requestUsername.js
 'use server';
 
-export default async function requestUsername(formData) {
+export default async function requestUsername(prevState, formData) {
   const username = formData.get('username');
   if (canRequest(username)) {
     // ...
@@ -180,7 +180,7 @@ As Server Functions são expostas como endpoints do servidor e podem ser chamada
 
 Ao usar uma Server Function fora de um [formulário](/reference/react-dom/components/form), chame a Server Function em uma [Transition](/reference/react/useTransition), que permite que você exiba um indicador de carregamento, mostre [atualizações de estado otimistas](/reference/react/useOptimistic) e lide com erros inesperados. Os formulários automaticamente encapsularão Server Functions em transitions.
 
-```js {9-12}
+```js {9-14}
 import incrementLike from './actions';
 import { useState, useTransition } from 'react';
 
@@ -191,14 +191,16 @@ function LikeButton() {
   const onClick = () => {
     startTransition(async () => {
       const currentCount = await incrementLike();
-      setLikeCount(currentCount);
+      startTransition(() => {
+        setLikeCount(currentCount);
+      });
     });
   };
 
   return (
     <>
       <p>Total de curtidas: {likeCount}</p>
-      <button onClick={onClick} disabled={isPending}>Curtir</button>;
+      <button onClick={onClick} disabled={isPending}>Curtir</button>
     </>
   );
 }

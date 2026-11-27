@@ -7,7 +7,7 @@ title: resumeAndPrerender
 `resumeAndPrerender` continua uma árvore React pré-renderizada para uma string HTML estática usando um [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
 
 ```js
-const { prelude,postpone } = await resumeAndPrerender(reactNode, postponedState, options?)
+const {prelude, postponed} = await resumeAndPrerender(reactNode, postponedState, options?)
 ```
 
 </Intro>
@@ -49,11 +49,12 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 #### Parâmetros {/*parameters*/}
 
-* `reactNode`: O nó React que você chamou `prerender` (ou um `resumeAndPrerender` anterior) com. Por exemplo, um elemento JSX como `<App />`. Espera-se que ele represente o documento inteiro, então o componente `App` deve renderizar a tag `<html>`.
-* `postponedState`: O objeto `postpone` opaco retornado de uma [API de pré-renderização](/reference/react-dom/static/index), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
+* `reactNode`: O nó React com o qual você chamou `prerender` (ou um `resumeAndPrerender` anterior). Por exemplo, um elemento JSX como `<App />`. Espera-se que ele represente o documento inteiro, então o componente `App` deve renderizar a tag `<html>`.
+* `postponedState`: O objeto `postpone` opaco retornado por uma [API de pré-renderização](/reference/react-dom/static), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
 * **opcional** `options`: Um objeto com opções de streaming.
   * **opcional** `signal`: Um [sinal de abortar](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a renderização do servidor](#aborting-server-rendering) e renderizar o restante no cliente.
-  * **opcional** `onError`: Uma função de callback que é acionada sempre que ocorre um erro no servidor, seja [recuperável](#recovering-from-errors-outside-the-shell) ou [não.](#recovering-from-errors-inside-the-shell) Por padrão, isso apenas chama `console.error`. Se você o substituir para [registrar relatórios de falha,](#logging-crashes-on-the-server) certifique-se de ainda chamar `console.error`.
+  * **opcional** `onBrowserBailout`: Um callback que o React chama quando se recupera de [`browser()`](/reference/react-dom/browser) deixando um fallback de Suspense para o navegador substituir. Ele recebe um `Error` descrevendo a renderização exclusiva do navegador e um objeto `errorInfo` contendo o `componentStack`. Se um motivo foi passado para `browser`, ele fica disponível como `error.cause`. Por padrão, o React não faz nada. [Veja como reportar a renderização exclusiva do navegador.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
+  * **opcional** `onError`: Um callback que é acionado sempre que ocorre um erro no servidor, seja [recuperável](#recovering-from-errors-outside-the-shell) ou [não.](#recovering-from-errors-inside-the-shell) Por padrão, isso apenas chama `console.error`. Se você o substituir para [registrar relatórios de falha,](#logging-crashes-on-the-server) certifique-se de ainda chamar `console.error`.
 
 #### Retorna {/*returns*/}
 

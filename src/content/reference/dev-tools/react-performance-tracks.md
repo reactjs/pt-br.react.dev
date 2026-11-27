@@ -140,7 +140,7 @@ Em builds de desenvolvimento, ao clicar em uma entrada de renderização de comp
 
 A trilha de Requisições do Servidor visualiza todas as Promises que eventualmente acabam em um Componente de Servidor React. Isso inclui quaisquer operações `async`, como chamar `fetch` ou operações de arquivo assíncronas do Node.js.
 
-O React tentará combinar Promises que são iniciadas a partir de código de terceiros em um único span que representa a duração de toda a operação que bloqueia o código de primeira parte.
+O React tentará combinar Promises que são iniciadas de dentro de código de terceiros em um único span que representa a duração de toda a operação que bloqueia o código de primeira parte.
 Por exemplo, um método de biblioteca de terceiros chamado `getUser` que chama `fetch` internamente várias vezes será representado como um único span chamado `getUser`, em vez de mostrar múltiplos spans `fetch`.
 
 Clicar em spans mostrará um trace de pilha de onde a Promise foi criada, bem como uma visualização do valor para o qual a Promise foi resolvida, se disponível.

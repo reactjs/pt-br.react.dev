@@ -54,9 +54,13 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
   * **opcional** `bootstrapScripts`: Uma array de URLs de string para as tags `<script>` a serem emitidas na página. Use isso para incluir o `<script>` que chama [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Omita-o se você não quiser executar o React no cliente.
   * **opcional** `bootstrapModules`: Como `bootstrapScripts`, mas emite [`<script type="module">`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) em vez disso.
   * **opcional** `identifierPrefix`: Um prefixo de string que o React usa para IDs gerados por [`useId`.](/reference/react/useId) Útil para evitar conflitos ao usar múltiplos roots na mesma página. Deve ser o mesmo prefixo do que aquele passado para [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
+  * **opcional** `importMap`: Um objeto de [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) com as propriedades `imports` e `scopes`. O React o emite como uma tag `<script type="importmap">` inline antes de quaisquer scripts de módulo, para que as tags `<script type="module">` (por exemplo, de `bootstrapModules`) possam usar especificadores de módulo simples (bare module specifiers).
+  * **opcional** `maxHeadersLength`: O comprimento total máximo do conteúdo dos headers passado para `onHeaders`, medido em unidades de código UTF-16. O padrão é 2000. Quando o limite é atingido, o React para de adicionar dicas de recursos (resource hints) aos headers.
   * **opcional** `namespaceURI`: Uma string com a raiz [URI do namespace](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElementNS#important_namespace_uris) para o fluxo. O padrão é HTML comum. Passe `'http://www.w3.org/2000/svg'` para SVG ou `'http://www.w3.org/1998/Math/MathML'` para MathML.
+  * **opcional** `onBrowserBailout`: Um callback que o React chama quando se recupera de [`browser()`](/reference/react-dom/browser) deixando um fallback de Suspense para o navegador substituir. Ele recebe um `Error` descrevendo a renderização exclusiva do navegador e um objeto `errorInfo` contendo o `componentStack`. Se um motivo foi passado para `browser`, ele fica disponível como `error.cause`. Por padrão, o React não faz nada. [Veja como reportar a renderização exclusiva do navegador.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
   * **opcional** `onError`: Um retorno de chamada que é disparado sempre que há um erro de servidor, seja ele [recuperável](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-outside-the-shell) ou [não.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell) Por padrão, isso chama apenas `console.error`. Se você substituí-lo para [registrar relatórios de falhas,](/reference/react-dom/server/renderToReadableStream#logging-crashes-on-the-server) certifique-se de ainda chamar `console.error`. Você também pode usá-lo para [ajustar o código de status](/reference/react-dom/server/renderToReadableStream#setting-the-status-code) antes da emissão do shell.
-  * **opcional** `progressiveChunkSize`: O número de bytes em um bloco. [Saiba mais sobre a heurística padrão.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
+  * **opcional** `onHeaders`: Um callback que é acionado quando o React determina as dicas de recursos (resource hints) do documento, como preconnects e preloads de folhas de estilo, fontes ou imagens de alta prioridade. Ele recebe uma instância de [`Headers`](https://developer.mozilla.org/en-US/docs/Web/API/Headers) contendo o valor correspondente do [header `Link`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/link), para que você possa enviá-lo como um header de resposta HTTP ou como uma resposta [103 Early Hints](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103). O React o chama mesmo quando não há dicas de recursos para enviar. O conteúdo dos headers é limitado por `maxHeadersLength`.
+  * **opcional** `progressiveChunkSize`: O número de bytes em um bloco. [Saiba mais sobre a heurística padrão.](https://github.com/react/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
   * **opcional** `signal`: Um [sinal de aborto](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a pré-renderização](#aborting-prerendering) e renderizar o restante no cliente.
 
 #### Retorna {/*returns*/}
@@ -78,7 +82,7 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 A API estática `prerender` é usada para geração estática do lado do servidor (SSG). Diferente de `renderToString`, `prerender` aguarda todo o carregamento dos dados antes de resolver. Isso o torna adequado para gerar HTML estático para uma página inteira, incluindo dados que precisam ser buscados usando Suspense. Para transmitir conteúdo conforme ele carrega, use uma API de renderização do lado do servidor (SSR) por streaming como [renderToReadableStream](/reference/react-dom/server/renderToReadableStream).
 
-`prerender` can be aborted and later either continued with `resumeAndPrerender` or resumed with `resume` to support partial pre-rendering.
+`prerender` pode ser abortado e, depois, continuado com `resumeAndPrerender` ou retomado com `resume` para dar suporte à pré-renderização parcial.
 
 </Note>
 
@@ -276,17 +280,7 @@ Imagine que `<Posts />` precisa carregar alguns dados, o que leva algum tempo. I
 
 <Note>
 
-**Somente fontes de dados habilitadas para Suspense ativarão o componente Suspense.** Elas incluem:
-
--   Busca de dados com frameworks habilitados para Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) e [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
--   Carregamento lento do código do componente com [`lazy`](/reference/react/lazy)
--   Lendo o valor de uma Promise com [`use`](/reference/react/use)
-
-Suspense **não** detecta quando os dados são buscados dentro de um Effect ou manipulador de eventos.
-
-A maneira exata de como você carregaria dados no componente `Posts` acima depende do seu framework. Se você usa um framework habilitado para Suspense, você encontrará os detalhes na documentação de busca de dados dele.
-
-A busca de dados habilitada para Suspense sem o uso de um framework que dê opiniões ainda não é suportada. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
+Apenas dados lidos de uma fonte que [ativa um limite de Suspense](/reference/react/Suspense#what-activates-a-suspense-boundary), como uma Promise lida com [`use`](/reference/react/use), suspenderão durante a renderização. O Suspense não detecta dados buscados dentro de um Effect ou manipulador de eventos.
 
 </Note>
 
@@ -314,7 +308,7 @@ async function renderToString() {
 
 Quaisquer limites de Suspense com filhos incompletos serão incluídos no prelude no estado de fallback.
 
-This can be used for partial prerendering together with [`resume`](/reference/react-dom/server/resume) or [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender).
+Isso pode ser usado para pré-renderização parcial junto com [`resume`](/reference/react-dom/server/resume) ou [`resumeAndPrerender`](/reference/react-dom/static/resumeAndPrerender).
 
 ## Solução de problemas {/*troubleshooting*/}
 

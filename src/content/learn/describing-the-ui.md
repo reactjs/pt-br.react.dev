@@ -532,7 +532,7 @@ React uses trees to model the relationships between components and modules.
 
 A React render tree is a representation of the parent and child relationship between components.
 
-<Diagram name="generic_render_tree" height={250} width={500} alt="A tree graph with five nodes, with each node representing a component. The root node is located at the top the tree graph and is labelled 'Root Component'. It has two arrows extending down to two nodes labelled 'Component A' and 'Component C'. Each of the arrows is labelled with 'renders'. 'Component A' has a single 'renders' arrow to a node labelled 'Component B'. 'Component C' has a single 'renders' arrow to a node labelled 'Component D'.">
+<Diagram name="generic_render_tree" height={250} width={500} alt="Um gráfico em árvore com cinco nós, em que cada nó representa um componente. O nó raiz está localizado no topo do gráfico em árvore e é rotulado 'Root Component'. Ele tem duas setas que descem até dois nós rotulados 'Component A' e 'Component C'. Cada uma das setas é rotulada com 'renders'. 'Component A' tem uma única seta 'renders' para um nó rotulado 'Component B'. 'Component C' tem uma única seta 'renders' para um nó rotulado 'Component D'.">
 
 An example React render tree.
 

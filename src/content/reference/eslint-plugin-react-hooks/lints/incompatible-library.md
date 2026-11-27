@@ -16,7 +16,7 @@ Essas bibliotecas foram projetadas antes que as regras de memoização do React 
 
 ## Detalhes da Regra {/*rule-details*/}
 
-Algumas bibliotecas usam padrões que não são suportados pelo React. Quando o linter detecta usos dessas APIs de uma [lista conhecida](https://github.com/facebook/react/blob/main/compiler/packages/babel-plugin-react-compiler/src/HIR/DefaultModuleTypeProvider.ts), ele as sinaliza sob esta regra. Isso significa que o Compilador React pode pular automaticamente componentes que usam essas APIs incompatíveis, a fim de evitar a quebra do seu aplicativo.
+Algumas bibliotecas usam padrões que não são suportados pelo React. Quando o linter detecta usos dessas APIs de uma [lista conhecida](https://github.com/react/react/blob/main/compiler/packages/babel-plugin-react-compiler/src/HIR/DefaultModuleTypeProvider.ts), ele as sinaliza sob esta regra. Isso significa que o Compilador React pode pular automaticamente componentes que usam essas APIs incompatíveis, a fim de evitar a quebra do seu aplicativo.
 
 ```js
 // Exemplo de como a memoização quebra com essas bibliotecas
@@ -135,4 +135,4 @@ function Component() {
 }
 ```
 
-Algumas outras bibliotecas ainda não possuem APIs alternativas que sejam compatíveis com o modelo de memoização do React. Se o linter não pular automaticamente seus componentes ou hooks que chamam essas APIs, por favor, [abra uma issue](https://github.com/facebook/react/issues) para que possamos adicioná-la ao linter.
+Algumas outras bibliotecas ainda não possuem APIs alternativas que sejam compatíveis com o modelo de memoização do React. Se o linter não pular automaticamente seus componentes ou hooks que chamam essas APIs, por favor, [abra uma issue](https://github.com/react/react/issues) para que possamos adicioná-la ao linter.

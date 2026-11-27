@@ -46,9 +46,10 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 #### Parâmetros {/*parameters*/}
 
 * `reactNode`: O nó React com o qual você chamou `prerender` (ou um `resumeAndPrerenderToNodeStream` anterior). Por exemplo, um elemento JSX como `<App />`. Espera-se que ele represente o documento inteiro, então o componente `App` deve renderizar a tag `<html>`.
-* `postponedState`: O objeto `postpone` opaco retornado por uma [API de prerender](/reference/react-dom/static/index), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
+* `postponedState`: O objeto `postpone` opaco retornado por uma [API de prerender](/reference/react-dom/static), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
 * **opcional** `options`: Um objeto com opções de streaming.
   * **opcional** `signal`: Um [sinal de abortar](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a renderização do servidor](#aborting-server-rendering) e renderizar o restante no cliente.
+  * **opcional** `onBrowserBailout`: Um callback que o React chama quando se recupera de [`browser()`](/reference/react-dom/browser) deixando um fallback de Suspense para o navegador substituir. Ele recebe um `Error` descrevendo a renderização exclusiva do navegador e um objeto `errorInfo` contendo o `componentStack`. Se um motivo foi passado para `browser`, ele fica disponível como `error.cause`. Por padrão, o React não faz nada. [Veja como reportar a renderização exclusiva do navegador.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
   * **opcional** `onError`: Um callback que é acionado sempre que ocorre um erro no servidor, seja [recuperável](#recovering-from-errors-outside-the-shell) ou [não.](#recovering-from-errors-inside-the-shell) Por padrão, isso apenas chama `console.error`. Se você o substituir para [registrar relatórios de falha,](#logging-crashes-on-the-server) certifique-se de ainda chamar `console.error`.
 
 #### Retorna {/*returns*/}
@@ -56,7 +57,7 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 `resumeAndPrerenderToNodeStream` retorna uma Promise:
 - Se a renderização for bem-sucedida, a Promise será resolvida para um objeto contendo:
   - `prelude`: um [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) de HTML. Você pode usar este stream para enviar uma resposta em pedaços, ou pode ler o stream inteiro em uma string.
-  - `postponed`: um objeto opaco e serializável em JSON que pode ser passado para [`resumeToNodeStream`](/reference/react-dom/server/resume) ou [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) se `resumeAndPrerenderToNodeStream` for abortado.
+  - `postponed`: um objeto opaco e serializável em JSON que pode ser passado para [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) ou [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) se `resumeAndPrerenderToNodeStream` for abortado.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
 
 #### Ressalvas {/*caveats*/}

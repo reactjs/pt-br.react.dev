@@ -143,7 +143,7 @@ window.React2 = require('react');
 console.log(window.React1 === window.React2);
 ```
 
-Se imprimir `false` então você pode ter dois Reacts e precisa descobrir por que isso aconteceu. [Este problema](https://github.com/facebook/react/issues/13991) inclui algumas razões comuns encontradas pela comunidade.
+Se imprimir `false` então você pode ter dois Reacts e precisa descobrir por que isso aconteceu. [Este problema](https://github.com/react/react/issues/13991) inclui algumas razões comuns encontradas pela comunidade.
 
 Esse problema também pode ocorrer quando você usa `npm link` ou equivalente. Nesse caso, seu bundler pode "ver" dois Reacts — um na pasta da aplicação e outro na pasta da sua biblioteca. Supondo que `myapp` e `mylib` sejam pastas irmãs, uma possível correção é executar `npm link ../myapp/node_modules/react` a partir de `mylib`. Isso deve fazer com que a biblioteca use a cópia do React da aplicação.
 
@@ -155,4 +155,4 @@ Em geral, o React suporta o uso de várias cópias independentes em uma página 
 
 ## Outras Causas {/*other-causes*/}
 
-Se nada disso funcionou, por favor comente neste [problema](https://github.com/facebook/react/issues/13991) e tentaremos ajudar. Tente criar um pequeno exemplo reproduzível — você pode descobrir o problema enquanto faz isso.
+Se nada disso funcionou, por favor comente neste [problema](https://github.com/react/react/issues/13991) e tentaremos ajudar. Tente criar um pequeno exemplo reproduzível — você pode descobrir o problema enquanto faz isso.

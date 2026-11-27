@@ -16,7 +16,7 @@ const stream = await resume(reactNode, postponedState, options?)
 
 <Note>
 
-Esta API depende de [Web Streams.](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) Para Node.js, use [`resumeToNodeStream`](/reference/react-dom/server/renderToPipeableStream) em vez disso.
+Esta API depende de [Web Streams.](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) Para Node.js, use [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) em vez disso.
 
 </Note>
 
@@ -44,10 +44,11 @@ async function handler(request, writable) {
 #### Parâmetros {/*parameters*/}
 
 * `reactNode`: O nó React com o qual você chamou `prerender`. Por exemplo, um elemento JSX como `<App />`. Espera-se que ele represente o documento inteiro, então o componente `App` deve renderizar a tag `<html>`.
-* `postponedState`: O objeto opaco `postpone` retornado por uma [API de prerender](/reference/react-dom/static/index), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
+* `postponedState`: O objeto opaco `postpone` retornado por uma [API de prerender](/reference/react-dom/static), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
 * **opcional** `options`: Um objeto com opções de streaming.
   * **opcional** `nonce`: Uma string [`nonce`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#nonce) para permitir scripts para [`script-src` Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
   * **opcional** `signal`: Um [sinal de abortar](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a renderização do servidor](#aborting-server-rendering) e renderizar o restante no cliente.
+  * **opcional** `onBrowserBailout`: Um callback que o React chama quando se recupera de [`browser()`](/reference/react-dom/browser) deixando um fallback de Suspense para o navegador substituir. Ele recebe um `Error` descrevendo a renderização exclusiva do navegador e um objeto `errorInfo` contendo o `componentStack`. Se um motivo foi passado para `browser`, ele fica disponível como `error.cause`. Por padrão, o React não faz nada. [Veja como reportar a renderização exclusiva do navegador.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
   * **opcional** `onError`: Um callback que é acionado sempre que ocorre um erro no servidor, seja [recuperável](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-outside-the-shell) ou [não.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell) Por padrão, isso apenas chama `console.error`. Se você o substituir para [registrar relatórios de falha,](/reference/react-dom/server/renderToReadableStream#logging-crashes-on-the-server) certifique-se de ainda chamar `console.error`.
 
 
@@ -175,7 +176,7 @@ async function main(frame) {
   // Layer 2
   // Just waiting here for demonstration purposes.
   // In a real app, the prelude and postponed state would've been serialized in Layer 1 and Layer would deserialize them.
-  // The prelude content could be flushed immediated as plain HTML while
+  // The prelude content could be flushed immediately as plain HTML while
   // React is continuing to render from where the prerender left off.
   await sleep(2000);
 
@@ -201,10 +202,18 @@ main(document.getElementById("container"));
 export async function flushReadableStreamToFrame(readable, frame) {
   const document = frame.contentWindow.document;
   const decoder = new TextDecoder();
-  for await (const chunk of readable) {
-    const partialHTML = decoder.decode(chunk);
+  const reader = readable.getReader();
+
+  while (true) {
+    const {done, value} = await reader.read();
+    if (done) {
+      break;
+    }
+    const partialHTML = decoder.decode(value, {stream: true});
     document.write(partialHTML);
   }
+
+  document.write(decoder.decode());
 }
 
 // This doesn't need to be an error.
@@ -232,5 +241,5 @@ export function sleep(timeoutMS) {
 
 ### Leitura adicional {/*further-reading*/}
 
-Resuming se comporta como `renderToReadableStream`. Para mais exemplos, confira a [seção de uso de `renderToReadableStream`](/reference/react-dom/server/renderToReadableStream#usage).
+A retomada se comporta como `renderToReadableStream`. Para mais exemplos, confira a [seção de uso de `renderToReadableStream`](/reference/react-dom/server/renderToReadableStream#usage).
 A [seção de uso de `prerender`](/reference/react-dom/static/prerender#usage) inclui exemplos de como usar `prerender` especificamente.

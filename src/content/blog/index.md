@@ -12,6 +12,12 @@ Você também pode seguir a conta [@react.dev](https://bsky.app/profile/react.de
 
 <div className="sm:-mx-5 flex flex-col gap-5 mt-12">
 
+<BlogCard title="React 19.3" date="9 de setembro de 2026" url="/blog/2026/09/09/react-19-3">
+
+O React 19.3 adiciona novos recursos como View Transitions, Fragment Refs, browser(), Trusted Types e mais. Neste post...
+
+</BlogCard>
+
 <BlogCard title="A Fundação React: Um Novo Lar para o React Hospedado pela Linux Foundation" date="24 de fevereiro de 2026" url="/blog/2026/02/24/the-react-foundation">
 
 A Fundação React foi oficialmente lançada sob a Linux Foundation.
@@ -150,7 +156,7 @@ A equipe do React está animada para compartilhar algumas atualizações:
 
 ### Todas as notas de lançamento {/*all-release-notes*/}
 
-Nem todo lançamento do React merece um post próprio, mas você pode encontrar um changelog detalhado para cada lançamento no arquivo [`CHANGELOG.md`](https://github.com/facebook/react/blob/main/CHANGELOG.md) no repositório do React, bem como na página [Releases](https://github.com/facebook/react/releases).
+Nem todo lançamento do React merece um post próprio, mas você pode encontrar um changelog detalhado para cada lançamento no arquivo [`CHANGELOG.md`](https://github.com/react/react/blob/main/CHANGELOG.md) no repositório do React, bem como na página [Releases](https://github.com/react/react/releases).
 
 ---
 

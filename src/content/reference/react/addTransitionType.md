@@ -1,15 +1,6 @@
 ---
 title: addTransitionType
-version: canary
 ---
-
-<Canary>
-
-**A API `addTransitionType` está atualmente disponível apenas nos canais Canary e Experimental do React.**
-
-[Saiba mais sobre os canais de lançamento do React aqui.](/community/versioning-policy#all-release-channels)
-
-</Canary>
 
 <Intro>
 
