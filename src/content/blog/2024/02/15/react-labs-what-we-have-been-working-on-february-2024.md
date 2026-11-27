@@ -69,7 +69,7 @@ React Server Components, Asset Loading, Document Metadata e Actions chegaram ao 
 
 - **Diretivas**: [`"use client"`](/reference/rsc/use-client) e [`"use server"`](/reference/rsc/use-server) são recursos de bundler projetados para frameworks React full-stack. Eles marcam os "pontos de divisão" entre os dois ambientes: `"use client"` instrui o bundler a gerar uma tag `<script>` (como [Astro Islands](https://docs.astro.build/en/concepts/islands/#creating-an-island)), enquanto `"use server"` diz ao bundler para gerar um endpoint POST (como [tRPC Mutations](https://trpc.io/docs/concepts)). Juntos, eles permitem que você escreva componentes reutilizáveis que compõem a interatividade do lado do cliente com a lógica relacionada do lado do servidor.
 
-- **Metadados do Documento**: adicionamos suporte integrado para renderizar tags [`<title>`](/reference/react-dom/components/title), [`<meta>`](/reference/react-dom/components/meta) e de metadados [`<link>`](/reference/react-dom/components/link) em qualquer lugar da sua árvore de componentes. Eles funcionam da mesma forma em todos os ambientes, incluindo código totalmente do lado do cliente, SSR e RSC. Isso fornece suporte integrado para recursos pioneiros por bibliotecas como [React Helmet](https://github.com/nfl/react-helmet).
+- **Metadados do Documento**: adicionamos suporte integrado para renderizar tags [`<title>`](/reference/react-dom/components/title), [`<meta>`](/reference/react-dom/components/meta) e de metadados [`<link>`](/reference/react-dom/components/link) em qualquer lugar da sua árvore de componentes. Eles funcionam da mesma forma em todos os ambientes, incluindo código totalmente do lado do cliente, SSR e RSC. Isso fornece suporte integrado para recursos introduzidos por bibliotecas pioneiras como [React Helmet](https://github.com/nfl/react-helmet).
 
 - **Carregamento de Recursos**: integramos Suspense com o ciclo de vida de carregamento de recursos como stylesheets, fontes e scripts para que o React os leve em consideração para determinar se o conteúdo em elementos como [`<style>`](/reference/react-dom/components/style), [`<link>`](/reference/react-dom/components/link) e [`<script>`](/reference/react-dom/components/script) estão prontos para serem exibidos. Também adicionamos novas [APIs de Carregamento de Recursos](/reference/react-dom#resource-preloading-apis) como `preload` e `preinit` para fornecer maior controle sobre quando um recurso deve carregar e inicializar.
 
@@ -77,11 +77,11 @@ React Server Components, Asset Loading, Document Metadata e Actions chegaram ao 
 
 Como todos esses recursos funcionam juntos, é difícil lançá-los individualmente no canal Estável. Lançar Ações sem os hooks complementares para acessar estados de formulário limitaria a usabilidade prática das Ações. Introduzir React Server Components sem integrar Server Actions complicaria a modificação de dados no servidor.
 
-Antes de podermos lançar um conjunto de recursos para o canal Estável, precisamos garantir que eles funcionem de forma coesa e que os desenvolvedores tenham tudo o que precisam para usá-los em produção. React Canaries nos permite desenvolver esses recursos individualmente e lançar as APIs estáveis incrementalmente até que todo o conjunto de recursos esteja completo.
+Antes de podermos lançar um conjunto de recursos para o canal Estável, precisamos garantir que eles funcionem de forma coesa e que os desenvolvedores tenham tudo o que precisam para usá-los em produção. React Canaries nos permitem desenvolver esses recursos individualmente e lançar as APIs estáveis incrementalmente até que todo o conjunto de recursos esteja completo.
 
 O conjunto atual de recursos no React Canary está completo e pronto para ser lançado.
 
-## A vróxima versão principal do React {/*the-next-major-version-of-react*/}
+## A próxima versão principal do React {/*the-next-major-version-of-react*/}
 
 Após alguns anos de iteração, `react@canary` está agora pronto para ser lançado para `react@latest`. Os novos recursos mencionados acima são compatíveis com qualquer ambiente em que seu aplicativo seja executado, fornecendo tudo o que é necessário para uso em produção. Como Asset Loading e Document Metadata podem ser uma mudança disruptiva para alguns aplicativos, a próxima versão do React será uma versão principal: **React 19**.
 
@@ -93,7 +93,7 @@ Compartilharemos mais informações sobre tudo o que o React 19 inclui, como ado
 
 Desde nossa última atualização, renomeamos uma capacidade que estamos pesquisando de "Offscreen" para "Activity". O nome "Offscreen" implicava que ele se aplicava apenas a partes do aplicativo que não eram visíveis, mas ao pesquisar o recurso, percebemos que é possível que partes do aplicativo sejam visíveis e inativas, como conteúdo atrás de um modal. O novo nome reflete mais de perto o comportamento de marcar certas partes do aplicativo como "ativas" ou "inativas".
 
-Activity ainda está em pesquisa e nosso trabalho restante é finalizar os primitivos que são expostos aos desenvolvedores de bibliotecas. Priorizamos essa área enquanto nos concentramos em lançar recursos mais completos.
+Activity ainda está em pesquisa e nosso trabalho restante é finalizar os primitivos que são expostos aos desenvolvedores de bibliotecas. Despriorizamos essa área enquanto nos concentramos em lançar recursos mais completos.
 
 * * *
 
