@@ -348,13 +348,8 @@ export function Footer() {
           <FooterLink href="/community" isHeader={true}>
             Comunidade
           </FooterLink>
-<<<<<<< HEAD
-          <FooterLink href="https://github.com/facebook/react/blob/main/CODE_OF_CONDUCT.md">
-            Código de Conduta
-=======
           <FooterLink href="https://github.com/react/react/blob/main/CODE_OF_CONDUCT.md">
-            Code of Conduct
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+            Código de Conduta
           </FooterLink>
           <FooterLink href="/community/team">Conheça o Time</FooterLink>
           <FooterLink href="/community/docs-contributors">

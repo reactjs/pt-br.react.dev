@@ -86,19 +86,9 @@ Durante as atualizações, o <CodeStep step={2}>valor adiado</CodeStep> "ficará
 
 <Note>
 
-<<<<<<< HEAD
-Este exemplo supõe que você use uma fonte de dados compatível com Suspense:
+Este exemplo supõe que você use uma fonte de dados que [ativa um limite de Suspense](/reference/react/Suspense#what-activates-a-suspense-boundary), como uma Promise que você lê com [`use`](/reference/react/use).
 
-- Obtenção de dados com estruturas compatíveis com Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) e [Next.js](https://nextjs.org/docs/app/getting-started/fetching-data#with-suspense)
-- Carregamento lento do código do componente com [`lazy`](/reference/react/lazy)
-- Leitura do valor de uma Promise com [`use`](/reference/react/use)
-
-[Saiba mais sobre Suspense e suas limitações.](/reference/react/Suspense)
-=======
-This example assumes you use a data source that [activates a Suspense boundary](/reference/react/Suspense#what-activates-a-suspense-boundary), such as a Promise you read with [`use`](/reference/react/use).
-
-[Learn more about Suspense.](/reference/react/Suspense)
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+[Saiba mais sobre Suspense.](/reference/react/Suspense)
 
 </Note>
 

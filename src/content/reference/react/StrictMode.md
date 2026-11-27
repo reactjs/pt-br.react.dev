@@ -1253,11 +1253,7 @@ li {
 
 </Sandpack>
 
-<<<<<<< HEAD
-Agora, na montagem inicial no StrictMode, os refs callbacks são todos configurados, limpos e configurados novamente:
-=======
-Now on initial mount in StrictMode, the ref callbacks are all setup, cleaned up, and setup again:
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Agora, na montagem inicial no StrictMode, os ref callbacks são todos configurados, limpos e configurados novamente:
 
 ```
 ...

@@ -1563,11 +1563,7 @@ main {
 
 ### Exibindo um erro para usuários com um limite de erro {/*displaying-an-error-to-users-with-error-boundary*/}
 
-<<<<<<< HEAD
-Se uma função passada para `startTransition` lançar um erro, você pode exibir um erro para o seu usuário com um [limite de erro](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar um limite de erro, envolva o componente onde você está chamando o `useTransition` em um limite de erro. Uma vez que a função passada para `startTransition` gerar um erro, o fallback para o limite de erro será exibido.
-=======
-If a function passed to `startTransition` throws an error or returns a rejected Promise, you can display an error to your user with an [error boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). To use an error boundary, wrap the component where you are calling the `useTransition` in an error boundary. Once the function passed to `startTransition` errors, the fallback for the error boundary will be displayed.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Se uma função passada para `startTransition` lançar um erro ou retornar uma Promise rejeitada, você pode exibir um erro para o seu usuário com um [limite de erro](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). Para usar um limite de erro, envolva o componente onde você está chamando o `useTransition` em um limite de erro. Uma vez que a função passada para `startTransition` gerar um erro, o fallback para o limite de erro será exibido.
 
 <Sandpack>
 
@@ -1683,11 +1679,7 @@ startTransition(() => {
 });
 ```
 
-<<<<<<< HEAD
-A função que você passa para `startTransition` deve ser síncrona. Você não pode marcar uma atualização como uma Transição desta forma:
-=======
-The function you pass to `startTransition` can be synchronous or asynchronous. However, updates scheduled in a `setTimeout` callback aren't marked as Transitions:
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+A função que você passa para `startTransition` pode ser síncrona ou assíncrona. No entanto, atualizações agendadas em um callback de `setTimeout` não são marcadas como Transições:
 
 ```js
 startTransition(() => {
@@ -1741,15 +1733,7 @@ Esta é uma limitação do JavaScript devido ao React perder o escopo do context
 
 ### Desejo acessar chamar  `useTransition` de fora de um componente. {/*i-want-to-call-usetransition-from-outside-a-component*/}
 
-<<<<<<< HEAD
-Você não pode chamar `useTransition` fora de um componente porque ele é um Hook.  Neste caso, utilize o método independente [`startTransition`](/reference/react/startTransition) Ele funciona da mesma forma, mas não fornece o indicador `isPending`.
-=======
-You can't call `useTransition` outside a component because it's a Hook. In this
-case, the standalone [`startTransition`](/reference/react/startTransition)
-function can mark state updates as Transitions. It does not provide the
-`isPending` flag. Because the standalone function is not associated with a
-component, an Error Boundary cannot handle errors from its Transition.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Você não pode chamar `useTransition` fora de um componente porque ele é um Hook. Neste caso, a função independente [`startTransition`](/reference/react/startTransition) pode marcar atualizações de state como Transições. Ela não fornece o indicador `isPending`. Como a função independente não está associada a um componente, um limite de erro (Error Boundary) não consegue tratar erros da sua Transição.
 
 ---
 

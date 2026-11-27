@@ -193,11 +193,7 @@ useEffect(() => {
 }, []);
 ```
 
-<<<<<<< HEAD
 Isso permitirá que a renderização atual termine e agende outra renderização síncrona para fazer flush das atualizações.
-=======
-This will allow the current render to finish and schedule another synchronous render to flush the updates.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 <Pitfall>
 

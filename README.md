@@ -14,14 +14,9 @@ This repo contains the source code and documentation powering [pt-br.react.dev](
 
 ### Installation
 
-<<<<<<< HEAD
 1. `cd pt-br.react.dev` to go into the project root
-2. `yarn` to install the website's npm dependencies
-=======
-1. `cd react.dev` to go into the project root
-2. `git remote add my-fork-name https://github.com/YOUR_USERNAME/react.dev.git` to add your fork as a remote. Replace `YOUR_USERNAME` with your GitHub username. You only need to do this once.
+2. `git remote add my-fork-name https://github.com/YOUR_USERNAME/pt-br.react.dev.git` to add your fork as a remote. Replace `YOUR_USERNAME` with your GitHub username. You only need to do this once.
 3. `yarn` to install the website's npm dependencies
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ### Running locally
 
@@ -44,15 +39,9 @@ The documentation is divided into several sections with a different tone and pur
 
 1. Follow the ["Running locally"](#running-locally) instructions
 1. Save the files and check in the browser
-<<<<<<< HEAD
-1. Changes to React components in `src` will hot-reload
-1. Changes to markdown files in `content` will hot-reload
-1. If working with plugins, you may need to remove the `.cache` directory and restart the server
-=======
   1. Changes to React components in `src` will hot-reload
   1. Changes to markdown files in `src/content` will hot-reload
   1. If working with plugins, you may need to remove the `node_modules/.cache/react-docs-mdx` directory and restart the server
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ### Test the change
 
@@ -69,11 +58,7 @@ The documentation is divided into several sections with a different tone and pur
 
 ## Translation
 
-<<<<<<< HEAD
 If you are interested in translating `pt-br.react.dev`, please see the current translation efforts [here](https://github.com/reactjs/pt-br.reactjs.org/issues/555).
-=======
-If you are interested in translating `react.dev`, please see the current translation efforts [here](https://react.dev/community/translations).
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ## License
 

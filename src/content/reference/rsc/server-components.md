@@ -183,14 +183,11 @@ O bundler então combina os dados, Componentes de Servidor renderizados e Compon
 
 Componentes de Servidor podem ser feitos dinâmicos re-buscando-os de um servidor, onde eles podem acessar os dados e renderizar novamente. Essa nova arquitetura de aplicação combina o modelo mental simples de “requisição/resposta” de Apps Multi-Página server-centric com a interatividade contínua de Apps Single-Page client-centric, dando a você o melhor dos dois mundos.
 
-<<<<<<< HEAD
-### Adicionando interatividade aos Componentes de Servidor {/*adding-interactivity-to-server-components*/}
-=======
-### Rendering a context provider in a Server Component {/*rendering-a-context-provider-in-a-server-component*/}
+### Renderizando um provedor de contexto em um Componente de Servidor {/*rendering-a-context-provider-in-a-server-component*/}
 
-Server Components cannot create context, but they can render a context provider imported from a Client Component module.
+Componentes de Servidor não podem criar contexto, mas podem renderizar um provedor de contexto importado de um módulo de Componente Cliente.
 
-Create and export the context from a file with the [`'use client'`](/reference/rsc/use-client) directive:
+Crie e exporte o contexto a partir de um arquivo com a diretiva [`'use client'`](/reference/rsc/use-client):
 
 ```js
 // user-context.js
@@ -200,7 +197,7 @@ import { createContext } from 'react';
 export const UserContext = createContext(null);
 ```
 
-Then import and render the context directly from a Server Component:
+Em seguida, importe e renderize o contexto diretamente de um Componente de Servidor:
 
 ```js
 // server-component.js
@@ -217,10 +214,9 @@ export async function Layout({ children }) {
 }
 ```
 
-Client Components rendered inside this provider can read its value with [`use`](/reference/react/use) or [`useContext`](/reference/react/useContext).
+Componentes Cliente renderizados dentro desse provedor podem ler seu valor com [`use`](/reference/react/use) ou [`useContext`](/reference/react/useContext).
 
-### Adding interactivity to Server Components {/*adding-interactivity-to-server-components*/}
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+### Adicionando interatividade aos Componentes de Servidor {/*adding-interactivity-to-server-components*/}
 
 Componentes de Servidor não são enviados para o navegador, então eles não podem usar APIs interativas como `useState`. Para adicionar interatividade aos Componentes de Servidor, você pode compô-los com Componentes Cliente usando a diretiva `"use client"`.
 

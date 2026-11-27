@@ -4,19 +4,7 @@ title: <ViewTransition>
 
 <Intro>
 
-<<<<<<< HEAD
-<Canary>
-
-**A API `<ViewTransition />` está atualmente disponível apenas nos canais Canary e Experimental do React.**
-
-[Saiba mais sobre os canais de lançamento do React aqui.](/community/versioning-policy#all-release-channels)
-
-</Canary>
-
 `<ViewTransition>` permite animar uma árvore de componentes com Transitions e Suspense.
-=======
-`<ViewTransition>` lets you animate a component tree with Transitions and Suspense.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ```js
 import {ViewTransition} from 'react';
@@ -1265,15 +1253,9 @@ Isso significa que durante uma atualização, que causa muito relayout, ele não
 
 ### Animando conteúdo do Suspense {/*animating-from-suspense-content*/}
 
-<<<<<<< HEAD
-Como qualquer Transição, o React espera pelos dados e por novos CSS (`<link rel="stylesheet" precedence="...">`) antes de executar a animação. Além disso, as ViewTransitions também esperam até 500ms para que novas fontes sejam carregadas antes de iniciar a animação, para evitar que elas pisquem posteriormente. Pelo mesmo motivo, uma imagem envolvida por uma ViewTransition esperará o carregamento da imagem.
+Como qualquer Transição, o React espera pelos dados e por novos CSS (`<link rel="stylesheet" precedence="...">`) antes de executar a animação. O `<ViewTransition>` também espera até 500 ms para que novas fontes e imagens visíveis sejam carregadas, para que elas não pisquem depois que a animação começar. Veja exemplos de [esperar por uma fonte](/reference/react/Suspense#waiting-for-a-font-to-load) e [esperar por uma imagem](/reference/react/Suspense#waiting-for-an-image-to-load) na página do Suspense.
 
-Se estiver dentro de uma nova instância de `Suspense boundary`, o fallback será exibido primeiro. Após o `Suspense boundary` carregar completamente, ele aciona a `<ViewTransition>` para animar a revelação do conteúdo.
-=======
-Like any Transition, React waits for data and new CSS (`<link rel="stylesheet" precedence="...">`) before running the animation. `<ViewTransition>` also waits up to 500 ms for new fonts and visible images to load so they don't flicker in after the animation starts. See examples of [waiting for a font](/reference/react/Suspense#waiting-for-a-font-to-load) and [waiting for an image](/reference/react/Suspense#waiting-for-an-image-to-load) on the Suspense page.
-
-If the content is inside a new Suspense boundary, React first shows the fallback. After the boundary finishes loading, `<ViewTransition>` animates the reveal to the content.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Se o conteúdo estiver dentro de um novo limite do Suspense, o React mostra primeiro o fallback. Após o limite terminar de carregar, o `<ViewTransition>` anima a revelação do conteúdo.
 
 Existem duas maneiras de animar `Suspense boundaries` dependendo de onde você coloca a `<ViewTransition>`:
 

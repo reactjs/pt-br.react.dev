@@ -29,51 +29,14 @@ Encapsule elementos em `<Fragment>` para agrupá-los juntos em situações em qu
 
 #### Props {/*props*/}
 
-<<<<<<< HEAD
 - **opcional** `key`: Fragments declarados com a sintaxe explícita `<Fragment>` podem ter [keys.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
-- <CanaryBadge /> **opcional** `ref`: Um objeto ref (por exemplo, de [`useRef`](/reference/react/useRef)) ou uma [função de callback](/reference/react-dom/components/common#ref-callback). O React fornece um `FragmentInstance` como valor da ref que implementa métodos para interagir com os nós DOM encapsulados pelo Fragment.
-
-### <CanaryBadge /> FragmentInstance {/*fragmentinstance*/}
-
-Quando você passa uma ref para um fragment, o React fornece um objeto `FragmentInstance` com métodos para interagir com os nós DOM encapsulados pelo fragment:
-
-**Métodos de manipulação de eventos:**
-- `addEventListener(type, listener, options?)`: Adiciona um listener de evento a todos os filhos DOM de primeiro nível do Fragment.
-- `removeEventListener(type, listener, options?)`: Remove um listener de evento de todos os filhos DOM de primeiro nível do Fragment.
-- `dispatchEvent(event)`: Despacha um evento para um filho virtual do Fragment para chamar quaisquer listeners adicionados e pode propagar para o pai DOM.
-
-**Métodos de layout:**
-- `compareDocumentPosition(otherNode)`: Compara a posição no documento do Fragment com outro nó.
-  - Se o Fragment tiver filhos, o valor nativo de `compareDocumentPosition` é retornado.
-  - Fragments vazios tentarão comparar o posicionamento dentro da árvore React e incluirão `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC`.
-  - Elementos que têm uma relação diferente na árvore React e na árvore DOM devido a portais ou outras inserções são `Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC`.
-- `getClientRects()`: Retorna um array plano de objetos `DOMRect` representando os retângulos delimitadores de todos os filhos.
-- `getRootNode()`: Retorna o nó raiz contendo o nó DOM pai do Fragment.
-
-**Métodos de gerenciamento de foco:**
-- `focus(options?)`: Foca no primeiro nó DOM focável do Fragment. O foco é tentado nos filhos aninhados em profundidade primeiro.
-- `focusLast(options?)`: Foca no último nó DOM focável do Fragment. O foco é tentado nos filhos aninhados em profundidade primeiro.
-- `blur()`: Remove o foco se `document.activeElement` estiver dentro do Fragment.
-
-**Métodos de observação:**
-- `observeUsing(observer)`: Inicia a observação dos filhos DOM do Fragment com um IntersectionObserver ou ResizeObserver.
-- `unobserveUsing(observer)`: Para a observação dos filhos DOM do Fragment com o observador especificado.
-=======
-- **optional** `key`: Fragments declared with the explicit `<Fragment>` syntax may have [keys.](/learn/rendering-lists#keeping-list-items-in-order-with-key)
-- **optional** `ref`: A ref object (e.g. from [`useRef`](/reference/react/useRef)) or [callback function](/reference/react-dom/components/common#ref-callback). React provides a `FragmentInstance` as the ref value that implements methods for interacting with the DOM nodes wrapped by the Fragment.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+- **opcional** `ref`: Um objeto ref (por exemplo, de [`useRef`](/reference/react/useRef)) ou uma [função de callback](/reference/react-dom/components/common#ref-callback). O React fornece um `FragmentInstance` como valor da ref que implementa métodos para interagir com os nós DOM encapsulados pelo Fragment.
 
 #### Cuidados {/*caveats*/}
 
-<<<<<<< HEAD
-- Se você quiser passar uma `key` para um Fragment, não pode usar a sintaxe `<>...</>`. Você precisa importar explicitamente o `Fragment` de `'react'` e renderizar `<Fragment key={suaChave}>...</Fragment>`.
+* Se você quiser passar uma `key` para um Fragment, não pode usar a sintaxe `<>...</>`. Você precisa importar explicitamente o `Fragment` de `'react'` e renderizar `<Fragment key={yourKey}>...</Fragment>`.
 
-- O React não [reseta o estado](/learn/preserving-and-resetting-state) quando você passa de `<><Child /></>` para `[<Child />]` ou vice-versa, ou quando você passa de `<><Child /></>` para `<Child />` e vice-versa. Isso funciona apenas para um único nível: por exemplo, passar de `<><><Child /></></>` para `<Child />` reseta o estado. Veja a semântica precisa [aqui.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b).
-=======
-* If you want to pass `key` to a Fragment, you can't use the `<>...</>` syntax. You have to explicitly import `Fragment` from `'react'` and render `<Fragment key={yourKey}>...</Fragment>`.
-
-* React does not [reset state](/learn/preserving-and-resetting-state) when you go from rendering `<><Child /></>` to `[<Child />]` or back, or when you go from rendering `<><Child /></>` to `<Child />` and back. This only works a single level deep: for example, going from `<><><Child /></></>` to `<Child />` resets the state. See the precise semantics [here.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+* O React não [reseta o estado](/learn/preserving-and-resetting-state) quando você passa de `<><Child /></>` para `[<Child />]` ou vice-versa, ou quando você passa de `<><Child /></>` para `<Child />` e vice-versa. Isso funciona apenas para um único nível: por exemplo, passar de `<><><Child /></></>` para `<Child />` reseta o estado. Veja a semântica precisa [aqui.](https://gist.github.com/clemmy/b3ef00f9507909429d8aa0d3ee4f986b)
 
 * If you want to pass `ref` to a Fragment, you can't use the `<>...</>` syntax. You have to explicitly import `Fragment` from `'react'` and render `<Fragment ref={yourRef}>...</Fragment>`.
 

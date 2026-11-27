@@ -92,11 +92,7 @@ Com uma Transition, sua UI permanece responsiva no meio de uma re-renderização
 
 <Note>
 
-<<<<<<< HEAD
-`startTransition` é muito semelhante ao [`useTransition`](/reference/react/useTransition), exceto que não fornece a flag `isPending` para rastrear se uma Transition está em andamento. Você pode chamar `startTransition` quando `useTransition` não estiver disponível. Por exemplo, `startTransition` funciona fora dos componentes, como de uma biblioteca de dados.
-=======
-`startTransition` is very similar to [`useTransition`](/reference/react/useTransition), except that it does not provide the `isPending` flag to track whether a Transition is ongoing. The standalone function is also not associated with a component, so if the function passed to it throws an error or returns a rejected Promise, React reports the error with [`reportError`](https://developer.mozilla.org/en-US/docs/Web/API/Window/reportError). You can call `startTransition` when `useTransition` is not available. For example, `startTransition` works outside components, such as from a data library.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+`startTransition` é muito semelhante ao [`useTransition`](/reference/react/useTransition), exceto que não fornece a flag `isPending` para rastrear se uma Transition está em andamento. A função independente também não está associada a um componente, então, se a função passada para ela lançar um erro ou retornar uma Promise rejeitada, o React reporta o erro com [`reportError`](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/reportError). Você pode chamar `startTransition` quando `useTransition` não estiver disponível. Por exemplo, `startTransition` funciona fora dos componentes, como de uma biblioteca de dados.
 
 [Saiba mais sobre Transitions e veja exemplos na página `useTransition`.](/reference/react/useTransition)
 

@@ -54,11 +54,7 @@ No exemplo acima, `Submit` usa essa informação para desabilitar os cliques no 
 
 Um objeto `status` com as seguintes propriedades:
 
-<<<<<<< HEAD
-* `pending`: Um booleano. Se `true`, isso significa que o `<form>` pai está pendente de envio. Caso contrário, `false`.
-=======
-* `pending`: A boolean. `true` while the parent `<form>` is submitting an Action or [running a Transition from `onSubmit`](#display-a-pending-state-with-an-onsubmit-handler). Otherwise, `false`.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+* `pending`: Um booleano. `true` enquanto o `<form>` pai está enviando uma Action ou [executando uma Transition a partir de `onSubmit`](#display-a-pending-state-with-an-onsubmit-handler). Caso contrário, `false`.
 
 * `data`: Um objeto implementando a [`FormData interface`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) que contém os dados que o `<form>` pai está enviando. Se não houver envio ativo ou nenhum `<form>` pai, ele será `null`.
 
@@ -76,12 +72,7 @@ Um objeto `status` com as seguintes propriedades:
 
 ## Uso {/*usage*/}
 
-<<<<<<< HEAD
-### Exibir um estado pendente durante o envio do formulário {/*display-a-pending-state-during-form-submission*/}
-=======
-### Display a pending state with an `action` prop {/*display-a-pending-state-during-form-submission*/}
-To display a pending state while a form is submitting, you can call the `useFormStatus` Hook in a component rendered in a `<form>` and read the `pending` property returned.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+### Exibir um estado pendente com uma prop `action` {/*display-a-pending-state-during-form-submission*/}
 
 Para exibir um estado pendente enquanto um formulário está enviando, você pode chamar o Hook `useFormStatus` em um componente renderizado em um `<form>` e ler a propriedade `pending` retornada.
 

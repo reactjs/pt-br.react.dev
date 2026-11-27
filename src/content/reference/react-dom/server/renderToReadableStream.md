@@ -49,34 +49,21 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 * `reactNode`: Um nó React que você deseja renderizar para HTML. Por exemplo, um elemento JSX como `<App />`. Espera-se que ele represente o documento inteiro, então o componente `App` deve renderizar a tag `<html>`.
 
-<<<<<<< HEAD
 * **opcional** `options`: Um objeto com opções de streaming.
   * **opcional** `bootstrapScriptContent`: Se especificado, esta string será colocada em uma tag `<script>` inline.
   * **opcional** `bootstrapScripts`: Uma array de URLs de string para as tags `<script>` a serem emitidas na página. Use isso para incluir o `<script>` que chama [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Omita se você não quiser executar React no cliente.
   * **opcional** `bootstrapModules`: Como `bootstrapScripts`, mas emite [`<script type="module">`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) em vez disso.
+  * **opcional** `formState`: O estado do formulário de um envio de formulário tratado por uma [Server Function](/reference/rsc/server-functions). Se a página for renderizada em resposta ao envio de um formulário que usa [`useActionState`](/reference/react/useActionState) com um `permalink`, passe o estado do formulário resultante para que o React o incorpore no HTML para a hidratação. O mesmo valor deve ser passado para [`hydrateRoot`](/reference/react-dom/client/hydrateRoot#parameters) no cliente. Normalmente, isso é repassado pelo seu framework.
   * **opcional** `identifierPrefix`: Um prefixo de string que o React usa para IDs gerados por [`useId`.](/reference/react/useId) Útil para evitar conflitos ao usar várias roots na mesma página. Deve ser o mesmo prefixo que foi passado para [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
+  * **opcional** `importMap`: Um objeto de [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) com as propriedades `imports` e `scopes`. O React o emite como uma tag `<script type="importmap">` inline antes de quaisquer scripts de módulo, para que as tags `<script type="module">` (por exemplo, de `bootstrapModules`) possam usar especificadores de módulo simples (bare module specifiers). <CanaryBadge /> Quando `nonce` está definido, ele também é aplicado ao script do import map.
+  * **opcional** `maxHeadersLength`: O comprimento total máximo do conteúdo dos headers passado para `onHeaders`, medido em unidades de código UTF-16. O padrão é 2000. Quando o limite é atingido, o React para de adicionar dicas de recursos (resource hints) aos headers.
   * **opcional** `namespaceURI`: Uma string com o [namespace URI](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElementNS#important_namespace_uris) raiz para o stream. Por padrão, é HTML normal. Passe `'http://www.w3.org/2000/svg'` para SVG ou `'http://www.w3.org/1998/Math/MathML'` para MathML.
-  * **opcional** `nonce`: Uma string [`nonce`](http://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/script#nonce) para permitir scripts para [`script-src` Content-Security-Policy](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
+  * **opcional** `nonce`: Uma string [`nonce`](http://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/script#nonce) para permitir scripts para [`script-src` Content-Security-Policy](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers/Content-Security-Policy/script-src). Para usar nonces diferentes para scripts e estilos, passe um objeto com as propriedades `script` e `style` em vez disso.
+  * **opcional** `onBrowserBailout`: Um callback que o React chama quando se recupera de [`browser()`](/reference/react-dom/browser) deixando um fallback de Suspense para o navegador substituir. Ele recebe um `Error` descrevendo a renderização exclusiva do navegador e um objeto `errorInfo` contendo o `componentStack`. Se um motivo foi passado para `browser`, ele fica disponível como `error.cause`. Por padrão, o React não faz nada. [Veja como reportar a renderização exclusiva do navegador.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
   * **opcional** `onError`: Um callback que é acionado sempre que houver um erro de servidor, seja [recuperável](#recovering-from-errors-outside-the-shell) ou [não.](#recovering-from-errors-inside-the-shell) Por padrão, isso só chama `console.error`. Se você substituí-lo para [registrar relatórios de falhas,](#logging-crashes-on-the-server) certifique-se de ainda chamar `console.error`. Você também pode usá-lo para [ajustar o código de status](#setting-the-status-code) antes que o shell seja emitido.
-  * **opcional** `progressiveChunkSize`: O número de bytes em um chunk. [Leia mais sobre a heurística padrão.](https://github.com/facebook/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
+  * **opcional** `onHeaders`: Um callback que é acionado quando o React determina as dicas de recursos (resource hints) do documento, como preconnects e preloads de folhas de estilo, fontes ou imagens de alta prioridade. Ele recebe uma instância de [`Headers`](https://developer.mozilla.org/en-US/docs/Web/API/Headers) contendo o valor correspondente do [header `Link`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/link), para que você possa enviá-lo como um header de resposta HTTP ou como uma resposta [103 Early Hints](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103). O React o chama mesmo quando não há dicas de recursos para enviar. O conteúdo dos headers é limitado por `maxHeadersLength`.
+  * **opcional** `progressiveChunkSize`: O número de bytes em um chunk. [Leia mais sobre a heurística padrão.](https://github.com/react/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
   * **opcional** `signal`: Um [abort signal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a renderização do servidor](#aborting-server-rendering) e renderizar o restante no cliente.
-=======
-* **optional** `options`: An object with streaming options.
-  * **optional** `bootstrapScriptContent`: If specified, this string will be placed in an inline `<script>` tag.
-  * **optional** `bootstrapScripts`: An array of string URLs for the `<script>` tags to emit on the page. Use this to include the `<script>` that calls [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot) Omit it if you don't want to run React on the client at all.
-  * **optional** `bootstrapModules`: Like `bootstrapScripts`, but emits [`<script type="module">`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) instead.
-  * **optional** `formState`: The form state from a form submission handled by a [Server Function](/reference/rsc/server-functions). If the page is rendered in response to a submission of a form that uses [`useActionState`](/reference/react/useActionState) with a `permalink`, pass the resulting form state so that React embeds it into the HTML for hydration. The same value must be passed to [`hydrateRoot`](/reference/react-dom/client/hydrateRoot#parameters) on the client. This is typically passed through by your framework.
-  * **optional** `identifierPrefix`: A string prefix React uses for IDs generated by [`useId`.](/reference/react/useId) Useful to avoid conflicts when using multiple roots on the same page. Must be the same prefix as passed to [`hydrateRoot`.](/reference/react-dom/client/hydrateRoot#parameters)
-  * **optional** `importMap`: An [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap) object with `imports` and `scopes` properties. React emits it as an inline `<script type="importmap">` tag before any module scripts, so that `<script type="module">` tags (for example, from `bootstrapModules`) can use bare module specifiers. <CanaryBadge /> When `nonce` is set, it is also applied to the import map script.
-  * **optional** `maxHeadersLength`: The maximum total length of the header content passed to `onHeaders`, measured in UTF-16 code units. Defaults to 2000. Once the limit is reached, React stops adding resource hints to the headers.
-  * **optional** `namespaceURI`: A string with the root [namespace URI](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElementNS#important_namespace_uris) for the stream. Defaults to regular HTML. Pass `'http://www.w3.org/2000/svg'` for SVG or `'http://www.w3.org/1998/Math/MathML'` for MathML.
-  * **optional** `nonce`: A [`nonce`](http://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#nonce) string to allow scripts for [`script-src` Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src). To use different nonces for scripts and styles, pass an object with `script` and `style` properties instead.
-  * **optional** `onBrowserBailout`: A callback React calls when it recovers from [`browser()`](/reference/react-dom/browser) by leaving a Suspense fallback for the browser to replace. It receives an `Error` describing the browser-only render and an `errorInfo` object containing the `componentStack`. If a reason was passed to `browser`, it is available as `error.cause`. By default, React does nothing. [See how to report browser-only rendering.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
-  * **optional** `onError`: A callback that fires whenever there is a server error, whether [recoverable](#recovering-from-errors-outside-the-shell) or [not.](#recovering-from-errors-inside-the-shell) By default, this only calls `console.error`. If you override it to [log crash reports,](#logging-crashes-on-the-server) make sure that you still call `console.error`. You can also use it to [adjust the status code](#setting-the-status-code) before the shell is emitted.
-  * **optional** `onHeaders`: A callback that fires when React has determined the resource hints for the document, such as preconnects and stylesheet, font, or high-priority image preloads. It receives a [`Headers`](https://developer.mozilla.org/en-US/docs/Web/API/Headers) instance containing the corresponding [`Link` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/link) value, so you can send it as an HTTP response header or as a [103 Early Hints](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103) response. React calls it even when there are no resource hints to send. The header content is capped by `maxHeadersLength`.
-  * **optional** `progressiveChunkSize`: The number of bytes in a chunk. [Read more about the default heuristic.](https://github.com/react/react/blob/14c2be8dac2d5482fda8a0906a31d239df8551fc/packages/react-server/src/ReactFizzServer.js#L210-L225)
-  * **optional** `signal`: An [abort signal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that lets you [abort server rendering](#aborting-server-rendering) and render the rest on the client.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 #### Retorna {/*returns*/}
 
@@ -299,21 +286,7 @@ O streaming não precisa esperar que o próprio React carregue no navegador ou q
 
 <Note>
 
-<<<<<<< HEAD
-**Somente fontes de dados habilitadas para Suspense ativarão o componente Suspense.** Eles incluem:
-
-- Recuperação de dados com frameworks habilitados para Suspense como [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) e [Next.js](https://nextjs.org/docs/getting-started/react-essentials)
-- Carregamento lento do código do componente com [`lazy`](/reference/react/lazy)
-- Lendo o valor de uma Promise com [`use`](/reference/react/use)
-
-Suspense **não** detecta quando os dados são buscados dentro de um Effect ou manipulador de eventos.
-
-A maneira exata como você carregaria os dados no componente `Posts` acima depende do seu framework. Se você usar um framework habilitado para Suspense, encontrará os detalhes em sua documentação de busca de dados.
-
-A busca de dados habilitada para Suspense sem o uso de um framework opinativo ainda não é suportada. Os requisitos para implementar uma fonte de dados habilitada para Suspense são instáveis e não documentados. Uma API oficial para integrar fontes de dados com Suspense será lançada em uma versão futura do React.
-=======
-Only data read from a source that [activates a Suspense boundary](/reference/react/Suspense#what-activates-a-suspense-boundary), such as a Promise read with [`use`](/reference/react/use), will suspend during rendering. Suspense does not detect data fetched inside an Effect or event handler.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Apenas dados lidos de uma fonte que [ativa um limite de Suspense](/reference/react/Suspense#what-activates-a-suspense-boundary), como uma Promise lida com [`use`](/reference/react/use), suspenderão durante a renderização. O Suspense não detecta dados buscados dentro de um Effect ou manipulador de eventos.
 
 </Note>
 
@@ -455,7 +428,7 @@ function ProfilePage() {
 }
 ```
 
-Se um erro ocorrer no componente `Posts` ou em algum lugar dentro dele, o React [tentará se recuperar disso:](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-server-only-content)
+Se um erro ocorrer no componente `Posts` ou em algum lugar dentro dele, o React [tentará se recuperar disso:](/reference/react/Suspense#providing-a-fallback-for-server-errors-and-client-only-content)
 
 1. Ele emitirá o fallback de carregamento para o limite `<Suspense>` mais próximo (`PostsGlimmer`) no HTML.
 2. Ele "desistirá" de tentar renderizar o conteúdo `Posts` no servidor.

@@ -38,40 +38,27 @@ Para criar controles interativos para enviar informações, renderize o [compone
 
 `<form>` suporta todas as [props de elementos comuns.](/reference/react-dom/components/common#common-props)
 
-<<<<<<< HEAD
-[`action`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/form#action): uma URL ou função. Quando uma URL é passada para `action`, o formulário se comportará como o componente de formulário HTML. Quando uma função é passada para `action`, a função irá manipular o envio do formulário seguindo [o padrão de props de Action](/reference/react/useTransition#exposing-action-props-from-components). A função passada para `action` pode ser async e será chamada com um único argumento contendo os [dados do formulário](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) do formulário enviado. A prop `action` pode ser substituída por um atributo `formAction` em um componente `<button>`, `<input type="submit">` ou `<input type="image">`.
-=======
-* [`action`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#action): A string containing a URL, or a function. If you pass a URL, the form behaves like a standard HTML form. If you pass a function, it handles the submission. See [Handling form submission with an action prop](#handle-form-submission-with-an-action-prop).
-  * If you pass a function to `action`, React runs it in a [Transition](/reference/react/useTransition) following [the Action prop pattern](/reference/react/useTransition#exposing-action-props-from-components).
-  * The function may be async. React calls it with a single argument containing the [form data](https://developer.mozilla.org/en-US/docs/Web/API/FormData) of the submitted form.
-  * A `formAction` prop on a `<button>`, `<input type="submit">`, or `<input type="image">` overrides this `action`.
-* [`method`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#method): A string that specifies the HTTP method to use when `action` is a URL. Defaults to `get`.
-* `onSubmit`: An [`Event` handler](/reference/react-dom/components/common#react-event-object) function. Fires when the form is submitted. See [Handling form submission with an event handler](#handle-form-submission-with-an-event-handler).
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+* [`action`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/form#action): Uma string contendo uma URL, ou uma função. Se você passar uma URL, o formulário se comporta como um formulário HTML padrão. Se você passar uma função, ela manipula o envio. Veja [Manipulando o envio de formulário com uma prop action](#handle-form-submission-with-an-action-prop).
+  * Se você passar uma função para `action`, o React a executa em uma [Transition](/reference/react/useTransition) seguindo [o padrão de props de Action](/reference/react/useTransition#exposing-action-props-from-components).
+  * A função pode ser async. O React a chama com um único argumento contendo os [dados do formulário](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) do formulário enviado.
+  * Uma prop `formAction` em um `<button>`, `<input type="submit">` ou `<input type="image">` substitui esta `action`.
+* [`method`](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/form#method): Uma string que especifica o método HTTP a ser usado quando `action` é uma URL. O padrão é `get`.
+* `onSubmit`: Uma função [manipuladora de `Event`](/reference/react-dom/components/common#react-event-object). Disparada quando o formulário é enviado. Veja [Manipulando o envio de formulário com um manipulador de eventos](#handle-form-submission-with-an-event-handler).
 
 #### Ressalvas {/*caveats*/}
 
-<<<<<<< HEAD
-* Quando uma função é passada para `action` ou `formAction`, o método HTTP será POST, independentemente do valor da prop `method`.
-=======
-* If you pass a function to `action` or `formAction`, the HTTP method will be `POST` regardless of the value of the `method` prop.
-* If you pass a function to `action` or `formAction`, React resets all [uncontrolled](/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form) field elements after the Action succeeds. See [Preserving form values after an Action](#preserve-form-values-after-an-action).
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+* Se você passar uma função para `action` ou `formAction`, o método HTTP será `POST`, independentemente do valor da prop `method`.
+* Se você passar uma função para `action` ou `formAction`, o React redefine todos os elementos de campo [não controlados](/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form) após a Action ser concluída com sucesso. Veja [Preservando os valores do formulário após uma Action](#preserve-form-values-after-an-action).
 
 ---
 
 ## Uso {/*usage*/}
 
-<<<<<<< HEAD
-### Manipular envio de formulário no cliente {/*handle-form-submission-on-the-client*/}
+### Manipulando o envio de formulário com um manipulador de eventos {/*handle-form-submission-with-an-event-handler*/}
 
-Passe uma função para a prop `action` do formulário para executar a função quando o formulário for enviado. [`formData`](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) será passado para a função como um argumento para que você possa acessar os dados enviados pelo formulário. Isso difere da [ação HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/form#action) convencional, que aceita apenas URLs. Após a execução da função `action`, todos os elementos de campo não controlados no formulário são redefinidos.
-=======
-### Handling form submission with an event handler {/*handle-form-submission-with-an-event-handler*/}
+Passe uma função para o manipulador de eventos `onSubmit` para executar código quando o formulário for enviado. Por padrão, o navegador envia os dados do formulário para a URL atual e recarrega a página. Chamar [`e.preventDefault()`](https://developer.mozilla.org/pt-BR/docs/Web/API/Event/preventDefault) no manipulador de eventos substitui esse comportamento.
 
-Pass a function to the `onSubmit` event handler to run code when the form is submitted. By default, the browser sends the form data to the current URL and refreshes the page. Calling [`e.preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) in the event handler overrides this behavior.
-
-If you also pass a function to `action`, React runs it after `onSubmit` unless `onSubmit` calls `e.preventDefault()`.
+Se você também passar uma função para `action`, o React a executa depois de `onSubmit`, a menos que `onSubmit` chame `e.preventDefault()`.
 
 <Sandpack>
 
@@ -99,27 +86,26 @@ export default function Search() {
 
 <Note>
 
-`onSubmit` works in every version of React and gives you direct access to the [submit event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event). Starting in React 19, the [`action` prop](#handle-form-submission-with-an-action-prop) is the preferred API for form submissions. With `action`, React runs the submission in a [Transition](/reference/react/useTransition) and manages pending state and concurrency across multiple submissions. You can also use optimistic updates, Error Boundaries, and [Server Functions](/reference/rsc/server-functions).
+`onSubmit` funciona em todas as versões do React e dá acesso direto ao [evento de envio](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLFormElement/submit_event). A partir do React 19, a [prop `action`](#handle-form-submission-with-an-action-prop) é a API preferida para envios de formulário. Com `action`, o React executa o envio em uma [Transition](/reference/react/useTransition) e gerencia o estado pendente e a concorrência entre vários envios. Você também pode usar atualizações otimistas, Error Boundaries e [Server Functions](/reference/rsc/server-functions).
 
 </Note>
 
 ---
 
-### Handling form submission with an action prop {/*handle-form-submission-with-an-action-prop*/}
+### Manipulando o envio de formulário com uma prop action {/*handle-form-submission-with-an-action-prop*/}
 
-Pass a function to the `action` prop to run it when the form is submitted. React calls the function with a [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) object containing the values of every input with a `name` attribute. Your inputs can be [uncontrolled](/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form). You don't need `value`/`onChange` pairs, an `onSubmit` handler, or `e.preventDefault()`.
+Passe uma função para a prop `action` para executá-la quando o formulário for enviado. O React chama a função com um objeto [`FormData`](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) contendo os valores de cada input com um atributo `name`. Seus inputs podem ser [não controlados](/reference/react-dom/components/input#reading-the-input-values-when-submitting-a-form). Você não precisa de pares `value`/`onChange`, de um manipulador `onSubmit` nem de `e.preventDefault()`.
 
-When you pass a function to `action`, React:
+Quando você passa uma função para `action`, o React:
 
-* Runs the function in a [Transition](/reference/react/useTransition).
-* Makes the pending state available to child components via [`useFormStatus`](/reference/react-dom/hooks/useFormStatus).
-* Propagates any errors to the nearest Error Boundary.
-* Resets the form's uncontrolled fields when the function succeeds. To keep their values, see [Preserving form values after an Action](#preserve-form-values-after-an-action).
+* Executa a função em uma [Transition](/reference/react/useTransition).
+* Disponibiliza o estado pendente para os componentes filhos por meio de [`useFormStatus`](/reference/react-dom/hooks/useFormStatus).
+* Propaga quaisquer erros para o Error Boundary mais próximo.
+* Redefine os campos não controlados do formulário quando a função é concluída com sucesso. Para manter os valores deles, veja [Preservando os valores do formulário após uma Action](#preserve-form-values-after-an-action).
 
-If you handle submission manually, you can [request the same reset behavior with `requestFormReset`](/reference/react-dom/requestFormReset#requesting-a-reset-in-a-custom-form-action).
+Se você manipular o envio manualmente, pode [solicitar o mesmo comportamento de redefinição com `requestFormReset`](/reference/react-dom/requestFormReset#requesting-a-reset-in-a-custom-form-action).
 
-Because the Action runs in a Transition, you can also use [`useActionState`](/reference/react/useActionState) to manage form state and [`useOptimistic`](/reference/react/useOptimistic) for optimistic UI. For [Server Functions](/reference/rsc/server-functions) and progressive enhancement, see [Handling form submission with a Server Function](#handle-form-submission-with-a-server-function).
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Como a Action é executada em uma Transition, você também pode usar [`useActionState`](/reference/react/useActionState) para gerenciar o estado do formulário e [`useOptimistic`](/reference/react/useOptimistic) para UI otimista. Para [Server Functions](/reference/rsc/server-functions) e aprimoramento progressivo, veja [Manipulando o envio de formulário com uma Server Function](#handle-form-submission-with-a-server-function).
 
 <Sandpack>
 
@@ -140,23 +126,13 @@ export default function Search() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-### Manipular envio de formulário com uma Server Function {/*handle-form-submission-with-a-server-function*/}
-
-Renderize um `<form>` com um input e um botão de envio. Passe uma Server Function (uma função marcada com [`'use server'`](/reference/rsc/use-server)) para a prop `action` do formulário para executar a função quando o formulário for enviado.
-
-Passar uma Server Function para `<form action>` permite que os usuários enviem formulários sem o JavaScript ativado ou antes que o código seja carregado. Isso é benéfico para usuários que têm uma conexão lenta, dispositivo ou têm o JavaScript desativado e é semelhante à maneira como os formulários funcionam quando uma URL é passada para a prop `action`.
-
-Você pode usar campos de formulário ocultos para fornecer dados para a ação do `<form>`. A Server Function será chamada com os dados do campo de formulário oculto como uma instância de [`FormData`](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData).
-=======
 ---
 
-### Handling form submission with a Server Function {/*handle-form-submission-with-a-server-function*/}
+### Manipulando o envio de formulário com uma Server Function {/*handle-form-submission-with-a-server-function*/}
 
-A `<form>`'s `action` prop can run a Server Function (a function marked with [`'use server'`](/reference/rsc/use-server)) when the user submits the form. Users can submit that form before JavaScript loads or when JavaScript is disabled. This matches how forms behave when you pass a URL to `action`.
+A prop `action` de um `<form>` pode executar uma Server Function (uma função marcada com [`'use server'`](/reference/rsc/use-server)) quando o usuário envia o formulário. Os usuários podem enviar esse formulário antes que o JavaScript seja carregado ou quando o JavaScript estiver desativado. Isso corresponde à maneira como os formulários se comportam quando você passa uma URL para `action`.
 
-React calls the Server Function with the form's [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) and includes every input with a `name` attribute. To pass additional data, such as an ID from props, see [Passing extra data to an Action](#passing-extra-data-to-an-action).
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+O React chama a Server Function com o [`FormData`](https://developer.mozilla.org/pt-BR/docs/Web/API/FormData) do formulário, que inclui cada input com um atributo `name`. Para passar dados adicionais, como um ID vindo das props, veja [Passando dados extras para uma Action](#passing-extra-data-to-an-action).
 
 ```jsx
 import { addComment } from './actions.js';
@@ -171,13 +147,9 @@ function CommentForm() {
 }
 ```
 
-<<<<<<< HEAD
-Em vez de usar campos de formulário ocultos para fornecer dados à ação do `<form>`, você pode chamar o método <CodeStep step={1}>`bind`</CodeStep> para fornecer argumentos extras. Isso vinculará um novo argumento (<CodeStep step={2}>`productId`</CodeStep>) à função, além do <CodeStep step={3}>`formData`</CodeStep> que é passado como argumento para a função.
-=======
 ```js
 // actions.js
 'use server';
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 export async function addComment(formData) {
   const comment = formData.get('comment');
@@ -243,19 +215,13 @@ function AddToCart({ productId }) {
 }
 ```
 
-<<<<<<< HEAD
-Quando o `<form>` é renderizado por um [Server Component](/reference/rsc/use-client), e uma [Server Function](/reference/rsc/server-functions) é passada para a prop `action` do `<form>`, o formulário é [progressivamente aprimorado](https://developer.mozilla.org/pt-BR/docs/Glossary/Progressive_Enhancement).
+Quando o formulário é enviado, o React chama `addProductToCart(formData)`, que chama `addToCart(productId, formData)`.
 
-### Exibir um estado pendente durante o envio do formulário {/*display-a-pending-state-during-form-submission*/}
-Para exibir um estado pendente quando um formulário está sendo enviado, você pode chamar o Hook `useFormStatus` em um componente renderizado em um `<form>` e ler a propriedade `pending` retornada.
-=======
-When the form is submitted, React calls `addProductToCart(formData)`, which calls `addToCart(productId, formData)`.
+Se você também usar [`useActionState`](/reference/react/useActionState), a Server Function recebe `productId`, `previousState` e `formData`, nessa ordem. Defina essa função em um arquivo separado e faça o bind dela a partir do Client Component.
 
-If you also use [`useActionState`](/reference/react/useActionState), the Server Function receives `productId`, `previousState`, and `formData`, in that order. Define that function in a separate file and bind it from the Client Component.
+#### Uma função no componente {/*passing-extra-data-function*/}
 
-#### A function in the component {/*passing-extra-data-function*/}
-
-Define the function passed to `action` in the Client Component so it can read the component's props or state. That function passes those values to a Server Function.
+Defina a função passada para `action` no Client Component para que ela possa ler as props ou o state do componente. Essa função passa esses valores para uma Server Function.
 
 ```jsx
 // AddToCart.js
@@ -284,16 +250,15 @@ export async function updateCart(productId, formData) {
 }
 ```
 
-Because `addToCart` runs in the browser, the component's JavaScript must load before the form can submit.
+Como `addToCart` é executada no navegador, o JavaScript do componente precisa ser carregado antes que o formulário possa ser enviado.
 
 </DeepDive>
 
 ---
 
-### Displaying a pending state during form submission {/*display-a-pending-state-during-form-submission*/}
+### Exibindo um estado pendente durante o envio do formulário {/*display-a-pending-state-during-form-submission*/}
 
-To display a pending state when a form is being submitted, you can call the [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) Hook in a component rendered in a `<form>` and read the `pending` property returned.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Para exibir um estado pendente quando um formulário está sendo enviado, você pode chamar o Hook [`useFormStatus`](/reference/react-dom/hooks/useFormStatus) em um componente renderizado em um `<form>` e ler a propriedade `pending` retornada.
 
 Aqui, usamos a propriedade `pending` para indicar que o formulário está sendo enviado.
 
@@ -333,20 +298,13 @@ export async function submitForm(formData) {
 
 </Sandpack>
 
-<<<<<<< HEAD
 Para saber mais sobre o Hook `useFormStatus`, consulte a [documentação de referência](/reference/react-dom/hooks/useFormStatus).
-
-### Atualizando otimistamente dados do formulário {/*optimistically-updating-form-data*/}
-O Hook `useOptimistic` fornece uma maneira de atualizar otimistamente a interface do usuário antes que uma operação em segundo plano, como uma solicitação de rede, seja concluída. No contexto de formulários, essa técnica ajuda a tornar os aplicativos mais responsivos. Quando um usuário envia um formulário, em vez de esperar pela resposta do servidor para refletir as alterações, a interface é imediatamente atualizada com o resultado esperado.
-=======
-To learn more about the `useFormStatus` Hook, see the [reference documentation](/reference/react-dom/hooks/useFormStatus).
 
 ---
 
-### Optimistically updating form data {/*optimistically-updating-form-data*/}
+### Atualizando otimistamente dados do formulário {/*optimistically-updating-form-data*/}
 
-The [`useOptimistic`](/reference/react/useOptimistic) Hook provides a way to optimistically update the user interface before a background operation, like a network request, completes. In the context of forms, this technique helps to make apps feel more responsive. When a user submits a form, instead of waiting for the server's response to reflect the changes, the interface is immediately updated with the expected outcome.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+O Hook [`useOptimistic`](/reference/react/useOptimistic) fornece uma maneira de atualizar otimistamente a interface do usuário antes que uma operação em segundo plano, como uma solicitação de rede, seja concluída. No contexto de formulários, essa técnica ajuda a tornar os aplicativos mais responsivos. Quando um usuário envia um formulário, em vez de esperar pela resposta do servidor para refletir as alterações, a interface é imediatamente atualizada com o resultado esperado.
 
 Por exemplo, quando um usuário digita uma mensagem no formulário e pressiona o botão "Enviar", o Hook `useOptimistic` permite que a mensagem apareça imediatamente na lista com um rótulo "Enviando...", mesmo antes que a mensagem seja realmente enviada para um servidor. Essa abordagem "otimista" dá a impressão de velocidade e responsividade. O formulário então tenta enviar a mensagem de verdade em segundo plano. Depois que o servidor confirma que a mensagem foi recebida, o rótulo "Enviando..." é removido.
 
@@ -414,22 +372,13 @@ export async function deliverMessage(message) {
 
 </Sandpack>
 
-<<<<<<< HEAD
-[//]: # 'Remova o comentário da próxima linha e exclua esta linha após a publicação da página de documentação de referência `useOptimistic`'
-[//]: # 'Para saber mais sobre o Hook `useOptimistic`, consulte a [documentação de referência](/reference/react/useOptimistic).'
-=======
-To learn more about the `useOptimistic` Hook, see the [reference documentation](/reference/react/useOptimistic).
+Para saber mais sobre o Hook `useOptimistic`, consulte a [documentação de referência](/reference/react/useOptimistic).
 
 ---
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ### Lidando com erros de envio de formulário {/*handling-form-submission-errors*/}
 
-<<<<<<< HEAD
-Em alguns casos, a função chamada pela prop `action` de um `<form>` lança um erro. Você pode tratar esses erros envolvendo o `<form>` em um Error Boundary. Se a função chamada pela prop `action` de um `<form>` lançar um erro, o fallback para o error boundary será exibido.
-=======
-To handle errors thrown by a function passed to a `<form>`'s `action` prop, wrap the form in an [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). React displays the boundary's fallback when the function throws.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Para tratar erros lançados por uma função passada para a prop `action` de um `<form>`, envolva o formulário em um [Error Boundary](/reference/react/Component#catching-rendering-errors-with-an-error-boundary). O React exibe o fallback do boundary quando a função lança um erro.
 
 <Sandpack>
 
@@ -467,27 +416,15 @@ export default function Search() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-### Exibir um erro de envio de formulário sem JavaScript {/*display-a-form-submission-error-without-javascript*/}
-=======
-#### Handling form submission errors before JavaScript loads {/*display-a-form-submission-error-without-javascript*/}
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+#### Lidando com erros de envio de formulário antes do carregamento do JavaScript {/*display-a-form-submission-error-without-javascript*/}
 
 Exibir uma mensagem de erro de envio de formulário antes que o bundle JavaScript seja carregado para aprimoramento progressivo exige que:
 
-<<<<<<< HEAD
 1. `<form>` seja renderizado por um [Client Component](/reference/rsc/use-client)
 1. a função passada para a prop `action` do `<form>` seja uma [Server Function](/reference/rsc/server-functions)
-1. o Hook `useActionState` seja usado para exibir a mensagem de erro
+1. o Hook [`useActionState`](/reference/react/useActionState) seja usado para exibir a mensagem de erro
 
-`useActionState` recebe dois parâmetros: um [Server Function](/reference/rsc/server-functions) e um estado inicial. `useActionState` retorna dois valores, uma variável de estado e uma ação. A ação retornada por `useActionState` deve ser passada para a prop `action` do formulário. A variável de estado retornada por `useActionState` pode ser usada para exibir uma mensagem de erro. O valor retornado pela Server Function passada para `useActionState` será usado para atualizar a variável de estado.
-=======
-1. `<form>` be rendered by a [Client Component](/reference/rsc/use-client)
-1. the function passed to the `<form>`'s `action` prop be a [Server Function](/reference/rsc/server-functions)
-1. the [`useActionState`](/reference/react/useActionState) Hook be used to display the error message
-
-Define the Server Function in a separate file with the [`'use server'`](/reference/rsc/use-server) directive. It receives the previous state followed by the submitted `FormData`:
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Defina a Server Function em um arquivo separado com a diretiva [`'use server'`](/reference/rsc/use-server). Ela recebe o estado anterior seguido do `FormData` enviado:
 
 ```js
 // actions.js
@@ -581,12 +518,9 @@ export default function SaveButton() {
 
 </Sandpack>
 
-<<<<<<< HEAD
-Saiba mais sobre como atualizar o estado de uma ação de formulário com a documentação [`useActionState`](/reference/react/useActionState)
-=======
-The call to `setTitle` [after `await`](/reference/react/useTransition#react-doesnt-treat-my-state-update-after-await-as-a-transition) needs another [`startTransition`](/reference/react/startTransition) to mark it as a Transition update.
+A chamada a `setTitle` [após o `await`](/reference/react/useTransition#react-doesnt-treat-my-state-update-after-await-as-a-transition) precisa de outro [`startTransition`](/reference/react/startTransition) para marcá-la como uma atualização de Transition.
 
-`saveAction` can also call a [Server Function](/reference/rsc/server-functions) and store its return value:
+`saveAction` também pode chamar uma [Server Function](/reference/rsc/server-functions) e armazenar o valor retornado por ela:
 
 ```js
 // actions.js
@@ -601,7 +535,7 @@ export async function submitTitle(formData) {
 }
 ```
 
-Add [`'use client'`](/reference/rsc/use-client) at the top of the component's file, import `submitTitle`, and replace `saveAction`. The rest of the form stays the same:
+Adicione [`'use client'`](/reference/rsc/use-client) no topo do arquivo do componente, importe `submitTitle` e substitua `saveAction`. O restante do formulário permanece igual:
 
 ```js
 import { submitTitle } from './actions.js';
@@ -614,13 +548,13 @@ async function saveAction(formData) {
 }
 ```
 
-#### Preserving form values before JavaScript loads {/*preserving-form-values-before-javascript-loads*/}
+#### Preservando os valores do formulário antes do carregamento do JavaScript {/*preserving-form-values-before-javascript-loads*/}
 
-With [`useActionState`](/reference/react/useActionState), React can display a [Server Function](/reference/rsc/server-functions)'s returned value before hydration completes. The form can use those values as its new defaults. In a [Client Component](/reference/rsc/use-client), `useActionState` receives the Server Function and returns an Action for the form's `action` prop.
+Com [`useActionState`](/reference/react/useActionState), o React pode exibir o valor retornado por uma [Server Function](/reference/rsc/server-functions) antes que a hidratação seja concluída. O formulário pode usar esses valores como seus novos valores padrão. Em um [Client Component](/reference/rsc/use-client), `useActionState` recebe a Server Function e retorna uma Action para a prop `action` do formulário.
 
-See [Handling form submission errors before JavaScript loads](#display-a-form-submission-error-without-javascript) for the same behavior with errors.
+Veja [Lidando com erros de envio de formulário antes do carregamento do JavaScript](#display-a-form-submission-error-without-javascript) para o mesmo comportamento com erros.
 
-The Server Function receives the previous state followed by the submitted `FormData`. In this example, `updateTitle` saves the title and returns `{ title }`, which becomes the new state. Passing `state.title` to `defaultValue` preserves the saved title after the reset:
+A Server Function recebe o estado anterior seguido do `FormData` enviado. Neste exemplo, `updateTitle` salva o título e retorna `{ title }`, que se torna o novo estado. Passar `state.title` para `defaultValue` preserva o título salvo após a redefinição:
 
 ```js
 // actions.js
@@ -660,32 +594,25 @@ export default function EditForm() {
 
 <DeepDive>
 
-#### Other ways to control form resets {/*other-ways-to-control-form-resets*/}
+#### Outras maneiras de controlar a redefinição do formulário {/*other-ways-to-control-form-resets*/}
 
-The examples above keep every submitted value by storing it before the reset. You can also choose which values survive, or when the reset runs:
+Os exemplos acima mantêm cada valor enviado armazenando-o antes da redefinição. Você também pode escolher quais valores sobrevivem, ou quando a redefinição acontece:
 
-* **Keep values only when validation fails.** Return the same state shape from every submission. When validation fails, include the submitted `FormData` and read each field with `state.submitted?.get('title') ?? ''`. When validation succeeds, set that `FormData` to `null` so the reset clears those fields. [`useActionState`](/reference/react/useActionState#displaying-validation-errors-and-preserving-form-values) shows this pattern.
+* **Manter os valores apenas quando a validação falhar.** Retorne o mesmo formato de estado em todos os envios. Quando a validação falhar, inclua o `FormData` enviado e leia cada campo com `state.submitted?.get('title') ?? ''`. Quando a validação for bem-sucedida, defina esse `FormData` como `null` para que a redefinição limpe esses campos. [`useActionState`](/reference/react/useActionState#displaying-validation-errors-and-preserving-form-values) mostra esse padrão.
 
-* **Skip the reset with `onSubmit`.** Handle the submission in `onSubmit`, call `e.preventDefault()`, and run the Action inside [`startTransition`](/reference/react/useTransition). Because the form's `action` does not run, React does not reset the form.
+* **Pular a redefinição com `onSubmit`.** Manipule o envio em `onSubmit`, chame `e.preventDefault()` e execute a Action dentro de [`startTransition`](/reference/react/useTransition). Como a `action` do formulário não é executada, o React não redefine o formulário.
 
-* **Reset at a specific moment.** Call the form element's [`reset()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset) method to immediately reset uncontrolled fields to their default values. To schedule a reset as part of an Action or Transition, call [`requestFormReset`](/reference/react-dom/requestFormReset) from `react-dom` instead.
+* **Redefinir em um momento específico.** Chame o método [`reset()`](https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLFormElement/reset) do elemento do formulário para redefinir imediatamente os campos não controlados para seus valores padrão. Para agendar uma redefinição como parte de uma Action ou Transition, chame [`requestFormReset`](/reference/react-dom/requestFormReset) de `react-dom`.
 
-* **Reset the form and the component state together.** Change the [`key`](/learn/preserving-and-resetting-state#resetting-a-form-with-a-key) of the component that renders the form. React recreates the component and its DOM, which resets the fields and any local state.
+* **Redefinir o formulário e o estado do componente juntos.** Altere a [`key`](/learn/preserving-and-resetting-state#resetting-a-form-with-a-key) do componente que renderiza o formulário. O React recria o componente e seu DOM, o que redefine os campos e qualquer estado local.
 
 </DeepDive>
 
 ---
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ### Lidar com vários tipos de envio {/*handling-multiple-submission-types*/}
 
-<<<<<<< HEAD
-Os formulários podem ser projetados para lidar com várias ações de envio com base no botão pressionado pelo usuário. Cada botão dentro de um formulário pode ser associado a uma ação ou comportamento distinto definindo a prop `formAction`.
-
-Quando um usuário toca em um botão específico, o formulário é enviado e uma ação correspondente, definida pelos atributos e ação daquele botão, é executada. Por exemplo, um formulário pode, por padrão, enviar um artigo para revisão, mas ter um botão separado com o `formAction` definido para salvar o artigo como um rascunho.
-=======
-A form can have more than one submit button, each running a different Action. A button without `formAction` runs the form's `action`; a button with `formAction` runs its own Action instead. For example, the form below publishes an article by default, but its **Save draft** button stores the current content without publishing it. It uses [`useActionState`](/reference/react/useActionState) to preserve the saved draft:
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
+Um formulário pode ter mais de um botão de envio, cada um executando uma Action diferente. Um botão sem `formAction` executa a `action` do formulário; um botão com `formAction` executa sua própria Action. Por exemplo, o formulário abaixo publica um artigo por padrão, mas seu botão **Save draft** armazena o conteúdo atual sem publicá-lo. Ele usa [`useActionState`](/reference/react/useActionState) para preservar o rascunho salvo:
 
 <Sandpack>
 

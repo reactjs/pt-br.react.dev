@@ -379,11 +379,7 @@ A opção <CodeStep step={1}>onCaughtError</CodeStep> é uma função chamada co
 1. O <CodeStep step={2}>error</CodeStep> que foi gerado.
 2. 2. Um objeto <CodeStep step={3}>errorInfo</CodeStep> que contém o <CodeStep step={4}>componentStack</CodeStep> do erro.
 
-<<<<<<< HEAD
 Junto com `onUncaughtError` e `onRecoverableError`, você pode implementar seu próprio sistema de relatórios de erros:
-=======
-Together with `onUncaughtError` and `onRecoverableError`, you can implement your own error reporting system:
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 <Sandpack>
 

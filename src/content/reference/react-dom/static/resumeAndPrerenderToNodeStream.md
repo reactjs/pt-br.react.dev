@@ -4,11 +4,7 @@ title: resumeAndPrerenderToNodeStream
 
 <Intro>
 
-<<<<<<< HEAD
 `resumeAndPrerenderToNodeStream` continua uma árvore pré-renderizada do React para uma string HTML estática usando um [Node.js Stream.](https://nodejs.org/api/stream.html).
-=======
-`resumeAndPrerenderToNodeStream` continues a prerendered React tree to a static HTML string using a [Node.js Stream.](https://nodejs.org/api/stream.html).
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 ```js
 const {prelude, postponed} = await resumeAndPrerenderToNodeStream(reactNode, postponedState, options?)
@@ -49,36 +45,20 @@ No cliente, chame [`hydrateRoot`](/reference/react-dom/client/hydrateRoot) para 
 
 #### Parâmetros {/*parameters*/}
 
-<<<<<<< HEAD
 * `reactNode`: O nó React com o qual você chamou `prerender` (ou um `resumeAndPrerenderToNodeStream` anterior). Por exemplo, um elemento JSX como `<App />`. Espera-se que ele represente o documento inteiro, então o componente `App` deve renderizar a tag `<html>`.
-* `postponedState`: O objeto `postpone` opaco retornado por uma [API de prerender](/reference/react-dom/static/index), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
+* `postponedState`: O objeto `postpone` opaco retornado por uma [API de prerender](/reference/react-dom/static), carregado de onde quer que você o tenha armazenado (por exemplo, redis, um arquivo ou S3).
 * **opcional** `options`: Um objeto com opções de streaming.
   * **opcional** `signal`: Um [sinal de abortar](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) que permite [abortar a renderização do servidor](#aborting-server-rendering) e renderizar o restante no cliente.
+  * **opcional** `onBrowserBailout`: Um callback que o React chama quando se recupera de [`browser()`](/reference/react-dom/browser) deixando um fallback de Suspense para o navegador substituir. Ele recebe um `Error` descrevendo a renderização exclusiva do navegador e um objeto `errorInfo` contendo o `componentStack`. Se um motivo foi passado para `browser`, ele fica disponível como `error.cause`. Por padrão, o React não faz nada. [Veja como reportar a renderização exclusiva do navegador.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
   * **opcional** `onError`: Um callback que é acionado sempre que ocorre um erro no servidor, seja [recuperável](#recovering-from-errors-outside-the-shell) ou [não.](#recovering-from-errors-inside-the-shell) Por padrão, isso apenas chama `console.error`. Se você o substituir para [registrar relatórios de falha,](#logging-crashes-on-the-server) certifique-se de ainda chamar `console.error`.
-=======
-* `reactNode`: The React node you called `prerender` (or a previous `resumeAndPrerenderToNodeStream`) with. For example, a JSX element like `<App />`. It is expected to represent the entire document, so the `App` component should render the `<html>` tag.
-* `postponedState`: The opaque `postpone` object returned from a [prerender API](/reference/react-dom/static), loaded from wherever you stored it (e.g. redis, a file, or S3).
-* **optional** `options`: An object with streaming options.
-  * **optional** `signal`: An [abort signal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that lets you [abort server rendering](#aborting-server-rendering) and render the rest on the client.
-  * **optional** `onBrowserBailout`: A callback React calls when it recovers from [`browser()`](/reference/react-dom/browser) by leaving a Suspense fallback for the browser to replace. It receives an `Error` describing the browser-only render and an `errorInfo` object containing the `componentStack`. If a reason was passed to `browser`, it is available as `error.cause`. By default, React does nothing. [See how to report browser-only rendering.](/reference/react-dom/browser#reporting-browser-only-rendering-on-the-server)
-  * **optional** `onError`: A callback that fires whenever there is a server error, whether [recoverable](#recovering-from-errors-outside-the-shell) or [not.](#recovering-from-errors-inside-the-shell) By default, this only calls `console.error`. If you override it to [log crash reports,](#logging-crashes-on-the-server) make sure that you still call `console.error`.
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 #### Retorna {/*returns*/}
 
-<<<<<<< HEAD
 `resumeAndPrerenderToNodeStream` retorna uma Promise:
 - Se a renderização for bem-sucedida, a Promise será resolvida para um objeto contendo:
   - `prelude`: um [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) de HTML. Você pode usar este stream para enviar uma resposta em pedaços, ou pode ler o stream inteiro em uma string.
-  - `postponed`: um objeto opaco e serializável em JSON que pode ser passado para [`resumeToNodeStream`](/reference/react-dom/server/resume) ou [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) se `resumeAndPrerenderToNodeStream` for abortado.
+  - `postponed`: um objeto opaco e serializável em JSON que pode ser passado para [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) ou [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) se `resumeAndPrerenderToNodeStream` for abortado.
 - Se a renderização falhar, a Promise será rejeitada. [Use isso para gerar um shell de fallback.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
-=======
-`resumeAndPrerenderToNodeStream` returns a Promise:
-- If rendering the is successful, the Promise will resolve to an object containing:
-  - `prelude`: a [Web Stream](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) of HTML. You can use this stream to send a response in chunks, or you can read the entire stream into a string.
-  - `postponed`: an JSON-serializeable, opaque object that can be passed to [`resumeToPipeableStream`](/reference/react-dom/server/resumeToPipeableStream) or [`resumeAndPrerenderToNodeStream`](/reference/react-dom/static/resumeAndPrerenderToNodeStream) if `resumeAndPrerenderToNodeStream` is aborted.
-- If rendering fails, the Promise will be rejected. [Use this to output a fallback shell.](/reference/react-dom/server/renderToReadableStream#recovering-from-errors-inside-the-shell)
->>>>>>> 46a54e0592729712b7640308b53268e84fdc7c9f
 
 #### Ressalvas {/*caveats*/}
 
